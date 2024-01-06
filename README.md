@@ -21,3 +21,7 @@ You can install the development version of bundesbank from
 # install.packages("pak")
 pak::pak("m-muecke/bundesbank")
 ```
+
+## Other Bundesbank API packages
+
+- [bundesbank](https://github.com/enricoschumann/bundesbank)

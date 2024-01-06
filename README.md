@@ -7,14 +7,14 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/m-muecke/worldbank/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/worldbank/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of worldbank is to provide a simple interface to the …
+The goal of bundesbank is to provide a simple interface to the …
 
 ## Installation
 
-You can install the development version of worldbank from
+You can install the development version of bundesbank from
 [GitHub](https://github.com/) with:
 
 ``` r

@@ -16,6 +16,18 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/bb_codelist.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bb_data_structure.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bb_dataflow.html</loc>
+  </url>
+  <url>
+    <loc>/reference/bundesbank-package.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
 </urlset>

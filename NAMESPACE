@@ -2,6 +2,7 @@
 
 export(bb_codelist)
 export(bb_concept_scheme)
+export(bb_data)
 export(bb_data_structure)
 export(bb_dataflow)
 importFrom(httr2,req_error)

@@ -12,7 +12,8 @@ BugReports: https://github.com/m-muecke/bundesbank/issues
 Depends:
     R (>= 4.1.0)
 Imports:
-    httr2
+    httr2,
+    xml2
 Suggests:
     testthat (>= 3.0.0),
     tibble

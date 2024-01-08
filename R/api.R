@@ -1,22 +1,42 @@
-bbundesbank <- function(flow, key) {
-  stopifnot(is.character(flow), is.character(key))
-  flow <- toupper(flow)
-  key <- toupper(key)
-
-  request("https://api.statistiken.bundesbank.de/rest/data") |>
-    req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
-    req_headers(Accept = "application/json") |>
-    req_url_path_append(flow, key) |>
-    req_perform() |>
-    resp_body_json()
-}
-
-bundesbank <- function(resource) {
+bb_make_request <- function(resource) {
   request("https://api.statistiken.bundesbank.de/rest") |>
     req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
     req_url_path_append(resource) |>
     req_error(body = \(resp) resp_body_json(resp)$title) |>
-    req_perform()
+    req_perform() |>
+    resp_body_xml()
+}
+
+#' Returns data for a given flow and key
+#'
+#' @param flow character(1) flow to query
+#' @param key character(1) key to query. Default `NULL`.
+#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
+#' @family data
+#' @export
+bb_data <- function(flow, key = NULL) {
+  stopifnot(is.character(flow), is.null(key) || is.character(key))
+  flow <- toupper(flow)
+  if (is.null(key)) {
+    resource <- sprintf("data/%s", flow)
+  } else {
+    key <- toupper(key)
+    resource <- sprintf("data/%s/%s", flow, key)
+  }
+  body <- bb_make_request(resource)
+
+  entries <- body |>
+    xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
+  date <- entries |>
+    xml2::xml_find_all(".//generic:ObsDimension") |>
+    xml2::xml_attrs("value") |>
+    as.character()
+  value <- entries |>
+    xml2::xml_find_all(".//generic:ObsValue") |>
+    xml2::xml_attrs("value") |>
+    as.numeric()
+  data <- data.frame(date = date, value = value)
+  as_tibble(data)
 }
 
 bb_metadata <- function(resource, id = NULL) {
@@ -26,14 +46,12 @@ bb_metadata <- function(resource, id = NULL) {
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }
-  res <- bundesbank(resource) |>
-    resp_body_xml()
-  res
+  bb_make_request(resource)
 }
 
 #' Returns available data structures
 #'
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata> # nolint
+#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 bb_data_structure <- function(id = NULL) {
@@ -42,7 +60,7 @@ bb_data_structure <- function(id = NULL) {
 
 #' Returns available dataflows
 #'
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata> # nolint
+#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 bb_dataflow <- function(id = NULL) {
@@ -51,17 +69,16 @@ bb_dataflow <- function(id = NULL) {
 
 #' Returns available code lists
 #'
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata> # nolint
+#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 bb_codelist <- function(id = NULL) {
-  # TODO: check if supports json return format
   bb_metadata("metadata/codelist/BBK", id)
 }
 
 #'
 #'
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata> # nolint
+#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 bb_concept_scheme <- function(id = NULL) {

@@ -10,7 +10,7 @@ bb_dataflow(id = NULL)
 Returns available dataflows
 }
 \references{
-\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata} # nolint
+\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }
 \seealso{
 Other metadata: 

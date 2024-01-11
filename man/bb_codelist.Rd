@@ -6,6 +6,9 @@
 \usage{
 bb_codelist(id = NULL)
 }
+\arguments{
+\item{id}{character(1) id to query. Default \code{NULL}.}
+}
 \description{
 Returns available code lists
 }
@@ -14,6 +17,7 @@ Returns available code lists
 }
 \seealso{
 Other metadata: 
+\code{\link{bb_concept_scheme}()},
 \code{\link{bb_data_structure}()},
 \code{\link{bb_dataflow}()}
 }

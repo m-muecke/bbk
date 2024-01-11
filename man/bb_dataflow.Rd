@@ -6,6 +6,9 @@
 \usage{
 bb_dataflow(id = NULL)
 }
+\arguments{
+\item{id}{character(1) id to query. Default \code{NULL}.}
+}
 \description{
 Returns available dataflows
 }
@@ -15,6 +18,7 @@ Returns available dataflows
 \seealso{
 Other metadata: 
 \code{\link{bb_codelist}()},
+\code{\link{bb_concept_scheme}()},
 \code{\link{bb_data_structure}()}
 }
 \concept{metadata}

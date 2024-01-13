@@ -10,7 +10,9 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of bundesbank is to provide a simple interface to the …
+The goal of bundesbank is to provide a simple interface to the
+[Bundesbank time series database
+API](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service).
 
 ## Installation
 

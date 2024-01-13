@@ -7,7 +7,7 @@ repos:
         args:
           - --unsafe
       - id: end-of-file-fixer
-        exclude: \.Rd$
+        exclude: \.Rd
       - id: file-contents-sorter
         files: ^\.Rbuildignore$
       - id: trailing-whitespace
@@ -17,8 +17,10 @@ repos:
       - id: roxygenize
         additional_dependencies:
           - httr2
+          - xml2
       - id: deps-in-desc
       - id: no-browser-statement
+      - id: no-debug-statement
       - id: parsable-R
       - id: style-files
       - id: readme-rmd-rendered

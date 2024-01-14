@@ -50,13 +50,29 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bb_codelist</span><span class="op">(</span>id <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bb_codelist</span><span class="op">(</span>id <span class="op">=</span> <span class="cn">NULL</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>id</dt>
 <dd><p><code>character(1)</code> id to query. Default <code>NULL</code>.</p></dd>
+
+
+<dt>lang</dt>
+<dd><p><code>character(1)</code> language to query. Default <code>"en"</code>.</p></dd>
+
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>A data.frame with the available code lists. The columns are:</p>
+<dl><dt>id</dt>
+<dd><p>The id of the code list</p></dd>
+
+<dt>name</dt>
+<dd><p>The name of the code list</p></dd>
 
 </dl></div>
     <div id="references">
@@ -74,10 +90,28 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">bb_codelist</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {xml_document}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;Structure schemaLocation="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common https://registry.sdmx.org/schemas/v2_1/SDMXCommon.xsd http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message https://registry.sdmx.org/schemas/v2_1/SDMXMessage.xsd http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure https://registry.sdmx.org/schemas/v2_1/SDMXStructure.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:structure="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure" xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common"&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] &lt;message:Header&gt;\n  &lt;message:ID&gt;IREF1705233558884&lt;/message:ID&gt;\n  &lt;messag ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] &lt;message:Structures&gt;\n  &lt;structure:DataStructures&gt;\n    &lt;structure:DataSt ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3,971 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    id                          name                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> CL_BBK_ACIP_ASSET_LIABILITY Assets / Liabilities                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> CL_BBK_ACIP_ASSET_LIABILITY Assets                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> CL_BBK_ACIP_ASSET_LIABILITY Liabilities                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> CL_BBK_ACIP_DENOMINATION    Denomination                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> CL_BBK_ACIP_DENOMINATION    Euro                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> CL_BBK_ACIP_INSTRUMENT      Balance sheet position              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> CL_BBK_ACIP_INSTRUMENT      Total financial assets / liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CL_BBK_ACIP_INSTRUMENT      Deposits                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> CL_BBK_ACIP_INSTRUMENT      Currency                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> CL_BBK_ACIP_INSTRUMENT      Deposits up to 1 year               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3,961 more rows</span></span>
+<span class="r-in"><span><span class="co"># or filter by id</span></span></span>
+<span class="r-in"><span><span class="fu">bb_codelist</span><span class="op">(</span><span class="st">"CL_BBK_ACIP_ASSET_LIABILITY"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id                          name                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> CL_BBK_ACIP_ASSET_LIABILITY Assets / Liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> CL_BBK_ACIP_ASSET_LIABILITY Assets              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> CL_BBK_ACIP_ASSET_LIABILITY Liabilities         </span>
 </code></pre></div>
     </div>
   </div>

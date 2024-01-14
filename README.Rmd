@@ -39,7 +39,7 @@ library(bundesbank)
 yield_curve <- bb_data(
   flow = "BBSIS",
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
-  start_period = "2010-01-01"
+  start_period = "2020-01-01"
 )
 
 library(ggplot2)
@@ -47,7 +47,7 @@ library(ggplot2)
 yield_curve$date <- as.Date(yield_curve$date)
 ggplot(yield_curve, aes(x = date, y = value)) +
   geom_line() +
-  labs(x = "Date", y = "Yield", title = "10 year daily yield curve")
+  labs(x = "Date", y = "Yield")
 ```
 
 ## Related work

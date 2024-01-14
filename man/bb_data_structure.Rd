@@ -8,12 +8,21 @@ bb_data_structure(id = NULL)
 }
 \arguments{
 \item{id}{\code{character(1)} id to query. Default \code{NULL}.}
+
+\item{lang}{\code{character(1)} language to query. Default \code{"en"}.}
+}
+\value{
+A data.frame with the available data structures. The columns are:
+\item{id}{The id of the data structure}
+\item{name}{The name of the data structure}
 }
 \description{
 Returns available data structures
 }
 \examples{
 bb_data_structure()
+# or filter by id
+bb_data_structure("BBK_BSPL")
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

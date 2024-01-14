@@ -4,16 +4,25 @@
 \alias{bb_concept_scheme}
 \title{Returns available concepts}
 \usage{
-bb_concept_scheme(id = NULL)
+bb_concept_scheme(id = NULL, lang = "en")
 }
 \arguments{
 \item{id}{\code{character(1)} id to query. Default \code{NULL}.}
+
+\item{lang}{\code{character(1)} language to query. Default \code{"en"}.}
+}
+\value{
+A data.frame with the available concepts. The columns are:
+\item{id}{The id of the concept}
+\item{name}{The name of the concept}
 }
 \description{
 Returns available concepts
 }
 \examples{
 bb_concept_scheme()
+# or filter by id
+bb_concept_scheme("CS_BBK_BSPL")
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

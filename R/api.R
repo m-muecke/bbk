@@ -68,13 +68,23 @@ bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
 #' Returns available data structures
 #'
 #' @param id `character(1)` id to query. Default `NULL`.
+#' @param lang `character(1)` language to query. Default `"en"`.
+#' @returns A data.frame with the available data structures. The columns are:
+#' \item{id}{The id of the data structure}
+#' \item{name}{The name of the data structure}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples
 #' bb_data_structure()
+#' # or filter by id
+#' bb_data_structure("BBK_BSPL")
 bb_data_structure <- function(id = NULL) {
-  bb_metadata("metadata/datastructure/BBK", id)
+  lang <- match.arg(lang, c("en", "de"))
+  body <- bb_metadata("metadata/datastructure/BBK", id)
+  entries <- xml2::xml_find_all(body, "//structure:DataStructure")
+  res <- parse_metadata(entries, lang)
+  as_tibble(res)
 }
 
 #' Returns available dataflows
@@ -94,15 +104,8 @@ bb_data_structure <- function(id = NULL) {
 bb_dataflow <- function(id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/dataflow/BBK", id)
-  entries <- body |> xml2::xml_find_all("//structure:Dataflow")
-  res <- map(entries, \(entry) {
-    id <- entry |> xml2::xml_attr("id")
-    nms <- entry |>
-      xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
-      xml2::xml_text()
-    data.frame(id = id, name = nms)
-  })
-  res <- do.call(rbind, res)
+  entries <- xml2::xml_find_all(body, "//structure:Dataflow")
+  res <- parse_metadata(entries, lang)
   res$name <- na_if_empty(res$name)
   as_tibble(res)
 }
@@ -124,28 +127,43 @@ bb_dataflow <- function(id = NULL, lang = "en") {
 bb_codelist <- function(id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/codelist/BBK", id)
-  entries <- body |> xml2::xml_find_all("//structure:Codelist")
-  res <- map(entries, \(entry) {
-    id <- entry |> xml2::xml_attr("id")
-    nms <- entry |>
-      xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
-      xml2::xml_text()
-    data.frame(id = id, name = nms)
-  })
-  res <- do.call(rbind, res)
+  entries <- xml2::xml_find_all(body, "//structure:Codelist")
+  res <- parse_metadata(entries, lang)
   as_tibble(res)
 }
 
 #' Returns available concepts
 #'
 #' @param id `character(1)` id to query. Default `NULL`.
+#' @param lang `character(1)` language to query. Default `"en"`.
+#' @returns A data.frame with the available concepts. The columns are:
+#' \item{id}{The id of the concept}
+#' \item{name}{The name of the concept}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples
 #' bb_concept_scheme()
-bb_concept_scheme <- function(id = NULL) {
-  bb_metadata("metadata/conceptscheme/BBK", id)
+#' # or filter by id
+#' bb_concept_scheme("CS_BBK_BSPL")
+bb_concept_scheme <- function(id = NULL, lang = "en") {
+  lang <- match.arg(lang, c("en", "de"))
+  body <- bb_metadata("metadata/conceptscheme/BBK", id)
+  entries <- xml2::xml_find_all(body, "//structure:ConceptScheme")
+  res <- parse_metadata(entries, lang)
+  as_tibble(res)
+}
+
+parse_metadata <- function(x, lang) {
+  res <- map(x, \(node) {
+    id <- xml2::xml_attr(node, "id")
+    nms <- node |>
+      xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
+      xml2::xml_text()
+    data.frame(id = id, name = nms)
+  })
+  res <- do.call(rbind, res)
+  res
 }
 
 bb_error_body <- function(resp) {

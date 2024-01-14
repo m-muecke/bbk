@@ -4,10 +4,10 @@
 #' @param key character(1) key to query. Default `NULL`.
 #' @param start_period character(1) start date of the data. Supported formats:
 #'   - YYYY for annual data (e.g., "2019")
-#'   - YYYY-S[1-2] for semi-annual data (e.g., "2019-S1")
-#'   - YYYY-Q[1-4] for quarterly data (e.g., "2019-Q1")
+#'   - YYYY-S\[1-2\] for semi-annual data (e.g., "2019-S1")
+#'   - YYYY-Q\[1-4\] for quarterly data (e.g., "2019-Q1")
 #'   - YYYY-MM for monthly data (e.g., "2019-01")
-#'   - YYYY-W[01-53] for weekly data (e.g., "2019-W01")
+#'   - YYYY-W\[01-53\] for weekly data (e.g., "2019-W01")
 #'   - YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the

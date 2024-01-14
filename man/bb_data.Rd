@@ -14,10 +14,10 @@ bb_data(flow, key = NULL, start_period = NULL, end_period = NULL)
 \item{start_period}{character(1) start date of the data. Supported formats:
 \itemize{
 \item YYYY for annual data (e.g., "2019")
-\item YYYY-S\link{1-2} for semi-annual data (e.g., "2019-S1")
-\item YYYY-Q\link{1-4} for quarterly data (e.g., "2019-Q1")
+\item YYYY-S[1-2] for semi-annual data (e.g., "2019-S1")
+\item YYYY-Q[1-4] for quarterly data (e.g., "2019-Q1")
 \item YYYY-MM for monthly data (e.g., "2019-01")
-\item YYYY-W\link{01-53} for weekly data (e.g., "2019-W01")
+\item YYYY-W[01-53] for weekly data (e.g., "2019-W01")
 \item YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
 }
 

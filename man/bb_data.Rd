@@ -4,18 +4,47 @@
 \alias{bb_data}
 \title{Returns data for a given flow and key}
 \usage{
-bb_data(flow, key = NULL)
+bb_data(flow, key = NULL, start_period = NULL, end_period = NULL)
 }
 \arguments{
 \item{flow}{character(1) flow to query}
 
 \item{key}{character(1) key to query. Default \code{NULL}.}
+
+\item{start_period}{character(1) start date of the data. Supported formats:
+\itemize{
+\item YYYY for annual data (e.g., "2019")
+\item YYYY-S\link{1-2} for semi-annual data (e.g., "2019-S1")
+\item YYYY-Q\link{1-4} for quarterly data (e.g., "2019-Q1")
+\item YYYY-MM for monthly data (e.g., "2019-01")
+\item YYYY-W\link{01-53} for weekly data (e.g., "2019-W01")
+\item YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
+If \code{NULL}, no start date restriction is applied (data retrieved from the
+earliest available date). Default \code{NULL}.
+}}
+
+\item{end_period}{character(1) end date of the data, in the same format as
+start_period. If \code{NULL}, no end date restriction is applied (data
+retrieved up to the most recent available date). Default \code{NULL}.}
 }
 \description{
 Returns data for a given flow and key
 }
 \examples{
+# fetch all data for a given flow and key
 bb_data("BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+
+# specified period (start date-end date) for daily data
+bb_data(
+  "BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+  start_period = "2020-01-01",
+  end_period = "2020-08-01"
+)
+# or only specify the start date
+bb_data(
+  "BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+  start_period = "2020-01-01"
+)
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}

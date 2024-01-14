@@ -4,7 +4,7 @@
 \alias{bb_data_structure}
 \title{Returns available data structures}
 \usage{
-bb_data_structure(id = NULL)
+bb_data_structure(id = NULL, lang = "en")
 }
 \arguments{
 \item{id}{\code{character(1)} id to query. Default \code{NULL}.}

@@ -79,7 +79,7 @@ bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
 #' bb_data_structure()
 #' # or filter by id
 #' bb_data_structure("BBK_BSPL")
-bb_data_structure <- function(id = NULL) {
+bb_data_structure <- function(id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/datastructure/BBK", id)
   entries <- xml2::xml_find_all(body, "//structure:DataStructure")

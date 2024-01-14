@@ -12,6 +12,9 @@ bb_data_structure(id = NULL)
 \description{
 Returns available data structures
 }
+\examples{
+bb_data_structure()
+}
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }

@@ -12,6 +12,9 @@ bb_concept_scheme(id = NULL)
 \description{
 Returns available concepts
 }
+\examples{
+bb_concept_scheme()
+}
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }

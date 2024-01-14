@@ -12,6 +12,9 @@ bb_dataflow(id = NULL)
 \description{
 Returns available dataflows
 }
+\examples{
+bb_dataflow()
+}
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }

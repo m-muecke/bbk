@@ -14,6 +14,9 @@ bb_data(flow, key = NULL)
 \description{
 Returns data for a given flow and key
 }
+\examples{
+bb_data("BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+}
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
 }

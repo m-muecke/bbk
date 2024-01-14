@@ -12,6 +12,9 @@ bb_codelist(id = NULL)
 \description{
 Returns available code lists
 }
+\examples{
+bb_codelist()
+}
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }

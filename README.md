@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 The goal of bundesbank is to provide a simple interface to the
-[Bundesbank time series database
+[Bundesbank
 API](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service).
 
 ## Installation
@@ -24,6 +24,7 @@ You can install the development version of bundesbank from
 pak::pak("m-muecke/bundesbank")
 ```
 
-## Other Bundesbank API packages
+## Related work
 
-- [bundesbank](https://github.com/enricoschumann/bundesbank)
+- [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
+  for downloading time-series data from the Bundesbank

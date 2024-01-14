@@ -44,6 +44,7 @@ yield_curve <- bb_data(
 
 library(ggplot2)
 
+yield_curve$date <- as.Date(yield_curve$date)
 ggplot(yield_curve, aes(x = date, y = value)) +
   geom_line() +
   labs(x = "Date", y = "Yield", title = "10 year daily yield curve")

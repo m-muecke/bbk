@@ -34,15 +34,10 @@
 #'   start_period = "2020-01-01"
 #' )
 bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
-  stopifnot(is.character(flow), length(flow) == 1)
-  stopifnot(is.null(key) || is.character(key) && length(key) == 1)
-  stopifnot(
-    is.null(start_period) ||
-      is.character(start_period) && length(start_period) == 1
-  )
-  stopifnot(
-    is.null(end_period) || is.character(end_period) && length(end_period) == 1
-  )
+  stopifnot(is_string(flow))
+  stopifnot(is.null(key) || is_string(key))
+  stopifnot(is.null(start_period) || is_string(start_period))
+  stopifnot(is.null(end_period) || is_string(end_period))
 
   flow <- toupper(flow)
   if (is.null(key)) {
@@ -127,7 +122,7 @@ bb_error_body <- function(resp) {
 }
 
 bb_metadata <- function(resource, id = NULL) {
-  stopifnot(is.null(id) || is.character(id) && length(id) == 1)
+  stopifnot(is.null(id) || is_string(id))
   # only supports xml return format
   resource <- "metadata/datastructure/BBK"
   if (!is.null(id)) {

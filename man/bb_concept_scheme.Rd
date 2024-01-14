@@ -7,7 +7,7 @@
 bb_concept_scheme(id = NULL)
 }
 \arguments{
-\item{id}{character(1) id to query. Default \code{NULL}.}
+\item{id}{\code{character(1)} id to query. Default \code{NULL}.}
 }
 \description{
 Returns available concepts

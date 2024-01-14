@@ -24,6 +24,27 @@ You can install the development version of bundesbank from
 pak::pak("m-muecke/bundesbank")
 ```
 
+## Usage
+
+``` r
+library(bundesbank)
+
+# fetch 10 year daily yield curve
+yield_curve <- bb_data(
+  flow = "BBSIS",
+  key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+  start_period = "2010-01-01"
+)
+
+library(ggplot2)
+
+ggplot(yield_curve, aes(x = date, y = value)) +
+  geom_line() +
+  labs(x = "Date", y = "Yield", title = "10 year daily yield curve")
+```
+
+<img src="man/figures/README-demo-1.png" width="100%" />
+
 ## Related work
 
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts

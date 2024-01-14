@@ -7,11 +7,11 @@
 bb_data(flow, key = NULL, start_period = NULL, end_period = NULL)
 }
 \arguments{
-\item{flow}{character(1) flow to query}
+\item{flow}{\code{character(1)} flow to query}
 
-\item{key}{character(1) key to query. Default \code{NULL}.}
+\item{key}{\code{character(1)} key to query. Default \code{NULL}.}
 
-\item{start_period}{character(1) start date of the data. Supported formats:
+\item{start_period}{\code{character(1)} start date of the data. Supported formats:
 \itemize{
 \item YYYY for annual data (e.g., "2019")
 \item YYYY-S[1-2] for semi-annual data (e.g., "2019-S1")
@@ -24,7 +24,7 @@ bb_data(flow, key = NULL, start_period = NULL, end_period = NULL)
 If \code{NULL}, no start date restriction is applied (data retrieved from the
 earliest available date). Default \code{NULL}.}
 
-\item{end_period}{character(1) end date of the data, in the same format as
+\item{end_period}{\code{character(1)} end date of the data, in the same format as
 start_period. If \code{NULL}, no end date restriction is applied (data
 retrieved up to the most recent available date). Default \code{NULL}.}
 }
@@ -33,17 +33,18 @@ Returns data for a given flow and key
 }
 \examples{
 # fetch all data for a given flow and key
-bb_data("BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+# https://www.bundesbank.de/dynamic/action/en/statistics/time-series-databases/time-series-databases/745582/745582?tsId=BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A&dateSelect=2024
+bb_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 
 # specified period (start date-end date) for daily data
 bb_data(
-  "BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+  "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01",
   end_period = "2020-08-01"
 )
 # or only specify the start date
 bb_data(
-  "BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+  "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
 }

@@ -1,8 +1,8 @@
 #' Returns data for a given flow and key
 #'
-#' @param flow character(1) flow to query
-#' @param key character(1) key to query. Default `NULL`.
-#' @param start_period character(1) start date of the data. Supported formats:
+#' @param flow `character(1)` flow to query
+#' @param key `character(1)` key to query. Default `NULL`.
+#' @param start_period `character(1)` start date of the data. Supported formats:
 #'   - YYYY for annual data (e.g., "2019")
 #'   - YYYY-S\[1-2\] for semi-annual data (e.g., "2019-S1")
 #'   - YYYY-Q\[1-4\] for quarterly data (e.g., "2019-Q1")
@@ -12,7 +12,7 @@
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the
 #'   earliest available date). Default `NULL`.
-#' @param end_period character(1) end date of the data, in the same format as
+#' @param end_period `character(1)` end date of the data, in the same format as
 #'   start_period. If `NULL`, no end date restriction is applied (data
 #'   retrieved up to the most recent available date). Default `NULL`.
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
@@ -20,17 +20,18 @@
 #' @export
 #' @examples
 #' # fetch all data for a given flow and key
-#' bb_data("BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+#' # https://www.bundesbank.de/dynamic/action/en/statistics/time-series-databases/time-series-databases/745582/745582?tsId=BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A&dateSelect=2024
+#' bb_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 #'
 #' # specified period (start date-end date) for daily data
 #' bb_data(
-#'   "BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+#'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2020-01-01",
 #'   end_period = "2020-08-01"
 #' )
 #' # or only specify the start date
 #' bb_data(
-#'   "BBSIS", "D.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+#'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2020-01-01"
 #' )
 bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
@@ -64,7 +65,7 @@ bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
 
 #' Returns available data structures
 #'
-#' @param id character(1) id to query. Default `NULL`.
+#' @param id `character(1)` id to query. Default `NULL`.
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
@@ -76,7 +77,7 @@ bb_data_structure <- function(id = NULL) {
 
 #' Returns available dataflows
 #'
-#' @param id character(1) id to query. Default `NULL`.
+#' @param id `character(1)` id to query. Default `NULL`.
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
@@ -88,7 +89,7 @@ bb_dataflow <- function(id = NULL) {
 
 #' Returns available code lists
 #'
-#' @param id character(1) id to query. Default `NULL`.
+#' @param id `character(1)` id to query. Default `NULL`.
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
@@ -100,7 +101,7 @@ bb_codelist <- function(id = NULL) {
 
 #' Returns available concepts
 #'
-#' @param id character(1) id to query. Default `NULL`.
+#' @param id `character(1)` id to query. Default `NULL`.
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export

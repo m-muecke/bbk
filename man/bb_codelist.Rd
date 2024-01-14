@@ -4,16 +4,25 @@
 \alias{bb_codelist}
 \title{Returns available code lists}
 \usage{
-bb_codelist(id = NULL)
+bb_codelist(id = NULL, lang = "en")
 }
 \arguments{
 \item{id}{\code{character(1)} id to query. Default \code{NULL}.}
+
+\item{lang}{\code{character(1)} language to query. Default \code{"en"}.}
+}
+\value{
+A data.frame with the available code lists. The columns are:
+\item{id}{The id of the code list}
+\item{name}{The name of the code list}
 }
 \description{
 Returns available code lists
 }
 \examples{
 bb_codelist()
+# or filter by id
+bb_codelist("CL_BBK_ACIP_ASSET_LIABILITY")
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

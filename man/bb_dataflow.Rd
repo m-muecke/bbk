@@ -4,16 +4,25 @@
 \alias{bb_dataflow}
 \title{Returns available dataflows}
 \usage{
-bb_dataflow(id = NULL)
+bb_dataflow(id = NULL, lang = "en")
 }
 \arguments{
 \item{id}{\code{character(1)} id to query. Default \code{NULL}.}
+
+\item{lang}{\code{character(1)} language to query. Default \code{"en"}.}
+}
+\value{
+A data.frame with the available dataflows. The columns are:
+\item{id}{The id of the dataflow}
+\item{name}{The name of the dataflow}
 }
 \description{
 Returns available dataflows
 }
 \examples{
 bb_dataflow()
+# or filter by id
+bb_dataflow("BBSIS")
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

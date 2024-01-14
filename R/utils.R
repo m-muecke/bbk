@@ -15,3 +15,13 @@ as_tibble <- function(x) {
 }
 
 is_string <- function(x) is.character(x) && length(x) == 1
+
+map <- function(.x, .f, ...) {
+  if (is.function(.f)) {
+    lapply(.x, .f, ...)
+  } else {
+    lapply(.x, `[[`, .f, ...)
+  }
+}
+
+na_if_empty <- function(x) replace(x, x == "", NA_character_)

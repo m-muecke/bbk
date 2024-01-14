@@ -52,8 +52,7 @@ bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
     endPeriod = end_period
   )
 
-  entries <- body |>
-    xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
+  entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
   date <- entries |>
     xml2::xml_find_all(".//generic:ObsDimension") |>
     xml2::xml_attrs("value") |>
@@ -81,25 +80,60 @@ bb_data_structure <- function(id = NULL) {
 #' Returns available dataflows
 #'
 #' @param id `character(1)` id to query. Default `NULL`.
+#' @param lang `character(1)` language to query. Default `"en"`.
+#' @returns A data.frame with the available dataflows. The columns are:
+#' \item{id}{The id of the dataflow}
+#' \item{name}{The name of the dataflow}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples
 #' bb_dataflow()
-bb_dataflow <- function(id = NULL) {
-  bb_metadata("metadata/dataflow/BBK", id)
+#' # or filter by id
+#' bb_dataflow("BBSIS")
+bb_dataflow <- function(id = NULL, lang = "en") {
+  lang <- match.arg(lang, c("en", "de"))
+  body <- bb_metadata("metadata/dataflow/BBK", id)
+  entries <- body |> xml2::xml_find_all("//structure:Dataflow")
+  res <- map(entries, \(entry) {
+    id <- entry |> xml2::xml_attr("id")
+    nms <- entry |>
+      xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
+      xml2::xml_text()
+    data.frame(id = id, name = nms)
+  })
+  res <- do.call(rbind, res)
+  res$name <- na_if_empty(res$name)
+  as_tibble(res)
 }
 
 #' Returns available code lists
 #'
 #' @param id `character(1)` id to query. Default `NULL`.
+#' @param lang `character(1)` language to query. Default `"en"`.
+#' @returns A data.frame with the available code lists. The columns are:
+#' \item{id}{The id of the code list}
+#' \item{name}{The name of the code list}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples
 #' bb_codelist()
-bb_codelist <- function(id = NULL) {
-  bb_metadata("metadata/codelist/BBK", id)
+#' # or filter by id
+#' bb_codelist("CL_BBK_ACIP_ASSET_LIABILITY")
+bb_codelist <- function(id = NULL, lang = "en") {
+  lang <- match.arg(lang, c("en", "de"))
+  body <- bb_metadata("metadata/codelist/BBK", id)
+  entries <- body |> xml2::xml_find_all("//structure:Codelist")
+  res <- map(entries, \(entry) {
+    id <- entry |> xml2::xml_attr("id")
+    nms <- entry |>
+      xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
+      xml2::xml_text()
+    data.frame(id = id, name = nms)
+  })
+  res <- do.call(rbind, res)
+  as_tibble(res)
 }
 
 #' Returns available concepts
@@ -123,8 +157,6 @@ bb_error_body <- function(resp) {
 
 bb_metadata <- function(resource, id = NULL) {
   stopifnot(is.null(id) || is_string(id))
-  # only supports xml return format
-  resource <- "metadata/datastructure/BBK"
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }

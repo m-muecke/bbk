@@ -33,7 +33,6 @@ Returns data for a given flow and key
 }
 \examples{
 # fetch all data for a given flow and key
-# https://www.bundesbank.de/dynamic/action/en/statistics/time-series-databases/time-series-databases/745582/745582?tsId=BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A&dateSelect=2024
 bb_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 
 # specified period (start date-end date) for daily data

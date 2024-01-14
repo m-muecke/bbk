@@ -20,7 +20,6 @@
 #' @export
 #' @examples
 #' # fetch all data for a given flow and key
-#' # https://www.bundesbank.de/dynamic/action/en/statistics/time-series-databases/time-series-databases/745582/745582?tsId=BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A&dateSelect=2024
 #' bb_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 #'
 #' # specified period (start date-end date) for daily data
@@ -35,7 +34,16 @@
 #'   start_period = "2020-01-01"
 #' )
 bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
-  stopifnot(is.character(flow), is.null(key) || is.character(key))
+  stopifnot(is.character(flow), length(flow) == 1)
+  stopifnot(is.null(key) || is.character(key) && length(key) == 1)
+  stopifnot(
+    is.null(start_period) ||
+      is.character(start_period) && length(start_period) == 1
+  )
+  stopifnot(
+    is.null(end_period) || is.character(end_period) && length(end_period) == 1
+  )
+
   flow <- toupper(flow)
   if (is.null(key)) {
     resource <- sprintf("data/%s", flow)

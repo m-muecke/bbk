@@ -19,9 +19,10 @@ bb_data(flow, key = NULL, start_period = NULL, end_period = NULL)
 \item YYYY-MM for monthly data (e.g., "2019-01")
 \item YYYY-W\link{01-53} for weekly data (e.g., "2019-W01")
 \item YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
+}
+
 If \code{NULL}, no start date restriction is applied (data retrieved from the
-earliest available date). Default \code{NULL}.
-}}
+earliest available date). Default \code{NULL}.}
 
 \item{end_period}{character(1) end date of the data, in the same format as
 start_period. If \code{NULL}, no end date restriction is applied (data

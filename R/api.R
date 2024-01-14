@@ -9,6 +9,7 @@
 #'   - YYYY-MM for monthly data (e.g., "2019-01")
 #'   - YYYY-W[01-53] for weekly data (e.g., "2019-W01")
 #'   - YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
+#'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the
 #'   earliest available date). Default `NULL`.
 #' @param end_period character(1) end date of the data, in the same format as

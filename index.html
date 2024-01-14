@@ -86,7 +86,7 @@
 <span><span class="va">yield_curve</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/bb_data.html">bb_data</a></span><span class="op">(</span></span>
 <span>  flow <span class="op">=</span> <span class="st">"BBSIS"</span>,</span>
 <span>  key <span class="op">=</span> <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span>
-<span>  start_period <span class="op">=</span> <span class="st">"2010-01-01"</span></span>
+<span>  start_period <span class="op">=</span> <span class="st">"2020-01-01"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -94,7 +94,7 @@
 <span><span class="va">yield_curve</span><span class="op">$</span><span class="va">date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="va">yield_curve</span><span class="op">$</span><span class="va">date</span><span class="op">)</span></span>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="va">yield_curve</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Yield"</span>, title <span class="op">=</span> <span class="st">"10 year daily yield curve"</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Yield"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-demo-1.png" width="100%"></p>
 </div>
 <div class="section level2">

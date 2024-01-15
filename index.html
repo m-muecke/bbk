@@ -88,10 +88,24 @@
 <span>  key <span class="op">=</span> <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span>
 <span>  start_period <span class="op">=</span> <span class="st">"2020-01-01"</span></span>
 <span><span class="op">)</span></span>
+<span><span class="va">yield_curve</span></span>
+<span><span class="co">#&gt; # A tibble: 1,030 × 5</span></span>
+<span><span class="co">#&gt;    date       id                                              title  freq  value</span></span>
+<span><span class="co">#&gt;    &lt;date&gt;     &lt;chr&gt;                                           &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.16</span></span>
+<span><span class="co">#&gt;  2 2020-01-03 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27</span></span>
+<span><span class="co">#&gt;  3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27</span></span>
+<span><span class="co">#&gt;  4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27</span></span>
+<span><span class="co">#&gt;  5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27</span></span>
+<span><span class="co">#&gt;  6 2020-01-09 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.22</span></span>
+<span><span class="co">#&gt;  7 2020-01-10 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.2 </span></span>
+<span><span class="co">#&gt;  8 2020-01-13 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.19</span></span>
+<span><span class="co">#&gt;  9 2020-01-14 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.17</span></span>
+<span><span class="co">#&gt; 10 2020-01-15 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.22</span></span>
+<span><span class="co">#&gt; # ℹ 1,020 more rows</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">yield_curve</span><span class="op">$</span><span class="va">date</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="va">yield_curve</span><span class="op">$</span><span class="va">date</span><span class="op">)</span></span>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="va">yield_curve</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Yield"</span><span class="op">)</span></span></code></pre></div>

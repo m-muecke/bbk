@@ -52,16 +52,41 @@ bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
     endPeriod = end_period
   )
 
+  freq <- body |>
+    xml2::xml_find_first("//generic:Value[@id='BBK_STD_FREQ']") |>
+    xml2::xml_attr("value")
+  freq <- switch(freq,
+    A = "annual",
+    S = "semi-annual",
+    Q = "quarterly",
+    M = "monthly",
+    W = "weekly",
+    D = "daily"
+  )
+
+  title <- body |>
+    xml2::xml_find_first("//generic:Value[@id='BBK_TITLE_ENG']") |>
+    xml2::xml_attr("value")
+
   entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
   date <- entries |>
     xml2::xml_find_all(".//generic:ObsDimension") |>
-    xml2::xml_attrs("value") |>
-    as.character()
+    xml2::xml_attr("value")
+
+  if (freq == "daily") {
+    date <- as.Date(date, format = "%Y-%m-%d")
+  } else if (freq == "annual") {
+    date <- as.integer(date)
+  }
+
   value <- entries |>
     xml2::xml_find_all(".//generic:ObsValue") |>
-    xml2::xml_attrs("value") |>
+    xml2::xml_attr("value") |>
     as.numeric()
-  data <- data.frame(date = date, value = value)
+
+  data <- data.frame(
+    date = date, id = key, title = title, freq = freq, value = value
+  )
   as_tibble(data)
 }
 
@@ -155,7 +180,7 @@ bb_concept_scheme <- function(id = NULL, lang = "en") {
 }
 
 parse_metadata <- function(x, lang) {
-  res <- map(x, \(node) {
+  res <- lapply(x, \(node) {
     id <- xml2::xml_attr(node, "id")
     nms <- node |>
       xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>

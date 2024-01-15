@@ -35,10 +35,24 @@ yield_curve <- bb_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
+yield_curve
+#> # A tibble: 1,030 × 5
+#>    date       id                                              title  freq  value
+#>    <date>     <chr>                                           <chr>  <chr> <dbl>
+#>  1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.16
+#>  2 2020-01-03 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
+#>  3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
+#>  4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
+#>  5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
+#>  6 2020-01-09 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.22
+#>  7 2020-01-10 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.2 
+#>  8 2020-01-13 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.19
+#>  9 2020-01-14 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.17
+#> 10 2020-01-15 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.22
+#> # ℹ 1,020 more rows
 
 library(ggplot2)
 
-yield_curve$date <- as.Date(yield_curve$date)
 ggplot(yield_curve, aes(x = date, y = value)) +
   geom_line() +
   labs(x = "Date", y = "Yield")

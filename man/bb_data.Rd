@@ -4,7 +4,14 @@
 \alias{bb_data}
 \title{Returns data for a given flow and key}
 \usage{
-bb_data(flow, key, start_period = NULL, end_period = NULL)
+bb_data(
+  flow,
+  key,
+  start_period = NULL,
+  end_period = NULL,
+  first_n = NULL,
+  last_n = NULL
+)
 }
 \arguments{
 \item{flow}{\code{character(1)} flow to query}
@@ -27,6 +34,12 @@ earliest available date). Default \code{NULL}.}
 \item{end_period}{\code{character(1)} end date of the data, in the same format as
 start_period. If \code{NULL}, no end date restriction is applied (data
 retrieved up to the most recent available date). Default \code{NULL}.}
+
+\item{first_n}{\code{numeric(1)} number of observations to retrieve from the
+start of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
+
+\item{last_n}{\code{numeric(1)} number of observations to retrieve from the end
+of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \description{
 Returns data for a given flow and key

@@ -15,6 +15,10 @@
 #' @param end_period `character(1)` end date of the data, in the same format as
 #'   start_period. If `NULL`, no end date restriction is applied (data
 #'   retrieved up to the most recent available date). Default `NULL`.
+#' @param first_n `numeric(1)` number of observations to retrieve from the
+#'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
+#' @param last_n `numeric(1)` number of observations to retrieve from the end
+#'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
 #' @export
@@ -33,11 +37,18 @@
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2020-01-01"
 #' )
-bb_data <- function(flow, key, start_period = NULL, end_period = NULL) {
+bb_data <- function(flow,
+                    key,
+                    start_period = NULL,
+                    end_period = NULL,
+                    first_n = NULL,
+                    last_n = NULL) {
   stopifnot(is_string(flow))
   stopifnot(is_string(key))
   stopifnot(is.null(start_period) || is_string(start_period))
   stopifnot(is.null(end_period) || is_string(end_period))
+  stopifnot(is.null(first_n) || is.numeric(first_n) && length(first_n) == 1)
+  stopifnot(is.null(last_n) || is.numeric(last_n) && length(last_n) == 1)
 
   flow <- toupper(flow)
   if (is.null(key)) {
@@ -49,7 +60,9 @@ bb_data <- function(flow, key, start_period = NULL, end_period = NULL) {
   body <- bb_make_request(
     resource = resource,
     startPeriod = start_period,
-    endPeriod = end_period
+    endPeriod = end_period,
+    firstNObservations = first_n,
+    lastNObservations = last_n
   )
 
   freq <- body |>

@@ -1,7 +1,7 @@
 #' Returns data for a given flow and key
 #'
 #' @param flow `character(1)` flow to query
-#' @param key `character(1)` key to query. Default `NULL`.
+#' @param key `character(1)` key to query.
 #' @param start_period `character(1)` start date of the data. Supported formats:
 #'   - YYYY for annual data (e.g., "2019")
 #'   - YYYY-S\[1-2\] for semi-annual data (e.g., "2019-S1")
@@ -33,9 +33,9 @@
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2020-01-01"
 #' )
-bb_data <- function(flow, key = NULL, start_period = NULL, end_period = NULL) {
+bb_data <- function(flow, key, start_period = NULL, end_period = NULL) {
   stopifnot(is_string(flow))
-  stopifnot(is.null(key) || is_string(key))
+  stopifnot(is_string(key))
   stopifnot(is.null(start_period) || is_string(start_period))
   stopifnot(is.null(end_period) || is_string(end_period))
 

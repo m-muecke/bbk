@@ -4,12 +4,12 @@
 \alias{bb_data}
 \title{Returns data for a given flow and key}
 \usage{
-bb_data(flow, key = NULL, start_period = NULL, end_period = NULL)
+bb_data(flow, key, start_period = NULL, end_period = NULL)
 }
 \arguments{
 \item{flow}{\code{character(1)} flow to query}
 
-\item{key}{\code{character(1)} key to query. Default \code{NULL}.}
+\item{key}{\code{character(1)} key to query.}
 
 \item{start_period}{\code{character(1)} start date of the data. Supported formats:
 \itemize{

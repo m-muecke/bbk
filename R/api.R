@@ -19,6 +19,12 @@
 #'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @param last_n `numeric(1)` number of observations to retrieve from the end
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
+#' @returns A data.frame with the requested data. The columns are:
+#'   \item{date}{The date of the observation}
+#'   \item{id}{The id of the dataflow}
+#'   \item{title}{The title of the dataflow}
+#'   \item{freq}{The frequency of the dataflow}
+#'   \item{value}{The value of the observation}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
 #' @export
@@ -108,8 +114,8 @@ bb_data <- function(flow,
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query. Default `"en"`.
 #' @returns A data.frame with the available data structures. The columns are:
-#' \item{id}{The id of the data structure}
-#' \item{name}{The name of the data structure}
+#'   \item{id}{The id of the data structure}
+#'   \item{name}{The name of the data structure}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
@@ -130,8 +136,8 @@ bb_data_structure <- function(id = NULL, lang = "en") {
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query. Default `"en"`.
 #' @returns A data.frame with the available dataflows. The columns are:
-#' \item{id}{The id of the dataflow}
-#' \item{name}{The name of the dataflow}
+#'   \item{id}{The id of the dataflow}
+#'   \item{name}{The name of the dataflow}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
@@ -153,8 +159,8 @@ bb_dataflow <- function(id = NULL, lang = "en") {
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query. Default `"en"`.
 #' @returns A data.frame with the available code lists. The columns are:
-#' \item{id}{The id of the code list}
-#' \item{name}{The name of the code list}
+#'   \item{id}{The id of the code list}
+#'   \item{name}{The name of the code list}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
@@ -175,8 +181,8 @@ bb_codelist <- function(id = NULL, lang = "en") {
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query. Default `"en"`.
 #' @returns A data.frame with the available concepts. The columns are:
-#' \item{id}{The id of the concept}
-#' \item{name}{The name of the concept}
+#'   \item{id}{The id of the concept}
+#'   \item{name}{The name of the concept}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export

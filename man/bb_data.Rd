@@ -41,6 +41,14 @@ start of the series. If \code{NULL}, no restriction is applied. Default \code{NU
 \item{last_n}{\code{numeric(1)} number of observations to retrieve from the end
 of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
+\value{
+A data.frame with the requested data. The columns are:
+\item{date}{The date of the observation}
+\item{id}{The id of the dataflow}
+\item{title}{The title of the dataflow}
+\item{freq}{The frequency of the dataflow}
+\item{value}{The value of the observation}
+}
 \description{
 Returns data for a given flow and key
 }

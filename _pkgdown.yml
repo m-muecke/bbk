@@ -2,3 +2,15 @@ url: https://m-muecke.github.io/bundesbank
 
 template:
   bootstrap: 5
+
+reference:
+  - subtitle: Data
+    contents:
+    - bb_data
+
+  - subtitle: Metadata
+    contents:
+    - bb_data_structure
+    - bb_dataflow
+    - bb_codelist
+    - bb_concept_scheme

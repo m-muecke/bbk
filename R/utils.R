@@ -14,6 +14,10 @@ as_tibble <- function(x) {
   }
 }
 
-is_string <- function(x) is.character(x) && length(x) == 1
+is_string <- function(x) is.character(x) && length(x) == 1L
 
 na_if_empty <- function(x) replace(x, x == "", NA_character_)
+
+is_integerish <- function(x, tol = .Machine$double.eps^0.5) {
+  is.numeric(x) && length(1L) && abs(x - round(x)) < tol
+}

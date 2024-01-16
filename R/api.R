@@ -53,8 +53,8 @@ bb_data <- function(flow,
   stopifnot(is_string(key))
   stopifnot(is.null(start_period) || is_string(start_period))
   stopifnot(is.null(end_period) || is_string(end_period))
-  stopifnot(is.null(first_n) || is.numeric(first_n) && length(first_n) == 1)
-  stopifnot(is.null(last_n) || is.numeric(last_n) && length(last_n) == 1)
+  stopifnot(is.null(first_n) || is_integerish(first_n))
+  stopifnot(is.null(last_n) || is_integerish(last_n))
 
   flow <- toupper(flow)
   if (is.null(key)) {

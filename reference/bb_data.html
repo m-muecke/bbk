@@ -96,6 +96,27 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>A data.frame with the requested data. The columns are:</p>
+<dl><dt>date</dt>
+<dd><p>The date of the observation</p></dd>
+
+<dt>id</dt>
+<dd><p>The id of the dataflow</p></dd>
+
+<dt>title</dt>
+<dd><p>The title of the dataflow</p></dd>
+
+<dt>freq</dt>
+<dd><p>The frequency of the dataflow</p></dd>
+
+<dt>value</dt>
+<dd><p>The value of the observation</p></dd>
+
+</dl></div>
+    <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p><a href="https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data" class="external-link">https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data</a></p>
     </div>
@@ -104,7 +125,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># fetch all data for a given flow and key</span></span></span>
 <span class="r-in"><span><span class="fu">bb_data</span><span class="op">(</span><span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,711 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,712 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    date       id                                              title  freq  value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1997-08-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily  5.76</span>
@@ -117,7 +138,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1997-08-18 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily  5.72</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1997-08-19 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily  5.66</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1997-08-20 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily  5.71</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,701 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,702 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># specified period (start date-end date) for daily data</span></span></span>
 <span class="r-in"><span><span class="fu">bb_data</span><span class="op">(</span></span></span>
@@ -144,7 +165,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-in"><span>  <span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span></span>
 <span class="r-in"><span>  start_period <span class="op">=</span> <span class="st">"2020-01-01"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,031 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,032 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    date       id                                              title  freq  value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -<span style="color: #BB0000;">0.16</span></span>
@@ -157,7 +178,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2020-01-13 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -<span style="color: #BB0000;">0.19</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2020-01-14 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -<span style="color: #BB0000;">0.17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2020-01-15 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -<span style="color: #BB0000;">0.22</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,021 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,022 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

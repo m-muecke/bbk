@@ -30,7 +30,7 @@ bb_dataflow("BBSIS")
 \seealso{
 Other metadata: 
 \code{\link{bb_codelist}()},
-\code{\link{bb_concept_scheme}()},
+\code{\link{bb_concept}()},
 \code{\link{bb_data_structure}()}
 }
 \concept{metadata}

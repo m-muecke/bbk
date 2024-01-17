@@ -1,6 +1,7 @@
 #' Returns data for a given flow and key
 #'
-#' @param flow `character(1)` flow to query
+#' @param flow `character(1)` flow to query, 5-8 characters.
+#'   See [bb_dataflow()] for available flows.
 #' @param key `character(1)` key to query.
 #' @param start_period `character(1)` start date of the data. Supported formats:
 #'   - YYYY for annual data (e.g., "2019")
@@ -49,7 +50,7 @@ bb_data <- function(flow,
                     end_period = NULL,
                     first_n = NULL,
                     last_n = NULL) {
-  stopifnot(is_string(flow))
+  stopifnot(is_string(flow) && nchar(flow) %in% 5:8)
   stopifnot(is_string(key))
   stopifnot(is.null(start_period) || is_string(start_period))
   stopifnot(is.null(end_period) || is_string(end_period))
@@ -187,10 +188,10 @@ bb_codelist <- function(id = NULL, lang = "en") {
 #' @family metadata
 #' @export
 #' @examples
-#' bb_concept_scheme()
+#' bb_concept()
 #' # or filter by id
-#' bb_concept_scheme("CS_BBK_BSPL")
-bb_concept_scheme <- function(id = NULL, lang = "en") {
+#' bb_concept("CS_BBK_BSPL")
+bb_concept <- function(id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/conceptscheme/BBK", id)
   entries <- xml2::xml_find_all(body, "//structure:ConceptScheme")

@@ -64,7 +64,7 @@ bb_data <- function(flow,
     key <- toupper(key)
     resource <- sprintf("data/%s/%s", flow, key)
   }
-  body <- bb_make_request(
+  body <- bundesbank(
     resource = resource,
     startPeriod = start_period,
     endPeriod = end_period,
@@ -223,10 +223,10 @@ bb_metadata <- function(resource, id = NULL) {
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }
-  bb_make_request(resource)
+  bundesbank(resource)
 }
 
-bb_make_request <- function(resource, ...) {
+bundesbank <- function(resource, ...) {
   request("https://api.statistiken.bundesbank.de/rest") |>
     req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
     req_headers(`Accept-Language` = "en") |>

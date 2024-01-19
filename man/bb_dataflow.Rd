@@ -4,12 +4,13 @@
 \alias{bb_dataflow}
 \title{Returns available dataflows}
 \usage{
-bb_dataflow(id = NULL, lang = "en")
+bb_dataflow(id = NULL, lang = c("en", "de"))
 }
 \arguments{
 \item{id}{\code{character(1)} id to query. Default \code{NULL}.}
 
-\item{lang}{\code{character(1)} language to query. Default \code{"en"}.}
+\item{lang}{\code{character(1)} language to query, either \code{"en"} or \code{"de"}.
+Default \code{"en"}.}
 }
 \value{
 A data.frame with the available dataflows. The columns are:

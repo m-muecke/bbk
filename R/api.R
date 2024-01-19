@@ -113,7 +113,8 @@ bb_data <- function(flow,
 #' Returns available data structures
 #'
 #' @param id `character(1)` id to query. Default `NULL`.
-#' @param lang `character(1)` language to query. Default `"en"`.
+#' @param lang `character(1)` language to query, either `"en"` or `"de"`.
+#'   Default `"en"`.
 #' @returns A data.frame with the available data structures. The columns are:
 #'   \item{id}{The id of the data structure}
 #'   \item{name}{The name of the data structure}
@@ -124,7 +125,7 @@ bb_data <- function(flow,
 #' bb_data_structure()
 #' # or filter by id
 #' bb_data_structure("BBK_BSPL")
-bb_data_structure <- function(id = NULL, lang = "en") {
+bb_data_structure <- function(id = NULL, lang = c("en", "de")) {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/datastructure/BBK", id)
   entries <- xml2::xml_find_all(body, "//structure:DataStructure")
@@ -145,7 +146,7 @@ bb_data_structure <- function(id = NULL, lang = "en") {
 #' bb_dataflow()
 #' # or filter by id
 #' bb_dataflow("BBSIS")
-bb_dataflow <- function(id = NULL, lang = "en") {
+bb_dataflow <- function(id = NULL, lang = c("en", "de")) {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/dataflow/BBK", id)
   entries <- xml2::xml_find_all(body, "//structure:Dataflow")
@@ -167,7 +168,7 @@ bb_dataflow <- function(id = NULL, lang = "en") {
 #' bb_codelist()
 #' # or filter by id
 #' bb_codelist("CL_BBK_ACIP_ASSET_LIABILITY")
-bb_codelist <- function(id = NULL, lang = "en") {
+bb_codelist <- function(id = NULL, lang = c("en", "de")) {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/codelist/BBK", id)
   entries <- xml2::xml_find_all(body, "//structure:Codelist")
@@ -188,7 +189,7 @@ bb_codelist <- function(id = NULL, lang = "en") {
 #' bb_concept()
 #' # or filter by id
 #' bb_concept("CS_BBK_BSPL")
-bb_concept <- function(id = NULL, lang = "en") {
+bb_concept <- function(id = NULL, lang = c("en", "de")) {
   lang <- match.arg(lang, c("en", "de"))
   body <- bb_metadata("metadata/conceptscheme/BBK", id)
   entries <- xml2::xml_find_all(body, "//structure:ConceptScheme")

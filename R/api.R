@@ -134,12 +134,11 @@ bb_data_structure <- function(id = NULL, lang = "en") {
 
 #' Returns available dataflows
 #'
-#' @param id `character(1)` id to query. Default `NULL`.
-#' @param lang `character(1)` language to query. Default `"en"`.
+#' @inheritParams bb_data_structure
+#' @inherit bb_data_structure references
 #' @returns A data.frame with the available dataflows. The columns are:
 #'   \item{id}{The id of the dataflow}
 #'   \item{name}{The name of the dataflow}
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples
@@ -157,12 +156,11 @@ bb_dataflow <- function(id = NULL, lang = "en") {
 
 #' Returns available code lists
 #'
-#' @param id `character(1)` id to query. Default `NULL`.
-#' @param lang `character(1)` language to query. Default `"en"`.
+#' @inheritParams bb_data_structure
+#' @inherit bb_data_structure references
 #' @returns A data.frame with the available code lists. The columns are:
 #'   \item{id}{The id of the code list}
 #'   \item{name}{The name of the code list}
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples
@@ -179,12 +177,11 @@ bb_codelist <- function(id = NULL, lang = "en") {
 
 #' Returns available concepts
 #'
-#' @param id `character(1)` id to query. Default `NULL`.
-#' @param lang `character(1)` language to query. Default `"en"`.
+#' @inheritParams bb_data_structure
+#' @inherit bb_data_structure references
 #' @returns A data.frame with the available concepts. The columns are:
 #'   \item{id}{The id of the concept}
 #'   \item{name}{The name of the concept}
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples

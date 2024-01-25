@@ -20,7 +20,7 @@
 #'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @param last_n `numeric(1)` number of observations to retrieve from the end
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
-#' @returns A data.frame with the requested data. The columns are:
+#' @returns A `data.frame()` with the requested data. The columns are:
 #'   \item{date}{The date of the observation}
 #'   \item{id}{The id of the dataflow}
 #'   \item{title}{The title of the dataflow}
@@ -54,8 +54,8 @@ bb_data <- function(flow,
   stopifnot(is_string(key))
   stopifnot(is.null(start_period) || is_string(start_period))
   stopifnot(is.null(end_period) || is_string(end_period))
-  stopifnot(is.null(first_n) || is_integerish(first_n))
-  stopifnot(is.null(last_n) || is_integerish(last_n))
+  stopifnot(is.null(first_n) || is_integerish(first_n) && first_n > 0L)
+  stopifnot(is.null(last_n) || is_integerish(last_n) && last_n > 0L)
 
   flow <- toupper(flow)
   if (is.null(key)) {
@@ -115,7 +115,7 @@ bb_data <- function(flow,
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
-#' @returns A data.frame with the available data structures. The columns are:
+#' @returns A `data.frame()` with the available data structures. The columns are:
 #'   \item{id}{The id of the data structure}
 #'   \item{name}{The name of the data structure}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>

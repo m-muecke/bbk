@@ -43,7 +43,7 @@ start of the series. If \code{NULL}, no restriction is applied. Default \code{NU
 of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \value{
-A data.frame with the requested data. The columns are:
+A \code{data.frame()} with the requested data. The columns are:
 \item{date}{The date of the observation}
 \item{id}{The id of the dataflow}
 \item{title}{The title of the dataflow}

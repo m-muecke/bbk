@@ -36,8 +36,8 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,030 × 5
-#>    date       id                                              title  freq  value
+#> # A tibble: 1,040 × 5
+#>    date       key                                             title  freq  value
 #>    <date>     <chr>                                           <chr>  <chr> <dbl>
 #>  1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.16
 #>  2 2020-01-03 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
@@ -49,7 +49,7 @@ yield_curve
 #>  8 2020-01-13 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.19
 #>  9 2020-01-14 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.17
 #> 10 2020-01-15 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.22
-#> # ℹ 1,020 more rows
+#> # ℹ 1,030 more rows
 
 library(ggplot2)
 

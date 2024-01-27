@@ -10,7 +10,6 @@
 #'   - YYYY-MM for monthly data (e.g., "2019-01")
 #'   - YYYY-W\[01-53\] for weekly data (e.g., "2019-W01")
 #'   - YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
-#'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the
 #'   earliest available date). Default `NULL`.
 #' @param end_period `character(1)` end date of the data, in the same format as
@@ -22,7 +21,7 @@
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @returns A `data.frame()` with the requested data. The columns are:
 #'   \item{date}{The date of the observation}
-#'   \item{id}{The id of the dataflow}
+#'   \item{key}{The time series key}
 #'   \item{title}{The title of the dataflow}
 #'   \item{freq}{The frequency of the dataflow}
 #'   \item{value}{The value of the observation}
@@ -105,9 +104,44 @@ bb_data <- function(flow,
     as.numeric()
 
   data <- data.frame(
-    date = date, id = key, title = title, freq = freq, value = value
+    date = date, key = key, title = title, freq = freq, value = value
   )
   as_tibble(data)
+}
+
+#' Returns all time series that are found with the specified time series keys
+#'
+#' @param key `character()` keys to query.
+#' @inherit bb_data references
+#' @family data
+#' @export
+bb_series <- function(key) {
+  stopifnot(is.character(key) && length(key) > 0L)
+  raw <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>
+    req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
+    req_headers(
+      `Accept-Language` = "en", accept = "application/vnd.bbk.data+csv-zip"
+    ) |>
+    req_body_json(key, auto_unbox = FALSE) |>
+    req_error(body = bb_error_body) |>
+    req_perform() |>
+    resp_body_raw()
+
+  tmp <- tempfile()
+  dir.create(tmp)
+  on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
+  tf <- file.path(tmp, "tempfile.zip")
+  writeBin(raw, tf)
+  utils::unzip(tf, exdir = tmp)
+
+  files <- list.files(tmp, full.names = TRUE)
+  path <- grep("\\.csv$", files, value = TRUE)[[1L]]
+
+  col_names <- read.csv(path, nrows = 1L, header = FALSE) |>
+    as.character()
+  col_names[[1L]] <- "date"
+  res <- read.csv(path, skip = 11L, col.names = col_names)
+  as_tibble(res)
 }
 
 #' Returns available data structures

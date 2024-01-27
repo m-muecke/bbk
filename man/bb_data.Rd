@@ -27,10 +27,9 @@ See \code{\link[=bb_dataflow]{bb_dataflow()}} for available flows.}
 \item YYYY-MM for monthly data (e.g., "2019-01")
 \item YYYY-W[01-53] for weekly data (e.g., "2019-W01")
 \item YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
-}
-
 If \code{NULL}, no start date restriction is applied (data retrieved from the
-earliest available date). Default \code{NULL}.}
+earliest available date). Default \code{NULL}.
+}}
 
 \item{end_period}{\code{character(1)} end date of the data, in the same format as
 start_period. If \code{NULL}, no end date restriction is applied (data
@@ -45,7 +44,7 @@ of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 \value{
 A \code{data.frame()} with the requested data. The columns are:
 \item{date}{The date of the observation}
-\item{id}{The id of the dataflow}
+\item{key}{The time series key}
 \item{title}{The title of the dataflow}
 \item{freq}{The frequency of the dataflow}
 \item{value}{The value of the observation}
@@ -71,5 +70,9 @@ bb_data(
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
+}
+\seealso{
+Other data: 
+\code{\link{bb_series}()}
 }
 \concept{data}

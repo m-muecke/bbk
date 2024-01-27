@@ -21,18 +21,26 @@ test_that("bb_data input validation works", {
   expect_error(bb_data("abcde", "abc", end_period = c("a", "b")))
   # first_n should be a whole number or NULL
   expect_error(bb_data("abcde", "abc", first_n = "abc"))
+  expect_error(bb_data("abcde", "abc", first_n = 1:2))
   expect_error(bb_data("abcde", "abc", first_n = TRUE))
-  expect_error(bb_data("abcde", "abc", first_n = c(1, 2)))
   expect_error(bb_data("abcde", "abc", first_n = 1.5))
-  expect_error(bb_data("abcde", "abc", first_n = -1))
-  expect_error(bb_data("abcde", "abc", first_n = 0))
+  expect_error(bb_data("abcde", "abc", first_n = -1L))
+  expect_error(bb_data("abcde", "abc", first_n = 0L))
   # last_n should be a whole number or NULL
   expect_error(bb_data("abcde", "abc", last_n = "abc"))
   expect_error(bb_data("abcde", "abc", last_n = TRUE))
-  expect_error(bb_data("abcde", "abc", last_n = c(1, 2)))
+  expect_error(bb_data("abcde", "abc", last_n = 1:2))
   expect_error(bb_data("abcde", "abc", last_n = 1.5))
-  expect_error(bb_data("abcde", "abc", last_n = -1))
-  expect_error(bb_data("abcde", "abc", last_n = 0))
+  expect_error(bb_data("abcde", "abc", last_n = -1L))
+  expect_error(bb_data("abcde", "abc", last_n = 0L))
+})
+
+test_that("bb_series input validation works", {
+  expect_error(bb_series(1L))
+  expect_error(bb_series(character(0L)))
+  expect_error(bb_series(NA))
+  expect_error(bb_series())
+  expect_error(bb_series(NULL))
 })
 
 test_that("metadata input validation works", {

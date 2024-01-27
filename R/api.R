@@ -49,12 +49,12 @@ bb_data <- function(flow,
                     end_period = NULL,
                     first_n = NULL,
                     last_n = NULL) {
-  stopifnot(is_string(flow) && nchar(flow) %in% 5:8)
+  stopifnot(is_string(flow), nchar(flow) %in% 5:8)
   stopifnot(is_string(key))
-  stopifnot(is.null(start_period) || is_string(start_period))
-  stopifnot(is.null(end_period) || is_string(end_period))
-  stopifnot(is.null(first_n) || is_integerish(first_n) && first_n > 0L)
-  stopifnot(is.null(last_n) || is_integerish(last_n) && last_n > 0L)
+  stopifnot(is_string_or_null(start_period))
+  stopifnot(is_string_or_null(end_period))
+  stopifnot(is_count_or_null(first_n))
+  stopifnot(is_count_or_null(last_n))
 
   flow <- toupper(flow)
   if (is.null(key)) {
@@ -118,7 +118,7 @@ bb_data <- function(flow,
 #' @examples
 #' bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 bb_series <- function(key) {
-  stopifnot(is.character(key) && length(key) > 0L)
+  stopifnot(is_character(key))
   raw <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>
     req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
     req_headers(
@@ -253,7 +253,7 @@ bb_error_body <- function(resp) {
 }
 
 bb_metadata <- function(resource, id = NULL) {
-  stopifnot(is.null(id) || is_string(id))
+  stopifnot(is_string_or_null(id))
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }

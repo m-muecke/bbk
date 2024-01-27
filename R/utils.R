@@ -14,10 +14,27 @@ as_tibble <- function(x) {
   }
 }
 
-is_string <- function(x) is.character(x) && length(x) == 1L
+is_character <- function(x) {
+  is.character(x) && !any(is.na(x))
+}
 
-na_if_empty <- function(x) replace(x, x == "", NA_character_)
+is_string <- function(x) {
+  is.character(x) && length(x) == 1L && !is.na(x)
+}
 
-is_integerish <- function(x, tol = .Machine$double.eps^0.5) {
-  is.numeric(x) && length(x) == 1L && abs(x - round(x)) < tol
+is_string_or_null <- function(x) {
+  is.null(x) || is_string(x)
+}
+
+is_count <- function(x) {
+  is.numeric(x) && length(x) == 1L && !is.na(x) &&
+    as.integer(x) == x && x > 0L
+}
+
+is_count_or_null <- function(x) {
+  is.null(x) || is_count(x)
+}
+
+na_if_empty <- function(x) {
+  replace(x, x == "", NA_character_)
 }

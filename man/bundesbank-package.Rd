@@ -11,7 +11,7 @@ Download data from the Bundesbank API.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://m-muecke.github.io/bundesbank}
+  \item \url{https://m-muecke.github.io/bundesbank/}
   \item \url{https://github.com/m-muecke/bundesbank}
   \item Report bugs at \url{https://github.com/m-muecke/bundesbank/issues}
 }

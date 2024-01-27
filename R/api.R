@@ -115,6 +115,8 @@ bb_data <- function(flow,
 #' @inherit bb_data references
 #' @family data
 #' @export
+#' @examples
+#' bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 bb_series <- function(key) {
   stopifnot(is.character(key) && length(key) > 0L)
   raw <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>

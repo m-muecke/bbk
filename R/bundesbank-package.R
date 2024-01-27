@@ -13,5 +13,6 @@
 #' @importFrom httr2 resp_body_json
 #' @importFrom httr2 resp_body_raw
 #' @importFrom httr2 resp_body_xml
+#' @importFrom utils read.csv
 ## usethis namespace: end
 NULL

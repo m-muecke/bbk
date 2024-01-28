@@ -15,7 +15,7 @@ as_tibble <- function(x) {
 }
 
 is_character <- function(x) {
-  is.character(x) && !any(is.na(x))
+  is.character(x) && !any(is.na(x)) && length(x) > 0L
 }
 
 is_string <- function(x) {

@@ -96,6 +96,8 @@ bb_data <- function(flow,
     date <- as.Date(date, format = "%Y-%m-%d")
   } else if (freq == "annual") {
     date <- as.integer(date)
+  } else if (freq == "monthly") {
+    # TODO: make monthl date as well
   }
 
   value <- entries |>
@@ -104,7 +106,7 @@ bb_data <- function(flow,
     as.numeric()
 
   data <- data.frame(
-    date = date, key = key, title = title, freq = freq, value = value
+    date = date, key = key, title = title, frequency = freq, value = value
   )
   as_tibble(data)
 }
@@ -252,6 +254,7 @@ bb_error_body <- function(resp) {
   c(message, docs)
 }
 
+# TODO: metadata can be added here since its the same for all metadata
 bb_metadata <- function(resource, id = NULL) {
   stopifnot(is_string_or_null(id))
   if (!is.null(id)) {

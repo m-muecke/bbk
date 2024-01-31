@@ -36,26 +36,27 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,040 × 5
-#>    date       key                                             title  freq  value
-#>    <date>     <chr>                                           <chr>  <chr> <dbl>
-#>  1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.16
-#>  2 2020-01-03 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
-#>  3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
-#>  4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
-#>  5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.27
-#>  6 2020-01-09 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.22
-#>  7 2020-01-10 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.2 
-#>  8 2020-01-13 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.19
-#>  9 2020-01-14 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.17
-#> 10 2020-01-15 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A Yield… daily -0.22
-#> # ℹ 1,030 more rows
+#> # A tibble: 1,043 × 5
+#>    date       key                                          title frequency value
+#>    <date>     <chr>                                        <chr> <chr>     <dbl>
+#>  1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.16
+#>  2 2020-01-03 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.27
+#>  3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.27
+#>  4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.27
+#>  5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.27
+#>  6 2020-01-09 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.22
+#>  7 2020-01-10 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.2 
+#>  8 2020-01-13 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.19
+#>  9 2020-01-14 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.17
+#> 10 2020-01-15 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z.… Yiel… daily     -0.22
+#> # ℹ 1,033 more rows
 
 library(ggplot2)
 
 ggplot(yield_curve, aes(x = date, y = value)) +
   geom_line() +
-  labs(x = "Date", y = "Yield")
+  labs(x = "", y = "", yield_curve[1, "title", drop = TRUE]) +
+  theme_minimal()
 ```
 
 <img src="man/figures/README-demo-1.png" width="100%" />

@@ -47,8 +47,7 @@ library(ggplot2)
 
 ggplot(yield_curve, aes(x = date, y = value)) +
   geom_line() +
-  labs(x = "", y = "", yield_curve[1, "title", drop = TRUE]) +
-  theme_minimal()
+  labs(x = "", y = "", title = yield_curve[1, "title", drop = TRUE])
 ```
 
 ## Related work

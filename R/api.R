@@ -86,19 +86,22 @@ bb_data <- function(flow,
   title <- body |>
     xml2::xml_find_first("//generic:Value[@id='BBK_TITLE_ENG']") |>
     xml2::xml_attr("value")
+  unit <- body |>
+    xml2::xml_find_first("//generic:Value[@id='UNIT_ENG']") |>
+    xml2::xml_attr("value")
+
 
   entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
   date <- entries |>
     xml2::xml_find_all(".//generic:ObsDimension") |>
     xml2::xml_attr("value")
 
-  if (freq == "daily") {
-    date <- as.Date(date, format = "%Y-%m-%d")
-  } else if (freq == "annual") {
-    date <- as.integer(date)
-  } else if (freq == "monthly") {
-    # TODO: make monthl date as well
-  }
+  date <- switch(freq,
+    daily = as.Date(date),
+    monthly = as.Date(paste0(date, "-01")),
+    annual = as.integer(date),
+    date
+  )
 
   value <- entries |>
     xml2::xml_find_all(".//generic:ObsValue") |>
@@ -106,7 +109,12 @@ bb_data <- function(flow,
     as.numeric()
 
   data <- data.frame(
-    date = date, key = key, title = title, frequency = freq, value = value
+    date = date,
+    key = key,
+    title = title,
+    unit = unit,
+    frequency = freq,
+    value = value
   )
   as_tibble(data)
 }

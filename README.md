@@ -50,7 +50,8 @@ library(ggplot2)
 
 ggplot(yield_curve, aes(x = date, y = value)) +
   geom_line() +
-  labs(x = "", y = "", title = "Daily Yields of 10-Year Federal Securities")
+  labs(x = "", y = "", title = "Daily Yields of 10-Year Federal Securities") +
+  theme_minimal()
 ```
 
 <img src="man/figures/README-demo-1.png" width="100%" />

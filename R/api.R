@@ -161,7 +161,8 @@ bb_series <- function(key) {
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
-#' @returns A `data.frame()` with the available data structures. The columns are:
+#' @returns A `data.frame()` with the available data structures.
+#' The columns are:
 #'   \item{id}{The id of the data structure}
 #'   \item{name}{The name of the data structure}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
@@ -172,11 +173,7 @@ bb_series <- function(key) {
 #' # or filter by id
 #' bb_data_structure("BBK_BSPL")
 bb_data_structure <- function(id = NULL, lang = c("en", "de")) {
-  lang <- match.arg(lang, c("en", "de"))
-  body <- bb_metadata("metadata/datastructure/BBK", id)
-  entries <- xml2::xml_find_all(body, "//structure:DataStructure")
-  res <- parse_metadata(entries, lang)
-  as_tibble(res)
+  bb_metadata("datastructure/BBK", "//structure:DataStructure", id, lang)
 }
 
 #' Returns available dataflows
@@ -193,12 +190,9 @@ bb_data_structure <- function(id = NULL, lang = c("en", "de")) {
 #' # or filter by id
 #' bb_dataflow("BBSIS")
 bb_dataflow <- function(id = NULL, lang = c("en", "de")) {
-  lang <- match.arg(lang, c("en", "de"))
-  body <- bb_metadata("metadata/dataflow/BBK", id)
-  entries <- xml2::xml_find_all(body, "//structure:Dataflow")
-  res <- parse_metadata(entries, lang)
+  res <- bb_metadata("dataflow/BBK", "//structure:Dataflow", id, lang)
   res$name <- na_if_empty(res$name)
-  as_tibble(res)
+  res
 }
 
 #' Returns available code lists
@@ -215,11 +209,7 @@ bb_dataflow <- function(id = NULL, lang = c("en", "de")) {
 #' # or filter by id
 #' bb_codelist("CL_BBK_ACIP_ASSET_LIABILITY")
 bb_codelist <- function(id = NULL, lang = c("en", "de")) {
-  lang <- match.arg(lang, c("en", "de"))
-  body <- bb_metadata("metadata/codelist/BBK", id)
-  entries <- xml2::xml_find_all(body, "//structure:Codelist")
-  res <- parse_metadata(entries, lang)
-  as_tibble(res)
+  bb_metadata("codelist/BBK", "//structure:Codelist", id, lang)
 }
 
 #' Returns available concepts
@@ -236,11 +226,7 @@ bb_codelist <- function(id = NULL, lang = c("en", "de")) {
 #' # or filter by id
 #' bb_concept("CS_BBK_BSPL")
 bb_concept <- function(id = NULL, lang = c("en", "de")) {
-  lang <- match.arg(lang, c("en", "de"))
-  body <- bb_metadata("metadata/conceptscheme/BBK", id)
-  entries <- xml2::xml_find_all(body, "//structure:ConceptScheme")
-  res <- parse_metadata(entries, lang)
-  as_tibble(res)
+  bb_metadata("conceptscheme/BBK", "//structure:ConceptScheme", id, lang)
 }
 
 parse_metadata <- function(x, lang) {
@@ -251,8 +237,7 @@ parse_metadata <- function(x, lang) {
       xml2::xml_text()
     data.frame(id = id, name = nms)
   })
-  res <- do.call(rbind, res)
-  res
+  do.call(rbind, res)
 }
 
 bb_error_body <- function(resp) {
@@ -262,13 +247,17 @@ bb_error_body <- function(resp) {
   c(message, docs)
 }
 
-# TODO: metadata can be added here since its the same for all metadata
-bb_metadata <- function(resource, id = NULL) {
+bb_metadata <- function(resource, xpath, id = NULL, lang = "en") {
+  lang <- match.arg(lang, c("en", "de"))
   stopifnot(is_string_or_null(id))
+  resource <- paste("metadata", resource, sep = "/")
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }
-  bundesbank(resource)
+  body <- bundesbank(resource)
+  entries <- xml2::xml_find_all(body, xpath)
+  res <- parse_metadata(entries, lang)
+  as_tibble(res)
 }
 
 bundesbank <- function(resource, ...) {

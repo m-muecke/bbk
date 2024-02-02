@@ -13,7 +13,8 @@ bb_data_structure(id = NULL, lang = c("en", "de"))
 Default \code{"en"}.}
 }
 \value{
-A \code{data.frame()} with the available data structures. The columns are:
+A \code{data.frame()} with the available data structures.
+The columns are:
 \item{id}{The id of the data structure}
 \item{name}{The name of the data structure}
 }

@@ -113,12 +113,7 @@ bb_data <- function(flow,
     as.numeric()
 
   data <- data.frame(
-    date = date,
-    key = key,
-    title = title,
-    unit = unit,
-    frequency = freq,
-    value = value
+    date = date, key = key, title = title, unit = unit, frequency = freq, value = value
   )
   as_tibble(data)
 }

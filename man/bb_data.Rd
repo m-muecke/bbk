@@ -15,7 +15,7 @@ bb_data(
 }
 \arguments{
 \item{flow}{\code{character(1)} flow to query, 5-8 characters.
-See \code{\link[=bb_dataflow]{bb_dataflow()}} for available flows.}
+See \code{\link[=bb_metadata]{bb_metadata()}} for available dataflows.}
 
 \item{key}{\code{character(1)} key to query.}
 

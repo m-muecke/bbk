@@ -1,7 +1,7 @@
 #' Returns data for a given flow and key
 #'
 #' @param flow `character(1)` flow to query, 5-8 characters.
-#'   See [bb_dataflow()] for available flows.
+#'   See [bb_metadata()] for available dataflows.
 #' @param key `character(1)` key to query.
 #' @param start_period `character(1)` start date of the data. Supported formats:
 #'   - YYYY for annual data (e.g., "2019")

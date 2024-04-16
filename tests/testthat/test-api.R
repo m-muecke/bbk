@@ -44,14 +44,17 @@ test_that("bb_series input validation works", {
 })
 
 test_that("metadata input validation works", {
-  for (fn in list(bb_data_structure, bb_dataflow, bb_codelist, bb_concept)) {
-    # id should be a character(1) or NULL
-    expect_error(fn(1L))
-    expect_error(fn(TRUE))
-    expect_error(fn(c("a", "b")))
-    # lang should be en or de
-    expect_error(fn(lang = "abc"))
-    expect_error(fn(lang = 1L))
-    expect_error(fn(lang = NA))
-  }
+  # type should be one of datastructure, dataflow, codelist, concept
+  expect_error(bb_metadata(1L))
+  expect_error(bb_metadata(TRUE))
+  expect_error(bb_metadata(c("datastructure", "dataflow")))
+  expect_error(bb_metadata("data"))
+  # id should be a character(1) or NULL
+  expect_error(bb_metadata("datastructure", id = 1L))
+  expect_error(bb_metadata("datastructure", id = TRUE))
+  expect_error(bb_metadata("datastructure", id = c("a", "b")))
+  # lang should be en or de
+  expect_error(bb_metadata(lang = "abc"))
+  expect_error(bb_metadata(lang = 1L))
+  expect_error(bb_metadata(lang = NA))
 })

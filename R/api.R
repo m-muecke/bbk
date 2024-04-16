@@ -173,7 +173,7 @@ bb_series <- function(key) {
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
-#' @return A `data.frame()` with the queried metadata.
+#' @returns A `data.frame()` with the queried metadata.
 #' The columns are:
 #'   \item{id}{The id of the metadata}
 #'   \item{name}{The name of the metadata}

@@ -19,19 +19,10 @@
     <loc>https://m-muecke.github.io/bundesbank/news/index.html</loc>
   </url>
   <url>
-    <loc>https://m-muecke.github.io/bundesbank/reference/bb_codelist.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bundesbank/reference/bb_concept.html</loc>
-  </url>
-  <url>
     <loc>https://m-muecke.github.io/bundesbank/reference/bb_data.html</loc>
   </url>
   <url>
-    <loc>https://m-muecke.github.io/bundesbank/reference/bb_data_structure.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bundesbank/reference/bb_dataflow.html</loc>
+    <loc>https://m-muecke.github.io/bundesbank/reference/bb_metadata.html</loc>
   </url>
   <url>
     <loc>https://m-muecke.github.io/bundesbank/reference/bb_series.html</loc>

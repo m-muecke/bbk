@@ -5,6 +5,7 @@
 ^CITATION.cff$
 ^Dockerfile$
 ^LICENSE\.md$
+^Meta$
 ^README.html$
 ^README\.Rmd$
 ^\.Rproj\.user$
@@ -21,6 +22,7 @@
 ^compose.ya?ml$
 ^cran-comments\.md$
 ^data-raw$
+^doc$
 ^docs$
 ^inst/extdata/.+\.R$
 ^man-roxygen$

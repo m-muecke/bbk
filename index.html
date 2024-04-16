@@ -87,7 +87,7 @@
 <span>  start_period <span class="op">=</span> <span class="st">"2020-01-01"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">yield_curve</span></span>
-<span><span class="co">#&gt; # A tibble: 1,044 × 6</span></span>
+<span><span class="co">#&gt; # A tibble: 1,095 × 6</span></span>
 <span><span class="co">#&gt;   date       key                                     title unit  frequency value</span></span>
 <span><span class="co">#&gt;   &lt;date&gt;     &lt;chr&gt;                                   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.16</span></span>
@@ -95,17 +95,8 @@
 <span><span class="co">#&gt; 3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27</span></span>
 <span><span class="co">#&gt; 4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27</span></span>
 <span><span class="co">#&gt; 5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27</span></span>
-<span><span class="co">#&gt; # ℹ 1,039 more rows</span></span>
-<span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">yield_curve</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="cn">NULL</span>, title <span class="op">=</span> <span class="st">"Daily Yields of 10-Year Federal Securities"</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-demo-1.png" width="100%"></p>
+<span><span class="co">#&gt; # ℹ 1,090 more rows</span></span></code></pre></div>
+<p><img src="reference/figures/README-plotting-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="related-work">Related work<a class="anchor" aria-label="anchor" href="#related-work"></a>

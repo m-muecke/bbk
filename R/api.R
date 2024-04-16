@@ -155,6 +155,7 @@ bb_series <- function(key) {
   files <- list.files(tmp, full.names = TRUE)
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
+  # TODO: check if better col names can be made or if its always three cols then just use value and flag
   col_names <- read.csv(path, nrows = 1L, header = FALSE) |>
     as.character()
   col_names[[1L]] <- "date"
@@ -162,85 +163,42 @@ bb_series <- function(key) {
   as_tibble(res)
 }
 
-#' Returns available data structures
+#' Returns the available metadata
 #'
+#' Retrieval of the metadata stored in the Bundesbank's time series database.
+#' Access via the SDMX Web Service API of the Bundesbank.
+#'
+#' @param type `character(1)` the type of metadata to query. One of:
+#' `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
-#' @returns A `data.frame()` with the available data structures.
+#' @return A `data.frame()` with the queried metadata.
 #' The columns are:
-#'   \item{id}{The id of the data structure}
-#'   \item{name}{The name of the data structure}
+#'   \item{id}{The id of the metadata}
+#'   \item{name}{The name of the metadata}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples
 #' \donttest{
-#' bb_data_structure()
-#' # or filter by id
-#' bb_data_structure("BBK_BSPL")
+#' bb_metadata("datastructure")
+#' bb_metadata("dataflow", "BBSIS")
+#' bb_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
+#' bb_metadata("concept", "CS_BBK_BSPL")
 #' }
-bb_data_structure <- function(id = NULL, lang = c("en", "de")) {
-  bb_metadata("datastructure/BBK", "//structure:DataStructure", id, lang)
-}
-
-#' Returns available dataflows
-#'
-#' @inheritParams bb_data_structure
-#' @inherit bb_data_structure references
-#' @returns A data.frame with the available dataflows. The columns are:
-#'   \item{id}{The id of the dataflow}
-#'   \item{name}{The name of the dataflow}
-#' @family metadata
-#' @export
-#' @examples
-#' \donttest{
-#' bb_dataflow()
-#' # or filter by id
-#' bb_dataflow("BBSIS")
-#' }
-bb_dataflow <- function(id = NULL, lang = c("en", "de")) {
-  res <- bb_metadata("dataflow/BBK", "//structure:Dataflow", id, lang)
+bb_metadata <- function(type, id = NULL, lang = c("en", "de")) {
+  type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
+  res <- switch(type,
+    datastructure = fetch_metadata(
+      "datastructure/BBK", "//structure:DataStructure", id, lang
+    ),
+    dataflow = fetch_metadata("dataflow/BBK", "//structure:Dataflow", id, lang),
+    codelist = fetch_metadata("codelist/BBK", "//structure:Codelist", id, lang),
+    concept = fetch_metadata("conceptscheme/BBK", "//structure:ConceptScheme", id, lang)
+  )
   res$name <- na_if_empty(res$name)
   res
-}
-
-#' Returns available code lists
-#'
-#' @inheritParams bb_data_structure
-#' @inherit bb_data_structure references
-#' @returns A data.frame with the available code lists. The columns are:
-#'   \item{id}{The id of the code list}
-#'   \item{name}{The name of the code list}
-#' @family metadata
-#' @export
-#' @examples
-#' \donttest{
-#' bb_codelist()
-#' # or filter by id
-#' bb_codelist("CL_BBK_ACIP_ASSET_LIABILITY")
-#' }
-bb_codelist <- function(id = NULL, lang = c("en", "de")) {
-  bb_metadata("codelist/BBK", "//structure:Codelist", id, lang)
-}
-
-#' Returns available concepts
-#'
-#' @inheritParams bb_data_structure
-#' @inherit bb_data_structure references
-#' @returns A data.frame with the available concepts. The columns are:
-#'   \item{id}{The id of the concept}
-#'   \item{name}{The name of the concept}
-#' @family metadata
-#' @export
-#' @examples
-#' \donttest{
-#' bb_concept()
-#' # or filter by id
-#' bb_concept("CS_BBK_BSPL")
-#' }
-bb_concept <- function(id = NULL, lang = c("en", "de")) {
-  bb_metadata("conceptscheme/BBK", "//structure:ConceptScheme", id, lang)
 }
 
 parse_metadata <- function(x, lang) {
@@ -261,7 +219,7 @@ bb_error_body <- function(resp) {
   c(message, docs)
 }
 
-bb_metadata <- function(resource, xpath, id = NULL, lang = "en") {
+fetch_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
   stopifnot(is_string_or_null(id))
   resource <- paste("metadata", resource, sep = "/")

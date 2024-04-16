@@ -36,7 +36,7 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,044 × 6
+#> # A tibble: 1,095 × 6
 #>   date       key                                     title unit  frequency value
 #>   <date>     <chr>                                   <chr> <chr> <chr>     <dbl>
 #> 1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.16
@@ -44,19 +44,10 @@ yield_curve
 #> 3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
 #> 4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
 #> 5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
-#> # ℹ 1,039 more rows
-
-library(ggplot2)
-
-ggplot(yield_curve, aes(x = date, y = value)) +
-  geom_line() +
-  labs(
-    x = NULL, y = NULL, title = "Daily Yields of 10-Year Federal Securities"
-  ) +
-  theme_minimal()
+#> # ℹ 1,090 more rows
 ```
 
-<img src="man/figures/README-demo-1.png" width="100%" />
+<img src="man/figures/README-plotting-1.png" width="100%" />
 
 ## Related work
 

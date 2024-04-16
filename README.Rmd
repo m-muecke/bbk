@@ -33,7 +33,7 @@ pak::pak("m-muecke/bundesbank")
 
 ## Usage
 
-```{r demo, message = FALSE, dpi = 300}
+```{r demo, message = FALSE}
 library(bundesbank)
 
 # fetch 10 year daily yield curve
@@ -43,15 +43,24 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
+```
 
+```{r plotting, message = FALSE, echo = FALSE, dpi = 300}
 library(ggplot2)
 
 ggplot(yield_curve, aes(x = date, y = value)) +
   geom_line() +
-  labs(
-    x = NULL, y = NULL, title = "Daily Yields of 10-Year Federal Securities"
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold"),
+    panel.grid.major.y = element_line(color = "black", linewidth = 0.2),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text = element_text(color = "black"),
+    axis.title = element_blank()
   ) +
-  theme_minimal()
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Daily Yields of 10-Year Federal Securities")
 ```
 
 ## Related work

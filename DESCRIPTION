@@ -16,6 +16,8 @@ Imports:
     utils,
     xml2
 Suggests:
+    ggplot2,
+    scales,
     testthat (>= 3.0.0),
     tibble
 Config/testthat/edition: 3

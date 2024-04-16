@@ -189,14 +189,13 @@ bb_series <- function(key) {
 #' }
 bb_metadata <- function(type, id = NULL, lang = c("en", "de")) {
   type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
-  res <- switch(type,
-    datastructure = fetch_metadata(
-      "datastructure/BBK", "//structure:DataStructure", id, lang
-    ),
-    dataflow = fetch_metadata("dataflow/BBK", "//structure:Dataflow", id, lang),
-    codelist = fetch_metadata("codelist/BBK", "//structure:Codelist", id, lang),
-    concept = fetch_metadata("conceptscheme/BBK", "//structure:ConceptScheme", id, lang)
+  args <- switch(type,
+    datastructure = list("datastructure/BBK", "//structure:DataStructure"),
+    dataflow = list("dataflow/BBK", "//structure:Dataflow"),
+    codelist = list("codelist/BBK", "//structure:Codelist"),
+    concept = list("conceptscheme/BBK", "//structure:ConceptScheme")
   )
+  res <- do.call(fetch_metadata, c(args, list(id, lang)))
   res$name <- na_if_empty(res$name)
   res
 }

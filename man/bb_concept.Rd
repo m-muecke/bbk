@@ -21,9 +21,11 @@ A data.frame with the available concepts. The columns are:
 Returns available concepts
 }
 \examples{
+\donttest{
 bb_concept()
 # or filter by id
 bb_concept("CS_BBK_BSPL")
+}
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

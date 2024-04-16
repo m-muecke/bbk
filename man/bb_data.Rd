@@ -53,6 +53,7 @@ A \code{data.frame()} with the requested data. The columns are:
 Returns data for a given flow and key
 }
 \examples{
+\donttest{
 # fetch all data for a given flow and key
 bb_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 
@@ -67,6 +68,7 @@ bb_data(
   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
+}
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}

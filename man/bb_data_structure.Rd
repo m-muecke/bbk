@@ -22,9 +22,11 @@ The columns are:
 Returns available data structures
 }
 \examples{
+\donttest{
 bb_data_structure()
 # or filter by id
 bb_data_structure("BBK_BSPL")
+}
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

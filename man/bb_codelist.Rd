@@ -21,9 +21,11 @@ A data.frame with the available code lists. The columns are:
 Returns available code lists
 }
 \examples{
+\donttest{
 bb_codelist()
 # or filter by id
 bb_codelist("CL_BBK_ACIP_ASSET_LIABILITY")
+}
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

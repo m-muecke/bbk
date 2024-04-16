@@ -13,7 +13,9 @@ bb_series(key)
 Returns all time series that are found with the specified time series keys
 }
 \examples{
+\donttest{
 bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
+}
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}

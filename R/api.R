@@ -29,6 +29,7 @@
 #' @family data
 #' @export
 #' @examples
+#' \donttest{
 #' # fetch all data for a given flow and key
 #' bb_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 #'
@@ -43,18 +44,21 @@
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2020-01-01"
 #' )
+#' }
 bb_data <- function(flow,
                     key,
                     start_period = NULL,
                     end_period = NULL,
                     first_n = NULL,
                     last_n = NULL) {
-  stopifnot(is_string(flow), nchar(flow) %in% 5:8)
-  stopifnot(is_string(key))
-  stopifnot(is_string_or_null(start_period))
-  stopifnot(is_string_or_null(end_period))
-  stopifnot(is_count_or_null(first_n))
-  stopifnot(is_count_or_null(last_n))
+  stopifnot(
+    is_string(flow), nchar(flow) %in% 5:8,
+    is_string(key),
+    is_string_or_null(start_period),
+    is_string_or_null(end_period),
+    is_count_or_null(first_n),
+    is_count_or_null(last_n)
+  )
 
   flow <- toupper(flow)
   if (is.null(key)) {
@@ -126,7 +130,9 @@ bb_data <- function(flow,
 #' @family data
 #' @export
 #' @examples
+#' \donttest{
 #' bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
+#' }
 bb_series <- function(key) {
   stopifnot(is_character(key))
   raw <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>
@@ -169,9 +175,11 @@ bb_series <- function(key) {
 #' @family metadata
 #' @export
 #' @examples
+#' \donttest{
 #' bb_data_structure()
 #' # or filter by id
 #' bb_data_structure("BBK_BSPL")
+#' }
 bb_data_structure <- function(id = NULL, lang = c("en", "de")) {
   bb_metadata("datastructure/BBK", "//structure:DataStructure", id, lang)
 }
@@ -186,9 +194,11 @@ bb_data_structure <- function(id = NULL, lang = c("en", "de")) {
 #' @family metadata
 #' @export
 #' @examples
+#' \donttest{
 #' bb_dataflow()
 #' # or filter by id
 #' bb_dataflow("BBSIS")
+#' }
 bb_dataflow <- function(id = NULL, lang = c("en", "de")) {
   res <- bb_metadata("dataflow/BBK", "//structure:Dataflow", id, lang)
   res$name <- na_if_empty(res$name)
@@ -205,9 +215,11 @@ bb_dataflow <- function(id = NULL, lang = c("en", "de")) {
 #' @family metadata
 #' @export
 #' @examples
+#' \donttest{
 #' bb_codelist()
 #' # or filter by id
 #' bb_codelist("CL_BBK_ACIP_ASSET_LIABILITY")
+#' }
 bb_codelist <- function(id = NULL, lang = c("en", "de")) {
   bb_metadata("codelist/BBK", "//structure:Codelist", id, lang)
 }
@@ -222,9 +234,11 @@ bb_codelist <- function(id = NULL, lang = c("en", "de")) {
 #' @family metadata
 #' @export
 #' @examples
+#' \donttest{
 #' bb_concept()
 #' # or filter by id
 #' bb_concept("CS_BBK_BSPL")
+#' }
 bb_concept <- function(id = NULL, lang = c("en", "de")) {
   bb_metadata("conceptscheme/BBK", "//structure:ConceptScheme", id, lang)
 }

@@ -21,9 +21,11 @@ A data.frame with the available dataflows. The columns are:
 Returns available dataflows
 }
 \examples{
+\donttest{
 bb_dataflow()
 # or filter by id
 bb_dataflow("BBSIS")
+}
 }
 \references{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}

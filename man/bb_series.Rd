@@ -2,15 +2,15 @@
 % Please edit documentation in R/api.R
 \name{bb_series}
 \alias{bb_series}
-\title{Returns all time series that are found with the specified time series keys}
+\title{Returns the time serie that is found with the specified time series key}
 \usage{
 bb_series(key)
 }
 \arguments{
-\item{key}{\code{character()} keys to query.}
+\item{key}{\code{character(1)} key to query.}
 }
 \description{
-Returns all time series that are found with the specified time series keys
+Returns the time serie that is found with the specified time series key
 }
 \examples{
 \donttest{

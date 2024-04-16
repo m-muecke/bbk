@@ -41,6 +41,7 @@ test_that("bb_series input validation works", {
   expect_error(bb_series(NA))
   expect_error(bb_series())
   expect_error(bb_series(NULL))
+  expect_error(bb_series(c("BBEX3.M.DKK.EUR.BB.AC.A01", "BBEX3.M.DKK.EUR.BB.AC.A02")))
 })
 
 test_that("metadata input validation works", {

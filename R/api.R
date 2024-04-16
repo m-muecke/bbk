@@ -118,9 +118,9 @@ bb_data <- function(flow,
   as_tibble(data)
 }
 
-#' Returns all time series that are found with the specified time series keys
+#' Returns the time serie that is found with the specified time series key
 #'
-#' @param key `character()` keys to query.
+#' @param key `character(1)` key to query.
 #' @inherit bb_data references
 #' @family data
 #' @export
@@ -129,7 +129,7 @@ bb_data <- function(flow,
 #' bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #' }
 bb_series <- function(key) {
-  stopifnot(is_character(key))
+  stopifnot(is_string(key))
   raw <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>
     req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
     req_headers(
@@ -150,11 +150,18 @@ bb_series <- function(key) {
   files <- list.files(tmp, full.names = TRUE)
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
-  # TODO: check if better col names can be made or if its always three cols then just use value and flag
-  col_names <- read.csv(path, nrows = 1L, header = FALSE) |>
-    as.character()
-  col_names[[1L]] <- "date"
-  res <- read.csv(path, skip = 11L, col.names = col_names)
+  res <- read.csv(path, header = FALSE, skip = 11L)
+  res <- res[, 1:2]
+  names(res) <- c("date", "value")
+  header <- read.csv(path, header = FALSE, nrows = 8L, skip = 2L)
+  res$source <- header[3L, 2L]
+  res$category <- header[5L, 2L]
+  # TODO: P1M is monthly, check for other cases and adjust
+  res$duration <- header[4L, 2L]
+  res$unit <- header[6L, 2L]
+  res$unit_multiplier <- header[7L, 2L]
+  res$last_update <- header[8L, 2L]
+  res$comment <- header[1L, 2L]
   as_tibble(res)
 }
 

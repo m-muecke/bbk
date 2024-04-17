@@ -1,6 +1,5 @@
 #' Returns data for a given flow and key
 #'
-#'
 #' @param flow `character(1)` flow to query, 5-8 characters.
 #'   See [bb_metadata()] for available dataflows.
 #' @param key `character(1)` key to query.
@@ -155,26 +154,34 @@ bb_series <- function(key) {
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
   res <- read.csv(path, header = FALSE, skip = 11L)[, 1:2] |>
-    setNames(c("date", "value"))
+    stats::setNames(c("date", "value"))
   res$value <- na_if_empty(res$value, ".")
 
   metadata <- readLines(path, n = 10L)
-  duration <- extract_metadata(metadata, "^Time format code")
+  freq <- extract_metadata(metadata, "^Time format code")
   unit <- extract_metadata(metadata, "^unit,")
   unit_multiplier <- extract_metadata(metadata, "^unit multiplier,")
   category <- extract_metadata(metadata, "^category,")
   last_update <- extract_metadata(metadata, "^last update,")
   comment <- extract_metadata(metadata, "^Comment \\(in english\\),")
+  comment <- sub("^[\"]", "", comment)
   src <- extract_metadata(metadata, "^Source \\(in english\\),")
 
-  res$key <- key
-  res$category <- category
-  res$duration <- switch(duration,
+  freq <- switch(freq,
     P1M = "monthly",
     P3M = "quarterly",
     P1Y = "annual",
     P1D = "daily"
   )
+  res$date <- switch(freq,
+    daily = as.Date(res$date),
+    monthly = as.Date(paste0(res$date, "-01")),
+    annual = as.integer(res$date),
+    res$date
+  )
+  res$key <- key
+  res$category <- category
+  res$frequency <- freq
   res$unit <- unit
   res$unit_multiplier <- unit_multiplier
   res$last_update <- last_update

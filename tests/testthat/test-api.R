@@ -59,3 +59,15 @@ test_that("metadata input validation works", {
   expect_error(bb_metadata(lang = 1L))
   expect_error(bb_metadata(lang = NA))
 })
+
+test_that("bb_series does frequency conversion", {
+  skip_on_cran()
+  skip_on_ci()
+
+  x <- bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
+  expect_true(all(x$duration == "monthly"))
+  x <- bb_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
+  expect_true(all(x$duration == "quarterly"))
+  x <- bb_series("BBBK11.D.TTA000")
+  expect_true(all(x$duration == "daily"))
+})

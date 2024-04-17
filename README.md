@@ -36,7 +36,7 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,095 × 6
+#> # A tibble: 1,096 × 6
 #>   date       key                                     title unit  frequency value
 #>   <date>     <chr>                                   <chr> <chr> <chr>     <dbl>
 #> 1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.16
@@ -44,7 +44,7 @@ yield_curve
 #> 3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
 #> 4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
 #> 5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
-#> # ℹ 1,090 more rows
+#> # ℹ 1,091 more rows
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />
@@ -53,3 +53,7 @@ yield_curve
 
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
   for downloading time-series data from the Bundesbank
+- [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
+  data and metadata.
+- [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
+  reading SDMX data and metadata.

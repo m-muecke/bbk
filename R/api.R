@@ -141,7 +141,7 @@ bb_metadata <- function(type, id = NULL, lang = c("en", "de")) {
   )
   res <- do.call(fetch_metadata, c(args, list(id, lang)))
   res$name <- na_if_empty(res$name)
-  res
+  as_tibble(res)
 }
 
 parse_bb_series <- function(body, key) {
@@ -261,7 +261,7 @@ fetch_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   body <- bundesbank(resource)
   entries <- xml2::xml_find_all(body, xpath)
   res <- parse_metadata(entries, lang)
-  as_tibble(res)
+  res
 }
 
 bundesbank <- function(resource, ...) {

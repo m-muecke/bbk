@@ -1,5 +1,6 @@
 #' Returns data for a given flow and key
 #'
+#'
 #' @param flow `character(1)` flow to query, 5-8 characters.
 #'   See [bb_metadata()] for available dataflows.
 #' @param key `character(1)` key to query.
@@ -67,6 +68,7 @@ bb_data <- function(flow,
     key <- toupper(key)
     resource <- sprintf("data/%s/%s", flow, key)
   }
+  # TODO: check if there are additional fields
   body <- bundesbank(
     resource = resource,
     startPeriod = start_period,
@@ -127,6 +129,8 @@ bb_data <- function(flow,
 #' @examples
 #' \donttest{
 #' bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
+#' bb_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
+#' bb_series("BBBK11.D.TTA000")
 #' }
 bb_series <- function(key) {
   stopifnot(is_string(key))
@@ -150,18 +154,32 @@ bb_series <- function(key) {
   files <- list.files(tmp, full.names = TRUE)
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
-  res <- read.csv(path, header = FALSE, skip = 11L)
-  res <- res[, 1:2]
-  names(res) <- c("date", "value")
-  header <- read.csv(path, header = FALSE, nrows = 8L, skip = 2L)
-  res$source <- header[3L, 2L]
-  res$category <- header[5L, 2L]
-  # TODO: P1M is monthly, check for other cases and adjust
-  res$duration <- header[4L, 2L]
-  res$unit <- header[6L, 2L]
-  res$unit_multiplier <- header[7L, 2L]
-  res$last_update <- header[8L, 2L]
-  res$comment <- header[1L, 2L]
+  res <- read.csv(path, header = FALSE, skip = 11L)[, 1:2] |>
+    setNames(c("date", "value"))
+  res$value <- na_if_empty(res$value, ".")
+
+  metadata <- readLines(path, n = 10L)
+  duration <- extract_metadata(metadata, "^Time format code")
+  unit <- extract_metadata(metadata, "^unit,")
+  unit_multiplier <- extract_metadata(metadata, "^unit multiplier,")
+  category <- extract_metadata(metadata, "^category,")
+  last_update <- extract_metadata(metadata, "^last update,")
+  comment <- extract_metadata(metadata, "^Comment \\(in english\\),")
+  src <- extract_metadata(metadata, "^Source \\(in english\\),")
+
+  res$key <- key
+  res$category <- category
+  res$duration <- switch(duration,
+    P1M = "monthly",
+    P3M = "quarterly",
+    P1Y = "annual",
+    P1D = "daily"
+  )
+  res$unit <- unit
+  res$unit_multiplier <- unit_multiplier
+  res$last_update <- last_update
+  res$source <- src
+  res$comment <- comment
   as_tibble(res)
 }
 

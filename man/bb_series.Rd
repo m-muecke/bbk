@@ -15,6 +15,8 @@ Returns the time serie that is found with the specified time series key
 \examples{
 \donttest{
 bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
+bb_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
+bb_series("BBBK11.D.TTA000")
 }
 }
 \references{

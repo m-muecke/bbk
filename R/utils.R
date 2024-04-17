@@ -35,6 +35,15 @@ is_count_or_null <- function(x) {
   is.null(x) || is_count(x)
 }
 
-na_if_empty <- function(x) {
-  replace(x, x == "", NA_character_)
+na_if_empty <- function(x, empty = "") {
+  replace(x, x == empty, NA_character_)
+}
+
+extract_metadata <- function(string, pattern, fixed = FALSE) {
+  x <- grep(pattern, string, value = TRUE, fixed = fixed)
+  if (length(x) > 0L) {
+    strsplit(x, ",", fixed = TRUE)[[1L]][[2L]]
+  } else {
+    NA_character_
+  }
 }

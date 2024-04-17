@@ -75,47 +75,7 @@ bb_data <- function(flow,
     firstNObservations = first_n,
     lastNObservations = last_n
   )
-
-  freq <- body |>
-    xml2::xml_find_first("//generic:Value[@id='BBK_STD_FREQ']") |>
-    xml2::xml_attr("value")
-  freq <- switch(freq,
-    A = "annual",
-    S = "semi-annual",
-    Q = "quarterly",
-    M = "monthly",
-    W = "weekly",
-    D = "daily"
-  )
-
-  title <- body |>
-    xml2::xml_find_first("//generic:Value[@id='BBK_TITLE_ENG']") |>
-    xml2::xml_attr("value")
-  unit <- body |>
-    xml2::xml_find_first("//generic:Value[@id='UNIT_ENG']") |>
-    xml2::xml_attr("value")
-
-
-  entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
-  date <- entries |>
-    xml2::xml_find_all(".//generic:ObsDimension") |>
-    xml2::xml_attr("value")
-
-  date <- switch(freq,
-    daily = as.Date(date),
-    monthly = as.Date(paste0(date, "-01")),
-    annual = as.integer(date),
-    date
-  )
-
-  value <- entries |>
-    xml2::xml_find_all(".//generic:ObsValue") |>
-    xml2::xml_attr("value") |>
-    as.numeric()
-
-  data <- data.frame(
-    date = date, key = key, title = title, unit = unit, frequency = freq, value = value
-  )
+  data <- parse_bb_data(body, key)
   as_tibble(data)
 }
 
@@ -133,7 +93,7 @@ bb_data <- function(flow,
 #' }
 bb_series <- function(key) {
   stopifnot(is_string(key))
-  raw <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>
+  body <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>
     req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
     req_headers(
       `Accept-Language` = "en", accept = "application/vnd.bbk.data+csv-zip"
@@ -143,51 +103,8 @@ bb_series <- function(key) {
     req_perform() |>
     resp_body_raw()
 
-  tmp <- tempfile()
-  dir.create(tmp)
-  on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
-  tf <- file.path(tmp, "tempfile.zip")
-  writeBin(raw, tf)
-  utils::unzip(tf, exdir = tmp)
-
-  files <- list.files(tmp, full.names = TRUE)
-  path <- grep("\\.csv$", files, value = TRUE)[[1L]]
-
-  res <- read.csv(path, header = FALSE, skip = 11L)[, 1:2] |>
-    stats::setNames(c("date", "value"))
-  res$value <- na_if_empty(res$value, ".")
-
-  metadata <- readLines(path, n = 10L)
-  freq <- extract_metadata(metadata, "^Time format code")
-  unit <- extract_metadata(metadata, "^unit,")
-  unit_multiplier <- extract_metadata(metadata, "^unit multiplier,")
-  category <- extract_metadata(metadata, "^category,")
-  last_update <- extract_metadata(metadata, "^last update,")
-  comment <- extract_metadata(metadata, "^Comment \\(in english\\),")
-  comment <- sub("^[\"]", "", comment)
-  src <- extract_metadata(metadata, "^Source \\(in english\\),")
-
-  freq <- switch(freq,
-    P1M = "monthly",
-    P3M = "quarterly",
-    P1Y = "annual",
-    P1D = "daily"
-  )
-  res$date <- switch(freq,
-    daily = as.Date(res$date),
-    monthly = as.Date(paste0(res$date, "-01")),
-    annual = as.integer(res$date),
-    res$date
-  )
-  res$key <- key
-  res$category <- category
-  res$frequency <- freq
-  res$unit <- unit
-  res$unit_multiplier <- unit_multiplier
-  res$last_update <- last_update
-  res$source <- src
-  res$comment <- comment
-  as_tibble(res)
+  data <- parse_bb_series(body, key)
+  as_tibble(data)
 }
 
 #' Returns the available metadata
@@ -227,6 +144,49 @@ bb_metadata <- function(type, id = NULL, lang = c("en", "de")) {
   res
 }
 
+parse_bb_series <- function(body, key) {
+  tmp <- tempfile()
+  dir.create(tmp)
+  on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
+  tf <- file.path(tmp, "tempfile.zip")
+  writeBin(body, tf)
+  utils::unzip(tf, exdir = tmp)
+
+  files <- list.files(tmp, full.names = TRUE)
+  path <- grep("\\.csv$", files, value = TRUE)[[1L]]
+
+  res <- read.csv(path, header = FALSE, skip = 11L)[, 1:2] |>
+    stats::setNames(c("date", "value"))
+  res$value <- na_if_empty(res$value, ".")
+
+  metadata <- readLines(path, n = 10L)
+  freq <- extract_metadata(metadata, "^Time format code")
+  unit <- extract_metadata(metadata, "^unit,")
+  unit_multiplier <- extract_metadata(metadata, "^unit multiplier,")
+  category <- extract_metadata(metadata, "^category,")
+  last_update <- extract_metadata(metadata, "^last update,")
+  comment <- extract_metadata(metadata, "^Comment \\(in english\\),")
+  comment <- sub("^[\"]", "", comment)
+  src <- extract_metadata(metadata, "^Source \\(in english\\),")
+
+  freq <- switch(freq,
+    P1M = "monthly",
+    P3M = "quarterly",
+    P1Y = "annual",
+    P1D = "daily"
+  )
+  res$date <- parse_date(res$date, freq)
+  res$key <- key
+  res$category <- category
+  res$frequency <- freq
+  res$unit <- unit
+  res$unit_multiplier <- unit_multiplier
+  res$last_update <- last_update
+  res$source <- src
+  res$comment <- comment
+  res
+}
+
 parse_metadata <- function(x, lang) {
   res <- lapply(x, \(node) {
     id <- xml2::xml_attr(node, "id")
@@ -236,6 +196,52 @@ parse_metadata <- function(x, lang) {
     data.frame(id = id, name = nms)
   })
   do.call(rbind, res)
+}
+
+parse_bb_data <- function(body, key) {
+  freq <- body |>
+    xml2::xml_find_first("//generic:Value[@id='BBK_STD_FREQ']") |>
+    xml2::xml_attr("value")
+  freq <- switch(freq,
+    A = "annual",
+    S = "semi-annual",
+    Q = "quarterly",
+    M = "monthly",
+    W = "weekly",
+    D = "daily"
+  )
+
+  title <- body |>
+    xml2::xml_find_first("//generic:Value[@id='BBK_TITLE_ENG']") |>
+    xml2::xml_attr("value")
+  unit <- body |>
+    xml2::xml_find_first("//generic:Value[@id='UNIT_ENG']") |>
+    xml2::xml_attr("value")
+
+  entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
+  date <- entries |>
+    xml2::xml_find_all(".//generic:ObsDimension") |>
+    xml2::xml_attr("value") |>
+    parse_date(freq)
+
+  value <- entries |>
+    xml2::xml_find_all(".//generic:ObsValue") |>
+    xml2::xml_attr("value") |>
+    as.numeric()
+
+  data <- data.frame(
+    date = date, key = key, title = title, unit = unit, frequency = freq, value = value
+  )
+  data
+}
+
+parse_date <- function(date, freq) {
+  switch(freq,
+    daily = as.Date(date),
+    monthly = as.Date(paste0(date, "-01")),
+    annual = as.integer(date),
+    date
+  )
 }
 
 bb_error_body <- function(resp) {

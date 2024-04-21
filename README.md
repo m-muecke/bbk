@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# bundesbank
+# bbk
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 R Client for the
@@ -16,21 +16,21 @@ SDMX Web Service API.
 
 ## Installation
 
-You can install the development version of bundesbank from
+You can install the development version of bbk from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("m-muecke/bundesbank")
+pak::pak("m-muecke/bbk")
 ```
 
 ## Usage
 
-bundesbank functions are prefixed with `bb_` and follow the naming
-convention of the API.
+bbk functions are prefixed with `bb_` and follow the naming convention
+of the API.
 
 ``` r
-library(bundesbank)
+library(bbk)
 
 # fetch 10 year daily yield curve
 yield_curve <- bb_data(

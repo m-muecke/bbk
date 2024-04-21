@@ -67,7 +67,6 @@ bb_data <- function(flow,
     key <- toupper(key)
     resource <- sprintf("data/%s/%s", flow, key)
   }
-  # TODO: check if there are additional fields
   body <- bundesbank(
     resource = resource,
     startPeriod = start_period,

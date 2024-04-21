@@ -7,7 +7,7 @@ is_installed <- function(pkg) {
 }
 
 as_tibble <- function(x) {
-  if (getOption("bundesbank.use_tibble", TRUE) && is_installed("tibble")) {
+  if (getOption("bbk.use_tibble", TRUE) && is_installed("tibble")) {
     tibble::as_tibble(x)
   } else {
     x

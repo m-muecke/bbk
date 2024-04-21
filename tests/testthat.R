@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(bundesbank)
+library(bbk)
 
-test_check("bundesbank")
+test_check("bbk")

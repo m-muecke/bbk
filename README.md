@@ -36,15 +36,15 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,096 × 6
-#>   date       key                                     title unit  frequency value
-#>   <date>     <chr>                                   <chr> <chr> <chr>     <dbl>
-#> 1 2020-01-02 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.16
-#> 2 2020-01-03 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
-#> 3 2020-01-06 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
-#> 4 2020-01-07 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
-#> 5 2020-01-08 D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.… Yiel… perc… daily     -0.27
-#> # ℹ 1,091 more rows
+#> # A tibble: 1,098 × 8
+#>   date       key            title category unit  unit_multiplier frequency value
+#>   <date>     <chr>          <chr> <chr>    <chr> <chr>           <chr>     <dbl>
+#> 1 2020-01-02 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.16
+#> 2 2020-01-03 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
+#> 3 2020-01-06 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
+#> 4 2020-01-07 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
+#> 5 2020-01-08 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
+#> # ℹ 1,093 more rows
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />

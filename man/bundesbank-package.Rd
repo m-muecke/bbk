@@ -4,9 +4,9 @@
 \name{bundesbank-package}
 \alias{bundesbank}
 \alias{bundesbank-package}
-\title{bundesbank: Bundesbank Bank API Wrapper}
+\title{bundesbank: Client for the Bundesbank API}
 \description{
-Download data from the Bundesbank API.
+Download data and metadata from the Bundesbank SDMX Web Service API found at: \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
 }
 \seealso{
 Useful links:

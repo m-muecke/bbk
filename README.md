@@ -10,9 +10,9 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bundesbank/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of bundesbank is to provide a simple interface to the
-[Bundesbank
-API](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service).
+R Client for the
+[Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
+SDMX Web Service API.
 
 ## Installation
 
@@ -25,6 +25,9 @@ pak::pak("m-muecke/bundesbank")
 ```
 
 ## Usage
+
+bundesbank functions are prefixed with `bb_` and follow the naming
+convention of the API.
 
 ``` r
 library(bundesbank)

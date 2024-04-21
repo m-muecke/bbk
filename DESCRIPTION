@@ -1,10 +1,12 @@
 Package: bundesbank
-Title: Bundesbank Bank API Wrapper
+Title: Client for the Bundesbank API
 Version: 0.0.1
 Authors@R:
     person("Maximilian", "Muecke", , "muecke.maximilian@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0000-9432-9795"))
-Description: Download data from the Bundesbank API.
+Description: Download data and metadata from the Bundesbank SDMX Web
+    Service API found at:
+    <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 License: MIT + file LICENSE
 URL: https://m-muecke.github.io/bundesbank/,
     https://github.com/m-muecke/bundesbank

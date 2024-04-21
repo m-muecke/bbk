@@ -35,6 +35,39 @@ test_that("bb_data input validation works", {
   expect_error(bb_data("abcde", "abc", last_n = 0L))
 })
 
+test_that("parse_bb_data works", {
+  body <- xml2::read_xml(test_path("fixtures", "bb-data.xml"))
+  actual <- parse_bb_data(body, "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+  nms <- c(
+    "date", "key", "title", "category", "unit", "unit_multiplier", "frequency", "value"
+  )
+  expect_s3_class(actual, "data.frame")
+  expect_named(actual, nms)
+  expect_gt(nrow(actual), 0)
+  expect_identical(
+    unique(actual$key), "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+  )
+  expect_s3_class(actual$date, "Date")
+})
+
+test_that("parse_bb_series works", {
+  body <- readRDS(test_path("fixtures", "bb-series.rds"))
+  actual <- parse_bb_series(
+    body, "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+  )
+  nms <- c(
+    "date", "key", "title", "category", "unit", "unit_multiplier", "frequency",
+    "last_update", "source", "comment", "value"
+  )
+  expect_s3_class(actual, "data.frame")
+  expect_named(actual, nms)
+  expect_gt(nrow(actual), 0)
+  expect_identical(
+    unique(actual$key), "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+  )
+  expect_s3_class(actual$date, "Date")
+})
+
 test_that("bb_series input validation works", {
   expect_error(bb_series(1L))
   expect_error(bb_series(character(0L)))

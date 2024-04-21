@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<message:GenericData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generic="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/generic" xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common" xsi:schemaLocation="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common https://registry.sdmx.org/schemas/v2_1/SDMXCommon.xsd http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message https://registry.sdmx.org/schemas/v2_1/SDMXMessage.xsd http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/generic https://registry.sdmx.org/schemas/v2_1/SDMXDataGeneric.xsd">
+<message:GenericData xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common" xmlns:generic="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/generic" xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common https://registry.sdmx.org/schemas/v2_1/SDMXCommon.xsd http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message https://registry.sdmx.org/schemas/v2_1/SDMXMessage.xsd http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/generic https://registry.sdmx.org/schemas/v2_1/SDMXDataGeneric.xsd">
   <message:Header>
     <message:ID>BBSIS_D_I_ZAR_ZI_EUR_S1311_B_A604_R10XX_R_A_A__Z__Z_A</message:ID>
     <message:Test>false</message:Test>
@@ -10,1471 +10,1471 @@
         <message:Email>presse-information@bundesbank.de</message:Email>
       </message:Contact>
     </message:Sender>
-    <message:Structure structureID="BBK_SEIS" dimensionAtObservation="TIME_PERIOD">
+    <message:Structure dimensionAtObservation="TIME_PERIOD" structureID="BBK_SEIS">
       <common:Structure>
         <URN>urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=BBK:BBK_SEIS(1.0)</URN>
       </common:Structure>
     </message:Structure>
   </message:Header>
-  <message:DataSet structureRef="BBK_SEIS" setID="BBSIS" action="Replace" validFromDate="2024-04-17T12:37:07.548+02:00">
+  <message:DataSet action="Replace" setID="BBSIS" structureRef="BBK_SEIS" validFromDate="2024-04-17T12:37:07.548+02:00">
     <generic:Series>
       <generic:SeriesKey>
-        <generic:Value id="BBK_STD_FREQ" value="D"/>
-        <generic:Value id="BBK_SEIS_BEARER_REG" value="I"/>
-        <generic:Value id="BBK_SEIS_ITEM" value="ZAR"/>
-        <generic:Value id="BBK_SEIS_VALUATION" value="ZI"/>
-        <generic:Value id="BBK_STD_CURRENCY" value="EUR"/>
-        <generic:Value id="BBK_SEIS_ISSUER_CLASS" value="S1311"/>
-        <generic:Value id="BBK_SEIS_LISTED_SUB" value="B"/>
-        <generic:Value id="BBK_SEIS_SECURITY_CLASS" value="A604"/>
-        <generic:Value id="BBK_SEIS_MATURITY" value="R10XX"/>
-        <generic:Value id="BBK_SEIS_INTEREST_TYPE" value="R"/>
-        <generic:Value id="BBK_SEIS_INTEREST_RATE" value="A"/>
-        <generic:Value id="BBK_SEIS_REDEMPTION" value="A"/>
-        <generic:Value id="BBK_SEIS_CERTIFICATE" value="_Z"/>
-        <generic:Value id="BBK_SEIS_COVERAGE" value="_Z"/>
-        <generic:Value id="BBK_SEIS_RATING" value="A"/>
+        <generic:Value id="BBK_STD_FREQ" value="D"></generic:Value>
+        <generic:Value id="BBK_SEIS_BEARER_REG" value="I"></generic:Value>
+        <generic:Value id="BBK_SEIS_ITEM" value="ZAR"></generic:Value>
+        <generic:Value id="BBK_SEIS_VALUATION" value="ZI"></generic:Value>
+        <generic:Value id="BBK_STD_CURRENCY" value="EUR"></generic:Value>
+        <generic:Value id="BBK_SEIS_ISSUER_CLASS" value="S1311"></generic:Value>
+        <generic:Value id="BBK_SEIS_LISTED_SUB" value="B"></generic:Value>
+        <generic:Value id="BBK_SEIS_SECURITY_CLASS" value="A604"></generic:Value>
+        <generic:Value id="BBK_SEIS_MATURITY" value="R10XX"></generic:Value>
+        <generic:Value id="BBK_SEIS_INTEREST_TYPE" value="R"></generic:Value>
+        <generic:Value id="BBK_SEIS_INTEREST_RATE" value="A"></generic:Value>
+        <generic:Value id="BBK_SEIS_REDEMPTION" value="A"></generic:Value>
+        <generic:Value id="BBK_SEIS_CERTIFICATE" value="_Z"></generic:Value>
+        <generic:Value id="BBK_SEIS_COVERAGE" value="_Z"></generic:Value>
+        <generic:Value id="BBK_SEIS_RATING" value="A"></generic:Value>
       </generic:SeriesKey>
       <generic:Attributes>
-        <generic:Value id="TIME_FORMAT" value="P1D"/>
-        <generic:Value id="BBK_DECIMALS" value="2"/>
-        <generic:Value id="BBK_ID" value="BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"/>
-        <generic:Value id="BBK_UNIT" value="PROZENT"/>
-        <generic:Value id="BBK_UNIT_MULT" value="0"/>
-        <generic:Value id="BBK_TITLE_ENG" value="Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data"/>
-        <generic:Value id="WEB_CATEGORY" value="GKZR"/>
-        <generic:Value id="UNIT_ENG" value="percent"/>
+        <generic:Value id="TIME_FORMAT" value="P1D"></generic:Value>
+        <generic:Value id="BBK_DECIMALS" value="2"></generic:Value>
+        <generic:Value id="BBK_ID" value="BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"></generic:Value>
+        <generic:Value id="BBK_UNIT" value="PROZENT"></generic:Value>
+        <generic:Value id="BBK_UNIT_MULT" value="0"></generic:Value>
+        <generic:Value id="BBK_TITLE_ENG" value="Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data"></generic:Value>
+        <generic:Value id="WEB_CATEGORY" value="GKZR"></generic:Value>
+        <generic:Value id="UNIT_ENG" value="percent"></generic:Value>
       </generic:Attributes>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-01"/>
+        <generic:ObsDimension value="2020-01-01"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-02"/>
-        <generic:ObsValue value="-0.16"/>
+        <generic:ObsDimension value="2020-01-02"></generic:ObsDimension>
+        <generic:ObsValue value="-0.16"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-03"/>
-        <generic:ObsValue value="-0.27"/>
+        <generic:ObsDimension value="2020-01-03"></generic:ObsDimension>
+        <generic:ObsValue value="-0.27"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.11"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.11"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-04"/>
+        <generic:ObsDimension value="2020-01-04"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-05"/>
+        <generic:ObsDimension value="2020-01-05"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-06"/>
-        <generic:ObsValue value="-0.27"/>
+        <generic:ObsDimension value="2020-01-06"></generic:ObsDimension>
+        <generic:ObsValue value="-0.27"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-07"/>
-        <generic:ObsValue value="-0.27"/>
+        <generic:ObsDimension value="2020-01-07"></generic:ObsDimension>
+        <generic:ObsValue value="-0.27"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-08"/>
-        <generic:ObsValue value="-0.27"/>
+        <generic:ObsDimension value="2020-01-08"></generic:ObsDimension>
+        <generic:ObsValue value="-0.27"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-09"/>
-        <generic:ObsValue value="-0.22"/>
+        <generic:ObsDimension value="2020-01-09"></generic:ObsDimension>
+        <generic:ObsValue value="-0.22"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-10"/>
-        <generic:ObsValue value="-0.20"/>
+        <generic:ObsDimension value="2020-01-10"></generic:ObsDimension>
+        <generic:ObsValue value="-0.20"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-11"/>
+        <generic:ObsDimension value="2020-01-11"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-12"/>
+        <generic:ObsDimension value="2020-01-12"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-13"/>
-        <generic:ObsValue value="-0.19"/>
+        <generic:ObsDimension value="2020-01-13"></generic:ObsDimension>
+        <generic:ObsValue value="-0.19"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-14"/>
-        <generic:ObsValue value="-0.17"/>
+        <generic:ObsDimension value="2020-01-14"></generic:ObsDimension>
+        <generic:ObsValue value="-0.17"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-15"/>
-        <generic:ObsValue value="-0.22"/>
+        <generic:ObsDimension value="2020-01-15"></generic:ObsDimension>
+        <generic:ObsValue value="-0.22"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-16"/>
-        <generic:ObsValue value="-0.23"/>
+        <generic:ObsDimension value="2020-01-16"></generic:ObsDimension>
+        <generic:ObsValue value="-0.23"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-17"/>
-        <generic:ObsValue value="-0.23"/>
+        <generic:ObsDimension value="2020-01-17"></generic:ObsDimension>
+        <generic:ObsValue value="-0.23"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-18"/>
+        <generic:ObsDimension value="2020-01-18"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-19"/>
+        <generic:ObsDimension value="2020-01-19"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-20"/>
-        <generic:ObsValue value="-0.23"/>
+        <generic:ObsDimension value="2020-01-20"></generic:ObsDimension>
+        <generic:ObsValue value="-0.23"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-21"/>
-        <generic:ObsValue value="-0.24"/>
+        <generic:ObsDimension value="2020-01-21"></generic:ObsDimension>
+        <generic:ObsValue value="-0.24"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-22"/>
-        <generic:ObsValue value="-0.25"/>
+        <generic:ObsDimension value="2020-01-22"></generic:ObsDimension>
+        <generic:ObsValue value="-0.25"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-23"/>
-        <generic:ObsValue value="-0.27"/>
+        <generic:ObsDimension value="2020-01-23"></generic:ObsDimension>
+        <generic:ObsValue value="-0.27"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-24"/>
-        <generic:ObsValue value="-0.31"/>
+        <generic:ObsDimension value="2020-01-24"></generic:ObsDimension>
+        <generic:ObsValue value="-0.31"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-25"/>
+        <generic:ObsDimension value="2020-01-25"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-26"/>
+        <generic:ObsDimension value="2020-01-26"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-27"/>
-        <generic:ObsValue value="-0.38"/>
+        <generic:ObsDimension value="2020-01-27"></generic:ObsDimension>
+        <generic:ObsValue value="-0.38"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.07"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.07"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-28"/>
-        <generic:ObsValue value="-0.41"/>
+        <generic:ObsDimension value="2020-01-28"></generic:ObsDimension>
+        <generic:ObsValue value="-0.41"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-29"/>
-        <generic:ObsValue value="-0.38"/>
+        <generic:ObsDimension value="2020-01-29"></generic:ObsDimension>
+        <generic:ObsValue value="-0.38"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-30"/>
-        <generic:ObsValue value="-0.40"/>
+        <generic:ObsDimension value="2020-01-30"></generic:ObsDimension>
+        <generic:ObsValue value="-0.40"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-01-31"/>
-        <generic:ObsValue value="-0.42"/>
+        <generic:ObsDimension value="2020-01-31"></generic:ObsDimension>
+        <generic:ObsValue value="-0.42"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-01"/>
+        <generic:ObsDimension value="2020-02-01"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-02"/>
+        <generic:ObsDimension value="2020-02-02"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-03"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-02-03"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-04"/>
-        <generic:ObsValue value="-0.42"/>
+        <generic:ObsDimension value="2020-02-04"></generic:ObsDimension>
+        <generic:ObsValue value="-0.42"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-05"/>
-        <generic:ObsValue value="-0.37"/>
+        <generic:ObsDimension value="2020-02-05"></generic:ObsDimension>
+        <generic:ObsValue value="-0.37"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-06"/>
-        <generic:ObsValue value="-0.37"/>
+        <generic:ObsDimension value="2020-02-06"></generic:ObsDimension>
+        <generic:ObsValue value="-0.37"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-07"/>
-        <generic:ObsValue value="-0.39"/>
+        <generic:ObsDimension value="2020-02-07"></generic:ObsDimension>
+        <generic:ObsValue value="-0.39"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-08"/>
+        <generic:ObsDimension value="2020-02-08"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-09"/>
+        <generic:ObsDimension value="2020-02-09"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-10"/>
-        <generic:ObsValue value="-0.40"/>
+        <generic:ObsDimension value="2020-02-10"></generic:ObsDimension>
+        <generic:ObsValue value="-0.40"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-11"/>
-        <generic:ObsValue value="-0.37"/>
+        <generic:ObsDimension value="2020-02-11"></generic:ObsDimension>
+        <generic:ObsValue value="-0.37"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-12"/>
-        <generic:ObsValue value="-0.37"/>
+        <generic:ObsDimension value="2020-02-12"></generic:ObsDimension>
+        <generic:ObsValue value="-0.37"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-13"/>
-        <generic:ObsValue value="-0.42"/>
+        <generic:ObsDimension value="2020-02-13"></generic:ObsDimension>
+        <generic:ObsValue value="-0.42"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-14"/>
-        <generic:ObsValue value="-0.41"/>
+        <generic:ObsDimension value="2020-02-14"></generic:ObsDimension>
+        <generic:ObsValue value="-0.41"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-15"/>
+        <generic:ObsDimension value="2020-02-15"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-16"/>
+        <generic:ObsDimension value="2020-02-16"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-17"/>
-        <generic:ObsValue value="-0.41"/>
+        <generic:ObsDimension value="2020-02-17"></generic:ObsDimension>
+        <generic:ObsValue value="-0.41"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-18"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-02-18"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-19"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-02-19"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-20"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-02-20"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-21"/>
-        <generic:ObsValue value="-0.44"/>
+        <generic:ObsDimension value="2020-02-21"></generic:ObsDimension>
+        <generic:ObsValue value="-0.44"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-22"/>
+        <generic:ObsDimension value="2020-02-22"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-23"/>
+        <generic:ObsDimension value="2020-02-23"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-24"/>
-        <generic:ObsValue value="-0.49"/>
+        <generic:ObsDimension value="2020-02-24"></generic:ObsDimension>
+        <generic:ObsValue value="-0.49"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-25"/>
-        <generic:ObsValue value="-0.51"/>
+        <generic:ObsDimension value="2020-02-25"></generic:ObsDimension>
+        <generic:ObsValue value="-0.51"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-26"/>
-        <generic:ObsValue value="-0.52"/>
+        <generic:ObsDimension value="2020-02-26"></generic:ObsDimension>
+        <generic:ObsValue value="-0.52"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-27"/>
-        <generic:ObsValue value="-0.52"/>
+        <generic:ObsDimension value="2020-02-27"></generic:ObsDimension>
+        <generic:ObsValue value="-0.52"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-28"/>
-        <generic:ObsValue value="-0.61"/>
+        <generic:ObsDimension value="2020-02-28"></generic:ObsDimension>
+        <generic:ObsValue value="-0.61"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.09"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.09"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-02-29"/>
+        <generic:ObsDimension value="2020-02-29"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-01"/>
+        <generic:ObsDimension value="2020-03-01"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-02"/>
-        <generic:ObsValue value="-0.62"/>
+        <generic:ObsDimension value="2020-03-02"></generic:ObsDimension>
+        <generic:ObsValue value="-0.62"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-03"/>
-        <generic:ObsValue value="-0.58"/>
+        <generic:ObsDimension value="2020-03-03"></generic:ObsDimension>
+        <generic:ObsValue value="-0.58"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-04"/>
-        <generic:ObsValue value="-0.64"/>
+        <generic:ObsDimension value="2020-03-04"></generic:ObsDimension>
+        <generic:ObsValue value="-0.64"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.06"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.06"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-05"/>
-        <generic:ObsValue value="-0.62"/>
+        <generic:ObsDimension value="2020-03-05"></generic:ObsDimension>
+        <generic:ObsValue value="-0.62"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-06"/>
-        <generic:ObsValue value="-0.72"/>
+        <generic:ObsDimension value="2020-03-06"></generic:ObsDimension>
+        <generic:ObsValue value="-0.72"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.10"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.10"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-07"/>
+        <generic:ObsDimension value="2020-03-07"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-08"/>
+        <generic:ObsDimension value="2020-03-08"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-09"/>
-        <generic:ObsValue value="-0.85"/>
+        <generic:ObsDimension value="2020-03-09"></generic:ObsDimension>
+        <generic:ObsValue value="-0.85"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.13"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.13"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-10"/>
-        <generic:ObsValue value="-0.76"/>
+        <generic:ObsDimension value="2020-03-10"></generic:ObsDimension>
+        <generic:ObsValue value="-0.76"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.09"/>
+          <generic:Value id="BBK_DIFF_A" value="0.09"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-11"/>
-        <generic:ObsValue value="-0.78"/>
+        <generic:ObsDimension value="2020-03-11"></generic:ObsDimension>
+        <generic:ObsValue value="-0.78"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-12"/>
-        <generic:ObsValue value="-0.81"/>
+        <generic:ObsDimension value="2020-03-12"></generic:ObsDimension>
+        <generic:ObsValue value="-0.81"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-13"/>
-        <generic:ObsValue value="-0.64"/>
+        <generic:ObsDimension value="2020-03-13"></generic:ObsDimension>
+        <generic:ObsValue value="-0.64"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.17"/>
+          <generic:Value id="BBK_DIFF_A" value="0.17"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-14"/>
+        <generic:ObsDimension value="2020-03-14"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-15"/>
+        <generic:ObsDimension value="2020-03-15"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-16"/>
-        <generic:ObsValue value="-0.57"/>
+        <generic:ObsDimension value="2020-03-16"></generic:ObsDimension>
+        <generic:ObsValue value="-0.57"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.07"/>
+          <generic:Value id="BBK_DIFF_A" value="0.07"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-17"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-03-17"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.14"/>
+          <generic:Value id="BBK_DIFF_A" value="0.14"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-18"/>
-        <generic:ObsValue value="-0.27"/>
+        <generic:ObsDimension value="2020-03-18"></generic:ObsDimension>
+        <generic:ObsValue value="-0.27"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.16"/>
+          <generic:Value id="BBK_DIFF_A" value="0.16"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-19"/>
-        <generic:ObsValue value="-0.28"/>
+        <generic:ObsDimension value="2020-03-19"></generic:ObsDimension>
+        <generic:ObsValue value="-0.28"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-20"/>
-        <generic:ObsValue value="-0.28"/>
+        <generic:ObsDimension value="2020-03-20"></generic:ObsDimension>
+        <generic:ObsValue value="-0.28"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-21"/>
+        <generic:ObsDimension value="2020-03-21"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-22"/>
+        <generic:ObsDimension value="2020-03-22"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-23"/>
-        <generic:ObsValue value="-0.38"/>
+        <generic:ObsDimension value="2020-03-23"></generic:ObsDimension>
+        <generic:ObsValue value="-0.38"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.10"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.10"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-24"/>
-        <generic:ObsValue value="-0.38"/>
+        <generic:ObsDimension value="2020-03-24"></generic:ObsDimension>
+        <generic:ObsValue value="-0.38"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-25"/>
-        <generic:ObsValue value="-0.29"/>
+        <generic:ObsDimension value="2020-03-25"></generic:ObsDimension>
+        <generic:ObsValue value="-0.29"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.09"/>
+          <generic:Value id="BBK_DIFF_A" value="0.09"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-26"/>
-        <generic:ObsValue value="-0.30"/>
+        <generic:ObsDimension value="2020-03-26"></generic:ObsDimension>
+        <generic:ObsValue value="-0.30"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-27"/>
-        <generic:ObsValue value="-0.44"/>
+        <generic:ObsDimension value="2020-03-27"></generic:ObsDimension>
+        <generic:ObsValue value="-0.44"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.14"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.14"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-28"/>
+        <generic:ObsDimension value="2020-03-28"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-29"/>
+        <generic:ObsDimension value="2020-03-29"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-30"/>
-        <generic:ObsValue value="-0.52"/>
+        <generic:ObsDimension value="2020-03-30"></generic:ObsDimension>
+        <generic:ObsValue value="-0.52"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.08"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.08"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-03-31"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-03-31"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-01"/>
-        <generic:ObsValue value="-0.50"/>
+        <generic:ObsDimension value="2020-04-01"></generic:ObsDimension>
+        <generic:ObsValue value="-0.50"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-02"/>
-        <generic:ObsValue value="-0.42"/>
+        <generic:ObsDimension value="2020-04-02"></generic:ObsDimension>
+        <generic:ObsValue value="-0.42"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.08"/>
+          <generic:Value id="BBK_DIFF_A" value="0.08"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-03"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-04-03"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-04"/>
+        <generic:ObsDimension value="2020-04-04"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-05"/>
+        <generic:ObsDimension value="2020-04-05"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-06"/>
-        <generic:ObsValue value="-0.44"/>
+        <generic:ObsDimension value="2020-04-06"></generic:ObsDimension>
+        <generic:ObsValue value="-0.44"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-07"/>
-        <generic:ObsValue value="-0.37"/>
+        <generic:ObsDimension value="2020-04-07"></generic:ObsDimension>
+        <generic:ObsValue value="-0.37"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.07"/>
+          <generic:Value id="BBK_DIFF_A" value="0.07"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-08"/>
-        <generic:ObsValue value="-0.34"/>
+        <generic:ObsDimension value="2020-04-08"></generic:ObsDimension>
+        <generic:ObsValue value="-0.34"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-09"/>
-        <generic:ObsValue value="-0.30"/>
+        <generic:ObsDimension value="2020-04-09"></generic:ObsDimension>
+        <generic:ObsValue value="-0.30"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-10"/>
+        <generic:ObsDimension value="2020-04-10"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-11"/>
+        <generic:ObsDimension value="2020-04-11"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-12"/>
+        <generic:ObsDimension value="2020-04-12"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-13"/>
+        <generic:ObsDimension value="2020-04-13"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-14"/>
-        <generic:ObsValue value="-0.35"/>
+        <generic:ObsDimension value="2020-04-14"></generic:ObsDimension>
+        <generic:ObsValue value="-0.35"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-15"/>
-        <generic:ObsValue value="-0.41"/>
+        <generic:ObsDimension value="2020-04-15"></generic:ObsDimension>
+        <generic:ObsValue value="-0.41"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.06"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.06"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-16"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-04-16"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-17"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-04-17"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-18"/>
+        <generic:ObsDimension value="2020-04-18"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-19"/>
+        <generic:ObsDimension value="2020-04-19"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-20"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-04-20"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-21"/>
-        <generic:ObsValue value="-0.46"/>
+        <generic:ObsDimension value="2020-04-21"></generic:ObsDimension>
+        <generic:ObsValue value="-0.46"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-22"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-04-22"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-23"/>
-        <generic:ObsValue value="-0.40"/>
+        <generic:ObsDimension value="2020-04-23"></generic:ObsDimension>
+        <generic:ObsValue value="-0.40"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-24"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-04-24"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-25"/>
+        <generic:ObsDimension value="2020-04-25"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-26"/>
+        <generic:ObsDimension value="2020-04-26"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-27"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-04-27"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-28"/>
-        <generic:ObsValue value="-0.44"/>
+        <generic:ObsDimension value="2020-04-28"></generic:ObsDimension>
+        <generic:ObsValue value="-0.44"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-29"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-04-29"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-04-30"/>
-        <generic:ObsValue value="-0.50"/>
+        <generic:ObsDimension value="2020-04-30"></generic:ObsDimension>
+        <generic:ObsValue value="-0.50"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-01"/>
+        <generic:ObsDimension value="2020-05-01"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-02"/>
+        <generic:ObsDimension value="2020-05-02"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-03"/>
+        <generic:ObsDimension value="2020-05-03"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-04"/>
-        <generic:ObsValue value="-0.56"/>
+        <generic:ObsDimension value="2020-05-04"></generic:ObsDimension>
+        <generic:ObsValue value="-0.56"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.06"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.06"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-05"/>
-        <generic:ObsValue value="-0.52"/>
+        <generic:ObsDimension value="2020-05-05"></generic:ObsDimension>
+        <generic:ObsValue value="-0.52"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-06"/>
-        <generic:ObsValue value="-0.53"/>
+        <generic:ObsDimension value="2020-05-06"></generic:ObsDimension>
+        <generic:ObsValue value="-0.53"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-07"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-05-07"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.06"/>
+          <generic:Value id="BBK_DIFF_A" value="0.06"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-08"/>
-        <generic:ObsValue value="-0.54"/>
+        <generic:ObsDimension value="2020-05-08"></generic:ObsDimension>
+        <generic:ObsValue value="-0.54"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.07"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.07"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-09"/>
+        <generic:ObsDimension value="2020-05-09"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-10"/>
+        <generic:ObsDimension value="2020-05-10"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-11"/>
-        <generic:ObsValue value="-0.49"/>
+        <generic:ObsDimension value="2020-05-11"></generic:ObsDimension>
+        <generic:ObsValue value="-0.49"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-12"/>
-        <generic:ObsValue value="-0.48"/>
+        <generic:ObsDimension value="2020-05-12"></generic:ObsDimension>
+        <generic:ObsValue value="-0.48"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-13"/>
-        <generic:ObsValue value="-0.51"/>
+        <generic:ObsDimension value="2020-05-13"></generic:ObsDimension>
+        <generic:ObsValue value="-0.51"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-14"/>
-        <generic:ObsValue value="-0.53"/>
+        <generic:ObsDimension value="2020-05-14"></generic:ObsDimension>
+        <generic:ObsValue value="-0.53"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-15"/>
-        <generic:ObsValue value="-0.53"/>
+        <generic:ObsDimension value="2020-05-15"></generic:ObsDimension>
+        <generic:ObsValue value="-0.53"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-16"/>
+        <generic:ObsDimension value="2020-05-16"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-17"/>
+        <generic:ObsDimension value="2020-05-17"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-18"/>
-        <generic:ObsValue value="-0.54"/>
+        <generic:ObsDimension value="2020-05-18"></generic:ObsDimension>
+        <generic:ObsValue value="-0.54"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-19"/>
-        <generic:ObsValue value="-0.46"/>
+        <generic:ObsDimension value="2020-05-19"></generic:ObsDimension>
+        <generic:ObsValue value="-0.46"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.08"/>
+          <generic:Value id="BBK_DIFF_A" value="0.08"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-20"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-05-20"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-21"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-05-21"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-22"/>
-        <generic:ObsValue value="-0.48"/>
+        <generic:ObsDimension value="2020-05-22"></generic:ObsDimension>
+        <generic:ObsValue value="-0.48"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-23"/>
+        <generic:ObsDimension value="2020-05-23"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-24"/>
+        <generic:ObsDimension value="2020-05-24"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-25"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-05-25"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-26"/>
-        <generic:ObsValue value="-0.41"/>
+        <generic:ObsDimension value="2020-05-26"></generic:ObsDimension>
+        <generic:ObsValue value="-0.41"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.06"/>
+          <generic:Value id="BBK_DIFF_A" value="0.06"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-27"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-05-27"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-28"/>
-        <generic:ObsValue value="-0.40"/>
+        <generic:ObsDimension value="2020-05-28"></generic:ObsDimension>
+        <generic:ObsValue value="-0.40"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-29"/>
-        <generic:ObsValue value="-0.40"/>
+        <generic:ObsDimension value="2020-05-29"></generic:ObsDimension>
+        <generic:ObsValue value="-0.40"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-30"/>
+        <generic:ObsDimension value="2020-05-30"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-05-31"/>
+        <generic:ObsDimension value="2020-05-31"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-01"/>
+        <generic:ObsDimension value="2020-06-01"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-02"/>
-        <generic:ObsValue value="-0.39"/>
+        <generic:ObsDimension value="2020-06-02"></generic:ObsDimension>
+        <generic:ObsValue value="-0.39"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-03"/>
-        <generic:ObsValue value="-0.36"/>
+        <generic:ObsDimension value="2020-06-03"></generic:ObsDimension>
+        <generic:ObsValue value="-0.36"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-04"/>
-        <generic:ObsValue value="-0.33"/>
+        <generic:ObsDimension value="2020-06-04"></generic:ObsDimension>
+        <generic:ObsValue value="-0.33"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-05"/>
-        <generic:ObsValue value="-0.28"/>
+        <generic:ObsDimension value="2020-06-05"></generic:ObsDimension>
+        <generic:ObsValue value="-0.28"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-06"/>
+        <generic:ObsDimension value="2020-06-06"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-07"/>
+        <generic:ObsDimension value="2020-06-07"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-08"/>
-        <generic:ObsValue value="-0.25"/>
+        <generic:ObsDimension value="2020-06-08"></generic:ObsDimension>
+        <generic:ObsValue value="-0.25"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-09"/>
-        <generic:ObsValue value="-0.31"/>
+        <generic:ObsDimension value="2020-06-09"></generic:ObsDimension>
+        <generic:ObsValue value="-0.31"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.06"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.06"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-10"/>
-        <generic:ObsValue value="-0.30"/>
+        <generic:ObsDimension value="2020-06-10"></generic:ObsDimension>
+        <generic:ObsValue value="-0.30"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-11"/>
-        <generic:ObsValue value="-0.36"/>
+        <generic:ObsDimension value="2020-06-11"></generic:ObsDimension>
+        <generic:ObsValue value="-0.36"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.06"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.06"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-12"/>
-        <generic:ObsValue value="-0.39"/>
+        <generic:ObsDimension value="2020-06-12"></generic:ObsDimension>
+        <generic:ObsValue value="-0.39"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-13"/>
+        <generic:ObsDimension value="2020-06-13"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-14"/>
+        <generic:ObsDimension value="2020-06-14"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-15"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-06-15"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-16"/>
-        <generic:ObsValue value="-0.40"/>
+        <generic:ObsDimension value="2020-06-16"></generic:ObsDimension>
+        <generic:ObsValue value="-0.40"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-17"/>
-        <generic:ObsValue value="-0.37"/>
+        <generic:ObsDimension value="2020-06-17"></generic:ObsDimension>
+        <generic:ObsValue value="-0.37"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-18"/>
-        <generic:ObsValue value="-0.40"/>
+        <generic:ObsDimension value="2020-06-18"></generic:ObsDimension>
+        <generic:ObsValue value="-0.40"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-19"/>
-        <generic:ObsValue value="-0.42"/>
+        <generic:ObsDimension value="2020-06-19"></generic:ObsDimension>
+        <generic:ObsValue value="-0.42"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-20"/>
+        <generic:ObsDimension value="2020-06-20"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-21"/>
+        <generic:ObsDimension value="2020-06-21"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-22"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-06-22"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-23"/>
-        <generic:ObsValue value="-0.43"/>
+        <generic:ObsDimension value="2020-06-23"></generic:ObsDimension>
+        <generic:ObsValue value="-0.43"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-24"/>
-        <generic:ObsValue value="-0.42"/>
+        <generic:ObsDimension value="2020-06-24"></generic:ObsDimension>
+        <generic:ObsValue value="-0.42"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-25"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-06-25"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.05"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.05"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-26"/>
-        <generic:ObsValue value="-0.49"/>
+        <generic:ObsDimension value="2020-06-26"></generic:ObsDimension>
+        <generic:ObsValue value="-0.49"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-27"/>
+        <generic:ObsDimension value="2020-06-27"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-28"/>
+        <generic:ObsDimension value="2020-06-28"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-29"/>
-        <generic:ObsValue value="-0.48"/>
+        <generic:ObsDimension value="2020-06-29"></generic:ObsDimension>
+        <generic:ObsValue value="-0.48"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-06-30"/>
-        <generic:ObsValue value="-0.49"/>
+        <generic:ObsDimension value="2020-06-30"></generic:ObsDimension>
+        <generic:ObsValue value="-0.49"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-01"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-07-01"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-02"/>
-        <generic:ObsValue value="-0.41"/>
+        <generic:ObsDimension value="2020-07-02"></generic:ObsDimension>
+        <generic:ObsValue value="-0.41"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-03"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-07-03"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-04"/>
+        <generic:ObsDimension value="2020-07-04"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-05"/>
+        <generic:ObsDimension value="2020-07-05"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-06"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-07-06"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-07"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-07-07"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-08"/>
-        <generic:ObsValue value="-0.46"/>
+        <generic:ObsDimension value="2020-07-08"></generic:ObsDimension>
+        <generic:ObsValue value="-0.46"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-09"/>
-        <generic:ObsValue value="-0.46"/>
+        <generic:ObsDimension value="2020-07-09"></generic:ObsDimension>
+        <generic:ObsValue value="-0.46"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.00"/>
+          <generic:Value id="BBK_DIFF_A" value="0.00"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-10"/>
-        <generic:ObsValue value="-0.50"/>
+        <generic:ObsDimension value="2020-07-10"></generic:ObsDimension>
+        <generic:ObsValue value="-0.50"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-11"/>
+        <generic:ObsDimension value="2020-07-11"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-12"/>
+        <generic:ObsDimension value="2020-07-12"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-13"/>
-        <generic:ObsValue value="-0.48"/>
+        <generic:ObsDimension value="2020-07-13"></generic:ObsDimension>
+        <generic:ObsValue value="-0.48"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-14"/>
-        <generic:ObsValue value="-0.45"/>
+        <generic:ObsDimension value="2020-07-14"></generic:ObsDimension>
+        <generic:ObsValue value="-0.45"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.03"/>
+          <generic:Value id="BBK_DIFF_A" value="0.03"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-15"/>
-        <generic:ObsValue value="-0.49"/>
+        <generic:ObsDimension value="2020-07-15"></generic:ObsDimension>
+        <generic:ObsValue value="-0.49"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-16"/>
-        <generic:ObsValue value="-0.47"/>
+        <generic:ObsDimension value="2020-07-16"></generic:ObsDimension>
+        <generic:ObsValue value="-0.47"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-17"/>
-        <generic:ObsValue value="-0.48"/>
+        <generic:ObsDimension value="2020-07-17"></generic:ObsDimension>
+        <generic:ObsValue value="-0.48"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-18"/>
+        <generic:ObsDimension value="2020-07-18"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-19"/>
+        <generic:ObsDimension value="2020-07-19"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-20"/>
-        <generic:ObsValue value="-0.46"/>
+        <generic:ObsDimension value="2020-07-20"></generic:ObsDimension>
+        <generic:ObsValue value="-0.46"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-21"/>
-        <generic:ObsValue value="-0.48"/>
+        <generic:ObsDimension value="2020-07-21"></generic:ObsDimension>
+        <generic:ObsValue value="-0.48"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-22"/>
-        <generic:ObsValue value="-0.50"/>
+        <generic:ObsDimension value="2020-07-22"></generic:ObsDimension>
+        <generic:ObsValue value="-0.50"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-23"/>
-        <generic:ObsValue value="-0.51"/>
+        <generic:ObsDimension value="2020-07-23"></generic:ObsDimension>
+        <generic:ObsValue value="-0.51"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-24"/>
-        <generic:ObsValue value="-0.49"/>
+        <generic:ObsDimension value="2020-07-24"></generic:ObsDimension>
+        <generic:ObsValue value="-0.49"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-25"/>
+        <generic:ObsDimension value="2020-07-25"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-26"/>
+        <generic:ObsDimension value="2020-07-26"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-27"/>
-        <generic:ObsValue value="-0.48"/>
+        <generic:ObsDimension value="2020-07-27"></generic:ObsDimension>
+        <generic:ObsValue value="-0.48"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-28"/>
-        <generic:ObsValue value="-0.52"/>
+        <generic:ObsDimension value="2020-07-28"></generic:ObsDimension>
+        <generic:ObsValue value="-0.52"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.04"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.04"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-29"/>
-        <generic:ObsValue value="-0.53"/>
+        <generic:ObsDimension value="2020-07-29"></generic:ObsDimension>
+        <generic:ObsValue value="-0.53"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.01"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.01"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-30"/>
-        <generic:ObsValue value="-0.55"/>
+        <generic:ObsDimension value="2020-07-30"></generic:ObsDimension>
+        <generic:ObsValue value="-0.55"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-07-31"/>
-        <generic:ObsValue value="-0.57"/>
+        <generic:ObsDimension value="2020-07-31"></generic:ObsDimension>
+        <generic:ObsValue value="-0.57"></generic:ObsValue>
         <generic:Attributes>
-          <generic:Value id="BBK_DIFF_A" value="-0.02"/>
+          <generic:Value id="BBK_DIFF_A" value="-0.02"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
       <generic:Obs>
-        <generic:ObsDimension value="2020-08-01"/>
+        <generic:ObsDimension value="2020-08-01"></generic:ObsDimension>
         <generic:Attributes>
-          <generic:Value id="OBS_STATUS" value="K"/>
+          <generic:Value id="OBS_STATUS" value="K"></generic:Value>
         </generic:Attributes>
       </generic:Obs>
     </generic:Series>

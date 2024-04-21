@@ -160,13 +160,15 @@ parse_bb_series <- function(body, key) {
   res$value <- na_if_empty(res$value, ".")
 
   metadata <- readLines(path, n = 10L)
+  title <- sub("^\"\",", "", metadata[[2L]])
+  title <- sub(",$", "", title)
   freq <- extract_metadata(metadata, "^Time format code")
   unit <- extract_metadata(metadata, "^unit,")
   unit_multiplier <- extract_metadata(metadata, "^unit multiplier,")
   category <- extract_metadata(metadata, "^category,")
   last_update <- extract_metadata(metadata, "^last update,")
   comment <- extract_metadata(metadata, "^Comment \\(in english\\),")
-  comment <- sub("^[\"]", "", comment)
+  comment <- sub("^\"", "", comment)
   src <- extract_metadata(metadata, "^Source \\(in english\\),")
 
   freq <- switch(freq,
@@ -177,6 +179,7 @@ parse_bb_series <- function(body, key) {
   )
   res$date <- parse_date(res$date, freq)
   res$key <- key
+  res$title <- title
   res$category <- category
   res$frequency <- freq
   res$unit <- unit
@@ -184,6 +187,12 @@ parse_bb_series <- function(body, key) {
   res$last_update <- last_update
   res$source <- src
   res$comment <- comment
+
+  nms <- c(
+    "date", "key", "title", "category", "unit", "unit_multiplier", "frequency",
+    "last_update", "source", "comment", "value"
+  )
+  res <- res[, nms]
   res
 }
 
@@ -197,6 +206,7 @@ parse_metadata <- function(x, lang) {
   })
   do.call(rbind, res)
 }
+
 
 parse_bb_data <- function(body, key) {
   freq <- body |>
@@ -217,6 +227,12 @@ parse_bb_data <- function(body, key) {
   unit <- body |>
     xml2::xml_find_first("//generic:Value[@id='UNIT_ENG']") |>
     xml2::xml_attr("value")
+  unit_mult <- body |>
+    xml2::xml_find_first("//generic:Value[@id='BBK_UNIT_MULT']") |>
+    xml2::xml_attr("value")
+  category <- body |>
+    xml2::xml_find_first("//generic:Value[@id='WEB_CATEGORY']") |>
+    xml2::xml_attr("value")
 
   entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
   date <- entries |>
@@ -230,7 +246,14 @@ parse_bb_data <- function(body, key) {
     as.numeric()
 
   data <- data.frame(
-    date = date, key = key, title = title, unit = unit, frequency = freq, value = value
+    date = date,
+    key = key,
+    title = title,
+    category = category,
+    unit = unit,
+    unit_multiplier = unit_mult,
+    frequency = freq,
+    value = value
   )
   data
 }

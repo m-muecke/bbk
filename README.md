@@ -10,14 +10,10 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-R client for the
+bbk is minimal R client for the
 [Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
-SDMX Web Service API.
-
-## Installation
-
-You can install the development version of bbk from
-[GitHub](https://github.com/) with:
+SDMX Web Service API. \## Installation You can install the development
+version of bbk from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
@@ -27,7 +23,11 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed with `bb_` and follow the naming convention
-of the API.
+of the API. The usual workflow would be to search for the time series
+key on the [Bundesbank
+website](https://www.bundesbank.de/en/statistics/time-series-databases)
+and then use it to retrieve the data with either `bb_data()` or
+`bb_series` depending on your needs.
 
 ``` r
 library(bbk)

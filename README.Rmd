@@ -21,7 +21,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 [![R-CMD-check](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-R Client for the [Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service) SDMX Web Service API.
+R client for the [Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service) SDMX Web Service API.
 
 ## Installation
 You can install the development version of bbk from [GitHub](https://github.com/) with:

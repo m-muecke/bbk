@@ -12,8 +12,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 
 bbk is minimal R client for the
 [Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
-SDMX Web Service API. \## Installation You can install the development
-version of bbk from [GitHub](https://github.com/) with:
+SDMX Web Service API.
+
+## Installation
+
+You can install the development version of bbk from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")

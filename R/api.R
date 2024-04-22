@@ -23,7 +23,10 @@
 #'   \item{date}{The date of the observation}
 #'   \item{key}{The time series key}
 #'   \item{title}{The title of the dataflow}
-#'   \item{freq}{The frequency of the dataflow}
+#'   \item{category}{The category of the observation}
+#'   \item{unit}{The unit of the observation}
+#'   \item{unit_multiplier}{The unit multiplier of the observation}
+#'   \item{frequency}{The frequency of the observation}
 #'   \item{value}{The value of the observation}
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
@@ -82,6 +85,18 @@ bb_data <- function(flow,
 #'
 #' @param key `character(1)` key to query.
 #' @inherit bb_data references
+#' @returns A `data.frame()` with the requested data. The columns are:
+#'   \item{date}{The date of the observation}
+#'   \item{key}{The time series key}
+#'   \item{title}{The title of the dataflow}
+#'   \item{category}{The category of the observation}
+#'   \item{unit}{The unit of the observation}
+#'   \item{unit_multiplier}{The unit multiplier of the observation}
+#'   \item{frequency}{The frequency of the observation}
+#'   \item{last_update}{The last update date}
+#'   \item{source}{The source of the data}
+#'   \item{comment}{A comment on the data}
+#'   \item{value}{The value of the observation}
 #' @family data
 #' @export
 #' @examples

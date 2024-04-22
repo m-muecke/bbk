@@ -6,7 +6,7 @@
 \alias{bbk-package}
 \title{bbk: Client for the Bundesbank API}
 \description{
-Download data and metadata from the Bundesbank SDMX Web Service API found at \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}.
+Download data and metadata from the 'Bundesbank SDMX Web Service API' found at \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}.
 }
 \seealso{
 Useful links:

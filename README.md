@@ -8,6 +8,8 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/package=bbk)
 <!-- badges: end -->
 
 bbk is minimal R client for the
@@ -16,8 +18,14 @@ SDMX Web Service API.
 
 ## Installation
 
-You can install the development version of bbk from
-[GitHub](https://github.com/) with:
+You can install the released version of **treasury** from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("bbk")
+```
+
+And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
@@ -43,7 +51,7 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,098 × 8
+#> # A tibble: 1,100 × 8
 #>   date       key            title category unit  unit_multiplier frequency value
 #>   <date>     <chr>          <chr> <chr>    <chr> <chr>           <chr>     <dbl>
 #> 1 2020-01-02 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.16
@@ -51,7 +59,7 @@ yield_curve
 #> 3 2020-01-06 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
 #> 4 2020-01-07 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
 #> 5 2020-01-08 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
-#> # ℹ 1,093 more rows
+#> # ℹ 1,095 more rows
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />

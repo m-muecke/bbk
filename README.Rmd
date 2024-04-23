@@ -19,12 +19,20 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/package=bbk)
 <!-- badges: end -->
 
 bbk is minimal R client for the [Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service) SDMX Web Service API.
 
 ## Installation
-You can install the development version of bbk from [GitHub](https://github.com/) with:
+
+You can install the released version of **treasury** from [CRAN](https://CRAN.R-project.org) with:
+
+```{r, eval = FALSE}
+install.packages("bbk")
+```
+
+And the development version from [GitHub](https://github.com/) with:
 
 ```{r, eval = FALSE}
 # install.packages("pak")

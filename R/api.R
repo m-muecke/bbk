@@ -70,7 +70,7 @@ bb_data <- function(flow,
     key <- toupper(key)
     resource <- sprintf("data/%s/%s", flow, key)
   }
-  body <- bundesbank(
+  body <- make_request(
     resource = resource,
     startPeriod = start_period,
     endPeriod = end_period,
@@ -107,13 +107,8 @@ bb_data <- function(flow,
 #' }
 bb_series <- function(key) {
   stopifnot(is_string(key))
-  body <- request("https://api.statistiken.bundesbank.de/rest/data/tsIdList") |>
-    req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
-    req_headers(
-      `Accept-Language` = "en", accept = "application/vnd.bbk.data+csv-zip"
-    ) |>
+  body <- build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
-    req_error(body = bb_error_body) |>
     req_perform() |>
     resp_body_raw()
 
@@ -281,13 +276,6 @@ parse_date <- function(date, freq) {
   )
 }
 
-bb_error_body <- function(resp) {
-  body <- resp_body_json(resp)
-  message <- body$title
-  docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
-  c(message, docs)
-}
-
 fetch_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
   stopifnot(is_string_or_null(id))
@@ -295,19 +283,30 @@ fetch_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }
-  body <- bundesbank(resource)
+  body <- make_request(resource)
   entries <- xml2::xml_find_all(body, xpath)
   res <- parse_metadata(entries, lang)
   res
 }
 
-bundesbank <- function(resource, ...) {
+bb_error_body <- function(resp) {
+  body <- resp_body_json(resp)
+  message <- body$title
+  docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
+  c(message, docs)
+}
+
+build_request <- function(resource, accept = NULL) {
   request("https://api.statistiken.bundesbank.de/rest") |>
     req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
-    req_headers(`Accept-Language` = "en") |>
+    req_headers(`Accept-Language` = "en", accept = accept) |>
     req_url_path_append(resource) |>
+    req_error(body = bb_error_body)
+}
+
+make_request <- function(resource, ...) {
+  build_request(resource) |>
     req_url_query(...) |>
-    req_error(body = bb_error_body) |>
     req_perform() |>
     resp_body_xml()
 }

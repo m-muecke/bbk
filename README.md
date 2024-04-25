@@ -52,13 +52,13 @@ yield_curve <- bb_data(
 )
 yield_curve
 #> # A tibble: 1,102 × 8
-#>   date       key            title category unit  unit_multiplier frequency value
-#>   <date>     <chr>          <chr> <chr>    <chr> <chr>           <chr>     <dbl>
-#> 1 2020-01-02 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.16
-#> 2 2020-01-03 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
-#> 3 2020-01-06 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
-#> 4 2020-01-07 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
-#> 5 2020-01-08 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
+#>   date       value key            title category frequency unit  unit_multiplier
+#>   <date>     <dbl> <chr>          <chr> <chr>    <chr>     <chr> <chr>          
+#> 1 2020-01-02 -0.16 BBSIS.D.I.ZAR… Yiel… GKZR     daily     perc… 0              
+#> 2 2020-01-03 -0.27 BBSIS.D.I.ZAR… Yiel… GKZR     daily     perc… 0              
+#> 3 2020-01-06 -0.27 BBSIS.D.I.ZAR… Yiel… GKZR     daily     perc… 0              
+#> 4 2020-01-07 -0.27 BBSIS.D.I.ZAR… Yiel… GKZR     daily     perc… 0              
+#> 5 2020-01-08 -0.27 BBSIS.D.I.ZAR… Yiel… GKZR     daily     perc… 0              
 #> # ℹ 1,097 more rows
 ```
 

@@ -177,7 +177,7 @@ parse_bb_series <- function(body, key) {
   if (is.na(unit)) {
     unit <- extract_metadata(metadata, "^unit,")
   }
-  unit_multiplier <- extract_metadata(metadata, "^unit multiplier,")
+  unit_mult <- extract_metadata(metadata, "^unit multiplier,")
   category <- extract_metadata(metadata, "^category,")
   last_update <- extract_metadata(metadata, "^last update,")
   comment <- extract_metadata(metadata, "^Comment \\(in english\\),")
@@ -196,16 +196,14 @@ parse_bb_series <- function(body, key) {
   res$category <- category
   res$frequency <- freq
   res$unit <- unit
-  res$unit_multiplier <- unit_multiplier
+  res$unit_multiplier <- unit_mult
   res$last_update <- last_update
-  res$source <- src
-  res$comment <- comment
-
-  nms <- c(
-    "date", "key", "title", "category", "unit", "unit_multiplier", "frequency",
-    "last_update", "source", "comment", "value"
-  )
-  res <- res[, nms]
+  if (!is.na(src)) {
+    res$source <- src
+  }
+  if (!is.na(comment)) {
+    res$comment <- comment
+  }
   res
 }
 
@@ -220,7 +218,6 @@ parse_metadata <- function(x, lang) {
   do.call(rbind, res)
 }
 
-
 parse_bb_data <- function(body, key) {
   freq <- body |>
     xml2::xml_find_first("//generic:Value[@id='BBK_STD_FREQ']") |>
@@ -234,6 +231,9 @@ parse_bb_data <- function(body, key) {
     D = "daily"
   )
 
+  key <- body |>
+    xml2::xml_find_first("//generic:Value[@id='BBK_ID']") |>
+    xml2::xml_attr("value")
   title <- body |>
     xml2::xml_find_first("//generic:Value[@id='BBK_TITLE_ENG']") |>
     xml2::xml_attr("value")
@@ -260,13 +260,13 @@ parse_bb_data <- function(body, key) {
 
   data <- data.frame(
     date = date,
+    value = value,
     key = key,
     title = title,
     category = category,
-    unit = unit,
-    unit_multiplier = unit_mult,
     frequency = freq,
-    value = value
+    unit = unit,
+    unit_multiplier = unit_mult
   )
   data
 }

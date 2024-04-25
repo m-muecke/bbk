@@ -51,7 +51,7 @@ yield_curve <- bb_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,100 × 8
+#> # A tibble: 1,102 × 8
 #>   date       key            title category unit  unit_multiplier frequency value
 #>   <date>     <chr>          <chr> <chr>    <chr> <chr>           <chr>     <dbl>
 #> 1 2020-01-02 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.16
@@ -59,7 +59,7 @@ yield_curve
 #> 3 2020-01-06 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
 #> 4 2020-01-07 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
 #> 5 2020-01-08 D.I.ZAR.ZI.EU… Yiel… GKZR     perc… 0               daily     -0.27
-#> # ℹ 1,095 more rows
+#> # ℹ 1,097 more rows
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />
@@ -72,3 +72,5 @@ yield_curve
   data and metadata.
 - [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
   reading SDMX data and metadata.
+- [pdfetch](https://github.com/abielr/pdfetch): R package for
+  downloading economic and financial time series from public sources.

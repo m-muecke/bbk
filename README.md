@@ -67,7 +67,7 @@ yield_curve
 ## Related work
 
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
-  for downloading time-series data from the Bundesbank
+  for downloading time-series data from the Bundesbank.
 - [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
   data and metadata.
 - [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for

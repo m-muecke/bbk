@@ -167,12 +167,16 @@ parse_bb_series <- function(body, key) {
   res <- read.csv(path, header = FALSE, skip = 11L)[, 1:2] |>
     stats::setNames(c("date", "value"))
   res$value <- na_if_empty(res$value, ".")
+  res <- na.omit(res)
 
   metadata <- readLines(path, n = 10L)
-  title <- sub("^\"\",", "", metadata[[2L]])
-  title <- sub(",$", "", title)
+  title <- sub("^[\",]+", "", metadata[[2L]])
+  title <- sub("[\",]+$", "", title)
   freq <- extract_metadata(metadata, "^Time format code")
-  unit <- extract_metadata(metadata, "^unit,")
+  unit <- extract_metadata(metadata, "^Unit \\(in english\\),")
+  if (is.na(unit)) {
+    unit <- extract_metadata(metadata, "^unit,")
+  }
   unit_multiplier <- extract_metadata(metadata, "^unit multiplier,")
   category <- extract_metadata(metadata, "^category,")
   last_update <- extract_metadata(metadata, "^last update,")

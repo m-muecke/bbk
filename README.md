@@ -39,7 +39,9 @@ of the API. The usual workflow would be to search for the time series
 key on the [Bundesbank
 website](https://www.bundesbank.de/en/statistics/time-series-databases)
 and then use it to retrieve the data with either `bb_data()` or
-`bb_series` depending on your needs.
+`bb_series` depending on your needs. Despite querying different
+endpoints, both functions should return the same data. However,
+`bb_data()` is more flexible and allows more customisation.
 
 ``` r
 library(bbk)

@@ -39,7 +39,7 @@ test_that("parse_bb_data works", {
   body <- xml2::read_xml(test_path("fixtures", "bb-data.xml"))
   actual <- parse_bb_data(body, "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
   nms <- c(
-    "date", "key", "title", "category", "unit", "unit_multiplier", "frequency", "value"
+    "date", "value", "key", "title", "frequency", "category", "unit", "unit_multiplier"
   )
   expect_s3_class(actual, "data.frame")
   expect_named(actual, nms)
@@ -56,8 +56,8 @@ test_that("parse_bb_series works", {
     body, "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
   )
   nms <- c(
-    "date", "key", "title", "category", "unit", "unit_multiplier", "frequency",
-    "last_update", "source", "comment", "value"
+    "date", "value", "key", "title", "frequency", "category", "unit", "unit_multiplier",
+    "last_update", "source", "comment"
   )
   expect_s3_class(actual, "data.frame")
   expect_named(actual, nms)
@@ -87,7 +87,7 @@ test_that("metadata input validation works", {
   expect_error(bb_metadata("datastructure", id = 1L))
   expect_error(bb_metadata("datastructure", id = TRUE))
   expect_error(bb_metadata("datastructure", id = c("a", "b")))
-  # lang should be en or de
+  # lang shoula be en or de
   expect_error(bb_metadata(lang = "abc"))
   expect_error(bb_metadata(lang = 1L))
   expect_error(bb_metadata(lang = NA))
@@ -98,9 +98,9 @@ test_that("bb_series does frequency conversion", {
   skip_on_ci()
 
   x <- bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
-  expect_true(all(x$duration == "monthly"))
+  expect_true(all(x$frequency == "monthly"))
   x <- bb_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
-  expect_true(all(x$duration == "quarterly"))
+  expect_true(all(x$frequency == "quarterly"))
   x <- bb_series("BBBK11.D.TTA000")
-  expect_true(all(x$duration == "daily"))
+  expect_true(all(x$frequency == "daily"))
 })

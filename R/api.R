@@ -167,7 +167,7 @@ parse_bb_series <- function(body, key) {
   res <- read.csv(path, header = FALSE, skip = 11L)[, 1:2] |>
     stats::setNames(c("date", "value"))
   res$value <- na_if_empty(res$value, ".")
-  res <- na.omit(res)
+  res <- stats::na.omit(res)
 
   metadata <- readLines(path, n = 10L)
   title <- sub("^[\",]+", "", metadata[[2L]])
@@ -193,8 +193,8 @@ parse_bb_series <- function(body, key) {
   res$date <- parse_date(res$date, freq)
   res$key <- key
   res$title <- title
-  res$category <- category
   res$frequency <- freq
+  res$category <- category
   res$unit <- unit
   res$unit_multiplier <- unit_mult
   res$last_update <- last_update
@@ -263,8 +263,8 @@ parse_bb_data <- function(body, key) {
     value = value,
     key = key,
     title = title,
-    category = category,
     frequency = freq,
+    category = category,
     unit = unit,
     unit_multiplier = unit_mult
   )

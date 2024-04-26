@@ -198,12 +198,8 @@ parse_bb_series <- function(body, key) {
   res$unit <- unit
   res$unit_multiplier <- unit_mult
   res$last_update <- last_update
-  if (!is.na(src)) {
-    res$source <- src
-  }
-  if (!is.na(comment)) {
-    res$comment <- comment
-  }
+  res$source <- src
+  res$comment <- comment
   res
 }
 

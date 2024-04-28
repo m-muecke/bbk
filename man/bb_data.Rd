@@ -44,13 +44,13 @@ of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 \value{
 A \code{data.frame()} with the requested data. The columns are:
 \item{date}{The date of the observation}
+\item{value}{The value of the observation}
 \item{key}{The time series key}
 \item{title}{The title of the dataflow}
+\item{frequency}{The frequency of the observation}
 \item{category}{The category of the observation}
 \item{unit}{The unit of the observation}
 \item{unit_multiplier}{The unit multiplier of the observation}
-\item{frequency}{The frequency of the observation}
-\item{value}{The value of the observation}
 }
 \description{
 Returns data for a given flow and key

@@ -12,16 +12,16 @@ bb_series(key)
 \value{
 A \code{data.frame()} with the requested data. The columns are:
 \item{date}{The date of the observation}
+\item{value}{The value of the observation}
 \item{key}{The time series key}
 \item{title}{The title of the dataflow}
+\item{frequency}{The frequency of the observation}
 \item{category}{The category of the observation}
 \item{unit}{The unit of the observation}
 \item{unit_multiplier}{The unit multiplier of the observation}
-\item{frequency}{The frequency of the observation}
 \item{last_update}{The last update date}
 \item{source}{The source of the data}
 \item{comment}{A comment on the data}
-\item{value}{The value of the observation}
 }
 \description{
 Returns the time serie that is found with the specified time series key

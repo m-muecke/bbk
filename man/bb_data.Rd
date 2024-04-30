@@ -60,7 +60,7 @@ bb_data(
 )
 # or only specify the start date
 bb_data(
-  "BBSIS","D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+  "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2024-04-01"
 )
 }

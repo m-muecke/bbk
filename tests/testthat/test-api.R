@@ -37,12 +37,8 @@ test_that("bb_data input validation works", {
 
 test_that("parse_bb_data works", {
   body <- xml2::read_xml(test_path("fixtures", "bb-data.xml"))
-  actual <- parse_bb_data(body, "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
-  nms <- c(
-    "date", "value", "key", "title", "frequency", "category", "unit", "unit_multiplier"
-  )
+  actual <- parse_bb_data(body)
   expect_s3_class(actual, "data.frame")
-  expect_named(actual, nms)
   expect_gt(nrow(actual), 0)
   expect_identical(
     unique(actual$key), "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"

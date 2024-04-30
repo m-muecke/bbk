@@ -6,7 +6,7 @@
 \usage{
 bb_data(
   flow,
-  key,
+  key = NULL,
   start_period = NULL,
   end_period = NULL,
   first_n = NULL,
@@ -42,15 +42,7 @@ start of the series. If \code{NULL}, no restriction is applied. Default \code{NU
 of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \value{
-A \code{data.frame()} with the requested data. The columns are:
-\item{date}{The date of the observation}
-\item{value}{The value of the observation}
-\item{key}{The time series key}
-\item{title}{The title of the dataflow}
-\item{frequency}{The frequency of the observation}
-\item{category}{The category of the observation}
-\item{unit}{The unit of the observation}
-\item{unit_multiplier}{The unit multiplier of the observation}
+A \code{data.frame()} with the requested data.
 }
 \description{
 Returns data for a given flow and key
@@ -68,8 +60,8 @@ bb_data(
 )
 # or only specify the start date
 bb_data(
-  "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
-  start_period = "2020-01-01"
+  "BBSIS",
+  start_period = "2024-04-01"
 )
 }
 }

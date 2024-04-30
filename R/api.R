@@ -19,15 +19,7 @@
 #'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @param last_n `numeric(1)` number of observations to retrieve from the end
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
-#' @returns A `data.frame()` with the requested data. The columns are:
-#'   \item{date}{The date of the observation}
-#'   \item{value}{The value of the observation}
-#'   \item{key}{The time series key}
-#'   \item{title}{The title of the dataflow}
-#'   \item{frequency}{The frequency of the observation}
-#'   \item{category}{The category of the observation}
-#'   \item{unit}{The unit of the observation}
-#'   \item{unit_multiplier}{The unit multiplier of the observation}
+#' @returns A `data.frame()` with the requested data.
 #' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
 #' @export
@@ -44,19 +36,19 @@
 #' )
 #' # or only specify the start date
 #' bb_data(
-#'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
-#'   start_period = "2020-01-01"
+#'   "BBSIS",
+#'   start_period = "2024-04-01"
 #' )
 #' }
 bb_data <- function(flow,
-                    key,
+                    key = NULL,
                     start_period = NULL,
                     end_period = NULL,
                     first_n = NULL,
                     last_n = NULL) {
   stopifnot(
     is_string(flow), nchar(flow) %in% 5:8,
-    is_string(key),
+    is_string_or_null(key),
     is_string_or_null(start_period),
     is_string_or_null(end_period),
     is_count_or_null(first_n),
@@ -77,7 +69,7 @@ bb_data <- function(flow,
     firstNObservations = first_n,
     lastNObservations = last_n
   )
-  data <- parse_bb_data(body, key)
+  data <- parse_bb_data(body)
   as_tibble(data)
 }
 
@@ -214,57 +206,61 @@ parse_metadata <- function(x, lang) {
   do.call(rbind, res)
 }
 
-parse_bb_data <- function(body, key) {
-  freq <- body |>
-    xml2::xml_find_first("//generic:Value[@id='BBK_STD_FREQ']") |>
-    xml2::xml_attr("value")
-  freq <- switch(freq,
-    A = "annual",
-    S = "semi-annual",
-    Q = "quarterly",
-    M = "monthly",
-    W = "weekly",
-    D = "daily"
-  )
+parse_bb_data <- function(body) {
+  series <- body |> xml2::xml_find_all(".//generic:Series")
+  res <- lapply(series, \(x) {
+    series_key <- x |>
+      xml2::xml_find_first(".//generic:SeriesKey") |>
+      xml2::xml_children()
+    nms <- series_key |>
+      xml2::xml_attr("id") |>
+      tolower()
+    series_key <- series_key |>
+      xml2::xml_attr("value") |>
+      stats::setNames(nms) |>
+      as.list()
 
-  key <- body |>
-    xml2::xml_find_first("//generic:Value[@id='BBK_ID']") |>
-    xml2::xml_attr("value")
-  title <- body |>
-    xml2::xml_find_first("//generic:Value[@id='BBK_TITLE_ENG']") |>
-    xml2::xml_attr("value")
-  unit <- body |>
-    xml2::xml_find_first("//generic:Value[@id='UNIT_ENG']") |>
-    xml2::xml_attr("value")
-  unit_mult <- body |>
-    xml2::xml_find_first("//generic:Value[@id='BBK_UNIT_MULT']") |>
-    xml2::xml_attr("value")
-  category <- body |>
-    xml2::xml_find_first("//generic:Value[@id='WEB_CATEGORY']") |>
-    xml2::xml_attr("value")
+    attrs <- x |>
+      xml2::xml_find_first(".//generic:Attributes") |>
+      xml2::xml_children()
+    nms <- attrs |>
+      xml2::xml_attr("id") |>
+      tolower()
+    nms <- replace(nms, nms == "bbk_title_eng", "title")
+    nms <- replace(nms, nms == "bbk_id", "key")
+    attrs <- attrs |>
+      xml2::xml_attr("value") |>
+      stats::setNames(nms) |>
+      as.list()
 
-  entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
-  date <- entries |>
-    xml2::xml_find_all(".//generic:ObsDimension") |>
-    xml2::xml_attr("value") |>
-    parse_date(freq)
+    data <- c(series_key, attrs)
+    names(data) <- gsub("^bbk_(seis_)?", "", names(data))
+    names(data) <- ifelse(names(data) == "std_freq", "freq", names(data))
 
-  value <- entries |>
-    xml2::xml_find_all(".//generic:ObsValue") |>
-    xml2::xml_attr("value") |>
-    as.numeric()
+    data$freq <- switch(data$time_format,
+      P1M = "monthly",
+      P3M = "quarterly",
+      P1Y = "annual",
+      P1D = "daily"
+    )
 
-  data <- data.frame(
-    date = date,
-    value = value,
-    key = key,
-    title = title,
-    frequency = freq,
-    category = category,
-    unit = unit,
-    unit_multiplier = unit_mult
-  )
-  data
+    entries <- body |> xml2::xml_find_all("//generic:Obs[generic:ObsValue]")
+    data$date <- entries |>
+      xml2::xml_find_all(".//generic:ObsDimension") |>
+      xml2::xml_attr("value") |>
+      parse_date(data$freq)
+
+    data$value <- entries |>
+      xml2::xml_find_all(".//generic:ObsValue") |>
+      xml2::xml_attr("value") |>
+      as.numeric()
+
+    as.data.frame(data)
+  })
+  res <- do.call(rbind, res)
+  nms <- union(c("date", "key", "value", "title"), names(res))
+  res <- res[nms]
+  res
 }
 
 parse_date <- function(date, freq) {

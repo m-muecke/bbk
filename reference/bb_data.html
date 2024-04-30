@@ -53,7 +53,7 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">bb_data</span><span class="op">(</span></span>
 <span>  <span class="va">flow</span>,</span>
-<span>  <span class="va">key</span>,</span>
+<span>  key <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  start_period <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  end_period <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  first_n <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -104,32 +104,8 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with the requested data. The columns are:</p>
-<dl><dt>date</dt>
-<dd><p>The date of the observation</p></dd>
-
-<dt>value</dt>
-<dd><p>The value of the observation</p></dd>
-
-<dt>key</dt>
-<dd><p>The time series key</p></dd>
-
-<dt>title</dt>
-<dd><p>The title of the dataflow</p></dd>
-
-<dt>frequency</dt>
-<dd><p>The frequency of the observation</p></dd>
-
-<dt>category</dt>
-<dd><p>The category of the observation</p></dd>
-
-<dt>unit</dt>
-<dd><p>The unit of the observation</p></dd>
-
-<dt>unit_multiplier</dt>
-<dd><p>The unit multiplier of the observation</p></dd>
-
-</dl></div>
+<p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with the requested data.</p>
+    </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p><a href="https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data" class="external-link">https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data</a></p>
@@ -142,65 +118,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="co"># fetch all data for a given flow and key</span></span></span>
-<span class="r-in"><span><span class="fu">bb_data</span><span class="op">(</span><span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,784 × 8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date       value key           title frequency category unit  unit_multiplier</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1997-08-07  5.76 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1997-08-08  5.76 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1997-08-11  5.75 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1997-08-12  5.72 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1997-08-13  5.77 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1997-08-14  5.74 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1997-08-15  5.72 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1997-08-18  5.72 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1997-08-19  5.66 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1997-08-20  5.71 BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,774 more rows</span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># specified period (start date-end date) for daily data</span></span></span>
-<span class="r-in"><span><span class="fu">bb_data</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span></span>
-<span class="r-in"><span>  start_period <span class="op">=</span> <span class="st">"2020-01-01"</span>,</span></span>
-<span class="r-in"><span>  end_period <span class="op">=</span> <span class="st">"2020-08-01"</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 148 × 8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date       value key           title frequency category unit  unit_multiplier</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2020-01-02 -<span style="color: #BB0000;">0.16</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2020-01-03 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2020-01-06 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2020-01-07 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2020-01-08 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2020-01-09 -<span style="color: #BB0000;">0.22</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2020-01-10 -<span style="color: #BB0000;">0.2</span>  BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2020-01-13 -<span style="color: #BB0000;">0.19</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2020-01-14 -<span style="color: #BB0000;">0.17</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2020-01-15 -<span style="color: #BB0000;">0.22</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 138 more rows</span></span>
-<span class="r-in"><span><span class="co"># or only specify the start date</span></span></span>
-<span class="r-in"><span><span class="fu">bb_data</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span></span>
-<span class="r-in"><span>  start_period <span class="op">=</span> <span class="st">"2020-01-01"</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,104 × 8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date       value key           title frequency category unit  unit_multiplier</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2020-01-02 -<span style="color: #BB0000;">0.16</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2020-01-03 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2020-01-06 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2020-01-07 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2020-01-08 -<span style="color: #BB0000;">0.27</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2020-01-09 -<span style="color: #BB0000;">0.22</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2020-01-10 -<span style="color: #BB0000;">0.2</span>  BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2020-01-13 -<span style="color: #BB0000;">0.19</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2020-01-14 -<span style="color: #BB0000;">0.17</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2020-01-15 -<span style="color: #BB0000;">0.22</span> BBSIS.D.I.ZA… Yiel… daily     GKZR     perc… 0              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,094 more rows</span></span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
-</code></pre></div>
+    
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

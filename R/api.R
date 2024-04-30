@@ -235,7 +235,8 @@ parse_bb_data <- function(body) {
 
     data <- c(series_key, attrs)
     names(data) <- gsub("^bbk_(seis_)?", "", names(data))
-    names(data) <- ifelse(names(data) == "std_freq", "freq", names(data))
+    names(data) <- gsub("^std_", "", names(data))
+    names(data) <- ifelse(names(data) == "web_category", "category", names(data))
 
     data$freq <- switch(data$time_format,
       P1M = "monthly",

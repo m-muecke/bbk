@@ -1,7 +1,7 @@
 #' Returns data for a given flow and key
 #'
 #' @param flow `character(1)` flow to query, 5-8 characters.
-#'   See [bb_metadata()] for available dataflows.
+#'   See [bbk_metadata()] for available dataflows.
 #' @param key `character(1)` key to query.
 #' @param start_period `character(1)` start date of the data. Supported formats:
 #'   - YYYY for annual data (e.g., "2019")
@@ -26,26 +26,26 @@
 #' @examples
 #' \donttest{
 #' # fetch all data for a given flow and key
-#' bb_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+#' bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 #'
 #' # specified period (start date-end date) for daily data
-#' bb_data(
+#' bbk_data(
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2020-01-01",
 #'   end_period = "2020-08-01"
 #' )
 #' # or only specify the start date
-#' bb_data(
+#' bbk_data(
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2024-04-01"
 #' )
 #' }
-bb_data <- function(flow,
-                    key = NULL,
-                    start_period = NULL,
-                    end_period = NULL,
-                    first_n = NULL,
-                    last_n = NULL) {
+bbk_data <- function(flow,
+                     key = NULL,
+                     start_period = NULL,
+                     end_period = NULL,
+                     first_n = NULL,
+                     last_n = NULL) {
   stopifnot(
     is_string(flow), nchar(flow) %in% 5:8,
     is_string_or_null(key),
@@ -69,31 +69,31 @@ bb_data <- function(flow,
     firstNObservations = first_n,
     lastNObservations = last_n
   )
-  data <- parse_bb_data(body)
+  data <- parse_bbk_data(body)
   as_tibble(data)
 }
 
 #' Returns the time serie that is found with the specified time series key
 #'
-#' @inheritParams bb_data
-#' @inherit bb_data references
-#' @inherit bb_data return
+#' @inherit bbk_data references
+#' @inheritParams bbk_data
+#' @inherit bbk_data return
 #' @family data
 #' @export
 #' @examples
 #' \donttest{
-#' bb_series("BBEX3.M.DKK.EUR.BB.AC.A01")
-#' bb_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
-#' bb_series("BBBK11.D.TTA000")
+#' bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
+#' bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
+#' bbk_series("BBBK11.D.TTA000")
 #' }
-bb_series <- function(key) {
+bbk_series <- function(key) {
   stopifnot(is_string(key))
   body <- build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
     req_perform() |>
     resp_body_raw()
 
-  data <- parse_bb_series(body, key)
+  data <- parse_bbk_series(body, key)
   as_tibble(data)
 }
 
@@ -116,12 +116,12 @@ bb_series <- function(key) {
 #' @export
 #' @examples
 #' \donttest{
-#' bb_metadata("datastructure")
-#' bb_metadata("dataflow", "BBSIS")
-#' bb_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
-#' bb_metadata("concept", "CS_BBK_BSPL")
+#' bbk_metadata("datastructure")
+#' bbk_metadata("dataflow", "BBSIS")
+#' bbk_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
+#' bbk_metadata("concept", "CS_BBK_BSPL")
 #' }
-bb_metadata <- function(type, id = NULL, lang = c("en", "de")) {
+bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
   type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
   args <- switch(type,
     datastructure = list("datastructure/BBK", "//structure:DataStructure"),
@@ -134,7 +134,7 @@ bb_metadata <- function(type, id = NULL, lang = c("en", "de")) {
   as_tibble(res)
 }
 
-parse_bb_series <- function(body, key) {
+parse_bbk_series <- function(body, key) {
   tmp <- tempfile()
   dir.create(tmp)
   on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
@@ -191,7 +191,7 @@ parse_metadata <- function(x, lang) {
   do.call(rbind, res)
 }
 
-parse_bb_data <- function(body) {
+parse_bbk_data <- function(body) {
   series <- body |> xml2::xml_find_all(".//generic:Series")
   res <- lapply(series, \(x) {
     series_key <- x |>
@@ -270,7 +270,7 @@ fetch_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   res
 }
 
-bb_error_body <- function(resp) {
+bbk_error_body <- function(resp) {
   body <- resp_body_json(resp)
   message <- body$title
   docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
@@ -282,7 +282,7 @@ build_request <- function(resource, accept = NULL) {
     req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
     req_headers(`Accept-Language` = "en", accept = accept) |>
     req_url_path_append(resource) |>
-    req_error(body = bb_error_body)
+    req_error(body = bbk_error_body)
 }
 
 make_request <- function(resource, ...) {

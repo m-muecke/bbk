@@ -6,9 +6,9 @@ template:
 reference:
   - subtitle: Data
     contents:
-    - bb_data
-    - bb_series
+    - bbk_data
+    - bbk_series
 
   - subtitle: Metadata
     contents:
-    - bb_metadata
+    - bbk_metadata

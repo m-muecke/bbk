@@ -34,20 +34,20 @@ pak::pak("m-muecke/bbk")
 
 ## Usage
 
-bbk functions are prefixed with `bb_` and follow the naming convention
+bbk functions are prefixed with `bbk_` and follow the naming convention
 of the API. The usual workflow would be to search for the time series
 key on the [Bundesbank
 website](https://www.bundesbank.de/en/statistics/time-series-databases)
-and then use it to retrieve the data with either `bb_data()` or
-`bb_series` depending on your needs. Despite querying different
+and then use it to retrieve the data with either `bbk_data()` or
+`bkb_series` depending on your needs. Despite querying different
 endpoints, both functions should return the same data. However,
-`bb_data()` is more flexible and allows more customisation.
+`bbk_data()` is more flexible and allows more customisation.
 
 ``` r
 library(bbk)
 
 # fetch 10 year daily yield curve
-yield_curve <- bb_data(
+yield_curve <- bbk_data(
   flow = "BBSIS",
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"

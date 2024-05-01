@@ -19,16 +19,16 @@
     <loc>https://m-muecke.github.io/bbk/news/index.html</loc>
   </url>
   <url>
-    <loc>https://m-muecke.github.io/bbk/reference/bb_data.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/bb_metadata.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/bb_series.html</loc>
-  </url>
-  <url>
     <loc>https://m-muecke.github.io/bbk/reference/bbk-package.html</loc>
+  </url>
+  <url>
+    <loc>https://m-muecke.github.io/bbk/reference/bbk_data.html</loc>
+  </url>
+  <url>
+    <loc>https://m-muecke.github.io/bbk/reference/bbk_metadata.html</loc>
+  </url>
+  <url>
+    <loc>https://m-muecke.github.io/bbk/reference/bbk_series.html</loc>
   </url>
   <url>
     <loc>https://m-muecke.github.io/bbk/reference/index.html</loc>

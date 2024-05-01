@@ -52,7 +52,7 @@ test_that("parse_bb_series works", {
     body, "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
   )
   nms <- c(
-    "date", "value", "key", "title", "frequency", "category", "unit", "unit_multiplier",
+    "date", "key", "value", "title", "freq", "category", "unit", "unit_mult",
     "last_update", "source", "comment"
   )
   expect_s3_class(actual, "data.frame")

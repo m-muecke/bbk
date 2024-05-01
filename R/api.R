@@ -172,15 +172,11 @@ parse_bb_series <- function(body, key) {
     P1D = "daily"
   )
   res$date <- parse_date(res$date, freq)
-  res$key <- key
-  res$title <- title
-  res$frequency <- freq
-  res$category <- category
-  res$unit <- unit
-  res$unit_multiplier <- unit_mult
-  res$last_update <- last_update
-  res$source <- src
-  res$comment <- comment
+  res <- cbind(
+    res, key, title, freq, category, unit, unit_mult, last_update, comment,
+    source = src
+  )
+  res <- res[union(c("date", "key", "value", "title"), names(res))]
   res
 }
 
@@ -248,8 +244,7 @@ parse_bb_data <- function(body) {
     as.data.frame(data)
   })
   res <- do.call(rbind, res)
-  nms <- union(c("date", "key", "value", "title"), names(res))
-  res <- res[nms]
+  res <- res[union(c("date", "key", "value", "title"), names(res))]
   res
 }
 

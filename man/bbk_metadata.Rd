@@ -3,6 +3,9 @@
 \name{bbk_metadata}
 \alias{bbk_metadata}
 \title{Returns the available metadata}
+\source{
+\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
+}
 \usage{
 bbk_metadata(type, id = NULL, lang = c("en", "de"))
 }
@@ -32,8 +35,5 @@ bbk_metadata("dataflow", "BBSIS")
 bbk_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
 bbk_metadata("concept", "CS_BBK_BSPL")
 }
-}
-\references{
-\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }
 \concept{metadata}

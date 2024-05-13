@@ -3,6 +3,9 @@
 \name{bbk_data}
 \alias{bbk_data}
 \title{Returns data for a given flow and key}
+\source{
+\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
+}
 \usage{
 bbk_data(
   flow,
@@ -64,9 +67,6 @@ bbk_data(
   start_period = "2024-04-01"
 )
 }
-}
-\references{
-\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
 }
 \seealso{
 Other data: 

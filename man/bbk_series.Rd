@@ -3,6 +3,9 @@
 \name{bbk_series}
 \alias{bbk_series}
 \title{Returns the time serie that is found with the specified time series key}
+\source{
+\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
+}
 \usage{
 bbk_series(key)
 }
@@ -21,9 +24,6 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 bbk_series("BBBK11.D.TTA000")
 }
-}
-\references{
-\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
 }
 \seealso{
 Other data: 

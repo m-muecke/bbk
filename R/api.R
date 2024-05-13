@@ -20,7 +20,7 @@
 #' @param last_n `numeric(1)` number of observations to retrieve from the end
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @returns A `data.frame()` with the requested data.
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
+#' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
 #' @export
 #' @examples
@@ -75,7 +75,7 @@ bbk_data <- function(flow,
 
 #' Returns the time serie that is found with the specified time series key
 #'
-#' @inherit bbk_data references
+#' @inherit bbk_data source
 #' @inheritParams bbk_data
 #' @inherit bbk_data return
 #' @family data
@@ -111,7 +111,7 @@ bbk_series <- function(key) {
 #' The columns are:
 #'   \item{id}{The id of the metadata}
 #'   \item{name}{The name of the metadata}
-#' @references <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
+#' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
 #' @examples

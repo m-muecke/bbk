@@ -222,8 +222,7 @@ parse_bbk_data <- function(body) {
     nms <- names(data)
     nms <- sub("^bbk_(seis_)?", "", nms)
     nms <- sub("^std_", "", nms)
-    nms <- replace(nms, nms == "web_category", "category")
-    names(data) <- nms
+    names(data) <- replace(nms, nms == "web_category", "category")
 
     data$freq <- switch(data$time_format,
       P1M = "monthly",

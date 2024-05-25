@@ -121,7 +121,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch all data for a given flow and key</span></span></span>
 <span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span><span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,797 × 25</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6,802 × 25</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    date       key          value title freq  bearer_reg item  valuation currency</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1997-08-07 BBSIS.D.I.Z…  5.76 Yiel… daily I          ZAR   ZI        EUR     </span>
@@ -134,13 +134,28 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1997-08-18 BBSIS.D.I.Z…  5.72 Yiel… daily I          ZAR   ZI        EUR     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1997-08-19 BBSIS.D.I.Z…  5.66 Yiel… daily I          ZAR   ZI        EUR     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1997-08-20 BBSIS.D.I.Z…  5.71 Yiel… daily I          ZAR   ZI        EUR     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,787 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 6,792 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more variables: issuer_class &lt;chr&gt;, listed_sub &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   security_class &lt;chr&gt;, maturity &lt;chr&gt;, interest_type &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   interest_rate &lt;chr&gt;, redemption &lt;chr&gt;, certificate &lt;chr&gt;, coverage &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rating &lt;chr&gt;, time_format &lt;chr&gt;, decimals &lt;chr&gt;, unit &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   unit_mult &lt;chr&gt;, category &lt;chr&gt;, unit_eng &lt;chr&gt;</span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># fetch data for multiple keys</span></span></span>
+<span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span><span class="st">"BBK01"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TTA032"</span>, <span class="st">"TTA010"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,184 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    date       key   value title dim1  time_format decimals unit  unit_mult freq </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1998-12-22 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1999-01-01 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1999-01-08 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1999-01-15 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1999-01-22 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1999-01-29 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1999-02-05 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-02-12 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-02-19 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-02-26 BBK0…     0 Clai… TTA0… P1D         0        EURO  6         daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5,174 more rows</span></span>
 <span class="r-in"><span><span class="co"># specified period (start date-end date) for daily data</span></span></span>
 <span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span></span>
@@ -171,7 +186,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-in"><span>  <span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span></span>
 <span class="r-in"><span>  start_period <span class="op">=</span> <span class="st">"2024-04-01"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 33 × 25</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 38 × 25</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    date       key          value title freq  bearer_reg item  valuation currency</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-04-02 BBSIS.D.I.Z…  2.37 Yiel… daily I          ZAR   ZI        EUR     </span>
@@ -184,7 +199,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-04-11 BBSIS.D.I.Z…  2.48 Yiel… daily I          ZAR   ZI        EUR     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-04-12 BBSIS.D.I.Z…  2.4  Yiel… daily I          ZAR   ZI        EUR     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-04-15 BBSIS.D.I.Z…  2.41 Yiel… daily I          ZAR   ZI        EUR     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 23 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 28 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 16 more variables: issuer_class &lt;chr&gt;, listed_sub &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   security_class &lt;chr&gt;, maturity &lt;chr&gt;, interest_type &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   interest_rate &lt;chr&gt;, redemption &lt;chr&gt;, certificate &lt;chr&gt;, coverage &lt;chr&gt;,</span></span>

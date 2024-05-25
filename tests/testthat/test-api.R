@@ -6,11 +6,10 @@ test_that("bbk_data input validation works", {
   expect_error(bbk_data(c("a", "b"), "abc"))
   expect_error(bbk_data("a", "abc"))
   expect_error(bbk_data("abcd", "abc"))
-  # key should be a character(1)
+  # key should be a character()
   expect_error(bbk_data("abcde", 1L))
   expect_error(bbk_data("abcde", TRUE))
   expect_error(bbk_data("abcde", NULL))
-  expect_error(bbk_data("abcde", c("a", "b")))
   # start_period should be a character(1) or NULL
   expect_error(bbk_data("abcde", "abc", start_period = 1L))
   expect_error(bbk_data("abcde", "abc", start_period = TRUE))

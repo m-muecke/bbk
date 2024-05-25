@@ -54,7 +54,8 @@ Returns data for a given flow and key
 \donttest{
 # fetch all data for a given flow and key
 bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
-
+# fetch data for multiple keys
+bbk_data("BBK01", c("TTA032", "TTA010"))
 # specified period (start date-end date) for daily data
 bbk_data(
   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",

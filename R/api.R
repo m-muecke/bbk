@@ -178,7 +178,7 @@ parse_bbk_series <- function(body, key) {
     res, key, title, freq, category, unit, unit_mult, last_update, comment,
     source = src
   )
-  res <- res[union(c("date", "key", "value", "title"), names(res))]
+  res <- res[union(c("date", "key", "value", "title", "freq"), names(res))]
   res
 }
 
@@ -247,7 +247,7 @@ parse_bbk_data <- function(body) {
     as.data.frame(data)
   })
   res <- do.call(rbind, res)
-  res <- res[union(c("date", "key", "value", "title"), names(res))]
+  res <- res[union(c("date", "key", "value", "title", "freq"), names(res))]
   res
 }
 

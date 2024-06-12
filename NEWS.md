@@ -1,9 +1,9 @@
 # bbk (development version)
 
-* Dynamically parse column names in `bb_data()`
-* Support for `/data/flowRef` endpoint
 * Prefix in function name has changed from `bb_` to `bbk_`
 * Allow multiple keys in `bbk_data()`
+* Dynamically parse column names in `bbk_data()`
+* Support for `/data/flowRef` endpoint
 
 # bbk 0.2.0
 

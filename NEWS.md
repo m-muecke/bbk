@@ -1,4 +1,4 @@
-# bbk (development version)
+# bbk 0.3.0
 
 * Prefix in function name has changed from `bb_` to `bbk_`
 * Allow multiple keys in `bbk_data()`

@@ -4,9 +4,9 @@
 \name{bbk-package}
 \alias{bbk}
 \alias{bbk-package}
-\title{bbk: Client for the Bundesbank API}
+\title{bbk: Client for the Bundesbank and European Central Bank APIs}
 \description{
-Download data and metadata from the 'Bundesbank SDMX Web Service API' found at \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}.
+Download data and metadata from the 'Bundesbank SDMX Web Service API' found at \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data} and the 'ECB Data Portal API' found at \url{https://data.ecb.europa.eu/help/api/overview}.
 }
 \seealso{
 Useful links:

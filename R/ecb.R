@@ -147,9 +147,7 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
     codelist = list("codelist", "//str:Codelist"),
     concept = list("conceptscheme", "//str:ConceptScheme")
   )
-
-  fetch_metadata("datastructure", "//str:DataStructure", agency, id)
-  res <- do.call(fetch_metadata, c(args, list(agency, id)))
+  res <- do.call(fetch_ecb_metadata, c(args, list(agency, id)))
   as_tibble(res)
 }
 
@@ -163,7 +161,7 @@ fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
   resource <- paste(resource, agency, id, sep = "/")
   body <- ecb(resource)
   entries <- xml2::xml_find_all(body, xpath)
-  res <- parse_metadata(entries)
+  res <- parse_ecb_metadata(entries)
   res
 }
 

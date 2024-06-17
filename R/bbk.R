@@ -131,7 +131,7 @@ bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
     codelist = list("codelist/BBK", "//structure:Codelist"),
     concept = list("conceptscheme/BBK", "//structure:ConceptScheme")
   )
-  res <- do.call(fetch_metadata, c(args, list(id, lang)))
+  res <- do.call(fetch_bbk_metadata, c(args, list(id, lang)))
   res$name <- na_if_empty(res$name)
   as_tibble(res)
 }

@@ -273,7 +273,7 @@ bbk_error_body <- function(resp) {
 
 build_request <- function(resource, accept = NULL) {
   request("https://api.statistiken.bundesbank.de/rest") |>
-    req_user_agent("worldbank (https://m-muecke.github.io/worldbank)") |>
+    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_headers(`Accept-Language` = "en", accept = accept) |>
     req_url_path_append(resource) |>
     req_error(body = bbk_error_body)

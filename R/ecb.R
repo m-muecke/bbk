@@ -185,7 +185,7 @@ ecb_error_body <- function(resp) {
 
 ecb <- function(resource, ...) {
   request("https://data-api.ecb.europa.eu/service/") |>
-    req_user_agent("ecbr (https://m-muecke.github.io/ecbr)") |>
+    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_path_append(resource) |>
     req_url_query(...) |>
     req_error(body = ecb_error_body) |>

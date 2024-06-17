@@ -8,7 +8,9 @@ reference:
     contents:
     - bbk_data
     - bbk_series
+    - ecb_data
 
   - subtitle: Metadata
     contents:
     - bbk_metadata
+    - ecb_metadata

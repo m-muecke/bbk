@@ -26,7 +26,7 @@ bbk is minimal R client for the [Bundesbank](https://www.bundesbank.de/en/statis
 
 ## Installation
 
-You can install the released version of **treasury** from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of **bbk** from [CRAN](https://CRAN.R-project.org) with:
 
 ```{r, eval = FALSE}
 install.packages("bbk")

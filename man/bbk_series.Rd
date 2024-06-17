@@ -2,7 +2,7 @@
 % Please edit documentation in R/bbk.R
 \name{bbk_series}
 \alias{bbk_series}
-\title{Returns the time serie that is found with the specified time series key}
+\title{Returns the Bundesbank time serie that is found with the specified time series key}
 \source{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
 }
@@ -16,7 +16,7 @@ bbk_series(key)
 A \code{data.frame()} with the requested data.
 }
 \description{
-Returns the time serie that is found with the specified time series key
+Returns the Bundesbank time serie that is found with the specified time series key
 }
 \examples{
 \donttest{

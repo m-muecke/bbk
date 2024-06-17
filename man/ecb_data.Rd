@@ -2,7 +2,7 @@
 % Please edit documentation in R/ecb.R
 \name{ecb_data}
 \alias{ecb_data}
-\title{Returns data for a given flow and key}
+\title{Returns ECB data for a given flow and key}
 \source{
 \url{https://data.ecb.europa.eu/help/api/data}
 }
@@ -44,7 +44,7 @@ start of the series. If \code{NULL}, no restriction is applied. Default \code{NU
 of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \description{
-Returns data for a given flow and key
+Returns ECB data for a given flow and key
 }
 \examples{
 \donttest{

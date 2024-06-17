@@ -2,7 +2,7 @@
 % Please edit documentation in R/ecb.R
 \name{ecb_metadata}
 \alias{ecb_metadata}
-\title{Returns the available metadata}
+\title{Returns the available ECB metadata}
 \source{
 \url{https://data.ecb.europa.eu/help/api/metadata}
 }

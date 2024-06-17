@@ -2,7 +2,7 @@
 % Please edit documentation in R/bbk.R
 \name{bbk_data}
 \alias{bbk_data}
-\title{Returns data for a given flow and key}
+\title{Returns Bundesbank data for a given flow and key}
 \source{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
 }
@@ -48,7 +48,7 @@ of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 A \code{data.frame()} with the requested data.
 }
 \description{
-Returns data for a given flow and key
+Returns Bundesbank data for a given flow and key
 }
 \examples{
 \donttest{

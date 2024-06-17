@@ -14,6 +14,15 @@ as_tibble <- function(x) {
   }
 }
 
+parse_date <- function(date, freq) {
+  switch(freq,
+    daily = as.Date(date),
+    monthly = as.Date(paste0(date, "-01")),
+    annual = as.integer(date),
+    date
+  )
+}
+
 na_if_empty <- function(x, empty = "") {
   replace(x, x == empty, NA_character_)
 }

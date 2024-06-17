@@ -182,7 +182,7 @@ parse_bbk_series <- function(body, key) {
   res
 }
 
-parse_metadata <- function(x, lang) {
+parse_bbk_metadata <- function(x, lang) {
   res <- lapply(x, \(node) {
     id <- xml2::xml_attr(node, "id")
     nms <- node |>
@@ -251,16 +251,7 @@ parse_bbk_data <- function(body) {
   res
 }
 
-parse_date <- function(date, freq) {
-  switch(freq,
-    daily = as.Date(date),
-    monthly = as.Date(paste0(date, "-01")),
-    annual = as.integer(date),
-    date
-  )
-}
-
-fetch_metadata <- function(resource, xpath, id = NULL, lang = "en") {
+fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
   stopifnot(is_string_or_null(id))
   resource <- paste("metadata", resource, sep = "/")
@@ -269,7 +260,7 @@ fetch_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   }
   body <- make_request(resource)
   entries <- xml2::xml_find_all(body, xpath)
-  res <- parse_metadata(entries, lang)
+  res <- parse_bbk_metadata(entries, lang)
   res
 }
 

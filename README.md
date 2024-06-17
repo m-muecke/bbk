@@ -14,7 +14,7 @@ status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/pa
 
 bbk is minimal R client for the
 [Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
-SDMX Web Service API.
+and the [ECB API](https://data.ecb.europa.eu/help/api/overview) APIs.
 
 ## Installation
 
@@ -75,6 +75,8 @@ yield_curve
 
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
   for downloading time-series data from the Bundesbank.
+- [ecb](https://github.com/expersso/ecb): R interface to the European
+  Central Bank’s Statistical Data Warehouse (SDW) API.
 - [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
   data and metadata.
 - [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for

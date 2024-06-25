@@ -1,12 +1,12 @@
 ^.*\.Rproj$
-^CITATION.cff$
+^CITATION\.cff$
 ^CRAN-RELEASE$
 ^CRAN-SUBMISSION$
 ^Dockerfile$
 ^LICENSE\.md$
 ^Meta$
-^README.html$
 ^README\.Rmd$
+^README\.html$
 ^\.Renviron$
 ^\.Rproj\.user$
 ^\.ccache$
@@ -21,7 +21,7 @@
 ^\.vscode$
 ^_pkgdown\.yml$
 ^codecov\.yml$
-^compose.ya?ml$
+^compose\.ya?ml$
 ^cran-comments\.md$
 ^data-raw$
 ^doc$

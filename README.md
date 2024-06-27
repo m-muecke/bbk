@@ -12,9 +12,10 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/package=bbk)
 <!-- badges: end -->
 
-bbk is minimal R client for the
-[Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
-and the [ECB API](https://data.ecb.europa.eu/help/api/overview) APIs.
+bbk is minimal R client for the [Deutsche
+Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
+and the [European Central Bank
+(ECB)](https://data.ecb.europa.eu/help/api/overview) APIs.
 
 ## Installation
 
@@ -54,7 +55,7 @@ yield_curve <- bbk_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,145 × 25
+#> # A tibble: 1,146 × 25
 #>   date       key           value title freq  bearer_reg item  valuation currency
 #>   <date>     <chr>         <dbl> <chr> <chr> <chr>      <chr> <chr>     <chr>   
 #> 1 2020-01-02 BBSIS.D.I.ZA… -0.16 Yiel… daily I          ZAR   ZI        EUR     
@@ -62,7 +63,7 @@ yield_curve
 #> 3 2020-01-06 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
 #> 4 2020-01-07 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
 #> 5 2020-01-08 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> # ℹ 1,140 more rows
+#> # ℹ 1,141 more rows
 #> # ℹ 16 more variables: issuer_class <chr>, listed_sub <chr>,
 #> #   security_class <chr>, maturity <chr>, interest_type <chr>,
 #> #   interest_rate <chr>, redemption <chr>, certificate <chr>, coverage <chr>,

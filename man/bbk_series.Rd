@@ -26,6 +26,8 @@ bbk_series("BBBK11.D.TTA000")
 }
 }
 \seealso{
+\code{\link[=bbk_data]{bbk_data()}} for an endpoint with more options.
+
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{ecb_data}()}

@@ -81,6 +81,7 @@ bbk_data <- function(flow,
 #' @inheritParams bbk_data
 #' @inherit bbk_data return
 #' @family data
+#' @seealso [bbk_data()] for an endpoint with more options.
 #' @export
 #' @examples
 #' \donttest{

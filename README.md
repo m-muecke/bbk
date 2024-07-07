@@ -17,8 +17,9 @@ Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-f
 and the [European Central Bank
 (ECB)](https://data.ecb.europa.eu/help/api/overview) APIs.
 
-In the future, it may be extended to other central banks and financial
-institutions.
+> In the future, it may be extended to other central banks and financial
+> institutions. Feel free to open an issue if you have a specific
+> request.
 
 ## Installation
 

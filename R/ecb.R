@@ -94,7 +94,7 @@ parse_ecb_data <- function(body) {
       D = "daily"
     )
 
-    entries <- x |> xml2::xml_find_all(".//generic:Obs[generic:ObsValue]")
+    entries <- xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
     data$date <- x |>
       xml2::xml_find_all(".//generic:ObsDimension") |>
       xml2::xml_attr("value") |>

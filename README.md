@@ -15,7 +15,9 @@ status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/pa
 bbk is minimal R client for the [Deutsche
 Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 and the [European Central Bank
-(ECB)](https://data.ecb.europa.eu/help/api/overview) APIs.
+(ECB)](https://data.ecb.europa.eu/help/api/overview) APIs. In the
+future, it may be extended to other central banks and financial
+institutions.
 
 ## Installation
 

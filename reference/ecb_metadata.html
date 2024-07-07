@@ -102,20 +102,9 @@ The columns are:</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 84 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    agency id          name                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ECB    ECB_AME1    AMECO                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ECB    ECB_BCS1    Business Cycle Statistics                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ECB    ECB_BKN1    Banknotes Statistics                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ECB    ECB_BLS1    Bank Lending Survey Statistics                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ECB    ECB_BOP1    Balance of Payments, I.I.P. and Reserve Assets Statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ECB    ECB_BOP_BNT Statistics on Shipments of Euro Banknotes                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ECB    ECB_BSI1    Balance Sheet Items                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ECB    ECB_CAR1    Car Statistics                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ECB    ECB_CBD1    Statistics on Consolidated Banking Data                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ECB    ECB_CBD2    Statistics on Consolidated Banking Data                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 74 more rows</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_user_agent(request("https://data-api.ecb.europa.eu/service/"),     "bbk (https://m-muecke.github.io/bbk)"), resource), ...),     body = ecb_error_body)):</span> Failed to perform HTTP request.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Error in the HTTP2 framing layer</span>
 <span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, <span class="st">"ECB"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 75 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    agency id          name                                                     </span>

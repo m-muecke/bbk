@@ -1,42 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://m-muecke.github.io/bbk/404.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/index.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/bbk-package.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/bbk_data.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/bbk_metadata.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/bbk_series.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/ecb_data.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/ecb_metadata.html</loc>
-  </url>
-  <url>
-    <loc>https://m-muecke.github.io/bbk/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://m-muecke.github.io/bbk/404.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/LICENSE-text.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/LICENSE.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/authors.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/index.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/news/index.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/reference/bbk-package.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/reference/bbk_data.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/reference/bbk_metadata.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/reference/bbk_series.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/reference/ecb_data.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/reference/ecb_metadata.html</loc></url>
+<url><loc>https://m-muecke.github.io/bbk/reference/index.html</loc></url>
 </urlset>
+

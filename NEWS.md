@@ -1,4 +1,4 @@
-# bbk (development version)
+# bbk 0.4.0
 
 * Support for European Central Bank (ECB) data
 

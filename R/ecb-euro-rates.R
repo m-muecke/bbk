@@ -42,7 +42,8 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   res <- utils::read.csv(file)
 
   res[res == "N/A"] <- NA
-  res[, 1L] <- as.Date(res[, 1L])
+  fmt <- if (nrow(res) > 1L) "%Y-%m-%d" else "%d %B %Y"
+  res$Date <- as.Date(res$Date, format = fmt)
   res[, -1L] <- lapply(res[, -1L], as.numeric)
   res <- tidyr::pivot_longer(res, !Date, names_to = "currency", values_to = "rate")
   names(res) <- tolower(names(res))

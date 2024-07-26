@@ -1,5 +1,8 @@
 # bbk (development version)
 
+* New function `ecb_euro_rates()` to get euro foreign exchange reference rates
+  from the European Central Bank (ECB)
+
 # bbk 0.4.0
 
 * Support for European Central Bank (ECB) data

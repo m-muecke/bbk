@@ -1,0 +1,24 @@
+test_that("ecb_euro_rates works", {
+  skip_on_cran()
+  skip_on_ci()
+
+  expect_error(ecb_euro_rates("monthly"))
+  expect_error(ecb_euro_rates(NA))
+  expect_error(ecb_euro_rates(""))
+
+  x <- ecb_euro_rates("latest")
+  expect_named(x, c("date", "currency", "rate"))
+  expect_identical(dim(x), c(31L, 3L))
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(x$date, "Date")
+  expect_vector(x$currency, character())
+  expect_vector(x$rate, double())
+
+  x <- ecb_euro_rates("history")
+  expect_named(x, c("date", "currency", "rate"))
+  expect_gt(nrow(x), 31L)
+  expect_s3_class(x, "data.frame")
+  expect_s3_class(x$date, "Date")
+  expect_vector(x$currency, character())
+  expect_vector(x$rate, double())
+})

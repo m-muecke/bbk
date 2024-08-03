@@ -172,7 +172,7 @@ parse_ecb_metadata <- function(x, lang = "en") {
     nms <- node |>
       xml2::xml_find_all(sprintf(".//com:Name[@xml:lang='%s']", lang)) |>
       xml2::xml_text()
-    data.frame(agency = agency, id = id, name = nms)
+    data.frame(agency = agency, id = id, name = nms, check.names = FALSE)
   })
   do.call(rbind, res)
 }

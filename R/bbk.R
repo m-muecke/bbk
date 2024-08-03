@@ -189,7 +189,7 @@ parse_bbk_metadata <- function(x, lang) {
     nms <- node |>
       xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
       xml2::xml_text()
-    data.frame(id = id, name = nms)
+    data.frame(id = id, name = nms, check.names = FALSE)
   })
   do.call(rbind, res)
 }

@@ -89,6 +89,7 @@ test_that("metadata input validation works", {
 })
 
 test_that("bbk_series does frequency conversion", {
+  skip_if_offline()
   skip_on_cran()
   skip_on_ci()
 

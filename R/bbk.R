@@ -266,10 +266,13 @@ fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
 }
 
 bbk_error_body <- function(resp) {
-  body <- resp_body_json(resp)
-  message <- body$title
-  docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
-  c(message, docs)
+  content_type <- resp_content_type(resp)
+  if (identical(content_type, "application/json")) {
+    body <- resp_body_json(resp)
+    message <- body$title
+    docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
+    c(message, docs)
+  }
 }
 
 build_request <- function(resource, accept = NULL) {

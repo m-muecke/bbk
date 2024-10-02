@@ -184,7 +184,7 @@ parse_bbk_series <- function(body, key) {
 }
 
 parse_bbk_metadata <- function(x, lang) {
-  res <- lapply(x, \(node) {
+  res <- lapply(x, function(node) {
     id <- xml2::xml_attr(node, "id")
     nms <- node |>
       xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
@@ -196,7 +196,7 @@ parse_bbk_metadata <- function(x, lang) {
 
 parse_bbk_data <- function(body) {
   series <- body |> xml2::xml_find_all(".//generic:Series")
-  res <- lapply(series, \(x) {
+  res <- lapply(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()

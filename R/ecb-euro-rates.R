@@ -18,7 +18,7 @@
 #' @param x `character(1)` one of "latest" or "history". Default "latest".
 #' @returns A `data.frame()` with the reference rates.
 #'
-#' @source <http://www.ecb.europa.eu/stats/eurofxref/>
+#' @source <https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html>
 #' @export
 #' @examples
 #' \donttest{

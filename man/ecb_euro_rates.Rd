@@ -4,7 +4,7 @@
 \alias{ecb_euro_rates}
 \title{Euro foreign exchange reference rates}
 \source{
-\url{http://www.ecb.europa.eu/stats/eurofxref/}
+\url{https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html}
 }
 \usage{
 ecb_euro_rates(x = c("latest", "history"))

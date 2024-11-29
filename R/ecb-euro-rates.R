@@ -37,7 +37,7 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   dir.create(tmp)
   on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
   tf <- file.path(tmp, "tempfile.zip")
-  utils::download.file(url, destfile = tf, quiet = TRUE, mode = "wb")
+  curl::curl_download(url, tf)
   file <- utils::unzip(tf, exdir = tmp)
   res <- utils::read.csv(file)
 

@@ -24,6 +24,7 @@
 ^_pkgdown\.yml$
 ^attic$
 ^codecov\.yml$
+^codemeta\.json$
 ^compose\.ya?ml$
 ^cran-comments\.md$
 ^data-raw$

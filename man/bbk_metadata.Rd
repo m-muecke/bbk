@@ -19,7 +19,7 @@ bbk_metadata(type, id = NULL, lang = c("en", "de"))
 Default \code{"en"}.}
 }
 \value{
-A \code{data.frame()} with the queried metadata.
+A \code{data.table()} with the queried metadata.
 The columns are:
 \item{id}{The id of the metadata}
 \item{name}{The name of the metadata}

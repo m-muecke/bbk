@@ -56,20 +56,60 @@ yield_curve <- bbk_data(
   start_period = "2020-01-01"
 )
 yield_curve
-#> # A tibble: 1,260 × 25
-#>   date       key           value title freq  bearer_reg item  valuation currency
-#>   <date>     <chr>         <dbl> <chr> <chr> <chr>      <chr> <chr>     <chr>   
-#> 1 2020-01-02 BBSIS.D.I.ZA… -0.16 Yiel… daily I          ZAR   ZI        EUR     
-#> 2 2020-01-03 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> 3 2020-01-06 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> 4 2020-01-07 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> 5 2020-01-08 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> # ℹ 1,255 more rows
-#> # ℹ 16 more variables: issuer_class <chr>, listed_sub <chr>,
-#> #   security_class <chr>, maturity <chr>, interest_type <chr>,
-#> #   interest_rate <chr>, redemption <chr>, certificate <chr>, coverage <chr>,
-#> #   rating <chr>, time_format <chr>, decimals <chr>, unit <chr>,
-#> #   unit_mult <chr>, category <chr>, unit_eng <chr>
+#>             date                                                   key value
+#>           <Date>                                                <char> <num>
+#>    1: 2020-01-02 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.16
+#>    2: 2020-01-03 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
+#>    3: 2020-01-06 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
+#>   ---                                                                       
+#> 1260: 2024-12-04 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.11
+#> 1261: 2024-12-05 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.10
+#> 1262: 2024-12-06 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.15
+#>                                                                                                                                                                    title
+#>                                                                                                                                                                   <char>
+#>    1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#>    2: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#>    3: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#>   ---                                                                                                                                                                   
+#> 1260: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 1261: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 1262: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#>         freq bearer_reg   item valuation currency issuer_class listed_sub
+#>       <char>     <char> <char>    <char>   <char>       <char>     <char>
+#>    1:  daily          I    ZAR        ZI      EUR        S1311          B
+#>    2:  daily          I    ZAR        ZI      EUR        S1311          B
+#>    3:  daily          I    ZAR        ZI      EUR        S1311          B
+#>   ---                                                                    
+#> 1260:  daily          I    ZAR        ZI      EUR        S1311          B
+#> 1261:  daily          I    ZAR        ZI      EUR        S1311          B
+#> 1262:  daily          I    ZAR        ZI      EUR        S1311          B
+#>       security_class maturity interest_type interest_rate redemption
+#>               <char>   <char>        <char>        <char>     <char>
+#>    1:           A604    R10XX             R             A          A
+#>    2:           A604    R10XX             R             A          A
+#>    3:           A604    R10XX             R             A          A
+#>   ---                                                               
+#> 1260:           A604    R10XX             R             A          A
+#> 1261:           A604    R10XX             R             A          A
+#> 1262:           A604    R10XX             R             A          A
+#>       certificate coverage rating time_format decimals    unit unit_mult
+#>            <char>   <char> <char>      <char>   <char>  <char>    <char>
+#>    1:          _Z       _Z      A         P1D        2 PROZENT         0
+#>    2:          _Z       _Z      A         P1D        2 PROZENT         0
+#>    3:          _Z       _Z      A         P1D        2 PROZENT         0
+#>   ---                                                                   
+#> 1260:          _Z       _Z      A         P1D        2 PROZENT         0
+#> 1261:          _Z       _Z      A         P1D        2 PROZENT         0
+#> 1262:          _Z       _Z      A         P1D        2 PROZENT         0
+#>       category unit_eng
+#>         <char>   <char>
+#>    1:     GKZR  percent
+#>    2:     GKZR  percent
+#>    3:     GKZR  percent
+#>   ---                  
+#> 1260:     GKZR  percent
+#> 1261:     GKZR  percent
+#> 1262:     GKZR  percent
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />

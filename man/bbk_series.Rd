@@ -13,7 +13,7 @@ bbk_series(key)
 \item{key}{\code{character(1)} key to query.}
 }
 \value{
-A \code{data.frame()} with the requested data.
+A \code{data.table()} with the requested data.
 }
 \description{
 Returns the Bundesbank time serie that is found with the specified time series key

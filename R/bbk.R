@@ -19,7 +19,7 @@
 #'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @param last_n `numeric(1)` number of observations to retrieve from the end
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
-#' @returns A `data.frame()` with the requested data.
+#' @returns A `data.table()` with the requested data.
 #' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
 #' @export
@@ -72,7 +72,7 @@ bbk_data <- function(flow,
     lastNObservations = last_n
   )
   data <- parse_bbk_data(body)
-  as_tibble(data)
+  data
 }
 
 #' Returns the Bundesbank time serie that is found with the specified time series key
@@ -97,7 +97,7 @@ bbk_series <- function(key) {
     resp_body_raw()
 
   data <- parse_bbk_series(body, key)
-  as_tibble(data)
+  data
 }
 
 #' Returns the available Bundesbank metadata
@@ -110,7 +110,7 @@ bbk_series <- function(key) {
 #' @param id `character(1)` id to query. Default `NULL`.
 #' @param lang `character(1)` language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
-#' @returns A `data.frame()` with the queried metadata.
+#' @returns A `data.table()` with the queried metadata.
 #' The columns are:
 #'   \item{id}{The id of the metadata}
 #'   \item{name}{The name of the metadata}
@@ -133,8 +133,7 @@ bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
     concept = list("conceptscheme/BBK", "//structure:ConceptScheme")
   )
   res <- do.call(fetch_bbk_metadata, c(args, list(id, lang)))
-  res$name <- na_if_empty(res$name)
-  as_tibble(res)
+  res[!nzchar(name), name := NA_character_][]
 }
 
 parse_bbk_series <- function(body, key) {
@@ -148,10 +147,10 @@ parse_bbk_series <- function(body, key) {
   files <- list.files(tmp, full.names = TRUE)
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
-  res <- read.csv(path, header = FALSE, skip = 11L)[, 1:2] |>
-    stats::setNames(c("date", "value"))
-  res$value <- na_if_empty(res$value, ".")
-  res <- stats::na.omit(res)
+  res <- fread(path, header = FALSE, skip = 11L)[, 1:2] |>
+    setnames(c("date", "value"))
+  res[value == ".", value := NA_character_]
+  res <- na.omit(res)
 
   metadata <- readLines(path, n = 10L)
   title <- sub("^[\",]+", "", metadata[[2L]])
@@ -174,13 +173,13 @@ parse_bbk_series <- function(body, key) {
     P1Y = "annual",
     P1D = "daily"
   )
-  res$date <- parse_date(res$date, freq)
+  res[, date := parse_date(date, freq)]
   res <- cbind(
     res, key, title, freq, category, unit, unit_mult, last_update, comment,
     source = src
   )
-  res <- res[union(c("date", "key", "value", "title", "freq"), names(res))]
-  res
+  nms <- union(c("date", "key", "value", "title", "freq"), names(res))
+  res[, ..nms]
 }
 
 parse_bbk_metadata <- function(x, lang) {
@@ -189,9 +188,9 @@ parse_bbk_metadata <- function(x, lang) {
     nms <- node |>
       xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
       xml2::xml_text()
-    data.frame(id = id, name = nms, check.names = FALSE)
+    data.table(id = id, name = nms)
   })
-  do.call(rbind, res)
+  rbindlist(res)
 }
 
 parse_bbk_data <- function(body) {
@@ -245,11 +244,11 @@ parse_bbk_data <- function(body) {
       xml2::xml_attr("value") |>
       as.numeric()
 
-    as.data.frame(data)
+    as.data.table(data)
   })
-  res <- do.call(rbind, res)
-  res <- res[union(c("date", "key", "value", "title", "freq"), names(res))]
-  res
+  res <- rbindlist(res)
+  nms <- union(c("date", "key", "value", "title", "freq"), names(res))
+  res[, ..nms]
 }
 
 fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {

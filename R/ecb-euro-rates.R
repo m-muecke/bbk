@@ -36,12 +36,17 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   tf <- file.path(tmp, "tempfile.zip")
   curl::curl_download(url, tf)
   file <- utils::unzip(tf, exdir = tmp)
-  res <- fread(tf, sep = ",")
-  fmt <- if (nrow(res) > 1L) "%Y-%m-%d" else "%d %B %Y"
-  res[, Date := as.Date(Date, format = fmt)]
-  res[, names(.SD) := lapply(.SD, as.numeric), .SDcols = is.logical]
-  res <- melt(res, id.vars = "Date", variable.name = "currency", value.name = "rate")
-  res <- na.omit(res)
-  setnames(res, tolower)
-  res
+  dt <- fread(tf, sep = ",")
+  fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
+  dt[, Date := as.Date(Date, format = fmt)]
+  dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = is.logical]
+  dt <- melt(dt,
+    id.vars = "Date",
+    variable.name = "currency",
+    value.name = "rate",
+    variable.factor = FALSE
+  )
+  dt <- na.omit(dt)
+  setnames(dt, tolower)
+  dt
 }

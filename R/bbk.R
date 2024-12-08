@@ -178,8 +178,7 @@ parse_bbk_series <- function(body, key) {
     res, key, title, freq, category, unit, unit_mult, last_update, comment,
     source = src
   )
-  nms <- union(c("date", "key", "value", "title", "freq"), names(res))
-  res[, ..nms]
+  setcolorder(res, c("date", "key", "value", "title", "freq"))
 }
 
 parse_bbk_metadata <- function(x, lang) {
@@ -247,8 +246,8 @@ parse_bbk_data <- function(body) {
     as.data.table(data)
   })
   res <- rbindlist(res)
-  nms <- union(c("date", "key", "value", "title", "freq"), names(res))
-  res[, ..nms]
+  res[, decimals := as.integer(decimals)]
+  setcolorder(res, c("date", "key", "value", "title", "freq"))[]
 }
 
 fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {

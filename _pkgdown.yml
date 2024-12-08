@@ -11,6 +11,7 @@ reference:
     - bbk_series
     - ecb_data
     - ecb_euro_rates
+    - snb_data
 
   - subtitle: Metadata
     contents:

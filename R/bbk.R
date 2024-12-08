@@ -203,7 +203,7 @@ parse_bbk_data <- function(body) {
       tolower()
     series_key <- series_key |>
       xml2::xml_attr("value") |>
-      stats::setNames(nms) |>
+      setNames(nms) |>
       as.list()
 
     attrs <- x |>
@@ -216,7 +216,7 @@ parse_bbk_data <- function(body) {
     nms <- replace(nms, nms == "bbk_id", "key")
     attrs <- attrs |>
       xml2::xml_attr("value") |>
-      stats::setNames(nms) |>
+      setNames(nms) |>
       as.list()
 
     data <- c(series_key, attrs)

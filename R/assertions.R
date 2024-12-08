@@ -22,3 +22,18 @@ is_count <- function(x) {
 is_count_or_null <- function(x) {
   is.null(x) || is_count(x)
 }
+
+is_valid_date <- function(x) {
+  if (is.null(x)) {
+    return(TRUE)
+  }
+  if (length(x) != 1L) {
+    return(FALSE)
+  }
+  x <- as.character(x)
+  if (grepl("^\\d{4}-\\d{2}-\\d{2}$", x)) {
+    TRUE
+  } else {
+    FALSE
+  }
+}

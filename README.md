@@ -12,10 +12,13 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/package=bbk)
 <!-- badges: end -->
 
-bbk is minimal R client for the [Deutsche
-Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
-and the [European Central Bank
-(ECB)](https://data.ecb.europa.eu/help/api/overview) APIs.
+bbk is minimal R client for the following APIs:
+
+- [Deutsche
+  Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
+- [European Central Bank
+  (ECB)](https://data.ecb.europa.eu/help/api/overview)
+- [Swiss National Bank (SNB)](https://data.snb.ch/en)
 
 > In the future, it may be extended to other central banks and financial
 > institutions. Feel free to open an issue if you have a specific
@@ -89,13 +92,15 @@ str(yield_curve)
 
 ## Related work
 
+- [SNBdata](https://github.com/enricoschumann/SNBdata): R package for
+  downloading data from the Swiss National Bank (SNB).
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
   for downloading time-series data from the Bundesbank.
 - [ecb](https://github.com/expersso/ecb): R interface to the European
   Central Bank’s Statistical Data Warehouse (SDW) API.
-- [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
-  data and metadata.
-- [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
-  reading SDMX data and metadata.
 - [pdfetch](https://github.com/abielr/pdfetch): R package for
   downloading economic and financial time series from public sources.
+- [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
+  reading SDMX data and metadata.
+- [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
+  data and metadata.

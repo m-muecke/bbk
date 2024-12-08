@@ -13,7 +13,7 @@
 #' @importFrom httr2 resp_body_string
 #' @importFrom httr2 resp_body_xml
 #' @importFrom httr2 resp_content_type
-#' @importFrom utils read.csv
+#' @importFrom stats na.omit setNames
 "_PACKAGE"
 
-utils::globalVariables("Date")
+utils::globalVariables(c("..freq", "..nms", "name", "Date", "decimals", "value"))

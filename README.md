@@ -55,7 +55,7 @@ yield_curve <- bbk_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
-str(yield_curve, strict.width = "cut")
+str(yield_curve)
 #> Classes 'data.table' and 'data.frame':   1262 obs. of  25 variables:
 #>  $ date          : Date, format: "2020-01-02" "2020-01-03" ...
 #>  $ key           : chr  "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z."..

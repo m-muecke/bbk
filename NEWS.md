@@ -1,5 +1,8 @@
 # bbk (development version)
 
+* Migration to data.table package. Internal data manipulation is now done using
+  data.table and all functions return data.table objects.
+
 # bbk 0.5.0
 
 * New function `ecb_euro_rates()` to get euro foreign exchange reference rates

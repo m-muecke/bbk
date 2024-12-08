@@ -14,8 +14,8 @@ status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/pa
 
 bbk is minimal R client for the following APIs:
 
-- [Deutsche
-  Bundesbank](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
+- [Deutsche Bundesbank
+  (BBK)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 - [European Central Bank
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)

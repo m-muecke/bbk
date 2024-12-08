@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
-options(tibble.print_min = 5L, tibble.print_max = 5L)
+options(datatable.prettyprint.char = 30L)
 ```
 
 # bbk
@@ -61,7 +61,7 @@ yield_curve <- bbk_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
-yield_curve
+head(yield_curve)
 ```
 
 ```{r plotting, message = FALSE, echo = FALSE, dpi = 300}

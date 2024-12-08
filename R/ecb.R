@@ -53,7 +53,7 @@ ecb_data <- function(flow,
     lastNObservations = last_n
   )
   res <- parse_ecb_data(body)
-  as_tibble(res)
+  res
 }
 
 parse_ecb_data <- function(body) {
@@ -105,14 +105,13 @@ parse_ecb_data <- function(body) {
       xml2::xml_attr("value") |>
       as.numeric()
 
-    as.data.frame(data)
+    as.data.table(data)
   })
   nms <- lapply(res, names)
   nms <- Reduce(intersect, nms)
   nms <- union(c("date", "key", "value", "title", "description"), nms)
-  res <- lapply(res, \(x) x[nms])
-  res <- do.call(rbind, res)
-  res
+  res <- lapply(res, \(x) x[, ..nms])
+  rbindlist(res)
 }
 
 #' Returns the available ECB metadata
@@ -124,7 +123,7 @@ parse_ecb_data <- function(body) {
 #' `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
 #' @param agency `character(1)` id of the agency to query. Default `NULL`.
 #' @param id `character(1)` id of the resource to query. Default `NULL`.
-#' @returns A `data.frame()` with the queried metadata.
+#' @returns A `data.table()` with the queried metadata.
 #' The columns are:
 #'   \item{agency}{The agency of the metadata}
 #'   \item{id}{The id of the metadata}
@@ -148,7 +147,7 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
     concept = list("conceptscheme", "//str:ConceptScheme")
   )
   res <- do.call(fetch_ecb_metadata, c(args, list(agency, id)))
-  as_tibble(res)
+  res
 }
 
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
@@ -172,9 +171,9 @@ parse_ecb_metadata <- function(x, lang = "en") {
     nms <- node |>
       xml2::xml_find_all(sprintf(".//com:Name[@xml:lang='%s']", lang)) |>
       xml2::xml_text()
-    data.frame(agency = agency, id = id, name = nms, check.names = FALSE)
+    data.table(agency = agency, id = id, name = nms)
   })
-  do.call(rbind, res)
+  rbindlist(res)
 }
 
 ecb_error_body <- function(resp) {

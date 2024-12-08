@@ -13,7 +13,7 @@ ecb_euro_rates(x = c("latest", "history"))
 \item{x}{\code{character(1)} one of "latest" or "history". Default "latest".}
 }
 \value{
-A \code{data.frame()} with the reference rates.
+A \code{data.table()} with the reference rates.
 }
 \description{
 Fetch the latest or historical Euro foreign exchange reference rates from

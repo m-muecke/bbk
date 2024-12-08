@@ -16,6 +16,8 @@ repos:
     hooks:
       - id: roxygenize
         additional_dependencies:
+          - curl
+          - data.table
           - httr2
           - xml2
       - id: deps-in-desc

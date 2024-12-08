@@ -55,21 +55,47 @@ yield_curve <- bbk_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
-yield_curve
-#> # A tibble: 1,260 × 25
-#>   date       key           value title freq  bearer_reg item  valuation currency
-#>   <date>     <chr>         <dbl> <chr> <chr> <chr>      <chr> <chr>     <chr>   
-#> 1 2020-01-02 BBSIS.D.I.ZA… -0.16 Yiel… daily I          ZAR   ZI        EUR     
-#> 2 2020-01-03 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> 3 2020-01-06 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> 4 2020-01-07 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> 5 2020-01-08 BBSIS.D.I.ZA… -0.27 Yiel… daily I          ZAR   ZI        EUR     
-#> # ℹ 1,255 more rows
-#> # ℹ 16 more variables: issuer_class <chr>, listed_sub <chr>,
-#> #   security_class <chr>, maturity <chr>, interest_type <chr>,
-#> #   interest_rate <chr>, redemption <chr>, certificate <chr>, coverage <chr>,
-#> #   rating <chr>, time_format <chr>, decimals <chr>, unit <chr>,
-#> #   unit_mult <chr>, category <chr>, unit_eng <chr>
+head(yield_curve)
+#>          date                               key value
+#>        <Date>                            <char> <num>
+#> 1: 2020-01-02 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.16
+#> 2: 2020-01-03 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
+#> 3: 2020-01-06 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
+#> 4: 2020-01-07 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
+#> 5: 2020-01-08 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
+#> 6: 2020-01-09 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.22
+#>                                title   freq bearer_reg   item valuation
+#>                               <char> <char>     <char> <char>    <char>
+#> 1: Yields, derived from the term ...  daily          I    ZAR        ZI
+#> 2: Yields, derived from the term ...  daily          I    ZAR        ZI
+#> 3: Yields, derived from the term ...  daily          I    ZAR        ZI
+#> 4: Yields, derived from the term ...  daily          I    ZAR        ZI
+#> 5: Yields, derived from the term ...  daily          I    ZAR        ZI
+#> 6: Yields, derived from the term ...  daily          I    ZAR        ZI
+#>    currency issuer_class listed_sub security_class maturity interest_type
+#>      <char>       <char>     <char>         <char>   <char>        <char>
+#> 1:      EUR        S1311          B           A604    R10XX             R
+#> 2:      EUR        S1311          B           A604    R10XX             R
+#> 3:      EUR        S1311          B           A604    R10XX             R
+#> 4:      EUR        S1311          B           A604    R10XX             R
+#> 5:      EUR        S1311          B           A604    R10XX             R
+#> 6:      EUR        S1311          B           A604    R10XX             R
+#>    interest_rate redemption certificate coverage rating time_format decimals
+#>           <char>     <char>      <char>   <char> <char>      <char>   <char>
+#> 1:             A          A          _Z       _Z      A         P1D        2
+#> 2:             A          A          _Z       _Z      A         P1D        2
+#> 3:             A          A          _Z       _Z      A         P1D        2
+#> 4:             A          A          _Z       _Z      A         P1D        2
+#> 5:             A          A          _Z       _Z      A         P1D        2
+#> 6:             A          A          _Z       _Z      A         P1D        2
+#>       unit unit_mult category unit_eng
+#>     <char>    <char>   <char>   <char>
+#> 1: PROZENT         0     GKZR  percent
+#> 2: PROZENT         0     GKZR  percent
+#> 3: PROZENT         0     GKZR  percent
+#> 4: PROZENT         0     GKZR  percent
+#> 5: PROZENT         0     GKZR  percent
+#> 6: PROZENT         0     GKZR  percent
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />

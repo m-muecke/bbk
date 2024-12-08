@@ -1,14 +1,4 @@
-`%||%` <- function(x, y) {
-  if (is.null(x)) y else x
-}
-
-as_tibble <- function(x) {
-  if (getOption("bbk.use_tibble", TRUE) && requireNamespace("tibble", quietly = TRUE)) {
-    tibble::as_tibble(x)
-  } else {
-    x
-  }
-}
+`%||%` <- function(x, y) if (is.null(x)) y else x
 
 parse_date <- function(date, freq) {
   switch(freq,
@@ -17,10 +7,6 @@ parse_date <- function(date, freq) {
     annual = as.integer(date),
     date
   )
-}
-
-na_if_empty <- function(x, empty = "") {
-  replace(x, x == empty, NA_character_)
 }
 
 extract_metadata <- function(string, pattern, fixed = FALSE) {

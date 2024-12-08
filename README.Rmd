@@ -61,7 +61,7 @@ yield_curve <- bbk_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
-head(yield_curve)
+str(yield_curve, strict.width = "cut")
 ```
 
 ```{r plotting, message = FALSE, echo = FALSE, dpi = 300}

@@ -55,47 +55,34 @@ yield_curve <- bbk_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
-head(yield_curve)
-#>          date                               key value
-#>        <Date>                            <char> <num>
-#> 1: 2020-01-02 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.16
-#> 2: 2020-01-03 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
-#> 3: 2020-01-06 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
-#> 4: 2020-01-07 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
-#> 5: 2020-01-08 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.27
-#> 6: 2020-01-09 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A... -0.22
-#>                                title   freq bearer_reg   item valuation
-#>                               <char> <char>     <char> <char>    <char>
-#> 1: Yields, derived from the term ...  daily          I    ZAR        ZI
-#> 2: Yields, derived from the term ...  daily          I    ZAR        ZI
-#> 3: Yields, derived from the term ...  daily          I    ZAR        ZI
-#> 4: Yields, derived from the term ...  daily          I    ZAR        ZI
-#> 5: Yields, derived from the term ...  daily          I    ZAR        ZI
-#> 6: Yields, derived from the term ...  daily          I    ZAR        ZI
-#>    currency issuer_class listed_sub security_class maturity interest_type
-#>      <char>       <char>     <char>         <char>   <char>        <char>
-#> 1:      EUR        S1311          B           A604    R10XX             R
-#> 2:      EUR        S1311          B           A604    R10XX             R
-#> 3:      EUR        S1311          B           A604    R10XX             R
-#> 4:      EUR        S1311          B           A604    R10XX             R
-#> 5:      EUR        S1311          B           A604    R10XX             R
-#> 6:      EUR        S1311          B           A604    R10XX             R
-#>    interest_rate redemption certificate coverage rating time_format decimals
-#>           <char>     <char>      <char>   <char> <char>      <char>   <char>
-#> 1:             A          A          _Z       _Z      A         P1D        2
-#> 2:             A          A          _Z       _Z      A         P1D        2
-#> 3:             A          A          _Z       _Z      A         P1D        2
-#> 4:             A          A          _Z       _Z      A         P1D        2
-#> 5:             A          A          _Z       _Z      A         P1D        2
-#> 6:             A          A          _Z       _Z      A         P1D        2
-#>       unit unit_mult category unit_eng
-#>     <char>    <char>   <char>   <char>
-#> 1: PROZENT         0     GKZR  percent
-#> 2: PROZENT         0     GKZR  percent
-#> 3: PROZENT         0     GKZR  percent
-#> 4: PROZENT         0     GKZR  percent
-#> 5: PROZENT         0     GKZR  percent
-#> 6: PROZENT         0     GKZR  percent
+str(yield_curve, strict.width = "cut")
+#> Classes 'data.table' and 'data.frame':   1262 obs. of  25 variables:
+#>  $ date          : Date, format: "2020-01-02" "2020-01-03" ...
+#>  $ key           : chr  "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z."..
+#>  $ value         : num  -0.16 -0.27 -0.27 -0.27 -0.27 -0.22 -0.2 -0.19 -0.17 -..
+#>  $ title         : chr  "Yields, derived from the term structure of interest "..
+#>  $ freq          : chr  "daily" "daily" "daily" "daily" ...
+#>  $ bearer_reg    : chr  "I" "I" "I" "I" ...
+#>  $ item          : chr  "ZAR" "ZAR" "ZAR" "ZAR" ...
+#>  $ valuation     : chr  "ZI" "ZI" "ZI" "ZI" ...
+#>  $ currency      : chr  "EUR" "EUR" "EUR" "EUR" ...
+#>  $ issuer_class  : chr  "S1311" "S1311" "S1311" "S1311" ...
+#>  $ listed_sub    : chr  "B" "B" "B" "B" ...
+#>  $ security_class: chr  "A604" "A604" "A604" "A604" ...
+#>  $ maturity      : chr  "R10XX" "R10XX" "R10XX" "R10XX" ...
+#>  $ interest_type : chr  "R" "R" "R" "R" ...
+#>  $ interest_rate : chr  "A" "A" "A" "A" ...
+#>  $ redemption    : chr  "A" "A" "A" "A" ...
+#>  $ certificate   : chr  "_Z" "_Z" "_Z" "_Z" ...
+#>  $ coverage      : chr  "_Z" "_Z" "_Z" "_Z" ...
+#>  $ rating        : chr  "A" "A" "A" "A" ...
+#>  $ time_format   : chr  "P1D" "P1D" "P1D" "P1D" ...
+#>  $ decimals      : chr  "2" "2" "2" "2" ...
+#>  $ unit          : chr  "PROZENT" "PROZENT" "PROZENT" "PROZENT" ...
+#>  $ unit_mult     : chr  "0" "0" "0" "0" ...
+#>  $ category      : chr  "GKZR" "GKZR" "GKZR" "GKZR" ...
+#>  $ unit_eng      : chr  "percent" "percent" "percent" "percent" ...
+#>  - attr(*, ".internal.selfref")=<externalptr>
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />

@@ -55,61 +55,47 @@ yield_curve <- bbk_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
-yield_curve
-#>             date                                                   key value
-#>           <Date>                                                <char> <num>
-#>    1: 2020-01-02 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.16
-#>    2: 2020-01-03 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
-#>    3: 2020-01-06 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
-#>   ---                                                                       
-#> 1260: 2024-12-04 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.11
-#> 1261: 2024-12-05 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.10
-#> 1262: 2024-12-06 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.15
-#>                                                                                                                                                                    title
-#>                                                                                                                                                                   <char>
-#>    1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
-#>    2: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
-#>    3: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
-#>   ---                                                                                                                                                                   
-#> 1260: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
-#> 1261: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
-#> 1262: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
-#>         freq bearer_reg   item valuation currency issuer_class listed_sub
-#>       <char>     <char> <char>    <char>   <char>       <char>     <char>
-#>    1:  daily          I    ZAR        ZI      EUR        S1311          B
-#>    2:  daily          I    ZAR        ZI      EUR        S1311          B
-#>    3:  daily          I    ZAR        ZI      EUR        S1311          B
-#>   ---                                                                    
-#> 1260:  daily          I    ZAR        ZI      EUR        S1311          B
-#> 1261:  daily          I    ZAR        ZI      EUR        S1311          B
-#> 1262:  daily          I    ZAR        ZI      EUR        S1311          B
-#>       security_class maturity interest_type interest_rate redemption
-#>               <char>   <char>        <char>        <char>     <char>
-#>    1:           A604    R10XX             R             A          A
-#>    2:           A604    R10XX             R             A          A
-#>    3:           A604    R10XX             R             A          A
-#>   ---                                                               
-#> 1260:           A604    R10XX             R             A          A
-#> 1261:           A604    R10XX             R             A          A
-#> 1262:           A604    R10XX             R             A          A
-#>       certificate coverage rating time_format decimals    unit unit_mult
-#>            <char>   <char> <char>      <char>   <char>  <char>    <char>
-#>    1:          _Z       _Z      A         P1D        2 PROZENT         0
-#>    2:          _Z       _Z      A         P1D        2 PROZENT         0
-#>    3:          _Z       _Z      A         P1D        2 PROZENT         0
-#>   ---                                                                   
-#> 1260:          _Z       _Z      A         P1D        2 PROZENT         0
-#> 1261:          _Z       _Z      A         P1D        2 PROZENT         0
-#> 1262:          _Z       _Z      A         P1D        2 PROZENT         0
-#>       category unit_eng
-#>         <char>   <char>
-#>    1:     GKZR  percent
-#>    2:     GKZR  percent
-#>    3:     GKZR  percent
-#>   ---                  
-#> 1260:     GKZR  percent
-#> 1261:     GKZR  percent
-#> 1262:     GKZR  percent
+head(yield_curve)
+#>          date                                                   key value
+#>        <Date>                                                <char> <num>
+#> 1: 2020-01-02 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.16
+#> 2: 2020-01-03 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
+#> 3: 2020-01-06 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
+#> 4: 2020-01-07 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
+#> 5: 2020-01-08 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.27
+#> 6: 2020-01-09 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.22
+#>                                                                                                                                                                 title
+#>                                                                                                                                                                <char>
+#> 1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 2: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 3: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 4: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 5: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 6: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#>      freq bearer_reg   item valuation currency issuer_class listed_sub
+#>    <char>     <char> <char>    <char>   <char>       <char>     <char>
+#> 1:  daily          I    ZAR        ZI      EUR        S1311          B
+#> 2:  daily          I    ZAR        ZI      EUR        S1311          B
+#> 3:  daily          I    ZAR        ZI      EUR        S1311          B
+#> 4:  daily          I    ZAR        ZI      EUR        S1311          B
+#> 5:  daily          I    ZAR        ZI      EUR        S1311          B
+#> 6:  daily          I    ZAR        ZI      EUR        S1311          B
+#>    security_class maturity interest_type interest_rate redemption certificate
+#>            <char>   <char>        <char>        <char>     <char>      <char>
+#> 1:           A604    R10XX             R             A          A          _Z
+#> 2:           A604    R10XX             R             A          A          _Z
+#> 3:           A604    R10XX             R             A          A          _Z
+#> 4:           A604    R10XX             R             A          A          _Z
+#> 5:           A604    R10XX             R             A          A          _Z
+#> 6:           A604    R10XX             R             A          A          _Z
+#>    coverage rating time_format decimals    unit unit_mult category unit_eng
+#>      <char> <char>      <char>   <char>  <char>    <char>   <char>   <char>
+#> 1:       _Z      A         P1D        2 PROZENT         0     GKZR  percent
+#> 2:       _Z      A         P1D        2 PROZENT         0     GKZR  percent
+#> 3:       _Z      A         P1D        2 PROZENT         0     GKZR  percent
+#> 4:       _Z      A         P1D        2 PROZENT         0     GKZR  percent
+#> 5:       _Z      A         P1D        2 PROZENT         0     GKZR  percent
+#> 6:       _Z      A         P1D        2 PROZENT         0     GKZR  percent
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />

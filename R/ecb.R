@@ -67,7 +67,7 @@ parse_ecb_data <- function(body) {
       tolower()
     series_key <- series_key |>
       xml2::xml_attr("value") |>
-      stats::setNames(nms) |>
+      setNames(nms) |>
       as.list()
 
     attrs <- x |>
@@ -79,7 +79,7 @@ parse_ecb_data <- function(body) {
     nms <- replace(nms, nms == "title_compl", "description")
     attrs <- attrs |>
       xml2::xml_attr("value") |>
-      stats::setNames(nms) |>
+      setNames(nms) |>
       as.list()
 
     data <- c(series_key, attrs)
@@ -177,7 +177,7 @@ parse_ecb_metadata <- function(x, lang = "en") {
 }
 
 ecb_error_body <- function(resp) {
-  message <- resp_body_string(resp)
+  message <- resp_body_string(resp, "UTF-8")
   docs <- "See docs at <https://data.ecb.europa.eu/help/api/status-codes>"
   c(message, docs)
 }

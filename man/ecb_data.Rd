@@ -57,6 +57,7 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 \seealso{
 Other data: 
 \code{\link{bbk_data}()},
-\code{\link{bbk_series}()}
+\code{\link{bbk_series}()},
+\code{\link{snb_data}()}
 }
 \concept{data}

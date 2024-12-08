@@ -89,13 +89,15 @@ str(yield_curve)
 
 ## Related work
 
+- [SNBdata](https://github.com/enricoschumann/SNBdata): R package for
+  downloading data from the Swiss National Bank (SNB).
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
   for downloading time-series data from the Bundesbank.
 - [ecb](https://github.com/expersso/ecb): R interface to the European
   Central Bank’s Statistical Data Warehouse (SDW) API.
-- [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
-  data and metadata.
-- [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
-  reading SDMX data and metadata.
 - [pdfetch](https://github.com/abielr/pdfetch): R package for
   downloading economic and financial time series from public sources.
+- [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
+  reading SDMX data and metadata.
+- [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
+  data and metadata.

@@ -19,6 +19,7 @@ repos:
           - curl
           - data.table
           - httr2
+          - jsonlite
           - xml2
       - id: deps-in-desc
       - id: no-browser-statement

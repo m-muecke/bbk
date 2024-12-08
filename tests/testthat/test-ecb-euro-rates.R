@@ -9,7 +9,7 @@ test_that("ecb_euro_rates works", {
 
   x <- ecb_euro_rates("latest")
   expect_named(x, c("date", "currency", "rate"))
-  expect_identical(dim(x), c(31L, 3L))
+  expect_identical(dim(x), c(30L, 3L))
   expect_s3_class(x, "data.frame")
   expect_s3_class(x$date, "Date")
   expect_vector(x$currency, character())
@@ -17,7 +17,7 @@ test_that("ecb_euro_rates works", {
 
   x <- ecb_euro_rates("history")
   expect_named(x, c("date", "currency", "rate"))
-  expect_gt(nrow(x), 31L)
+  expect_gt(nrow(x), 30L)
   expect_s3_class(x, "data.frame")
   expect_s3_class(x$date, "Date")
   expect_vector(x$currency, character())

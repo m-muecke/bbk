@@ -75,7 +75,7 @@ Default <code>"en"</code>.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with the queried metadata.
+    <p>A <code>data.table()</code> with the queried metadata.
 The columns are:</p>
 <dl><dt>id</dt>
 <dd><p>The id of the metadata</p></dd>
@@ -94,47 +94,230 @@ The columns are:</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bbk_metadata</span><span class="op">(</span><span class="st">"datastructure"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 83 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id        name                                                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> BBK_BSPL  Profit and loss                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> BBK_DOES  Short-term economic indicators (classified by economic sector)     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> BBK_ERX   ECB euro reference exchange rates, exchange rates in particular co…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> BBK_ESBOP External sector Balance of Payments according to BPM6              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> BBK_EXBS  Business and consumer surveys of foreign countries                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> BBK_DOSC  System of  indicators for the German commercial real estate market </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> BBK_DOSR  System of indicators for the German residential property market    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> BBK_EXNA  National Accounts of foreign countries                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> BBK_EXPR  Consumer Prices of foreign countries                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> BBK_EXEI  Leading indicators of foreign countries                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 73 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:           BBK_BSPL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:           BBK_DOES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:            BBK_ERX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:          BBK_ESBOP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:           BBK_EXBS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:           BBK_DOSC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:           BBK_DOSR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:           BBK_EXNA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:           BBK_EXPR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:           BBK_EXEI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:           BBK_ACIP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:         BBK_BSPL_S</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:           BBK_ACS2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:          BBK_BLS_G</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:           BBK_DOGO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:           BBK_DOLM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:          BBK_MAMMS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:           BBK_DOBS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:           BBK_DOET</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:           BBK_DOPR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:           BBK_DORE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:           BBK_EREW</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:          BBK_ESFDI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:           BBK_ESNB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:           BBK_EXGF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:           BBK_EXLP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:          BBK_MAMMU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:       BBK_NAAC2011</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:           BBK_SEHA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:           BBK_SESS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:          BBK_SEFU3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:          BBK_SEFU2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:           BBK_SEHD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:           BBK_SEIS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:           BBK_SESP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:           BBK_RTD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:           BBK_BSPS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:           BBK_MAFA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:           BBK_EREI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:      BBK_MAMM_EST1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:            BBK_TH3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42: BBK_MAMM_ECB_MMSR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:     BBK_MAMM_MMSR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:         BBK_ESFDIT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:           BBK_RCOH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:           BBK_DOCR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:           BBK_SESY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:           BBK_BBK1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49:           BBK_SEDI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:         BBK_ES_BOP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:          BBK_VOEXP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:            BBK_GFS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:         BBK_BSBBK1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54:        BBK_BSBBK10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:        BBK_BSBBK11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:        BBK_BSBBK12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:        BBK_BSBBK13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:        BBK_BSBBK20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:         BBK_BSBBK4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:         BBK_BSBBK5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:         BBK_BSBBK6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:         BBK_BSBBK7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:         BBK_BSBBK8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:         BBK_BSBBK9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:           BBK_IRBB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:            BBK_IRM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:          BBK_IRCBR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:           BBK_IRMM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:        BBK_BSEBBK1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:           BBK_SEEI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:       BBK_MAFABBK1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:       BBK_AQFA2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:         BBK_BSPAY1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:         BBK_BSPAY2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:         BBK_BSPAY3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76:         BBK_BSPAY4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77:         BBK_BSPAY5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78:         BBK_BSPAY6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79:         BBK_BSPAY8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80:        BBK_BSPAY11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81:        BBK_BSPAY12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82:     BBK_BSPAY_SSIA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83:           BBK_BSI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                              &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:                                                                                                                                 Profit and loss</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:                                                                                  Short-term economic indicators (classified by economic sector)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:         ECB euro reference exchange rates, exchange rates in particular countries, special drawing rights, precious metal prices, further rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:                                                                                           External sector Balance of Payments according to BPM6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:                                                                                              Business and consumer surveys of foreign countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:                                                                              System of  indicators for the German commercial real estate market</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:                                                                                 System of indicators for the German residential property market</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:                                                                                                          National Accounts of foreign countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:                                                                                                            Consumer Prices of foreign countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:                                                                                                         Leading indicators of foreign countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:                                                                Deutsche Bundesbank,  Insurance Corporations and Pension Undertakings Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:                                                                                                                    Profit and loss (IFRS-group)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:                                              Deutsche Bundesbank,  Insurance Corporations and Pension Undertakings Statistics, Solvency II data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:                                                                                                                             Bank Lending Survey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:                                                                                                                                     Commodities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:                                                                                                                         Labour market - Germany</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:                                                                             Money Market Statistical Reporting_Aggregats_Secured Market Segment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:                                                                                                                Corporate Balance Sheet Analysis</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:                                                                                                                           German external trade</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:                                                                                             Price statistics (classified by goods and services)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:                                                                                                                              Real Estate Prices</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:                                                                                  Indicators of price competitiveness / Effective exchange rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:                                                                                                    Foreign direct investments according to BPM6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:                                                                            Deutsche Bundesbank, External sector - external position of nonbanks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:                                                                                                         Government Finance of foreign countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:                                                                                               Labour Market and Population of foreign countries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:                                                                           Money Market Statistical Reporting_Aggregats_Unsecured Market Segment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:                                                                                                                    National Accounts - ESA 2010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:                                                                                                                             WpInvest aggregates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:                                                                                                           Securities Issues Statistics (Shares)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:                                                                                                        Performance Indices Investment Funds BBk</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:                                                                                                                            Investment Funds BBk</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:                                                                                                             Number of customer deposit accounts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:                                                                                                            Securities Issues Statistics (Bonds)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:                                                                                                                             Sales and Purchases</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:                                                                                                                                   Realtime Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:                                                                                                                           Financial market data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:                                                                                                         Indices of exchange rate effects on IIP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:                                                                                                                            Euro Short-Term Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:                                                                                                                    Time series of department H3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42:                                                                                                                   Money Market Statistics (ECB)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:                                                                                               Money Market Statistics (ECB; based on ECB_MMSR1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:                                                                                              Foreign Direct Investment Flows 18 Dimensions S201</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:                                                                                            Research Center - Bundesbank Online-Panel Househould</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:                                                                                                                              Calendar regressor</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:                                                                                                                                   Single yields</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:                                                                                                            SDMX structure for BBK01 time series</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49:                                                               Discount interest rates pursuant to section 253 (2) of the German Commercial Code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:                                                                                                          BOP Data Structure Definition (17-DIM)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:                                                                                                        Macroeconomic Expectations and Forecasts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:                                                                                                                   Government finance statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:                                           Banking statistics, Balance Sheet Items, BSI - Banks in Germany (MFI and non-MFI credit institutions)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54: Banking statistics, Balance Sheet Items,  German contribution, ECB-aggregates  (MFI and non-MFI credit institutions), Bundesbank BSI-statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:                                                                             Banking statistics, Balance Sheet Items, Weekly financial statement</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:                                                                                                   IMF data, Financial Soundnes Indicators, SDDS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:                                                           Banking statistics, Balance Sheet Items, ECB-aggregates (non-MFI credit institutions)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:                                                                                 Banking statistics, Balance Sheet Items, historical time series</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:                                         Banking statistics, Balance Sheet Items, BSI - Multi-office banks (MFI and non-MFI credit institutions)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:                                          Banking statistics, Balance Sheet Items,  BSI - Foreign branches (MFI and non-MFI credit institutions)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:                                                             Banking statistics, Balance Sheet Items, Foreign subsidiaries of German banks (MFI)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:                                                                        Banking statistics, Balance Sheet Items, BSI - Regional statistics (MFI)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:                                                                    Banking statistics, Balance Sheet Items, FVC - Financial vehicle corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:                                                      Banking statistics, Balance Sheet Items, structural figures, size categories, publications</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:                                                                                         Bundesbank's interest rate statistics (until June 2003)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:                                                                                                                    MFI interest rate statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:                                                                                                                              Central bank rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:                                                                                                                                    Money market</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:                                                                                           Banking statistics, External Position of Banks, AUSTA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:                                                                                  Expectation of inflation rate and expected real interest rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:                                                                                                               Financial market data, short keys</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:                                                                                                       Financial accounts - internet time series</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:                                                                                                                        Payments Statistics 2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:                                                                                                                        Payments Statistics 2021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81:                                                                                                                             Payments Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82:                                                                                                            ZVS additional structural indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83:                                                                              Deutsche Bundesbank, Balance Sheet Items, EMU, Monetary aggregates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                name</span>
 <span class="r-in"><span><span class="fu">bbk_metadata</span><span class="op">(</span><span class="st">"dataflow"</span>, <span class="st">"BBSIS"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   id    name                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> BBSIS Securities Issues Statistics (Bonds)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        id                                 name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;char&gt;                               &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  BBSIS Securities Issues Statistics (Bonds)</span>
 <span class="r-in"><span><span class="fu">bbk_metadata</span><span class="op">(</span><span class="st">"codelist"</span>, <span class="st">"CL_BBK_ACIP_ASSET_LIABILITY"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   id                          name                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> CL_BBK_ACIP_ASSET_LIABILITY Assets / Liabilities</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> CL_BBK_ACIP_ASSET_LIABILITY Assets              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> CL_BBK_ACIP_ASSET_LIABILITY Liabilities         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                             id                 name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         &lt;char&gt;               &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: CL_BBK_ACIP_ASSET_LIABILITY Assets / Liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: CL_BBK_ACIP_ASSET_LIABILITY               Assets</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: CL_BBK_ACIP_ASSET_LIABILITY          Liabilities</span>
 <span class="r-in"><span><span class="fu">bbk_metadata</span><span class="op">(</span><span class="st">"concept"</span>, <span class="st">"CS_BBK_BSPL"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 38 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id          name                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> CS_BBK_BSPL Profit and loss                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> CS_BBK_BSPL Frequency (BBk)                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> CS_BBK_BSPL Area (countries, list of countries), BBk only</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> CS_BBK_BSPL Adjustment (BBk)                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> CS_BBK_BSPL Reference sector breakdown                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> CS_BBK_BSPL Profit/Loss Item                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> CS_BBK_BSPL Original maturity                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CS_BBK_BSPL Data type                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> CS_BBK_BSPL Counterpart area                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> CS_BBK_BSPL Counterpart Sector                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 28 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              id                                          name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;char&gt;                                        &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: CS_BBK_BSPL                               Profit and loss</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: CS_BBK_BSPL                               Frequency (BBk)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: CS_BBK_BSPL Area (countries, list of countries), BBk only</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: CS_BBK_BSPL                              Adjustment (BBk)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: CS_BBK_BSPL                    Reference sector breakdown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: CS_BBK_BSPL                              Profit/Loss Item</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: CS_BBK_BSPL                             Original maturity</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: CS_BBK_BSPL                                     Data type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: CS_BBK_BSPL                              Counterpart area</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: CS_BBK_BSPL                            Counterpart Sector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: CS_BBK_BSPL Area (ISO currency codes, list of currencies)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: CS_BBK_BSPL                                        Suffix</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: CS_BBK_BSPL                          Time period or range</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: CS_BBK_BSPL                              Time format code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: CS_BBK_BSPL                             Observation value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: CS_BBK_BSPL                            Observation status</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: CS_BBK_BSPL                   Pre-break observation value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: CS_BBK_BSPL                                         Title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: CS_BBK_BSPL                                          Unit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: CS_BBK_BSPL                               Unit multiplier</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: CS_BBK_BSPL                                      Decimals</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: CS_BBK_BSPL                          Collection indicator</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: CS_BBK_BSPL                                       Comment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: CS_BBK_BSPL           Comment on observation (in english)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: CS_BBK_BSPL                        Comment on observation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: CS_BBK_BSPL                            Title (in english)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: CS_BBK_BSPL                                      category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: CS_BBK_BSPL                                 Grafics title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: CS_BBK_BSPL                         Grafics title english</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: CS_BBK_BSPL                              Grafics position</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31: CS_BBK_BSPL                                 Timeserieskey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32: CS_BBK_BSPL                                   Euro values</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33: CS_BBK_BSPL     Absolute change vis-à-vis previous period</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34: CS_BBK_BSPL   Percentage change vis-à-vis previous period</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35: CS_BBK_BSPL                  Year-on-year absolute change</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36: CS_BBK_BSPL                Year-on-year percentage change</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37: CS_BBK_BSPL                                    Conversion</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38: CS_BBK_BSPL                            Conversion english</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              id                                          name</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

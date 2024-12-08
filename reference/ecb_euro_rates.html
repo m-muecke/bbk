@@ -65,7 +65,7 @@ the European Central Bank.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with the reference rates.</p>
+    <p>A <code>data.table()</code> with the reference rates.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -83,20 +83,39 @@ Using the rates for transaction purposes is strongly discouraged.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_euro_rates</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 31 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date       currency    rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2024-12-04 USD        1.05 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2024-12-04 JPY      159.   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2024-12-04 BGN        1.96 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2024-12-04 CZK       25.2  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-12-04 DKK        7.46 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-12-04 GBP        0.828</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2024-12-04 HUF      414.   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2024-12-04 PLN        4.29 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2024-12-04 RON        4.98 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2024-12-04 SEK       11.5  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           date currency        rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt;   &lt;char&gt;       &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2024-12-06      USD     1.05810</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2024-12-06      JPY   159.25000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2024-12-06      BGN     1.95580</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2024-12-06      CZK    25.11000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2024-12-06      DKK     7.45840</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2024-12-06      GBP     0.82855</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2024-12-06      HUF   414.35000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2024-12-06      PLN     4.26700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2024-12-06      RON     4.97740</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2024-12-06      SEK    11.52300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2024-12-06      CHF     0.92840</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2024-12-06      ISK   145.70000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2024-12-06      NOK    11.74450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2024-12-06      TRY    36.81990</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2024-12-06      AUD     1.65060</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2024-12-06      BRL     6.35460</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2024-12-06      CAD     1.48820</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2024-12-06      CNY     7.68520</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2024-12-06      HKD     8.23140</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2024-12-06      IDR 16743.43000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2024-12-06      ILS     3.80740</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2024-12-06      INR    89.61300</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2024-12-06      KRW  1502.23000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2024-12-06      MXN    21.35950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2024-12-06      MYR     4.67630</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2024-12-06      NZD     1.81130</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2024-12-06      PHP    61.21500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2024-12-06      SGD     1.41740</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2024-12-06      THB    35.97000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2024-12-06      ZAR    19.10760</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           date currency        rate</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

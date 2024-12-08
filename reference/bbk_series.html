@@ -62,7 +62,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with the requested data.</p>
+    <p>A <code>data.table()</code> with the requested data.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -76,53 +76,418 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bbk_series</span><span class="op">(</span><span class="st">"BBEX3.M.DKK.EUR.BB.AC.A01"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 310 × 11</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date       key         value title freq  category unit  unit_mult last_update</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-02-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1999-03-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1999-04-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1999-05-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1999-06-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1999-07-01 BBEX3.M.DK… 7.44… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1999-08-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-09-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-10-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-11-01 BBEX3.M.DK… 7.43… Euro… mont… WEDE     DKK   One       2024-11-29…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 300 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: comment &lt;chr&gt;, source &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            date                       key  value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;                    &lt;char&gt;  &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 1999-02-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4344</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 1999-03-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4317</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 1999-04-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4323</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 1999-05-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4318</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 1999-06-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4341</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 306: 2024-07-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4621</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 307: 2024-08-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4589</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 308: 2024-09-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4560</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 309: 2024-10-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4601</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 310: 2024-11-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4579</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                            title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                           &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 306: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 307: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 308: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 309: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 310: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         freq category   unit unit_mult         last_update</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;   &lt;char&gt; &lt;char&gt;    &lt;char&gt;              &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 306: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 307: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 308: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 309: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 310: monthly     WEDE    DKK       One 2024-11-29 15:58:35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                            comment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                             &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 306: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 307: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 308: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 309: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 310: The ECB publishes daily euro foreign exchange reference rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            source</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 306: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 307: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 308: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 309: European Central Bank (ECB).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 310: European Central Bank (ECB).</span>
 <span class="r-in"><span><span class="fu">bbk_series</span><span class="op">(</span><span class="st">"BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 99 × 11</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date    key    value title freq  category unit  unit_mult last_update comment</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-Q4 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2000-Q1 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2000-Q2 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2000-Q3 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2000-Q4 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2001-Q1 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2001-Q2 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2001-Q3 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2001-Q4 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2002-Q1 BBAF3… 4.4   Shor… quar… GRF2     Euro  Billions  2024-10-16… <span style="color: #BB0000;">NA</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 89 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: source &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        date                                 key value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;                              &lt;char&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 1999-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2000-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2000-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2000-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2000-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2001-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2001-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2001-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2001-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2002-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2002-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2002-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2002-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2003-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2003-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2003-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2003-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2004-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2004-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2004-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2004-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2005-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2005-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2005-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2005-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2006-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2006-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2006-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2006-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2007-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31: 2007-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32: 2007-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33: 2007-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34: 2008-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35: 2008-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36: 2008-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37: 2008-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38: 2009-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39: 2009-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40: 2009-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41: 2009-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42: 2010-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43: 2010-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44: 2010-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45: 2010-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46: 2011-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47: 2011-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48: 2011-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49: 2011-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50: 2012-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51: 2012-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52: 2012-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53: 2012-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54: 2013-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55: 2013-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56: 2013-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57: 2013-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58: 2014-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59: 2014-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60: 2014-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61: 2014-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62: 2015-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63: 2015-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64: 2015-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65: 2015-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66: 2016-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67: 2016-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68: 2016-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69: 2016-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70: 2017-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71: 2017-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72: 2017-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73: 2017-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74: 2018-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75: 2018-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76: 2018-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77: 2018-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78: 2019-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79: 2019-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80: 2019-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81: 2019-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82: 2020-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83: 2020-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84: 2020-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85: 2020-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86: 2021-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87: 2021-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88: 2021-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89: 2021-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90: 2022-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91: 2022-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92: 2022-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93: 2022-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94: 2023-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95: 2023-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96: 2023-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97: 2023-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98: 2024-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99: 2024-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   5.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        date                                 key value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                      title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                     &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                      title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          freq category   unit unit_mult         last_update comment source</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;char&gt;   &lt;char&gt; &lt;char&gt;    &lt;char&gt;              &lt;char&gt;  &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99: quarterly     GRF2   Euro  Billions 2024-10-16 11:28:12    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          freq category   unit unit_mult         last_update comment source</span>
 <span class="r-in"><span><span class="fu">bbk_series</span><span class="op">(</span><span class="st">"BBBK11.D.TTA000"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,354 × 11</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date       key         value title freq  category unit  unit_mult last_update</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1999-01-01 BBBK11.D.T… 29312 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1999-01-08 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1999-01-15 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1999-01-22 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1999-01-29 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1999-02-05 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1999-02-12 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1999-02-19 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1999-02-26 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1999-03-05 BBBK11.D.T… 27475 Gold… daily BABA     EURO  Millions  2024-12-04…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,344 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: comment &lt;chr&gt;, source &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             date             key  value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;          &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999-01-01 BBBK11.D.TTA000  29312</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 1999-01-08 BBBK11.D.TTA000  27475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999-01-15 BBBK11.D.TTA000  27475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1999-01-22 BBBK11.D.TTA000  27475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999-01-29 BBBK11.D.TTA000  27475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1350: 2024-11-01 BBBK11.D.TTA000 254267</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1351: 2024-11-08 BBBK11.D.TTA000 254267</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1352: 2024-11-15 BBBK11.D.TTA000 254267</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1353: 2024-11-22 BBBK11.D.TTA000 254267</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1354: 2024-11-29 BBBK11.D.TTA000 254267</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                              title   freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                             &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1350: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1351: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1352: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1353: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1354: Gold and gold receivables / unadjusted / Deutsche Bundesbank  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       category   unit unit_mult         last_update comment source</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt; &lt;char&gt;    &lt;char&gt;              &lt;char&gt;  &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1350:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1351:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1352:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1353:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1354:     BABA   EURO  Millions 2024-12-04 07:45:13    &lt;NA&gt;   &lt;NA&gt;</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -74,7 +74,7 @@ Access via the SDMX Web Service API of the ECB</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with the queried metadata.
+    <p>A <code>data.table()</code> with the queried metadata.
 The columns are:</p>
 <dl><dt>agency</dt>
 <dd><p>The agency of the metadata</p></dd>
@@ -96,45 +96,345 @@ The columns are:</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 84 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    agency id          name                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ECB    ECB_AME1    AMECO                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ECB    ECB_BCS1    Business Cycle Statistics                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ECB    ECB_BKN1    Banknotes Statistics                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ECB    ECB_BLS1    Bank Lending Survey Statistics                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ECB    ECB_BOP1    Balance of Payments, I.I.P. and Reserve Assets Statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ECB    ECB_BOP_BNT Statistics on Shipments of Euro Banknotes                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ECB    ECB_BSI1    Balance Sheet Items                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ECB    ECB_CAR1    Car Statistics                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ECB    ECB_CBD1    Statistics on Consolidated Banking Data                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ECB    ECB_CBD2    Statistics on Consolidated Banking Data                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 74 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       agency              id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;          &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:      ECB        ECB_AME1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:      ECB        ECB_BCS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:      ECB        ECB_BKN1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:      ECB        ECB_BLS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:      ECB        ECB_BOP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:      ECB     ECB_BOP_BNT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:      ECB        ECB_BSI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:      ECB        ECB_CAR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:      ECB        ECB_CBD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:      ECB        ECB_CBD2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:      ECB        ECB_CCP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:      ECB        ECB_CPP3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:      ECB        ECB_DCM1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:      ECB         ECB_DD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:      ECB        ECB_DWA1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:      ECB        ECB_EON1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:      ECB        ECB_ESA1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:      ECB        ECB_EST1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:      ECB        ECB_EXR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:      ECB        ECB_FCT1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:      ECB        ECB_FMD2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:      ECB        ECB_FVC1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:      ECB        ECB_FXS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:      ECB        ECB_GST1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:      ECB        ECB_ICO1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:      ECB        ECB_ICP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:      ECB        ECB_ICP2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:      ECB       ECB_ICPF1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:      ECB        ECB_IFI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:      ECB        ECB_ILM1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:      ECB        ECB_IRS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:      ECB        ECB_IVF1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:      ECB        ECB_LIG1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:      ECB        ECB_MFI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:      ECB        ECB_MIR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:      ECB        ECB_MMS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:      ECB       ECB_MMSR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:      ECB        ECB_MPD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:      ECB        ECB_OFI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:      ECB        ECB_PAY1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:      ECB       ECB_PAY10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42:      ECB       ECB_PAY11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:      ECB       ECB_PAY12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:      ECB       ECB_PAY13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:      ECB       ECB_PAY14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:      ECB        ECB_PAY2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:      ECB        ECB_PAY3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:      ECB        ECB_PAY4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49:      ECB        ECB_PAY5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:      ECB        ECB_PAY6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:      ECB        ECB_PAY7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:      ECB        ECB_PAY8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:      ECB        ECB_PAY9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54:      ECB        ECB_PSS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:      ECB        ECB_RAI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:      ECB        ECB_RES1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:      ECB        ECB_RIR2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:      ECB        ECB_RPP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:      ECB        ECB_RTD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:      ECB        ECB_SAFE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:      ECB        ECB_SEC1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:      ECB        ECB_SEE1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:      ECB        ECB_SHI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:      ECB        ECB_SHS6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:      ECB        ECB_SSI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:      ECB        ECB_SSS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:      ECB        ECB_STP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:      ECB        ECB_STS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:      ECB        ECB_SUP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:      ECB        ECB_SUR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:      ECB        ECB_SUR2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:      ECB        ECB_TGB1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:      ECB        ECB_TRD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:      ECB        ECB_WTS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:      ECB EUROSTAT_BOP_01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76:    ESTAT             JVS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77:    ESTAT             LCI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78:    ESTAT         NA_MAIN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79:    ESTAT          NA_SEC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80: EUROSTAT    ESTAT_ESAIEA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81: EUROSTAT   EUROSTAT_JVC2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82: EUROSTAT   EUROSTAT_LFS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83:      IMF             BOP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84:      IMF         BOP1_15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       agency              id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                      name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:                                                                 AMECO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:                                             Business Cycle Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:                                                  Banknotes Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:                                        Bank Lending Survey Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:             Balance of Payments, I.I.P. and Reserve Assets Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:                             Statistics on Shipments of Euro Banknotes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:                                                   Balance Sheet Items</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:                                                        Car Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:                               Statistics on Consolidated Banking Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:                               Statistics on Consolidated Banking Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:                              Central Counterparty Clearing Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:                                  Commercial property price statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:                                                              Dealogic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:                                                          Derived Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:                                        Distributional Wealth Accounts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:                                                   Internal Eonia Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:                                               ESA95 National Accounts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:                                                  Euro Short-Term Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:                                                        Exchange Rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:                                                              Forecast</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:               Financial market data (not related to foreign exchange)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:                  Financial Vehicle Corporation Assets and Liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:  Foreign eXchange Statistics (foreign reserves &amp; exchange operations)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:                                                 Government Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:                                     Insurance corporations operations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:                                            Indices of Consumer Prices</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:                                            Indices of Consumer Prices</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:       Insurance corporations and pension funds assets and liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:                                   Indicators of Financial Integration</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:                                         Internal Liquidity Management</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:              Interest Rate Statistics (2004 EU Member States &amp; ACCBs)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:                                                      Investment Funds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:                                      Large Insurance Group Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:                         MFI - List of monetary financial institutions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:                                          MFI Interest Rate Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:                                                   Money Market Survey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:                                               Money Market Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:                                     Macroeconomic Projection database</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:                                        Other Financial Intermediaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:                                Payments transactions (Key indicators)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:                    Electronic card payments sent by merchant category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42:   Number of cards issued by resident PSPs by card function and scheme</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:    Number of terminals provided by resident PSPs by type and function</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:                            Number of participants in payments systems</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:                                      Transactions in payments systems</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:                               Credit transfers (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:                                  Direct debits (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:                   E-money payment transactions (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49: Card payments and cash withdrawals using cards (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:                    Payment initiation services (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:                               Losses due to fraud by liability bearer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:                                ATM, OTC and POS terminal transactions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:                                 Payments transactions by PSP category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54:                                        Payment and Settlement Systems</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:                                            Risk Assessment Indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:                                                Real Estate Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:                                                 Retail Interest Rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:                                 Residential Property Price Indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:      Real Time Database (context of Euro Area Business Cycle Network)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:       Survey on the Access to Finance of Small and Medium Enterprises</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:                                                            Securities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:                              Securities Exchange (trading) Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:                              Structural Housing Indicators Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:                                         Securities Holding Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:                             Banking Structural Statistical Indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:                                      Securities Settlement Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:                           Short-Term European Paper Statistics (STEP)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:                                                 Short-Term Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:                                        Supervisory Banking Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:                                                       Opinion Surveys</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:                                                       Opinion Surveys</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:                                                       Target Balances</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:                                                        External Trade</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:          Overall, Import, Export and Double Export Weights Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:                                          Eurostat Balance of Payments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76:                                                Job Vacancy Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77:                                                     Labour Cost Index</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78:                                      National Account Main Aggregates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79:                                              National Sector Accounts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80:                                                                Sector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81:                                                Job Vacancy Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82:                                                   Labour Force Survey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83:                        Balance of Payments, I.I.P. and Reserve Assets</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84:                 Balance of Payments, I.I.P. and Reserve Assets, v1.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                      name</span>
 <span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, <span class="st">"ECB"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 75 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    agency id          name                                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ECB    ECB_AME1    AMECO                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ECB    ECB_BCS1    Business Cycle Statistics                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ECB    ECB_BKN1    Banknotes Statistics                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ECB    ECB_BLS1    Bank Lending Survey Statistics                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ECB    ECB_BOP1    Balance of Payments, I.I.P. and Reserve Assets Statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ECB    ECB_BOP_BNT Statistics on Shipments of Euro Banknotes                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ECB    ECB_BSI1    Balance Sheet Items                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ECB    ECB_CAR1    Car Statistics                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ECB    ECB_CBD1    Statistics on Consolidated Banking Data                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ECB    ECB_CBD2    Statistics on Consolidated Banking Data                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 65 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     agency              id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;char&gt;          &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:    ECB        ECB_AME1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:    ECB        ECB_BCS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:    ECB        ECB_BKN1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:    ECB        ECB_BLS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:    ECB        ECB_BOP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:    ECB     ECB_BOP_BNT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:    ECB        ECB_BSI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:    ECB        ECB_CAR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:    ECB        ECB_CBD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:    ECB        ECB_CBD2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:    ECB        ECB_CCP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:    ECB        ECB_CPP3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:    ECB        ECB_DCM1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:    ECB         ECB_DD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:    ECB        ECB_DWA1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:    ECB        ECB_EON1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:    ECB        ECB_ESA1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:    ECB        ECB_EST1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:    ECB        ECB_EXR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:    ECB        ECB_FCT1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:    ECB        ECB_FMD2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:    ECB        ECB_FVC1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:    ECB        ECB_FXS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:    ECB        ECB_GST1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:    ECB        ECB_ICO1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:    ECB        ECB_ICP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:    ECB        ECB_ICP2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:    ECB       ECB_ICPF1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:    ECB        ECB_IFI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:    ECB        ECB_ILM1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:    ECB        ECB_IRS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:    ECB        ECB_IVF1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:    ECB        ECB_LIG1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:    ECB        ECB_MFI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:    ECB        ECB_MIR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:    ECB        ECB_MMS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:    ECB       ECB_MMSR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:    ECB        ECB_MPD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:    ECB        ECB_OFI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:    ECB        ECB_PAY1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:    ECB       ECB_PAY10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42:    ECB       ECB_PAY11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:    ECB       ECB_PAY12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:    ECB       ECB_PAY13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:    ECB       ECB_PAY14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:    ECB        ECB_PAY2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:    ECB        ECB_PAY3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:    ECB        ECB_PAY4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49:    ECB        ECB_PAY5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:    ECB        ECB_PAY6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:    ECB        ECB_PAY7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:    ECB        ECB_PAY8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:    ECB        ECB_PAY9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54:    ECB        ECB_PSS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:    ECB        ECB_RAI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:    ECB        ECB_RES1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:    ECB        ECB_RIR2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:    ECB        ECB_RPP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:    ECB        ECB_RTD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:    ECB        ECB_SAFE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:    ECB        ECB_SEC1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:    ECB        ECB_SEE1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:    ECB        ECB_SHI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:    ECB        ECB_SHS6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:    ECB        ECB_SSI1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:    ECB        ECB_SSS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:    ECB        ECB_STP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:    ECB        ECB_STS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:    ECB        ECB_SUP1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:    ECB        ECB_SUR1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:    ECB        ECB_SUR2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:    ECB        ECB_TGB1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:    ECB        ECB_TRD1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:    ECB        ECB_WTS1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:    ECB EUROSTAT_BOP_01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     agency              id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                      name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:                                                                 AMECO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:                                             Business Cycle Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:                                                  Banknotes Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:                                        Bank Lending Survey Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:             Balance of Payments, I.I.P. and Reserve Assets Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:                             Statistics on Shipments of Euro Banknotes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:                                                   Balance Sheet Items</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:                                                        Car Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:                               Statistics on Consolidated Banking Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:                               Statistics on Consolidated Banking Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:                              Central Counterparty Clearing Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:                                  Commercial property price statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:                                                              Dealogic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:                                                          Derived Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:                                        Distributional Wealth Accounts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:                                                   Internal Eonia Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:                                               ESA95 National Accounts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:                                                  Euro Short-Term Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:                                                        Exchange Rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:                                                              Forecast</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:               Financial market data (not related to foreign exchange)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:                  Financial Vehicle Corporation Assets and Liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:  Foreign eXchange Statistics (foreign reserves &amp; exchange operations)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:                                                 Government Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:                                     Insurance corporations operations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:                                            Indices of Consumer Prices</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:                                            Indices of Consumer Prices</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:       Insurance corporations and pension funds assets and liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:                                   Indicators of Financial Integration</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:                                         Internal Liquidity Management</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:              Interest Rate Statistics (2004 EU Member States &amp; ACCBs)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:                                                      Investment Funds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:                                      Large Insurance Group Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:                         MFI - List of monetary financial institutions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:                                          MFI Interest Rate Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:                                                   Money Market Survey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:                                               Money Market Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:                                     Macroeconomic Projection database</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:                                        Other Financial Intermediaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:                                Payments transactions (Key indicators)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:                    Electronic card payments sent by merchant category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42:   Number of cards issued by resident PSPs by card function and scheme</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:    Number of terminals provided by resident PSPs by type and function</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:                            Number of participants in payments systems</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:                                      Transactions in payments systems</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:                               Credit transfers (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:                                  Direct debits (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:                   E-money payment transactions (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49: Card payments and cash withdrawals using cards (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:                    Payment initiation services (including fraud data)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:                               Losses due to fraud by liability bearer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:                                ATM, OTC and POS terminal transactions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:                                 Payments transactions by PSP category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54:                                        Payment and Settlement Systems</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:                                            Risk Assessment Indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:                                                Real Estate Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:                                                 Retail Interest Rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:                                 Residential Property Price Indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:      Real Time Database (context of Euro Area Business Cycle Network)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:       Survey on the Access to Finance of Small and Medium Enterprises</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:                                                            Securities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:                              Securities Exchange (trading) Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:                              Structural Housing Indicators Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:                                         Securities Holding Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:                             Banking Structural Statistical Indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:                                      Securities Settlement Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:                           Short-Term European Paper Statistics (STEP)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:                                                 Short-Term Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:                                        Supervisory Banking Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:                                                       Opinion Surveys</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:                                                       Opinion Surveys</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:                                                       Target Balances</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:                                                        External Trade</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:          Overall, Import, Export and Double Export Weights Statistics</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:                                          Eurostat Balance of Payments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                      name</span>
 <span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, <span class="st">"ECB"</span>, <span class="st">"ECB_EXR1"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   agency id       name          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ECB    ECB_EXR1 Exchange Rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    agency       id           name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;char&gt;   &lt;char&gt;         &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:    ECB ECB_EXR1 Exchange Rates</span>
 <span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, id <span class="op">=</span> <span class="st">"ECB_EXR1"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   agency id       name          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ECB    ECB_EXR1 Exchange Rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    agency       id           name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;char&gt;   &lt;char&gt;         &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:    ECB ECB_EXR1 Exchange Rates</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

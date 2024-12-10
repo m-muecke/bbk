@@ -21,24 +21,25 @@ snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de"
   stopifnot(is_valid_date(start_date), is_valid_date(end_date))
   lang <- match.arg(lang)
   res <- snb(id = id, fromDate = start_date, toDate = end_date, lang = lang)
-  dt <- lapply(res$timeseries, function(x) {
+  dt <- map(res$timeseries, function(x) {
     meta <- as.data.table(x$metadata)
     header <- x$header
-    cols <- vapply(header, \(x) x$dim, NA_character_)
+    cols <- map_chr(header, "dim")
     cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
-    item <- setNames(lapply(header, \(x) x$dimItem), cols)
+    item <- setNames(map(header, "dimItem"), cols)
     ref <- setDT(item)
 
     values <- x$values
     res <- data.table(
-      date = vapply(values, \(x) x$date, NA_character_),
-      value = vapply(values, \(x) x$value, NA_real_)
+      date = map_chr(values, "date"),
+      value = map_dbl(values, "value")
     )
     cbind(meta, res, ref)
   }) |>
     rbindlist()
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "freq")
+  dt[, freq := substring(freq, 1L, 3L)]
   freq <- switch(dt[1, freq],
     P1M = "monthly",
     P3M = "quarterly",

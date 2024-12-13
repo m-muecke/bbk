@@ -10,13 +10,13 @@
 snb_data(id, start_date = NULL, end_date = NULL, lang = c("en", "de"))
 }
 \arguments{
-\item{id}{\code{character(1)} id of the time series.}
+\item{id}{(\code{character(1)}) id of the time series.}
 
-\item{start_date}{\code{character(1)} | \code{Date(1)} start date of the time series.}
+\item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the time series.}
 
-\item{end_date}{\code{character(1)} | \code{Date(1)} end date of the time series.}
+\item{end_date}{(\code{character(1)} | \code{Date(1)}) end date of the time series.}
 
-\item{lang}{\code{character(1)} language to query, either \code{"en"} or \code{"de"}.
+\item{lang}{(\code{character(1)}) language to query, either \code{"en"} or \code{"de"}.
 Default \code{"en"}.}
 }
 \value{

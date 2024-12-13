@@ -10,12 +10,12 @@
 bbk_metadata(type, id = NULL, lang = c("en", "de"))
 }
 \arguments{
-\item{type}{\code{character(1)} the type of metadata to query. One of:
+\item{type}{(\code{character(1)}) the type of metadata to query. One of:
 \code{"datastructure"}, \code{"dataflow"}, \code{"codelist"}, or \code{"concept"}.}
 
-\item{id}{\code{character(1)} id to query. Default \code{NULL}.}
+\item{id}{(\code{character(1)}) id to query. Default \code{NULL}.}
 
-\item{lang}{\code{character(1)} language to query, either \code{"en"} or \code{"de"}.
+\item{lang}{(\code{character(1)}) language to query, either \code{"en"} or \code{"de"}.
 Default \code{"en"}.}
 }
 \value{

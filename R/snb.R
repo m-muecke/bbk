@@ -1,9 +1,9 @@
 #' Returns Swiss National Bank (SNB) data a given id
 #'
-#' @param id `character(1)` id of the time series.
-#' @param start_date `character(1)` | `Date(1)` start date of the time series.
-#' @param end_date `character(1)` | `Date(1)` end date of the time series.
-#' @param lang `character(1)` language to query, either `"en"` or `"de"`.
+#' @param id (`character(1)`) id of the time series.
+#' @param start_date (`character(1)` | `Date(1)`) start date of the time series.
+#' @param end_date (`character(1)` | `Date(1)`) end date of the time series.
+#' @param lang (`character(1)`) language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
 #' @returns A `data.table()` with the requested data.
 #' @export

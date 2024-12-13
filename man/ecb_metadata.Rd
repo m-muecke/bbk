@@ -10,12 +10,12 @@
 ecb_metadata(type, agency = NULL, id = NULL)
 }
 \arguments{
-\item{type}{\code{character(1)} the type of metadata to query. One of:
+\item{type}{(\code{character(1)}) the type of metadata to query. One of:
 \code{"datastructure"}, \code{"dataflow"}, \code{"codelist"}, or \code{"concept"}.}
 
-\item{agency}{\code{character(1)} id of the agency to query. Default \code{NULL}.}
+\item{agency}{(\code{character(1)}) id of the agency to query. Default \code{NULL}.}
 
-\item{id}{\code{character(1)} id of the resource to query. Default \code{NULL}.}
+\item{id}{(\code{character(1)}) id of the resource to query. Default \code{NULL}.}
 }
 \value{
 A \code{data.table()} with the queried metadata.

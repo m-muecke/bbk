@@ -17,12 +17,12 @@ bbk_data(
 )
 }
 \arguments{
-\item{flow}{\code{character(1)} flow to query, 5-8 characters.
+\item{flow}{(\code{character(1)}) flow to query, 5-8 characters.
 See \code{\link[=bbk_metadata]{bbk_metadata()}} for available dataflows.}
 
-\item{key}{\code{character(1)} key to query.}
+\item{key}{(\code{character(1)}) key to query.}
 
-\item{start_period}{\code{character(1)} start date of the data. Supported formats:
+\item{start_period}{(\code{character(1)}) start date of the data. Supported formats:
 \itemize{
 \item YYYY for annual data (e.g., "2019")
 \item YYYY-S[1-2] for semi-annual data (e.g., "2019-S1")
@@ -34,14 +34,14 @@ If \code{NULL}, no start date restriction is applied (data retrieved from the
 earliest available date). Default \code{NULL}.
 }}
 
-\item{end_period}{\code{character(1)} end date of the data, in the same format as
+\item{end_period}{(\code{character(1)}) end date of the data, in the same format as
 start_period. If \code{NULL}, no end date restriction is applied (data
 retrieved up to the most recent available date). Default \code{NULL}.}
 
-\item{first_n}{\code{numeric(1)} number of observations to retrieve from the
+\item{first_n}{(\code{numeric(1)}) number of observations to retrieve from the
 start of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 
-\item{last_n}{\code{numeric(1)} number of observations to retrieve from the end
+\item{last_n}{(\code{numeric(1)}) number of observations to retrieve from the end
 of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \value{

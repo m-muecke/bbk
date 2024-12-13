@@ -10,7 +10,7 @@
 bbk_series(key)
 }
 \arguments{
-\item{key}{\code{character(1)} key to query.}
+\item{key}{(\code{character(1)}) key to query.}
 }
 \value{
 A \code{data.table()} with the requested data.

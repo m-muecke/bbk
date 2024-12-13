@@ -10,7 +10,7 @@
 ecb_euro_rates(x = c("latest", "history"))
 }
 \arguments{
-\item{x}{\code{character(1)} one of "latest" or "history". Default "latest".}
+\item{x}{(\code{character(1)}) one of "latest" or "history". Default "latest".}
 }
 \value{
 A \code{data.table()} with the reference rates.

@@ -106,7 +106,7 @@ bbk_series <- function(key) {
 #' Access via the SDMX Web Service API of the Bundesbank.
 #'
 #' @param type (`character(1)`) the type of metadata to query. One of:
-#' `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
+#'   `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
 #' @param id (`character(1)`) id to query. Default `NULL`.
 #' @param lang (`character(1)`) language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
@@ -267,9 +267,9 @@ bbk_error_body <- function(resp) {
   content_type <- resp_content_type(resp)
   if (identical(content_type, "application/json")) {
     body <- resp_body_json(resp)
-    message <- body$title
+    msg <- body$title
     docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
-    c(message, docs)
+    c(msg, docs)
   }
 }
 

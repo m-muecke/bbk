@@ -21,18 +21,18 @@ snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de"
   stopifnot(is_valid_date(start_date), is_valid_date(end_date))
   lang <- match.arg(lang)
   res <- snb(id = id, fromDate = start_date, toDate = end_date, lang = lang)
-  dt <- map(res$timeseries, function(x) {
+  dt <- lapply(res$timeseries, function(x) {
     meta <- as.data.table(x$metadata)
     header <- x$header
-    cols <- map_chr(header, "dim")
+    cols <- vapply(header, \(x) x$dim, character(1))
     cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
-    item <- setNames(map(header, "dimItem"), cols)
+    item <- setNames(lapply(header, \(x) x$dimItem), cols)
     ref <- setDT(item)
 
     values <- x$values
     res <- data.table(
-      date = map_chr(values, "date"),
-      value = map_dbl(values, "value")
+      date = vapply(values, \(x) x$date, character(1)),
+      value = vapply(values, \(x) x$value, double(1))
     )
     cbind(meta, res, ref)
   }) |>

@@ -160,8 +160,8 @@ fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
   resource <- paste(resource, agency, id, sep = "/")
   body <- ecb(resource)
   entries <- xml2::xml_find_all(body, xpath)
-  res <- parse_ecb_metadata(entries)
-  res
+  dt <- parse_ecb_metadata(entries)
+  dt
 }
 
 parse_ecb_metadata <- function(x, lang = "en") {

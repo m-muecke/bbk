@@ -132,8 +132,9 @@ bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
     codelist = list("codelist/BBK", "//structure:Codelist"),
     concept = list("conceptscheme/BBK", "//structure:ConceptScheme")
   )
-  res <- do.call(fetch_bbk_metadata, c(args, list(id, lang)))
-  res[!nzchar(name), name := NA_character_][]
+  dt <- do.call(fetch_bbk_metadata, c(args, list(id, lang)))
+  dt[!nzchar(name), name := NA_character_]
+  dt[]
 }
 
 parse_bbk_series <- function(body, key) {
@@ -147,10 +148,10 @@ parse_bbk_series <- function(body, key) {
   files <- list.files(tmp, full.names = TRUE)
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
-  res <- fread(path, header = FALSE, skip = 11L)[, 1:2] |>
+  dt <- fread(path, header = FALSE, skip = 11L)[, 1:2] |>
     setnames(c("date", "value"))
-  res[value == ".", value := NA_character_]
-  res <- na.omit(res)
+  dt[value == ".", value := NA_character_]
+  dt <- na.omit(dt)
 
   metadata <- readLines(path, n = 10L)
   title <- sub("^[\",]+", "", metadata[[2L]])
@@ -173,12 +174,13 @@ parse_bbk_series <- function(body, key) {
     P1Y = "annual",
     P1D = "daily"
   )
-  res[, date := parse_date(date, freq)]
-  res <- cbind(
-    res, key, title, freq, category, unit, unit_mult, last_update, comment,
+  dt[, date := parse_date(date, freq)]
+  dt <- cbind(
+    dt, key, title, freq, category, unit, unit_mult, last_update, comment,
     source = src
   )
-  setcolorder(res, c("date", "key", "value", "title", "freq"))
+  setcolorder(dt, c("date", "key", "value", "title", "freq"))
+  dt[]
 }
 
 parse_bbk_metadata <- function(x, lang) {
@@ -245,9 +247,10 @@ parse_bbk_data <- function(body) {
 
     as.data.table(data)
   })
-  res <- rbindlist(res)
-  res[, decimals := as.integer(decimals)]
-  setcolorder(res, c("date", "key", "value", "title", "freq"))[]
+  dt <- rbindlist(res)
+  dt[, decimals := as.integer(decimals)]
+  setcolorder(dt, c("date", "key", "value", "title", "freq"))
+  dt[]
 }
 
 fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
@@ -259,8 +262,8 @@ fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   }
   body <- make_request(resource)
   entries <- xml2::xml_find_all(body, xpath)
-  res <- parse_bbk_metadata(entries, lang)
-  res
+  dt <- parse_bbk_metadata(entries, lang)
+  dt
 }
 
 bbk_error_body <- function(resp) {

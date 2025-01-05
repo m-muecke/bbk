@@ -47,7 +47,8 @@ snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de"
     P1D = "daily"
   )
   dt[, date := parse_date(date, ..freq)]
-  setcolorder(dt, c("date", "key", "value", "freq"))[]
+  setcolorder(dt, c("date", "key", "value", "freq"))
+  dt[]
 }
 
 snb <- function(id, ..., lang = "en") {

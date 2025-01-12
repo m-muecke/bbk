@@ -52,8 +52,8 @@ ecb_data <- function(flow,
     firstNObservations = first_n,
     lastNObservations = last_n
   )
-  res <- parse_ecb_data(body)
-  res
+  dt <- parse_ecb_data(body)
+  dt
 }
 
 parse_ecb_data <- function(body) {
@@ -110,7 +110,7 @@ parse_ecb_data <- function(body) {
   nms <- lapply(res, names)
   nms <- Reduce(intersect, nms)
   nms <- union(c("date", "key", "value", "title", "description"), nms)
-  res <- lapply(res, \(x) x[, ..nms])
+  res <- lapply(res, \(x) x[, nms, with = FALSE])
   rbindlist(res)
 }
 

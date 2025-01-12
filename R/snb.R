@@ -31,22 +31,22 @@ snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de"
 
     values <- x$values
     res <- data.table(
-      date = vapply(values, \(x) x$date, character(1)),
-      value = vapply(values, \(x) x$value, double(1))
+      date = vapply(values, \(x) x$date, character(1L)),
+      value = vapply(values, \(x) x$value, numeric(1L))
     )
     cbind(meta, res, ref)
   }) |>
     rbindlist()
   dt[!nzchar(scale), scale := NA_character_]
-  setnames(dt, "frequency", "freq")
-  dt[, freq := substring(freq, 1L, 3L)]
-  freq <- switch(dt[1, freq],
+  setnames(dt, "frequency", "duration")
+  dt[, duration := substring(duration, 1L, 3L)]
+  freq <- switch(dt[1L, duration],
     P1M = "monthly",
     P3M = "quarterly",
     P1Y = "annual",
     P1D = "daily"
   )
-  dt[, date := parse_date(date, ..freq)]
+  dt[, let(date = parse_date(date, freq), freq = freq)]
   setcolorder(dt, c("date", "key", "value", "freq"))
   dt[]
 }

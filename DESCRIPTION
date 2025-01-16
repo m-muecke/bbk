@@ -16,7 +16,7 @@ Depends:
     R (>= 4.1.0)
 Imports:
     curl,
-    data.table (>= 1.15.0),
+    data.table (>= 1.16.0),
     httr2 (>= 1.0.0),
     jsonlite,
     stats,

@@ -123,7 +123,7 @@ parse_ecb_data <- function(body) {
 #' `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
 #' @param agency (`character(1)`) id of the agency to query. Default `NULL`.
 #' @param id (`character(1)`) id of the resource to query. Default `NULL`.
-#' @returns A [data.table()] with the queried metadata.
+#' @returns A [data.table::data.table()] with the queried metadata.
 #' The columns are:
 #'   \item{agency}{The agency of the metadata}
 #'   \item{id}{The id of the metadata}

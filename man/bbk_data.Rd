@@ -45,7 +45,7 @@ start of the series. If \code{NULL}, no restriction is applied. Default \code{NU
 of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \value{
-A \code{data.table()} with the requested data.
+A \code{\link[=data.table]{data.table()}} with the requested data.
 }
 \description{
 Returns Bundesbank data for a given flow and key

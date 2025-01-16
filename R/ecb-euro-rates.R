@@ -16,7 +16,7 @@
 #' Using the rates for transaction purposes is strongly discouraged.
 #'
 #' @param x (`character(1)`) one of "latest" or "history". Default "latest".
-#' @returns A `data.table()` with the reference rates.
+#' @returns A [data.table()] with the reference rates.
 #'
 #' @source <https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html>
 #' @export
@@ -39,7 +39,8 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   dt <- fread(tf, sep = ",")
   fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
   dt[, Date := as.Date(Date, format = fmt)]
-  dt[, names(.SD) := lapply(.SD, \(x) ifelse(x == "N/A", NA_real_, x)),
+  dt[,
+    names(.SD) := lapply(.SD, \(x) ifelse(x == "N/A", NA_real_, x)),
     .SDcols = is.character
   ]
   dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = !"Date"]

@@ -123,7 +123,7 @@ parse_ecb_data <- function(body) {
 #' `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
 #' @param agency (`character(1)`) id of the agency to query. Default `NULL`.
 #' @param id (`character(1)`) id of the resource to query. Default `NULL`.
-#' @returns A `data.table()` with the queried metadata.
+#' @returns A [data.table()] with the queried metadata.
 #' The columns are:
 #'   \item{agency}{The agency of the metadata}
 #'   \item{id}{The id of the metadata}
@@ -151,10 +151,7 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
 }
 
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
-  stopifnot(
-    is_string_or_null(agency),
-    is_string_or_null(id)
-  )
+  stopifnot(is_string_or_null(agency), is_string_or_null(id))
   agency <- if (!is.null(agency)) toupper(agency) else "all"
   id <- if (!is.null(id)) toupper(id) else "all"
   resource <- paste(resource, agency, id, sep = "/")

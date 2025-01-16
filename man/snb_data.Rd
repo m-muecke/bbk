@@ -20,7 +20,7 @@ snb_data(id, start_date = NULL, end_date = NULL, lang = c("en", "de"))
 Default \code{"en"}.}
 }
 \value{
-A \code{data.table()} with the requested data.
+A \code{\link[=data.table]{data.table()}} with the requested data.
 }
 \description{
 Returns Swiss National Bank (SNB) data a given id

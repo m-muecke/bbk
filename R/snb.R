@@ -5,7 +5,7 @@
 #' @param end_date (`character(1)` | `Date(1)`) end date of the time series.
 #' @param lang (`character(1)`) language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
-#' @returns A `data.table()` with the requested data.
+#' @returns A [data.table()] with the requested data.
 #' @export
 #' @source <https://data.snb.ch/en>
 #' @family data

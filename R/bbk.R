@@ -19,7 +19,7 @@
 #'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @param last_n (`numeric(1)`) number of observations to retrieve from the end
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
-#' @returns A `data.table()` with the requested data.
+#' @returns A [data.table()] with the requested data.
 #' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
 #' @export
@@ -48,7 +48,8 @@ bbk_data <- function(flow,
                      first_n = NULL,
                      last_n = NULL) {
   stopifnot(
-    is_string(flow), nchar(flow) %in% 5:8,
+    is_string(flow),
+    nchar(flow) %in% 5:8,
     is_character_or_null(key),
     is_string_or_null(start_period),
     is_string_or_null(end_period),
@@ -110,7 +111,7 @@ bbk_series <- function(key) {
 #' @param id (`character(1)`) id to query. Default `NULL`.
 #' @param lang (`character(1)`) language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
-#' @returns A `data.table()` with the queried metadata.
+#' @returns A [data.table()] with the queried metadata.
 #' The columns are:
 #'   \item{id}{The id of the metadata}
 #'   \item{name}{The name of the metadata}

@@ -29,12 +29,14 @@ Retrieval of the metadata stored in the ECB's time series database.
 Access via the SDMX Web Service API of the ECB
 }
 \examples{
+\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 ecb_metadata("datastructure")
 ecb_metadata("datastructure", "ECB")
 ecb_metadata("datastructure", "ECB", "ECB_EXR1")
 ecb_metadata("datastructure", id = "ECB_EXR1")
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other metadata: 

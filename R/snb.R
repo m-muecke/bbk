@@ -9,7 +9,7 @@
 #' @export
 #' @source <https://data.snb.ch/en>
 #' @family data
-#' @examples
+#' @examplesIf httr2::is_online()
 #' \dontrun{
 #' snb_data("rendopar")
 #' snb_data("zikrepro")

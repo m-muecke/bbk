@@ -26,6 +26,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Returns Swiss National Bank (SNB) data a given id
 }
 \examples{
+\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \dontrun{
 snb_data("rendopar")
 snb_data("zikrepro")
@@ -33,6 +34,7 @@ snb_data("devkum")
 snb_data("ziverzq")
 snb_data("zimoma")
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other data: 

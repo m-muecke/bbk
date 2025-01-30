@@ -23,7 +23,7 @@
 #' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
 #' @export
-#' @examples
+#' @examplesIf httr2::is_online()
 #' \donttest{
 #' # fetch all data for a given flow and key
 #' bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
@@ -85,7 +85,7 @@ bbk_data <- function(flow,
 #' @family data
 #' @seealso [bbk_data()] for an endpoint with more options.
 #' @export
-#' @examples
+#' @examplesIf httr2::is_online()
 #' \donttest{
 #' bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #' bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
@@ -119,7 +119,7 @@ bbk_series <- function(key) {
 #' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
 #' @family metadata
 #' @export
-#' @examples
+#' @examplesIf httr2::is_online()
 #' \donttest{
 #' bbk_metadata("datastructure")
 #' bbk_metadata("dataflow", "BBSIS")

@@ -29,12 +29,14 @@ Retrieval of the metadata stored in the Bundesbank's time series database.
 Access via the SDMX Web Service API of the Bundesbank.
 }
 \examples{
+\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 bbk_metadata("datastructure")
 bbk_metadata("dataflow", "BBSIS")
 bbk_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
 bbk_metadata("concept", "CS_BBK_BSPL")
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other metadata: 

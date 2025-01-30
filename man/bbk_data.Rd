@@ -51,6 +51,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Returns Bundesbank data for a given flow and key
 }
 \examples{
+\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # fetch all data for a given flow and key
 bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
@@ -68,6 +69,7 @@ bbk_data(
   start_period = "2024-04-01"
 )
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other data: 

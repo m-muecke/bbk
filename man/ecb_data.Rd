@@ -47,12 +47,14 @@ of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 Returns ECB data for a given flow and key
 }
 \examples{
+\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # fetch US dollar/Euro exchange rate
 ecb_data("EXR", "D.USD.EUR.SP00.A")
 # fetch data for multiple keys
 ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other data: 

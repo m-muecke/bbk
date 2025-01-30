@@ -28,7 +28,7 @@
 #' # fetch all data for a given flow and key
 #' bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 #' # fetch data for multiple keys
-#' bbk_data("BBK01", c("TTA032", "TTA010"))
+#' bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
 #' # specified period (start date-end date) for daily data
 #' bbk_data(
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
@@ -62,8 +62,9 @@ bbk_data <- function(flow,
     resource <- sprintf("data/%s", flow)
   } else {
     key <- toupper(key)
-    key <- paste(key, collapse = "+")
+    key <- paste0(key, collapse = "+")
     resource <- sprintf("data/%s/%s", flow, key)
+    print(resource)
   }
   body <- make_request(
     resource = resource,

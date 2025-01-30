@@ -117,6 +117,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch all data for a given flow and key</span></span></span>
 <span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span><span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data/BBSIS/D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             date                                                   key value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;                                                &lt;char&gt; &lt;num&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1997-08-07 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.76</span>
@@ -125,11 +126,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1997-08-12 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.72</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1997-08-13 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.77</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6962: 2025-01-10 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6963: 2025-01-13 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6964: 2025-01-14 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6965: 2025-01-15 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6966: 2025-01-16 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6972: 2025-01-24 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6973: 2025-01-27 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6974: 2025-01-28 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6975: 2025-01-29 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.54</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6976: 2025-01-30 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.53</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                    title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                   &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
@@ -138,11 +139,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                                                                                                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6962: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6963: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6964: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6965: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6966: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6972: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6973: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6974: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6975: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6976: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         freq bearer_reg   item valuation currency issuer_class listed_sub</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;     &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:  daily          I    ZAR        ZI      EUR        S1311          B</span>
@@ -151,11 +152,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4:  daily          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5:  daily          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6962:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6963:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6964:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6965:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6966:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6972:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6973:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6974:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6975:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6976:  daily          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       security_class maturity interest_type interest_rate redemption</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;char&gt;   &lt;char&gt;        &lt;char&gt;        &lt;char&gt;     &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:           A604    R10XX             R             A          A</span>
@@ -164,11 +165,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4:           A604    R10XX             R             A          A</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5:           A604    R10XX             R             A          A</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6962:           A604    R10XX             R             A          A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6963:           A604    R10XX             R             A          A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6964:           A604    R10XX             R             A          A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6965:           A604    R10XX             R             A          A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6966:           A604    R10XX             R             A          A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6972:           A604    R10XX             R             A          A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6973:           A604    R10XX             R             A          A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6974:           A604    R10XX             R             A          A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6975:           A604    R10XX             R             A          A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6976:           A604    R10XX             R             A          A</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       certificate coverage rating time_format decimals    unit unit_mult</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            &lt;char&gt;   &lt;char&gt; &lt;char&gt;      &lt;char&gt;    &lt;int&gt;  &lt;char&gt;    &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:          _Z       _Z      A         P1D        2 PROZENT         0</span>
@@ -177,11 +178,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4:          _Z       _Z      A         P1D        2 PROZENT         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5:          _Z       _Z      A         P1D        2 PROZENT         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6962:          _Z       _Z      A         P1D        2 PROZENT         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6963:          _Z       _Z      A         P1D        2 PROZENT         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6964:          _Z       _Z      A         P1D        2 PROZENT         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6965:          _Z       _Z      A         P1D        2 PROZENT         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6966:          _Z       _Z      A         P1D        2 PROZENT         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6972:          _Z       _Z      A         P1D        2 PROZENT         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6973:          _Z       _Z      A         P1D        2 PROZENT         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6974:          _Z       _Z      A         P1D        2 PROZENT         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6975:          _Z       _Z      A         P1D        2 PROZENT         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6976:          _Z       _Z      A         P1D        2 PROZENT         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       category unit_eng</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;   &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:     GKZR  percent</span>
@@ -190,58 +191,112 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4:     GKZR  percent</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5:     GKZR  percent</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6962:     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6963:     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6964:     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6965:     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6966:     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6972:     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6973:     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6974:     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6975:     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6976:     GKZR  percent</span>
 <span class="r-in"><span><span class="co"># fetch data for multiple keys</span></span></span>
-<span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span><span class="st">"BBK01"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TTA032"</span>, <span class="st">"TTA010"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             date          key   value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;       &lt;char&gt;   &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1998-12-22 BBK01.TTA010       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 1999-01-01 BBK01.TTA010       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999-01-08 BBK01.TTA010       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1999-01-15 BBK01.TTA010       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999-01-22 BBK01.TTA010       0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5180: 2023-09-29 BBK01.TTA032 2510103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5181: 2023-10-06 BBK01.TTA032 2506613</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5182: 2023-10-13 BBK01.TTA032 2504519</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5183: 2023-10-20 BBK01.TTA032 2509279</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5184: 2023-10-27 BBK01.TTA032 2511960</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                 title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Claims on non-euro area residents denominated in Euro / claims arising from the credit facility under ERM II / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: Claims on non-euro area residents denominated in Euro / claims arising from the credit facility under ERM II / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: Claims on non-euro area residents denominated in Euro / claims arising from the credit facility under ERM II / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: Claims on non-euro area residents denominated in Euro / claims arising from the credit facility under ERM II / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: Claims on non-euro area residents denominated in Euro / claims arising from the credit facility under ERM II / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                                                                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5180:                                                                                                 Total assets / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5181:                                                                                                 Total assets / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5182:                                                                                                 Total assets / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5183:                                                                                                 Total assets / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5184:                                                                                                 Total assets / unadjusted / Deutsche Bundesbank</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         freq   dim1 time_format decimals   unit unit_mult</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt; &lt;char&gt;      &lt;char&gt;    &lt;int&gt; &lt;char&gt;    &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  daily TTA010         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  daily TTA010         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:  daily TTA010         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  daily TTA010         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:  daily TTA010         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5180:  daily TTA032         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5181:  daily TTA032         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5182:  daily TTA032         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5183:  daily TTA032         P1D        0   EURO         6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5184:  daily TTA032         P1D        0   EURO         6</span>
+<span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span><span class="st">"BBEX3"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"M.ISK.EUR"</span>, <span class="st">"USD.CA.AC.A01"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data/BBEX3/M.ISK.EUR+USD.CA.AC.A01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             date                       key  value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;                    &lt;char&gt;  &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999-01-01 BBEX3.M.ISK.EUR.CA.AC.A01  79.74</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 1999-02-01 BBEX3.M.ISK.EUR.CA.AC.A01  79.61</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999-03-01 BBEX3.M.ISK.EUR.CA.AC.A01  78.07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1999-04-01 BBEX3.M.ISK.EUR.CA.AC.A01  77.92</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999-05-01 BBEX3.M.ISK.EUR.CA.AC.A01  77.88</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1556: 2024-08-01 BBEX3.M.ISK.USD.CA.AC.A01 137.91</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1557: 2024-09-01 BBEX3.M.ISK.USD.CA.AC.A01 134.60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1558: 2024-10-01 BBEX3.M.ISK.USD.CA.AC.A01 136.83</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1559: 2024-11-01 BBEX3.M.ISK.USD.CA.AC.A01 137.95</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1560: 2024-12-01 BBEX3.M.ISK.USD.CA.AC.A01 138.20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                        title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:      Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:      Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:      Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:      Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:      Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1556: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1557: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1558: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1559: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1560: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          freq currency erx_partner_currency erx_series_type erx_rate_type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;char&gt;   &lt;char&gt;               &lt;char&gt;          &lt;char&gt;        &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: monthly      ISK                  EUR              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: monthly      ISK                  EUR              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: monthly      ISK                  EUR              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: monthly      ISK                  EUR              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: monthly      ISK                  EUR              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1556: monthly      ISK                  USD              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1557: monthly      ISK                  USD              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1558: monthly      ISK                  USD              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1559: monthly      ISK                  USD              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1560: monthly      ISK                  USD              CA            AC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       erx_suffix time_format decimals   unit unit_mult category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;char&gt;      &lt;char&gt;    &lt;int&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:        A01         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:        A01         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:        A01         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:        A01         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:        A01         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1556:        A01         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1557:        A01         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1558:        A01         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1559:        A01         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1560:        A01         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                         comm_gen_eng</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                               &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1556: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1557: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1558: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1559: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1560: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                comm_meth_eng</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1556: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1557: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1558: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1559: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1560: Until March 2020, calculated on the basis of buying and selling rates.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         comm_src_eng</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                               &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1556: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1557: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1558: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1559: Sedlabanki Islands, Reykjavik.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1560: Sedlabanki Islands, Reykjavik.</span>
 <span class="r-in"><span><span class="co"># specified period (start date-end date) for daily data</span></span></span>
 <span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span></span>
 <span class="r-in"><span>  start_period <span class="op">=</span> <span class="st">"2020-01-01"</span>,</span></span>
 <span class="r-in"><span>  end_period <span class="op">=</span> <span class="st">"2020-08-01"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data/BBSIS/D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            date                                                   key value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;                                                &lt;char&gt; &lt;num&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2020-01-02 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.16</span>
@@ -312,6 +367,7 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-in"><span>  <span class="st">"BBSIS"</span>, <span class="st">"D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>,</span></span>
 <span class="r-in"><span>  start_period <span class="op">=</span> <span class="st">"2024-04-01"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data/BBSIS/D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            date                                                   key value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;                                                &lt;char&gt; &lt;num&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2024-04-02 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.37</span>
@@ -320,11 +376,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2024-04-05 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.37</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2024-04-08 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.46</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 198: 2025-01-10 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 199: 2025-01-13 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 200: 2025-01-14 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 201: 2025-01-15 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.64</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 202: 2025-01-16 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208: 2025-01-24 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.59</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209: 2025-01-27 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210: 2025-01-28 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211: 2025-01-29 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.54</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212: 2025-01-30 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.53</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                   title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                  &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
@@ -333,11 +389,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                                                                                                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 198: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 199: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 200: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 201: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 202: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        freq bearer_reg   item valuation currency issuer_class listed_sub</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;     &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:  daily          I    ZAR        ZI      EUR        S1311          B</span>
@@ -346,11 +402,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:  daily          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:  daily          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 198:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 199:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 200:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 201:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 202:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212:  daily          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      security_class maturity interest_type interest_rate redemption certificate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              &lt;char&gt;   &lt;char&gt;        &lt;char&gt;        &lt;char&gt;     &lt;char&gt;      &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:           A604    R10XX             R             A          A          _Z</span>
@@ -359,11 +415,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:           A604    R10XX             R             A          A          _Z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:           A604    R10XX             R             A          A          _Z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 198:           A604    R10XX             R             A          A          _Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 199:           A604    R10XX             R             A          A          _Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 200:           A604    R10XX             R             A          A          _Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 201:           A604    R10XX             R             A          A          _Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 202:           A604    R10XX             R             A          A          _Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208:           A604    R10XX             R             A          A          _Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209:           A604    R10XX             R             A          A          _Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210:           A604    R10XX             R             A          A          _Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211:           A604    R10XX             R             A          A          _Z</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212:           A604    R10XX             R             A          A          _Z</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      coverage rating time_format decimals    unit unit_mult category unit_eng</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;char&gt; &lt;char&gt;      &lt;char&gt;    &lt;int&gt;  &lt;char&gt;    &lt;char&gt;   &lt;char&gt;   &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
@@ -372,11 +428,11 @@ of the series. If <code>NULL</code>, no restriction is applied. Default <code>NU
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 198:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 199:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 200:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 201:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 202:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212:       _Z      A         P1D        2 PROZENT         0     GKZR  percent</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

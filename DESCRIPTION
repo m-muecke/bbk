@@ -1,13 +1,14 @@
 Package: bbk
-Title: Client for the Deutsche Bundesbank and European Central Bank APIs
+Title: Client for Central Bank APIs
 Version: 0.5.0.9000
 Authors@R:
     person("Maximilian", "Mücke", , "muecke.maximilian@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0000-9432-9795"))
 Description: Download data and metadata from the 'Bundesbank SDMX Web
     Service API' found at
-    <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
-    and the 'ECB Data Portal API' found at
+    <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>,
+    the 'SNB Data Portal' found at <https://data.snb.ch> , and the 'ECB
+    Data Portal API' found at
     <https://data.ecb.europa.eu/help/api/overview>.
 License: MIT + file LICENSE
 URL: https://m-muecke.github.io/bbk/, https://github.com/m-muecke/bbk

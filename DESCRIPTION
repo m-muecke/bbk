@@ -4,12 +4,12 @@ Version: 0.5.0.9000
 Authors@R:
     person("Maximilian", "Mücke", , "muecke.maximilian@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0000-9432-9795"))
-Description: Download data and metadata from the 'Bundesbank SDMX Web
-    Service API' found at
-    <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>,
-    the 'SNB Data Portal' found at <https://data.snb.ch> , and the 'ECB
-    Data Portal API' found at
-    <https://data.ecb.europa.eu/help/api/overview>.
+Description: A client for retrieving data and metadata from major central
+    bank APIs. It supports access to the 'Bundesbank SDMX Web Service API'
+    (<https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>),
+    the 'Swiss National Bank Data Portal' (<https://data.snb.ch>), and the
+    'European Central Bank Data Portal API'
+    (<https://data.ecb.europa.eu/help/api/overview>).
 License: MIT + file LICENSE
 URL: https://m-muecke.github.io/bbk/, https://github.com/m-muecke/bbk
 BugReports: https://github.com/m-muecke/bbk/issues
@@ -18,7 +18,7 @@ Depends:
 Imports:
     curl,
     data.table (>= 1.16.0),
-    httr2 (>= 1.1.0),
+    httr2 (>= 1.0.0),
     jsonlite,
     stats,
     utils,

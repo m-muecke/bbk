@@ -2,7 +2,7 @@
 % Please edit documentation in R/snb.R
 \name{snb_data}
 \alias{snb_data}
-\title{Returns Swiss National Bank (SNB) data a given id}
+\title{Returns Swiss National Bank (SNB) data for a given id}
 \source{
 \url{https://data.snb.ch/en}
 }
@@ -23,10 +23,10 @@ Default \code{"en"}.}
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Returns Swiss National Bank (SNB) data a given id
+Returns Swiss National Bank (SNB) data for a given id
 }
 \examples{
-\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 snb_data("rendopar")
 # or filter for date range

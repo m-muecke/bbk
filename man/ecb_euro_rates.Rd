@@ -32,7 +32,7 @@ published for information purposes only.
 Using the rates for transaction purposes is strongly discouraged.
 }
 \examples{
-\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 ecb_euro_rates()
 }

@@ -21,7 +21,7 @@
 #' @source <https://data.ecb.europa.eu/help/api/data>
 #' @family data
 #' @export
-#' @examplesIf httr2::is_online()
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' # fetch US dollar/Euro exchange rate
 #' ecb_data("EXR", "D.USD.EUR.SP00.A")
@@ -131,7 +131,7 @@ parse_ecb_data <- function(body) {
 #' @source <https://data.ecb.europa.eu/help/api/metadata>
 #' @family metadata
 #' @export
-#' @examplesIf httr2::is_online()
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' ecb_metadata("datastructure")
 #' ecb_metadata("datastructure", "ECB")

@@ -47,7 +47,7 @@ of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 Returns ECB data for a given flow and key
 }
 \examples{
-\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # fetch US dollar/Euro exchange rate
 ecb_data("EXR", "D.USD.EUR.SP00.A")

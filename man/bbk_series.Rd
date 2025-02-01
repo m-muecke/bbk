@@ -19,7 +19,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Returns the Bundesbank time serie that is found with the specified time series key
 }
 \examples{
-\dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")

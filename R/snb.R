@@ -1,4 +1,4 @@
-#' Returns Swiss National Bank (SNB) data a given id
+#' Returns Swiss National Bank (SNB) data for a given id
 #'
 #' @param id (`character(1)`) id of the time series.
 #' @param start_date (`character(1)` | `Date(1)`) start date of the time series.
@@ -9,7 +9,7 @@
 #' @export
 #' @source <https://data.snb.ch/en>
 #' @family data
-#' @examplesIf httr2::is_online()
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' snb_data("rendopar")
 #' # or filter for date range

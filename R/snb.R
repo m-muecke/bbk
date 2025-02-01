@@ -10,18 +10,25 @@
 #' @source <https://data.snb.ch/en>
 #' @family data
 #' @examplesIf httr2::is_online()
-#' \dontrun{
+#' \donttest{
 #' snb_data("rendopar")
-#' snb_data("zikrepro")
-#' snb_data("devkum")
-#' snb_data("ziverzq")
-#' snb_data("zimoma")
+#' # or filter for date range
+#' snb_data("rendopar", "2020-01-01", "2020-12-31")
 #' }
 snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de")) {
-  stopifnot(is_valid_date(start_date), is_valid_date(end_date))
+  stopifnot(
+    is_string(id),
+    is_valid_date(start_date),
+    is_valid_date(end_date)
+  )
   lang <- match.arg(lang)
-  res <- snb(id = id, fromDate = start_date, toDate = end_date, lang = lang)
-  dt <- lapply(res$timeseries, function(x) {
+  body <- snb(id = id, fromDate = start_date, toDate = end_date, lang = lang)
+  dt <- parse_snb_data(body)
+  dt
+}
+
+parse_snb_data <- function(body) {
+  res <- lapply(body$timeseries, function(x) {
     meta <- as.data.table(x$metadata)
     header <- x$header
     cols <- vapply(header, \(x) x$dim, character(1))
@@ -35,8 +42,8 @@ snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de"
       value = vapply(values, \(x) x$value, numeric(1L))
     )
     cbind(meta, res, ref)
-  }) |>
-    rbindlist()
+  })
+  dt <- rbindlist(res)
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "duration")
   dt[, duration := substring(duration, 1L, 3L)]

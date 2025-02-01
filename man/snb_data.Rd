@@ -27,12 +27,10 @@ Returns Swiss National Bank (SNB) data a given id
 }
 \examples{
 \dontshow{if (httr2::is_online()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\dontrun{
+\donttest{
 snb_data("rendopar")
-snb_data("zikrepro")
-snb_data("devkum")
-snb_data("ziverzq")
-snb_data("zimoma")
+# or filter for date range
+snb_data("rendopar", "2020-01-01", "2020-12-31")
 }
 \dontshow{\}) # examplesIf}
 }

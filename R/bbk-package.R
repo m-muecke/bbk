@@ -16,4 +16,4 @@
 #' @importFrom stats na.omit setNames
 "_PACKAGE"
 
-utils::globalVariables(c("..freq", "name", "Date", "decimals", "value"))
+utils::globalVariables(c("name", "Date", "decimals", "value", "duration"))

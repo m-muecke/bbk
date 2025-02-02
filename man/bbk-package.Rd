@@ -6,7 +6,7 @@
 \alias{bbk-package}
 \title{bbk: Client for Central Bank APIs}
 \description{
-A client for retrieving data and metadata from major central bank APIs. It supports access to the 'Bundesbank SDMX Web Service API' (\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}), the 'Swiss National Bank Data Portal' (\url{https://data.snb.ch}), and the 'European Central Bank Data Portal API' (\url{https://data.ecb.europa.eu/help/api/overview}).
+A client for retrieving data and metadata from major central bank APIs. It supports access to the 'Bundesbank SDMX Web Service API' (\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}), the 'Swiss National Bank Data Portal' (\url{https://data.snb.ch/en}), and the 'European Central Bank Data Portal API' (\url{https://data.ecb.europa.eu/help/api/overview}).
 }
 \seealso{
 Useful links:

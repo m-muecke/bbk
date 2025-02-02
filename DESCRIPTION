@@ -7,7 +7,7 @@ Authors@R:
 Description: A client for retrieving data and metadata from major central
     bank APIs. It supports access to the 'Bundesbank SDMX Web Service API'
     (<https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>),
-    the 'Swiss National Bank Data Portal' (<https://data.snb.ch>), and the
+    the 'Swiss National Bank Data Portal' (<https://data.snb.ch/en>), and the
     'European Central Bank Data Portal API'
     (<https://data.ecb.europa.eu/help/api/overview>).
 License: MIT + file LICENSE

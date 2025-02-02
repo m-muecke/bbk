@@ -1,4 +1,4 @@
-# bbk (development version)
+# bbk 0.6.0
 
 * Migration to data.table package. Internal data manipulation is now done using
   data.table and all functions return data.table objects.

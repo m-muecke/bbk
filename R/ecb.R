@@ -28,12 +28,14 @@
 #' # fetch data for multiple keys
 #' ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 #' }
-ecb_data <- function(flow,
-                     key = NULL,
-                     start_period = NULL,
-                     end_period = NULL,
-                     first_n = NULL,
-                     last_n = NULL) {
+ecb_data <- function(
+  flow,
+  key = NULL,
+  start_period = NULL,
+  end_period = NULL,
+  first_n = NULL,
+  last_n = NULL
+) {
   stopifnot(
     is_string(flow),
     is_character_or_null(key),

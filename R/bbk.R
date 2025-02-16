@@ -41,12 +41,14 @@
 #'   start_period = "2024-04-01"
 #' )
 #' }
-bbk_data <- function(flow,
-                     key = NULL,
-                     start_period = NULL,
-                     end_period = NULL,
-                     first_n = NULL,
-                     last_n = NULL) {
+bbk_data <- function(
+  flow,
+  key = NULL,
+  start_period = NULL,
+  end_period = NULL,
+  first_n = NULL,
+  last_n = NULL
+) {
   stopifnot(
     is_string(flow),
     nchar(flow) %in% 5:8,

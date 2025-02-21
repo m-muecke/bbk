@@ -22,7 +22,7 @@
 ^\.pre-commit-config\.yaml$
 ^\.vscode$
 ^_pkgdown\.yml$
-^air.toml$
+^air\.toml$
 ^attic$
 ^codecov\.yml$
 ^codemeta\.json$

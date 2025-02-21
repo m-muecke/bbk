@@ -130,7 +130,8 @@ bbk_series <- function(key) {
 #' }
 bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
   type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
-  args <- switch(type,
+  args <- switch(
+    type,
     datastructure = list("datastructure/BBK", "//structure:DataStructure"),
     dataflow = list("dataflow/BBK", "//structure:Dataflow"),
     codelist = list("codelist/BBK", "//structure:Codelist"),
@@ -172,7 +173,8 @@ parse_bbk_series <- function(body, key) {
   comment <- sub("^\"", "", comment)
   src <- extract_metadata(metadata, "^Source \\(in english\\),")
 
-  freq <- switch(freq,
+  freq <- switch(
+    freq,
     P1M = "monthly",
     P3M = "quarterly",
     P1Y = "annual",
@@ -180,7 +182,15 @@ parse_bbk_series <- function(body, key) {
   )
   dt[, date := parse_date(date, freq)]
   dt <- cbind(
-    dt, key, title, freq, category, unit, unit_mult, last_update, comment,
+    dt,
+    key,
+    title,
+    freq,
+    category,
+    unit,
+    unit_mult,
+    last_update,
+    comment,
     source = src
   )
   setcolorder(dt, c("date", "key", "value", "title", "freq"))
@@ -231,7 +241,8 @@ parse_bbk_data <- function(body) {
     nms <- sub("^std_", "", nms)
     names(data) <- replace(nms, nms == "web_category", "category")
 
-    data$freq <- switch(data$time_format,
+    data$freq <- switch(
+      data$time_format,
       P1M = "monthly",
       P3M = "quarterly",
       P1Y = "annual",

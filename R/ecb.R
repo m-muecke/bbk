@@ -87,7 +87,8 @@ parse_ecb_data <- function(body) {
     data <- c(series_key, attrs)
     data$key <- paste0(series_key, collapse = ".")
 
-    data$freq <- switch(data$freq,
+    data$freq <- switch(
+      data$freq,
       A = "annual",
       S = "semi-annual",
       Q = "quarterly",
@@ -142,7 +143,8 @@ parse_ecb_data <- function(body) {
 #' }
 ecb_metadata <- function(type, agency = NULL, id = NULL) {
   type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
-  args <- switch(type,
+  args <- switch(
+    type,
     datastructure = list("datastructure", "//str:DataStructure"),
     dataflow = list("dataflow", "//str:Dataflow"),
     codelist = list("codelist", "//str:Codelist"),

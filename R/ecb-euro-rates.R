@@ -26,7 +26,8 @@
 #' }
 ecb_euro_rates <- function(x = c("latest", "history")) {
   x <- match.arg(x)
-  url <- switch(x,
+  url <- switch(
+    x,
     latest = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref.zip",
     history = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip"
   )
@@ -44,7 +45,8 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
     .SDcols = is.character
   ]
   dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = !"Date"]
-  dt <- melt(dt,
+  dt <- melt(
+    dt,
     id.vars = "Date",
     variable.name = "currency",
     value.name = "rate",

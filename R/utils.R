@@ -3,7 +3,8 @@
 }
 
 parse_date <- function(date, freq) {
-  switch(freq,
+  switch(
+    freq,
     daily = as.Date(date),
     monthly = as.Date(paste0(date, "-01")),
     annual = as.integer(date),

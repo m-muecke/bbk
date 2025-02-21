@@ -47,7 +47,8 @@ parse_snb_data <- function(body) {
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "duration")
   dt[, duration := substring(duration, 1L, 3L)]
-  freq <- switch(dt[1L, duration],
+  freq <- switch(
+    dt[1L, duration],
     P1M = "monthly",
     P3M = "quarterly",
     P1Y = "annual",

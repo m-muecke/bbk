@@ -40,7 +40,8 @@ test_that("parse_bbk_data works", {
   expect_s3_class(actual, "data.frame")
   expect_gt(nrow(actual), 0L)
   expect_identical(
-    unique(actual$key), "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+    unique(actual$key),
+    "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
   )
   expect_s3_class(actual$date, "Date")
 })
@@ -48,17 +49,28 @@ test_that("parse_bbk_data works", {
 test_that("parse_bbk_series works", {
   body <- readRDS(test_path("fixtures", "bbk-series.rds"))
   actual <- parse_bbk_series(
-    body, "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+    body,
+    "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
   )
   nms <- c(
-    "date", "key", "value", "title", "freq", "category", "unit", "unit_mult",
-    "last_update", "comment", "source"
+    "date",
+    "key",
+    "value",
+    "title",
+    "freq",
+    "category",
+    "unit",
+    "unit_mult",
+    "last_update",
+    "comment",
+    "source"
   )
   expect_s3_class(actual, "data.frame")
   expect_named(actual, nms)
   expect_gt(nrow(actual), 0L)
   expect_identical(
-    unique(actual$key), "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
+    unique(actual$key),
+    "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
   )
   expect_s3_class(actual$date, "Date")
 })

@@ -36,7 +36,7 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
   tf <- file.path(tmp, "tempfile.zip")
   curl::curl_download(url, tf)
-  file <- utils::unzip(tf, exdir = tmp)
+  utils::unzip(tf, exdir = tmp)
   dt <- fread(tf, sep = ",")
   fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
   dt[, Date := as.Date(Date, format = fmt)]

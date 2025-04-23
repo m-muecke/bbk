@@ -60,7 +60,7 @@ yield_curve <- bbk_data(
 )
 #> [1] "data/BBSIS/D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
 str(yield_curve)
-#> Classes 'data.table' and 'data.frame':   1296 obs. of  25 variables:
+#> Classes 'data.table' and 'data.frame':   1353 obs. of  25 variables:
 #>  $ date          : Date, format: "2020-01-02" "2020-01-03" ...
 #>  $ key           : chr  "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z."..
 #>  $ value         : num  -0.16 -0.27 -0.27 -0.27 -0.27 -0.22 -0.2 -0.19 -0.17 -..

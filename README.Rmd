@@ -4,7 +4,8 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -35,13 +36,15 @@ bbk is minimal R client for the following APIs:
 
 You can install the released version of bbk from [CRAN](https://CRAN.R-project.org) with:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 install.packages("bbk")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # install.packages("pak")
 pak::pak("m-muecke/bbk")
 ```
@@ -54,7 +57,9 @@ The usual workflow would be to search for the time series key on the [ECB Portal
 [Bundesbank website](https://www.bundesbank.de/en/statistics/time-series-databases)
 and then use it to retrieve the data.
 
-```{r demo, message = FALSE}
+```{r}
+#| label: demo
+#| message: false
 library(bbk)
 
 # fetch 10 year daily yield curve
@@ -66,7 +71,11 @@ yield_curve <- bbk_data(
 str(yield_curve)
 ```
 
-```{r plotting, message = FALSE, echo = FALSE, dpi = 300}
+```{r}
+#| label: plotting
+#| message: false
+#| echo: false
+#| dpi: 300
 library(ggplot2)
 
 ggplot(yield_curve, aes(x = date, y = value)) +

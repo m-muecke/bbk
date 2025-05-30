@@ -89,47 +89,18 @@ Default <code>"en"</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">snb_data</span><span class="op">(</span><span class="st">"rendopar"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              date                  key   value   freq duration  scale overview</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            &lt;Date&gt;               &lt;char&gt;   &lt;num&gt; &lt;char&gt;   &lt;char&gt; &lt;char&gt;   &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1: 1988-01-04 EPB@SNB.rendopar{b0}  4.3860  daily      P1D   &lt;NA&gt;       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2: 1988-01-11 EPB@SNB.rendopar{b0}  4.4130  daily      P1D   &lt;NA&gt;       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3: 1988-01-18 EPB@SNB.rendopar{b0}  4.5300  daily      P1D   &lt;NA&gt;       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4: 1988-01-25 EPB@SNB.rendopar{b0}  4.3910  daily      P1D   &lt;NA&gt;       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5: 1988-01-29 EPB@SNB.rendopar{b0}  4.4620  daily      P1D   &lt;NA&gt;       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44702: 2025-03-25 EPB@SNB.rendopar{t2} 11.9326  daily      P1D   &lt;NA&gt;       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44703: 2025-03-26 EPB@SNB.rendopar{t2} 12.2884  daily      P1D   &lt;NA&gt;       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44704: 2025-03-27 EPB@SNB.rendopar{t2} 12.0948  daily      P1D   &lt;NA&gt;       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44705: 2025-03-28 EPB@SNB.rendopar{t2} 12.6278  daily      P1D   &lt;NA&gt;       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44706: 2025-03-31 EPB@SNB.rendopar{t2} 12.6459  daily      P1D   &lt;NA&gt;       T2</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_user_agent(request(url),     "bbk (https://m-muecke.github.io/bbk)"), lang), ...), body = snb_error_body)):</span> Failed to parse error body with method defined in `req_error()`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> lexical error: invalid char in json text.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>                                        &lt;!DOCTYPE html&gt;  &lt;html&gt;  &lt;head&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>                      (right here) ------^</span>
 <span class="r-in"><span><span class="co"># or filter for date range</span></span></span>
 <span class="r-in"><span><span class="fu">snb_data</span><span class="op">(</span><span class="st">"rendopar"</span>, <span class="st">"2020-01-01"</span>, <span class="st">"2020-12-31"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             date                  key       value   freq duration  scale</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;               &lt;char&gt;       &lt;num&gt; &lt;char&gt;   &lt;char&gt; &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 2020-01-03 EPB@SNB.rendopar{b0} -0.05609740  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 2020-01-06 EPB@SNB.rendopar{b0} -0.07934420  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 2020-01-07 EPB@SNB.rendopar{b0} -0.08029920  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 2020-01-08 EPB@SNB.rendopar{b0} -0.06849460  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 2020-01-09 EPB@SNB.rendopar{b0} -0.00365518  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1508: 2020-12-22 EPB@SNB.rendopar{t2}  0.82619600  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1509: 2020-12-23 EPB@SNB.rendopar{t2}  0.70066400  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1510: 2020-12-28 EPB@SNB.rendopar{t2}  0.82467200  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1511: 2020-12-29 EPB@SNB.rendopar{t2}  0.84958800  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1512: 2020-12-30 EPB@SNB.rendopar{t2}  0.88701000  daily      P1D   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       overview</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:       B0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1508:       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1509:       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1510:       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1511:       T2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1512:       T2</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_user_agent(request(url),     "bbk (https://m-muecke.github.io/bbk)"), lang), ...), body = snb_error_body)):</span> Failed to parse error body with method defined in `req_error()`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> lexical error: invalid char in json text.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>                                        &lt;!DOCTYPE html&gt;  &lt;html&gt;  &lt;head&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>                      (right here) ------^</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -142,7 +113,7 @@ Default <code>"en"</code>.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>

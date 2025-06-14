@@ -37,10 +37,7 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   dt <- fread(tf, sep = ",")
   fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
   dt[, Date := as.Date(Date, format = fmt)]
-  dt[,
-    names(.SD) := lapply(.SD, \(x) ifelse(x == "N/A", NA_real_, x)),
-    .SDcols = is.character
-  ]
+  dt[, names(.SD) := lapply(.SD, \(x) replace(x, x == "N/A", NA_real_)), .SDcols = is.character]
   dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = !"Date"]
   dt <- melt(
     dt,

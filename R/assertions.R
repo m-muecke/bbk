@@ -30,9 +30,5 @@ is_valid_date <- function(x) {
     return(FALSE)
   }
   x <- as.character(x)
-  if (grepl("^\\d{4}-\\d{2}-\\d{2}$", x)) {
-    TRUE
-  } else {
-    FALSE
-  }
+  if (grepl("^\\d{4}-\\d{2}-\\d{2}$", x)) TRUE else FALSE
 }

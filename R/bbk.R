@@ -52,11 +52,11 @@ bbk_data <- function(
   stopifnot(
     is_string(flow),
     nchar(flow) %in% 5:8,
-    is_character_or_null(key),
-    is_string_or_null(start_period),
-    is_string_or_null(end_period),
-    is_count_or_null(first_n),
-    is_count_or_null(last_n)
+    is_character(key, null_ok = TRUE),
+    is_string(start_period, null_ok = TRUE),
+    is_string(end_period, null_ok = TRUE),
+    is_count(first_n, null_ok = TRUE),
+    is_count(last_n, null_ok = TRUE)
   )
 
   flow <- toupper(flow)
@@ -150,7 +150,7 @@ parse_bbk_series <- function(body, key) {
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
   dt <- fread(path, header = FALSE, skip = 11L)[, 1:2]
-  dt <- setnames(dt, c("date", "value"))
+  setnames(dt, c("date", "value"))
   dt[value == ".", value := NA_character_]
   dt <- na.omit(dt)
 
@@ -266,7 +266,7 @@ parse_bbk_data <- function(body) {
 
 fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   lang <- match.arg(lang, c("en", "de"))
-  stopifnot(is_string_or_null(id))
+  stopifnot(is_string(id, null_ok = TRUE))
   resource <- paste("metadata", resource, sep = "/")
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")

@@ -17,7 +17,6 @@
 #'
 #' @param x (`character(1)`) one of `"latest"` or `"history"`. Default `"latest"`.
 #' @returns A [data.table::data.table()] with the reference rates.
-#'
 #' @source <https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html>
 #' @export
 #' @examplesIf curl::has_internet()
@@ -36,7 +35,7 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   curl::curl_download(url, tf)
   dt <- fread(tf, sep = ",", na.strings = c("NA", "N/A"))
   fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
-  dt[, Date := as.Date(Date, format = fmt)]
+  dt[, Date := as.Date(Date, fmt)]
   dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = !"Date"]
   dt <- melt(
     dt,

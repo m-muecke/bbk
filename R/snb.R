@@ -18,13 +18,12 @@
 snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de")) {
   stopifnot(
     is_string(id),
-    is_valid_date(start_date),
-    is_valid_date(end_date)
+    is_dateish(start_date),
+    is_dateish(end_date)
   )
   lang <- match.arg(lang)
   body <- snb(id = id, fromDate = start_date, toDate = end_date, lang = lang)
-  dt <- parse_snb_data(body)
-  dt
+  parse_snb_data(body)
 }
 
 parse_snb_data <- function(body) {

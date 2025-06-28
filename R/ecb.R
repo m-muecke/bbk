@@ -38,11 +38,11 @@ ecb_data <- function(
 ) {
   stopifnot(
     is_string(flow),
-    is_character_or_null(key),
-    is_string_or_null(start_period),
-    is_string_or_null(end_period),
-    is_count_or_null(first_n),
-    is_count_or_null(last_n)
+    is_character(key, null_ok = TRUE),
+    is_string(start_period, null_ok = TRUE),
+    is_string(end_period, null_ok = TRUE),
+    is_count(first_n, null_ok = TRUE),
+    is_count(last_n, null_ok = TRUE)
   )
 
   key <- if (!is.null(key)) paste0(key, collapse = "+") else "all"
@@ -54,8 +54,7 @@ ecb_data <- function(
     firstNObservations = first_n,
     lastNObservations = last_n
   )
-  dt <- parse_ecb_data(body)
-  dt
+  parse_ecb_data(body)
 }
 
 parse_ecb_data <- function(body) {
@@ -150,19 +149,17 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
     codelist = list("codelist", "//str:Codelist"),
     concept = list("conceptscheme", "//str:ConceptScheme")
   )
-  res <- do.call(fetch_ecb_metadata, c(args, list(agency, id)))
-  res
+  do.call(fetch_ecb_metadata, c(args, list(agency, id)))
 }
 
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
-  stopifnot(is_string_or_null(agency), is_string_or_null(id))
+  stopifnot(is_string(agency, null_ok = TRUE), is_string(id, null_ok = TRUE))
   agency <- if (!is.null(agency)) toupper(agency) else "all"
   id <- if (!is.null(id)) toupper(id) else "all"
   resource <- paste(resource, agency, id, sep = "/")
   body <- ecb(resource)
   entries <- xml2::xml_find_all(body, xpath)
-  dt <- parse_ecb_metadata(entries)
-  dt
+  parse_ecb_metadata(entries)
 }
 
 parse_ecb_metadata <- function(x, lang = "en") {

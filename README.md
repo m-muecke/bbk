@@ -19,6 +19,8 @@ bbk is minimal R client for the following APIs:
 - [European Central Bank
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)
+- [Bank of England
+  (BoE)](https://www.bankofengland.co.uk/boeapps/database/help.asp?Back=Y&Highlight=CSV#CSV)
 
 > In the future, it may be extended to other central banks and financial
 > institutions. Feel free to open an issue if you have a specific
@@ -60,7 +62,7 @@ yield_curve <- bbk_data(
 )
 #> [1] "data/BBSIS/D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
 str(yield_curve)
-#> Classes 'data.table' and 'data.frame':   1353 obs. of  25 variables:
+#> Classes 'data.table' and 'data.frame':   1399 obs. of  25 variables:
 #>  $ date          : Date, format: "2020-01-02" "2020-01-03" ...
 #>  $ key           : chr  "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z."..
 #>  $ value         : num  -0.16 -0.27 -0.27 -0.27 -0.27 -0.22 -0.2 -0.19 -0.17 -..

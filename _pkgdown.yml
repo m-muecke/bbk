@@ -7,13 +7,13 @@ template:
 reference:
   - subtitle: Data
     contents:
-    - bbk_data
-    - bbk_series
-    - ecb_data
-    - ecb_euro_rates
-    - snb_data
+      - bbk_data
+      - bbk_series
+      - ecb_data
+      - ecb_euro_rates
+      - snb_data
 
   - subtitle: Metadata
     contents:
-    - bbk_metadata
-    - ecb_metadata
+      - bbk_metadata
+      - ecb_metadata

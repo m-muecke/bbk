@@ -2,7 +2,7 @@
 % Please edit documentation in R/boe.R
 \name{boe_data}
 \alias{boe_data}
-\title{Fetch data from the Bank of England Interactive Statistical Database}
+\title{Fetch data from the Bank of England (BoE) Interactive Statistical Database}
 \usage{
 boe_data(id, start_date = NULL, end_date = Sys.Date())
 }
@@ -17,10 +17,12 @@ boe_data(id, start_date = NULL, end_date = Sys.Date())
 A \code{\link[data.table:data.table]{data.table::data.table()}}
 }
 \description{
-Fetch data from the Bank of England Interactive Statistical Database
+Fetch data from the Bank of England (BoE) Interactive Statistical Database
 }
 \examples{
-\dontrun{
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 boe_data(c("LPMVWYR", "LPMVWYR"), "2012-01-01")
 }
+\dontshow{\}) # examplesIf}
 }

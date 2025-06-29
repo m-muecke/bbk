@@ -12,6 +12,7 @@ reference:
       - ecb_data
       - ecb_euro_rates
       - snb_data
+      - boe_data
 
   - subtitle: Metadata
     contents:

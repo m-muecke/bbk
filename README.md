@@ -65,7 +65,6 @@ yield_curve <- bbk_data(
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"
 )
-#> [1] "data/BBSIS/D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
 ```
 
 <img src="man/figures/README-plotting-1.png" width="100%" />

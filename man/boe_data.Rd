@@ -4,7 +4,7 @@
 \alias{boe_data}
 \title{Fetch data from the Bank of England Interactive Statistical Database}
 \usage{
-boe_data(id, start_date, end_date = Sys.Date())
+boe_data(id, start_date = NULL, end_date = Sys.Date())
 }
 \arguments{
 \item{id}{a vector of BoE series codes}

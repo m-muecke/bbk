@@ -18,8 +18,8 @@
 snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de")) {
   stopifnot(
     is_string(id),
-    is_dateish(start_date),
-    is_dateish(end_date)
+    is_dateish(start_date, null_ok = TRUE),
+    is_dateish(end_date, null_ok = TRUE)
   )
   lang <- match.arg(lang)
   body <- snb(id = id, fromDate = start_date, toDate = end_date, lang = lang)

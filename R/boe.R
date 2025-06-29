@@ -9,7 +9,7 @@
 #' \dontrun{
 #' boe_data(c("LPMVWYR", "LPMVWYR"), "2012-01-01")
 #' }
-boe_data <- function(id, start_date, end_date = Sys.Date()) {
+boe_data <- function(id, start_date = NULL, end_date = Sys.Date()) {
   stopifnot(
     is_character(id),
     length(id) <= 300,

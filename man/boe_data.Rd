@@ -12,9 +12,9 @@ boe_data(id, start_date, end_date = Sys.Date())
 \arguments{
 \item{id}{(\code{character(1)}) BoE series codes.}
 
-\item{start_date}{(\code{Date(1)} | character(1)) start date of the time series.}
+\item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the time series.}
 
-\item{end_date}{(\code{Date(1)} | character(1)) end date of the time series.}
+\item{end_date}{(\code{character(1)} | \code{Date(1)}) end date of the time series.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}}

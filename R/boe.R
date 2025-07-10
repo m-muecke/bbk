@@ -1,8 +1,8 @@
 #' Fetch data from the Bank of England (BoE) Interactive Statistical Database
 #'
 #' @param id (`character(1)`) BoE series codes.
-#' @param start_date (`Date(1)` | character(1)) start date of the time series.
-#' @param end_date (`Date(1)` | character(1)) end date of the time series.
+#' @param start_date (`character(1)` | `Date(1)`) start date of the time series.
+#' @param end_date (`character(1)` | `Date(1)`) end date of the time series.
 #' @returns A [data.table::data.table()]
 #' @export
 #' @source <https://www.bankofengland.co.uk/boeapps/database>

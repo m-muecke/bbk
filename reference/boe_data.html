@@ -45,23 +45,27 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">boe_data</span><span class="op">(</span><span class="va">id</span>, start_date <span class="op">=</span> <span class="cn">NULL</span>, end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">boe_data</span><span class="op">(</span><span class="va">id</span>, <span class="va">start_date</span>, end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.Date</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
+    <p><a href="https://www.bankofengland.co.uk/boeapps/database" class="external-link">https://www.bankofengland.co.uk/boeapps/database</a></p>
+    </div>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
 <dl><dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
-<dd><p>a vector of BoE series codes</p></dd>
+<dd><p>(<code>character(1)</code>) BoE series codes.</p></dd>
 
 
 <dt id="arg-start-date">start_date<a class="anchor" aria-label="anchor" href="#arg-start-date"></a></dt>
-<dd><p>(<code>Date(1)</code> | character(1))</p></dd>
+<dd><p>(<code>Date(1)</code> | character(1)) start date of the time series.</p></dd>
 
 
 <dt id="arg-end-date">end_date<a class="anchor" aria-label="anchor" href="#arg-end-date"></a></dt>
-<dd><p>(<code>Date(1)</code> | character(1))</p></dd>
+<dd><p>(<code>Date(1)</code> | character(1)) end date of the time series.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -72,20 +76,33 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="fu">boe_data</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"LPMVWYR"</span>, <span class="st">"LPMVWYR"</span><span class="op">)</span>, <span class="st">"2012-01-01"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            date LPMVWYR LPMVWYR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;   &lt;int&gt;   &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2012-01-31   55011   55011</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 2012-02-29   55271   55271</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 2012-03-31   55170   55170</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2012-04-30   55278   55278</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2012-05-31   55567   55567</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 157: 2025-01-31   89180   89180</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 158: 2025-02-28   89656   89656</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 159: 2025-03-31   91824   91824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 160: 2025-04-30   92447   92447</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 161: 2025-05-31   92105   92105</span>
+<span class="r-in"><span><span class="fu">boe_data</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"IUMABEDR"</span>, <span class="st">"IUALBEDR"</span><span class="op">)</span>, <span class="st">"2015-01-01"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            date       id value    freq seasonal_adjustment   type output_in</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;   &lt;char&gt; &lt;num&gt;  &lt;char&gt;              &lt;char&gt; &lt;char&gt;    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2015-01-31 IUMABEDR  0.50 monthly                   U      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 2015-02-28 IUMABEDR  0.50 monthly                   U      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 2015-03-31 IUMABEDR  0.50 monthly                   U      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2015-04-30 IUMABEDR  0.50 monthly                   U      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2015-05-31 IUMABEDR  0.50 monthly                   U      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132: 2020-12-31 IUALBEDR  0.10  annual                &lt;NA&gt;      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133: 2021-12-31 IUALBEDR  0.25  annual                &lt;NA&gt;      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134: 2022-12-31 IUALBEDR  3.50  annual                &lt;NA&gt;      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135: 2023-12-31 IUALBEDR  5.25  annual                &lt;NA&gt;      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136: 2024-12-31 IUALBEDR  4.75  annual                &lt;NA&gt;      R         %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      instrument_currency instruments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   &lt;char&gt;      &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136:                   £      RBASER</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

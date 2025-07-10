@@ -20,7 +20,7 @@ bbk is minimal R client for the following APIs:
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)
 - [Bank of England
-  (BoE)](https://www.bankofengland.co.uk/boeapps/database/help.asp?Back=Y&Highlight=CSV#CSV)
+  (BoE)](https://www.bankofengland.co.uk/boeapps/database)
 
 > In the future, it may be extended to other central banks and financial
 > institutions. Feel free to open an issue if you have a specific

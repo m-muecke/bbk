@@ -28,7 +28,7 @@ bbk is minimal R client for the following APIs:
 - [Deutsche Bundesbank (BBK)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 - [European Central Bank (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)
-- [Bank of England (BoE)](https://www.bankofengland.co.uk/boeapps/database/help.asp?Back=Y&Highlight=CSV#CSV)
+- [Bank of England (BoE)](https://www.bankofengland.co.uk/boeapps/database)
 
 > In the future, it may be extended to other central banks and financial institutions.
 > Feel free to open an issue if you have a specific request.
@@ -93,7 +93,7 @@ ggplot(yield_curve, aes(x = date, y = value)) +
     axis.text = element_text(color = "black"),
     axis.title = element_blank()
   ) +
-  scale_y_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::label_percent()) +
   labs(title = "Daily Yields of 10-Year Federal Securities")
 ```
 

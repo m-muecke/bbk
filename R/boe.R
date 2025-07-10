@@ -1,48 +1,20 @@
 #' Fetch data from the Bank of England (BoE) Interactive Statistical Database
 #'
-#' @param id a vector of BoE series codes
-#' @param start_date (`Date(1)` | character(1))
-#' @param end_date (`Date(1)` | character(1))
+#' @param id (`character(1)`) BoE series codes.
+#' @param start_date (`Date(1)` | character(1)) start date of the time series.
+#' @param end_date (`Date(1)` | character(1)) end date of the time series.
 #' @returns A [data.table::data.table()]
 #' @export
+#' @source <https://www.bankofengland.co.uk/boeapps/database>
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' boe_data(c("LPMVWYR", "LPMVWYR"), "2012-01-01")
+#' boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 #' }
-boe_data <- function(id, start_date = NULL, end_date = Sys.Date()) {
+boe_data <- function(id, start_date, end_date = Sys.Date()) {
   stopifnot(
     is_character(id),
     length(id) <= 300,
-    is_dateish(start_date, null_ok = TRUE),
-    is_dateish(end_date)
-  )
-
-  start_date <- as.Date(start_date)
-  end_date <- as.Date(end_date)
-
-  str <- request("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp") |>
-    req_url_query(
-      csv.x = "yes",
-      CSVF = "TN",
-      VPD = "Y",
-      UsingCodes = "Y",
-      SeriesCodes = paste(id, collapse = ","),
-      Datefrom = format(start_date, "%d/%b/%Y"),
-      Dateto = format(end_date, "%d/%b/%Y")
-    ) |>
-    req_perform() |>
-    resp_body_string(encoding = "UTF-8")
-
-  dt <- fread(str, sep = ",")
-  setnames(dt, "DATE", "date")
-  dt[, date := as.Date(date, "%d %b %Y")][]
-}
-
-boe_data_xml <- function(id, start_date = NULL, end_date = Sys.Date()) {
-  stopifnot(
-    is_character(id),
-    length(id) <= 300,
-    is_dateish(start_date, null_ok = TRUE),
+    is_dateish(start_date),
     is_dateish(end_date)
   )
 
@@ -61,10 +33,41 @@ eob <- function(id, ...) {
   request("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp") |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_query(xml.x = "yes", ...) |>
+    req_error(
+      is_error = \(resp) grepl("errorpage", httr2::resp_url(resp), ignore.case = TRUE),
+      body = eob_error_body
+    ) |>
     req_perform() |>
     resp_body_xml()
 }
 
+eob_error_body <- function(resp) {
+  msg <- "The BoE returned an error for the request."
+  c(msg, sprintf("See docs at <%s>", httr2::resp_url(resp)))
+}
+
 parse_eob_data <- function(body) {
-  .NotYetImplemented()
+  xml2::xml_ns_strip(body)
+  series <- xml2::xml_children(body)
+  res <- lapply(series, function(x) {
+    id <- xml2::xml_attr(x, "SCODE")
+    freq_name <- x |>
+      xml2::xml_find_first("./Cube[@FREQ_NAME]") |>
+      xml2::xml_attr("FREQ_NAME") |>
+      tolower()
+    attrs <- xml2::xml_find_all(x, "./Cube[@CAT_NAME]")
+    nms <- xml2::xml_attr(attrs, "CAT_NAME")
+    nms <- gsub(" ", "_", tolower(nms))
+    attrs <- attrs |>
+      xml2::xml_attr("CAT_VAL") |>
+      setNames(nms) |>
+      as.list()
+
+    vals <- xml2::xml_find_all(x, "./Cube[@TIME and @OBS_VALUE]")
+    date <- vals |> xml2::xml_attr("TIME") |> as.Date()
+    value <- vals |> xml2::xml_attr("OBS_VALUE") |> as.numeric()
+    dt <- data.table(date = date, id = id, value = value, freq = freq_name)
+    dt[, (names(attrs)) := attrs]
+  })
+  rbindlist(res, fill = TRUE)
 }

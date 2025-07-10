@@ -58,7 +58,7 @@ ecb_data <- function(
 }
 
 parse_ecb_data <- function(body) {
-  series <- body |> xml2::xml_find_all(".//generic:Series")
+  series <- xml2::xml_find_all(body, ".//generic:Series")
   res <- lapply(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>

@@ -30,7 +30,7 @@ parse_snb_data <- function(body) {
   res <- lapply(body$timeseries, function(x) {
     meta <- as.data.table(x$metadata)
     header <- x$header
-    cols <- vapply(header, \(x) x$dim, character(1))
+    cols <- vapply(header, \(x) x$dim, character(1L))
     cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
     item <- setNames(lapply(header, \(x) x$dimItem), cols)
     ref <- setDT(item)

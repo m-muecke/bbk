@@ -3,15 +3,18 @@
 \name{boe_data}
 \alias{boe_data}
 \title{Fetch data from the Bank of England (BoE) Interactive Statistical Database}
+\source{
+\url{https://www.bankofengland.co.uk/boeapps/database}
+}
 \usage{
-boe_data(id, start_date = NULL, end_date = Sys.Date())
+boe_data(id, start_date, end_date = Sys.Date())
 }
 \arguments{
-\item{id}{a vector of BoE series codes}
+\item{id}{(\code{character(1)}) BoE series codes.}
 
-\item{start_date}{(\code{Date(1)} | character(1))}
+\item{start_date}{(\code{Date(1)} | character(1)) start date of the time series.}
 
-\item{end_date}{(\code{Date(1)} | character(1))}
+\item{end_date}{(\code{Date(1)} | character(1)) end date of the time series.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}}
@@ -22,7 +25,7 @@ Fetch data from the Bank of England (BoE) Interactive Statistical Database
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-boe_data(c("LPMVWYR", "LPMVWYR"), "2012-01-01")
+boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 }
 \dontshow{\}) # examplesIf}
 }

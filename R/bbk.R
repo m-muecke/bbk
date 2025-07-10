@@ -204,7 +204,7 @@ parse_bbk_metadata <- function(x, lang) {
 }
 
 parse_bbk_data <- function(body) {
-  series <- body |> xml2::xml_find_all(".//generic:Series")
+  series <- xml2::xml_find_all(body, ".//generic:Series")
   res <- lapply(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>

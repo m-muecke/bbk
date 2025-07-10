@@ -77,32 +77,45 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">boe_data</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"IUMABEDR"</span>, <span class="st">"IUALBEDR"</span><span class="op">)</span>, <span class="st">"2015-01-01"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            date       id value    freq seasonal_adjustment   type output_in</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;   &lt;char&gt; &lt;num&gt;  &lt;char&gt;              &lt;char&gt; &lt;char&gt;    &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2015-01-31 IUMABEDR  0.50 monthly                   U      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 2015-02-28 IUMABEDR  0.50 monthly                   U      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 2015-03-31 IUMABEDR  0.50 monthly                   U      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2015-04-30 IUMABEDR  0.50 monthly                   U      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2015-05-31 IUMABEDR  0.50 monthly                   U      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132: 2020-12-31 IUALBEDR  0.10  annual                &lt;NA&gt;      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133: 2021-12-31 IUALBEDR  0.25  annual                &lt;NA&gt;      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134: 2022-12-31 IUALBEDR  3.50  annual                &lt;NA&gt;      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135: 2023-12-31 IUALBEDR  5.25  annual                &lt;NA&gt;      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136: 2024-12-31 IUALBEDR  4.75  annual                &lt;NA&gt;      R         %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      instrument_currency instruments</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   &lt;char&gt;      &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135:                   £      RBASER</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136:                   £      RBASER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            date       id value                                  desc    freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;   &lt;char&gt; &lt;num&gt;                                &lt;char&gt;  &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2015-01-31 IUMABEDR  0.50 Monthly average of official Bank Rate monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 2015-02-28 IUMABEDR  0.50 Monthly average of official Bank Rate monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 2015-03-31 IUMABEDR  0.50 Monthly average of official Bank Rate monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2015-04-30 IUMABEDR  0.50 Monthly average of official Bank Rate monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2015-05-31 IUMABEDR  0.50 Monthly average of official Bank Rate monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132: 2020-12-31 IUALBEDR  0.10           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133: 2021-12-31 IUALBEDR  0.25           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134: 2022-12-31 IUALBEDR  3.50           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135: 2023-12-31 IUALBEDR  5.25           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136: 2024-12-31 IUALBEDR  4.75           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          seasonal_adjustment          type output_in instrument_currency</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       &lt;char&gt;        &lt;char&gt;    &lt;char&gt;              &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: Not seasonally adjusted Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: Not seasonally adjusted Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: Not seasonally adjusted Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: Not seasonally adjusted Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: Not seasonally adjusted Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             instruments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136: Official Bank Rate</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

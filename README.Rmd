@@ -93,7 +93,7 @@ ggplot(yield_curve, aes(x = date, y = value)) +
     axis.text = element_text(color = "black"),
     axis.title = element_blank()
   ) +
-  scale_y_continuous(labels = scales::label_percent()) +
+  scale_y_continuous(labels = scales::label_percent(scale = 1L)) +
   labs(title = "Daily Yields of 10-Year Federal Securities")
 ```
 

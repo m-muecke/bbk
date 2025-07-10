@@ -51,6 +51,7 @@ parse_eob_data <- function(body) {
   series <- xml2::xml_children(body)
   res <- lapply(series, function(x) {
     id <- xml2::xml_attr(x, "SCODE")
+    desc <- xml2::xml_attr(x, "DESC")
     freq_name <- x |>
       xml2::xml_find_first("./Cube[@FREQ_NAME]") |>
       xml2::xml_attr("FREQ_NAME") |>
@@ -59,14 +60,14 @@ parse_eob_data <- function(body) {
     nms <- xml2::xml_attr(attrs, "CAT_NAME")
     nms <- gsub(" ", "_", tolower(nms))
     attrs <- attrs |>
-      xml2::xml_attr("CAT_VAL") |>
+      xml2::xml_attr("VAL_DESC") |>
       setNames(nms) |>
       as.list()
 
     vals <- xml2::xml_find_all(x, "./Cube[@TIME and @OBS_VALUE]")
     date <- vals |> xml2::xml_attr("TIME") |> as.Date()
     value <- vals |> xml2::xml_attr("OBS_VALUE") |> as.numeric()
-    dt <- data.table(date = date, id = id, value = value, freq = freq_name)
+    dt <- data.table(date = date, id = id, value = value, desc = desc, freq = freq_name)
     dt[, (names(attrs)) := attrs]
   })
   rbindlist(res, fill = TRUE)

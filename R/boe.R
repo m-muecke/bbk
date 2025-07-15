@@ -58,7 +58,7 @@ parse_eob_data <- function(body) {
       tolower()
     attrs <- xml2::xml_find_all(x, "./Cube[@CAT_NAME]")
     nms <- xml2::xml_attr(attrs, "CAT_NAME")
-    nms <- gsub(" ", "_", tolower(nms))
+    nms <- gsub(" ", "_", tolower(nms), fixed = TRUE)
     attrs <- attrs |>
       xml2::xml_attr("VAL_DESC") |>
       setNames(nms) |>

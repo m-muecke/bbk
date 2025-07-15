@@ -44,8 +44,6 @@ pak::pak("m-muecke/bbk")
 
 ## Usage
 
-## Usage
-
 bbk functions are prefixed according to the central bank they access
 (`bbk_`, `ecb_`, `snb_`, `boe_`) and follow the naming conventions of
 their respective APIs.

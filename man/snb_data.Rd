@@ -38,6 +38,7 @@ snb_data("rendopar", "2020-01-01", "2020-12-31")
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{bbk_series}()},
+\code{\link{boe_data}()},
 \code{\link{ecb_data}()}
 }
 \concept{data}

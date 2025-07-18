@@ -17,7 +17,7 @@ boe_data(id, start_date, end_date = Sys.Date())
 \item{end_date}{(\code{character(1)} | \code{Date(1)}) end date of the time series.}
 }
 \value{
-A \code{\link[data.table:data.table]{data.table::data.table()}}
+A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
 Fetch data from the Bank of England (BoE) Interactive Statistical Database
@@ -29,3 +29,11 @@ boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 }
 \dontshow{\}) # examplesIf}
 }
+\seealso{
+Other data: 
+\code{\link{bbk_data}()},
+\code{\link{bbk_series}()},
+\code{\link{ecb_data}()},
+\code{\link{snb_data}()}
+}
+\concept{data}

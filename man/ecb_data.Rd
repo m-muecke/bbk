@@ -60,6 +60,7 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{bbk_series}()},
+\code{\link{boe_data}()},
 \code{\link{snb_data}()}
 }
 \concept{data}

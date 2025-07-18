@@ -3,9 +3,10 @@
 #' @param id (`character(1)`) BoE series codes.
 #' @param start_date (`character(1)` | `Date(1)`) start date of the time series.
 #' @param end_date (`character(1)` | `Date(1)`) end date of the time series.
-#' @returns A [data.table::data.table()]
-#' @export
+#' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bankofengland.co.uk/boeapps/database>
+#' @family data
+#' @export
 #' @examplesIf curl::has_internet()
 #' \donttest{
 #' boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")

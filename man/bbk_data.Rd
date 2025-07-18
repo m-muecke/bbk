@@ -74,6 +74,7 @@ bbk_data(
 \seealso{
 Other data: 
 \code{\link{bbk_series}()},
+\code{\link{boe_data}()},
 \code{\link{ecb_data}()},
 \code{\link{snb_data}()}
 }

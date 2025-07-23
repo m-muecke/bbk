@@ -35,6 +35,7 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   curl::curl_download(url, tf)
   dt <- fread(tf, sep = ",", na.strings = c("NA", "N/A"))
   fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
+  Date <- NULL
   dt[, Date := as.Date(Date, fmt)]
   dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = !"Date"]
   dt <- melt(

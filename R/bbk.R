@@ -134,6 +134,7 @@ bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
     concept = list("conceptscheme/BBK", "//structure:ConceptScheme")
   )
   dt <- do.call(fetch_bbk_metadata, c(args, list(id, lang)))
+  name <- NULL
   dt[!nzchar(name), name := NA_character_][]
 }
 
@@ -150,6 +151,7 @@ parse_bbk_series <- function(body, key) {
 
   dt <- fread(path, header = FALSE, skip = 11L)[, 1:2]
   setnames(dt, c("date", "value"))
+  value <- NULL
   dt[value == ".", value := NA_character_]
   dt <- na.omit(dt)
 
@@ -258,6 +260,7 @@ parse_bbk_data <- function(body) {
     as.data.table(data)
   })
   dt <- rbindlist(res)
+  decimals <- NULL
   dt[, decimals := as.integer(decimals)]
   setcolorder(dt, c("date", "key", "value", "title", "freq"))
   dt[]

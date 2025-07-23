@@ -15,5 +15,3 @@
 #' @importFrom httr2 resp_content_type
 #' @importFrom stats na.omit setNames
 "_PACKAGE"
-
-utils::globalVariables(c("name", "Date", "decimals", "value", "duration"))

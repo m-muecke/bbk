@@ -45,6 +45,7 @@ parse_snb_data <- function(body) {
   dt <- rbindlist(res)
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "duration")
+  duration <- NULL
   dt[, duration := substring(duration, 1L, 3L)]
   freq <- switch(
     dt[1L, duration],

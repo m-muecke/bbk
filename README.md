@@ -10,6 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/bbk/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/package=bbk)
+[![R-universe
+version](https://m-muecke.r-universe.dev/bbk/badges/version)](https://m-muecke.r-universe.dev/bbk)
 <!-- badges: end -->
 
 bbk is minimal R client for the following APIs:

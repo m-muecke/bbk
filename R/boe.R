@@ -22,32 +22,32 @@ boe_data <- function(id, start_date, end_date = Sys.Date()) {
   start_date <- as.Date(start_date)
   end_date <- as.Date(end_date)
 
-  body <- eob(
+  body <- boe(
     SeriesCodes = paste(id, collapse = ","),
     Datefrom = format(start_date, "%d/%b/%Y"),
     Dateto = format(end_date, "%d/%b/%Y")
   )
-  parse_eob_data(body)
+  parse_boe_data(body)
 }
 
-eob <- function(id, ...) {
+boe <- function(id, ...) {
   request("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp") |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_query(xml.x = "yes", ...) |>
     req_error(
       is_error = \(resp) grepl("errorpage", httr2::resp_url(resp), ignore.case = TRUE),
-      body = eob_error_body
+      body = boe_error_body
     ) |>
     req_perform() |>
     resp_body_xml()
 }
 
-eob_error_body <- function(resp) {
+boe_error_body <- function(resp) {
   msg <- "The BoE returned an error for the request."
   c(msg, sprintf("See docs at <%s>", httr2::resp_url(resp)))
 }
 
-parse_eob_data <- function(body) {
+parse_boe_data <- function(body) {
   xml2::xml_ns_strip(body)
   series <- xml2::xml_children(body)
   res <- lapply(series, function(x) {

@@ -149,7 +149,7 @@ parse_bbk_series <- function(body, key) {
   files <- list.files(tmp, full.names = TRUE)
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
-  dt <- fread(path, header = FALSE, skip = 11L)[, 1:2]
+  dt <- fread(file = path, header = FALSE, skip = 11L)[, 1:2]
   setnames(dt, c("date", "value"))
   value <- NULL
   dt[value == ".", value := NA_character_]

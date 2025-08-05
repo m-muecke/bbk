@@ -29,6 +29,8 @@ bdf_data(
 
 \item{tz}{(\code{character(1)}) timezone to use for the query. Default \code{"UTC"}.}
 
+\item{format}{(\code{character(1)}) format of the response, either \code{"json"} or \code{"csv"}.}
+
 \item{api_args}{(named \code{list()}) of extra arguments appended to the API request.
 Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}.}
 
@@ -39,8 +41,8 @@ Retrieve data from Banque de France
 }
 \examples{
 \dontrun{
-x <- bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10", format = "csv")
+bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10", format = "csv")
 # inflation rate
-x <- bdf_data("ICP.M.FR.N.000000.4.ANR", "2025-05-01")
+bdf_data("ICP.M.FR.N.000000.4.ANR", "2025-05-01")
 }
 }

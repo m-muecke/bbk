@@ -6,14 +6,15 @@
 #' @param end_period (`character(1)`) end period of the series to query.
 #' @param lang (`character(1)`) language to query. Default `"en"`.
 #' @param tz (`character(1)`) timezone to use for the query. Default `"UTC"`.
+#' @param format (`character(1)`) format of the response, either `"json"` or `"csv"`.
 #' @param api_args (named `list()`) of extra arguments appended to the API request.
 #'   Combined with the default arguments with [modifyList()].
 #' @param api_key (`character(1)`) API key to use for the request.
 #' @examples
 #' \dontrun{
-#' x <- bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10", format = "csv")
+#' bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10", format = "csv")
 #' # inflation rate
-#' x <- bdf_data("ICP.M.FR.N.000000.4.ANR", "2025-05-01")
+#' bdf_data("ICP.M.FR.N.000000.4.ANR", "2025-05-01")
 #' }
 bdf_data <- function(
   dataset_id = NULL,
@@ -59,14 +60,15 @@ bdf_data <- function(
     tf <- tempfile()
     on.exit(unlink(tf), add = TRUE)
     req_perform(req, path = tf)
-    fread(file = tf, sep = ";")
-  } else {
-    req |>
-      req_perform() |>
-      resp_body_json() |>
-      lapply(\(x) setDT(replace(x, lengths(x) == 0L, NA))) |>
-      rbindlist()
+    dt <- fread(file = tf, sep = ";")
+    return(dt)
   }
+
+  req |>
+    req_perform() |>
+    resp_body_json() |>
+    lapply(\(x) setDT(replace(x, lengths(x) == 0L, NA))) |>
+    rbindlist()
 }
 
 bdf_key <- function() {

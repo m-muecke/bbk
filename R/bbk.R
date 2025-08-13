@@ -64,7 +64,7 @@ bbk_data <- function(
     resource <- sprintf("data/%s", flow)
   } else {
     key <- toupper(key)
-    key <- paste0(key, collapse = "+")
+    key <- paste(key, collapse = "+")
     resource <- sprintf("data/%s/%s", flow, key)
   }
   body <- make_request(

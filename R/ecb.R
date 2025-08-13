@@ -45,7 +45,7 @@ ecb_data <- function(
     is_count(last_n, null_ok = TRUE)
   )
 
-  key <- if (!is.null(key)) paste0(key, collapse = "+") else "all"
+  key <- if (!is.null(key)) paste(key, collapse = "+") else "all"
   resource <- paste("data", flow, key, sep = "/")
   body <- ecb(
     resource = resource,
@@ -84,7 +84,7 @@ parse_ecb_data <- function(body) {
       as.list()
 
     data <- c(series_key, attrs)
-    data$key <- paste0(series_key, collapse = ".")
+    data$key <- paste(series_key, collapse = ".")
 
     data$freq <- switch(
       data$freq,

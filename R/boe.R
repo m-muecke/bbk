@@ -14,7 +14,7 @@
 boe_data <- function(id, start_date, end_date = Sys.Date()) {
   stopifnot(
     is_character(id),
-    length(id) <= 300,
+    length(id) <= 300L,
     is_dateish(start_date),
     is_dateish(end_date)
   )

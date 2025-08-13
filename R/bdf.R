@@ -80,7 +80,7 @@ bdf_key <- function() {
     testthat::skip(sprintf("%s env var is not configured", "BDF"))
   }
   stop(
-    "No API key found, please supply with `api_key` argument or with BANQUEDEFRANCE_KEY env var",
+    "No API key found, please supply with `api_key` argument or with BANQUEDEFRANCE_KEY env var.",
     call. = FALSE
   )
 }

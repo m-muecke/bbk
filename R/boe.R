@@ -23,7 +23,7 @@ boe_data <- function(id, start_date, end_date = Sys.Date()) {
   end_date <- as.Date(end_date)
 
   body <- boe(
-    SeriesCodes = paste(id, collapse = ","),
+    SeriesCodes = id,
     Datefrom = format(start_date, "%d/%b/%Y"),
     Dateto = format(end_date, "%d/%b/%Y")
   )
@@ -33,7 +33,7 @@ boe_data <- function(id, start_date, end_date = Sys.Date()) {
 boe <- function(id, ...) {
   request("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp") |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
-    req_url_query(xml.x = "yes", ...) |>
+    req_url_query(..., xml.x = "yes", .multi = "comma") |>
     req_error(
       is_error = \(resp) grepl("errorpage", httr2::resp_url(resp), ignore.case = TRUE),
       body = boe_error_body

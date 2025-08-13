@@ -109,11 +109,10 @@ parse_ecb_data <- function(body) {
 
     as.data.table(data)
   })
-  nms <- lapply(res, names)
-  nms <- Reduce(intersect, nms)
-  nms <- union(c("date", "key", "value", "title", "description"), nms)
-  res <- lapply(res, \(x) x[, nms, with = FALSE])
-  rbindlist(res)
+  cols <- lapply(res, names)
+  cols <- Reduce(intersect, cols)
+  cols <- union(c("date", "key", "value", "title", "description"), cols)
+  rbindlist(lapply(res, \(x) x[, cols, with = FALSE]))
 }
 
 #' Returns the available ECB metadata

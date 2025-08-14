@@ -6,7 +6,8 @@ linters: all_linters(
     nonportable_path_linter = NULL,
     paste_linter = NULL,
     object_overwrite_linter = NULL,
-    one_call_pipe_linter = NULL
+    one_call_pipe_linter = NULL,
+    unnecessary_lambda_linter = NULL
   )
 exclusions: list(
     "tests/testthat.R"

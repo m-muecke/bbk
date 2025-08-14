@@ -1,5 +1,5 @@
-`%||%` <- function(x, y) {
-  if (is.null(x)) y else x # nolint
+`%||%` <- function(x, y) { # nolint
+  if (is.null(x)) y else x
 }
 
 parse_date <- function(date, freq) {

@@ -42,6 +42,7 @@ bde_data <- function(series = "D_1NBAF472", lang = c("en", "en"), time_range = N
     lapply(\(x) suppressWarnings(as.data.table(x))) |>
     rbindlist() |>
     setnames(old_cols, new_cols)
+  value <- metadata <- NULL
   dt[, let(date = unlist(date, use.names = FALSE), value = unlist(value, use.names = FALSE))]
   dt[,
     c("title", "long_description") := unlist(metadata, recursive = FALSE),

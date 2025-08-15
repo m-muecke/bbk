@@ -1,6 +1,8 @@
 # bbk (development version)
 
-* Support for Bank of England's Statistical Interactive Database (IADB)
+* Support for Bank of England (BoE) data.
+* Support for Banque de France (BdF) data.
+* Support for Banco de España (BdE) data.
 
 # bbk 0.6.0
 

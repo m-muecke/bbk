@@ -40,7 +40,8 @@ published by the Banco de España.
 \examples{
 \dontrun{
 bde_data("D_1NBAF472", time_range = "30MM")
-bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
+bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX") -> x
+bde_data( "DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 }
 }
 \seealso{

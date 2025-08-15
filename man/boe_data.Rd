@@ -2,7 +2,7 @@
 % Please edit documentation in R/boe.R
 \name{boe_data}
 \alias{boe_data}
-\title{Fetch Bank of England (BoE) data for given series codes}
+\title{Fetch Bank of England (BoE) data}
 \source{
 \url{https://www.bankofengland.co.uk/boeapps/database}
 }
@@ -20,7 +20,7 @@ boe_data(id, start_date, end_date = Sys.Date())
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch Bank of England (BoE) data for given series codes
+Fetch Bank of England (BoE) data
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

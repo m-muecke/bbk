@@ -1,4 +1,4 @@
-#' Fetch Bank of England (BoE) data for given series codes
+#' Fetch Bank of England (BoE) data
 #'
 #' @param id (`character(1)`) BoE series codes.
 #' @param start_date (`character(1)` | `Date(1)`) start date of the time series.

@@ -8,31 +8,31 @@
 }
 \usage{
 bdf_data(
-  dataset_id = NULL,
   series_key = NULL,
-  start_period = NULL,
-  end_period = NULL,
+  select = NULL,
+  where = NULL,
+  order_by = NULL,
+  group_by = NULL,
   lang = "en",
   tz = "UTC",
-  format = c("json", "csv"),
   api_args = list(),
   api_key = bdf_key()
 )
 }
 \arguments{
-\item{dataset_id}{(\code{character(1)}) id of the dataset to query. Default \code{NULL}.}
-
 \item{series_key}{(\code{character(1)}) key of the series to query. Default \code{NULL}.}
 
-\item{start_period}{(\code{character(1)}) start period of the series to query.}
+\item{select}{(\code{character(1)}) select expression to filter the columns in the result.}
 
-\item{end_period}{(\code{character(1)}) end period of the series to query.}
+\item{where}{(\code{character(1)}) where expression to filter the rows in the result.}
+
+\item{order_by}{(\code{character(1)}) order by expression to sort the result.}
+
+\item{group_by}{(\code{character(1)}) group by expression to aggregate the result.}
 
 \item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
 
 \item{tz}{(\code{character(1)}) timezone to use for the query. Default \code{"UTC"}.}
-
-\item{format}{(\code{character(1)}) format of the response, either \code{"json"} or \code{"csv"}.}
 
 \item{api_args}{(named \code{list()}) of extra arguments appended to the API request.
 Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}.}
@@ -47,9 +47,11 @@ Fetch Banque de France (BdF) data
 }
 \examples{
 \dontrun{
-bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10", format = "csv")
+bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
 # inflation rate
-bdf_data("ICP.M.FR.N.000000.4.ANR", "2025-05-01")
+bdf_data(series_key = "ICP.M.FR.N.000000.4.ANR")
+# or with a date filter
+bdf_data(series_key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 }
 }
 \seealso{

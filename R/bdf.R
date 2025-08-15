@@ -11,6 +11,7 @@
 #'   Combined with the default arguments with [modifyList()].
 #' @param api_key (`character(1)`) API key to use for the request.
 #' @returns A [data.table::data.table()] with the requested data.
+#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
 #' @family data
 #' @export
 #' @examples

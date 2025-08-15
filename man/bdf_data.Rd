@@ -3,6 +3,9 @@
 \name{bdf_data}
 \alias{bdf_data}
 \title{Retrieve data from Banque de France}
+\source{
+\url{https://webstat.banque-france.fr/en/pages/guide-migration-api/}
+}
 \usage{
 bdf_data(
   dataset_id = NULL,

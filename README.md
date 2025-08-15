@@ -25,6 +25,8 @@ bbk is minimal R client for the following APIs:
   (BoE)](https://www.bankofengland.co.uk/boeapps/database)
 - [Banco de España
   (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
+- [Banque de France
+  (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
 
 > In the future, it may be extended to other central banks and financial
 > institutions. Feel free to open an issue if you have a specific

@@ -11,8 +11,8 @@ bdf_data(
   series_key = NULL,
   select = NULL,
   where = NULL,
-  order_by = NULL,
   group_by = NULL,
+  order_by = NULL,
   lang = "en",
   tz = "UTC",
   api_args = list(),
@@ -26,9 +26,9 @@ bdf_data(
 
 \item{where}{(\code{character(1)}) where expression to filter the rows in the result.}
 
-\item{order_by}{(\code{character(1)}) order by expression to sort the result.}
-
 \item{group_by}{(\code{character(1)}) group by expression to aggregate the result.}
+
+\item{order_by}{(\code{character(1)}) order by expression to sort the result.}
 
 \item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
 

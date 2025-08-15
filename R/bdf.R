@@ -3,8 +3,8 @@
 #' @param series_key (`character(1)`) key of the series to query. Default `NULL`.
 #' @param select (`character(1)`) select expression to filter the columns in the result.
 #' @param where (`character(1)`) where expression to filter the rows in the result.
-#' @param order_by (`character(1)`) order by expression to sort the result.
 #' @param group_by (`character(1)`) group by expression to aggregate the result.
+#' @param order_by (`character(1)`) order by expression to sort the result.
 #' @param lang (`character(1)`) language to query. Default `"en"`.
 #' @param tz (`character(1)`) timezone to use for the query. Default `"UTC"`.
 #' @param api_args (named `list()`) of extra arguments appended to the API request.
@@ -26,8 +26,8 @@ bdf_data <- function(
   series_key = NULL,
   select = NULL,
   where = NULL,
-  order_by = NULL,
   group_by = NULL,
+  order_by = NULL,
   lang = "en",
   tz = "UTC",
   api_args = list(),
@@ -37,6 +37,8 @@ bdf_data <- function(
     is_string(series_key, null_ok = TRUE),
     is_string(select, null_ok = TRUE),
     is_string(where, null_ok = TRUE),
+    is_string(group_by, null_ok = TRUE),
+    is_string(order_by, null_ok = TRUE),
     is_string(lang),
     nchar(lang) == 2L,
     is_string(api_key),
@@ -49,6 +51,8 @@ bdf_data <- function(
     refine = refine,
     select = select,
     where = where,
+    group_by = group_by,
+    order_by = order_by,
     lang = lang,
     timezone = tz,
     delimeter = ";",

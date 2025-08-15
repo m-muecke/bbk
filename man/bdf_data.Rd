@@ -2,7 +2,7 @@
 % Please edit documentation in R/bdf.R
 \name{bdf_data}
 \alias{bdf_data}
-\title{Retrieve data from Banque de France}
+\title{Fetch Banque de France (BdF) data}
 \source{
 \url{https://webstat.banque-france.fr/en/pages/guide-migration-api/}
 }
@@ -43,7 +43,7 @@ Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Retrieve data from Banque de France
+Fetch Banque de France (BdF) data
 }
 \examples{
 \dontrun{

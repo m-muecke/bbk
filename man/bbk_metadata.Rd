@@ -2,7 +2,7 @@
 % Please edit documentation in R/bbk.R
 \name{bbk_metadata}
 \alias{bbk_metadata}
-\title{Returns the available Bundesbank metadata}
+\title{Fetch Deutsche Bundesbank (BBk) metadata}
 \source{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }

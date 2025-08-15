@@ -2,7 +2,7 @@
 % Please edit documentation in R/ecb-euro-rates.R
 \name{ecb_euro_rates}
 \alias{ecb_euro_rates}
-\title{Euro foreign exchange reference rates}
+\title{Fetch Euro foreign exchange reference rates}
 \source{
 \url{https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html}
 }
@@ -17,7 +17,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the referen
 }
 \description{
 Fetch the latest or historical Euro foreign exchange reference rates from
-the European Central Bank.
+the European Central Bank (ECB).
 }
 \details{
 Note you can achieve the same by calling the \code{\link[=ecb_data]{ecb_data()}} function with the right

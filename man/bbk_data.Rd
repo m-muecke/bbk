@@ -2,7 +2,7 @@
 % Please edit documentation in R/bbk.R
 \name{bbk_data}
 \alias{bbk_data}
-\title{Returns Bundesbank data for a given flow and key}
+\title{Fetch Deutsche Bundesbank (BBk) data}
 \source{
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
 }
@@ -48,7 +48,7 @@ of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Returns Bundesbank data for a given flow and key
+Fetch Deutsche Bundesbank (BBk) data
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

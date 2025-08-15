@@ -1,4 +1,4 @@
-#' Returns ECB data for a given flow and key
+#' Fetch European Central Bank (ECB) data
 #'
 #' @param flow (`character(1)`) flow to query.
 #' @param key (`character(1)`) key to query.
@@ -116,7 +116,7 @@ parse_ecb_data <- function(body) {
   rbindlist(lapply(res, \(x) x[, cols, with = FALSE]))
 }
 
-#' Returns the available ECB metadata
+#' Fetch European Central Bank (ECB) metadata
 #'
 #' Retrieval of the metadata stored in the ECB's time series database.
 #' Access via the SDMX Web Service API of the ECB

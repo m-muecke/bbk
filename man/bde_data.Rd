@@ -2,7 +2,7 @@
 % Please edit documentation in R/bde.R
 \name{bde_data}
 \alias{bde_data}
-\title{Returns Banco de España data for a given series}
+\title{Fetch Banco de España (BdE) data}
 \source{
 \url{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}
 }
@@ -30,7 +30,7 @@ If \code{NULL} (default), returns the smallest range for the series frequency
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Returns Banco de España data for a given series
+Fetch Banco de España (BdE) data
 }
 \details{
 You can search for the series codes in the

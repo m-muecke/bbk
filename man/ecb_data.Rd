@@ -2,7 +2,7 @@
 % Please edit documentation in R/ecb.R
 \name{ecb_data}
 \alias{ecb_data}
-\title{Returns ECB data for a given flow and key}
+\title{Fetch European Central Bank (ECB) data}
 \source{
 \url{https://data.ecb.europa.eu/help/api/data}
 }
@@ -47,7 +47,7 @@ of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Returns ECB data for a given flow and key
+Fetch European Central Bank (ECB) data
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

@@ -1,4 +1,4 @@
-#' Retrieve data from Banque de France
+#' Fetch Banque de France (BdF) data
 #'
 #' @param dataset_id (`character(1)`) id of the dataset to query. Default `NULL`.
 #' @param series_key (`character(1)`) key of the series to query. Default `NULL`.

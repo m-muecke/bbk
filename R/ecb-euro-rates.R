@@ -1,7 +1,7 @@
-#' Euro foreign exchange reference rates
+#' Fetch Euro foreign exchange reference rates
 #'
 #' Fetch the latest or historical Euro foreign exchange reference rates from
-#' the European Central Bank.
+#' the European Central Bank (ECB).
 #'
 #' @details
 #' Note you can achieve the same by calling the [ecb_data()] function with the right

@@ -1,4 +1,4 @@
-#' Returns Bundesbank data for a given flow and key
+#' Fetch Deutsche Bundesbank (BBk) data
 #'
 #' @param flow (`character(1)`) flow to query, 5-8 characters.
 #'   See [bbk_metadata()] for available dataflows.
@@ -77,7 +77,7 @@ bbk_data <- function(
   parse_bbk_data(body)
 }
 
-#' Returns the Bundesbank time serie that is found with the specified time series key
+#' Fetch the Deutsche Bundesbank (BBk) series
 #'
 #' @inherit bbk_data source
 #' @inheritParams bbk_data
@@ -100,7 +100,7 @@ bbk_series <- function(key) {
   parse_bbk_series(body, key)
 }
 
-#' Returns the available Bundesbank metadata
+#' Fetch Deutsche Bundesbank (BBk) metadata
 #'
 #' Retrieval of the metadata stored in the Bundesbank's time series database.
 #' Access via the SDMX Web Service API of the Bundesbank.

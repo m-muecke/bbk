@@ -1,4 +1,4 @@
-#' Returns Banco de España data for a given series
+#' Fetch Banco de España (BdE) data
 #'
 #' @details
 #' You can search for the series codes in the

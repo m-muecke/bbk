@@ -3,6 +3,7 @@
 export(bbk_data)
 export(bbk_metadata)
 export(bbk_series)
+export(bde_data)
 export(boe_data)
 export(ecb_data)
 export(ecb_euro_rates)

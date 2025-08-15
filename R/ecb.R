@@ -18,6 +18,7 @@
 #'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @param last_n (`numeric(1)`) number of observations to retrieve from the end
 #'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
+#' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://data.ecb.europa.eu/help/api/data>
 #' @family data
 #' @export

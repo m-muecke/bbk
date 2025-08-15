@@ -17,12 +17,14 @@ version](https://m-muecke.r-universe.dev/bbk/badges/version)](https://m-muecke.r
 bbk is minimal R client for the following APIs:
 
 - [Deutsche Bundesbank
-  (BBK)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
+  (BBk)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 - [European Central Bank
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)
 - [Bank of England
   (BoE)](https://www.bankofengland.co.uk/boeapps/database)
+- [Banco de España
+  (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
 
 > In the future, it may be extended to other central banks and financial
 > institutions. Feel free to open an issue if you have a specific
@@ -83,3 +85,5 @@ yield_curve <- bbk_data(
   reading SDMX data and metadata.
 - [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
   data and metadata.
+- [tidyBdE](https://github.com/rOpenSpain/tidyBdE): R package for
+  accessing the Banco de España’s API.

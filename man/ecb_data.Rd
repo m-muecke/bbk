@@ -43,6 +43,9 @@ start of the series. If \code{NULL}, no restriction is applied. Default \code{NU
 \item{last_n}{(\code{numeric(1)}) number of observations to retrieve from the end
 of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
+\value{
+A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
+}
 \description{
 Returns ECB data for a given flow and key
 }
@@ -60,6 +63,7 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{bbk_series}()},
+\code{\link{bde_data}()},
 \code{\link{boe_data}()},
 \code{\link{snb_data}()}
 }

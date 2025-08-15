@@ -33,6 +33,7 @@ boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{bbk_series}()},
+\code{\link{bde_data}()},
 \code{\link{ecb_data}()},
 \code{\link{snb_data}()}
 }

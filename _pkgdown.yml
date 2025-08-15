@@ -9,10 +9,11 @@ reference:
     contents:
       - bbk_data
       - bbk_series
+      - bde_data
+      - boe_data
       - ecb_data
       - ecb_euro_rates
       - snb_data
-      - boe_data
 
   - subtitle: Metadata
     contents:

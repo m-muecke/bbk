@@ -10,6 +10,7 @@ reference:
       - bbk_data
       - bbk_series
       - bde_data
+      - bdf_data
       - boe_data
       - ecb_data
       - ecb_euro_rates

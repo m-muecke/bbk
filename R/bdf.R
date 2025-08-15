@@ -10,6 +10,9 @@
 #' @param api_args (named `list()`) of extra arguments appended to the API request.
 #'   Combined with the default arguments with [modifyList()].
 #' @param api_key (`character(1)`) API key to use for the request.
+#' @returns A [data.table::data.table()] with the requested data.
+#' @family data
+#' @export
 #' @examples
 #' \dontrun{
 #' bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10", format = "csv")

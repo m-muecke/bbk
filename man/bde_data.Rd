@@ -10,11 +10,21 @@
 bde_data(series = "D_1NBAF472", time_range = NULL, lang = c("en", "en"))
 }
 \arguments{
-\item{series}{(\code{character()})}
+\item{series}{(\code{character()}) the series codes to retrieve data for.}
 
-\item{time_range}{(\code{character(1)} | \code{integer(1)})}
+\item{time_range}{(\code{character(1)} | \code{integer(1)}) the time range for the data.
+Can be an annual range (e.g., \code{2024}) or a frequency-based code:
+\itemize{
+\item Daily frequency (D): \code{"3M"} (last 3 months), \code{"12M"}, \code{"36M"}
+\item Monthly frequency (M): \code{"30M"}, \code{"60M"}, \code{"MAX"} (entire series)
+\item Quarterly frequency (Q): \code{"30M"}, \code{"60M"}, \code{"MAX"}
+\item Annual frequency (A): \code{"60M"}, \code{"MAX"}
+}
 
-\item{lang}{(\code{character(1)})}
+If \code{NULL} (default), returns the smallest range for the series frequency
+(e.g., \code{"30M"} for monthly series).}
+
+\item{lang}{(\code{character(1)})  the language of the response, either \code{"en"} or \code{"es"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
@@ -22,9 +32,14 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 \description{
 Returns Banco de España data for a given series
 }
+\details{
+You can search for the series codes in the
+\href{https://app.bde.es/bie_www/bie_wwwias/xml/Arranque.html}{BIEST} application or in the tables
+published by the Banco de España.
+}
 \examples{
 \dontrun{
-bde_data("D_1NBAF472", time_range = "30M")
+bde_data("D_1NBAF472", time_range = "30MM")
 bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
 }
 }
@@ -32,6 +47,7 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{bbk_series}()},
+\code{\link{bdf_data}()},
 \code{\link{boe_data}()},
 \code{\link{ecb_data}()},
 \code{\link{snb_data}()}

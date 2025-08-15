@@ -36,6 +36,9 @@ Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}
 
 \item{api_key}{(\code{character(1)}) API key to use for the request.}
 }
+\value{
+A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
+}
 \description{
 Retrieve data from Banque de France
 }
@@ -46,3 +49,13 @@ bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10", format = "csv")
 bdf_data("ICP.M.FR.N.000000.4.ANR", "2025-05-01")
 }
 }
+\seealso{
+Other data: 
+\code{\link{bbk_data}()},
+\code{\link{bbk_series}()},
+\code{\link{bde_data}()},
+\code{\link{boe_data}()},
+\code{\link{ecb_data}()},
+\code{\link{snb_data}()}
+}
+\concept{data}

@@ -281,8 +281,7 @@ fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
 bbk_error_body <- function(resp) {
   content_type <- resp_content_type(resp)
   if (identical(content_type, "application/json")) {
-    body <- resp_body_json(resp)
-    msg <- body$title
+    msg <- resp_body_json(resp)$title
     docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
     c(msg, docs)
   }

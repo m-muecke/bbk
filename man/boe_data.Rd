@@ -34,6 +34,7 @@ Other data:
 \code{\link{bbk_data}()},
 \code{\link{bbk_series}()},
 \code{\link{bde_data}()},
+\code{\link{bdf_data}()},
 \code{\link{ecb_data}()},
 \code{\link{snb_data}()}
 }

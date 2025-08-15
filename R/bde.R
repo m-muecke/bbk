@@ -1,15 +1,28 @@
 #' Returns Banco de España data for a given series
 #'
-#' @param series (`character()`)
-#' @param time_range (`character(1)` | `integer(1)`)
-#' @param lang (`character(1)`)
+#' @details
+#' You can search for the series codes in the
+#' [BIEST](https://app.bde.es/bie_www/bie_wwwias/xml/Arranque.html) application or in the tables
+#' published by the Banco de España.
+#'
+#' @param series (`character()`) the series codes to retrieve data for.
+#' @param time_range (`character(1)` | `integer(1)`) the time range for the data.
+#'   Can be an annual range (e.g., `2024`) or a frequency-based code:
+#'   * Daily frequency (D): `"3M"` (last 3 months), `"12M"`, `"36M"`
+#'   * Monthly frequency (M): `"30M"`, `"60M"`, `"MAX"` (entire series)
+#'   * Quarterly frequency (Q): `"30M"`, `"60M"`, `"MAX"`
+#'   * Annual frequency (A): `"60M"`, `"MAX"`
+#'
+#'   If `NULL` (default), returns the smallest range for the series frequency
+#'   (e.g., `"30M"` for monthly series).
+#' @param lang (`character(1)`)  the language of the response, either `"en"` or `"es"`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>
 #' @family data
 #' @export
 #' @examples
 #' \dontrun{
-#' bde_data("D_1NBAF472", time_range = "30M")
+#' bde_data("D_1NBAF472", time_range = "30MM")
 #' bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
 #' }
 bde_data <- function(series = "D_1NBAF472", time_range = NULL, lang = c("en", "en")) {
@@ -27,8 +40,19 @@ bde <- function(series, time_range, lang) {
   request(url) |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_query(idioma = lang, series = series, rango = time_range, .multi = "comma") |>
+    req_error(body = bde_error_body) |>
     req_perform() |>
     resp_body_json()
+}
+
+bde_error_body <- function(resp) {
+  content_type <- resp_content_type(resp)
+  if (identical(content_type, "application/json")) {
+    json <- resp_body_json(resp)
+    msg <- c(json$errMsgUsr, json$errMsgDebug)
+    docs <- "See docs at <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>" # nolint
+    c(msg, docs)
+  }
 }
 
 parse_bde_data <- function(json) {

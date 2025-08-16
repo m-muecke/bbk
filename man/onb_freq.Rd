@@ -15,11 +15,14 @@ onb_freq(pos, hierid, lang = "en", ...)
 
 \item{...}{additional parameters to pass to the API.}
 }
+\value{
+A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
+}
 \description{
 Fetch Österreichische Nationalbank (OeNB) data frequency
 }
 \examples{
 \dontrun{
-onb_freq(hierid = 74, pos = NULL)
+onb_freq(hierid = 74, pos = "VDBOSBHAGBSTIN")
 }
 }

@@ -3,6 +3,7 @@
 * Support for Bank of England (BoE) data.
 * Support for Banque de France (BdF) data.
 * Support for Banco de España (BdE) data.
+* Support for Österreichische Nationalbank (OeNB) data.
 
 # bbk 0.6.0
 

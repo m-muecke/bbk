@@ -15,6 +15,9 @@ onb_metadata(hierid, pos, lang = "en", ...)
 
 \item{...}{additional parameters to pass to the API.}
 }
+\value{
+A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
+}
 \description{
 Fetch Österreichische Nationalbank (OeNB) metadata
 }

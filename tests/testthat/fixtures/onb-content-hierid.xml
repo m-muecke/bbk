@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+  <header>
+    <prepared>2025-08-16T17:55:16Z</prepared>
+    <test>false</test>
+    <sender id="AT2">
+      <name>Oesterreichische Nationalbank</name>
+    </sender>
+    <last_update>2025-08-16T17:55:16Z</last_update>
+  </header>
+  <groups>
+    <group name="all data">
+      <position id="VDBFKBSC217000">
+        <text lang="EN">Loans to euro area residents - total</text>
+      </position>
+      <position id="VDBFKBSC217001">
+        <text lang="EN">Loans to euro area residents - MFIs</text>
+      </position>
+      <position id="VDBFKBSC217013">
+        <text lang="EN">Loans to euro area residents - general government</text>
+      </position>
+      <position id="VDBFKBSC217010">
+        <text lang="EN">Loans to other euro area residents</text>
+      </position>
+      <position id="VDBFKBSC317000">
+        <text lang="EN">Holdings of securities other than shares issued by euro area residents - total</text>
+      </position>
+      <position id="VDBFKBSC317001">
+        <text lang="EN">Collected within the framework of the balance sheet report to the ECB  MFIs.</text>
+      </position>
+      <position id="VDBFKBSC317013">
+        <text lang="EN">Holdings of securities other than shares issued by euro area general governments</text>
+      </position>
+      <position id="VDBFKBSC317010">
+        <text lang="EN">Holdings of securities other than shares issued by other euro area residents</text>
+      </position>
+      <position id="VDBFKBSC507001">
+        <text lang="EN">Holdings of shares and other equity issued by euro area MFIs</text>
+      </position>
+      <position id="VDBFKBSC507013">
+        <text lang="EN">Holdings of shares and other equity issued by other euro area residents</text>
+      </position>
+      <position id="VDBFKBSC203000">
+        <text lang="EN">External claims vis-à-vis non-euro area residents</text>
+      </position>
+      <position id="VDBFKBSC507000">
+        <text lang="EN">Holdings of shares and other equity issued by euro area residents - total</text>
+      </position>
+      <position id="VDBFKBSC830000">
+        <text lang="EN">Banknotes issued pursuant to ECB Decision ECB/2001/15</text>
+      </position>
+      <position id="VDBFKBSC917001">
+        <text lang="EN">Liabilities - deposits of euro area MFIs</text>
+      </position>
+      <position id="VDBFKBSC917014">
+        <text lang="EN">Liabilities - central government</text>
+      </position>
+      <position id="VDBFKBSC917009">
+        <text lang="EN">Liabilities - other general government/other euro area residents</text>
+      </position>
+      <position id="VDBFKBSX917000">
+        <text lang="EN">Liabilities - deposits of euro area residents - total</text>
+      </position>
+      <position id="VDBFKBSC127000">
+        <text lang="EN">Liabilities - money market instruments</text>
+      </position>
+      <position id="VDBFKBSC117000">
+        <text lang="EN">Liabilities - debt securities issued</text>
+      </position>
+      <position id="VDBFKBSC403000">
+        <text lang="EN">External liabilities</text>
+      </position>
+    </group>
+    <group name="Assets">
+      <position id="VDBFKBSC217000">
+        <text lang="EN">Loans to euro area residents - total</text>
+      </position>
+      <position id="VDBFKBSC217001">
+        <text lang="EN">Loans to euro area residents - MFIs</text>
+      </position>
+      <position id="VDBFKBSC217013">
+        <text lang="EN">Loans to euro area residents - general government</text>
+      </position>
+      <position id="VDBFKBSC217010">
+        <text lang="EN">Loans to other euro area residents</text>
+      </position>
+      <position id="VDBFKBSC317000">
+        <text lang="EN">Holdings of securities other than shares issued by euro area residents - total</text>
+      </position>
+      <position id="VDBFKBSC317001">
+        <text lang="EN">Collected within the framework of the balance sheet report to the ECB  MFIs.</text>
+      </position>
+      <position id="VDBFKBSC317013">
+        <text lang="EN">Holdings of securities other than shares issued by euro area general governments</text>
+      </position>
+      <position id="VDBFKBSC317010">
+        <text lang="EN">Holdings of securities other than shares issued by other euro area residents</text>
+      </position>
+      <position id="VDBFKBSC507001">
+        <text lang="EN">Holdings of shares and other equity issued by euro area MFIs</text>
+      </position>
+      <position id="VDBFKBSC507013">
+        <text lang="EN">Holdings of shares and other equity issued by other euro area residents</text>
+      </position>
+      <position id="VDBFKBSC203000">
+        <text lang="EN">External claims vis-à-vis non-euro area residents</text>
+      </position>
+      <position id="VDBFKBSC507000">
+        <text lang="EN">Holdings of shares and other equity issued by euro area residents - total</text>
+      </position>
+    </group>
+    <group name="Liabilities">
+      <position id="VDBFKBSC830000">
+        <text lang="EN">Banknotes issued pursuant to ECB Decision ECB/2001/15</text>
+      </position>
+      <position id="VDBFKBSC917001">
+        <text lang="EN">Liabilities - deposits of euro area MFIs</text>
+      </position>
+      <position id="VDBFKBSC917014">
+        <text lang="EN">Liabilities - central government</text>
+      </position>
+      <position id="VDBFKBSC917009">
+        <text lang="EN">Liabilities - other general government/other euro area residents</text>
+      </position>
+      <position id="VDBFKBSX917000">
+        <text lang="EN">Liabilities - deposits of euro area residents - total</text>
+      </position>
+      <position id="VDBFKBSC127000">
+        <text lang="EN">Liabilities - money market instruments</text>
+      </position>
+      <position id="VDBFKBSC117000">
+        <text lang="EN">Liabilities - debt securities issued</text>
+      </position>
+      <position id="VDBFKBSC403000">
+        <text lang="EN">External liabilities</text>
+      </position>
+    </group>
+  </groups>
+</content>

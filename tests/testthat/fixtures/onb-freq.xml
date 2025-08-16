@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OeNBData>
+  <data>
+    <dataSet POS_CODE="VDBOSBHAGBSTIN" DVAL1_CODE="N" DVAL2_CODE="AT" DVAL3_CODE="Z5" DVAL4_CODE="25">
+      <values>
+        <periods frequency="M">
+          <available>Jan.  80 - June  25</available>
+        </periods>
+      </values>
+    </dataSet>
+    <dataSet POS_CODE="VDBOSBHAGBSTIN" DVAL1_CODE="N" DVAL2_CODE="AT" DVAL3_CODE="Z5" DVAL4_CODE="01">
+      <values>
+        <periods frequency="A">
+          <available>1959 - 2026</available>
+        </periods>
+        <periods frequency="M">
+          <available>Jan.  80 - June  25</available>
+        </periods>
+      </values>
+    </dataSet>
+    <dataSet POS_CODE="VDBOSBHAGBSTIN" DVAL1_CODE="N" DVAL2_CODE="AT" DVAL3_CODE="Z5" DVAL4_CODE="02">
+      <values>
+        <periods frequency="A">
+          <available>2013 - 2023</available>
+        </periods>
+      </values>
+    </dataSet>
+  </data>
+</OeNBData>

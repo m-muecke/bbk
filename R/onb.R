@@ -66,6 +66,8 @@ parse_onb_data <- function(xml) {
 #' Fetch Österreichische Nationalbank (OeNB) metadata
 #'
 #' @inheritParams onb_data
+#' @inherit onb_data return
+#' @export
 #' @examples
 #' \dontrun{
 #' onb_metadata(hierid = 11, pos = "VDBFKBSC217000")
@@ -82,15 +84,22 @@ onb_metadata <- function(hierid, pos, lang = "en", ...) {
 
 parse_onb_metadata <- function(xml) {
   meta <- xml |> xml2::xml_find_all("meta") |> xml2::xml_children()
-  meta
+  x <- setNames(xml2::as_list(meta), xml2::xml_name(meta))
+  x <- x[lengths(x) == 1L]
+  x <- unlist(x, recursive = FALSE)
+  dt <- setDT(x)
+  dt[, names(dt) := lapply(.SD, trimws), .SDcols = is.character]
+  dt[, names(dt) := lapply(.SD, \(x) replace(x, x == "-", NA)), .SDcols = is.character][]
 }
 
 #' Fetch Österreichische Nationalbank (OeNB) data frequency
 #'
 #' @inheritParams onb_data
+#' @inherit onb_data return
+#' @export
 #' @examples
 #' \dontrun{
-#' onb_freq(hierid = 74, pos = NULL)
+#' onb_freq(hierid = 74, pos = "VDBOSBHAGBSTIN")
 #' }
 onb_freq <- function(pos, hierid, lang = "en", ...) {
   stopifnot(
@@ -119,6 +128,8 @@ parse_onb_freq <- function(xml) {
 #' Fetch Österreichische Nationalbank (OeNB) data frequency
 #'
 #' @inheritParams onb_data
+#' @inherit onb_data return
+#' @export
 #' @examples
 #' \dontrun{
 #' # table of contents
@@ -129,7 +140,36 @@ parse_onb_freq <- function(xml) {
 #' onb_content(hierid = 11, pos = "VDBFKBSC217000")
 #' }
 onb_content <- function(hierid = NULL, pos = NULL, lang = "en", ...) {
-  onb(resource = "content", hierid = hierid, pos = pos, lang = toupper(lang), ...)
+  stopifnot(
+    is_count(hierid, null_ok = TRUE),
+    is_string(pos, null_ok = TRUE),
+    is_string(lang)
+  )
+  xml <- onb(resource = "content", hierid = hierid, pos = pos, lang = toupper(lang), ...)
+  has_hierid <- !is.null(hierid)
+  has_pos <- !is.null(pos)
+  if (has_hierid && has_pos) {
+    parse_onb_content(xml)
+  } else if (has_pos) {
+    parse_onb_content_hier(xml)
+  } else {
+    parse_onb_content_dim(xml)
+  }
+}
+
+parse_onb_content <- function(xml) {
+  elem <- xml2::xml_find_all(xml, ".//content/element")
+  dt <- rbindlist(lapply(xml2::xml_attrs(elem), \(x) setDT(as.list(x))))
+  val <- xml2::xml_find_all(elem, "text") |> xml2::xml_text()
+  dt[, value := val][]
+}
+
+parse_onb_content_hier <- function(xml) {
+  .NotYetImplemented()
+}
+
+parse_onb_content_dim <- function(xml) {
+  .NotYetImplemented()
 }
 
 onb <- function(resource, ...) {

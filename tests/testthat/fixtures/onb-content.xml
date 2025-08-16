@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+  <header>
+    <prepared>2025-08-16T17:45:06Z</prepared>
+    <test>false</test>
+    <sender id="AT2">
+      <name>Oesterreichische Nationalbank</name>
+    </sender>
+    <last_update>2025-08-16T17:45:06Z</last_update>
+  </header>
+  <content>
+    <element id="1" parent="0">
+      <text lang="EN">OeNB, Eurosystem and monetary indicators</text>
+    </element>
+    <element id="11" parent="1">
+      <text lang="EN">Balance sheet items of the Oesterreichische Nationalbank</text>
+    </element>
+    <element id="18" parent="1">
+      <text lang="EN">International reserves and foreign currency liquidity</text>
+    </element>
+    <element id="13" parent="1">
+      <text lang="EN">Monetary aggregates, consolidated MFI balance sheet</text>
+    </element>
+    <element id="14" parent="1">
+      <text lang="EN">Loans and deposits of MFIs</text>
+    </element>
+    <element id="100140001" parent="14">
+      <text lang="EN">Development of loans</text>
+    </element>
+    <element id="100140002" parent="14">
+      <text lang="EN">Loans and deposits of MFIs</text>
+    </element>
+    <element id="2" parent="0">
+      <text lang="EN">Interest rates and exchange rates</text>
+    </element>
+    <element id="22" parent="2">
+      <text lang="EN">Euro area money market interest rates and Eurosystem Interest Rates</text>
+    </element>
+    <element id="23" parent="2">
+      <text lang="EN">Interest rates of credit institutions</text>
+    </element>
+    <element id="24" parent="2">
+      <text lang="EN">Austrian government bond yields</text>
+    </element>
+    <element id="25" parent="2">
+      <text lang="EN">Exchange rates</text>
+    </element>
+    <element id="2502" parent="25">
+      <text lang="EN">Effective exchange rate indices of the Euro</text>
+    </element>
+    <element id="3" parent="0">
+      <text lang="EN">Financial institutions</text>
+    </element>
+    <element id="31" parent="3">
+      <text lang="EN">Banks</text>
+    </element>
+    <element id="3101" parent="31">
+      <text lang="EN">Balance Sheet and Profit &amp; Loss Account - Selected Data</text>
+    </element>
+    <element id="318" parent="31">
+      <text lang="EN">Building and Loan Associations</text>
+    </element>
+    <element id="321" parent="31">
+      <text lang="EN">Number of Banks</text>
+    </element>
+    <element id="3102" parent="31">
+      <text lang="EN">Severance Funds</text>
+    </element>
+    <element id="3103" parent="31">
+      <text lang="EN">Foreign subsidiaries, which are fully consolidated by Austrian groups of credit institutions</text>
+    </element>
+    <element id="3104" parent="31">
+      <text lang="EN">Aggregated regulatory capital requirements, financial and income statements</text>
+    </element>
+    <element id="32" parent="3">
+      <text lang="EN">Mutual funds</text>
+    </element>
+    <element id="33" parent="3">
+      <text lang="EN">Pension funds</text>
+    </element>
+    <element id="34" parent="3">
+      <text lang="EN">Insurance companies</text>
+    </element>
+    <element id="35" parent="3">
+      <text lang="EN">Instruments subject to credit risk in accordance with FinStab</text>
+    </element>
+    <element id="4" parent="0">
+      <text lang="EN">Securities</text>
+    </element>
+    <element id="41" parent="4">
+      <text lang="EN">Debt securities</text>
+    </element>
+    <element id="6" parent="0">
+      <text lang="EN">Prices, competitiveness</text>
+    </element>
+    <element id="7" parent="0">
+      <text lang="EN">Economic and industry indicators</text>
+    </element>
+    <element id="74" parent="7">
+      <text lang="EN">General government</text>
+    </element>
+    <element id="75" parent="7">
+      <text lang="EN">Economic indicators</text>
+    </element>
+    <element id="8" parent="0">
+      <text lang="EN">Financial accounts</text>
+    </element>
+    <element id="9" parent="0">
+      <text lang="EN">External sector</text>
+    </element>
+    <element id="901" parent="9">
+      <text lang="EN">Balance of payments and International Investment Position</text>
+    </element>
+    <element id="902" parent="9">
+      <text lang="EN">Direct investment</text>
+    </element>
+    <element id="904" parent="9">
+      <text lang="EN">Portfolio investment</text>
+    </element>
+    <element id="905" parent="9">
+      <text lang="EN">Other investment</text>
+    </element>
+    <element id="97" parent="9">
+      <text lang="EN">Foreign trade and tourism</text>
+    </element>
+  </content>
+</content>

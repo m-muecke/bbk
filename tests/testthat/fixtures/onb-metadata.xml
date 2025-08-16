@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metainfo>
+  <header>
+    <prepared>2025-08-16T10:35:04Z</prepared>
+    <test>false</test>
+    <sender id="AT2">
+      <name>Oesterreichische Nationalbank</name>
+    </sender>
+    <last_update>2025-08-16T10:35:04Z</last_update>
+  </header>
+  <meta>
+    <title>Loans to euro area residents - total</title>
+    <region>-</region>
+    <unit>Euro</unit>
+    <comment>Collected within the framework of the balance sheet report to the ECB  loans to euro area residents  total.</comment>
+    <classification>European Sytem of National Accounts</classification>
+    <breaks>-</breaks>
+    <frequency>month</frequency>
+    <data_available>
+      <data>Jan.  98 - July  25</data>
+      <data>1998 - 2024</data>
+    </data_available>
+    <last_update>2025-08-14 07:08:07</last_update>
+    <source>OeNB</source>
+    <lag>-</lag>
+    <releases>
+      <release>
+        <release_date> Week 33/2025</release_date>
+        <reference>July 2025</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 37/2025</release_date>
+        <reference>August 2025</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 42/2025</release_date>
+        <reference>September 2025</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 46/2025</release_date>
+        <reference>October 2025</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 50/2025</release_date>
+        <reference>November 2025</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 03/2026</release_date>
+        <reference>December 2025</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 07/2026</release_date>
+        <reference>January 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 11/2026</release_date>
+        <reference>February 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 16/2026</release_date>
+        <reference>March 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 20/2026</release_date>
+        <reference>April 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 24/2026</release_date>
+        <reference>May 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 29/2026</release_date>
+        <reference>June 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 33/2026</release_date>
+        <reference>July 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 38/2026</release_date>
+        <reference>August 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 42/2026</release_date>
+        <reference>September 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 46/2026</release_date>
+        <reference>October 2026</reference>
+        <revision/>
+      </release>
+      <release>
+        <release_date> Week 51/2026</release_date>
+        <reference>November 2026</reference>
+        <revision/>
+      </release>
+    </releases>
+  </meta>
+</metainfo>

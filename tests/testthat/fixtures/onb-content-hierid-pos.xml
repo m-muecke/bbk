@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+  <header>
+    <prepared>2025-08-16T17:56:48Z</prepared>
+    <test>false</test>
+    <sender id="AT2">
+      <name>Oesterreichische Nationalbank</name>
+    </sender>
+    <last_update>2025-08-14T07:08:07Z</last_update>
+  </header>
+  <data_content>
+    <structure>
+      <dimension nr="1" name="PRODUZENT" hidden="false">
+        <text lang="EN">Data producer</text>
+      </dimension>
+      <dimension nr="2" name="BANKENSEKTOR" hidden="false">
+        <text lang="EN">Banking sector</text>
+      </dimension>
+      <dimension nr="3" name="REGION" hidden="false">
+        <text lang="EN">Region / business partner</text>
+      </dimension>
+      <dimension nr="4" name="WAEHRUNG" hidden="true">
+        <text lang="EN">Currency</text>
+      </dimension>
+    </structure>
+    <data_available>
+      <data>
+        <dimension nr="1">
+          <auspraegung code="AT">
+            <text lang="EN">Austria</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="2">
+          <auspraegung code="00100KI">
+            <text lang="EN">Oesterreichische Nationalbank</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="3">
+          <auspraegung code="AT">
+            <text lang="EN">Austria</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="4">
+          <auspraegung code="Z0Z">
+            <text lang="EN">Not applicable</text>
+          </auspraegung>
+        </dimension>
+      </data>
+    </data_available>
+  </data_content>
+</content>

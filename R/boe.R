@@ -35,7 +35,9 @@ boe <- function(id, ...) {
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_query(..., xml.x = "yes", .multi = "comma") |>
     req_error(
-      is_error = \(resp) grepl("errorpage", httr2::resp_url(resp), ignore.case = TRUE),
+      is_error = function(resp) {
+        resp_status(resp) >= 400L || grepl("errorpage", resp_url(resp), ignore.case = TRUE)
+      },
       body = boe_error_body
     ) |>
     req_perform() |>
@@ -44,7 +46,7 @@ boe <- function(id, ...) {
 
 boe_error_body <- function(resp) {
   msg <- "The BoE returned an error for the request."
-  c(msg, sprintf("See docs at <%s>", httr2::resp_url(resp)))
+  c(msg, sprintf("See docs at <%s>", resp_url(resp)))
 }
 
 parse_boe_data <- function(body) {

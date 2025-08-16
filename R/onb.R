@@ -2,8 +2,8 @@
 #'
 #' @param hierid (`integer(1)`)
 #' @param pos (`character(1)`)
-#' @param start_time (`character(1)` | `Date(1)`)
-#' @param end_time (`character(1)` | `Date(1)`)
+#' @param start_period (`character(1)`)
+#' @param end_period (`character(1)`)
 #' @param freq (`character(1)`)
 #' @param lang (`character(1)`)
 #' @param ... additional parameters to pass to the API.
@@ -14,13 +14,13 @@
 #' @examples
 #' \dontrun{
 #' onb_data(hierid = 11, pos = "VDBFKBSC217000")
-#' onb_data(hierid = 11, pos = "VDBFKBSC217000", start_time = "2020-01-01")
+#' onb_data(hierid = 11, pos = "VDBFKBSC217000", start_period = "2020-01-01")
 #' }
 onb_data <- function(
   hierid,
   pos,
-  start_time = NULL,
-  end_time = NULL,
+  start_period = NULL,
+  end_period = NULL,
   freq = NULL,
   lang = "en",
   ...
@@ -28,8 +28,8 @@ onb_data <- function(
   stopifnot(
     is_count(hierid),
     is_string(pos),
-    is_string(start_time, null_ok = TRUE),
-    is_string(end_time, null_ok = TRUE),
+    is_string(start_period, null_ok = TRUE),
+    is_string(end_period, null_ok = TRUE),
     is_string(freq, null_ok = TRUE),
     is_string(lang)
   )
@@ -37,8 +37,8 @@ onb_data <- function(
     resource = "data",
     hierid = hierid,
     pos = pos,
-    starttime = start_time,
-    endtime = end_time,
+    starttime = start_period,
+    endtime = end_period,
     freq = freq,
     lang = toupper(lang),
     ...
@@ -71,7 +71,16 @@ parse_onb_data <- function(xml) {
 #' onb_metadata(hierid = 11, pos = "VDBFKBSC217000")
 #' }
 onb_metadata <- function(hierid, pos, lang = "en", ...) {
+  stopifnot(
+    is_count(hierid),
+    is_string(pos),
+    is_string(lang)
+  )
   xml <- onb(resource = "meta", hierid = hierid, pos = pos, lang = toupper(lang), ...)
+  parse_onb_metadata(xml)
+}
+
+parse_onb_metadata <- function(xml) {
   meta <- xml |> xml2::xml_find_all("meta") |> xml2::xml_children()
   meta
 }
@@ -81,9 +90,14 @@ onb_metadata <- function(hierid, pos, lang = "en", ...) {
 #' @inheritParams onb_data
 #' @examples
 #' \dontrun{
-#' onb_freq(hierid = 74, pos = "VDBOSBHAGBSTIN")
+#' onb_freq(hierid = 74, pos = NULL)
 #' }
 onb_freq <- function(pos, hierid, lang = "en", ...) {
+  stopifnot(
+    is_count(hierid),
+    is_string(pos, null_ok = TRUE),
+    is_string(lang)
+  )
   xml <- onb(resource = "datafrequency", hierid = hierid, pos = pos, lang = toupper(lang), ...)
   parse_onb_freq(xml)
 }
@@ -123,6 +137,21 @@ onb <- function(resource, ...) {
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_path_append(resource) |>
     req_url_query(...) |>
+    req_error(
+      is_error = function(resp) {
+        if (resp_status(resp) >= 400L) {
+          return(TRUE)
+        }
+        x <- resp |> resp_body_xml() |> xml2::xml_find_first("errors")
+        !is.na(x)
+      },
+      body = function(resp) {
+        content_type <- resp_content_type(resp)
+        if (identical(content_type, "application/xml")) {
+          resp |> resp_body_xml() |> xml2::xml_text()
+        }
+      }
+    ) |>
     req_perform() |>
     resp_body_xml()
 }

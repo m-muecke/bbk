@@ -13,5 +13,7 @@
 #' @importFrom httr2 resp_body_string
 #' @importFrom httr2 resp_body_xml
 #' @importFrom httr2 resp_content_type
+#' @importFrom httr2 resp_status
+#' @importFrom httr2 resp_url
 #' @importFrom stats na.omit setNames
 "_PACKAGE"

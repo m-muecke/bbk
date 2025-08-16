@@ -20,6 +20,6 @@ Fetch Österreichische Nationalbank (OeNB) data frequency
 }
 \examples{
 \dontrun{
-onb_freq(hierid = 74, pos = "VDBOSBHAGBSTIN")
+onb_freq(hierid = 74, pos = NULL)
 }
 }

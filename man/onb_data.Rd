@@ -10,8 +10,8 @@
 onb_data(
   hierid,
   pos,
-  start_time = NULL,
-  end_time = NULL,
+  start_period = NULL,
+  end_period = NULL,
   freq = NULL,
   lang = "en",
   ...
@@ -22,9 +22,9 @@ onb_data(
 
 \item{pos}{(\code{character(1)})}
 
-\item{start_time}{(\code{character(1)} | \code{Date(1)})}
+\item{start_period}{(\code{character(1)})}
 
-\item{end_time}{(\code{character(1)} | \code{Date(1)})}
+\item{end_period}{(\code{character(1)})}
 
 \item{freq}{(\code{character(1)})}
 
@@ -41,7 +41,7 @@ Fetch Österreichische Nationalbank (OeNB) data
 \examples{
 \dontrun{
 onb_data(hierid = 11, pos = "VDBFKBSC217000")
-onb_data(hierid = 11, pos = "VDBFKBSC217000", start_time = "2020-01-01")
+onb_data(hierid = 11, pos = "VDBFKBSC217000", start_period = "2020-01-01")
 }
 }
 \seealso{

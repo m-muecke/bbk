@@ -55,7 +55,7 @@ bdf_data <- function(
     order_by = order_by,
     lang = lang,
     timezone = tz,
-    delimeter = ";",
+    delimiter = ";",
     compressed = TRUE
   )
   params <- utils::modifyList(params, api_args)
@@ -70,6 +70,18 @@ bdf_data <- function(
   on.exit(unlink(tf), add = TRUE)
   req_perform(req, path = tf)
   fread(file = tf, sep = ";", tz = )
+}
+
+bdf_datasets <- function() {
+  url <- "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/webstat-datasets/exports/csv"
+  tf <- tempfile()
+  request(url) |>
+    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_headers(Authorization = paste("Apikey", bdf_key())) |>
+    req_error(body = bdf_error_body) |>
+    req_url_query(lang = "en") |>
+    req_perform(path = tf)
+  fread(file = tf, sep = ";")
 }
 
 bdf_error_body <- function(resp) {

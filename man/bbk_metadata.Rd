@@ -15,8 +15,7 @@ bbk_metadata(type, id = NULL, lang = c("en", "de"))
 
 \item{id}{(\code{character(1)}) id to query. Default \code{NULL}.}
 
-\item{lang}{(\code{character(1)}) language to query, either \code{"en"} or \code{"de"}.
-Default \code{"en"}.}
+\item{lang}{(\code{character(1)}) language to query, either \code{"en"} or \code{"de"}. Default \code{"en"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the queried metadata.

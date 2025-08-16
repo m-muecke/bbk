@@ -30,19 +30,20 @@ See \code{\link[=bbk_metadata]{bbk_metadata()}} for available dataflows.}
 \item YYYY-MM for monthly data (e.g., "2019-01")
 \item YYYY-W[01-53] for weekly data (e.g., "2019-W01")
 \item YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
-If \code{NULL}, no start date restriction is applied (data retrieved from the
-earliest available date). Default \code{NULL}.
-}}
+}
 
-\item{end_period}{(\code{character(1)}) end date of the data, in the same format as
-start_period. If \code{NULL}, no end date restriction is applied (data
-retrieved up to the most recent available date). Default \code{NULL}.}
+If \code{NULL}, no start date restriction is applied (data retrieved from the earliest available
+date). Default \code{NULL}.}
 
-\item{first_n}{(\code{numeric(1)}) number of observations to retrieve from the
-start of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
+\item{end_period}{(\code{character(1)}) end date of the data, in the same format as start_period.
+If \code{NULL}, no end date restriction is applied (data retrieved up to the most recent available
+date). Default \code{NULL}.}
 
-\item{last_n}{(\code{numeric(1)}) number of observations to retrieve from the end
-of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
+\item{first_n}{(\code{numeric(1)}) number of observations to retrieve from the start of the series.
+If \code{NULL}, no restriction is applied. Default \code{NULL}.}
+
+\item{last_n}{(\code{numeric(1)}) number of observations to retrieve from the end of the series.
+If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
@@ -78,6 +79,7 @@ Other data:
 \code{\link{bdf_data}()},
 \code{\link{boe_data}()},
 \code{\link{ecb_data}()},
+\code{\link{onb_data}()},
 \code{\link{snb_data}()}
 }
 \concept{data}

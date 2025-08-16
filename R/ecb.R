@@ -163,15 +163,14 @@ fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
 }
 
 parse_ecb_metadata <- function(x, lang = "en") {
-  res <- lapply(x, function(node) {
+  rbindlist(lapply(x, function(node) {
     agency <- xml2::xml_attr(node, "agencyID")
     id <- xml2::xml_attr(node, "id")
     nms <- node |>
       xml2::xml_find_all(sprintf(".//com:Name[@xml:lang='%s']", lang)) |>
       xml2::xml_text()
     data.table(agency = agency, id = id, name = nms)
-  })
-  rbindlist(res)
+  }))
 }
 
 ecb_error_body <- function(resp) {

@@ -27,6 +27,8 @@ bbk is minimal R client for the following APIs:
   (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
 - [Banque de France
   (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
+- [Österreichische Nationalbank
+  (OeNB)](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html)
 
 > In the future, it may be extended to other central banks and financial
 > institutions. Feel free to open an issue if you have a specific
@@ -51,8 +53,8 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed according to the central bank they access
-(`bbk_`, `ecb_`, `snb_`, `boe_`, `bde_`, `bdf_`) and follow the naming
-conventions of their respective APIs.
+(`bbk_`, `ecb_`, `snb_`, `boe_`, `bde_`, `bdf_`, `onb_`) and follow the
+naming conventions of their respective APIs.
 
 The typical workflow involves:
 

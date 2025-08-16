@@ -1,4 +1,5 @@
-`%||%` <- function(x, y) { # nolint
+`%||%` <- function(x, y) {
+  # nolint
   if (is.null(x)) y else x
 }
 
@@ -19,4 +20,8 @@ extract_metadata <- function(string, pattern, fixed = FALSE) {
   } else {
     NA_character_
   }
+}
+
+convert_camel_case <- function(x) {
+  tolower(gsub("((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))", "_\\1", x, perl = TRUE))
 }

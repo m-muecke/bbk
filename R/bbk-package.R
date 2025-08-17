@@ -17,3 +17,6 @@
 #' @importFrom httr2 resp_url
 #' @importFrom stats na.omit setNames
 "_PACKAGE"
+
+the <- new.env(parent = emptyenv())
+the$col_order <- c("date", "key", "value", "title", "freq")

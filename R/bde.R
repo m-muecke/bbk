@@ -79,7 +79,7 @@ parse_bde_data <- function(json) {
     names(.SD) := lapply(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")),
     .SDcols = patterns("date")
   ]
-  dt <- setcolorder(dt, c("date", "key", "value", "title", "freq"))
+  dt <- setcolorder(dt, the$col_order)
   dt[]
 }
 

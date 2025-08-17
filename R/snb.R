@@ -55,7 +55,7 @@ parse_snb_data <- function(body) {
     P1D = "daily"
   )
   dt[, let(date = parse_date(date, freq), freq = freq)]
-  setcolorder(dt, c("date", "key", "value", "freq"))
+  setcolorder(dt, the$col_order, skip_absent = TRUE)
   dt[]
 }
 

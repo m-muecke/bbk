@@ -190,7 +190,7 @@ parse_bbk_series <- function(body, key) {
     comment,
     source = src
   )
-  setcolorder(dt, c("date", "key", "value", "title", "freq"))
+  setcolorder(dt, the$col_order)
   dt[]
 }
 
@@ -261,7 +261,7 @@ parse_bbk_data <- function(xml) {
   dt <- rbindlist(res)
   decimals <- NULL
   dt[, decimals := as.integer(decimals)]
-  setcolorder(dt, c("date", "key", "value", "title", "freq"))
+  setcolorder(dt, the$col_order)
   dt[]
 }
 

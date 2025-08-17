@@ -27,7 +27,7 @@
 #' @examplesIf curl::has_internet()
 #' \donttest{
 #' # fetch all data for a given flow and key
-#' bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A", start_period = 2025)
+#' bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 #' # fetch data for multiple keys
 #' bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
 #' # specified period (start date-end date) for daily data

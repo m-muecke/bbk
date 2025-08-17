@@ -9,7 +9,7 @@ onb_content(hier_id = NULL, key = NULL, lang = "en", ...)
 \arguments{
 \item{hier_id}{(\code{integer(1)}) hierarchy id to query.}
 
-\item{key}{(\code{character(1)}) key to query.}
+\item{key}{(\code{character()}) key to query.}
 
 \item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
 

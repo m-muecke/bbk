@@ -20,11 +20,11 @@ onb_data(
 \arguments{
 \item{hier_id}{(\code{integer(1)}) hierarchy id to query.}
 
-\item{key}{(\code{character(1)}) key to query.}
+\item{key}{(\code{character()}) key to query.}
 
-\item{start_period}{(\code{character(1)}) start date of the data.}
+\item{start_period}{(\code{character(1)} | \code{integer(1)}) start date of the data.}
 
-\item{end_period}{(\code{character(1)}) end date of the data.}
+\item{end_period}{(\code{character(1)} | \code{integer(1)}) end date of the data.}
 
 \item{freq}{(\code{character(1)}) frequency of the data.}
 
@@ -41,7 +41,17 @@ Fetch Österreichische Nationalbank (OeNB) data
 \examples{
 \dontrun{
 onb_data(hier_id = 11, key = "VDBFKBSC217000")
-onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2020-01-01")
+# Loans to euro area residents, since 2000:
+onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
+# Austrian imports and exports of goods from/to Germany, 2002–2012, annual frequency:
+onb_data(hier_id = 901, key = "VDBQZA1000", start_period = 2002, end_period = 2012, freq = "A")
+# Number of Austrian banks' subsidiaries abroad an in the EU, from 2005, semiannual:
+onb_data(
+  hier_id = 321,
+  key = c("VDBKISDANZTAU", "VDBKISDANZTEU"),
+  start_period = 200501,
+  freq = "H"
+)
 }
 }
 \seealso{

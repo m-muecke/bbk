@@ -1,9 +1,9 @@
 #' Fetch Österreichische Nationalbank (OeNB) data
 #'
 #' @param hier_id (`integer(1)`) hierarchy id to query.
-#' @param key (`character(1)`) key to query.
-#' @param start_period (`character(1)`) start date of the data.
-#' @param end_period (`character(1)`) end date of the data.
+#' @param key (`character()`) key to query.
+#' @param start_period (`character(1)` | `integer(1)`) start date of the data.
+#' @param end_period (`character(1)` | `integer(1)`) end date of the data.
 #' @param freq (`character(1)`) frequency of the data.
 #' @param lang (`character(1)`) language to query. Default `"en"`.
 #' @param ... additional parameters to pass to the API.
@@ -14,7 +14,17 @@
 #' @examples
 #' \dontrun{
 #' onb_data(hier_id = 11, key = "VDBFKBSC217000")
-#' onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2020-01-01")
+#' # Loans to euro area residents, since 2000:
+#' onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
+#' # Austrian imports and exports of goods from/to Germany, 2002–2012, annual frequency:
+#' onb_data(hier_id = 901, key = "VDBQZA1000", start_period = 2002, end_period = 2012, freq = "A")
+#' # Number of Austrian banks' subsidiaries abroad an in the EU, from 2005, semiannual:
+#' onb_data(
+#'   hier_id = 321,
+#'   key = c("VDBKISDANZTAU", "VDBKISDANZTEU"),
+#'   start_period = 200501,
+#'   freq = "H"
+#' )
 #' }
 onb_data <- function(
   hier_id,
@@ -27,9 +37,9 @@ onb_data <- function(
 ) {
   stopifnot(
     is_count(hier_id),
-    is_string(key),
-    is_string(start_period, null_ok = TRUE),
-    is_string(end_period, null_ok = TRUE),
+    is_character(key),
+    is_string(start_period, null_ok = TRUE) || is_count(start_period),
+    is_string(end_period, null_ok = TRUE) || is_count(end_period),
     is_string(freq, null_ok = TRUE),
     is_string(lang)
   )
@@ -171,6 +181,7 @@ parse_onb_content <- function(xml) {
     lapply(\(x) setDT(as.list(x))) |>
     rbindlist()
   desc <- xml2::xml_find_all(elem, "text") |> xml2::xml_text()
+  description <- NULL
   dt[, description := desc][]
 }
 
@@ -194,6 +205,7 @@ parse_onb_content_dim <- function(xml) {
     xml2::xml_attrs() |>
     lapply(\(x) setDT(as.list(x))) |>
     rbindlist()
+  nr <- NULL
   dt[, nr := as.integer(nr)][]
 }
 
@@ -201,7 +213,7 @@ onb <- function(resource, ...) {
   request("https://www.oenb.at/isadataservice") |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_path_append(resource) |>
-    req_url_query(...) |>
+    req_url_query(..., .multi = "explode") |>
     req_error(
       is_error = function(resp) {
         if (resp_status(resp) >= 400L) {

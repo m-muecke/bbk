@@ -149,27 +149,45 @@ onb_content <- function(hierid = NULL, pos = NULL, lang = "en", ...) {
   has_hierid <- !is.null(hierid)
   has_pos <- !is.null(pos)
   if (has_hierid && has_pos) {
-    parse_onb_content(xml)
-  } else if (has_pos) {
+    parse_onb_content_dim(xml)
+  } else if (has_hierid) {
     parse_onb_content_hier(xml)
   } else {
-    parse_onb_content_dim(xml)
+    parse_onb_content(xml)
   }
 }
 
 parse_onb_content <- function(xml) {
   elem <- xml2::xml_find_all(xml, ".//content/element")
-  dt <- rbindlist(lapply(xml2::xml_attrs(elem), \(x) setDT(as.list(x))))
+  dt <- elem |>
+    xml2::xml_attrs() |>
+    lapply(\(x) setDT(as.list(x))) |>
+    rbindlist()
   val <- xml2::xml_find_all(elem, "text") |> xml2::xml_text()
   dt[, value := val][]
 }
 
 parse_onb_content_hier <- function(xml) {
-  .NotYetImplemented()
+  xml |>
+    xml2::xml_find_all(".//group") |>
+    lapply(function(grp) {
+      pos <- xml2::xml_find_all(grp, ".//position")
+      data.table(
+        group = xml2::xml_attr(grp, "name"),
+        id = xml2::xml_attr(pos, "id"),
+        value = xml2::xml_text(pos)
+      )
+    }) |>
+    rbindlist()
 }
 
 parse_onb_content_dim <- function(xml) {
-  .NotYetImplemented()
+  dt <- xml |>
+    xml2::xml_find_all(".//data_content/structure/dimension") |>
+    xml2::xml_attrs() |>
+    lapply(\(x) setDT(as.list(x))) |>
+    rbindlist()
+  dt[, nr := as.integer(nr)][]
 }
 
 onb <- function(resource, ...) {

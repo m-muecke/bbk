@@ -7,7 +7,7 @@
 \url{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}
 }
 \usage{
-bde_data(key = "D_1NBAF472", time_range = NULL, lang = c("en", "en"))
+bde_data(key, time_range = NULL, lang = c("en", "en"))
 }
 \arguments{
 \item{key}{(\code{character()}) the series keys to retrieve data for.}

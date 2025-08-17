@@ -7,10 +7,10 @@
 \url{https://www.bankofengland.co.uk/boeapps/database}
 }
 \usage{
-boe_data(id, start_date, end_date = Sys.Date())
+boe_data(key, start_date, end_date = Sys.Date())
 }
 \arguments{
-\item{id}{(\code{character(1)}) BoE series codes.}
+\item{key}{(\code{character()}) BoE series codes.}
 
 \item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the time series.}
 

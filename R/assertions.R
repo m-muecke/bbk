@@ -23,9 +23,8 @@ is_dateish <- function(x, null_ok = FALSE) {
   if (null_ok && is.null(x)) {
     return(TRUE)
   }
-  if (length(x) != 1L) {
-    return(FALSE)
+  if (inherits(x, "Date") && length(x) == 1L) {
+    return(TRUE)
   }
-  x <- as.character(x)
-  if (grepl("^\\d{4}-\\d{2}-\\d{2}$", x)) TRUE else FALSE
+  is_string(x) && grepl("^\\d{4}-\\d{2}-\\d{2}$", x)
 }

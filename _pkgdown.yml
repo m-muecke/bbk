@@ -14,9 +14,13 @@ reference:
       - boe_data
       - ecb_data
       - ecb_euro_rates
+      - onb_data
       - snb_data
 
   - subtitle: Metadata
     contents:
       - bbk_metadata
       - ecb_metadata
+      - onb_content
+      - onb_frequency
+      - onb_metadata

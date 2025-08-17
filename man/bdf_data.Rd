@@ -8,7 +8,7 @@
 }
 \usage{
 bdf_data(
-  series_key = NULL,
+  key = NULL,
   select = NULL,
   where = NULL,
   group_by = NULL,
@@ -20,7 +20,7 @@ bdf_data(
 )
 }
 \arguments{
-\item{series_key}{(\code{character(1)}) key of the series to query. Default \code{NULL}.}
+\item{key}{(\code{character(1)}) key of the series to query. Default \code{NULL}.}
 
 \item{select}{(\code{character(1)}) select expression to filter the columns in the result.}
 
@@ -47,11 +47,11 @@ Fetch Banque de France (BdF) data
 }
 \examples{
 \dontrun{
-bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
+bdf_data(key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
 # inflation rate
-bdf_data(series_key = "ICP.M.FR.N.000000.4.ANR")
+bdf_data(key = "ICP.M.FR.N.000000.4.ANR")
 # or with a date filter
-bdf_data(series_key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
+bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 }
 }
 \seealso{

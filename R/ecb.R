@@ -1,14 +1,14 @@
 #' Fetch European Central Bank (ECB) data
 #'
 #' @param flow (`character(1)`) flow to query.
-#' @param key (`character(1)`) key to query.
+#' @param key (`character()`) key to query.
 #' @param start_period (`character(1)`) start date of the data. Supported formats:
-#'   * YYYY for annual data (e.g., "2019")
-#'   * YYYY-S\[1-2\] for semi-annual data (e.g., "2019-S1")
-#'   * YYYY-Q\[1-4\] for quarterly data (e.g., "2019-Q1")
-#'   * YYYY-MM for monthly data (e.g., "2019-01")
-#'   * YYYY-W\[01-53\] for weekly data (e.g., "2019-W01")
-#'   * YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
+#'   * YYYY for annual data (e.g., `2019`)
+#'   * YYYY-S\[1-2\] for semi-annual data (e.g., `"2019-S1"`)
+#'   * YYYY-Q\[1-4\] for quarterly data (e.g., `"2019-Q1"`)
+#'   * YYYY-MM for monthly data (e.g., `"2019-01"`)
+#'   * YYYY-W\[01-53\] for weekly data (e.g., `"2019-W01"`)
+#'   * YYYY-MM-DD for daily and business data (e.g., `"2019-01-01"`)
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the earliest available
 #'   date). Default `NULL`.
@@ -41,26 +41,26 @@ ecb_data <- function(
   stopifnot(
     is_string(flow),
     is_character(key, null_ok = TRUE),
-    is_string(start_period, null_ok = TRUE),
-    is_string(end_period, null_ok = TRUE),
+    is_string(start_period, null_ok = TRUE) || is_count(start_period),
+    is_string(end_period, null_ok = TRUE) || is_count(end_period),
     is_count(first_n, null_ok = TRUE),
     is_count(last_n, null_ok = TRUE)
   )
 
   key <- if (!is.null(key)) paste(key, collapse = "+") else "all"
   resource <- paste("data", flow, key, sep = "/")
-  body <- ecb(
+  xml <- ecb(
     resource = resource,
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
     lastNObservations = last_n
   )
-  parse_ecb_data(body)
+  parse_ecb_data(xml)
 }
 
-parse_ecb_data <- function(body) {
-  series <- xml2::xml_find_all(body, ".//generic:Series")
+parse_ecb_data <- function(xml) {
+  series <- xml2::xml_find_all(xml, ".//generic:Series")
   res <- lapply(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
@@ -154,12 +154,15 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
 }
 
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
-  stopifnot(is_string(agency, null_ok = TRUE), is_string(id, null_ok = TRUE))
+  stopifnot(
+    is_string(agency, null_ok = TRUE),
+    is_string(id, null_ok = TRUE)
+  )
   agency <- if (!is.null(agency)) toupper(agency) else "all"
   id <- if (!is.null(id)) toupper(id) else "all"
   resource <- paste(resource, agency, id, sep = "/")
-  body <- ecb(resource)
-  entries <- xml2::xml_find_all(body, xpath)
+  xml <- ecb(resource)
+  entries <- xml2::xml_find_all(xml, xpath)
   parse_ecb_metadata(entries)
 }
 

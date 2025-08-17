@@ -2,14 +2,14 @@
 #'
 #' @param flow (`character(1)`) flow to query, 5-8 characters.
 #'   See [bbk_metadata()] for available dataflows.
-#' @param key (`character(1)`) key to query.
+#' @param key (`character()`) key to query.
 #' @param start_period (`character(1)`) start date of the data. Supported formats:
-#'   * YYYY for annual data (e.g., "2019")
-#'   * YYYY-S\[1-2\] for semi-annual data (e.g., "2019-S1")
-#'   * YYYY-Q\[1-4\] for quarterly data (e.g., "2019-Q1")
-#'   * YYYY-MM for monthly data (e.g., "2019-01")
-#'   * YYYY-W\[01-53\] for weekly data (e.g., "2019-W01")
-#'   * YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
+#'   * YYYY for annual data (e.g., `2019``)
+#'   * YYYY-S\[1-2\] for semi-annual data (e.g., `"2019-S1"`)
+#'   * YYYY-Q\[1-4\] for quarterly data (e.g., `"2019-Q1"`)
+#'   * YYYY-MM for monthly data (e.g., `"2019-01"`)
+#'   * YYYY-W\[01-53\] for weekly data (e.g., `"2019-W01"`)
+#'   * YYYY-MM-DD for daily and business data (e.g., `"2019-01-01"`)
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the earliest available
 #'   date). Default `NULL`.
@@ -27,7 +27,7 @@
 #' @examplesIf curl::has_internet()
 #' \donttest{
 #' # fetch all data for a given flow and key
-#' bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+#' bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A", start_period = 2025)
 #' # fetch data for multiple keys
 #' bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
 #' # specified period (start date-end date) for daily data
@@ -54,8 +54,8 @@ bbk_data <- function(
     is_string(flow),
     nchar(flow) %in% 5:8,
     is_character(key, null_ok = TRUE),
-    is_string(start_period, null_ok = TRUE),
-    is_string(end_period, null_ok = TRUE),
+    is_string(start_period, null_ok = TRUE) || is_count(start_period),
+    is_string(end_period, null_ok = TRUE) || is_count(end_period),
     is_count(first_n, null_ok = TRUE),
     is_count(last_n, null_ok = TRUE)
   )
@@ -68,14 +68,14 @@ bbk_data <- function(
     key <- paste(key, collapse = "+")
     resource <- sprintf("data/%s/%s", flow, key)
   }
-  body <- bbk_make_request(
+  xml <- bbk_make_request(
     resource = resource,
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
     lastNObservations = last_n
   )
-  parse_bbk_data(body)
+  parse_bbk_data(xml)
 }
 
 #' Fetch the Deutsche Bundesbank (BBk) series
@@ -204,8 +204,8 @@ parse_bbk_metadata <- function(x, lang) {
   }))
 }
 
-parse_bbk_data <- function(body) {
-  series <- xml2::xml_find_all(body, ".//generic:Series")
+parse_bbk_data <- function(xml) {
+  series <- xml2::xml_find_all(xml, ".//generic:Series")
   res <- lapply(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
@@ -245,7 +245,7 @@ parse_bbk_data <- function(body) {
       P1D = "daily"
     )
 
-    entries <- xml2::xml_find_all(body, "//generic:Obs[generic:ObsValue]")
+    entries <- xml2::xml_find_all(xml, "//generic:Obs[generic:ObsValue]")
     data$date <- entries |>
       xml2::xml_find_all(".//generic:ObsDimension") |>
       xml2::xml_attr("value") |>
@@ -272,8 +272,8 @@ fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }
-  body <- bbk_make_request(resource)
-  entries <- xml2::xml_find_all(body, xpath)
+  xml <- bbk_make_request(resource)
+  entries <- xml2::xml_find_all(xml, xpath)
   parse_bbk_metadata(entries, lang)
 }
 

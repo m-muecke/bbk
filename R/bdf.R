@@ -1,6 +1,6 @@
 #' Fetch Banque de France (BdF) data
 #'
-#' @param series_key (`character(1)`) key of the series to query. Default `NULL`.
+#' @param key (`character(1)`) key of the series to query. Default `NULL`.
 #' @param select (`character(1)`) select expression to filter the columns in the result.
 #' @param where (`character(1)`) where expression to filter the rows in the result.
 #' @param group_by (`character(1)`) group by expression to aggregate the result.
@@ -16,14 +16,14 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' bdf_data(series_key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
+#' bdf_data(key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
 #' # inflation rate
-#' bdf_data(series_key = "ICP.M.FR.N.000000.4.ANR")
+#' bdf_data(key = "ICP.M.FR.N.000000.4.ANR")
 #' # or with a date filter
-#' bdf_data(series_key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
+#' bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 #' }
 bdf_data <- function(
-  series_key = NULL,
+  key = NULL,
   select = NULL,
   where = NULL,
   group_by = NULL,
@@ -34,7 +34,7 @@ bdf_data <- function(
   api_key = bdf_key()
 ) {
   stopifnot(
-    is_string(series_key, null_ok = TRUE),
+    is_string(key, null_ok = TRUE),
     is_string(select, null_ok = TRUE),
     is_string(where, null_ok = TRUE),
     is_string(group_by, null_ok = TRUE),
@@ -46,7 +46,7 @@ bdf_data <- function(
   )
 
   url <- "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observations/exports/csv" # nolint
-  refine <- sprintf("series_key:\"%s\"", series_key)
+  refine <- sprintf("series_key:\"%s\"", key)
   params <- list(
     refine = refine,
     select = select,

@@ -19,16 +19,16 @@ ecb_data(
 \arguments{
 \item{flow}{(\code{character(1)}) flow to query.}
 
-\item{key}{(\code{character(1)}) key to query.}
+\item{key}{(\code{character()}) key to query.}
 
 \item{start_period}{(\code{character(1)}) start date of the data. Supported formats:
 \itemize{
-\item YYYY for annual data (e.g., "2019")
-\item YYYY-S[1-2] for semi-annual data (e.g., "2019-S1")
-\item YYYY-Q[1-4] for quarterly data (e.g., "2019-Q1")
-\item YYYY-MM for monthly data (e.g., "2019-01")
-\item YYYY-W[01-53] for weekly data (e.g., "2019-W01")
-\item YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
+\item YYYY for annual data (e.g., \code{2019})
+\item YYYY-S[1-2] for semi-annual data (e.g., \code{"2019-S1"})
+\item YYYY-Q[1-4] for quarterly data (e.g., \code{"2019-Q1"})
+\item YYYY-MM for monthly data (e.g., \code{"2019-01"})
+\item YYYY-W[01-53] for weekly data (e.g., \code{"2019-W01"})
+\item YYYY-MM-DD for daily and business data (e.g., \code{"2019-01-01"})
 }
 
 If \code{NULL}, no start date restriction is applied (data retrieved from the earliest available

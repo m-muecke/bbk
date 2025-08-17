@@ -34,21 +34,21 @@ ecb_data(
 If \code{NULL}, no start date restriction is applied (data retrieved from the earliest available
 date). Default \code{NULL}.}
 
-\item{end_period}{(\code{character(1)}) end date of the data, in the same format as
-start_period. If \code{NULL}, no end date restriction is applied (data
-retrieved up to the most recent available date). Default \code{NULL}.}
+\item{end_period}{(\code{character(1)}) end date of the data, in the same format as start_period.
+If \code{NULL}, no end date restriction is applied (data retrieved up to the most recent available
+date). Default \code{NULL}.}
 
-\item{first_n}{(\code{numeric(1)}) number of observations to retrieve from the
-start of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
+\item{first_n}{(\code{numeric(1)}) number of observations to retrieve from the start of the series.
+If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 
-\item{last_n}{(\code{numeric(1)}) number of observations to retrieve from the end
-of the series. If \code{NULL}, no restriction is applied. Default \code{NULL}.}
+\item{last_n}{(\code{numeric(1)}) number of observations to retrieve from the end of the series.
+If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch European Central Bank (ECB) data
+Retrieve time series data from the ECB SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

@@ -43,7 +43,7 @@ Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch Banque de France (BdF) data
+Retrieve time series data from the BdF Webstat API.
 }
 \examples{
 \dontrun{

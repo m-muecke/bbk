@@ -38,14 +38,14 @@ ecb_euro_rates <- function(x = c("latest", "history")) {
   Date <- NULL
   dt[, Date := as.Date(Date, fmt)]
   dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = !"Date"]
-  dt <- melt(
-    dt,
-    id.vars = "Date",
-    variable.name = "currency",
-    value.name = "rate",
-    variable.factor = FALSE
-  )
-  dt <- na.omit(dt)
-  setnames(dt, tolower)
+  dt <- dt |>
+    melt(
+      id.vars = "Date",
+      variable.name = "currency",
+      value.name = "rate",
+      variable.factor = FALSE
+    ) |>
+    na.omit() |>
+    setnames(tolower)
   dt[]
 }

@@ -24,13 +24,13 @@ Can be an annual range (e.g., \code{2024}) or a frequency-based code:
 If \code{NULL} (default), returns the smallest range for the series frequency
 (e.g., \code{"30M"} for monthly series).}
 
-\item{lang}{(\code{character(1)})  the language of the response, either \code{"en"} or \code{"es"}.}
+\item{lang}{(\code{character(1)})  language to query, either \code{"en"} or \code{"es"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch Banco de España (BdE) data
+Retrieve time series data from the BdE statistics API.
 }
 \details{
 You can search for the series codes in the

@@ -49,7 +49,7 @@ If \code{NULL}, no restriction is applied. Default \code{NULL}.}
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch Deutsche Bundesbank (BBk) data
+Retrieve time series data from the Bundesbank SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

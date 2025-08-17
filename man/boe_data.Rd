@@ -12,15 +12,15 @@ boe_data(key, start_date, end_date = Sys.Date())
 \arguments{
 \item{key}{(\code{character()}) BoE series codes.}
 
-\item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the time series.}
+\item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the data.}
 
-\item{end_date}{(\code{character(1)} | \code{Date(1)}) end date of the time series.}
+\item{end_date}{(\code{character(1)} | \code{Date(1)}) end date of the data.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch Bank of England (BoE) data
+Retrieve time series data from the BoE database.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

@@ -1,8 +1,10 @@
 #' Fetch Bank of England (BoE) data
 #'
+#' Retrieve time series data from the BoE database.
+#'
 #' @param key (`character()`) BoE series codes.
-#' @param start_date (`character(1)` | `Date(1)`) start date of the time series.
-#' @param end_date (`character(1)` | `Date(1)`) end date of the time series.
+#' @param start_date (`character(1)` | `Date(1)`) start date of the data.
+#' @param end_date (`character(1)` | `Date(1)`) end date of the data.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bankofengland.co.uk/boeapps/database>
 #' @family data

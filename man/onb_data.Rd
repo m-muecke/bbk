@@ -36,7 +36,7 @@ onb_data(
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch Österreichische Nationalbank (OeNB) data
+Retrieve time series data from the OeNB Web Service.
 }
 \examples{
 \dontrun{

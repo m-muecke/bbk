@@ -18,15 +18,14 @@ ecb_metadata(type, agency = NULL, id = NULL)
 \item{id}{(\code{character(1)}) id of the resource to query. Default \code{NULL}.}
 }
 \value{
-A \code{\link[data.table:data.table]{data.table::data.table()}} with the queried metadata.
+A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested metadata.
 The columns are:
 \item{agency}{The agency of the metadata}
 \item{id}{The id of the metadata}
 \item{name}{The name of the metadata}
 }
 \description{
-Retrieval of the metadata stored in the ECB's time series database.
-Access via the SDMX Web Service API of the ECB
+Retrieve metadata from the ECB time series database via the SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

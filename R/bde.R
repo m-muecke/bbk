@@ -1,5 +1,7 @@
 #' Fetch Banco de España (BdE) data
 #'
+#' Retrieve time series data from the BdE statistics API.
+#'
 #' @details
 #' You can search for the series codes in the
 #' [BIEST](https://app.bde.es/bie_www/bie_wwwias/xml/Arranque.html) application or in the tables
@@ -15,7 +17,7 @@
 #'
 #'   If `NULL` (default), returns the smallest range for the series frequency
 #'   (e.g., `"30M"` for monthly series).
-#' @param lang (`character(1)`)  the language of the response, either `"en"` or `"es"`.
+#' @param lang (`character(1)`)  language to query, either `"en"` or `"es"`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>
 #' @family data
@@ -29,7 +31,7 @@
 bde_data <- function(key, time_range = NULL, lang = c("en", "en")) {
   stopifnot(
     is_character(key),
-    is.null(time_range) || is_count(time_range) || is_string(time_range)
+    is.null(time_range) || is_string(time_range) || is_count(time_range)
   )
   lang <- match.arg(lang)
   json <- bde(key, time_range, lang)

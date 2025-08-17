@@ -18,14 +18,13 @@ bbk_metadata(type, id = NULL, lang = c("en", "de"))
 \item{lang}{(\code{character(1)}) language to query, either \code{"en"} or \code{"de"}. Default \code{"en"}.}
 }
 \value{
-A \code{\link[data.table:data.table]{data.table::data.table()}} with the queried metadata.
+A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested metadata.
 The columns are:
 \item{id}{The id of the metadata}
 \item{name}{The name of the metadata}
 }
 \description{
-Retrieval of the metadata stored in the Bundesbank's time series database.
-Access via the SDMX Web Service API of the Bundesbank.
+Retrieve metadata from the Bundesbank time series database via the SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

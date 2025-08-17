@@ -1,5 +1,7 @@
 #' Fetch Österreichische Nationalbank (OeNB) data
 #'
+#' Retrieve time series data from the OeNB Web Service.
+#'
 #' @param hier_id (`integer(1)`) hierarchy id to query.
 #' @param key (`character()`) key to query.
 #' @param start_period (`character(1)` | `integer(1)`) start date of the data.
@@ -38,8 +40,8 @@ onb_data <- function(
   stopifnot(
     is_count(hier_id),
     is_character(key),
-    is_string(start_period, null_ok = TRUE) || is_count(start_period),
-    is_string(end_period, null_ok = TRUE) || is_count(end_period),
+    is.null(start_period) || is_string(start_period) || is_count(start_period),
+    is.null(end_period) || is_string(end_period) || is_count(end_period),
     is_string(freq, null_ok = TRUE),
     is_string(lang)
   )

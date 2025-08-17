@@ -1,8 +1,10 @@
 #' Fetch Swiss National Bank (SNB) data
 #'
+#' Retrieve time series data from the SNB data portal.
+#'
 #' @param key (`character(1)`) key of the time series.
-#' @param start_date (`character(1)` | `Date(1)`) start date of the time series.
-#' @param end_date (`character(1)` | `Date(1)`) end date of the time series.
+#' @param start_date (`character(1)` | `Date(1)`) start date of the data.
+#' @param end_date (`character(1)` | `Date(1)`) end date of the data.
 #' @param lang (`character(1)`) language to query, either `"en"` or `"de"`.
 #'   Default `"en"`.
 #' @returns A [data.table::data.table()] with the requested data.

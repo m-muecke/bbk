@@ -1,5 +1,7 @@
 #' Fetch European Central Bank (ECB) data
 #'
+#' Retrieve time series data from the ECB SDMX Web Service.
+#'
 #' @param flow (`character(1)`) flow to query.
 #' @param key (`character()`) key to query.
 #' @param start_period (`character(1)`) start date of the data. Supported formats:
@@ -12,13 +14,13 @@
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the earliest available
 #'   date). Default `NULL`.
-#' @param end_period (`character(1)`) end date of the data, in the same format as
-#'   start_period. If `NULL`, no end date restriction is applied (data
-#'   retrieved up to the most recent available date). Default `NULL`.
-#' @param first_n (`numeric(1)`) number of observations to retrieve from the
-#'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
-#' @param last_n (`numeric(1)`) number of observations to retrieve from the end
-#'   of the series. If `NULL`, no restriction is applied. Default `NULL`.
+#' @param end_period (`character(1)`) end date of the data, in the same format as start_period.
+#'   If `NULL`, no end date restriction is applied (data retrieved up to the most recent available
+#'   date). Default `NULL`.
+#' @param first_n (`numeric(1)`) number of observations to retrieve from the start of the series.
+#'   If `NULL`, no restriction is applied. Default `NULL`.
+#' @param last_n (`numeric(1)`) number of observations to retrieve from the end of the series.
+#'   If `NULL`, no restriction is applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://data.ecb.europa.eu/help/api/data>
 #' @family data
@@ -57,6 +59,54 @@ ecb_data <- function(
     lastNObservations = last_n
   )
   parse_ecb_data(xml)
+}
+
+#' Fetch European Central Bank (ECB) metadata
+#'
+#' Retrieve metadata from the ECB time series database via the SDMX Web Service.
+#'
+#' @param type (`character(1)`) the type of metadata to query. One of:
+#'   `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
+#' @param agency (`character(1)`) id of the agency to query. Default `NULL`.
+#' @param id (`character(1)`) id of the resource to query. Default `NULL`.
+#' @returns A [data.table::data.table()] with the requested metadata.
+#' The columns are:
+#'   \item{agency}{The agency of the metadata}
+#'   \item{id}{The id of the metadata}
+#'   \item{name}{The name of the metadata}
+#' @source <https://data.ecb.europa.eu/help/api/metadata>
+#' @family metadata
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' ecb_metadata("datastructure")
+#' ecb_metadata("datastructure", "ECB")
+#' ecb_metadata("datastructure", "ECB", "ECB_EXR1")
+#' ecb_metadata("datastructure", id = "ECB_EXR1")
+#' }
+ecb_metadata <- function(type, agency = NULL, id = NULL) {
+  type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
+  args <- switch(
+    type,
+    datastructure = list("datastructure", "//str:DataStructure"),
+    dataflow = list("dataflow", "//str:Dataflow"),
+    codelist = list("codelist", "//str:Codelist"),
+    concept = list("conceptscheme", "//str:ConceptScheme")
+  )
+  do.call(fetch_ecb_metadata, c(args, list(agency, id)))
+}
+
+fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
+  stopifnot(
+    is_string(agency, null_ok = TRUE),
+    is_string(id, null_ok = TRUE)
+  )
+  agency <- if (!is.null(agency)) toupper(agency) else "all"
+  id <- if (!is.null(id)) toupper(id) else "all"
+  resource <- paste(resource, agency, id, sep = "/")
+  xml <- ecb(resource)
+  entries <- xml2::xml_find_all(xml, xpath)
+  parse_ecb_metadata(entries)
 }
 
 parse_ecb_data <- function(xml) {
@@ -115,55 +165,6 @@ parse_ecb_data <- function(xml) {
   cols <- Reduce(intersect, cols)
   cols <- union(c("date", "key", "value", "title", "description"), cols)
   rbindlist(lapply(res, \(x) x[, cols, with = FALSE]))
-}
-
-#' Fetch European Central Bank (ECB) metadata
-#'
-#' Retrieval of the metadata stored in the ECB's time series database.
-#' Access via the SDMX Web Service API of the ECB
-#'
-#' @param type (`character(1)`) the type of metadata to query. One of:
-#' `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
-#' @param agency (`character(1)`) id of the agency to query. Default `NULL`.
-#' @param id (`character(1)`) id of the resource to query. Default `NULL`.
-#' @returns A [data.table::data.table()] with the queried metadata.
-#' The columns are:
-#'   \item{agency}{The agency of the metadata}
-#'   \item{id}{The id of the metadata}
-#'   \item{name}{The name of the metadata}
-#' @source <https://data.ecb.europa.eu/help/api/metadata>
-#' @family metadata
-#' @export
-#' @examplesIf curl::has_internet()
-#' \donttest{
-#' ecb_metadata("datastructure")
-#' ecb_metadata("datastructure", "ECB")
-#' ecb_metadata("datastructure", "ECB", "ECB_EXR1")
-#' ecb_metadata("datastructure", id = "ECB_EXR1")
-#' }
-ecb_metadata <- function(type, agency = NULL, id = NULL) {
-  type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
-  args <- switch(
-    type,
-    datastructure = list("datastructure", "//str:DataStructure"),
-    dataflow = list("dataflow", "//str:Dataflow"),
-    codelist = list("codelist", "//str:Codelist"),
-    concept = list("conceptscheme", "//str:ConceptScheme")
-  )
-  do.call(fetch_ecb_metadata, c(args, list(agency, id)))
-}
-
-fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
-  stopifnot(
-    is_string(agency, null_ok = TRUE),
-    is_string(id, null_ok = TRUE)
-  )
-  agency <- if (!is.null(agency)) toupper(agency) else "all"
-  id <- if (!is.null(id)) toupper(id) else "all"
-  resource <- paste(resource, agency, id, sep = "/")
-  xml <- ecb(resource)
-  entries <- xml2::xml_find_all(xml, xpath)
-  parse_ecb_metadata(entries)
 }
 
 parse_ecb_metadata <- function(x, lang = "en") {

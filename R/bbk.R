@@ -1,5 +1,7 @@
 #' Fetch Deutsche Bundesbank (BBk) data
 #'
+#' Retrieve time series data from the Bundesbank SDMX Web Service.
+#'
 #' @param flow (`character(1)`) flow to query, 5-8 characters.
 #'   See [bbk_metadata()] for available dataflows.
 #' @param key (`character()`) key to query.
@@ -80,6 +82,8 @@ bbk_data <- function(
 
 #' Fetch the Deutsche Bundesbank (BBk) series
 #'
+#' Retrieve a single series by its key via the Bundesbank SDMX Web Service.
+#'
 #' @inherit bbk_data source
 #' @inheritParams bbk_data
 #' @inherit bbk_data return
@@ -103,14 +107,13 @@ bbk_series <- function(key) {
 
 #' Fetch Deutsche Bundesbank (BBk) metadata
 #'
-#' Retrieval of the metadata stored in the Bundesbank's time series database.
-#' Access via the SDMX Web Service API of the Bundesbank.
+#' Retrieve metadata from the Bundesbank time series database via the SDMX Web Service.
 #'
 #' @param type (`character(1)`) the type of metadata to query. One of:
 #'   `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
 #' @param id (`character(1)`) id to query. Default `NULL`.
 #' @param lang (`character(1)`) language to query, either `"en"` or `"de"`. Default `"en"`.
-#' @returns A [data.table::data.table()] with the queried metadata.
+#' @returns A [data.table::data.table()] with the requested metadata.
 #' The columns are:
 #'   \item{id}{The id of the metadata}
 #'   \item{name}{The name of the metadata}

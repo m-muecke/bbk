@@ -1,5 +1,7 @@
 #' Fetch Banque de France (BdF) data
 #'
+#' Retrieve time series data from the BdF Webstat API.
+#'
 #' @param key (`character(1)`) key of the series to query. Default `NULL`.
 #' @param select (`character(1)`) select expression to filter the columns in the result.
 #' @param where (`character(1)`) where expression to filter the rows in the result.

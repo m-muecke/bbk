@@ -16,7 +16,7 @@ bbk_series(key)
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch the Deutsche Bundesbank (BBk) series
+Retrieve a single series by its key via the Bundesbank SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

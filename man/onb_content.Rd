@@ -4,14 +4,14 @@
 \alias{onb_content}
 \title{Fetch Österreichische Nationalbank (OeNB) content}
 \usage{
-onb_content(hierid = NULL, pos = NULL, lang = "en", ...)
+onb_content(hier_id = NULL, key = NULL, lang = "en", ...)
 }
 \arguments{
-\item{hierid}{(\code{integer(1)})}
+\item{hier_id}{(\code{integer(1)}) hierarchy id to query.}
 
-\item{pos}{(\code{character(1)})}
+\item{key}{(\code{character(1)}) key to query.}
 
-\item{lang}{(\code{character(1)})}
+\item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
 
 \item{...}{additional parameters to pass to the API.}
 }
@@ -26,9 +26,9 @@ Fetch Österreichische Nationalbank (OeNB) content
 # table of contents
 onb_content()
 # several positions of the same hierarchy
-onb_content(hierid = 11)
+onb_content(hier_id = 11)
 # dimensions for individual indicators
-onb_content(hierid = 11, pos = "VDBFKBSC217000")
+onb_content(hier_id = 11, key = "VDBFKBSC217000")
 }
 }
 \seealso{

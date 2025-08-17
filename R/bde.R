@@ -5,7 +5,7 @@
 #' [BIEST](https://app.bde.es/bie_www/bie_wwwias/xml/Arranque.html) application or in the tables
 #' published by the Banco de España.
 #'
-#' @param series (`character()`) the series codes to retrieve data for.
+#' @param key (`character()`) the series keys to retrieve data for.
 #' @param time_range (`character(1)` | `integer(1)`) the time range for the data.
 #'   Can be an annual range (e.g., `2024`) or a frequency-based code:
 #'   * Daily frequency (D): `"3M"` (last 3 months), `"12M"`, `"36M"`
@@ -24,36 +24,16 @@
 #' \dontrun{
 #' bde_data("D_1NBAF472", time_range = "30M")
 #' bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
-#' bde_data( "DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
+#' bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #' }
-bde_data <- function(series = "D_1NBAF472", time_range = NULL, lang = c("en", "en")) {
+bde_data <- function(key = "D_1NBAF472", time_range = NULL, lang = c("en", "en")) {
   stopifnot(
-    is_character(series),
+    is_character(key),
     is.null(time_range) || is_count(time_range) || is_string(time_range)
   )
   lang <- match.arg(lang)
-  json <- bde(series, time_range, lang)
+  json <- bde(key, time_range, lang)
   parse_bde_data(json)
-}
-
-bde <- function(series, time_range, lang) {
-  url <- "https://app.bde.es/bierest/resources/srdatosapp/listaSeries"
-  request(url) |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
-    req_url_query(idioma = lang, series = series, rango = time_range, .multi = "comma") |>
-    req_error(body = bde_error_body) |>
-    req_perform() |>
-    resp_body_json()
-}
-
-bde_error_body <- function(resp) {
-  content_type <- resp_content_type(resp)
-  if (identical(content_type, "application/json")) {
-    json <- resp_body_json(resp)
-    msg <- c(json$errMsgUsr, json$errMsgDebug)
-    docs <- "See docs at <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>" # nolint
-    c(msg, docs)
-  }
 }
 
 parse_bde_data <- function(json) {
@@ -71,7 +51,7 @@ parse_bde_data <- function(json) {
     "valores"
   )
   new_cols <- c(
-    "series",
+    "key",
     "description",
     "short_description",
     "freq",
@@ -99,5 +79,26 @@ parse_bde_data <- function(json) {
     names(.SD) := lapply(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")),
     .SDcols = patterns("date")
   ]
+  dt <- setcolorder(dt, c("date", "key", "value", "title", "freq"))
   dt[]
+}
+
+bde <- function(key, time_range, lang) {
+  url <- "https://app.bde.es/bierest/resources/srdatosapp/listaSeries"
+  request(url) |>
+    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_url_query(idioma = lang, series = key, rango = time_range, .multi = "comma") |>
+    req_error(body = bde_error_body) |>
+    req_perform() |>
+    resp_body_json()
+}
+
+bde_error_body <- function(resp) {
+  content_type <- resp_content_type(resp)
+  if (identical(content_type, "application/json")) {
+    json <- resp_body_json(resp)
+    msg <- c(json$errMsgUsr, json$errMsgDebug)
+    docs <- "See docs at <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>" # nolint
+    c(msg, docs)
+  }
 }

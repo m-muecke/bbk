@@ -8,8 +8,8 @@
 }
 \usage{
 onb_data(
-  hierid,
-  pos,
+  hier_id,
+  key,
   start_period = NULL,
   end_period = NULL,
   freq = NULL,
@@ -18,17 +18,17 @@ onb_data(
 )
 }
 \arguments{
-\item{hierid}{(\code{integer(1)})}
+\item{hier_id}{(\code{integer(1)}) hierarchy id to query.}
 
-\item{pos}{(\code{character(1)})}
+\item{key}{(\code{character(1)}) key to query.}
 
-\item{start_period}{(\code{character(1)})}
+\item{start_period}{(\code{character(1)}) start date of the data.}
 
-\item{end_period}{(\code{character(1)})}
+\item{end_period}{(\code{character(1)}) end date of the data.}
 
-\item{freq}{(\code{character(1)})}
+\item{freq}{(\code{character(1)}) frequency of the data.}
 
-\item{lang}{(\code{character(1)})}
+\item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
 
 \item{...}{additional parameters to pass to the API.}
 }
@@ -40,8 +40,8 @@ Fetch Österreichische Nationalbank (OeNB) data
 }
 \examples{
 \dontrun{
-onb_data(hierid = 11, pos = "VDBFKBSC217000")
-onb_data(hierid = 11, pos = "VDBFKBSC217000", start_period = "2020-01-01")
+onb_data(hier_id = 11, key = "VDBFKBSC217000")
+onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2020-01-01")
 }
 }
 \seealso{

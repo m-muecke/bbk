@@ -3,21 +3,22 @@
 #' @param flow (`character(1)`) flow to query.
 #' @param key (`character(1)`) key to query.
 #' @param start_period (`character(1)`) start date of the data. Supported formats:
-#'   - YYYY for annual data (e.g., "2019")
-#'   - YYYY-S\[1-2\] for semi-annual data (e.g., "2019-S1")
-#'   - YYYY-Q\[1-4\] for quarterly data (e.g., "2019-Q1")
-#'   - YYYY-MM for monthly data (e.g., "2019-01")
-#'   - YYYY-W\[01-53\] for weekly data (e.g., "2019-W01")
-#'   - YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
-#'   If `NULL`, no start date restriction is applied (data retrieved from the
-#'   earliest available date). Default `NULL`.
+#'   * YYYY for annual data (e.g., "2019")
+#'   * YYYY-S\[1-2\] for semi-annual data (e.g., "2019-S1")
+#'   * YYYY-Q\[1-4\] for quarterly data (e.g., "2019-Q1")
+#'   * YYYY-MM for monthly data (e.g., "2019-01")
+#'   * YYYY-W\[01-53\] for weekly data (e.g., "2019-W01")
+#'   * YYYY-MM-DD for daily and business data (e.g., "2019-01-01")
+#'
+#'   If `NULL`, no start date restriction is applied (data retrieved from the earliest available
+#'   date). Default `NULL`.
 #' @param end_period (`character(1)`) end date of the data, in the same format as
 #'   start_period. If `NULL`, no end date restriction is applied (data
 #'   retrieved up to the most recent available date). Default `NULL`.
 #' @param first_n (`numeric(1)`) number of observations to retrieve from the
 #'   start of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @param last_n (`numeric(1)`) number of observations to retrieve from the end
-#'  of the series. If `NULL`, no restriction is applied. Default `NULL`.
+#'   of the series. If `NULL`, no restriction is applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://data.ecb.europa.eu/help/api/data>
 #' @family data

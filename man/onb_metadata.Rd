@@ -4,14 +4,14 @@
 \alias{onb_metadata}
 \title{Fetch Österreichische Nationalbank (OeNB) metadata}
 \usage{
-onb_metadata(hierid, pos, lang = "en", ...)
+onb_metadata(hier_id, key, lang = "en", ...)
 }
 \arguments{
-\item{hierid}{(\code{integer(1)})}
+\item{hier_id}{(\code{integer(1)}) hierarchy id to query.}
 
-\item{pos}{(\code{character(1)})}
+\item{key}{(\code{character(1)}) key to query.}
 
-\item{lang}{(\code{character(1)})}
+\item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
 
 \item{...}{additional parameters to pass to the API.}
 }
@@ -23,7 +23,7 @@ Fetch Österreichische Nationalbank (OeNB) metadata
 }
 \examples{
 \dontrun{
-onb_metadata(hierid = 11, pos = "VDBFKBSC217000")
+onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 }
 }
 \seealso{

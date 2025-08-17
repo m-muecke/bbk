@@ -7,10 +7,10 @@
 \url{https://data.snb.ch/en}
 }
 \usage{
-snb_data(id, start_date = NULL, end_date = NULL, lang = c("en", "de"))
+snb_data(key, start_date = NULL, end_date = NULL, lang = c("en", "de"))
 }
 \arguments{
-\item{id}{(\code{character(1)}) id of the time series.}
+\item{key}{(\code{character(1)}) key of the time series.}
 
 \item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the time series.}
 

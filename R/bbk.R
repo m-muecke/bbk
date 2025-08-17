@@ -68,7 +68,7 @@ bbk_data <- function(
     key <- paste(key, collapse = "+")
     resource <- sprintf("data/%s/%s", flow, key)
   }
-  body <- make_request(
+  body <- bbk_make_request(
     resource = resource,
     startPeriod = start_period,
     endPeriod = end_period,
@@ -94,7 +94,7 @@ bbk_data <- function(
 #' }
 bbk_series <- function(key) {
   stopifnot(is_string(key))
-  body <- build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
+  body <- bbk_build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
     req_perform() |>
     resp_body_raw()
@@ -272,7 +272,7 @@ fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")
   }
-  body <- make_request(resource)
+  body <- bbk_make_request(resource)
   entries <- xml2::xml_find_all(body, xpath)
   parse_bbk_metadata(entries, lang)
 }
@@ -286,7 +286,7 @@ bbk_error_body <- function(resp) {
   }
 }
 
-build_request <- function(resource, accept = NULL) {
+bbk_build_request <- function(resource, accept = NULL) {
   request("https://api.statistiken.bundesbank.de/rest") |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_headers(`Accept-Language` = "en", accept = accept) |>
@@ -294,8 +294,8 @@ build_request <- function(resource, accept = NULL) {
     req_error(body = bbk_error_body)
 }
 
-make_request <- function(resource, ...) {
-  build_request(resource) |>
+bbk_make_request <- function(resource, ...) {
+  bbk_build_request(resource) |>
     req_url_query(...) |>
     req_perform() |>
     resp_body_xml()

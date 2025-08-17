@@ -1,6 +1,6 @@
 #' Fetch Swiss National Bank (SNB) data
 #'
-#' @param id (`character(1)`) id of the time series.
+#' @param key (`character(1)`) key of the time series.
 #' @param start_date (`character(1)` | `Date(1)`) start date of the time series.
 #' @param end_date (`character(1)` | `Date(1)`) end date of the time series.
 #' @param lang (`character(1)`) language to query, either `"en"` or `"de"`.
@@ -15,14 +15,14 @@
 #' # or filter for date range
 #' snb_data("rendopar", "2020-01-01", "2020-12-31")
 #' }
-snb_data <- function(id, start_date = NULL, end_date = NULL, lang = c("en", "de")) {
+snb_data <- function(key, start_date = NULL, end_date = NULL, lang = c("en", "de")) {
   stopifnot(
-    is_string(id),
+    is_string(key),
     is_dateish(start_date, null_ok = TRUE),
     is_dateish(end_date, null_ok = TRUE)
   )
   lang <- match.arg(lang)
-  body <- snb(id = id, fromDate = start_date, toDate = end_date, lang = lang)
+  body <- snb(id = key, fromDate = start_date, toDate = end_date, lang = lang)
   parse_snb_data(body)
 }
 

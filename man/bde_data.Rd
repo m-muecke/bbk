@@ -7,10 +7,10 @@
 \url{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}
 }
 \usage{
-bde_data(series = "D_1NBAF472", time_range = NULL, lang = c("en", "en"))
+bde_data(key = "D_1NBAF472", time_range = NULL, lang = c("en", "en"))
 }
 \arguments{
-\item{series}{(\code{character()}) the series codes to retrieve data for.}
+\item{key}{(\code{character()}) the series keys to retrieve data for.}
 
 \item{time_range}{(\code{character(1)} | \code{integer(1)}) the time range for the data.
 Can be an annual range (e.g., \code{2024}) or a frequency-based code:
@@ -41,7 +41,7 @@ published by the Banco de España.
 \dontrun{
 bde_data("D_1NBAF472", time_range = "30M")
 bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
-bde_data( "DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
+bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 }
 }
 \seealso{

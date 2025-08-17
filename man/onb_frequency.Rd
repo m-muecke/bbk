@@ -4,14 +4,14 @@
 \alias{onb_frequency}
 \title{Fetch Österreichische Nationalbank (OeNB) data frequency}
 \usage{
-onb_frequency(hierid, pos, lang = "en", ...)
+onb_frequency(hier_id, key, lang = "en", ...)
 }
 \arguments{
-\item{hierid}{(\code{integer(1)})}
+\item{hier_id}{(\code{integer(1)}) hierarchy id to query.}
 
-\item{pos}{(\code{character(1)})}
+\item{key}{(\code{character(1)}) key to query.}
 
-\item{lang}{(\code{character(1)})}
+\item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
 
 \item{...}{additional parameters to pass to the API.}
 }
@@ -23,8 +23,8 @@ Fetch Österreichische Nationalbank (OeNB) data frequency
 }
 \examples{
 \dontrun{
-onb_frequency(hierid = 74, pos = "VDBOSBHAGBSTIN")
-onb_frequency(hierid = 11, pos = "VDBFKBSC217000")
+onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
+onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 }
 }
 \seealso{

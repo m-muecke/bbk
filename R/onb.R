@@ -99,24 +99,26 @@ parse_onb_metadata <- function(xml) {
 #' @export
 #' @examples
 #' \dontrun{
-#' onb_freq(hierid = 74, pos = "VDBOSBHAGBSTIN")
+#' onb_frequency(hierid = 74, pos = "VDBOSBHAGBSTIN")
+#' onb_frequency(hierid = 11, pos = "VDBFKBSC217000")
 #' }
-onb_freq <- function(pos, hierid, lang = "en", ...) {
+onb_frequency <- function(hierid, pos, lang = "en", ...) {
   stopifnot(
     is_count(hierid),
     is_string(pos, null_ok = TRUE),
     is_string(lang)
   )
   xml <- onb(resource = "datafrequency", hierid = hierid, pos = pos, lang = toupper(lang), ...)
-  parse_onb_freq(xml)
+  parse_onb_frequency(xml)
 }
 
-parse_onb_freq <- function(xml) {
+parse_onb_frequency <- function(xml) {
   dt <- xml |>
     xml2::xml_find_all(".//dataSet") |>
     lapply(function(x) {
       freq <- x |> xml2::xml_find_all(".//periods") |> xml2::xml_attr("frequency")
-      dt <- data.table(freq = freq)
+      avail <- x |> xml2::xml_find_all(".//periods/available") |> xml2::xml_text()
+      dt <- data.table(freq = freq, available = avail)
       attrs <- xml2::xml_attrs(x)
       dt[, names(attrs) := as.list(attrs)]
     }) |>

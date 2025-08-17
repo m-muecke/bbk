@@ -83,6 +83,8 @@ yield_curve <- bbk_data(
   for downloading time-series data from the Bundesbank.
 - [ecb](https://github.com/expersso/ecb): R interface to the European
   Central Bank’s Statistical Data Warehouse (SDW) API.
+- [oenb](https://github.com/franzmohr/oenb): R package for accessing the
+  OeNB’s API.
 - [pdfetch](https://github.com/abielr/pdfetch): R package for
   downloading economic and financial time series from public sources.
 - [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for

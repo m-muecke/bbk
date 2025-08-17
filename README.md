@@ -16,17 +16,17 @@ version](https://m-muecke.r-universe.dev/bbk/badges/version)](https://m-muecke.r
 
 bbk is minimal R client for the following APIs:
 
+- [Banco de España
+  (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
+- [Bank of England
+  (BoE)](https://www.bankofengland.co.uk/boeapps/database)
+- [Banque de France
+  (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
 - [Deutsche Bundesbank
   (BBk)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 - [European Central Bank
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)
-- [Bank of England
-  (BoE)](https://www.bankofengland.co.uk/boeapps/database)
-- [Banco de España
-  (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
-- [Banque de France
-  (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
 - [Österreichische Nationalbank
   (OeNB)](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html)
 

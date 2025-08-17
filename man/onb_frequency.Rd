@@ -27,3 +27,11 @@ onb_frequency(hierid = 74, pos = "VDBOSBHAGBSTIN")
 onb_frequency(hierid = 11, pos = "VDBFKBSC217000")
 }
 }
+\seealso{
+Other metadata: 
+\code{\link{bbk_metadata}()},
+\code{\link{ecb_metadata}()},
+\code{\link{onb_content}()},
+\code{\link{onb_metadata}()}
+}
+\concept{metadata}

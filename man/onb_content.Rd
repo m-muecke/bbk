@@ -2,7 +2,7 @@
 % Please edit documentation in R/onb.R
 \name{onb_content}
 \alias{onb_content}
-\title{Fetch Österreichische Nationalbank (OeNB) data frequency}
+\title{Fetch Österreichische Nationalbank (OeNB) content}
 \usage{
 onb_content(hierid = NULL, pos = NULL, lang = "en", ...)
 }
@@ -19,7 +19,7 @@ onb_content(hierid = NULL, pos = NULL, lang = "en", ...)
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Fetch Österreichische Nationalbank (OeNB) data frequency
+Fetch Österreichische Nationalbank (OeNB) content
 }
 \examples{
 \dontrun{
@@ -31,3 +31,11 @@ onb_content(hierid = 11)
 onb_content(hierid = 11, pos = "VDBFKBSC217000")
 }
 }
+\seealso{
+Other metadata: 
+\code{\link{bbk_metadata}()},
+\code{\link{ecb_metadata}()},
+\code{\link{onb_frequency}()},
+\code{\link{onb_metadata}()}
+}
+\concept{metadata}

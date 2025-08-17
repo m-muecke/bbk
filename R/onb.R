@@ -59,7 +59,9 @@ parse_onb_data <- function(xml) {
       dt[, names(attrs) := as.list(attrs)]
     }) |>
     rbindlist() |>
-    setnames(convert_camel_case)
+    setnames(convert_camel_case) |>
+    setnames("pos_title", "title") |>
+    setcolorder(c("date", "pos", "value", "title", "freq"))
   dt
 }
 
@@ -67,6 +69,7 @@ parse_onb_data <- function(xml) {
 #'
 #' @inheritParams onb_data
 #' @inherit onb_data return
+#' @family metadata
 #' @export
 #' @examples
 #' \dontrun{
@@ -96,6 +99,7 @@ parse_onb_metadata <- function(xml) {
 #'
 #' @inheritParams onb_data
 #' @inherit onb_data return
+#' @family metadata
 #' @export
 #' @examples
 #' \dontrun{
@@ -127,10 +131,11 @@ parse_onb_frequency <- function(xml) {
   dt
 }
 
-#' Fetch Österreichische Nationalbank (OeNB) data frequency
+#' Fetch Österreichische Nationalbank (OeNB) content
 #'
 #' @inheritParams onb_data
 #' @inherit onb_data return
+#' @family metadata
 #' @export
 #' @examples
 #' \dontrun{
@@ -165,8 +170,8 @@ parse_onb_content <- function(xml) {
     xml2::xml_attrs() |>
     lapply(\(x) setDT(as.list(x))) |>
     rbindlist()
-  val <- xml2::xml_find_all(elem, "text") |> xml2::xml_text()
-  dt[, value := val][]
+  desc <- xml2::xml_find_all(elem, "text") |> xml2::xml_text()
+  dt[, description := desc][]
 }
 
 parse_onb_content_hier <- function(xml) {

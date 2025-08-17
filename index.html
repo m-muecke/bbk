@@ -67,6 +67,7 @@
 <li><a href="https://www.bankofengland.co.uk/boeapps/database" class="external-link">Bank of England (BoE)</a></li>
 <li><a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Banco de España (BdE)</a></li>
 <li><a href="https://webstat.banque-france.fr/en/pages/guide-migration-api/" class="external-link">Banque de France (BdF)</a></li>
+<li><a href="https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html" class="external-link">Österreichische Nationalbank (OeNB)</a></li>
 </ul>
 <blockquote>
 <p>In the future, it may be extended to other central banks and financial institutions. Feel free to open an issue if you have a specific request.</p>
@@ -85,7 +86,7 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>bbk functions are prefixed according to the central bank they access (<code>bbk_</code>, <code>ecb_</code>, <code>snb_</code>, <code>boe_</code>, <code>bde_</code>, <code>bdf_</code>) and follow the naming conventions of their respective APIs.</p>
+<p>bbk functions are prefixed according to the central bank they access (<code>bbk_</code>, <code>ecb_</code>, <code>snb_</code>, <code>boe_</code>, <code>bde_</code>, <code>bdf_</code>, <code>onb_</code>) and follow the naming conventions of their respective APIs.</p>
 <p>The typical workflow involves:</p>
 <ol style="list-style-type: decimal">
 <li>Finding the time series identifier on the relevant central bank’s website</li>
@@ -112,6 +113,8 @@
 <a href="https://github.com/enricoschumann/bundesbank" class="external-link">bundesbank</a>: R scripts for downloading time-series data from the Bundesbank.</li>
 <li>
 <a href="https://github.com/expersso/ecb" class="external-link">ecb</a>: R interface to the European Central Bank’s Statistical Data Warehouse (SDW) API.</li>
+<li>
+<a href="https://github.com/franzmohr/oenb" class="external-link">oenb</a>: R package for accessing the OeNB’s API.</li>
 <li>
 <a href="https://github.com/abielr/pdfetch" class="external-link">pdfetch</a>: R package for downloading economic and financial time series from public sources.</li>
 <li>

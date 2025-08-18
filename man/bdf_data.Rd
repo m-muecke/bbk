@@ -20,24 +20,33 @@ bdf_data(
 )
 }
 \arguments{
-\item{key}{(\code{character(1)}) key of the series to query. Default \code{NULL}.}
+\item{key}{(\code{character(1)})\cr
+The series key to query. Default \code{NULL}.}
 
-\item{select}{(\code{character(1)}) select expression to filter the columns in the result.}
+\item{select}{(\code{character(1)})\cr
+Select expression to filter the columns in the result.}
 
-\item{where}{(\code{character(1)}) where expression to filter the rows in the result.}
+\item{where}{(\code{character(1)})\cr
+Where expression to filter the rows in the result.}
 
-\item{group_by}{(\code{character(1)}) group by expression to aggregate the result.}
+\item{group_by}{(\code{character(1)})\cr
+Group by expression to aggregate the result.}
 
-\item{order_by}{(\code{character(1)}) order by expression to sort the result.}
+\item{order_by}{(\code{character(1)})\cr
+Order by expression to sort the result.}
 
-\item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
+\item{lang}{(\code{character(1)})\cr
+Language to query. Default \code{"en"}.}
 
-\item{tz}{(\code{character(1)}) timezone to use for the query. Default \code{"UTC"}.}
+\item{tz}{(\code{character(1)})\cr
+Timezone to use for the query. Default \code{"UTC"}.}
 
-\item{api_args}{(named \code{list()}) of extra arguments appended to the API request.
+\item{api_args}{(named \code{list()})\cr
+Of extra arguments appended to the API request.
 Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}.}
 
-\item{api_key}{(\code{character(1)}) API key to use for the request.}
+\item{api_key}{(\code{character(1)})\cr
+API key to use for the request.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

@@ -10,7 +10,7 @@
 snb_data(key, start_date = NULL, end_date = NULL, lang = c("en", "de"))
 }
 \arguments{
-\item{key}{(\code{character(1)}) key of the time series.}
+\item{key}{(\code{character(1)}) the series key to query.}
 
 \item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the data.}
 

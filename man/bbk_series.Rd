@@ -10,7 +10,8 @@
 bbk_series(key)
 }
 \arguments{
-\item{key}{(\code{character()}) key to query.}
+\item{key}{(\code{character()})\cr
+The series keys to query.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

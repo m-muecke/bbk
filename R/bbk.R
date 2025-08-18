@@ -2,10 +2,12 @@
 #'
 #' Retrieve time series data from the Bundesbank SDMX Web Service.
 #'
-#' @param flow (`character(1)`) flow to query, 5-8 characters.
-#'   See [bbk_metadata()] for available dataflows.
-#' @param key (`character()`) key to query.
-#' @param start_period (`character(1)`) start date of the data. Supported formats:
+#' @param flow (`character(1)`)\cr
+#'   The flow to query, 5-8 characters. See [bbk_metadata()] for available dataflows.
+#' @param key (`character()`)\cr
+#'   The series keys to query.
+#' @param start_period (`character(1)`)\cr
+#'   The start date of the data. Supported formats:
 #'   * YYYY for annual data (e.g., `2019``)
 #'   * YYYY-S\[1-2\] for semi-annual data (e.g., `"2019-S1"`)
 #'   * YYYY-Q\[1-4\] for quarterly data (e.g., `"2019-Q1"`)
@@ -15,13 +17,15 @@
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the earliest available
 #'   date). Default `NULL`.
-#' @param end_period (`character(1)`) end date of the data, in the same format as start_period.
-#'   If `NULL`, no end date restriction is applied (data retrieved up to the most recent available
-#'   date). Default `NULL`.
-#' @param first_n (`numeric(1)`) number of observations to retrieve from the start of the series.
-#'   If `NULL`, no restriction is applied. Default `NULL`.
-#' @param last_n (`numeric(1)`) number of observations to retrieve from the end of the series.
-#'   If `NULL`, no restriction is applied. Default `NULL`.
+#' @param end_period (`character(1)`)\cr
+#'   The end date of the data, in the same format as start_period. If `NULL`, no end date
+#'   restriction is applied (data retrieved up to the most recent available date). Default `NULL`.
+#' @param first_n (`numeric(1)`) \cr
+#'   Number of observations to retrieve from the start of the series. If `NULL`, no restriction is
+#'   applied. Default `NULL`.
+#' @param last_n (`numeric(1)`)\cr
+#'   Number of observations to retrieve from the end of the series. If `NULL`, no restriction is
+#'   applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
@@ -109,10 +113,13 @@ bbk_series <- function(key) {
 #'
 #' Retrieve metadata from the Bundesbank time series database via the SDMX Web Service.
 #'
-#' @param type (`character(1)`) the type of metadata to query. One of:
-#'   `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
-#' @param id (`character(1)`) id to query. Default `NULL`.
-#' @param lang (`character(1)`) language to query, either `"en"` or `"de"`. Default `"en"`.
+#' @param type (`character(1)`)\cr
+#'   The type of metadata to query.
+#'   One of: `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
+#' @param id (`character(1)`)\cr
+#'   The id to query. Default `NULL`.
+#' @param lang (`character(1)`)\cr
+#'   Language to query, either `"en"` or `"de"`. Default `"en"`.
 #' @returns A [data.table::data.table()] with the requested metadata.
 #' The columns are:
 #'   \item{id}{The id of the metadata}

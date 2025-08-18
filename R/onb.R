@@ -2,13 +2,20 @@
 #'
 #' Retrieve time series data from the OeNB Web Service.
 #'
-#' @param hier_id (`integer(1)`) hierarchy id to query.
-#' @param key (`character()`) key to query.
-#' @param start_period (`character(1)` | `integer(1)`) start date of the data.
-#' @param end_period (`character(1)` | `integer(1)`) end date of the data.
-#' @param freq (`character(1)`) frequency of the data.
-#' @param lang (`character(1)`) language to query. Default `"en"`.
-#' @param ... additional parameters to pass to the API.
+#' @param hier_id (`integer(1)`)\cr
+#'   Hierarchy id to query.
+#' @param key (`character()`)\cr
+#'   The series keys to query.
+#' @param start_period (`character(1)` | `integer(1)`)\cr
+#'   Start date of the data.
+#' @param end_period (`character(1)` | `integer(1)`)\cr
+#'   End date of the data.
+#' @param freq (`character(1)`)\cr
+#'   Frequency of the data.
+#' @param lang (`character(1)`)\cr
+#'   Language to query. Default `"en"`.
+#' @param ... (`any`)\cr
+#'   Additional parameters to pass to the API.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>
 #' @family data

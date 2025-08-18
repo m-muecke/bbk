@@ -2,16 +2,25 @@
 #'
 #' Retrieve time series data from the BdF Webstat API.
 #'
-#' @param key (`character(1)`) key of the series to query. Default `NULL`.
-#' @param select (`character(1)`) select expression to filter the columns in the result.
-#' @param where (`character(1)`) where expression to filter the rows in the result.
-#' @param group_by (`character(1)`) group by expression to aggregate the result.
-#' @param order_by (`character(1)`) order by expression to sort the result.
-#' @param lang (`character(1)`) language to query. Default `"en"`.
-#' @param tz (`character(1)`) timezone to use for the query. Default `"UTC"`.
-#' @param api_args (named `list()`) of extra arguments appended to the API request.
+#' @param key (`character(1)`)\cr
+#'   The series key to query. Default `NULL`.
+#' @param select (`character(1)`)\cr
+#'   Select expression to filter the columns in the result.
+#' @param where (`character(1)`)\cr
+#'   Where expression to filter the rows in the result.
+#' @param group_by (`character(1)`)\cr
+#'   Group by expression to aggregate the result.
+#' @param order_by (`character(1)`)\cr
+#'   Order by expression to sort the result.
+#' @param lang (`character(1)`)\cr
+#'   Language to query. Default `"en"`.
+#' @param tz (`character(1)`)\cr
+#'   Timezone to use for the query. Default `"UTC"`.
+#' @param api_args (named `list()`)\cr
+#'   Of extra arguments appended to the API request.
 #'   Combined with the default arguments with [modifyList()].
-#' @param api_key (`character(1)`) API key to use for the request.
+#' @param api_key (`character(1)`)\cr
+#'   API key to use for the request.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
 #' @family data

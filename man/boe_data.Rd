@@ -10,11 +10,14 @@
 boe_data(key, start_date, end_date = Sys.Date())
 }
 \arguments{
-\item{key}{(\code{character()}) BoE series codes.}
+\item{key}{(\code{character()})\cr
+The series keys to query.}
 
-\item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the data.}
+\item{start_date}{(\code{character(1)} | \code{Date(1)})\cr
+Start date of the data.}
 
-\item{end_date}{(\code{character(1)} | \code{Date(1)}) end date of the data.}
+\item{end_date}{(\code{character(1)} | \code{Date(1)})\cr
+End date of the data.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

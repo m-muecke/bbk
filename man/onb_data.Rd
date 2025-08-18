@@ -18,19 +18,26 @@ onb_data(
 )
 }
 \arguments{
-\item{hier_id}{(\code{integer(1)}) hierarchy id to query.}
+\item{hier_id}{(\code{integer(1)})\cr
+Hierarchy id to query.}
 
-\item{key}{(\code{character()}) key to query.}
+\item{key}{(\code{character()})\cr
+The series keys to query.}
 
-\item{start_period}{(\code{character(1)} | \code{integer(1)}) start date of the data.}
+\item{start_period}{(\code{character(1)} | \code{integer(1)})\cr
+Start date of the data.}
 
-\item{end_period}{(\code{character(1)} | \code{integer(1)}) end date of the data.}
+\item{end_period}{(\code{character(1)} | \code{integer(1)})\cr
+End date of the data.}
 
-\item{freq}{(\code{character(1)}) frequency of the data.}
+\item{freq}{(\code{character(1)})\cr
+Frequency of the data.}
 
-\item{lang}{(\code{character(1)}) language to query. Default \code{"en"}.}
+\item{lang}{(\code{character(1)})\cr
+Language to query. Default \code{"en"}.}
 
-\item{...}{additional parameters to pass to the API.}
+\item{...}{(\code{any})\cr
+Additional parameters to pass to the API.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

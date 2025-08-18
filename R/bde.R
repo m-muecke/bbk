@@ -7,9 +7,10 @@
 #' [BIEST](https://app.bde.es/bie_www/bie_wwwias/xml/Arranque.html) application or in the tables
 #' published by the Banco de España.
 #'
-#' @param key (`character()`) the series keys to retrieve data for.
-#' @param time_range (`character(1)` | `integer(1)`) the time range for the data.
-#'   Can be an annual range (e.g., `2024`) or a frequency-based code:
+#' @param key (`character()`)\cr
+#'   The series keys to query.
+#' @param time_range (`character(1)` | `integer(1)`)\cr
+#'   The time range for the data. Can be an annual range (e.g., `2024`) or a frequency-based code:
 #'   * Daily frequency (D): `"3M"` (last 3 months), `"12M"`, `"36M"`
 #'   * Monthly frequency (M): `"30M"`, `"60M"`, `"MAX"` (entire series)
 #'   * Quarterly frequency (Q): `"30M"`, `"60M"`, `"MAX"`
@@ -17,7 +18,8 @@
 #'
 #'   If `NULL` (default), returns the smallest range for the series frequency
 #'   (e.g., `"30M"` for monthly series).
-#' @param lang (`character(1)`)  language to query, either `"en"` or `"es"`.
+#' @param lang (`character(1)`)\cr
+#'   Language to query, either `"en"` or `"es"`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>
 #' @family data

@@ -7,8 +7,8 @@
 #' Note you can achieve the same by calling the [ecb_data()] function with the right
 #' parameters for each currency.
 #'
-#' The reference rates are usually updated at around 16:00 CET every working day,
-#' except on [TARGET closing days](https://www.ecb.europa.eu/ecb/contacts/working-hours/html/index.en.html).
+#' The reference rates are usually updated at around 16:00 CET every working day, except on [TARGET
+#' closing days](https://www.ecb.europa.eu/ecb/contacts/working-hours/html/index.en.html).
 #'
 #' They are based on the daily concertation procedure between central banks across
 #' Europe, which normally takes place around 14:10 CET. The reference rates are

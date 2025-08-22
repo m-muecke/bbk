@@ -2,11 +2,14 @@
 #'
 #' Retrieve time series data from the SNB data portal.
 #'
-#' @param key (`character(1)`) the series key to query.
-#' @param start_date (`character(1)` | `Date(1)`) start date of the data.
-#' @param end_date (`character(1)` | `Date(1)`) end date of the data.
-#' @param lang (`character(1)`) language to query, either `"en"` or `"de"`.
-#'   Default `"en"`.
+#' @param key (`character(1)`)\cr
+#'   The series key to query.
+#' @param start_date (`character(1)` | `Date(1)`)\cr
+#'   Start date of the data.
+#' @param end_date (`character(1)` | `Date(1)`)\cr
+#'   End date of the data.
+#' @param lang (`character(1)`)\cr
+#'   Language to query, either `"en"` or `"de"`. Default `"en"`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @export
 #' @source <https://data.snb.ch/en>

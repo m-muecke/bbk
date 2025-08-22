@@ -10,14 +10,17 @@
 snb_data(key, start_date = NULL, end_date = NULL, lang = c("en", "de"))
 }
 \arguments{
-\item{key}{(\code{character(1)}) the series key to query.}
+\item{key}{(\code{character(1)})\cr
+The series key to query.}
 
-\item{start_date}{(\code{character(1)} | \code{Date(1)}) start date of the data.}
+\item{start_date}{(\code{character(1)} | \code{Date(1)})\cr
+Start date of the data.}
 
-\item{end_date}{(\code{character(1)} | \code{Date(1)}) end date of the data.}
+\item{end_date}{(\code{character(1)} | \code{Date(1)})\cr
+End date of the data.}
 
-\item{lang}{(\code{character(1)}) language to query, either \code{"en"} or \code{"de"}.
-Default \code{"en"}.}
+\item{lang}{(\code{character(1)})\cr
+Language to query, either \code{"en"} or \code{"de"}. Default \code{"en"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

@@ -24,8 +24,7 @@ the European Central Bank (ECB).
 Note you can achieve the same by calling the \code{\link[=ecb_data]{ecb_data()}} function with the right
 parameters for each currency.
 
-The reference rates are usually updated at around 16:00 CET every working day,
-except on \href{https://www.ecb.europa.eu/ecb/contacts/working-hours/html/index.en.html}{TARGET closing days}.
+The reference rates are usually updated at around 16:00 CET every working day, except on \href{https://www.ecb.europa.eu/ecb/contacts/working-hours/html/index.en.html}{TARGET closing days}.
 
 They are based on the daily concertation procedure between central banks across
 Europe, which normally takes place around 14:10 CET. The reference rates are

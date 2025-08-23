@@ -131,7 +131,7 @@ bbk_series <- function(key) {
 #' bbk_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
 #' bbk_metadata("concept", "CS_BBK_BSPL")
 #' }
-bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
+bbk_metadata <- function(type, id = NULL, lang = "en") {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   args <- switch(
     type,

@@ -21,6 +21,8 @@ reference:
     contents:
       - bbk_metadata
       - ecb_metadata
-      - onb_content
+      - onb_dimensions
       - onb_frequency
+      - onb_hierarchy
       - onb_metadata
+      - onb_toc

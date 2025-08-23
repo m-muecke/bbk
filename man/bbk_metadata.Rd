@@ -7,7 +7,7 @@
 \url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
 }
 \usage{
-bbk_metadata(type, id = NULL, lang = c("en", "de"))
+bbk_metadata(type, id = NULL, lang = "en")
 }
 \arguments{
 \item{type}{(\code{character(1)})\cr

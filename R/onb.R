@@ -45,11 +45,20 @@ onb_data <- function(
   lang = "en"
 ) {
   hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
-  assert_character(key)
-  assert(check_null(start_period), check_string(start_period), check_count(start_period))
-  assert(check_null(end_period), check_string(end_period), check_count(end_period))
-  assert_string(freq, null.ok = TRUE)
+  assert_character(key, min.chars = 1L)
+  assert(
+    check_null(start_period),
+    check_string(start_period, min.chars = 1L),
+    check_count(start_period, positive = TRUE)
+  )
+  assert(
+    check_null(end_period),
+    check_string(end_period, min.chars = 1L),
+    check_count(end_period, positive = TRUE)
+  )
+  assert_string(freq, min.chars = 1L, null.ok = TRUE)
   assert_string(lang, n.chars = 2L)
+
   xml <- onb(
     resource = "data",
     hierid = hier_id,
@@ -94,8 +103,9 @@ parse_onb_data <- function(xml) {
 #' }
 onb_metadata <- function(hier_id, key, ..., lang = "en") {
   hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
-  assert_string(key)
+  assert_string(key, min.chars = 1L)
   assert_string(lang, n.chars = 2L)
+
   xml <- onb(resource = "meta", hierid = hier_id, pos = key, lang = toupper(lang), ...)
   parse_onb_metadata(xml)
 }
@@ -123,8 +133,9 @@ parse_onb_metadata <- function(xml) {
 #' }
 onb_frequency <- function(hier_id, key, lang = "en", ...) {
   hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
-  assert_string(key, null.ok = TRUE)
+  assert_string(key, min.chars = 1L, null.ok = TRUE)
   assert_string(lang, n.chars = 2L)
+
   xml <- onb(resource = "datafrequency", hierid = hier_id, pos = key, lang = toupper(lang), ...)
   parse_onb_frequency(xml)
 }
@@ -188,8 +199,9 @@ onb_hierarchy <- function(hier_id, lang = "en") {
 #' }
 onb_dimensions <- function(hier_id, key, lang = "en") {
   hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
-  assert_string(key)
+  assert_string(key, min.chars = 1L)
   assert_string(lang, n.chars = 2L)
+
   xml <- onb(resource = "content", hierid = hier_id, pos = key, lang = toupper(lang))
   parse_onb_dimensions(xml)
 }

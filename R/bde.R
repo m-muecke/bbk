@@ -31,8 +31,12 @@
 #' bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #' }
 bde_data <- function(key, time_range = NULL, lang = "en") {
-  assert_character(key)
-  assert(check_null(time_range), check_string(time_range), check_count(time_range))
+  assert_character(key, min.chars = 1L)
+  assert(
+    check_null(time_range),
+    check_string(time_range, min.chars = 1L),
+    check_count(time_range, positive = TRUE)
+  )
   assert_choice(lang, c("en", "es"))
   json <- bde(key, time_range, lang)
   parse_bde_data(json)

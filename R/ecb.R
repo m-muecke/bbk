@@ -45,10 +45,18 @@ ecb_data <- function(
   first_n = NULL,
   last_n = NULL
 ) {
-  assert_string(flow)
-  assert_character(key, null.ok = TRUE)
-  assert(check_null(start_period), check_string(start_period), check_count(start_period))
-  assert(check_null(end_period), check_string(end_period), check_count(end_period))
+  assert_string(flow, min.chars = 1L)
+  assert_character(key, min.chars = 1L, null.ok = TRUE)
+  assert(
+    check_null(start_period),
+    check_string(start_period, min.chars = 1L),
+    check_count(start_period, positive = TRUE)
+  )
+  assert(
+    check_null(end_period),
+    check_string(end_period, min.chars = 1L),
+    check_count(end_period, positive = TRUE)
+  )
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
@@ -103,8 +111,8 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
 }
 
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
-  assert_string(agency, null.ok = TRUE)
-  assert_string(id, null.ok = TRUE)
+  assert_string(agency, min.chars = 1L, null.ok = TRUE)
+  assert_string(id, min.chars = 1L, null.ok = TRUE)
   agency <- if (!is.null(agency)) toupper(agency) else "all"
   id <- if (!is.null(id)) toupper(id) else "all"
   resource <- paste(resource, agency, id, sep = "/")

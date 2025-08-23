@@ -44,14 +44,14 @@ bdf_data <- function(
   api_args = list(),
   api_key = bdf_key()
 ) {
-  assert_string(key, null.ok = TRUE)
-  assert_string(select, null.ok = TRUE)
-  assert_string(where, null.ok = TRUE)
-  assert_string(group_by, null.ok = TRUE)
-  assert_string(order_by, null.ok = TRUE)
+  assert_string(key, min.chars = 1L, null.ok = TRUE)
+  assert_string(select, min.chars = 1L, null.ok = TRUE)
+  assert_string(where, min.chars = 1L, null.ok = TRUE)
+  assert_string(group_by, min.chars = 1L, null.ok = TRUE)
+  assert_string(order_by, min.chars = 1L, null.ok = TRUE)
   assert_string(lang, n.chars = 2L)
-  assert_string(tz)
-  assert_string(api_key)
+  assert_string(tz, min.chars = 1L)
+  assert_string(api_key, min.chars = 1L)
   assert_list(api_args, names = "named")
 
   url <- "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observations/exports/csv" # nolint

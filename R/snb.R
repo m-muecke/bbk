@@ -21,9 +21,18 @@
 #' snb_data("rendopar", "2020-01-01", "2020-12-31")
 #' }
 snb_data <- function(key, start_date = NULL, end_date = NULL, lang = "en") {
-  assert(check_null(start_date), check_date(start_date), check_string(start_date))
-  assert(check_null(end_date), check_date(end_date), check_string(end_date))
+  assert(
+    check_null(start_date),
+    check_date(start_date, len = 1L),
+    check_string(start_date, min.chars = 1L)
+  )
+  assert(
+    check_null(end_date),
+    check_date(end_date, len = 1L),
+    check_string(end_date, min.chars = 1L)
+  )
   assert_choice(lang, c("en", "de"))
+
   json <- snb(id = key, fromDate = start_date, toDate = end_date, lang = lang)
   parse_snb_data(json)
 }

@@ -57,9 +57,17 @@ bbk_data <- function(
   last_n = NULL
 ) {
   assert_string(flow, min.chars = 5L, max.chars = 8L)
-  assert_character(key, null.ok = TRUE)
-  assert(check_null(start_period), check_string(start_period), check_count(start_period))
-  assert(check_null(end_period), check_string(end_period), check_count(end_period))
+  assert_character(key, min.chars = 1L, null.ok = TRUE)
+  assert(
+    check_null(start_period),
+    check_string(start_period, min.chars = 1L),
+    check_count(start_period, positive = TRUE)
+  )
+  assert(
+    check_null(end_period),
+    check_string(end_period, min.chars = 1L),
+    check_count(end_period, positive = TRUE)
+  )
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
@@ -98,7 +106,7 @@ bbk_data <- function(
 #' bbk_series("BBBK11.D.TTA000")
 #' }
 bbk_series <- function(key) {
-  assert_string(key)
+  assert_string(key, min.chars = 1L)
   body <- bbk_build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
     req_perform() |>
@@ -274,7 +282,7 @@ parse_bbk_data <- function(xml) {
 
 fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   assert_choice(lang, c("en", "de"))
-  assert_string(id, null.ok = TRUE)
+  assert_string(id, min.chars = 1L, null.ok = TRUE)
   resource <- paste("metadata", resource, sep = "/")
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")

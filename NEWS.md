@@ -1,5 +1,6 @@
 # bbk (development version)
 
+* Switch to checkmate for input validation.
 * Documentation improvements.
 * Support for Bank of England (BoE) data.
 * Support for Banque de France (BdF) data.

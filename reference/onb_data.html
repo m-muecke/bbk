@@ -117,12 +117,129 @@ Additional parameters to pass to the API.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">onb_data</span><span class="op">(</span>hier_id <span class="op">=</span> <span class="fl">11</span>, key <span class="op">=</span> <span class="st">"VDBFKBSC217000"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         date            key value                                title   freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;         &lt;char&gt; &lt;num&gt;                               &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:    1998 VDBFKBSC217000  2558 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:    1999 VDBFKBSC217000 15780 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:    2000 VDBFKBSC217000  9552 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:    2001 VDBFKBSC217000  5538 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:    2002 VDBFKBSC217000  7815 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 354: 2025-03 VDBFKBSC217000  1821 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 355: 2025-04 VDBFKBSC217000  2368 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 356: 2025-05 VDBFKBSC217000  2030 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 357: 2025-06 VDBFKBSC217000  2064 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 358: 2025-07 VDBFKBSC217000  1872 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;  &lt;char&gt; &lt;char&gt; &lt;char&gt;    &lt;char&gt;       &lt;char&gt;    &lt;char&gt;    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 354:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 355:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 356:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 357:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 358:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      unit_mult        unit_text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;           &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 354:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 355:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 356:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 357:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 358:         6 in millions Euro</span>
 <span class="r-in"><span><span class="co"># Loans to euro area residents, since 2000:</span></span></span>
 <span class="r-in"><span><span class="fu">onb_data</span><span class="op">(</span>hier_id <span class="op">=</span> <span class="fl">11</span>, key <span class="op">=</span> <span class="st">"VDBFKBSC217000"</span>, start_period <span class="op">=</span> <span class="st">"2000-01-01"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         date            key value                                title   freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;         &lt;char&gt; &lt;num&gt;                               &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:    2000 VDBFKBSC217000  9552 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:    2001 VDBFKBSC217000  5538 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:    2002 VDBFKBSC217000  7815 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:    2003 VDBFKBSC217000  6933 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:    2004 VDBFKBSC217000 10963 Loans to euro area residents - total      A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 328: 2025-03 VDBFKBSC217000  1821 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 329: 2025-04 VDBFKBSC217000  2368 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 330: 2025-05 VDBFKBSC217000  2030 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 331: 2025-06 VDBFKBSC217000  2064 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 332: 2025-07 VDBFKBSC217000  1872 Loans to euro area residents - total      M</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;  &lt;char&gt; &lt;char&gt; &lt;char&gt;    &lt;char&gt;       &lt;char&gt;    &lt;char&gt;    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 328:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 329:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 330:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 331:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 332:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      unit_mult        unit_text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;           &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 328:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 329:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 330:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 331:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 332:         6 in millions Euro</span>
 <span class="r-in"><span><span class="co"># Austrian imports and exports of goods from/to Germany, 2002–2012, annual frequency:</span></span></span>
 <span class="r-in"><span><span class="fu">onb_data</span><span class="op">(</span>hier_id <span class="op">=</span> <span class="fl">901</span>, key <span class="op">=</span> <span class="st">"VDBQZA1000"</span>, start_period <span class="op">=</span> <span class="fl">2002</span>, end_period <span class="op">=</span> <span class="fl">2012</span>, freq <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         date        key  value  title   freq  attr1  attr2  attr3  attr4  attr5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;     &lt;char&gt;  &lt;num&gt; &lt;char&gt; &lt;char&gt; &lt;char&gt; &lt;char&gt; &lt;char&gt; &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:   2002 VDBQZA1000    596  Goods      A     AT      D     TR    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:   2003 VDBQZA1000    679  Goods      A     AT      D     TR    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:   2004 VDBQZA1000    722  Goods      A     AT      D     TR    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:   2005 VDBQZA1000    786  Goods      A     AT      D     TR    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:   2006 VDBQZA1000    782  Goods      A     AT      D     TR    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2603:   2008 VDBQZA1000  96077  Goods      A     AT      D ZALCA8    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2604:   2009 VDBQZA1000  79696  Goods      A     AT      D ZALCA8    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2605:   2010 VDBQZA1000  93865  Goods      A     AT      D ZALCA8    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2606:   2011 VDBQZA1000 105492  Goods      A     AT      D ZALCA8    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2607:   2012 VDBQZA1000 105634  Goods      A     AT      D ZALCA8    000    000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        attr6  attr7 attr1_dim     attr2_dim     attr3_dim  attr4_dim attr5_dim</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt; &lt;char&gt;    &lt;char&gt;        &lt;char&gt;        &lt;char&gt;     &lt;char&gt;    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2603:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2604:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2605:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2606:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2607:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          attr6_dim     attr7_dim unit_mult        unit_text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;char&gt;        &lt;char&gt;    &lt;char&gt;           &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2603: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2604: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2605: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2606: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2607: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro</span>
 <span class="r-in"><span><span class="co"># Number of Austrian banks' subsidiaries abroad an in the EU, from 2005, semiannual:</span></span></span>
 <span class="r-in"><span><span class="fu">onb_data</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  hier_id <span class="op">=</span> <span class="fl">321</span>,</span></span>
@@ -130,7 +247,256 @@ Additional parameters to pass to the API.</p></dd>
 <span class="r-in"><span>  start_period <span class="op">=</span> <span class="fl">200501</span>,</span></span>
 <span class="r-in"><span>  freq <span class="op">=</span> <span class="st">"H"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        date           key value                                           title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;        &lt;char&gt; &lt;num&gt;                                          &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2005-B1 VDBKISDANZTAU    90                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2005-B2 VDBKISDANZTAU    90                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2006-B1 VDBKISDANZTAU    96                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2006-B2 VDBKISDANZTAU    96                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2007-B1 VDBKISDANZTAU    96                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2007-B2 VDBKISDANZTAU   102                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2008-B1 VDBKISDANZTAU   107                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2008-B2 VDBKISDANZTAU   103                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2009-B1 VDBKISDANZTAU   105                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2009-B2 VDBKISDANZTAU   103                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2010-B1 VDBKISDANZTAU   103                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2010-B2 VDBKISDANZTAU   107                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2011-B1 VDBKISDANZTAU   105                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2011-B2 VDBKISDANZTAU   105                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2012-B1 VDBKISDANZTAU   103                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2012-B2 VDBKISDANZTAU   101                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2013-B1 VDBKISDANZTAU    96                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2013-B2 VDBKISDANZTAU    93                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2014-B1 VDBKISDANZTAU    89                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2014-B2 VDBKISDANZTAU    85                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2015-B1 VDBKISDANZTAU    83                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2015-B2 VDBKISDANZTAU    83                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2016-B1 VDBKISDANZTAU    80                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2016-B2 VDBKISDANZTAU    60                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2017-B1 VDBKISDANZTAU    60                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2017-B2 VDBKISDANZTAU    58                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2018-B1 VDBKISDANZTAU    57                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2018-B2 VDBKISDANZTAU    55                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2019-B1 VDBKISDANZTAU    42                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2019-B2 VDBKISDANZTAU    53                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31: 2020-B1 VDBKISDANZTAU    53                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32: 2020-B2 VDBKISDANZTAU    53                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33: 2021-B1 VDBKISDANZTAU    53                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34: 2021-B2 VDBKISDANZTAU    55                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35: 2022-B1 VDBKISDANZTAU    47                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36: 2022-B2 VDBKISDANZTAU    41                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37: 2023-B1 VDBKISDANZTAU    40                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38: 2023-B2 VDBKISDANZTAU    40                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39: 2024-B1 VDBKISDANZTAU    39                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40: 2024-B2 VDBKISDANZTAU    37                  number of foreign subsidiaries</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41: 2005-B1 VDBKISDANZTEU    45 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42: 2005-B2 VDBKISDANZTEU    45 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43: 2006-B1 VDBKISDANZTEU    45 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44: 2006-B2 VDBKISDANZTEU    45 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45: 2007-B1 VDBKISDANZTEU    54 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46: 2007-B2 VDBKISDANZTEU    55 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47: 2008-B1 VDBKISDANZTEU    54 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48: 2008-B2 VDBKISDANZTEU    52 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49: 2009-B1 VDBKISDANZTEU    53 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50: 2009-B2 VDBKISDANZTEU    51 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51: 2010-B1 VDBKISDANZTEU    51 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52: 2010-B2 VDBKISDANZTEU    55 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53: 2011-B1 VDBKISDANZTEU    54 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54: 2011-B2 VDBKISDANZTEU    54 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55: 2012-B1 VDBKISDANZTEU    54 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56: 2012-B2 VDBKISDANZTEU    53 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57: 2013-B1 VDBKISDANZTEU    51 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58: 2013-B2 VDBKISDANZTEU    57 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59: 2014-B1 VDBKISDANZTEU    53 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60: 2014-B2 VDBKISDANZTEU    51 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61: 2015-B1 VDBKISDANZTEU    49 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62: 2015-B2 VDBKISDANZTEU    49 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63: 2016-B1 VDBKISDANZTEU    46 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64: 2016-B2 VDBKISDANZTEU    35 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65: 2017-B1 VDBKISDANZTEU    35 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66: 2017-B2 VDBKISDANZTEU    34 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67: 2018-B1 VDBKISDANZTEU    35 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68: 2018-B2 VDBKISDANZTEU    33 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69: 2019-B1 VDBKISDANZTEU    26 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70: 2019-B2 VDBKISDANZTEU    32 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71: 2020-B1 VDBKISDANZTEU    32 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72: 2020-B2 VDBKISDANZTEU    32 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73: 2021-B1 VDBKISDANZTEU    32 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74: 2021-B2 VDBKISDANZTEU    35 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75: 2022-B1 VDBKISDANZTEU    27 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76: 2022-B2 VDBKISDANZTEU    24 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77: 2023-B1 VDBKISDANZTEU    24 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78: 2023-B2 VDBKISDANZTEU    24 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79: 2024-B1 VDBKISDANZTEU    24 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80: 2024-B2 VDBKISDANZTEU    23 number of foreign subsidiaries hereof in the EU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        date           key value                                           title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       freq  attr1     attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;char&gt; &lt;char&gt;    &lt;char&gt; &lt;char&gt; &lt;char&gt;    &lt;char&gt;       &lt;char&gt;    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80:      H     AT BS0100510     Z5    Z0Z PRODUZENT BANKENSEKTOR    REGION</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       freq  attr1     attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     attr4_dim unit_mult unit_text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;char&gt;    &lt;char&gt;    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80:  WAEHRUNG         0   in ones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     attr4_dim unit_mult unit_text</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

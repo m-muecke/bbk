@@ -87,14 +87,188 @@ Additional parameters to pass to the API.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># table of contents</span></span></span>
 <span class="r-in"><span><span class="fu">onb_content</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            id parent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:         1      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:        11      1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:        18      1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:        13      1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:        14      1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 100140001     14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 100140002     14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:         2      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:        22      2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:        23      2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:        24      2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:        25      2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:      2502     25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:         3      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:        31      3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:      3101     31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:       318     31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:       321     31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:      3102     31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:      3103     31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:      3104     31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:        32      3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:        33      3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:        34      3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:        35      3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:         4      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:        41      4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:         6      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:         7      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:        74      7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:        75      7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:         8      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:         9      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:       901      9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:       902      9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:       904      9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:       905      9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:        97      9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            id parent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                      description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                           &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:                                                     OeNB, Eurosystem and monetary indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:                                     Balance sheet items of the Oesterreichische Nationalbank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:                                        International reserves and foreign currency liquidity</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:                                          Monetary aggregates, consolidated MFI balance sheet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:                                                                   Loans and deposits of MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:                                                                         Development of loans</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:                                                                   Loans and deposits of MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:                                                            Interest rates and exchange rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:                          Euro area money market interest rates and Eurosystem Interest Rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:                                                        Interest rates of credit institutions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:                                                              Austrian government bond yields</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:                                                                               Exchange rates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:                                                  Effective exchange rate indices of the Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:                                                                       Financial institutions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:                                                                                        Banks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:                                      Balance Sheet and Profit &amp; Loss Account - Selected Data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:                                                               Building and Loan Associations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:                                                                              Number of Banks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:                                                                              Severance Funds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: Foreign subsidiaries, which are fully consolidated by Austrian groups of credit institutions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:                  Aggregated regulatory capital requirements, financial and income statements</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:                                                                                 Mutual funds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:                                                                                Pension funds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:                                                                          Insurance companies</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:                                Instruments subject to credit risk in accordance with FinStab</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:                                                                                   Securities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:                                                                              Debt securities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:                                                                      Prices, competitiveness</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:                                                             Economic and industry indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:                                                                           General government</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:                                                                          Economic indicators</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:                                                                           Financial accounts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:                                                                              External sector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:                                    Balance of payments and International Investment Position</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:                                                                            Direct investment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:                                                                         Portfolio investment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:                                                                             Other investment</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:                                                                    Foreign trade and tourism</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                      description</span>
 <span class="r-in"><span><span class="co"># several positions of the same hierarchy</span></span></span>
 <span class="r-in"><span><span class="fu">onb_content</span><span class="op">(</span>hier_id <span class="op">=</span> <span class="fl">11</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           group             id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;char&gt;         &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:    all data VDBFKBSC217000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:    all data VDBFKBSC217001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:    all data VDBFKBSC217013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:    all data VDBFKBSC217010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:    all data VDBFKBSC317000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:    all data VDBFKBSC317001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7:    all data VDBFKBSC317013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:    all data VDBFKBSC317010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:    all data VDBFKBSC507001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:    all data VDBFKBSC507013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:    all data VDBFKBSC203000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:    all data VDBFKBSC507000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:    all data VDBFKBSC830000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:    all data VDBFKBSC917001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:    all data VDBFKBSC917014</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:    all data VDBFKBSC917009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:    all data VDBFKBSX917000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:    all data VDBFKBSC127000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:    all data VDBFKBSC117000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:    all data VDBFKBSC403000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:      Assets VDBFKBSC217000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:      Assets VDBFKBSC217001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:      Assets VDBFKBSC217013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:      Assets VDBFKBSC217010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:      Assets VDBFKBSC317000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:      Assets VDBFKBSC317001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27:      Assets VDBFKBSC317013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:      Assets VDBFKBSC317010</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:      Assets VDBFKBSC507001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:      Assets VDBFKBSC507013</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:      Assets VDBFKBSC203000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:      Assets VDBFKBSC507000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33: Liabilities VDBFKBSC830000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34: Liabilities VDBFKBSC917001</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35: Liabilities VDBFKBSC917014</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36: Liabilities VDBFKBSC917009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37: Liabilities VDBFKBSX917000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38: Liabilities VDBFKBSC127000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39: Liabilities VDBFKBSC117000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40: Liabilities VDBFKBSC403000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           group             id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                               &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1:                                             Loans to euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2:                                              Loans to euro area residents - MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3:                                Loans to euro area residents - general government</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4:                                               Loans to other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5:   Holdings of securities other than shares issued by euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6:     Collected within the framework of the balance sheet report to the ECB  MFIs.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: Holdings of securities other than shares issued by euro area general governments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8:     Holdings of securities other than shares issued by other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9:                     Holdings of shares and other equity issued by euro area MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10:          Holdings of shares and other equity issued by other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11:                                External claims vis-à-vis non-euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12:        Holdings of shares and other equity issued by euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13:                            Banknotes issued pursuant to ECB Decision ECB/2001/15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14:                                         Liabilities - deposits of euro area MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15:                                                 Liabilities - central government</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16:                 Liabilities - other general government/other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17:                            Liabilities - deposits of euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18:                                           Liabilities - money market instruments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19:                                             Liabilities - debt securities issued</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20:                                                             External liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21:                                             Loans to euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22:                                              Loans to euro area residents - MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23:                                Loans to euro area residents - general government</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24:                                               Loans to other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25:   Holdings of securities other than shares issued by euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26:     Collected within the framework of the balance sheet report to the ECB  MFIs.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: Holdings of securities other than shares issued by euro area general governments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28:     Holdings of securities other than shares issued by other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29:                     Holdings of shares and other equity issued by euro area MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30:          Holdings of shares and other equity issued by other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31:                                External claims vis-à-vis non-euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32:        Holdings of shares and other equity issued by euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33:                            Banknotes issued pursuant to ECB Decision ECB/2001/15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34:                                         Liabilities - deposits of euro area MFIs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35:                                                 Liabilities - central government</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36:                 Liabilities - other general government/other euro area residents</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37:                            Liabilities - deposits of euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38:                                           Liabilities - money market instruments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39:                                             Liabilities - debt securities issued</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40:                                                             External liabilities</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                value</span>
 <span class="r-in"><span><span class="co"># dimensions for individual indicators</span></span></span>
 <span class="r-in"><span><span class="fu">onb_content</span><span class="op">(</span>hier_id <span class="op">=</span> <span class="fl">11</span>, key <span class="op">=</span> <span class="st">"VDBFKBSC217000"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       nr         name hidden</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;int&gt;       &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:     1    PRODUZENT  false</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:     2 BANKENSEKTOR  false</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:     3       REGION  false</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4:     4     WAEHRUNG   true</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

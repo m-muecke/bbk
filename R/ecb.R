@@ -169,7 +169,7 @@ parse_ecb_data <- function(xml) {
 
     as.data.table(data)
   })
-  res <- res |> rbindlist(fill = TRUE) |> setcolorder(the$col_order)
+  res <- res |> rbindlist(fill = TRUE) |> setcolorder(the$col_order, skip_absent = TRUE)
   res
 }
 

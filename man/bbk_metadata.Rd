@@ -42,8 +42,10 @@ bbk_metadata("concept", "CS_BBK_BSPL")
 \seealso{
 Other metadata: 
 \code{\link{ecb_metadata}()},
-\code{\link{onb_content}()},
+\code{\link{onb_dimensions}()},
 \code{\link{onb_frequency}()},
-\code{\link{onb_metadata}()}
+\code{\link{onb_hierarchy}()},
+\code{\link{onb_metadata}()},
+\code{\link{onb_toc}()}
 }
 \concept{metadata}

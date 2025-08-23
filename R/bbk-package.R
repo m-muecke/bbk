@@ -19,4 +19,4 @@
 "_PACKAGE"
 
 the <- new.env(parent = emptyenv())
-the$col_order <- c("date", "key", "value", "title", "freq")
+the$col_order <- c("date", "key", "value", "freq", "title", "description")

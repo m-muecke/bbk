@@ -43,8 +43,10 @@ ecb_metadata("datastructure", id = "ECB_EXR1")
 \seealso{
 Other metadata: 
 \code{\link{bbk_metadata}()},
-\code{\link{onb_content}()},
+\code{\link{onb_dimensions}()},
 \code{\link{onb_frequency}()},
-\code{\link{onb_metadata}()}
+\code{\link{onb_hierarchy}()},
+\code{\link{onb_metadata}()},
+\code{\link{onb_toc}()}
 }
 \concept{metadata}

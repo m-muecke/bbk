@@ -80,11 +80,11 @@ bdf_data <- function(
   tf <- tempfile()
   on.exit(unlink(tf), add = TRUE)
   req_perform(req, path = tf)
-  fread(file = tf, sep = ";", tz = )
+  fread(file = tf, sep = ";", tz = tz)
 }
 
 bdf_datasets <- function() {
-  url <- "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/webstat-datasets/exports/csv"
+  url <- "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/webstat-datasets/exports/csv" # nolint
   tf <- tempfile()
   request(url) |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>

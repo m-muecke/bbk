@@ -66,7 +66,7 @@ parse_bde_data <- function(json) {
     "value"
   )
   dt <- json |>
-    lapply(\(x) {
+    lapply(function(x) {
       dt <- as.data.table(x[names(x) != "informacion"])
       meta <- rbindlist(lapply(x$informacion, setDT))
       setnames(meta, c("name", "value"))
@@ -74,7 +74,7 @@ parse_bde_data <- function(json) {
       meta[, name := tolower(name)]
       meta[, name := gsub(" ", "_", tolower(name), fixed = TRUE)]
       meta[, name := gsub("[()]", "", name)]
-      ignore <- c(
+      exclude <- c(
         "name",
         "decimals",
         "first_value",
@@ -83,7 +83,7 @@ parse_bde_data <- function(json) {
         "min_value",
         "max_value"
       )
-      meta <- meta[!name %in% ignore]
+      meta <- meta[!name %in% exclude]
       meta <- transpose(meta, make.names = "name")
       setnames(meta, c("units", "description"), c("unit", "long_description"))
       dt[, names(meta) := meta]
@@ -97,7 +97,7 @@ parse_bde_data <- function(json) {
     names(.SD) := lapply(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")),
     .SDcols = patterns("date")
   ]
-  dt <- setcolorder(dt, the$col_order)
+  dt <- setcolorder(dt, the$col_order, skip_absent = TRUE)
   dt[]
 }
 

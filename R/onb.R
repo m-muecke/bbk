@@ -6,6 +6,8 @@
 #'   Hierarchy id to query.
 #' @param key (`character()`)\cr
 #'   The series keys to query.
+#' @param ... (`any`)\cr
+#'   Additional parameters to pass to the API.
 #' @param start_period (`character(1)` | `integer(1)`)\cr
 #'   Start date of the data.
 #' @param end_period (`character(1)` | `integer(1)`)\cr
@@ -14,8 +16,6 @@
 #'   Frequency of the data.
 #' @param lang (`character(1)`)\cr
 #'   Language to query. Default `"en"`.
-#' @param ... (`any`)\cr
-#'   Additional parameters to pass to the API.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>
 #' @family data
@@ -38,11 +38,11 @@
 onb_data <- function(
   hier_id,
   key,
+  ...,
   start_period = NULL,
   end_period = NULL,
   freq = NULL,
-  lang = "en",
-  ...
+  lang = "en"
 ) {
   stopifnot(
     is_count(hier_id),
@@ -80,7 +80,7 @@ parse_onb_data <- function(xml) {
     rbindlist() |>
     setnames(convert_camel_case) |>
     setnames(c("pos", "pos_title"), c("key", "title")) |>
-    setcolorder(the$col_order)
+    setcolorder(the$col_order, skip_absent = TRUE)
   dt
 }
 
@@ -94,7 +94,7 @@ parse_onb_data <- function(xml) {
 #' \donttest{
 #' onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 #' }
-onb_metadata <- function(hier_id, key, lang = "en", ...) {
+onb_metadata <- function(hier_id, key, ..., lang = "en") {
   stopifnot(
     is_count(hier_id),
     is_string(key),
@@ -150,7 +150,7 @@ parse_onb_frequency <- function(xml) {
   dt
 }
 
-#' Fetch Österreichische Nationalbank (OeNB) content
+#' Fetch Österreichische Nationalbank (OeNB) table of contents
 #'
 #' @inheritParams onb_data
 #' @inherit onb_data return
@@ -158,32 +158,54 @@ parse_onb_frequency <- function(xml) {
 #' @export
 #' @examples
 #' \donttest{
-#' # table of contents
-#' onb_content()
-#' # several positions of the same hierarchy
-#' onb_content(hier_id = 11)
-#' # dimensions for individual indicators
-#' onb_content(hier_id = 11, key = "VDBFKBSC217000")
+#' onb_toc()
 #' }
-onb_content <- function(hier_id = NULL, key = NULL, lang = "en", ...) {
+onb_toc <- function(lang = "en") {
+  stopifnot(is_string(lang))
+  xml <- onb(resource = "content", lang = toupper(lang), ...)
+  parse_onb_toc(xml)
+}
+
+#' Fetch Österreichische Nationalbank (OeNB) hierarchy
+#'
+#' @inheritParams onb_data
+#' @inherit onb_data return
+#' @family metadata
+#' @export
+#' @examples
+#' \donttest{
+#' onb_hierarchy(hier_id = 11)
+#' }
+onb_hierarchy <- function(hier_id, lang = "en") {
+  stopifnot(
+    is_count(hier_id, null_ok = TRUE),
+    is_string(lang)
+  )
+  xml <- onb(resource = "content", hierid = hier_id, lang = toupper(lang), ...)
+  parse_onb_hierarchy(xml)
+}
+
+#' Fetch Österreichische Nationalbank (OeNB) dimensions
+#'
+#' @inheritParams onb_data
+#' @inherit onb_data return
+#' @family metadata
+#' @export
+#' @examples
+#' \donttest{
+#' onb_dimensions(hier_id = 11, key = "VDBFKBSC217000")
+#' }
+onb_dimensions <- function(hier_id, key, lang = "en") {
   stopifnot(
     is_count(hier_id, null_ok = TRUE),
     is_string(key, null_ok = TRUE),
     is_string(lang)
   )
   xml <- onb(resource = "content", hierid = hier_id, pos = key, lang = toupper(lang), ...)
-  has_hier_id <- !is.null(hier_id)
-  has_key <- !is.null(key)
-  if (has_hier_id && has_key) {
-    parse_onb_content_dim(xml)
-  } else if (has_hier_id) {
-    parse_onb_content_hier(xml)
-  } else {
-    parse_onb_content(xml)
-  }
+  parse_onb_dimensions(xml)
 }
 
-parse_onb_content <- function(xml) {
+parse_onb_toc <- function(xml) {
   elem <- xml2::xml_find_all(xml, ".//content/element")
   dt <- elem |>
     xml2::xml_attrs() |>
@@ -194,7 +216,7 @@ parse_onb_content <- function(xml) {
   dt[, description := desc][]
 }
 
-parse_onb_content_hier <- function(xml) {
+parse_onb_hierarchy <- function(xml) {
   xml |>
     xml2::xml_find_all(".//group") |>
     lapply(function(grp) {
@@ -208,7 +230,7 @@ parse_onb_content_hier <- function(xml) {
     rbindlist()
 }
 
-parse_onb_content_dim <- function(xml) {
+parse_onb_dimensions <- function(xml) {
   dt <- xml |>
     xml2::xml_find_all(".//data_content/structure/dimension") |>
     xml2::xml_attrs() |>

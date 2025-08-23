@@ -10,11 +10,11 @@
 onb_data(
   hier_id,
   key,
+  ...,
   start_period = NULL,
   end_period = NULL,
   freq = NULL,
-  lang = "en",
-  ...
+  lang = "en"
 )
 }
 \arguments{
@@ -23,6 +23,9 @@ Hierarchy id to query.}
 
 \item{key}{(\code{character()})\cr
 The series keys to query.}
+
+\item{...}{(\code{any})\cr
+Additional parameters to pass to the API.}
 
 \item{start_period}{(\code{character(1)} | \code{integer(1)})\cr
 Start date of the data.}
@@ -35,9 +38,6 @@ Frequency of the data.}
 
 \item{lang}{(\code{character(1)})\cr
 Language to query. Default \code{"en"}.}
-
-\item{...}{(\code{any})\cr
-Additional parameters to pass to the API.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

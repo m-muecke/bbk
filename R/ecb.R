@@ -169,10 +169,8 @@ parse_ecb_data <- function(xml) {
 
     as.data.table(data)
   })
-  cols <- lapply(res, names)
-  cols <- Reduce(intersect, cols)
-  cols <- union(c("date", "key", "value", "title", "description"), cols)
-  rbindlist(lapply(res, \(x) x[, cols, with = FALSE]))
+  res <- res |> rbindlist(fill = TRUE) |> setcolorder(the$col_order)
+  res
 }
 
 parse_ecb_metadata <- function(x, lang = "en") {

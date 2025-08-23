@@ -56,7 +56,7 @@ parse_boe_data <- function(xml) {
     vals <- xml2::xml_find_all(x, "./Cube[@TIME and @OBS_VALUE]")
     date <- vals |> xml2::xml_attr("TIME") |> as.Date()
     value <- vals |> xml2::xml_attr("OBS_VALUE") |> as.numeric()
-    dt <- data.table(date = date, id = id, value = value, desc = desc, freq = freq_name)
+    dt <- data.table(date = date, id = id, value = value, description = desc, freq = freq_name)
     setnames(dt, "id", "key")
     dt[, (names(attrs)) := attrs]
   })

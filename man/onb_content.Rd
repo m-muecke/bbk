@@ -26,7 +26,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Fetch Österreichische Nationalbank (OeNB) content
 }
 \examples{
-\dontrun{
+\donttest{
 # table of contents
 onb_content()
 # several positions of the same hierarchy

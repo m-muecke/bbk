@@ -26,7 +26,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Fetch Österreichische Nationalbank (OeNB) data frequency
 }
 \examples{
-\dontrun{
+\donttest{
 onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 }

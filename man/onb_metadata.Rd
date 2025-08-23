@@ -26,7 +26,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Fetch Österreichische Nationalbank (OeNB) metadata
 }
 \examples{
-\dontrun{
+\donttest{
 onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 }
 }

@@ -46,7 +46,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Retrieve time series data from the OeNB Web Service.
 }
 \examples{
-\dontrun{
+\donttest{
 onb_data(hier_id = 11, key = "VDBFKBSC217000")
 # Loans to euro area residents, since 2000:
 onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")

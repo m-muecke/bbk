@@ -21,7 +21,7 @@
 #' @family data
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' onb_data(hier_id = 11, key = "VDBFKBSC217000")
 #' # Loans to euro area residents, since 2000:
 #' onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
@@ -91,7 +91,7 @@ parse_onb_data <- function(xml) {
 #' @family metadata
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 #' }
 onb_metadata <- function(hier_id, key, lang = "en", ...) {
@@ -121,7 +121,7 @@ parse_onb_metadata <- function(xml) {
 #' @family metadata
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 #' onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 #' }
@@ -157,7 +157,7 @@ parse_onb_frequency <- function(xml) {
 #' @family metadata
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # table of contents
 #' onb_content()
 #' # several positions of the same hierarchy

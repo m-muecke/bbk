@@ -7,7 +7,7 @@
 #' @param start_date (`character(1)` | `Date(1)`)\cr
 #'   Start date of the data.
 #' @param end_date (`character(1)` | `Date(1)`)\cr
-#'   End date of the data.
+#'   End date of the data. Default is today's date.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bankofengland.co.uk/boeapps/database>
 #' @family data

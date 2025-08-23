@@ -14,10 +14,10 @@ ecb_metadata(type, agency = NULL, id = NULL)
 The type of metadata to query. One of: \code{"datastructure"}, \code{"dataflow"}, \code{"codelist"}, or
 \code{"concept"}.}
 
-\item{agency}{(\code{character(1)})\cr
+\item{agency}{(\code{NULL} | \code{character(1)})\cr
 The id of the agency to query. Default \code{NULL}.}
 
-\item{id}{(\code{character(1)})\cr
+\item{id}{(\code{NULL} | \code{character(1)})\cr
 The id of the resource to query. Default \code{NULL}.}
 }
 \value{

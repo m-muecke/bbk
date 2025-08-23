@@ -6,7 +6,7 @@
 #'   Flow to query.
 #' @param key (`character()`)\cr
 #'   The series keys to query.
-#' @param start_period (`character(1)`)\cr
+#' @param start_period (`NULL` | `character(1)`)\cr
 #'   Start date of the data. Supported formats:
 #'   * YYYY for annual data (e.g., `2019`)
 #'   * YYYY-S\[1-2\] for semi-annual data (e.g., `"2019-S1"`)
@@ -17,13 +17,13 @@
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the earliest available
 #'   date). Default `NULL`.
-#' @param end_period (`character(1)`)\cr
+#' @param end_period (`NULL` | `character(1)`)\cr
 #'   End date of the data, in the same format as start_period. If `NULL`, no end date restriction is
 #'   applied (data retrieved up to the most recent available date). Default `NULL`.
-#' @param first_n (`numeric(1)`)\cr
+#' @param first_n (`NULL` | `numeric(1)`)\cr
 #'   Number of observations to retrieve from the start of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
-#' @param last_n (`numeric(1)`)\cr
+#' @param last_n (`NULL` | `numeric(1)`)\cr
 #'   Number of observations to retrieve from the end of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
@@ -71,9 +71,9 @@ ecb_data <- function(
 #' @param type (`character(1)`)\cr
 #'   The type of metadata to query. One of: `"datastructure"`, `"dataflow"`, `"codelist"`, or
 #'   `"concept"`.
-#' @param agency (`character(1)`)\cr
+#' @param agency (`NULL` | `character(1)`)\cr
 #'   The id of the agency to query. Default `NULL`.
-#' @param id (`character(1)`)\cr
+#' @param id (`NULL` | `character(1)`)\cr
 #'   The id of the resource to query. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested metadata.
 #' The columns are:

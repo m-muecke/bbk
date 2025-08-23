@@ -9,7 +9,7 @@
 #'
 #' @param key (`character()`)\cr
 #'   The series keys to query.
-#' @param time_range (`character(1)` | `integer(1)`)\cr
+#' @param time_range (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   The time range for the data. Can be an annual range (e.g., `2024`) or a frequency-based code:
 #'   * Daily frequency (D): `"3M"` (last 3 months), `"12M"`, `"36M"`
 #'   * Monthly frequency (M): `"30M"`, `"60M"`, `"MAX"` (entire series)

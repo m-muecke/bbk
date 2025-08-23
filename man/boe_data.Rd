@@ -17,7 +17,7 @@ The series keys to query.}
 Start date of the data.}
 
 \item{end_date}{(\code{character(1)} | \code{Date(1)})\cr
-End date of the data.}
+End date of the data. Default is today's date.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

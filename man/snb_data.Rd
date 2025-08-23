@@ -13,10 +13,10 @@ snb_data(key, start_date = NULL, end_date = NULL, lang = "en")
 \item{key}{(\code{character(1)})\cr
 The series key to query.}
 
-\item{start_date}{(\code{character(1)} | \code{Date(1)})\cr
+\item{start_date}{(\code{NULL} | \code{character(1)} | \code{Date(1)})\cr
 Start date of the data.}
 
-\item{end_date}{(\code{character(1)} | \code{Date(1)})\cr
+\item{end_date}{(\code{NULL} | \code{character(1)} | \code{Date(1)})\cr
 End date of the data.}
 
 \item{lang}{(\code{character(1)})\cr

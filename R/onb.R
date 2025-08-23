@@ -8,11 +8,11 @@
 #'   The series keys to query.
 #' @param ... (`any`)\cr
 #'   Additional parameters to pass to the API.
-#' @param start_period (`character(1)` | `integer(1)`)\cr
+#' @param start_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   Start date of the data.
-#' @param end_period (`character(1)` | `integer(1)`)\cr
+#' @param end_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   End date of the data.
-#' @param freq (`character(1)`)\cr
+#' @param freq (`NULL` | `character(1)`)\cr
 #'   Frequency of the data.
 #' @param lang (`character(1)`)\cr
 #'   Language to query. Default `"en"`.

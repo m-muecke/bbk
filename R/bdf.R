@@ -2,15 +2,15 @@
 #'
 #' Retrieve time series data from the BdF Webstat API.
 #'
-#' @param key (`character(1)`)\cr
+#' @param key (`NULL` | `character(1)`)\cr
 #'   The series key to query. Default `NULL`.
-#' @param select (`character(1)`)\cr
+#' @param select (`NULL` | `character(1)`)\cr
 #'   Select expression to filter the columns in the result.
-#' @param where (`character(1)`)\cr
+#' @param where (`NULL` | `character(1)`)\cr
 #'   Where expression to filter the rows in the result.
-#' @param group_by (`character(1)`)\cr
+#' @param group_by (`NULL` | `character(1)`)\cr
 #'   Group by expression to aggregate the result.
-#' @param order_by (`character(1)`)\cr
+#' @param order_by (`NULL` | `character(1)`)\cr
 #'   Order by expression to sort the result.
 #' @param lang (`character(1)`)\cr
 #'   Language to query. Default `"en"`.

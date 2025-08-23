@@ -20,19 +20,19 @@ bdf_data(
 )
 }
 \arguments{
-\item{key}{(\code{character(1)})\cr
+\item{key}{(\code{NULL} | \code{character(1)})\cr
 The series key to query. Default \code{NULL}.}
 
-\item{select}{(\code{character(1)})\cr
+\item{select}{(\code{NULL} | \code{character(1)})\cr
 Select expression to filter the columns in the result.}
 
-\item{where}{(\code{character(1)})\cr
+\item{where}{(\code{NULL} | \code{character(1)})\cr
 Where expression to filter the rows in the result.}
 
-\item{group_by}{(\code{character(1)})\cr
+\item{group_by}{(\code{NULL} | \code{character(1)})\cr
 Group by expression to aggregate the result.}
 
-\item{order_by}{(\code{character(1)})\cr
+\item{order_by}{(\code{NULL} | \code{character(1)})\cr
 Order by expression to sort the result.}
 
 \item{lang}{(\code{character(1)})\cr

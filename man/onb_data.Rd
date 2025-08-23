@@ -27,13 +27,13 @@ The series keys to query.}
 \item{...}{(\code{any})\cr
 Additional parameters to pass to the API.}
 
-\item{start_period}{(\code{character(1)} | \code{integer(1)})\cr
+\item{start_period}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr
 Start date of the data.}
 
-\item{end_period}{(\code{character(1)} | \code{integer(1)})\cr
+\item{end_period}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr
 End date of the data.}
 
-\item{freq}{(\code{character(1)})\cr
+\item{freq}{(\code{NULL} | \code{character(1)})\cr
 Frequency of the data.}
 
 \item{lang}{(\code{character(1)})\cr

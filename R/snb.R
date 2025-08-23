@@ -4,9 +4,9 @@
 #'
 #' @param key (`character(1)`)\cr
 #'   The series key to query.
-#' @param start_date (`character(1)` | `Date(1)`)\cr
+#' @param start_date (`NULL` | `character(1)` | `Date(1)`)\cr
 #'   Start date of the data.
-#' @param end_date (`character(1)` | `Date(1)`)\cr
+#' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
 #'   End date of the data.
 #' @param lang (`character(1)`)\cr
 #'   Language to query, either `"en"` or `"de"`. Default `"en"`.

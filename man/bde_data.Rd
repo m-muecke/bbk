@@ -13,7 +13,7 @@ bde_data(key, time_range = NULL, lang = "en")
 \item{key}{(\code{character()})\cr
 The series keys to query.}
 
-\item{time_range}{(\code{character(1)} | \code{integer(1)})\cr
+\item{time_range}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr
 The time range for the data. Can be an annual range (e.g., \code{2024}) or a frequency-based code:
 \itemize{
 \item Daily frequency (D): \code{"3M"} (last 3 months), \code{"12M"}, \code{"36M"}

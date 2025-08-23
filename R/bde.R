@@ -48,7 +48,6 @@ parse_bde_data <- function(json) {
     "codFrecuencia",
     "decimales",
     "simbolo",
-    "informacion",
     "fechaInicio",
     "fechaFin",
     "fechas",
@@ -57,28 +56,43 @@ parse_bde_data <- function(json) {
   new_cols <- c(
     "key",
     "description",
-    "short_description",
+    "title",
     "freq",
     "decimals",
     "symbol",
-    "metadata",
     "start_date",
     "end_date",
     "date",
     "value"
   )
   dt <- json |>
-    lapply(\(x) suppressWarnings(as.data.table(x))) |>
-    rbindlist() |>
+    lapply(\(x) {
+      dt <- as.data.table(x[names(x) != "informacion"])
+      meta <- rbindlist(lapply(x$informacion, setDT))
+      setnames(meta, c("name", "value"))
+      name <- NULL
+      meta[, name := tolower(name)]
+      meta[, name := gsub(" ", "_", tolower(name), fixed = TRUE)]
+      meta[, name := gsub("[()]", "", name)]
+      ignore <- c(
+        "name",
+        "decimals",
+        "first_value",
+        "last_value",
+        "number_of_observations",
+        "min_value",
+        "max_value"
+      )
+      meta <- meta[!name %in% ignore]
+      meta <- transpose(meta, make.names = "name")
+      setnames(meta, c("units", "description"), c("unit", "long_description"))
+      dt[, names(meta) := meta]
+    }) |>
+    rbindlist(fill = TRUE) |>
     setnames(old_cols, new_cols)
 
-  value <- metadata <- NULL
+  value <- NULL
   dt[, let(date = unlist(date, use.names = FALSE), value = unlist(value, use.names = FALSE))]
-  dt[,
-    c("title", "long_description") := unlist(metadata, recursive = FALSE),
-    by = setdiff(names(dt), "metadata")
-  ]
-  dt[, metadata := NULL]
   dt[,
     names(.SD) := lapply(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")),
     .SDcols = patterns("date")

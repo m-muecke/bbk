@@ -1,5 +1,6 @@
 # bbk (development version)
 
+* Documentation improvements.
 * Support for Bank of England (BoE) data.
 * Support for Banque de France (BdF) data.
 * Support for Banco de España (BdE) data.

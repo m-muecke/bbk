@@ -74,7 +74,7 @@ The series keys to query.</p></dd>
 
 
 <dt id="arg-start-period">start_period<a class="anchor" aria-label="anchor" href="#arg-start-period"></a></dt>
-<dd><p>(<code>character(1)</code>)<br>
+<dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
 The start date of the data. Supported formats:</p><ul><li><p>YYYY for annual data (e.g., `2019“)</p></li>
 <li><p>YYYY-S[1-2] for semi-annual data (e.g., <code>"2019-S1"</code>)</p></li>
 <li><p>YYYY-Q[1-4] for quarterly data (e.g., <code>"2019-Q1"</code>)</p></li>
@@ -86,19 +86,19 @@ date). Default <code>NULL</code>.</p></dd>
 
 
 <dt id="arg-end-period">end_period<a class="anchor" aria-label="anchor" href="#arg-end-period"></a></dt>
-<dd><p>(<code>character(1)</code>)<br>
+<dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
 The end date of the data, in the same format as start_period. If <code>NULL</code>, no end date
 restriction is applied (data retrieved up to the most recent available date). Default <code>NULL</code>.</p></dd>
 
 
 <dt id="arg-first-n">first_n<a class="anchor" aria-label="anchor" href="#arg-first-n"></a></dt>
-<dd><p>(<code>numeric(1)</code>) <br>
+<dd><p>(<code>NULL</code> | <code>numeric(1)</code>) <br>
 Number of observations to retrieve from the start of the series. If <code>NULL</code>, no restriction is
 applied. Default <code>NULL</code>.</p></dd>
 
 
 <dt id="arg-last-n">last_n<a class="anchor" aria-label="anchor" href="#arg-last-n"></a></dt>
-<dd><p>(<code>numeric(1)</code>)<br>
+<dd><p>(<code>NULL</code> | <code>numeric(1)</code>)<br>
 Number of observations to retrieve from the end of the series. If <code>NULL</code>, no restriction is
 applied. Default <code>NULL</code>.</p></dd>
 
@@ -137,6 +137,19 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7117: 2025-08-20 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.74</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7118: 2025-08-21 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.74</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7119: 2025-08-22 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.76</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7115:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7116:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7117:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7118:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7119:  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                        title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                       &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
@@ -150,19 +163,19 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7117: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7118: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7119: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         freq bearer_reg   item valuation currency issuer_class listed_sub</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;     &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7115:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7116:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7117:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7118:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7119:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       bearer_reg   item valuation currency issuer_class listed_sub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7115:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7116:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7117:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7118:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7119:          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       security_class maturity interest_type interest_rate redemption</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;char&gt;   &lt;char&gt;        &lt;char&gt;        &lt;char&gt;     &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:           A604    R10XX             R             A          A</span>
@@ -204,19 +217,19 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7119:     GKZR</span>
 <span class="r-in"><span><span class="co"># fetch data for multiple keys</span></span></span>
 <span class="r-in"><span><span class="fu">bbk_data</span><span class="op">(</span><span class="st">"BBEX3"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"M.ISK.EUR"</span>, <span class="st">"USD.CA.AC.A01"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             date                       key  value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;                    &lt;char&gt;  &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999-01-01 BBEX3.M.ISK.EUR.CA.AC.A01  79.74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 1999-02-01 BBEX3.M.ISK.EUR.CA.AC.A01  79.61</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999-03-01 BBEX3.M.ISK.EUR.CA.AC.A01  78.07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1999-04-01 BBEX3.M.ISK.EUR.CA.AC.A01  77.92</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999-05-01 BBEX3.M.ISK.EUR.CA.AC.A01  77.88</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1584: 2025-03-01 BBEX3.M.ISK.USD.CA.AC.A01 131.95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1585: 2025-04-01 BBEX3.M.ISK.USD.CA.AC.A01 128.29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1586: 2025-05-01 BBEX3.M.ISK.USD.CA.AC.A01 127.17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1587: 2025-06-01 BBEX3.M.ISK.USD.CA.AC.A01 121.33</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1588: 2025-07-01 BBEX3.M.ISK.USD.CA.AC.A01 124.24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             date                       key  value    freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;                    &lt;char&gt;  &lt;num&gt;  &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999-01-01 BBEX3.M.ISK.EUR.CA.AC.A01  79.74 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 1999-02-01 BBEX3.M.ISK.EUR.CA.AC.A01  79.61 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999-03-01 BBEX3.M.ISK.EUR.CA.AC.A01  78.07 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1999-04-01 BBEX3.M.ISK.EUR.CA.AC.A01  77.92 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999-05-01 BBEX3.M.ISK.EUR.CA.AC.A01  77.88 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1584: 2025-03-01 BBEX3.M.ISK.USD.CA.AC.A01 131.95 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1585: 2025-04-01 BBEX3.M.ISK.USD.CA.AC.A01 128.29 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1586: 2025-05-01 BBEX3.M.ISK.USD.CA.AC.A01 127.17 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1587: 2025-06-01 BBEX3.M.ISK.USD.CA.AC.A01 121.33 monthly</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1588: 2025-07-01 BBEX3.M.ISK.USD.CA.AC.A01 124.24 monthly</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                        title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:      Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)</span>
@@ -230,32 +243,32 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1586: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1587: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1588: Exchange rates for the US dollar in Iceland / USD 1 = ISK ... (middle)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          freq currency erx_partner_currency erx_series_type erx_rate_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;char&gt;   &lt;char&gt;               &lt;char&gt;          &lt;char&gt;        &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: monthly      ISK                  EUR              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: monthly      ISK                  EUR              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: monthly      ISK                  EUR              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: monthly      ISK                  EUR              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: monthly      ISK                  EUR              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1584: monthly      ISK                  USD              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1585: monthly      ISK                  USD              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1586: monthly      ISK                  USD              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1587: monthly      ISK                  USD              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1588: monthly      ISK                  USD              CA            AC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       erx_suffix time_format decimals   unit unit_mult category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;char&gt;      &lt;char&gt;    &lt;int&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:        A01         P1M        2    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:        A01         P1M        2    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:        A01         P1M        2    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:        A01         P1M        2    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:        A01         P1M        2    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1584:        A01         P1M        4    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1585:        A01         P1M        4    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1586:        A01         P1M        4    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1587:        A01         P1M        4    ISK         0     WEDE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1588:        A01         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       currency erx_partner_currency erx_series_type erx_rate_type erx_suffix</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;               &lt;char&gt;          &lt;char&gt;        &lt;char&gt;     &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:      ISK                  EUR              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:      ISK                  EUR              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:      ISK                  EUR              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:      ISK                  EUR              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:      ISK                  EUR              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1584:      ISK                  USD              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1585:      ISK                  USD              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1586:      ISK                  USD              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1587:      ISK                  USD              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1588:      ISK                  USD              CA            AC        A01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       time_format decimals   unit unit_mult category</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            &lt;char&gt;    &lt;int&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:         P1M        2    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1584:         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1585:         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1586:         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1587:         P1M        4    ISK         0     WEDE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1588:         P1M        4    ISK         0     WEDE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                         comm_gen_eng</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                               &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.</span>
@@ -314,6 +327,19 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 146: 2020-07-29 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.53</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 147: 2020-07-30 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.55</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 148: 2020-07-31 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A -0.57</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148:  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                       title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                      &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
@@ -327,19 +353,19 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 146: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 147: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 148: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        freq bearer_reg   item valuation currency issuer_class listed_sub</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;     &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 146:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 147:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 148:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      bearer_reg   item valuation currency issuer_class listed_sub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148:          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      security_class maturity interest_type interest_rate redemption certificate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              &lt;char&gt;   &lt;char&gt;        &lt;char&gt;        &lt;char&gt;     &lt;char&gt;      &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:           A604    R10XX             R             A          A          _Z</span>
@@ -384,6 +410,19 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 353: 2025-08-20 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.74</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 354: 2025-08-21 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.74</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 355: 2025-08-22 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  2.76</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        freq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 351:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 352:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 353:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 354:  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 355:  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                       title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                      &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
@@ -397,19 +436,19 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 353: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 354: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 355: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        freq bearer_reg   item valuation currency issuer_class listed_sub</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;     &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 351:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 352:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 353:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 354:  daily          I    ZAR        ZI      EUR        S1311          B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 355:  daily          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      bearer_reg   item valuation currency issuer_class listed_sub</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;char&gt; &lt;char&gt;    &lt;char&gt;   &lt;char&gt;       &lt;char&gt;     &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 351:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 352:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 353:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 354:          I    ZAR        ZI      EUR        S1311          B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 355:          I    ZAR        ZI      EUR        S1311          B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      security_class maturity interest_type interest_rate redemption certificate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              &lt;char&gt;   &lt;char&gt;        &lt;char&gt;        &lt;char&gt;     &lt;char&gt;      &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:           A604    R10XX             R             A          A          _Z</span>

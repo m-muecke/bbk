@@ -56,15 +56,12 @@ bbk_data <- function(
   first_n = NULL,
   last_n = NULL
 ) {
-  stopifnot(
-    is_string(flow),
-    nchar(flow) %in% 5:8,
-    is_character(key, null_ok = TRUE),
-    is_string(start_period, null_ok = TRUE) || is_count(start_period),
-    is_string(end_period, null_ok = TRUE) || is_count(end_period),
-    is_count(first_n, null_ok = TRUE),
-    is_count(last_n, null_ok = TRUE)
-  )
+  assert_string(flow, min.chars = 5L, max.chars = 8L)
+  assert_character(key, null.ok = TRUE)
+  assert(check_null(start_period), check_string(start_period), check_count(start_period))
+  assert(check_null(end_period), check_string(end_period), check_count(end_period))
+  first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
   flow <- toupper(flow)
   if (is.null(key)) {
@@ -101,7 +98,7 @@ bbk_data <- function(
 #' bbk_series("BBBK11.D.TTA000")
 #' }
 bbk_series <- function(key) {
-  stopifnot(is_string(key))
+  assert_string(key)
   body <- bbk_build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
     req_perform() |>
@@ -135,7 +132,7 @@ bbk_series <- function(key) {
 #' bbk_metadata("concept", "CS_BBK_BSPL")
 #' }
 bbk_metadata <- function(type, id = NULL, lang = c("en", "de")) {
-  type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
+  assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   args <- switch(
     type,
     datastructure = list("datastructure/BBK", "//structure:DataStructure"),
@@ -276,8 +273,8 @@ parse_bbk_data <- function(xml) {
 }
 
 fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
-  lang <- match.arg(lang, c("en", "de"))
-  stopifnot(is_string(id, null_ok = TRUE))
+  assert_choice(lang, c("en", "de"))
+  assert_string(id, null.ok = TRUE)
   resource <- paste("metadata", resource, sep = "/")
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")

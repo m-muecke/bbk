@@ -7,7 +7,7 @@
 \url{https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html}
 }
 \usage{
-ecb_euro_rates(x = c("latest", "history"))
+ecb_euro_rates(x = "latest")
 }
 \arguments{
 \item{x}{(\code{character(1)})\cr

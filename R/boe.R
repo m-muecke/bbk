@@ -17,12 +17,9 @@
 #' boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 #' }
 boe_data <- function(key, start_date, end_date = Sys.Date()) {
-  stopifnot(
-    is_character(key),
-    length(key) <= 300L,
-    is_dateish(start_date, null_ok = TRUE),
-    is_dateish(end_date, null_ok = TRUE)
-  )
+  assert_character(key, max.len = 300L)
+  assert(check_null(start_date), check_date(start_date), check_string(start_date))
+  assert(check_null(end_date), check_date(end_date), check_string(end_date))
 
   start_date <- as.Date(start_date)
   end_date <- as.Date(end_date)

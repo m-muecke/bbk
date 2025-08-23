@@ -30,12 +30,10 @@
 #' bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
 #' bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #' }
-bde_data <- function(key, time_range = NULL, lang = c("en", "en")) {
-  stopifnot(
-    is_character(key),
-    is.null(time_range) || is_string(time_range) || is_count(time_range)
-  )
-  lang <- match.arg(lang)
+bde_data <- function(key, time_range = NULL, lang = "en") {
+  assert_character(key)
+  assert(check_null(time_range), check_string(time_range), check_count(time_range))
+  assert_choice(lang, c("en", "es"))
   json <- bde(key, time_range, lang)
   parse_bde_data(json)
 }

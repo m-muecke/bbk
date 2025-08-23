@@ -7,7 +7,7 @@
 \url{https://data.snb.ch/en}
 }
 \usage{
-snb_data(key, start_date = NULL, end_date = NULL, lang = c("en", "de"))
+snb_data(key, start_date = NULL, end_date = NULL, lang = "en")
 }
 \arguments{
 \item{key}{(\code{character(1)})\cr

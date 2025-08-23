@@ -24,8 +24,8 @@
 #' \donttest{
 #' ecb_euro_rates()
 #' }
-ecb_euro_rates <- function(x = c("latest", "history")) {
-  x <- match.arg(x)
+ecb_euro_rates <- function(x = "latest") {
+  assert_choice(x, c("latest", "history"))
   url <- switch(
     x,
     latest = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref.zip",

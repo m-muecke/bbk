@@ -45,14 +45,12 @@ ecb_data <- function(
   first_n = NULL,
   last_n = NULL
 ) {
-  stopifnot(
-    is_string(flow),
-    is_character(key, null_ok = TRUE),
-    is_string(start_period, null_ok = TRUE) || is_count(start_period),
-    is_string(end_period, null_ok = TRUE) || is_count(end_period),
-    is_count(first_n, null_ok = TRUE),
-    is_count(last_n, null_ok = TRUE)
-  )
+  assert_string(flow)
+  assert_character(key, null.ok = TRUE)
+  assert(check_null(start_period), check_string(start_period), check_count(start_period))
+  assert(check_null(end_period), check_string(end_period), check_count(end_period))
+  first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
   key <- if (!is.null(key)) paste(key, collapse = "+") else "all"
   resource <- paste("data", flow, key, sep = "/")
@@ -93,7 +91,7 @@ ecb_data <- function(
 #' ecb_metadata("datastructure", id = "ECB_EXR1")
 #' }
 ecb_metadata <- function(type, agency = NULL, id = NULL) {
-  type <- match.arg(type, c("datastructure", "dataflow", "codelist", "concept"))
+  assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   args <- switch(
     type,
     datastructure = list("datastructure", "//str:DataStructure"),
@@ -105,10 +103,8 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
 }
 
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
-  stopifnot(
-    is_string(agency, null_ok = TRUE),
-    is_string(id, null_ok = TRUE)
-  )
+  assert_string(agency, null.ok = TRUE)
+  assert_string(id, null.ok = TRUE)
   agency <- if (!is.null(agency)) toupper(agency) else "all"
   id <- if (!is.null(id)) toupper(id) else "all"
   resource <- paste(resource, agency, id, sep = "/")

@@ -44,14 +44,12 @@ onb_data <- function(
   freq = NULL,
   lang = "en"
 ) {
-  stopifnot(
-    is_count(hier_id),
-    is_character(key),
-    is.null(start_period) || is_string(start_period) || is_count(start_period),
-    is.null(end_period) || is_string(end_period) || is_count(end_period),
-    is_string(freq, null_ok = TRUE),
-    is_string(lang)
-  )
+  hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
+  assert_character(key)
+  assert(check_null(start_period), check_string(start_period), check_count(start_period))
+  assert(check_null(end_period), check_string(end_period), check_count(end_period))
+  assert_string(freq, null.ok = TRUE)
+  assert_string(lang, n.chars = 2L)
   xml <- onb(
     resource = "data",
     hierid = hier_id,
@@ -95,11 +93,9 @@ parse_onb_data <- function(xml) {
 #' onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 #' }
 onb_metadata <- function(hier_id, key, ..., lang = "en") {
-  stopifnot(
-    is_count(hier_id),
-    is_string(key),
-    is_string(lang)
-  )
+  hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
+  assert_string(key)
+  assert_string(lang, n.chars = 2L)
   xml <- onb(resource = "meta", hierid = hier_id, pos = key, lang = toupper(lang), ...)
   parse_onb_metadata(xml)
 }
@@ -126,11 +122,9 @@ parse_onb_metadata <- function(xml) {
 #' onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 #' }
 onb_frequency <- function(hier_id, key, lang = "en", ...) {
-  stopifnot(
-    is_count(hier_id),
-    is_string(key, null_ok = TRUE),
-    is_string(lang)
-  )
+  hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
+  assert_string(key, null.ok = TRUE)
+  assert_string(lang, n.chars = 2L)
   xml <- onb(resource = "datafrequency", hierid = hier_id, pos = key, lang = toupper(lang), ...)
   parse_onb_frequency(xml)
 }
@@ -161,8 +155,8 @@ parse_onb_frequency <- function(xml) {
 #' onb_toc()
 #' }
 onb_toc <- function(lang = "en") {
-  stopifnot(is_string(lang))
-  xml <- onb(resource = "content", lang = toupper(lang), ...)
+  assert_string(lang, n.chars = 2L)
+  xml <- onb(resource = "content", lang = toupper(lang))
   parse_onb_toc(xml)
 }
 
@@ -177,11 +171,8 @@ onb_toc <- function(lang = "en") {
 #' onb_hierarchy(hier_id = 11)
 #' }
 onb_hierarchy <- function(hier_id, lang = "en") {
-  stopifnot(
-    is_count(hier_id, null_ok = TRUE),
-    is_string(lang)
-  )
-  xml <- onb(resource = "content", hierid = hier_id, lang = toupper(lang), ...)
+  hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
+  xml <- onb(resource = "content", hierid = hier_id, lang = toupper(lang))
   parse_onb_hierarchy(xml)
 }
 
@@ -196,12 +187,10 @@ onb_hierarchy <- function(hier_id, lang = "en") {
 #' onb_dimensions(hier_id = 11, key = "VDBFKBSC217000")
 #' }
 onb_dimensions <- function(hier_id, key, lang = "en") {
-  stopifnot(
-    is_count(hier_id, null_ok = TRUE),
-    is_string(key, null_ok = TRUE),
-    is_string(lang)
-  )
-  xml <- onb(resource = "content", hierid = hier_id, pos = key, lang = toupper(lang), ...)
+  hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
+  assert_string(key)
+  assert_string(lang, n.chars = 2L)
+  xml <- onb(resource = "content", hierid = hier_id, pos = key, lang = toupper(lang))
   parse_onb_dimensions(xml)
 }
 

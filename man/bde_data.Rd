@@ -7,7 +7,7 @@
 \url{https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html}
 }
 \usage{
-bde_data(key, time_range = NULL, lang = c("en", "en"))
+bde_data(key, time_range = NULL, lang = "en")
 }
 \arguments{
 \item{key}{(\code{character()})\cr

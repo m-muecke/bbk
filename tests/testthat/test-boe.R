@@ -15,7 +15,7 @@ test_that("boe_data input validation works", {
 test_that("parse_boe_data() works", {
   body <- xml2::read_xml(test_path("fixtures", "boe-data.xml"))
   actual <- parse_boe_data(body)
-  expect_s3_class(actual, "data.frame")
+  expect_data_table(actual)
   expect_gt(nrow(actual), 0L)
-  expect_s3_class(actual$date, "Date")
+  expect_date(actual$date)
 })

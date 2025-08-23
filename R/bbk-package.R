@@ -1,4 +1,5 @@
 #' @keywords internal
+#' @import checkmate
 #' @import data.table
 #' @importFrom httr2 req_body_json
 #' @importFrom httr2 req_error

@@ -17,8 +17,8 @@ test_that("snb_data input validation works", {
 test_that("parse_snb_data() works", {
   body <- readRDS(test_path("fixtures", "snb-data.rds"))
   actual <- parse_snb_data(body)
-  expect_s3_class(actual, "data.frame")
+  expect_data_table(actual)
   expect_gt(nrow(actual), 0L)
   expect_match(actual$key, "^EPB@SNB.rendopar")
-  expect_s3_class(actual$date, "Date")
+  expect_date(actual$date)
 })

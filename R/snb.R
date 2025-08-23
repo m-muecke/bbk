@@ -27,27 +27,29 @@ snb_data <- function(key, start_date = NULL, end_date = NULL, lang = c("en", "de
     is_dateish(end_date, null_ok = TRUE)
   )
   lang <- match.arg(lang)
-  body <- snb(id = key, fromDate = start_date, toDate = end_date, lang = lang)
-  parse_snb_data(body)
+  json <- snb(id = key, fromDate = start_date, toDate = end_date, lang = lang)
+  parse_snb_data(json)
 }
 
-parse_snb_data <- function(body) {
-  res <- lapply(body$timeseries, function(x) {
-    meta <- as.data.table(x$metadata)
-    header <- x$header
-    cols <- vapply(header, \(x) x$dim, character(1L))
-    cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
-    item <- setNames(lapply(header, \(x) x$dimItem), cols)
-    ref <- setDT(item)
+parse_snb_data <- function(json) {
+  dt <- json$timeseries |>
+    lapply(function(x) {
+      meta <- as.data.table(x$metadata)
+      header <- x$header
+      cols <- vapply(header, \(x) x$dim, character(1L))
+      cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
+      item <- setNames(lapply(header, \(x) x$dimItem), cols)
+      ref <- setDT(item)
+      vals <- x$values
+      vals <- data.table(
+        date = vapply(vals, \(x) x$date, character(1L)),
+        value = vapply(vals, \(x) x$value, numeric(1L))
+      )
+      vals[, names(meta) := meta]
+      vals[, names(ref) := ref]
+    }) |>
+    rbindlist()
 
-    values <- x$values
-    res <- data.table(
-      date = vapply(values, \(x) x$date, character(1L)),
-      value = vapply(values, \(x) x$value, numeric(1L))
-    )
-    cbind(meta, res, ref)
-  })
-  dt <- rbindlist(res)
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "duration")
   duration <- NULL

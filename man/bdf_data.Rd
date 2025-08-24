@@ -7,7 +7,13 @@
 \url{https://webstat.banque-france.fr/en/pages/guide-migration-api/}
 }
 \usage{
-bdf_data(..., key = NULL, api_key = bdf_key())
+bdf_data(
+  ...,
+  key = NULL,
+  start_date = NULL,
+  end_date = NULL,
+  api_key = bdf_key()
+)
 }
 \arguments{
 \item{...}{(any)\cr
@@ -16,6 +22,12 @@ Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}
 
 \item{key}{(\code{NULL} | \code{character(1)})\cr
 The series key to query. Default \code{NULL}.}
+
+\item{start_date}{(\code{NULL} | \code{Date(1)})\cr
+Start date of the data. Default \code{NULL}.}
+
+\item{end_date}{(\code{NULL} | \code{(Date(1))})\cr
+End date of the data. Default \code{NULL}.}
 
 \item{api_key}{(\code{character(1)})\cr
 API key to use for the request. Defaults to the value returned by \code{bdf_key()}, which reads from
@@ -33,6 +45,8 @@ bdf_data(key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
 # inflation rate
 bdf_data(key = "ICP.M.FR.N.000000.4.ANR")
 # or with a date filter
+bdf_data(key = "ICP.M.FR.N.000000.4.ANR", start_date = "2025-01-01", end_date = "2025-06-30")
+# advanced filter with where clause
 bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 }
 }

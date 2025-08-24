@@ -7,6 +7,10 @@
 #'   Combined with the default arguments with [modifyList()].
 #' @param key (`NULL` | `character(1)`)\cr
 #'   The series key to query. Default `NULL`.
+#' @param start_date (`NULL` | `Date(1)`)\cr
+#'   Start date of the data. Default `NULL`.
+#' @param end_date (`NULL` | `(Date(1))`)\cr
+#'   End date of the data. Default `NULL`.
 #' @param api_key (`character(1)`)\cr
 #'   API key to use for the request. Defaults to the value returned by `bdf_key()`, which reads from
 #'   the `BANQUEDEFRANCE_KEY` environment variable.
@@ -20,14 +24,39 @@
 #' # inflation rate
 #' bdf_data(key = "ICP.M.FR.N.000000.4.ANR")
 #' # or with a date filter
+#' bdf_data(key = "ICP.M.FR.N.000000.4.ANR", start_date = "2025-01-01", end_date = "2025-06-30")
+#' # advanced filter with where clause
 #' bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 #' }
-bdf_data <- function(..., key = NULL, api_key = bdf_key()) {
+bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_key = bdf_key()) {
   assert_string(key, min.chars = 1L, null.ok = TRUE)
   assert_string(api_key, min.chars = 1L)
+  assert(
+    check_null(start_date),
+    check_date(start_date, len = 1L),
+    check_string(start_date, pattern = "^\\d{4}-\\d{2}-\\d{2}$")
+  )
+  assert(
+    check_null(end_date),
+    check_date(end_date, len = 1L),
+    check_string(end_date, pattern = "^\\d{4}-\\d{2}-\\d{2}$")
+  )
 
-  refine <- if (!is.null(key)) sprintf("series_key:\"%s\"", key) else NULL
-  params <- utils::modifyList(list(refine = refine), list(...))
+  if (!is.null(key)) {
+    key <- sprintf("series_key:\"%s\"", key)
+  }
+  where <- character()
+  if (!is.null(start_date)) {
+    start_date <- sprintf("time_period_start >= date'%s'", as.Date(start_date))
+    where <- c(where, start_date)
+  }
+  if (!is.null(end_date)) {
+    end_date <- sprintf("time_period_end <= date'%s'", as.Date(end_date))
+    where <- c(where, end_date)
+  }
+  where <- if (length(where) > 0L) paste(where, collapse = " and ") else NULL
+  params <- list(refine = key, where = where)
+  params <- utils::modifyList(params, list(...))
 
   dt <- do.call(bdf, c(list(resource = "observations/exports/csv"), params))
 
@@ -39,6 +68,7 @@ bdf_data <- function(..., key = NULL, api_key = bdf_key()) {
     ]
   }
   if ("observations_attributes_and_values" %in% nms) {
+    observations_attributes_and_values <- NULL # nolint
     dt[,
       observations_attributes_and_values := gsub(
         '""',

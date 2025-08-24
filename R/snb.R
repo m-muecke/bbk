@@ -80,8 +80,7 @@ snb <- function(id, ..., lang = "en") {
     req_url_query(...) |>
     req_error(body = snb_error_body) |>
     req_perform() |>
-    resp_body_string("UTF-8") |>
-    jsonlite::fromJSON(simplifyDataFrame = FALSE)
+    resp_body_json(check_type = FALSE)
 }
 
 snb_error_body <- function(resp) {

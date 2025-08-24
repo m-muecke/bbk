@@ -46,16 +46,8 @@ onb_data <- function(
 ) {
   hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
   assert_character(key, min.chars = 1L)
-  assert(
-    check_null(start_period),
-    check_string(start_period, min.chars = 1L),
-    check_count(start_period, positive = TRUE)
-  )
-  assert(
-    check_null(end_period),
-    check_string(end_period, min.chars = 1L),
-    check_count(end_period, positive = TRUE)
-  )
+  assert_period(start_period)
+  assert_period(end_period)
   assert_string(freq, min.chars = 1L, null.ok = TRUE)
   assert_string(lang, n.chars = 2L)
 

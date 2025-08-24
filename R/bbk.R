@@ -6,7 +6,7 @@
 #'   The flow to query, 5-8 characters. See [bbk_metadata()] for available dataflows.
 #' @param key (`character()`)\cr
 #'   The series keys to query.
-#' @param start_period (`NULL` | `character(1)`)\cr
+#' @param start_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   The start date of the data. Supported formats:
 #'   * YYYY for annual data (e.g., `2019``)
 #'   * YYYY-S\[1-2\] for semi-annual data (e.g., `"2019-S1"`)
@@ -17,7 +17,7 @@
 #'
 #'   If `NULL`, no start date restriction is applied (data retrieved from the earliest available
 #'   date). Default `NULL`.
-#' @param end_period (`NULL` | `character(1)`)\cr
+#' @param end_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   The end date of the data, in the same format as start_period. If `NULL`, no end date
 #'   restriction is applied (data retrieved up to the most recent available date). Default `NULL`.
 #' @param first_n (`NULL` | `numeric(1)`) \cr
@@ -58,16 +58,8 @@ bbk_data <- function(
 ) {
   assert_string(flow, min.chars = 5L, max.chars = 8L)
   assert_character(key, min.chars = 1L, null.ok = TRUE)
-  assert(
-    check_null(start_period),
-    check_string(start_period, min.chars = 1L),
-    check_count(start_period, positive = TRUE)
-  )
-  assert(
-    check_null(end_period),
-    check_string(end_period, min.chars = 1L),
-    check_count(end_period, positive = TRUE)
-  )
+  assert_period(start_period)
+  assert_period(end_period)
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 

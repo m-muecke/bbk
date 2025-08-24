@@ -7,9 +7,9 @@
 #'   Combined with the default arguments with [modifyList()].
 #' @param key (`NULL` | `character(1)`)\cr
 #'   The series key to query. Default `NULL`.
-#' @param start_date (`NULL` | `Date(1)`)\cr
+#' @param start_date (`NULL` | `character(1)` | `Date(1)`)\cr
 #'   Start date of the data. Default `NULL`.
-#' @param end_date (`NULL` | `(Date(1))`)\cr
+#' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
 #'   End date of the data. Default `NULL`.
 #' @param api_key (`character(1)`)\cr
 #'   API key to use for the request. Defaults to the value returned by `bdf_key()`, which reads from
@@ -31,27 +31,19 @@
 bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_key = bdf_key()) {
   assert_string(key, min.chars = 1L, null.ok = TRUE)
   assert_string(api_key, min.chars = 1L)
-  assert(
-    check_null(start_date),
-    check_date(start_date, len = 1L),
-    check_string(start_date, pattern = "^\\d{4}-\\d{2}-\\d{2}$")
-  )
-  assert(
-    check_null(end_date),
-    check_date(end_date, len = 1L),
-    check_string(end_date, pattern = "^\\d{4}-\\d{2}-\\d{2}$")
-  )
+  start_date <- assert_dateish(start_date, null.ok = TRUE)
+  end_date <- assert_dateish(end_date, null.ok = TRUE)
 
   if (!is.null(key)) {
     key <- sprintf("series_key:\"%s\"", key)
   }
   where <- character()
   if (!is.null(start_date)) {
-    start_date <- sprintf("time_period_start >= date'%s'", as.Date(start_date))
+    start_date <- sprintf("time_period_start >= date'%s'", start_date)
     where <- c(where, start_date)
   }
   if (!is.null(end_date)) {
-    end_date <- sprintf("time_period_end <= date'%s'", as.Date(end_date))
+    end_date <- sprintf("time_period_end <= date'%s'", end_date)
     where <- c(where, end_date)
   }
   where <- if (length(where) > 0L) paste(where, collapse = " and ") else NULL

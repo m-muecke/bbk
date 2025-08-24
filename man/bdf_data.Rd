@@ -23,10 +23,10 @@ Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}
 \item{key}{(\code{NULL} | \code{character(1)})\cr
 The series key to query. Default \code{NULL}.}
 
-\item{start_date}{(\code{NULL} | \code{Date(1)})\cr
+\item{start_date}{(\code{NULL} | \code{character(1)} | \code{Date(1)})\cr
 Start date of the data. Default \code{NULL}.}
 
-\item{end_date}{(\code{NULL} | \code{(Date(1))})\cr
+\item{end_date}{(\code{NULL} | \code{character(1)} | \code{Date(1)})\cr
 End date of the data. Default \code{NULL}.}
 
 \item{api_key}{(\code{character(1)})\cr

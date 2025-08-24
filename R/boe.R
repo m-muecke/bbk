@@ -18,19 +18,9 @@
 #' }
 boe_data <- function(key, start_date, end_date = Sys.Date()) {
   assert_character(key, min.chars = 1L, max.len = 300L)
-  assert(
-    check_null(start_date),
-    check_date(start_date, len = 1L),
-    check_string(start_date, pattern = "^\\d{4}-\\d{2}-\\d{2}$")
-  )
-  assert(
-    check_null(end_date),
-    check_date(end_date, len = 1L),
-    check_string(end_date, pattern = "^\\d{4}-\\d{2}-\\d{2}$")
-  )
+  start_date <- assert_dateish(start_date)
+  end_date <- assert_dateish(end_date)
 
-  start_date <- as.Date(start_date)
-  end_date <- as.Date(end_date)
   xml <- boe(
     SeriesCodes = key,
     Datefrom = format(start_date, "%d/%b/%Y"),

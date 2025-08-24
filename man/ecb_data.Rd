@@ -23,7 +23,7 @@ Flow to query.}
 \item{key}{(\code{character()})\cr
 The series keys to query.}
 
-\item{start_period}{(\code{NULL} | \code{character(1)})\cr
+\item{start_period}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr
 Start date of the data. Supported formats:
 \itemize{
 \item YYYY for annual data (e.g., \code{2019})
@@ -37,7 +37,7 @@ Start date of the data. Supported formats:
 If \code{NULL}, no start date restriction is applied (data retrieved from the earliest available
 date). Default \code{NULL}.}
 
-\item{end_period}{(\code{NULL} | \code{character(1)})\cr
+\item{end_period}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr
 End date of the data, in the same format as start_period. If \code{NULL}, no end date restriction is
 applied (data retrieved up to the most recent available date). Default \code{NULL}.}
 

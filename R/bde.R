@@ -32,11 +32,7 @@
 #' }
 bde_data <- function(key, time_range = NULL, lang = "en") {
   assert_character(key, min.chars = 1L)
-  assert(
-    check_null(time_range),
-    check_string(time_range, min.chars = 1L),
-    check_count(time_range, positive = TRUE)
-  )
+  assert_period(time_range)
   assert_choice(lang, c("en", "es"))
 
   json <- bde(key, time_range, lang)

@@ -35,7 +35,7 @@ bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_ke
   end_date <- assert_dateish(end_date, null.ok = TRUE)
 
   if (!is.null(key)) {
-    key <- sprintf("series_key:\"%s\"", key)
+    key <- sprintf('series_key:"%s"', key)
   }
   where <- character()
   if (!is.null(start_date)) {
@@ -51,13 +51,49 @@ bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_ke
   params <- utils::modifyList(params, list(...))
 
   dt <- do.call(bdf, c(list(resource = "observations/exports/csv"), params))
+  parse_bdf_data(dt)
+}
 
+#' Fetch Banque de France (BdF) datasets
+#'
+#' @inheritParams bdf_data
+#' @inherit bdf_data return
+#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
+#' @family data
+#' @export
+#' @examples
+#' \dontrun{
+#' bdf_dataset()
+#' # structure of a dataset
+#' bdf_dataset(where = "dataset_id = 'CONJ2'")
+#' }
+bdf_dataset <- function(...) {
+  dt <- bdf(resource = "webstat-datasets/exports/csv", ...)
+  parse_bdf_dataset(dt)
+}
+
+#' Fetch Banque de France (BdF) codelists
+#'
+#' @inheritParams bdf_data
+#' @inherit bdf_data return
+#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
+#' @family data
+#' @export
+#' @examples
+#' \dontrun{
+#' bdf_codelist()
+#' # filter for a specific codelist
+#' bdf_codelist(where = "codelist_id = 'CL_FREQ'")
+#' }
+bdf_codelist <- function(...) {
+  bdf(resource = "codelists/exports/csv", ...)
+}
+
+parse_bdf_data <- function(dt) {
   nms <- names(dt)
-  if (any(startsWith(nms, "path_"))) {
-    dt[,
-      names(.SD) := lapply(.SD, \(x) strsplit(x, ",", fixed = TRUE)),
-      .SDcols = patterns("^path_")
-    ]
+  path_cols <- grep("^path_", names(dt), value = TRUE)
+  if (length(path_cols) > 0L) {
+    dt[, (path_cols) := lapply(mget(path_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
   if ("observations_attributes_and_values" %in% nms) {
     observations_attributes_and_values <- NULL # nolint
@@ -79,54 +115,20 @@ bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_ke
   dt[]
 }
 
-#' Fetch Banque de France (BdF) datasets
-#'
-#' @inheritParams bdf_data
-#' @inherit bdf_data return
-#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
-#' @family data
-#' @export
-#' @examples
-#' \dontrun{
-#' bdf_dataset()
-#' # structure of a dataset
-#' bdf_dataset(where = "dataset_id = 'CONJ2'")
-#' }
-bdf_dataset <- function(...) {
-  dt <- bdf(resource = "webstat-datasets/exports/csv", ...)
-  if (any(startsWith(names(dt), "paths_"))) {
-    dt[,
-      names(.SD) := lapply(.SD, \(x) strsplit(x, ",", fixed = TRUE)),
-      .SDcols = patterns("^paths_")
-    ]
+parse_bdf_dataset <- function(dt) {
+  paths_cols <- grep("^paths_", names(dt), value = TRUE)
+  if (length(paths_cols) > 0L) {
+    dt[, (paths_cols) := lapply(mget(paths_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
-  if (any(endsWith(names(dt), "_codelists"))) {
+  codelist_cols <- grep("_codelists$", names(dt), value = TRUE)
+  if (length(codelist_cols) > 0L) {
     dt[,
-      names(.SD) := lapply(.SD, function(x) {
-        x <- gsub('""', '"', x, fixed = TRUE)
-        lapply(x, jsonlite::fromJSON)
-      }),
-      .SDcols = patterns("_codelists$")
+      (codelist_cols) := lapply(mget(codelist_cols), function(x) {
+        lapply(gsub('""', '"', x, fixed = TRUE), jsonlite::fromJSON)
+      })
     ]
   }
   dt[]
-}
-
-#' Fetch Banque de France (BdF) codelists
-#'
-#' @inheritParams bdf_data
-#' @inherit bdf_data return
-#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
-#' @family data
-#' @export
-#' @examples
-#' \dontrun{
-#' bdf_codelist()
-#' # filter for a specific codelist
-#' bdf_codelist(where = "codelist_id = 'CL_FREQ'")
-#' }
-bdf_codelist <- function(...) {
-  bdf(resource = "codelists/exports/csv", ...)
 }
 
 bdf <- function(resource, ...) {
@@ -139,7 +141,7 @@ bdf <- function(resource, ...) {
     req_error(body = bdf_error_body) |>
     req_url_query(..., delimiter = ";", compressed = TRUE) |>
     req_perform(path = tf)
-  fread(file = tf, sep = ";", sep2 = ",")
+  fread(file = tf, sep = ";")
 }
 
 bdf_error_body <- function(resp) {

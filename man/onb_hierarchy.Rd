@@ -28,7 +28,7 @@ onb_hierarchy(hier_id = 11)
 Other metadata: 
 \code{\link{bbk_metadata}()},
 \code{\link{ecb_metadata}()},
-\code{\link{onb_dimensions}()},
+\code{\link{onb_dimension}()},
 \code{\link{onb_frequency}()},
 \code{\link{onb_metadata}()},
 \code{\link{onb_toc}()}

@@ -187,7 +187,7 @@ onb_hierarchy <- function(hier_id, lang = "en") {
   parse_onb_hierarchy(xml)
 }
 
-#' Fetch Österreichische Nationalbank (OeNB) dimensions
+#' Fetch Österreichische Nationalbank (OeNB) dimension
 #'
 #' @inheritParams onb_data
 #' @inherit onb_data return
@@ -195,15 +195,15 @@ onb_hierarchy <- function(hier_id, lang = "en") {
 #' @export
 #' @examples
 #' \donttest{
-#' onb_dimensions(hier_id = 11, key = "VDBFKBSC217000")
+#' onb_dimension(hier_id = 11, key = "VDBFKBSC217000")
 #' }
-onb_dimensions <- function(hier_id, key, lang = "en") {
+onb_dimension <- function(hier_id, key, lang = "en") {
   hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
   assert_string(key, min.chars = 1L)
   assert_string(lang, n.chars = 2L)
 
   xml <- onb(resource = "content", hierid = hier_id, pos = key, lang = toupper(lang))
-  parse_onb_dimensions(xml)
+  parse_onb_dimension(xml)
 }
 
 parse_onb_toc <- function(xml) {
@@ -231,7 +231,7 @@ parse_onb_hierarchy <- function(xml) {
     rbindlist()
 }
 
-parse_onb_dimensions <- function(xml) {
+parse_onb_dimension <- function(xml) {
   dt <- xml |>
     xml2::xml_find_all(".//data_content/structure/dimension") |>
     xml2::xml_attrs() |>

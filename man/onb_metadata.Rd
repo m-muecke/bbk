@@ -34,7 +34,7 @@ onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 Other metadata: 
 \code{\link{bbk_metadata}()},
 \code{\link{ecb_metadata}()},
-\code{\link{onb_dimensions}()},
+\code{\link{onb_dimension}()},
 \code{\link{onb_frequency}()},
 \code{\link{onb_hierarchy}()},
 \code{\link{onb_toc}()}

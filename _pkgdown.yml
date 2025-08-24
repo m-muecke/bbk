@@ -23,7 +23,7 @@ reference:
       - bdf_codelist
       - bdf_dataset
       - ecb_metadata
-      - onb_dimensions
+      - onb_dimension
       - onb_frequency
       - onb_hierarchy
       - onb_metadata

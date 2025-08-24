@@ -2,25 +2,14 @@
 #'
 #' Retrieve time series data from the BdF Webstat API.
 #'
+#' @param ... (any)\cr
+#'   Extra arguments appended to the API request.
+#'   Combined with the default arguments with [modifyList()].
 #' @param key (`NULL` | `character(1)`)\cr
 #'   The series key to query. Default `NULL`.
-#' @param select (`NULL` | `character(1)`)\cr
-#'   Select expression to filter the columns in the result.
-#' @param where (`NULL` | `character(1)`)\cr
-#'   Where expression to filter the rows in the result.
-#' @param group_by (`NULL` | `character(1)`)\cr
-#'   Group by expression to aggregate the result.
-#' @param order_by (`NULL` | `character(1)`)\cr
-#'   Order by expression to sort the result.
-#' @param lang (`character(1)`)\cr
-#'   Language to query. Default `"en"`.
-#' @param tz (`character(1)`)\cr
-#'   Timezone to use for the query. Default `"UTC"`.
-#' @param api_args (named `list()`)\cr
-#'   Of extra arguments appended to the API request.
-#'   Combined with the default arguments with [modifyList()].
 #' @param api_key (`character(1)`)\cr
-#'   API key to use for the request.
+#'   API key to use for the request. Defaults to the value returned by `bdf_key()`, which reads from
+#'   the `BANQUEDEFRANCE_KEY` environment variable.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
 #' @family data
@@ -33,64 +22,102 @@
 #' # or with a date filter
 #' bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 #' }
-bdf_data <- function(
-  key = NULL,
-  select = NULL,
-  where = NULL,
-  group_by = NULL,
-  order_by = NULL,
-  lang = "en",
-  tz = "UTC",
-  api_args = list(),
-  api_key = bdf_key()
-) {
+bdf_data <- function(..., key = NULL, api_key = bdf_key()) {
   assert_string(key, min.chars = 1L, null.ok = TRUE)
-  assert_string(select, min.chars = 1L, null.ok = TRUE)
-  assert_string(where, min.chars = 1L, null.ok = TRUE)
-  assert_string(group_by, min.chars = 1L, null.ok = TRUE)
-  assert_string(order_by, min.chars = 1L, null.ok = TRUE)
-  assert_string(lang, n.chars = 2L)
-  assert_string(tz, min.chars = 1L)
   assert_string(api_key, min.chars = 1L)
-  assert_list(api_args, names = "named")
 
-  url <- "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/observations/exports/csv" # nolint
-  refine <- sprintf("series_key:\"%s\"", key)
-  params <- list(
-    refine = refine,
-    select = select,
-    where = where,
-    group_by = group_by,
-    order_by = order_by,
-    lang = lang,
-    timezone = tz,
-    delimiter = ";",
-    compressed = TRUE
-  )
-  params <- utils::modifyList(params, api_args)
+  refine <- if (!is.null(key)) sprintf("series_key:\"%s\"", key) else NULL
+  params <- utils::modifyList(list(refine = refine), list(...))
 
-  req <- request(url) |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
-    req_headers(Authorization = paste("Apikey", api_key)) |>
-    req_url_query(!!!params) |>
-    req_error(body = bdf_error_body)
+  dt <- do.call(bdf, c(list(resource = "observations/exports/csv"), params))
 
-  tf <- tempfile()
-  on.exit(unlink(tf), add = TRUE)
-  req_perform(req, path = tf)
-  fread(file = tf, sep = ";", tz = tz)
+  nms <- names(dt)
+  if (any(startsWith(nms, "path_"))) {
+    dt[,
+      names(.SD) := lapply(.SD, \(x) strsplit(x, ",", fixed = TRUE)),
+      .SDcols = patterns("^path_")
+    ]
+  }
+  if ("observations_attributes_and_values" %in% nms) {
+    dt[,
+      observations_attributes_and_values := gsub(
+        '""',
+        '"',
+        observations_attributes_and_values,
+        fixed = TRUE
+      )
+    ]
+    dt[,
+      observations_attributes_and_values := lapply(
+        observations_attributes_and_values,
+        jsonlite::fromJSON
+      )
+    ]
+  }
+  dt[]
 }
 
-bdf_datasets <- function() {
-  url <- "https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets/webstat-datasets/exports/csv" # nolint
+#' Fetch Banque de France (BdF) datasets
+#'
+#' @inheritParams bdf_data
+#' @inherit bdf_data return
+#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
+#' @family data
+#' @export
+#' @examples
+#' \dontrun{
+#' bdf_dataset()
+#' # structure of a dataset
+#' bdf_dataset(where = "dataset_id = 'CONJ2'")
+#' }
+bdf_dataset <- function(...) {
+  dt <- bdf(resource = "webstat-datasets/exports/csv", ...)
+  if (any(startsWith(names(dt), "paths_"))) {
+    dt[,
+      names(.SD) := lapply(.SD, \(x) strsplit(x, ",", fixed = TRUE)),
+      .SDcols = patterns("^paths_")
+    ]
+  }
+  if (any(endsWith(names(dt), "_codelists"))) {
+    dt[,
+      names(.SD) := lapply(.SD, function(x) {
+        x <- gsub('""', '"', x, fixed = TRUE)
+        lapply(x, jsonlite::fromJSON)
+      }),
+      .SDcols = patterns("_codelists$")
+    ]
+  }
+  dt[]
+}
+
+#' Fetch Banque de France (BdF) codelists
+#'
+#' @inheritParams bdf_data
+#' @inherit bdf_data return
+#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
+#' @family data
+#' @export
+#' @examples
+#' \dontrun{
+#' bdf_codelist()
+#' # filter for a specific codelist
+#' bdf_codelist(where = "codelist_id = 'CL_FREQ'")
+#' }
+bdf_codelist <- function(...) {
+  bdf(resource = "codelists/exports/csv", ...)
+}
+
+bdf <- function(resource, ...) {
   tf <- tempfile()
-  request(url) |>
+  on.exit(unlink(tf), add = TRUE)
+  request("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets") |>
+    req_url_path_append(resource) |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_headers(Authorization = paste("Apikey", bdf_key())) |>
     req_error(body = bdf_error_body) |>
-    req_url_query(lang = "en") |>
+    req_url_query(..., delimiter = ";", compressed = TRUE) |>
     req_perform(path = tf)
-  fread(file = tf, sep = ";")
+  fread(file = tf, sep = ";", sep2 = ",")
 }
 
 bdf_error_body <- function(resp) {

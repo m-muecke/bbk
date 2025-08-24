@@ -283,6 +283,7 @@ parse_bbk_data <- function(xml) {
 fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   assert_choice(lang, c("en", "de"))
   assert_string(id, min.chars = 1L, null.ok = TRUE)
+
   resource <- paste("metadata", resource, sep = "/")
   if (!is.null(id)) {
     resource <- paste(resource, toupper(id), sep = "/")

@@ -50,7 +50,9 @@ bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{bbk_series}()},
+\code{\link{bdf_codelist}()},
 \code{\link{bdf_data}()},
+\code{\link{bdf_dataset}()},
 \code{\link{boe_data}()},
 \code{\link{ecb_data}()},
 \code{\link{onb_data}()},

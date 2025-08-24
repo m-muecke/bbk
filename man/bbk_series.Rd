@@ -34,7 +34,9 @@ bbk_series("BBBK11.D.TTA000")
 Other data: 
 \code{\link{bbk_data}()},
 \code{\link{bde_data}()},
+\code{\link{bdf_codelist}()},
 \code{\link{bdf_data}()},
+\code{\link{bdf_dataset}()},
 \code{\link{boe_data}()},
 \code{\link{ecb_data}()},
 \code{\link{onb_data}()},

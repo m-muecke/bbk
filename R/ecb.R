@@ -113,6 +113,7 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
   assert_string(agency, min.chars = 1L, null.ok = TRUE)
   assert_string(id, min.chars = 1L, null.ok = TRUE)
+
   agency <- if (!is.null(agency)) toupper(agency) else "all"
   id <- if (!is.null(id)) toupper(id) else "all"
   resource <- paste(resource, agency, id, sep = "/")

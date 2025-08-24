@@ -38,6 +38,7 @@ bde_data <- function(key, time_range = NULL, lang = "en") {
     check_count(time_range, positive = TRUE)
   )
   assert_choice(lang, c("en", "es"))
+
   json <- bde(key, time_range, lang)
   parse_bde_data(json)
 }

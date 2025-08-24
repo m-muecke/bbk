@@ -74,7 +74,7 @@ The series keys to query.</p></dd>
 
 
 <dt id="arg-start-period">start_period<a class="anchor" aria-label="anchor" href="#arg-start-period"></a></dt>
-<dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
+<dd><p>(<code>NULL</code> | <code>character(1)</code> | <code>integer(1)</code>)<br>
 Start date of the data. Supported formats:</p><ul><li><p>YYYY for annual data (e.g., <code>2019</code>)</p></li>
 <li><p>YYYY-S[1-2] for semi-annual data (e.g., <code>"2019-S1"</code>)</p></li>
 <li><p>YYYY-Q[1-4] for quarterly data (e.g., <code>"2019-Q1"</code>)</p></li>
@@ -86,7 +86,7 @@ date). Default <code>NULL</code>.</p></dd>
 
 
 <dt id="arg-end-period">end_period<a class="anchor" aria-label="anchor" href="#arg-end-period"></a></dt>
-<dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
+<dd><p>(<code>NULL</code> | <code>character(1)</code> | <code>integer(1)</code>)<br>
 End date of the data, in the same format as start_period. If <code>NULL</code>, no end date restriction is
 applied (data retrieved up to the most recent available date). Default <code>NULL</code>.</p></dd>
 

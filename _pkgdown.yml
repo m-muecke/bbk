@@ -20,6 +20,8 @@ reference:
   - subtitle: Metadata
     contents:
       - bbk_metadata
+      - bdf_codelist
+      - bdf_dataset
       - ecb_metadata
       - onb_dimensions
       - onb_frequency

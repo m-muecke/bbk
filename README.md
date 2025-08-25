@@ -89,7 +89,7 @@ yield_curve <- bbk_data(
   downloading economic and financial time series from public sources.
 - [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
   reading SDMX data and metadata.
-- [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX
+- [rsdmx](https://github.com/eblondel/rsdmx): R package for reading SDMX
   data and metadata.
 - [tidyBdE](https://github.com/rOpenSpain/tidyBdE): R package for
   accessing the Banco de España’s API.

@@ -107,5 +107,5 @@ ggplot(yield_curve, aes(x = date, y = value)) +
 * [oenb](https://github.com/franzmohr/oenb): R package for accessing the OeNB's API.
 * [pdfetch](https://github.com/abielr/pdfetch): R package for downloading economic and financial time series from public sources.
 * [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for reading SDMX data and metadata.
-* [rsdmx](https://github.com/opensdmx/rsdmx): R package for reading SDMX data and metadata.
+* [rsdmx](https://github.com/eblondel/rsdmx): R package for reading SDMX data and metadata.
 * [tidyBdE](https://github.com/rOpenSpain/tidyBdE): R package for accessing the Banco de España's API.

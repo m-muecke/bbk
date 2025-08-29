@@ -24,7 +24,7 @@
 #' \donttest{
 #' ecb_euro_rates()
 #' }
-ecb_euro_rates <- function(x = "latest") {
+ecb_exchange_rates <- function(x = "latest") {
   assert_choice(x, c("latest", "history"))
   url <- switch(
     x,
@@ -50,6 +50,10 @@ ecb_euro_rates <- function(x = "latest") {
     setnames(tolower)
   dt[]
 }
+
+#' @rdname ecb_exchange_rates
+#' @export
+ecb_euro_rates <- ecb_exchange_rates
 
 #' Fetch Bank of Canada foreign exchange rates
 #'

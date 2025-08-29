@@ -11,9 +11,10 @@ reference:
       - bbk_series
       - bde_data
       - bdf_data
+      - boc_exchange_rates
       - boe_data
       - ecb_data
-      - ecb_euro_rates
+      - ecb_exchange_rates
       - onb_data
       - snb_data
 

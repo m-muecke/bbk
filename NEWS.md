@@ -1,6 +1,7 @@
 # bbk (development version)
 
 * Add missing data in `bbk_series()`.
+* Support for exchange rates from the Bank of Canada (BoC).
 
 # bbk 0.7.0
 

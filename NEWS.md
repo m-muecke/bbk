@@ -1,5 +1,7 @@
 # bbk (development version)
 
+* Add missing data in `bbk_series()`.
+
 # bbk 0.7.0
 
 * Switch to checkmate for input validation.

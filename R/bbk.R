@@ -184,19 +184,18 @@ parse_bbk_series <- function(body, key) {
     P1Y = "annual",
     P1D = "daily"
   )
-  dt[, date := parse_date(date, freq)]
-  dt <- cbind(
-    dt,
-    key,
-    title,
-    freq,
-    category,
-    unit,
-    unit_mult,
-    last_update,
-    comment,
+  dt[, let(
+    date = parse_date(date, freq),
+    key = key,
+    title = title,
+    freq = freq,
+    category = category,
+    unit = unit,
+    unit_mult = unit_mult,
+    last_update = last_update,
+    comment = comment,
     source = src
-  )
+  )]
   setcolorder(dt, the$col_order, skip_absent = TRUE)
   dt[]
 }

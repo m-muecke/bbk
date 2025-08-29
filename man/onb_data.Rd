@@ -46,6 +46,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Retrieve time series data from the OeNB Web Service.
 }
 \examples{
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 onb_data(hier_id = 11, key = "VDBFKBSC217000")
 # Loans to euro area residents, since 2000:
@@ -60,6 +61,7 @@ onb_data(
   freq = "H"
 )
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other data: 

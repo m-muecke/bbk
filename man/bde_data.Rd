@@ -40,11 +40,13 @@ You can search for the series codes in the
 published by the Banco de España.
 }
 \examples{
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 bde_data("D_1NBAF472", time_range = "30M")
 bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
 bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other data: 

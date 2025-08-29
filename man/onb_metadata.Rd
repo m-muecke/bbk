@@ -26,9 +26,11 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Fetch Österreichische Nationalbank (OeNB) metadata
 }
 \examples{
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 }
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other metadata: 

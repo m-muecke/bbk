@@ -146,17 +146,17 @@ bbk_metadata <- function(type, id = NULL, lang = "en") {
 }
 
 parse_bbk_series <- function(body, key) {
-  tmp <- tempfile()
-  dir.create(tmp)
-  on.exit(unlink(tmp, recursive = TRUE), add = TRUE)
-  tf <- file.path(tmp, "tempfile.zip")
+  td <- tempfile()
+  dir.create(td)
+  on.exit(unlink(td, recursive = TRUE), add = TRUE)
+  tf <- file.path(td, "tempfile.zip")
   writeBin(body, tf)
-  utils::unzip(tf, exdir = tmp)
+  utils::unzip(tf, exdir = td)
 
-  files <- list.files(tmp, full.names = TRUE)
+  files <- list.files(td, full.names = TRUE)
   path <- grep("\\.csv$", files, value = TRUE)[[1L]]
 
-  dt <- fread(file = path, header = FALSE, skip = 11L)[, 1:2]
+  dt <- fread(file = path, header = FALSE, skip = 10L, select = 1:2)
   setnames(dt, c("date", "value"))
   value <- NULL
   dt[value == ".", value := NA_character_]

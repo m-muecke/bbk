@@ -20,7 +20,7 @@
 #' @source <https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>
 #' @family data
 #' @export
-#' @examples
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' onb_data(hier_id = 11, key = "VDBFKBSC217000")
 #' # Loans to euro area residents, since 2000:
@@ -89,7 +89,7 @@ parse_onb_data <- function(xml) {
 #' @inherit onb_data return
 #' @family metadata
 #' @export
-#' @examples
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 #' }
@@ -118,7 +118,7 @@ parse_onb_metadata <- function(xml) {
 #' @inherit onb_data return
 #' @family metadata
 #' @export
-#' @examples
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 #' onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
@@ -153,7 +153,7 @@ parse_onb_frequency <- function(xml) {
 #' @inherit onb_data return
 #' @family metadata
 #' @export
-#' @examples
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' onb_toc()
 #' }
@@ -169,7 +169,7 @@ onb_toc <- function(lang = "en") {
 #' @inherit onb_data return
 #' @family metadata
 #' @export
-#' @examples
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' onb_hierarchy(hier_id = 11)
 #' }
@@ -185,7 +185,7 @@ onb_hierarchy <- function(hier_id, lang = "en") {
 #' @inherit onb_data return
 #' @family metadata
 #' @export
-#' @examples
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' onb_dimension(hier_id = 11, key = "VDBFKBSC217000")
 #' }

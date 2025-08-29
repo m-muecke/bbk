@@ -90,12 +90,12 @@ bdf_codelist <- function(...) {
 }
 
 parse_bdf_data <- function(dt) {
-  nms <- names(dt)
-  path_cols <- grep("^path_", names(dt), value = TRUE)
+  cols <- names(dt)
+  path_cols <- grep("^path_", cols, value = TRUE)
   if (length(path_cols) > 0L) {
     dt[, (path_cols) := lapply(mget(path_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
-  if ("observations_attributes_and_values" %in% nms) {
+  if ("observations_attributes_and_values" %in% cols) {
     observations_attributes_and_values <- NULL # nolint
     dt[,
       observations_attributes_and_values := gsub(
@@ -116,11 +116,12 @@ parse_bdf_data <- function(dt) {
 }
 
 parse_bdf_dataset <- function(dt) {
-  paths_cols <- grep("^paths_", names(dt), value = TRUE)
+  cols <- names(dt)
+  paths_cols <- grep("^paths_", cols, value = TRUE)
   if (length(paths_cols) > 0L) {
     dt[, (paths_cols) := lapply(mget(paths_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
-  codelist_cols <- grep("_codelists$", names(dt), value = TRUE)
+  codelist_cols <- grep("_codelists$", cols, value = TRUE)
   if (length(codelist_cols) > 0L) {
     dt[,
       (codelist_cols) := lapply(mget(codelist_cols), function(x) {

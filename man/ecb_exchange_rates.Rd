@@ -37,7 +37,7 @@ Using the rates for transaction purposes is strongly discouraged.
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-ecb_euro_rates()
+ecb_exchange_rates()
 }
 \dontshow{\}) # examplesIf}
 }

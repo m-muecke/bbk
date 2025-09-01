@@ -1,0 +1,25 @@
+test_that("ecb_exchange_rates works", {
+  skip_if_offline()
+  skip_on_cran()
+  skip_on_ci()
+
+  expect_error(ecb_exchange_rates("monthly"))
+  expect_error(ecb_exchange_rates(NA))
+  expect_error(ecb_exchange_rates(""))
+
+  x <- ecb_exchange_rates("latest")
+  expect_named(x, c("date", "currency", "rate"))
+  expect_identical(dim(x), c(30L, 3L))
+  expect_data_table(x)
+  expect_date(x$date)
+  expect_character(x$currency)
+  expect_double(x$rate)
+
+  x <- ecb_exchange_rates("history")
+  expect_named(x, c("date", "currency", "rate"))
+  expect_gt(nrow(x), 30L)
+  expect_data_table(x)
+  expect_date(x$date)
+  expect_character(x$currency)
+  expect_double(x$rate)
+})

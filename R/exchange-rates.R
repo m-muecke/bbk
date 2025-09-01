@@ -22,7 +22,7 @@
 #' @export
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' ecb_euro_rates()
+#' ecb_exchange_rates()
 #' }
 ecb_exchange_rates <- function(x = "latest") {
   assert_choice(x, c("latest", "history"))
@@ -98,7 +98,7 @@ boc_exchange_rates <- function(start_date = NULL, end_date = NULL, limit = NULL,
   limit <- assert_count(limit, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   skip <- assert_count(skip, null.ok = TRUE, coerce = TRUE)
 
-  url <- "https://bcd-api-dca-ipa.cbsa-asfc.cloud-nuage.canada.ca/exchange-rate-lambda/exchange-rates"
+  url <- "https://bcd-api-dca-ipa.cbsa-asfc.cloud-nuage.canada.ca/exchange-rate-lambda/exchange-rates" # nolint
   json <- request(url) |>
     req_url_query(startDate = start_date, endDate = end_date, limit = limit, skip = skip) |>
     req_perform() |>
@@ -109,6 +109,7 @@ boc_exchange_rates <- function(start_date = NULL, end_date = NULL, limit = NULL,
     rbindlist() |>
     setnames(convert_camel_case)
   dt[, names(.SD) := lapply(.SD, \(x) unlist(x, use.names = FALSE)), .SDcols = is.list]
+  rate <- NULL
   dt[, rate := as.numeric(rate)]
   dt[,
     names(.SD) := lapply(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")),

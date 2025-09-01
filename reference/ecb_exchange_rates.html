@@ -84,39 +84,39 @@ Using the rates for transaction purposes is strongly discouraged.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="fu">ecb_euro_rates</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">ecb_exchange_rates</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           date currency       rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt;   &lt;char&gt;      &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2025-08-29      USD     1.1658</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2025-08-29      JPY   171.7200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2025-08-29      BGN     1.9558</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2025-08-29      CZK    24.4580</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2025-08-29      DKK     7.4642</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2025-08-29      GBP     0.8668</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2025-08-29      HUF   396.9000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2025-08-29      PLN     4.2665</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2025-08-29      RON     5.0728</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2025-08-29      SEK    11.0550</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2025-08-29      CHF     0.9364</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2025-08-29      ISK   143.0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2025-08-29      NOK    11.7465</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2025-08-29      TRY    47.9536</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2025-08-29      AUD     1.7865</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2025-08-29      BRL     6.3253</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2025-08-29      CAD     1.6031</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2025-08-29      CNY     8.3155</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2025-08-29      HKD     9.0877</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2025-08-29      IDR 19207.3700</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2025-08-29      ILS     3.8953</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2025-08-29      INR   102.8035</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2025-08-29      KRW  1622.2600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2025-08-29      MXN    21.7935</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2025-08-29      MYR     4.9255</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2025-08-29      NZD     1.9811</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2025-08-29      PHP    66.6870</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2025-08-29      SGD     1.4987</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2025-08-29      THB    37.7600</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2025-08-29      ZAR    20.6758</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2025-09-01      USD     1.1715</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2025-09-01      JPY   172.4700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2025-09-01      BGN     1.9558</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2025-09-01      CZK    24.4330</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2025-09-01      DKK     7.4639</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2025-09-01      GBP     0.8662</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2025-09-01      HUF   395.1500</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2025-09-01      PLN     4.2553</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2025-09-01      RON     5.0737</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2025-09-01      SEK    11.0120</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2025-09-01      CHF     0.9383</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2025-09-01      ISK   143.4000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2025-09-01      NOK    11.7315</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2025-09-01      TRY    48.1658</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2025-09-01      AUD     1.7885</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2025-09-01      BRL     6.3587</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2025-09-01      CAD     1.6105</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2025-09-01      CNY     8.3581</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2025-09-01      HKD     9.1339</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2025-09-01      IDR 19249.2700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2025-09-01      ILS     3.9280</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2025-09-01      INR   103.3225</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2025-09-01      KRW  1632.3200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2025-09-01      MXN    21.8009</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2025-09-01      MYR     4.9496</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2025-09-01      NZD     1.9863</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2025-09-01      PHP    66.9850</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2025-09-01      SGD     1.5040</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2025-09-01      THB    37.8450</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2025-09-01      ZAR    20.5948</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           date currency       rate</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

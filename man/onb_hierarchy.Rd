@@ -20,7 +20,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Fetch Österreichische Nationalbank (OeNB) hierarchy
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 onb_hierarchy(hier_id = 11)
 }

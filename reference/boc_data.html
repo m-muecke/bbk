@@ -45,7 +45,12 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">boc_data</span><span class="op">(</span>group_id <span class="op">=</span> <span class="cn">NULL</span>, series_id <span class="op">=</span> <span class="cn">NULL</span>, start_date <span class="op">=</span> <span class="cn">NULL</span>, end_date <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">boc_data</span><span class="op">(</span></span>
+<span>  group_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  series_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  start_date <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  end_date <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -56,12 +61,12 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-group-id">group_id<a class="anchor" aria-label="anchor" href="#arg-group-id"></a></dt>
+<dl><dt id="arg-group-name">group_name<a class="anchor" aria-label="anchor" href="#arg-group-name"></a></dt>
 <dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
-Name of the group. Only one of <code>group_id</code> or <code>series_id</code> can be used.</p></dd>
+Name of the group. Only one of <code>group_name</code> or <code>series_name</code> can be used.</p></dd>
 
 
-<dt id="arg-series-id">series_id<a class="anchor" aria-label="anchor" href="#arg-series-id"></a></dt>
+<dt id="arg-series-name">series_name<a class="anchor" aria-label="anchor" href="#arg-series-name"></a></dt>
 <dd><p>(<code>NULL</code> | <code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Name of the series.</p></dd>
 
@@ -98,8 +103,12 @@ End date of the data. Default <code>NULL</code>.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="fu">boc_data</span><span class="op">(</span>group_id <span class="op">=</span> <span class="st">"FX_RATES_DAILY"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">boc_data</span><span class="op">(</span>series_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FXUSDCAD"</span>, <span class="st">"FXEURCAD"</span><span class="op">)</span>, <span class="st">"2023-01-23"</span>, <span class="st">"2023-07-19"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">boc_data</span><span class="op">(</span>group_name <span class="op">=</span> <span class="st">"FX_RATES_DAILY"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">boc_data</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  series_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FXUSDCAD"</span>, <span class="st">"FXEURCAD"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  start_date <span class="op">=</span> <span class="st">"2023-01-23"</span>,</span></span>
+<span class="r-in"><span>  end_date <span class="op">=</span> <span class="st">"2023-07-19"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

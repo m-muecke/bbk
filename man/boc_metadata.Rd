@@ -7,13 +7,13 @@
 \url{https://www.bankofcanada.ca/valet/docs}
 }
 \usage{
-boc_metadata(group_id = NULL, series_id = NULL)
+boc_metadata(group_name = NULL, series_name = NULL)
 }
 \arguments{
-\item{group_id}{(\code{NULL} | \code{character(1)})\cr
-Name of the group. Only one of \code{group_id} or \code{series_id} can be used.}
+\item{group_name}{(\code{NULL} | \code{character(1)})\cr
+Name of the group. Only one of \code{group_name} or \code{series_name} can be used.}
 
-\item{series_id}{(\code{NULL} | \code{character()})\cr
+\item{series_name}{(\code{NULL} | \code{character()})\cr
 Name of the series.}
 }
 \value{
@@ -24,7 +24,7 @@ Fetch Bank of Canada (BoC) metadata (details)
 }
 \examples{
 \dontrun{
-boc_metadata(group_id = "FX_RATES_DAILY")
-boc_metadat(series_id = "FXUSDCAD")
+boc_metadata(group_name = "FX_RATES_DAILY")
+boc_metadat(series_name = "FXUSDCAD")
 }
 }

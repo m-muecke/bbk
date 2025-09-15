@@ -205,8 +205,9 @@ parse_onb_toc <- function(xml) {
     lapply(\(x) setDT(as.list(x))) |>
     rbindlist()
   desc <- xml2::xml_find_all(elem, "text") |> xml2::xml_text()
-  description <- NULL
-  dt[, description := desc][]
+  id <- parent <- NULL
+  dt[, let(id = as.integer(id), parent = as.integer(parent), description = desc)]
+  dt[]
 }
 
 parse_onb_hierarchy <- function(xml) {

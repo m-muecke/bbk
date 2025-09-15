@@ -18,6 +18,8 @@ bbk is minimal R client for the following APIs:
 
 - [Banco de España
   (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
+- [Bank of Canada
+  (BoC)](https://www.bankofcanada.ca/valet-api-how-to/#about)
 - [Bank of England
   (BoE)](https://www.bankofengland.co.uk/boeapps/database)
 - [Banque de France
@@ -53,8 +55,8 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed according to the central bank they access
-(`bbk_`, `ecb_`, `snb_`, `boe_`, `bde_`, `bdf_`, `onb_`) and follow the
-naming conventions of their respective APIs.
+(`bbk_`, `ecb_`, `snb_`, `boe_`, `bde_`, `bdf_`, `onb_`, `boc_`) and
+follow the naming conventions of their respective APIs.
 
 The typical workflow involves:
 
@@ -93,3 +95,5 @@ yield_curve <- bbk_data(
   data and metadata.
 - [tidyBdE](https://github.com/rOpenSpain/tidyBdE): R package for
   accessing the Banco de España’s API.
+- [valet](https://github.com/runkelcorey/valet): R client to the Bank of
+  Canada Valet API.

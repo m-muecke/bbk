@@ -10,7 +10,7 @@
 bdf_dataset(...)
 }
 \arguments{
-\item{...}{(any)\cr
+\item{...}{(\code{any})\cr
 Extra arguments appended to the API request.
 Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}.}
 }
@@ -34,6 +34,7 @@ Other data:
 \code{\link{bde_data}()},
 \code{\link{bdf_codelist}()},
 \code{\link{bdf_data}()},
+\code{\link{boc_data}()},
 \code{\link{boe_data}()},
 \code{\link{ecb_data}()},
 \code{\link{onb_data}()},

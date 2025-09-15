@@ -22,9 +22,9 @@
 #' @export
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' ecb_exchange_rates()
+#' ecb_fx_rates()
 #' }
-ecb_exchange_rates <- function(x = "latest") {
+ecb_fx_rates <- function(x = "latest") {
   assert_choice(x, c("latest", "history"))
   url <- switch(
     x,
@@ -51,9 +51,9 @@ ecb_exchange_rates <- function(x = "latest") {
   dt[]
 }
 
-#' @rdname ecb_exchange_rates
+#' @rdname ecb_fx_rates
 #' @export
-ecb_euro_rates <- ecb_exchange_rates
+ecb_euro_rates <- ecb_fx_rates
 
 #' Fetch Bank of Canada foreign exchange rates
 #'
@@ -74,9 +74,9 @@ ecb_euro_rates <- ecb_exchange_rates
 #' retrieved on a daily basis. This retrieval should occur after 7 pm ET to ensure retrieval of the
 #' latest updates.
 #'
-#' @param start_date (`NULL` | `Date` | `character(1)`)\cr
+#' @param start_date (`NULL` | `Date(1)` | `character(1)`)\cr
 #'   Start date of the data. Default `NULL`.
-#' @param end_date (`NULL` | `Date` | `character(1)`)\cr
+#' @param end_date (`NULL` | `Date(1)` | `character(1)`)\cr
 #'   End date of the data. Default `NULL`.
 #' @param limit (`NULL` | `integer(1)`)\cr
 #'   Maximum number of records to return. Default `NULL` (all records).
@@ -88,11 +88,11 @@ ecb_euro_rates <- ecb_exchange_rates
 #' @examplesIf curl::has_internet()
 #' \donttest{
 #' # fetch latest exchange rates
-#' boc_exchange_rates()
+#' boc_fx_rates()
 #' # fetch historical exchange rates
-#' boc_exchange_rates(start_date = "2021-10-22", end_date = "2021-10-23", limit = 10, skip = 2)
+#' boc_fx_rates(start_date = "2021-10-22", end_date = "2021-10-23", limit = 10, skip = 2)
 #' }
-boc_exchange_rates <- function(start_date = NULL, end_date = NULL, limit = NULL, skip = NULL) {
+boc_fx_rates <- function(start_date = NULL, end_date = NULL, limit = NULL, skip = NULL) {
   start_date <- assert_dateish(start_date, null.ok = TRUE)
   end_date <- assert_dateish(end_date, null.ok = TRUE)
   limit <- assert_count(limit, positive = TRUE, null.ok = TRUE, coerce = TRUE)

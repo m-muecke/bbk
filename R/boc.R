@@ -1,35 +1,108 @@
-boc_lists <- function(type = "groups") {
+#' Fetch Bank of Canada (BoC) data
+#'
+#' Retrieve time series data from the Bank of Canada Valet API.
+#'
+#' @param group_id (`NULL` | `character(1)`)\cr
+#'   Name of the group. Only one of `group_id` or `series_id` can be used.
+#' @param series_id (`NULL` | `character()`)\cr
+#'   Name of the series.
+#' @param start_date (`NULL` | `Date(1)` | `character(1)`)\cr
+#'   Start date of the data. Default `NULL`.
+#' @param end_date (`NULL` | `Date(1)` | `character(1)`)\cr
+#'   End date of the data. Default `NULL`.
+#' @returns A [data.table::data.table()] with the requested data.
+#' @source <https://www.bankofcanada.ca/valet/docs>
+#' @family data
+#' @export
+#' @examples
+#' \dontrun{
+#' boc_data(group_id = "FX_RATES_DAILY")
+#' boc_data(series_id = c("FXUSDCAD", "FXEURCAD"), "2023-01-23", "2023-07-19")
+#' }
+boc_data <- function(group_id = NULL, series_id = NULL, start_date = NULL, end_date = NULL) {
+  assert_string(group_id, min.chars = 1L, null.ok = TRUE)
+  assert_character(series_id, min.chars = 1L, min.len = 1L, null.ok = TRUE)
+  if (!is.null(group_id) && !is.null(series_id)) {
+    stop("Only one of `group_id` or `series_id` must be provided.", call. = FALSE)
+  }
+  start_date <- assert_dateish(start_date, null.ok = TRUE)
+  end_date <- assert_dateish(end_date, null.ok = TRUE)
+  if (!is.null(group_id)) {
+    boc_group_obs(group_id, start_date, end_date)
+  } else {
+    boc_series_obs(series_id, start_date, end_date)
+  }
+}
+
+#' Fetch Bank of Canada (BoC) metadata (details)
+#'
+#' @inheritParams boc_data
+#' @returns A [data.table::data.table()] with the requested data.
+#' @source <https://www.bankofcanada.ca/valet/docs>
+#' @export
+#' @examples
+#' \dontrun{
+#' boc_metadata(group_id = "FX_RATES_DAILY")
+#' boc_metadat(series_id = "FXUSDCAD")
+#' }
+boc_metadata <- function(group_id = NULL, series_id = NULL) {
+  assert_string(group_id, min.chars = 1L, null.ok = TRUE)
+  assert_string(series_id, min.chars = 1L, null.ok = TRUE)
+  if (!is.null(group_id) && !is.null(series_id)) {
+    stop("Only one of `group_id` or `series_id` must be provided.", call. = FALSE)
+  }
+  if (!is.null(group_id)) boc_details_group(group_id) else boc_details_series(series_id)
+}
+
+#' Fetch Bank of Canada (BoC) available series or group
+#'
+#' Access all available series or groups from the Bank of Canada Valet API.
+#'
+#' @param type (`character(1)`)\cr
+#'   Set of data to return. One of `"groups"` or `"series"`. Default `"groups"`.
+#' @returns A [data.table::data.table()] with the requested data.
+#' @source <https://www.bankofcanada.ca/valet/docs>
+#' @export
+#' @examples
+#' \dontrun{
+#' boc_catalog()
+#' }
+boc_catalog <- function(type = "groups") {
   assert_choice(type, c("groups", "series"))
   json <- boc("lists", type)
   lst <- json[[type]]
   dt <- rbindlist(lapply(lst, setDT))
-  dt[, id := names(lst)]
+  dt[, "id" := names(lst)]
   setcolorder(dt, "id")
   dt[]
 }
 
-boc_series <- function(name = "FXUSDCAD") {
-  assert_string(name, min.chars = 1L)
+boc_details_series <- function(name) {
   json <- boc("series", name)
   dt <- setDT(json$seriesDetails)
   dt
 }
 
-#' @examples
-#'
-#' \dontrun{
-#' boc_observations(c("FXUSDCAD", "FXEURCAD"), "2023-01-23", "2023-07-19")
-#' }
-boc_observations <- function(name = c("FXUSDCAD", "FXEURCAD"), start_date = NULL, end_date = NULL) {
-  assert_character(name, min.chars = 1L, min.len = 1L)
-  start_date <- assert_dateish(start_date, null.ok = TRUE)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
+boc_details_group <- function(name) {
+  json <- boc("groups", name)
+  grp <- json$groupDetails
+  meta <- setDT(grp[lengths(grp) == 1L])
+  setnames(meta, \(x) paste("group", x, sep = "_"))
+  series <- rbindlist(lapply(grp$groupSeries, setDT))
+  series[, "id" := names(grp$groupSeries)]
+  setnames(series, \(x) paste("series", x, sep = "_"))
+  series[, names(meta) := meta]
+  cols <- names(series)
+  setcolorder(series, cols[startsWith(cols, "group_")])
+  series[]
+}
 
+boc_series_obs <- function(name, start_date, end_date) {
   name <- paste(name, collapse = ",")
   json <- boc("observations", name, start_date = start_date, end_date = end_date)
 
   meta <- rbindlist(lapply(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
-  meta[, id := names(json$seriesDetail)]
+  meta[, "id" := names(json$seriesDetail)]
 
   obs <- json$observations |>
     lapply(function(x) {
@@ -50,36 +123,18 @@ boc_observations <- function(name = c("FXUSDCAD", "FXEURCAD"), start_date = NULL
     )
 
   obs <- obs[meta, on = "id"]
+  rate <- NULL
   obs[, let(date = as.Date(date), rate = as.numeric(rate))]
   setcolorder(obs, "id")
   obs[]
 }
 
-boc_group_series <- function(name = "FX_RATES_DAILY") {
-  assert_string(name, min.chars = 1L)
-  json <- boc("groups", name)
-  grp <- json$groupDetails
-  meta <- setDT(grp[lengths(grp) == 1L])
-  setnames(meta, \(x) paste("group", x, sep = "_"))
-  series <- rbindlist(lapply(grp$groupSeries, setDT))
-  series[, id := names(grp$groupSeries)]
-  setnames(series, \(x) paste("series", x, sep = "_"))
-  series[, names(meta) := meta]
-  cols <- names(series)
-  setcolorder(series, cols[startsWith(cols, "group_")])
-  series[]
-}
-
-boc_group_observations <- function(name = "FX_RATES_DAILY", start_date = NULL, end_date = NULL) {
-  assert_string(name, min.chars = 1L)
-  start_date <- assert_dateish(start_date, null.ok = TRUE)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
-
+boc_group_obs <- function(name = "FX_RATES_DAILY", start_date = NULL, end_date = NULL) {
   json <- boc("observations/group", name)
   grp <- setDT(lapply(json$groupDetail, \(x) x %||% NA_character_))
   setnames(grp, \(x) paste("group", x, sep = "_"))
   meta <- rbindlist(lapply(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
-  meta[, id := names(json$seriesDetail)]
+  meta[, "id" := names(json$seriesDetail)]
   setnames(meta, \(x) paste("series", x, sep = "_"))
 
   obs <- json$observations |>
@@ -99,6 +154,7 @@ boc_group_observations <- function(name = "FX_RATES_DAILY", start_date = NULL, e
       na.rm = TRUE,
       variable.factor = FALSE
     )
+  rate <- NULL
   obs[, let(date = as.Date(date), rate = as.numeric(rate))]
   setnames(obs, "id", "series_id")
 
@@ -112,6 +168,17 @@ boc <- function(resource, name, ...) {
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_path_append(resource, name, "json") |>
     req_url_query(...) |>
+    req_error(body = boc_error_body) |>
     req_perform() |>
     resp_body_json()
+}
+
+boc_error_body <- function(resp) {
+  content_type <- resp_content_type(resp)
+  if (identical(content_type, "application/json")) {
+    json <- resp_body_json(resp)
+    msg <- json$message
+    docs <- sprintf("See docs at <%s>", json$docs)
+    c(msg, docs)
+  }
 }

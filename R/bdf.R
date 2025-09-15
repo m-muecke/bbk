@@ -2,7 +2,7 @@
 #'
 #' Retrieve time series data from the BdF Webstat API.
 #'
-#' @param ... (any)\cr
+#' @param ... (`any`)\cr
 #'   Extra arguments appended to the API request.
 #'   Combined with the default arguments with [modifyList()].
 #' @param key (`NULL` | `character(1)`)\cr

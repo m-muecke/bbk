@@ -37,8 +37,7 @@ test_that("bbk_data input validation works", {
 test_that("parse_bbk_data works", {
   body <- xml2::read_xml(test_path("fixtures", "bbk-data.xml"))
   actual <- parse_bbk_data(body)
-  expect_data_table(actual)
-  expect_gt(nrow(actual), 0L)
+  expect_data_table(actual, min.rows = 1L)
   expect_identical(
     unique(actual$key),
     "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
@@ -65,9 +64,8 @@ test_that("parse_bbk_series works", {
     "comment",
     "source"
   )
-  expect_data_table(actual)
+  expect_data_table(actual, min.rows = 1L)
   expect_subset(names(actual), nms)
-  expect_gt(nrow(actual), 0L)
   expect_identical(
     unique(actual$key),
     "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
@@ -77,7 +75,7 @@ test_that("parse_bbk_series works", {
 
 test_that("bbk_series input validation works", {
   expect_error(bbk_series(1L))
-  expect_error(bbk_series(character(0L)))
+  expect_error(bbk_series(character()))
   expect_error(bbk_series(NA))
   expect_error(bbk_series())
   expect_error(bbk_series(NULL))

@@ -37,15 +37,13 @@ test_that("ecb_data input validation works", {
 test_that("parse_bbk_data works", {
   body <- xml2::read_xml(test_path("fixtures", "ecb-data.xml"))
   actual <- parse_ecb_data(body)
-  expect_data_table(actual)
-  expect_gt(nrow(actual), 0L)
+  expect_data_table(actual, min.rows = 1L)
   expect_identical(unique(actual$key), "D.USD.EUR.SP00.A")
   expect_date(actual$date)
 
   body <- xml2::read_xml(test_path("fixtures", "ecb-data-fm.xml"))
   actual <- parse_ecb_data(body)
-  expect_data_table(actual)
-  expect_gt(nrow(actual), 0L)
+  expect_data_table(actual, min.rows = 1L)
   expect_gt(length(unique(actual$key)), 0L)
   expect_date(actual$date)
 })

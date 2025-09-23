@@ -48,6 +48,7 @@ latest updates.
 \donttest{
 # fetch latest exchange rates
 boc_fx_rates()
+
 # fetch historical exchange rates
 boc_fx_rates(start_date = "2021-10-22", end_date = "2021-10-23", limit = 10, skip = 2)
 }

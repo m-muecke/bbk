@@ -23,6 +23,7 @@ Fetch Banque de France (BdF) datasets
 \examples{
 \dontrun{
 bdf_dataset()
+
 # structure of a dataset
 bdf_dataset(where = "dataset_id = 'CONJ2'")
 }

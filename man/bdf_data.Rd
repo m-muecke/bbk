@@ -42,10 +42,13 @@ Retrieve time series data from the BdF Webstat API.
 \examples{
 \dontrun{
 bdf_data(key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
+
 # inflation rate
 bdf_data(key = "ICP.M.FR.N.000000.4.ANR")
+
 # or with a date filter
 bdf_data(key = "ICP.M.FR.N.000000.4.ANR", start_date = "2025-01-01", end_date = "2025-06-30")
+
 # advanced filter with where clause
 bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 }

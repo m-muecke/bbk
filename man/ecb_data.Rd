@@ -60,6 +60,7 @@ Retrieve time series data from the ECB SDMX Web Service.
 \donttest{
 # fetch US dollar/Euro exchange rate
 ecb_data("EXR", "D.USD.EUR.SP00.A")
+
 # fetch data for multiple keys
 ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 }

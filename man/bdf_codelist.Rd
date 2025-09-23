@@ -23,6 +23,7 @@ Fetch Banque de France (BdF) codelists
 \examples{
 \dontrun{
 bdf_codelist()
+
 # filter for a specific codelist
 bdf_codelist(where = "codelist_id = 'CL_FREQ'")
 }

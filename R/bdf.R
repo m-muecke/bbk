@@ -21,10 +21,13 @@
 #' @examples
 #' \dontrun{
 #' bdf_data(key = "CONJ2.M.R24.T.SM.0RG24.EFTPM100.10")
+#'
 #' # inflation rate
 #' bdf_data(key = "ICP.M.FR.N.000000.4.ANR")
+#'
 #' # or with a date filter
 #' bdf_data(key = "ICP.M.FR.N.000000.4.ANR", start_date = "2025-01-01", end_date = "2025-06-30")
+#'
 #' # advanced filter with where clause
 #' bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 #' }
@@ -64,6 +67,7 @@ bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_ke
 #' @examples
 #' \dontrun{
 #' bdf_dataset()
+#'
 #' # structure of a dataset
 #' bdf_dataset(where = "dataset_id = 'CONJ2'")
 #' }
@@ -82,6 +86,7 @@ bdf_dataset <- function(...) {
 #' @examples
 #' \dontrun{
 #' bdf_codelist()
+#'
 #' # filter for a specific codelist
 #' bdf_codelist(where = "codelist_id = 'CL_FREQ'")
 #' }

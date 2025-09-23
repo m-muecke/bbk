@@ -32,6 +32,7 @@ Retrieve time series data from the SNB data portal.
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 snb_data("rendopar")
+
 # or filter for date range
 snb_data("rendopar", "2020-01-01", "2020-12-31")
 }

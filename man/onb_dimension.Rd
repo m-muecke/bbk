@@ -23,7 +23,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Fetch Österreichische Nationalbank (OeNB) dimension
 }
 \examples{
-\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 onb_dimension(hier_id = 11, key = "VDBFKBSC217000")
 }

@@ -56,7 +56,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Retrieve time series data from the Bundesbank SDMX Web Service.
 }
 \examples{
-\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # fetch all data for a given flow and key
 data <- bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")

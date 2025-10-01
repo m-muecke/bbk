@@ -35,7 +35,7 @@ published for information purposes only.
 Using the rates for transaction purposes is strongly discouraged.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 ecb_fx_rates()
 }

@@ -20,7 +20,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Retrieve a single series by its key via the Bundesbank SDMX Web Service.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")

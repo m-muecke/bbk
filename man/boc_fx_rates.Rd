@@ -44,7 +44,7 @@ retrieved on a daily basis. This retrieval should occur after 7 pm ET to ensure 
 latest updates.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 # fetch latest exchange rates
 boc_fx_rates()

@@ -31,7 +31,7 @@ The columns are:
 Retrieve metadata from the ECB time series database via the SDMX Web Service.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 ecb_metadata("datastructure")
 ecb_metadata("datastructure", "ECB")

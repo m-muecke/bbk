@@ -26,7 +26,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 Retrieve time series data from the BoE database.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 }

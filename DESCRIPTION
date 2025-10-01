@@ -14,8 +14,10 @@ Description: A client for retrieving data and metadata from major central
     (<https://www.bankofengland.co.uk/boeapps/database>), the 'Banco de
     España API'
     (<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>),
-    and the 'Banque de France Web Service'
-    (<https://webstat.banque-france.fr/en/pages/guide-migration-api/>).
+    the 'Banque de France Web Service'
+    (<https://webstat.banque-france.fr/en/pages/guide-migration-api/>),
+    and 'Bank of Canada Valet API'
+    (<https://www.bankofcanada.ca/valet/docs>).
 License: MIT + file LICENSE
 URL: https://m-muecke.github.io/bbk/, https://github.com/m-muecke/bbk
 BugReports: https://github.com/m-muecke/bbk/issues

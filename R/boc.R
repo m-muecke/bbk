@@ -16,12 +16,17 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' boc_data(group_name = "FX_RATES_DAILY")
-#' boc_data(
+#' # fetch all data for a single group
+#' dt <- boc_data(group_name = "FX_RATES_DAILY")
+#' head(dt)
+#'
+#' # or for multiple series ids
+#' dt <- boc_data(
 #'   series_name = c("FXUSDCAD", "FXEURCAD"),
 #'   start_date = "2023-01-23",
 #'   end_date = "2023-07-19"
 #' )
+#' head(dt)
 #' }
 boc_data <- function(group_name = NULL, series_name = NULL, start_date = NULL, end_date = NULL) {
   assert_string(group_name, min.chars = 1L, null.ok = TRUE)
@@ -47,7 +52,7 @@ boc_data <- function(group_name = NULL, series_name = NULL, start_date = NULL, e
 #' @examples
 #' \dontrun{
 #' boc_metadata(group_name = "FX_RATES_DAILY")
-#' boc_metadat(series_name = "FXUSDCAD")
+#' boc_metadata(series_name = "FXUSDCAD")
 #' }
 boc_metadata <- function(group_name = NULL, series_name = NULL) {
   assert_string(group_name, min.chars = 1L, null.ok = TRUE)
@@ -69,7 +74,12 @@ boc_metadata <- function(group_name = NULL, series_name = NULL) {
 #' @export
 #' @examples
 #' \dontrun{
-#' boc_catalog()
+#' catalog <- boc_catalog()
+#' head(catalog)
+#'
+#' # filter for effective exchange rate series
+#' dt <- catalog[grepl("CEER", label)]
+#' head(dt)
 #' }
 boc_catalog <- function(type = "groups") {
   assert_choice(type, c("groups", "series"))

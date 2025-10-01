@@ -25,6 +25,6 @@ Fetch Bank of Canada (BoC) metadata (details)
 \examples{
 \dontrun{
 boc_metadata(group_name = "FX_RATES_DAILY")
-boc_metadat(series_name = "FXUSDCAD")
+boc_metadata(series_name = "FXUSDCAD")
 }
 }

@@ -96,7 +96,7 @@ bdf_codelist <- function(...) {
 
 parse_bdf_data <- function(dt) {
   cols <- names(dt)
-  path_cols <- grep("^path_", cols, value = TRUE)
+  path_cols <- grepv("^path_", cols)
   if (length(path_cols) > 0L) {
     dt[, (path_cols) := lapply(mget(path_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
@@ -122,11 +122,11 @@ parse_bdf_data <- function(dt) {
 
 parse_bdf_dataset <- function(dt) {
   cols <- names(dt)
-  paths_cols <- grep("^paths_", cols, value = TRUE)
+  paths_cols <- grepv("^paths_", cols)
   if (length(paths_cols) > 0L) {
     dt[, (paths_cols) := lapply(mget(paths_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
-  codelist_cols <- grep("_codelists$", cols, value = TRUE)
+  codelist_cols <- grepv("_codelists$", cols)
   if (length(codelist_cols) > 0L) {
     dt[,
       (codelist_cols) := lapply(mget(codelist_cols), function(x) {

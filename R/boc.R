@@ -135,7 +135,7 @@ boc_series_obs <- function(name, start_date, end_date) {
       variable.factor = FALSE
     )
 
-  obs <- obs[meta, on = "name"]
+  obs <- meta[obs, on = "name"]
   rate <- NULL
   obs[, let(date = as.Date(date), rate = as.numeric(rate))]
   obs[]
@@ -170,7 +170,7 @@ boc_group_obs <- function(name = "FX_RATES_DAILY", start_date = NULL, end_date =
   obs[, let(date = as.Date(date), rate = as.numeric(rate))]
   setnames(obs, "name", "series_name")
 
-  obs <- obs[meta, on = "series_name"]
+  obs <- meta[obs, on = "series_name"]
   obs[, names(grp) := grp]
   obs[]
 }

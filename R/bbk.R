@@ -161,7 +161,7 @@ parse_bbk_series <- function(body, key) {
   utils::unzip(tf, exdir = td)
 
   files <- list.files(td, full.names = TRUE)
-  path <- grep("\\.csv$", files, value = TRUE)[[1L]]
+  path <- grepv("\\.csv$", files)[[1L]]
 
   dt <- fread(file = path, header = FALSE, skip = 10L, select = 1:2)
   setnames(dt, c("date", "value"))

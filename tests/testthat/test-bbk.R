@@ -104,9 +104,9 @@ test_that("bbk_series does frequency conversion", {
   skip_on_ci()
 
   x <- bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
-  expect_true(all(x$freq == "monthly"))
+  expect_all_true(x$freq == "monthly")
   x <- bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
-  expect_true(all(x$freq == "quarterly"))
+  expect_all_true(x$freq == "quarterly")
   x <- bbk_series("BBBK11.D.TTA000")
-  expect_true(all(x$freq == "daily"))
+  expect_all_true(x$freq == "daily")
 })

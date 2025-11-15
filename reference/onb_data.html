@@ -130,11 +130,11 @@ Language to query. Default <code>"en"</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:    2001 VDBFKBSC217000  5538      A Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:    2002 VDBFKBSC217000  7815      A Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 356: 2025-05 VDBFKBSC217000  2030      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 357: 2025-06 VDBFKBSC217000  2064      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 358: 2025-07 VDBFKBSC217000  1872      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 359: 2025-08 VDBFKBSC217000  1832      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 360: 2025-09 VDBFKBSC217000  1779      M Loans to euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 361: 2025-10 VDBFKBSC217000  1688      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;  &lt;char&gt; &lt;char&gt; &lt;char&gt;    &lt;char&gt;       &lt;char&gt;    &lt;char&gt;    &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
@@ -143,11 +143,11 @@ Language to query. Default <code>"en"</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 356:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 357:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 358:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 359:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 360:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 361:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      unit_mult        unit_text</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;           &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:         6 in millions Euro</span>
@@ -156,11 +156,11 @@ Language to query. Default <code>"en"</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 356:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 357:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 358:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 359:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 360:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 361:         6 in millions Euro</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Loans to euro area residents, since 2000:</span></span></span>
 <span class="r-in"><span><span class="fu">onb_data</span><span class="op">(</span>hier_id <span class="op">=</span> <span class="fl">11</span>, key <span class="op">=</span> <span class="st">"VDBFKBSC217000"</span>, start_period <span class="op">=</span> <span class="st">"2000-01-01"</span><span class="op">)</span></span></span>
@@ -172,11 +172,11 @@ Language to query. Default <code>"en"</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:    2003 VDBFKBSC217000  6933      A Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:    2004 VDBFKBSC217000 10963      A Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 330: 2025-05 VDBFKBSC217000  2030      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 331: 2025-06 VDBFKBSC217000  2064      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 332: 2025-07 VDBFKBSC217000  1872      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 333: 2025-08 VDBFKBSC217000  1832      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 334: 2025-09 VDBFKBSC217000  1779      M Loans to euro area residents - total</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 335: 2025-10 VDBFKBSC217000  1688      M Loans to euro area residents - total</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      &lt;char&gt;  &lt;char&gt; &lt;char&gt; &lt;char&gt;    &lt;char&gt;       &lt;char&gt;    &lt;char&gt;    &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
@@ -185,11 +185,11 @@ Language to query. Default <code>"en"</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 330:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 331:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 332:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 333:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 334:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 335:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      unit_mult        unit_text</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;char&gt;           &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1:         6 in millions Euro</span>
@@ -198,11 +198,11 @@ Language to query. Default <code>"en"</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 330:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 331:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 332:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 333:         6 in millions Euro</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 334:         6 in millions Euro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 335:         6 in millions Euro</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Austrian imports and exports of goods from/to Germany, 2002–2012, annual frequency:</span></span></span>
 <span class="r-in"><span><span class="fu">onb_data</span><span class="op">(</span>hier_id <span class="op">=</span> <span class="fl">901</span>, key <span class="op">=</span> <span class="st">"VDBQZA1000"</span>, start_period <span class="op">=</span> <span class="fl">2002</span>, end_period <span class="op">=</span> <span class="fl">2012</span>, freq <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span></span></span>

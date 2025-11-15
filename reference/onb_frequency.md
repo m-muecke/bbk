@@ -61,6 +61,6 @@ onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 #>      freq           available            pos  dval1   dval2  dval3  dval4
 #>    <char>              <char>         <char> <char>  <char> <char> <char>
 #> 1:      A         1998 - 2024 VDBFKBSC217000     AT 00100KI     AT    Z0Z
-#> 2:      M Jan.  98 - Sep.  25 VDBFKBSC217000     AT 00100KI     AT    Z0Z
+#> 2:      M Jan.  98 - Oct.  25 VDBFKBSC217000     AT 00100KI     AT    Z0Z
 # }
 ```

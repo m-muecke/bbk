@@ -115,14 +115,14 @@ head(data)
 #> 4:  daily
 #> 5:  daily
 #> 6:  daily
-#>                                                                                                                     title
-#>                                                                                                                    <char>
-#> 1: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 2: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 3: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 4: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 5: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 6: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
+#>                                                                                                                                                                 title
+#>                                                                                                                                                                <char>
+#> 1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 2: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 3: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 4: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 5: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 6: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
 #>    bearer_reg   item valuation currency issuer_class listed_sub security_class
 #>        <char> <char>    <char>   <char>       <char>     <char>         <char>
 #> 1:          I    ZAR        ZI      EUR        S1311          B           A604
@@ -231,14 +231,14 @@ head(data)
 #> 4:  daily
 #> 5:  daily
 #> 6:  daily
-#>                                                                                                                     title
-#>                                                                                                                    <char>
-#> 1: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 2: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 3: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 4: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 5: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 6: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
+#>                                                                                                                                                                 title
+#>                                                                                                                                                                <char>
+#> 1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 2: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 3: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 4: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 5: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 6: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
 #>    bearer_reg   item valuation currency issuer_class listed_sub security_class
 #>        <char> <char>    <char>   <char>       <char>     <char>         <char>
 #> 1:          I    ZAR        ZI      EUR        S1311          B           A604
@@ -286,14 +286,14 @@ head(data)
 #> 4:  daily
 #> 5:  daily
 #> 6:  daily
-#>                                                                                                                     title
-#>                                                                                                                    <char>
-#> 1: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 2: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 3: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 4: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 5: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
-#> 6: Aus der Zinsstruktur abgeleitete Renditen für Bundeswertpapiere  mit jährl. Kuponzahlungen / RLZ 10 Jahre / Tageswerte
+#>                                                                                                                                                                 title
+#>                                                                                                                                                                <char>
+#> 1: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 2: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 3: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 4: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 5: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
+#> 6: Yields, derived from the term structure of interest rates, on listed Federal securities with annual coupon payments / residual maturity of 10.0 years / daily data
 #>    bearer_reg   item valuation currency issuer_class listed_sub security_class
 #>        <char> <char>    <char>   <char>       <char>     <char>         <char>
 #> 1:          I    ZAR        ZI      EUR        S1311          B           A604

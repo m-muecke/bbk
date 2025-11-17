@@ -1,7 +1,3 @@
-`%||%` <- function(x, y) {
-  if (is.null(x)) y else x
-}
-
 grepv <- function(...) {
   grep(..., value = TRUE)
 }

@@ -74,71 +74,71 @@ Other data:
 bde_data("D_1NBAF472", time_range = "30M")
 #>                    date        key value   freq            title
 #>                  <POSc>     <char> <num> <char>           <char>
-#>  1: 2025-10-01 08:15:00 D_1NBAF472 2.187      M One-year Euribor
-#>  2: 2025-09-01 08:15:00 D_1NBAF472 2.172      M One-year Euribor
-#>  3: 2025-08-01 08:15:00 D_1NBAF472 2.114      M One-year Euribor
-#>  4: 2025-07-01 08:15:00 D_1NBAF472 2.079      M One-year Euribor
-#>  5: 2025-06-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
-#>  6: 2025-05-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
-#>  7: 2025-04-01 08:15:00 D_1NBAF472 2.143      M One-year Euribor
-#>  8: 2025-03-01 09:15:00 D_1NBAF472 2.398      M One-year Euribor
-#>  9: 2025-02-01 09:15:00 D_1NBAF472 2.407      M One-year Euribor
-#> 10: 2025-01-01 09:15:00 D_1NBAF472 2.525      M One-year Euribor
-#> 11: 2024-12-01 09:15:00 D_1NBAF472 2.436      M One-year Euribor
-#> 12: 2024-11-01 09:15:00 D_1NBAF472 2.506      M One-year Euribor
-#> 13: 2024-10-01 08:15:00 D_1NBAF472 2.691      M One-year Euribor
-#> 14: 2024-09-01 08:15:00 D_1NBAF472 2.936      M One-year Euribor
-#> 15: 2024-08-01 08:15:00 D_1NBAF472 3.166      M One-year Euribor
-#> 16: 2024-07-01 08:15:00 D_1NBAF472 3.526      M One-year Euribor
-#> 17: 2024-06-01 08:15:00 D_1NBAF472 3.650      M One-year Euribor
-#> 18: 2024-05-01 08:15:00 D_1NBAF472 3.680      M One-year Euribor
-#> 19: 2024-04-01 08:15:00 D_1NBAF472 3.703      M One-year Euribor
-#> 20: 2024-03-01 09:15:00 D_1NBAF472 3.718      M One-year Euribor
-#> 21: 2024-02-01 09:15:00 D_1NBAF472 3.671      M One-year Euribor
-#> 22: 2024-01-01 09:15:00 D_1NBAF472 3.609      M One-year Euribor
-#> 23: 2023-12-01 09:15:00 D_1NBAF472 3.679      M One-year Euribor
-#> 24: 2023-11-01 09:15:00 D_1NBAF472 4.022      M One-year Euribor
-#> 25: 2023-10-01 08:15:00 D_1NBAF472 4.160      M One-year Euribor
-#> 26: 2023-09-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
-#> 27: 2023-08-01 08:15:00 D_1NBAF472 4.073      M One-year Euribor
-#> 28: 2023-07-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
-#> 29: 2023-06-01 08:15:00 D_1NBAF472 4.007      M One-year Euribor
-#> 30: 2023-05-01 08:15:00 D_1NBAF472 3.862      M One-year Euribor
-#> 31: 2023-04-01 08:15:00 D_1NBAF472 3.757      M One-year Euribor
+#>  1: 2025-11-01 09:15:00 D_1NBAF472 2.217      M One-year Euribor
+#>  2: 2025-10-01 08:15:00 D_1NBAF472 2.187      M One-year Euribor
+#>  3: 2025-09-01 08:15:00 D_1NBAF472 2.172      M One-year Euribor
+#>  4: 2025-08-01 08:15:00 D_1NBAF472 2.114      M One-year Euribor
+#>  5: 2025-07-01 08:15:00 D_1NBAF472 2.079      M One-year Euribor
+#>  6: 2025-06-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
+#>  7: 2025-05-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
+#>  8: 2025-04-01 08:15:00 D_1NBAF472 2.143      M One-year Euribor
+#>  9: 2025-03-01 09:15:00 D_1NBAF472 2.398      M One-year Euribor
+#> 10: 2025-02-01 09:15:00 D_1NBAF472 2.407      M One-year Euribor
+#> 11: 2025-01-01 09:15:00 D_1NBAF472 2.525      M One-year Euribor
+#> 12: 2024-12-01 09:15:00 D_1NBAF472 2.436      M One-year Euribor
+#> 13: 2024-11-01 09:15:00 D_1NBAF472 2.506      M One-year Euribor
+#> 14: 2024-10-01 08:15:00 D_1NBAF472 2.691      M One-year Euribor
+#> 15: 2024-09-01 08:15:00 D_1NBAF472 2.936      M One-year Euribor
+#> 16: 2024-08-01 08:15:00 D_1NBAF472 3.166      M One-year Euribor
+#> 17: 2024-07-01 08:15:00 D_1NBAF472 3.526      M One-year Euribor
+#> 18: 2024-06-01 08:15:00 D_1NBAF472 3.650      M One-year Euribor
+#> 19: 2024-05-01 08:15:00 D_1NBAF472 3.680      M One-year Euribor
+#> 20: 2024-04-01 08:15:00 D_1NBAF472 3.703      M One-year Euribor
+#> 21: 2024-03-01 09:15:00 D_1NBAF472 3.718      M One-year Euribor
+#> 22: 2024-02-01 09:15:00 D_1NBAF472 3.671      M One-year Euribor
+#> 23: 2024-01-01 09:15:00 D_1NBAF472 3.609      M One-year Euribor
+#> 24: 2023-12-01 09:15:00 D_1NBAF472 3.679      M One-year Euribor
+#> 25: 2023-11-01 09:15:00 D_1NBAF472 4.022      M One-year Euribor
+#> 26: 2023-10-01 08:15:00 D_1NBAF472 4.160      M One-year Euribor
+#> 27: 2023-09-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
+#> 28: 2023-08-01 08:15:00 D_1NBAF472 4.073      M One-year Euribor
+#> 29: 2023-07-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
+#> 30: 2023-06-01 08:15:00 D_1NBAF472 4.007      M One-year Euribor
+#> 31: 2023-05-01 08:15:00 D_1NBAF472 3.862      M One-year Euribor
 #>                    date        key value   freq            title
 #>          description decimals symbol          start_date            end_date
 #>               <char>    <int> <char>              <POSc>              <POSc>
-#>  1: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  2: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  3: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  4: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  5: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  6: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  7: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  8: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#>  9: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 10: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 11: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 12: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 13: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 14: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 15: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 16: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 17: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 18: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 19: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 20: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 21: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 22: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 23: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 24: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 25: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 26: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 27: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 28: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 29: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 30: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
-#> 31: One-year Euribor        3      % 1999-01-01 09:15:00 2025-10-01 08:15:00
+#>  1: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  2: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  3: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  4: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  5: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  6: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  7: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  8: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  9: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 10: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 11: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 12: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 13: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 14: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 15: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 16: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 17: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 18: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 19: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 20: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 21: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 22: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 23: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 24: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 25: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 26: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 27: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 28: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 29: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 30: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#> 31: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
 #>          description decimals symbol          start_date            end_date
 #>                                                       long_description   unit
 #>                                                                 <char> <char>

@@ -237,9 +237,9 @@ bbk_metadata("datastructure")
 #> 85:                                                                        Statistics of negotiated wages - Aggregates and forecasts of time series
 #>                                                                                                                                                name
 bbk_metadata("dataflow", "BBSIS")
-#>        id                                 name
-#>    <char>                               <char>
-#> 1:  BBSIS Securities Issues Statistics (Bonds)
+#>        id                                                    name
+#>    <char>                                                  <char>
+#> 1:  BBSIS Yields, term structure and securities issues statistics
 bbk_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
 #>                             id                 name
 #>                         <char>               <char>

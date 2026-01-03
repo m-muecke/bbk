@@ -10,7 +10,7 @@
 bbk_series(key)
 }
 \arguments{
-\item{key}{(\code{character()})\cr
+\item{key}{(\code{NULL} | \code{character()})\cr
 The series keys to query.}
 }
 \value{

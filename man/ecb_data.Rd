@@ -20,7 +20,7 @@ ecb_data(
 \item{flow}{(\code{character(1)})\cr
 Flow to query.}
 
-\item{key}{(\code{character()})\cr
+\item{key}{(\code{NULL} | \code{character()})\cr
 The series keys to query.}
 
 \item{start_period}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr

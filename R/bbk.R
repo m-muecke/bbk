@@ -4,7 +4,7 @@
 #'
 #' @param flow (`character(1)`)\cr
 #'   The flow to query, 5-8 characters. See [bbk_metadata()] for available dataflows.
-#' @param key (`character()`)\cr
+#' @param key (`NULL` | `character()`)\cr
 #'   The series keys to query.
 #' @param start_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   The start date of the data. Supported formats:

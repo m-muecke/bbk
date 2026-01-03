@@ -4,7 +4,7 @@
 #'
 #' @param flow (`character(1)`)\cr
 #'   Flow to query.
-#' @param key (`character()`)\cr
+#' @param key (`NULL` | `character()`)\cr
 #'   The series keys to query.
 #' @param start_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   Start date of the data. Supported formats:

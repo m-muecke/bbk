@@ -74,72 +74,74 @@ Other data:
 bde_data("D_1NBAF472", time_range = "30M")
 #>                    date        key value   freq            title
 #>                  <POSc>     <char> <num> <char>           <char>
-#>  1: 2025-11-01 09:15:00 D_1NBAF472 2.217      M One-year Euribor
-#>  2: 2025-10-01 08:15:00 D_1NBAF472 2.187      M One-year Euribor
-#>  3: 2025-09-01 08:15:00 D_1NBAF472 2.172      M One-year Euribor
-#>  4: 2025-08-01 08:15:00 D_1NBAF472 2.114      M One-year Euribor
-#>  5: 2025-07-01 08:15:00 D_1NBAF472 2.079      M One-year Euribor
-#>  6: 2025-06-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
-#>  7: 2025-05-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
-#>  8: 2025-04-01 08:15:00 D_1NBAF472 2.143      M One-year Euribor
-#>  9: 2025-03-01 09:15:00 D_1NBAF472 2.398      M One-year Euribor
-#> 10: 2025-02-01 09:15:00 D_1NBAF472 2.407      M One-year Euribor
-#> 11: 2025-01-01 09:15:00 D_1NBAF472 2.525      M One-year Euribor
-#> 12: 2024-12-01 09:15:00 D_1NBAF472 2.436      M One-year Euribor
-#> 13: 2024-11-01 09:15:00 D_1NBAF472 2.506      M One-year Euribor
-#> 14: 2024-10-01 08:15:00 D_1NBAF472 2.691      M One-year Euribor
-#> 15: 2024-09-01 08:15:00 D_1NBAF472 2.936      M One-year Euribor
-#> 16: 2024-08-01 08:15:00 D_1NBAF472 3.166      M One-year Euribor
-#> 17: 2024-07-01 08:15:00 D_1NBAF472 3.526      M One-year Euribor
-#> 18: 2024-06-01 08:15:00 D_1NBAF472 3.650      M One-year Euribor
-#> 19: 2024-05-01 08:15:00 D_1NBAF472 3.680      M One-year Euribor
-#> 20: 2024-04-01 08:15:00 D_1NBAF472 3.703      M One-year Euribor
-#> 21: 2024-03-01 09:15:00 D_1NBAF472 3.718      M One-year Euribor
-#> 22: 2024-02-01 09:15:00 D_1NBAF472 3.671      M One-year Euribor
-#> 23: 2024-01-01 09:15:00 D_1NBAF472 3.609      M One-year Euribor
-#> 24: 2023-12-01 09:15:00 D_1NBAF472 3.679      M One-year Euribor
-#> 25: 2023-11-01 09:15:00 D_1NBAF472 4.022      M One-year Euribor
-#> 26: 2023-10-01 08:15:00 D_1NBAF472 4.160      M One-year Euribor
-#> 27: 2023-09-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
-#> 28: 2023-08-01 08:15:00 D_1NBAF472 4.073      M One-year Euribor
-#> 29: 2023-07-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
-#> 30: 2023-06-01 08:15:00 D_1NBAF472 4.007      M One-year Euribor
-#> 31: 2023-05-01 08:15:00 D_1NBAF472 3.862      M One-year Euribor
+#>  1: 2025-12-01 09:15:00 D_1NBAF472 2.267      M One-year Euribor
+#>  2: 2025-11-01 09:15:00 D_1NBAF472 2.217      M One-year Euribor
+#>  3: 2025-10-01 08:15:00 D_1NBAF472 2.187      M One-year Euribor
+#>  4: 2025-09-01 08:15:00 D_1NBAF472 2.172      M One-year Euribor
+#>  5: 2025-08-01 08:15:00 D_1NBAF472 2.114      M One-year Euribor
+#>  6: 2025-07-01 08:15:00 D_1NBAF472 2.079      M One-year Euribor
+#>  7: 2025-06-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
+#>  8: 2025-05-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
+#>  9: 2025-04-01 08:15:00 D_1NBAF472 2.143      M One-year Euribor
+#> 10: 2025-03-01 09:15:00 D_1NBAF472 2.398      M One-year Euribor
+#> 11: 2025-02-01 09:15:00 D_1NBAF472 2.407      M One-year Euribor
+#> 12: 2025-01-01 09:15:00 D_1NBAF472 2.525      M One-year Euribor
+#> 13: 2024-12-01 09:15:00 D_1NBAF472 2.436      M One-year Euribor
+#> 14: 2024-11-01 09:15:00 D_1NBAF472 2.506      M One-year Euribor
+#> 15: 2024-10-01 08:15:00 D_1NBAF472 2.691      M One-year Euribor
+#> 16: 2024-09-01 08:15:00 D_1NBAF472 2.936      M One-year Euribor
+#> 17: 2024-08-01 08:15:00 D_1NBAF472 3.166      M One-year Euribor
+#> 18: 2024-07-01 08:15:00 D_1NBAF472 3.526      M One-year Euribor
+#> 19: 2024-06-01 08:15:00 D_1NBAF472 3.650      M One-year Euribor
+#> 20: 2024-05-01 08:15:00 D_1NBAF472 3.680      M One-year Euribor
+#> 21: 2024-04-01 08:15:00 D_1NBAF472 3.703      M One-year Euribor
+#> 22: 2024-03-01 09:15:00 D_1NBAF472 3.718      M One-year Euribor
+#> 23: 2024-02-01 09:15:00 D_1NBAF472 3.671      M One-year Euribor
+#> 24: 2024-01-01 09:15:00 D_1NBAF472 3.609      M One-year Euribor
+#> 25: 2023-12-01 09:15:00 D_1NBAF472 3.679      M One-year Euribor
+#> 26: 2023-11-01 09:15:00 D_1NBAF472 4.022      M One-year Euribor
+#> 27: 2023-10-01 08:15:00 D_1NBAF472 4.160      M One-year Euribor
+#> 28: 2023-09-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
+#> 29: 2023-08-01 08:15:00 D_1NBAF472 4.073      M One-year Euribor
+#> 30: 2023-07-01 08:15:00 D_1NBAF472 4.149      M One-year Euribor
+#> 31: 2023-06-01 08:15:00 D_1NBAF472 4.007      M One-year Euribor
 #>                    date        key value   freq            title
+#>                  <POSc>     <char> <num> <char>           <char>
 #>          description decimals symbol          start_date            end_date
 #>               <char>    <int> <char>              <POSc>              <POSc>
-#>  1: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  2: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  3: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  4: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  5: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  6: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  7: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  8: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#>  9: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 10: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 11: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 12: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 13: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 14: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 15: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 16: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 17: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 18: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 19: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 20: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 21: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 22: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 23: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 24: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 25: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 26: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 27: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 28: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 29: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 30: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
-#> 31: One-year Euribor        3      % 1999-01-01 09:15:00 2025-11-01 09:15:00
+#>  1: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  2: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  3: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  4: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  5: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  6: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  7: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  8: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#>  9: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 10: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 11: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 12: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 13: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 14: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 15: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 16: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 17: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 18: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 19: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 20: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 21: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 22: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 23: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 24: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 25: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 26: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 27: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 28: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 29: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 30: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
+#> 31: One-year Euribor        3      % 1999-01-01 09:15:00 2025-12-01 09:15:00
 #>          description decimals symbol          start_date            end_date
+#>               <char>    <int> <char>              <POSc>              <POSc>
 #>                                                       long_description   unit
 #>                                                                 <char> <char>
 #>  1: Interest rates. Mortgage market reference rates. One-year Euribor.   Rate
@@ -174,6 +176,7 @@ bde_data("D_1NBAF472", time_range = "30M")
 #> 30: Interest rates. Mortgage market reference rates. One-year Euribor.   Rate
 #> 31: Interest rates. Mortgage market reference rates. One-year Euribor.   Rate
 #>                                                       long_description   unit
+#>                                                                 <char> <char>
 #>                                                                                                 source
 #>                                                                                                 <char>
 #>  1: EURIBOR European Banking Federation\nACI Asociación de Mercados Financieros\nBanco Central Europeo
@@ -208,6 +211,7 @@ bde_data("D_1NBAF472", time_range = "30M")
 #> 30: EURIBOR European Banking Federation\nACI Asociación de Mercados Financieros\nBanco Central Europeo
 #> 31: EURIBOR European Banking Federation\nACI Asociación de Mercados Financieros\nBanco Central Europeo
 #>                                                                                                 source
+#>                                                                                                 <char>
 #>                                                                                                                                                                                                                 notes
 #>                                                                                                                                                                                                                <char>
 #>  1: Interbank deposit bid rates in the euro area, corresponding to 57 of the most active euro area banks.\nUntil December 1998, synthetic interest rates were calculated on the basis of GDP-weighted national rates.
@@ -242,6 +246,7 @@ bde_data("D_1NBAF472", time_range = "30M")
 #> 30: Interbank deposit bid rates in the euro area, corresponding to 57 of the most active euro area banks.\nUntil December 1998, synthetic interest rates were calculated on the basis of GDP-weighted national rates.
 #> 31: Interbank deposit bid rates in the euro area, corresponding to 57 of the most active euro area banks.\nUntil December 1998, synthetic interest rates were calculated on the basis of GDP-weighted national rates.
 #>                                                                                                                                                                                                                 notes
+#>                                                                                                                                                                                                                <char>
 #>                                                                                                              related_series_pdf_table
 #>                                                                                                                                <char>
 #>  1: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1901e.pdf'>Download the pdf table with related series</a>
@@ -276,6 +281,7 @@ bde_data("D_1NBAF472", time_range = "30M")
 #> 30: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1901e.pdf'>Download the pdf table with related series</a>
 #> 31: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1901e.pdf'>Download the pdf table with related series</a>
 #>                                                                                                              related_series_pdf_table
+#>                                                                                                                                <char>
 #>                                                                                                                related_series_excel_file
 #>                                                                                                                                   <char>
 #>  1: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/be1901.xlsx'>Download the Excel file with related series</a>
@@ -310,6 +316,7 @@ bde_data("D_1NBAF472", time_range = "30M")
 #> 30: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/be1901.xlsx'>Download the Excel file with related series</a>
 #> 31: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/be1901.xlsx'>Download the Excel file with related series</a>
 #>                                                                                                                related_series_excel_file
+#>                                                                                                                                   <char>
 bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
 #>                     date                             key value   freq
 #>                   <POSc>                          <char> <num> <char>
@@ -443,10 +450,10 @@ bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #> 4:      Q BP. Goods BP. Goods. Balance        0 M&euro; 1993-01-01 09:15:00
 #>               end_date
 #>                 <POSc>
-#> 1: 2025-04-01 08:15:00
-#> 2: 2025-04-01 08:15:00
-#> 3: 2025-04-01 08:15:00
-#> 4: 2025-04-01 08:15:00
+#> 1: 2025-07-01 08:15:00
+#> 2: 2025-07-01 08:15:00
+#> 3: 2025-07-01 08:15:00
+#> 4: 2025-07-01 08:15:00
 #>                                                 long_description
 #>                                                           <char>
 #> 1: External statistics. Balance of payments. BP. Goods. Balance.

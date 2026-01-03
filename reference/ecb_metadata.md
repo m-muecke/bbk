@@ -156,6 +156,7 @@ ecb_metadata("datastructure")
 #> 88:      IMF             BOP
 #> 89:      IMF         BOP1_15
 #>       agency              id
+#>       <char>          <char>
 #>                                                                                                                        name
 #>                                                                                                                      <char>
 #>  1:                                                                                                                   AMECO
@@ -248,6 +249,7 @@ ecb_metadata("datastructure")
 #> 88:                                                                          Balance of Payments, I.I.P. and Reserve Assets
 #> 89:                                                                   Balance of Payments, I.I.P. and Reserve Assets, v1.15
 #>                                                                                                                        name
+#>                                                                                                                      <char>
 ecb_metadata("datastructure", "ECB")
 #>     agency              id
 #>     <char>          <char>
@@ -332,6 +334,7 @@ ecb_metadata("datastructure", "ECB")
 #> 79:    ECB        ECB_WTS1
 #> 80:    ECB EUROSTAT_BOP_01
 #>     agency              id
+#>     <char>          <char>
 #>                                                                                                                        name
 #>                                                                                                                      <char>
 #>  1:                                                                                                                   AMECO
@@ -415,6 +418,7 @@ ecb_metadata("datastructure", "ECB")
 #> 79:                                                            Overall, Import, Export and Double Export Weights Statistics
 #> 80:                                                                                            Eurostat Balance of Payments
 #>                                                                                                                        name
+#>                                                                                                                      <char>
 ecb_metadata("datastructure", "ECB", "ECB_EXR1")
 #>    agency       id           name
 #>    <char>   <char>         <char>

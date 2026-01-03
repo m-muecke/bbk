@@ -298,6 +298,7 @@ onb_data(
 #> 81: 2024-B2 VDBKISDANZTEU    23      H
 #> 82: 2025-B1 VDBKISDANZTEU    22      H
 #>        date           key value   freq
+#>      <char>        <char> <num> <char>
 #>                                               title  attr1     attr2  attr3
 #>                                              <char> <char>    <char> <char>
 #>  1:                  number of foreign subsidiaries     AT BS0100510     Z5
@@ -383,6 +384,7 @@ onb_data(
 #> 81: number of foreign subsidiaries hereof in the EU     AT BS0100510     Z5
 #> 82: number of foreign subsidiaries hereof in the EU     AT BS0100510     Z5
 #>                                               title  attr1     attr2  attr3
+#>                                              <char> <char>    <char> <char>
 #>      attr4 attr1_dim    attr2_dim attr3_dim attr4_dim unit_mult unit_text
 #>     <char>    <char>       <char>    <char>    <char>    <char>    <char>
 #>  1:    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         0   in ones
@@ -468,5 +470,6 @@ onb_data(
 #> 81:    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         0   in ones
 #> 82:    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         0   in ones
 #>      attr4 attr1_dim    attr2_dim attr3_dim attr4_dim unit_mult unit_text
+#>     <char>    <char>       <char>    <char>    <char>    <char>    <char>
 # }
 ```

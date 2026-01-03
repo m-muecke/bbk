@@ -77,6 +77,7 @@ onb_toc()
 #> 37:       905      9
 #> 38:        97      9
 #>            id parent
+#>         <int>  <int>
 #>                                                                                      description
 #>                                                                                           <char>
 #>  1:                                                     OeNB, Eurosystem and monetary indicators
@@ -118,5 +119,6 @@ onb_toc()
 #> 37:                                                                             Other investment
 #> 38:                                                                    Foreign trade and tourism
 #>                                                                                      description
+#>                                                                                           <char>
 # }
 ```

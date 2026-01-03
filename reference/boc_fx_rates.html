@@ -99,45 +99,45 @@ latest updates.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch latest exchange rates</span></span></span>
 <span class="r-in"><span><span class="fu">boc_fx_rates</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      exchange_rate_id    rate exchange_rate_effective_timestamp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 &lt;int&gt;   &lt;num&gt;                            &lt;POSc&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:          5801487 0.00267                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:          5801488 0.25480                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:          5801489 1.00000                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:          5801490 0.09400                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:          5801491 0.13590                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150:          5801636 0.20108                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151:          5801637 0.05981                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152:          5801638 0.46969                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153:          5801639 0.00005                        2025-12-16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154:          5801640 0.00541                        2025-12-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      exchange_rate_id     rate exchange_rate_effective_timestamp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 &lt;int&gt;    &lt;num&gt;                            &lt;POSc&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:          5804642 0.334500                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:          5804643 1.068000                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:          5804644 0.000030                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:          5804645 0.000530                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:          5804646 0.000001                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150:          5804791 0.375540                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151:          5804792 0.032280                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152:          5804793 0.012020                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153:          5804794 0.000110                        2026-01-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154:          5804795 0.005750                        2026-01-04</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      exchange_rate_expiry_timestamp exchange_rate_source from_currency</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                              &lt;POSc&gt;               &lt;char&gt;        &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:            2025-12-16 23:59:59                 CBSA           SYP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:            2025-12-16 23:59:59                  BoC           BRL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:            2025-12-16 23:59:59                 CBSA           SKL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:            2025-12-16 23:59:59                 CBSA           EEK</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:            2025-12-16 23:59:59                  BoC           NOK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:            2026-01-04 23:59:59                 CBSA           SRG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:            2026-01-04 23:59:59                  BoC           SGD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:            2026-01-04 23:59:59                 CBSA           MZM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:            2026-01-04 23:59:59                 CBSA           MNT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:            2026-01-04 23:59:59                 CBSA           XXD</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150:            2025-12-16 23:59:59                 CBSA           TTD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151:            2025-12-16 23:59:59                 CBSA           ZMW</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152:            2025-12-16 23:59:59                 CBSA           TND</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153:            2025-12-16 23:59:59                 CBSA           VND</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154:            2025-12-16 23:59:59                 CBSA           VES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150:            2026-01-04 23:59:59                 CBSA           TMT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151:            2026-01-04 23:59:59                 CBSA           UYU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152:            2026-01-04 23:59:59                 CBSA           VUV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153:            2026-01-04 23:59:59                 CBSA           UZS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154:            2026-01-04 23:59:59                 CBSA           YER</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      from_currency_csn to_currency to_currency_csn</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  &lt;int&gt;      &lt;char&gt;           &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:               188         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:                30         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:               180         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:                59         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:               148         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1:               184         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2:               176         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3:               141         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4:               130         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5:               223         CAD              36</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150:               200         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151:               229         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152:               196         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153:               215         CAD              36</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154:               214         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150:               195         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151:               209         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152:               216         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153:               211         CAD              36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154:               225         CAD              36</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch historical exchange rates</span></span></span>
 <span class="r-in"><span><span class="fu">boc_fx_rates</span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"2021-10-22"</span>, end_date <span class="op">=</span> <span class="st">"2021-10-23"</span>, limit <span class="op">=</span> <span class="fl">10</span>, skip <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>

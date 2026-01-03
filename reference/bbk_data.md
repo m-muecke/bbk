@@ -30,7 +30,7 @@ bbk_data(
 
 - key:
 
-  ([`character()`](https://rdrr.io/r/base/character.html))  
+  (`NULL` \| [`character()`](https://rdrr.io/r/base/character.html))  
   The series keys to query.
 
 - start_period:

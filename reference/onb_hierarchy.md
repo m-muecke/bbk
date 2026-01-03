@@ -84,6 +84,7 @@ onb_hierarchy(hier_id = 11)
 #> 39: Liabilities VDBFKBSC117000
 #> 40: Liabilities VDBFKBSC403000
 #>           group             id
+#>          <char>         <char>
 #>                                                                                value
 #>                                                                               <char>
 #>  1:                                             Loans to euro area residents - total
@@ -127,5 +128,6 @@ onb_hierarchy(hier_id = 11)
 #> 39:                                             Liabilities - debt securities issued
 #> 40:                                                             External liabilities
 #>                                                                                value
+#>                                                                               <char>
 # }
 ```

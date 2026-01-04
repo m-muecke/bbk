@@ -18,7 +18,7 @@ check_dateish <- function(x, null.ok = FALSE) {
 assert_dateish <- function(x, null.ok = FALSE, .var.name = vname(x), add = NULL) {
   res <- check_dateish(x, null.ok)
   makeAssertion(x, res, .var.name, add)
-  if (!is.null(x)) {
+  if (!is.null(x) && !inherits(x, "Date")) {
     x <- as.Date(x)
   }
   invisible(x)

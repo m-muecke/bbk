@@ -59,7 +59,7 @@ onb_metadata(hier_id = 11, key = "VDBFKBSC217000")
 #> 1: Collected within the framework of the balance sheet report to the ECB  loans to euro area residents  total.
 #>                         classification breaks frequency         last_update
 #>                                 <char> <char>    <char>              <char>
-#> 1: European Sytem of National Accounts   <NA>     month 2025-12-12 08:02:38
+#> 1: European Sytem of National Accounts   <NA>     month 2026-01-14 08:02:37
 #>    source    lag
 #>    <char> <char>
 #> 1:   OeNB   <NA>

@@ -62,11 +62,11 @@ boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 #>   4: 2015-04-30 IUMABEDR  0.50 Monthly average of official Bank Rate monthly
 #>   5: 2015-05-31 IUMABEDR  0.50 Monthly average of official Bank Rate monthly
 #>  ---                                                                        
-#> 137: 2020-12-31 IUALBEDR  0.10           End year official Bank Rate  annual
-#> 138: 2021-12-31 IUALBEDR  0.25           End year official Bank Rate  annual
-#> 139: 2022-12-31 IUALBEDR  3.50           End year official Bank Rate  annual
-#> 140: 2023-12-31 IUALBEDR  5.25           End year official Bank Rate  annual
-#> 141: 2024-12-31 IUALBEDR  4.75           End year official Bank Rate  annual
+#> 139: 2021-12-31 IUALBEDR  0.25           End year official Bank Rate  annual
+#> 140: 2022-12-31 IUALBEDR  3.50           End year official Bank Rate  annual
+#> 141: 2023-12-31 IUALBEDR  5.25           End year official Bank Rate  annual
+#> 142: 2024-12-31 IUALBEDR  4.75           End year official Bank Rate  annual
+#> 143: 2025-12-31 IUALBEDR  3.75           End year official Bank Rate  annual
 #>          seasonal_adjustment          type output_in instrument_currency
 #>                       <char>        <char>    <char>              <char>
 #>   1: Not seasonally adjusted Interest rate   Percent            Sterling
@@ -75,11 +75,11 @@ boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 #>   4: Not seasonally adjusted Interest rate   Percent            Sterling
 #>   5: Not seasonally adjusted Interest rate   Percent            Sterling
 #>  ---                                                                    
-#> 137:                    <NA> Interest rate   Percent            Sterling
-#> 138:                    <NA> Interest rate   Percent            Sterling
 #> 139:                    <NA> Interest rate   Percent            Sterling
 #> 140:                    <NA> Interest rate   Percent            Sterling
 #> 141:                    <NA> Interest rate   Percent            Sterling
+#> 142:                    <NA> Interest rate   Percent            Sterling
+#> 143:                    <NA> Interest rate   Percent            Sterling
 #>             instruments
 #>                  <char>
 #>   1: Official Bank Rate
@@ -88,10 +88,10 @@ boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 #>   4: Official Bank Rate
 #>   5: Official Bank Rate
 #>  ---                   
-#> 137: Official Bank Rate
-#> 138: Official Bank Rate
 #> 139: Official Bank Rate
 #> 140: Official Bank Rate
 #> 141: Official Bank Rate
+#> 142: Official Bank Rate
+#> 143: Official Bank Rate
 # }
 ```

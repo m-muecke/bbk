@@ -11,8 +11,11 @@ Interactive Statistical Database'
 España API'
 (<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>),
 the 'Banque de France Web Service'
-(<https://webstat.banque-france.fr/en/pages/guide-migration-api/>), and
-'Bank of Canada Valet API' (<https://www.bankofcanada.ca/valet/docs>).
+(<https://webstat.banque-france.fr/en/pages/guide-migration-api/>), the
+'Oesterreichische Nationalbank Web Service'
+(<https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>),
+and 'Bank of Canada Valet API'
+(<https://www.bankofcanada.ca/valet/docs>).
 
 ## See also
 

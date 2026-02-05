@@ -22,7 +22,7 @@ bbk_series(key)
 ## Value
 
 A
-[`data.table::data.table()`](https://rdatatable.gitlab.io/data.table/reference/data.table.html)
+[`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
 with the requested data.
 
 ## See also
@@ -55,11 +55,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: 1999-04-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4323 monthly
 #>   5: 1999-05-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4318 monthly
 #>  ---                                                    
-#> 320: 2025-08-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4642 monthly
 #> 321: 2025-09-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4649 monthly
 #> 322: 2025-10-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4677 monthly
 #> 323: 2025-11-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4688 monthly
 #> 324: 2025-12-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4689 monthly
+#> 325: 2026-01-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4674 monthly
 #>                                                                            title
 #>                                                                           <char>
 #>   1: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
@@ -68,24 +68,24 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>   5: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>  ---                                                                            
-#> 320: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 321: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 322: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 323: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 324: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
+#> 325: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>      category   unit unit_mult         last_update
 #>        <char> <char>    <char>              <char>
-#>   1:     WEDE    DKK       One 2025-12-31 16:39:39
-#>   2:     WEDE    DKK       One 2025-12-31 16:39:39
-#>   3:     WEDE    DKK       One 2025-12-31 16:39:39
-#>   4:     WEDE    DKK       One 2025-12-31 16:39:39
-#>   5:     WEDE    DKK       One 2025-12-31 16:39:39
+#>   1:     WEDE    DKK       One 2026-01-30 16:01:31
+#>   2:     WEDE    DKK       One 2026-01-30 16:01:31
+#>   3:     WEDE    DKK       One 2026-01-30 16:01:31
+#>   4:     WEDE    DKK       One 2026-01-30 16:01:31
+#>   5:     WEDE    DKK       One 2026-01-30 16:01:31
 #>  ---                                              
-#> 320:     WEDE    DKK       One 2025-12-31 16:39:39
-#> 321:     WEDE    DKK       One 2025-12-31 16:39:39
-#> 322:     WEDE    DKK       One 2025-12-31 16:39:39
-#> 323:     WEDE    DKK       One 2025-12-31 16:39:39
-#> 324:     WEDE    DKK       One 2025-12-31 16:39:39
+#> 321:     WEDE    DKK       One 2026-01-30 16:01:31
+#> 322:     WEDE    DKK       One 2026-01-30 16:01:31
+#> 323:     WEDE    DKK       One 2026-01-30 16:01:31
+#> 324:     WEDE    DKK       One 2026-01-30 16:01:31
+#> 325:     WEDE    DKK       One 2026-01-30 16:01:31
 #>                                                            comment
 #>                                                             <char>
 #>   1: The ECB publishes daily euro foreign exchange reference rates
@@ -94,11 +94,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: The ECB publishes daily euro foreign exchange reference rates
 #>   5: The ECB publishes daily euro foreign exchange reference rates
 #>  ---                                                              
-#> 320: The ECB publishes daily euro foreign exchange reference rates
 #> 321: The ECB publishes daily euro foreign exchange reference rates
 #> 322: The ECB publishes daily euro foreign exchange reference rates
 #> 323: The ECB publishes daily euro foreign exchange reference rates
 #> 324: The ECB publishes daily euro foreign exchange reference rates
+#> 325: The ECB publishes daily euro foreign exchange reference rates
 #>                            source
 #>                            <char>
 #>   1: European Central Bank (ECB).
@@ -107,11 +107,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: European Central Bank (ECB).
 #>   5: European Central Bank (ECB).
 #>  ---                             
-#> 320: European Central Bank (ECB).
 #> 321: European Central Bank (ECB).
 #> 322: European Central Bank (ECB).
 #> 323: European Central Bank (ECB).
 #> 324: European Central Bank (ECB).
+#> 325: European Central Bank (ECB).
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>         date                                 key value      freq
 #>       <char>                              <char> <num>    <char>
@@ -161,11 +161,11 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: 1999-01-22 BBBK11.D.TTA000  27475  daily
 #>    5: 1999-01-29 BBBK11.D.TTA000  27475  daily
 #>   ---                                         
-#> 1408: 2025-12-12 BBBK11.D.TTA000 349991  daily
-#> 1409: 2025-12-19 BBBK11.D.TTA000 349991  daily
 #> 1410: 2025-12-26 BBBK11.D.TTA000 349991  daily
 #> 1411: 2026-01-02 BBBK11.D.TTA000 395215  daily
 #> 1412: 2026-01-09 BBBK11.D.TTA000 395215  daily
+#> 1413: 2026-01-16 BBBK11.D.TTA000 395215  daily
+#> 1414: 2026-01-23 BBBK11.D.TTA000 395215  daily
 #>                                                              title category
 #>                                                             <char>   <char>
 #>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
@@ -174,23 +174,23 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>   ---                                                                      
-#> 1408: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
-#> 1409: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1410: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1411: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1412: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
+#> 1413: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
+#> 1414: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
-#>    1:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#>    2:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#>    3:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#>    4:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#>    5:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
+#>    1:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#>    2:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#>    3:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#>    4:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#>    5:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
 #>   ---                                                    
-#> 1408:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#> 1409:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#> 1410:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#> 1411:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
-#> 1412:   EURO  Millions 2026-01-15 14:05:13    <NA>   <NA>
+#> 1410:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#> 1411:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#> 1412:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#> 1413:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
+#> 1414:   EURO  Millions 2026-01-30 13:39:27    <NA>   <NA>
 # }
 ```

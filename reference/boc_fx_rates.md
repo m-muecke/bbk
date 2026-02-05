@@ -38,7 +38,7 @@ boc_fx_rates(start_date = NULL, end_date = NULL, limit = NULL, skip = NULL)
 ## Value
 
 A
-[`data.table::data.table()`](https://rdatatable.gitlab.io/data.table/reference/data.table.html)
+[`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
 with the exchange rates.
 
 ## Details
@@ -65,45 +65,45 @@ should occur after 7 pm ET to ensure retrieval of the latest updates.
 # \donttest{
 # fetch latest exchange rates
 boc_fx_rates()
-#>      exchange_rate_id     rate exchange_rate_effective_timestamp
-#>                 <int>    <num>                            <POSc>
-#>   1:          5806745 0.334500                        2026-01-17
-#>   2:          5806746 0.000030                        2026-01-17
-#>   3:          5806747 0.000082                        2026-01-17
-#>   4:          5806748 0.094000                        2026-01-17
-#>   5:          5806749 0.000530                        2026-01-17
-#>  ---                                                            
-#> 150:          5806894 0.000560                        2026-01-17
-#> 151:          5806895 0.071600                        2026-01-17
-#> 152:          5806896 0.378730                        2026-01-17
-#> 153:          5806897 0.202040                        2026-01-17
-#> 154:          5806898 0.000050                        2026-01-17
+#>      exchange_rate_id    rate exchange_rate_effective_timestamp
+#>                 <int>   <num>                            <POSc>
+#>   1:          5810053 0.33450                        2026-02-06
+#>   2:          5810054 0.00376                        2026-02-06
+#>   3:          5810055 0.00000                        2026-02-06
+#>   4:          5810056 0.00003                        2026-02-06
+#>   5:          5810057 1.07380                        2026-02-06
+#>  ---                                                           
+#> 150:          5810202 0.03472                        2026-02-06
+#> 151:          5810203 0.00092                        2026-02-06
+#> 152:          5810204 0.00011                        2026-02-06
+#> 153:          5810205 0.00570                        2026-02-06
+#> 154:          5810206 0.01193                        2026-02-06
 #>      exchange_rate_expiry_timestamp exchange_rate_source from_currency
 #>                              <POSc>               <char>        <char>
-#>   1:            2026-01-17 23:59:59                 CBSA           SRG
-#>   2:            2026-01-17 23:59:59                 CBSA           MZM
-#>   3:            2026-01-17 23:59:59                  BoC           IDR
-#>   4:            2026-01-17 23:59:59                 CBSA           EEK
-#>   5:            2026-01-17 23:59:59                 CBSA           MNT
+#>   1:            2026-02-06 23:59:59                 CBSA           SRG
+#>   2:            2026-02-06 23:59:59                 CBSA           ZWL
+#>   3:            2026-02-06 23:59:59                 CBSA           XCG
+#>   4:            2026-02-06 23:59:59                 CBSA           MZM
+#>   5:            2026-02-06 23:59:59                  BoC           SGD
 #>  ---                                                                  
-#> 150:            2026-01-17 23:59:59                 CBSA           TZS
-#> 151:            2026-01-17 23:59:59                 CBSA           ZMW
-#> 152:            2026-01-17 23:59:59                 CBSA           AED
-#> 153:            2026-01-17 23:59:59                 CBSA           TTD
-#> 154:            2026-01-17 23:59:59                 CBSA           VND
+#> 150:            2026-02-06 23:59:59                 CBSA           UYU
+#> 151:            2026-02-06 23:59:59                 CBSA           RWF
+#> 152:            2026-02-06 23:59:59                 CBSA           UZS
+#> 153:            2026-02-06 23:59:59                 CBSA           YER
+#> 154:            2026-02-06 23:59:59                 CBSA           VUV
 #>      from_currency_csn to_currency to_currency_csn
 #>                  <int>      <char>           <int>
 #>   1:               184         CAD              36
-#>   2:               141         CAD              36
-#>   3:                92         CAD              36
-#>   4:                59         CAD              36
-#>   5:               130         CAD              36
+#>   2:               238         CAD              36
+#>   3:               252         CAD              36
+#>   4:               141         CAD              36
+#>   5:               176         CAD              36
 #>  ---                                              
-#> 150:               202         CAD              36
-#> 151:               229         CAD              36
-#> 152:                 1         CAD              36
-#> 153:               200         CAD              36
-#> 154:               215         CAD              36
+#> 150:               209         CAD              36
+#> 151:               169         CAD              36
+#> 152:               211         CAD              36
+#> 153:               225         CAD              36
+#> 154:               216         CAD              36
 
 # fetch historical exchange rates
 boc_fx_rates(start_date = "2021-10-22", end_date = "2021-10-23", limit = 10, skip = 2)

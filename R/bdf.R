@@ -53,7 +53,7 @@ bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_ke
   params <- list(refine = key, where = where)
   params <- utils::modifyList(params, list(...))
 
-  dt <- do.call(bdf, c(list(resource = "observations/exports/csv"), params))
+  dt <- do.call(bdf, c(list(resource = "observations/exports/csv", api_key = api_key), params))
   parse_bdf_data(dt)
 }
 
@@ -137,13 +137,13 @@ parse_bdf_dataset <- function(dt) {
   dt[]
 }
 
-bdf <- function(resource, ...) {
+bdf <- function(resource, ..., api_key = bdf_key()) {
   tf <- tempfile()
   on.exit(unlink(tf), add = TRUE)
   request("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets") |>
     req_url_path_append(resource) |>
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
-    req_headers(Authorization = paste("Apikey", bdf_key())) |>
+    req_headers(Authorization = paste("Apikey", api_key)) |>
     req_error(body = bdf_error_body) |>
     req_url_query(..., delimiter = ";", compressed = TRUE) |>
     req_perform(path = tf)

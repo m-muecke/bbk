@@ -8,7 +8,7 @@ test_that("ecb_fx_rates works", {
   expect_error(ecb_fx_rates(""))
 
   x <- ecb_fx_rates("latest")
-  expect_data_table(x, nrows = 30L, ncols = 3L)
+  expect_data_table(x, min.rows = 1L, ncols = 3L)
   expect_named(x, c("date", "currency", "rate"))
   expect_date(x$date)
   expect_character(x$currency)

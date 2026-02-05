@@ -4,12 +4,12 @@ test_that("boe_data input validation works", {
   expect_error(boe_data(NULL))
   expect_error(boe_data(NA))
   # start_date should be a valid date
-  expect_error(eob_data("abc", ""))
-  expect_error(eob_data("abc", 1L))
-  expect_error(eob_data("abc", "2020"))
-  expect_error(eob_data("abc", end_date = ""))
-  expect_error(eob_data("abc", end_date = 1L))
-  expect_error(eob_data("abc", end_date = "2020"))
+  expect_error(boe_data("abc", ""))
+  expect_error(boe_data("abc", 1L))
+  expect_error(boe_data("abc", "2020"))
+  expect_error(boe_data("abc", end_date = ""))
+  expect_error(boe_data("abc", end_date = 1L))
+  expect_error(boe_data("abc", end_date = "2020"))
 })
 
 test_that("parse_boe_data() works", {

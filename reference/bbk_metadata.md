@@ -145,6 +145,7 @@ bbk_metadata("datastructure")
 #> 81:           BBK_BSI1
 #> 82:         BBK_ES_FDI
 #> 83:         BBK_WACAAF
+#> 84:          BBK_EXPR2
 #>                     id
 #>                 <char>
 #>                                                                                                                                                name
@@ -232,6 +233,7 @@ bbk_metadata("datastructure")
 #> 81:                                                                              Deutsche Bundesbank, Balance Sheet Items, EMU, Monetary aggregates
 #> 82:                                                                                                          FDI Data Structure Definition (18-DIM)
 #> 83:                                                                        Statistics of negotiated wages - Aggregates and forecasts of time series
+#> 84:                                                                                           Consumer Prices of foreign countries (incl. ECOICOP2)
 #>                                                                                                                                                name
 #>                                                                                                                                              <char>
 bbk_metadata("dataflow", "BBSIS")

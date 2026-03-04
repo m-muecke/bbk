@@ -53,9 +53,9 @@ Other metadata:
 onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 #>      freq           available            pos  dval1  dval2  dval3  dval4
 #>    <char>              <char>         <char> <char> <char> <char> <char>
-#> 1:      M Jan.  80 - Dec.  25 VDBOSBHAGBSTIN      N     AT     Z5     25
+#> 1:      M Jan.  80 - Jan.  26 VDBOSBHAGBSTIN      N     AT     Z5     25
 #> 2:      A         1959 - 2026 VDBOSBHAGBSTIN      N     AT     Z5     01
-#> 3:      M Jan.  80 - Dec.  25 VDBOSBHAGBSTIN      N     AT     Z5     01
+#> 3:      M Jan.  80 - Jan.  26 VDBOSBHAGBSTIN      N     AT     Z5     01
 #> 4:      A         2013 - 2023 VDBOSBHAGBSTIN      N     AT     Z5     02
 onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 #>      freq           available            pos  dval1   dval2  dval3  dval4

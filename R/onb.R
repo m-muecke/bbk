@@ -82,7 +82,7 @@ parse_onb_data <- function(xml) {
     rbindlist() |>
     setnames(convert_camel_case) |>
     setnames(c("pos", "pos_title"), c("key", "title")) |>
-    setcolorder(the$col_order, skip_absent = TRUE)
+    setcolorder(col_order, skip_absent = TRUE)
   dt
 }
 

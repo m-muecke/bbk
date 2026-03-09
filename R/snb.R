@@ -62,7 +62,7 @@ parse_snb_data <- function(json) {
     P1D = "daily"
   )
   dt[, let(date = parse_date(date, freq), freq = freq)]
-  setcolorder(dt, the$col_order, skip_absent = TRUE)
+  setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }
 

@@ -99,19 +99,35 @@ available date is returned. Default <code>NULL</code>.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch USD/SEK exchange rate</span></span></span>
 <span class="r-in"><span><span class="fu">srb_data</span><span class="op">(</span><span class="st">"SEKUSDPMI"</span>, start_date <span class="op">=</span> <span class="st">"2024-01-01"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_bbk_cache(req_error(req_url_path_append(req_user_agent(request("https://api.riksbank.se/swea/v1"),     bbk_user_agent()), ...), body = srb_error_body))):</span> HTTP 400 Bad Request.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   more validation errors occurred.","status":400,"errors":{"to":["The value</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   '20525' is not valid."],"from":["The value '19723' is not</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   valid."]},"traceId":"00-c2f2f72c784d71d4e5be9d001f1325aa-bb66f392d7c1c2b2-00"}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            date    series    value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;    &lt;char&gt;    &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2024-01-02 SEKUSDPMI 10.18118</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 2024-01-03 SEKUSDPMI 10.24956</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 2024-01-04 SEKUSDPMI 10.21684</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2024-01-05 SEKUSDPMI 10.28752</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2024-01-08 SEKUSDPMI 10.24073</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 546: 2026-03-09 SEKUSDPMI  9.25530</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 547: 2026-03-10 SEKUSDPMI  9.11090</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 548: 2026-03-11 SEKUSDPMI  9.19981</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 549: 2026-03-12 SEKUSDPMI  9.27583</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 550: 2026-03-13 SEKUSDPMI  9.37130</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch EUR/SEK exchange rate</span></span></span>
 <span class="r-in"><span><span class="fu">srb_data</span><span class="op">(</span><span class="st">"SEKEURPMI"</span>, start_date <span class="op">=</span> <span class="st">"2024-01-01"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_bbk_cache(req_error(req_url_path_append(req_user_agent(request("https://api.riksbank.se/swea/v1"),     bbk_user_agent()), ...), body = srb_error_body))):</span> HTTP 400 Bad Request.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   more validation errors occurred.","status":400,"errors":{"to":["The value</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   '20525' is not valid."],"from":["The value '19723' is not</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   valid."]},"traceId":"00-452ae277c9b3b6ba0f764ee1a07717cb-7004cf3eddbf012f-00"}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            date    series   value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;    &lt;char&gt;   &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2024-01-02 SEKEURPMI 11.1545</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   2: 2024-01-03 SEKEURPMI 11.1915</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   3: 2024-01-04 SEKEURPMI 11.1905</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2024-01-05 SEKEURPMI 11.2350</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2024-01-08 SEKEURPMI 11.2095</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 546: 2026-03-09 SEKEURPMI 10.6945</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 547: 2026-03-10 SEKEURPMI 10.6060</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 548: 2026-03-11 SEKEURPMI 10.6543</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 549: 2026-03-12 SEKEURPMI 10.7108</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 550: 2026-03-13 SEKEURPMI 10.7545</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -61,18 +61,34 @@ Other data:
 # \donttest{
 # fetch USD/SEK exchange rate
 srb_data("SEKUSDPMI", start_date = "2024-01-01")
-#> Error in req_perform(req_bbk_cache(req_error(req_url_path_append(req_user_agent(request("https://api.riksbank.se/swea/v1"),     bbk_user_agent()), ...), body = srb_error_body))): HTTP 400 Bad Request.
-#> ℹ {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or
-#>   more validation errors occurred.","status":400,"errors":{"to":["The value
-#>   '20525' is not valid."],"from":["The value '19723' is not
-#>   valid."]},"traceId":"00-c2f2f72c784d71d4e5be9d001f1325aa-bb66f392d7c1c2b2-00"}
+#>            date    series    value
+#>          <Date>    <char>    <num>
+#>   1: 2024-01-02 SEKUSDPMI 10.18118
+#>   2: 2024-01-03 SEKUSDPMI 10.24956
+#>   3: 2024-01-04 SEKUSDPMI 10.21684
+#>   4: 2024-01-05 SEKUSDPMI 10.28752
+#>   5: 2024-01-08 SEKUSDPMI 10.24073
+#>  ---                              
+#> 546: 2026-03-09 SEKUSDPMI  9.25530
+#> 547: 2026-03-10 SEKUSDPMI  9.11090
+#> 548: 2026-03-11 SEKUSDPMI  9.19981
+#> 549: 2026-03-12 SEKUSDPMI  9.27583
+#> 550: 2026-03-13 SEKUSDPMI  9.37130
 
 # fetch EUR/SEK exchange rate
 srb_data("SEKEURPMI", start_date = "2024-01-01")
-#> Error in req_perform(req_bbk_cache(req_error(req_url_path_append(req_user_agent(request("https://api.riksbank.se/swea/v1"),     bbk_user_agent()), ...), body = srb_error_body))): HTTP 400 Bad Request.
-#> ℹ {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or
-#>   more validation errors occurred.","status":400,"errors":{"to":["The value
-#>   '20525' is not valid."],"from":["The value '19723' is not
-#>   valid."]},"traceId":"00-452ae277c9b3b6ba0f764ee1a07717cb-7004cf3eddbf012f-00"}
+#>            date    series   value
+#>          <Date>    <char>   <num>
+#>   1: 2024-01-02 SEKEURPMI 11.1545
+#>   2: 2024-01-03 SEKEURPMI 11.1915
+#>   3: 2024-01-04 SEKEURPMI 11.1905
+#>   4: 2024-01-05 SEKEURPMI 11.2350
+#>   5: 2024-01-08 SEKEURPMI 11.2095
+#>  ---                             
+#> 546: 2026-03-09 SEKEURPMI 10.6945
+#> 547: 2026-03-10 SEKEURPMI 10.6060
+#> 548: 2026-03-11 SEKEURPMI 10.6543
+#> 549: 2026-03-12 SEKEURPMI 10.7108
+#> 550: 2026-03-13 SEKEURPMI 10.7545
 # }
 ```

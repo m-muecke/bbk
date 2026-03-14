@@ -239,7 +239,7 @@ parse_onb_dimension <- function(xml) {
 
 onb <- function(resource, ...) {
   request("https://www.oenb.at/isadataservice") |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_user_agent(bbk_user_agent()) |>
     req_url_path_append(resource) |>
     req_url_query(..., .multi = "explode") |>
     req_error(

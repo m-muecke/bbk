@@ -103,7 +103,7 @@ parse_bde_data <- function(json) {
 bde <- function(key, time_range, lang) {
   url <- "https://app.bde.es/bierest/resources/srdatosapp/listaSeries"
   request(url) |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_user_agent(bbk_user_agent()) |>
     req_url_query(idioma = lang, series = key, rango = time_range, .multi = "comma") |>
     req_error(body = bde_error_body) |>
     req_bbk_cache() |>

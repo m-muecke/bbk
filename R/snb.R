@@ -69,7 +69,7 @@ parse_snb_data <- function(json) {
 snb <- function(id, ..., lang = "en") {
   url <- sprintf("https://data.snb.ch/api/cube/%s/data/json", id)
   request(url) |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_user_agent(bbk_user_agent()) |>
     req_url_path_append(lang) |>
     req_url_query(...) |>
     req_error(body = snb_error_body) |>

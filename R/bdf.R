@@ -142,7 +142,7 @@ bdf <- function(resource, ..., api_key = bdf_key()) {
   on.exit(unlink(tf), add = TRUE)
   request("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets") |>
     req_url_path_append(resource) |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_user_agent(bbk_user_agent()) |>
     req_headers(Authorization = paste("Apikey", api_key)) |>
     req_error(body = bdf_error_body) |>
     req_url_query(..., delimiter = ";", compressed = TRUE) |>

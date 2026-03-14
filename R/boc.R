@@ -177,7 +177,7 @@ boc_group_obs <- function(name = "FX_RATES_DAILY", start_date = NULL, end_date =
 
 boc <- function(resource, name, ...) {
   request("https://www.bankofcanada.ca/valet") |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_user_agent(bbk_user_agent()) |>
     req_url_path_append(resource, name, "json") |>
     req_url_query(...) |>
     req_error(body = boc_error_body) |>

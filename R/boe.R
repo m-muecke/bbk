@@ -59,7 +59,7 @@ parse_boe_data <- function(xml) {
 
 boe <- function(...) {
   request("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp") |>
-    req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
+    req_user_agent(bbk_user_agent()) |>
     req_url_query(..., xml.x = "yes", .multi = "comma") |>
     req_error(
       is_error = function(resp) {

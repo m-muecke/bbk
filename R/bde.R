@@ -106,6 +106,7 @@ bde <- function(key, time_range, lang) {
     req_user_agent("bbk (https://m-muecke.github.io/bbk)") |>
     req_url_query(idioma = lang, series = key, rango = time_range, .multi = "comma") |>
     req_error(body = bde_error_body) |>
+    req_bbk_cache() |>
     req_perform() |>
     resp_body_json()
 }

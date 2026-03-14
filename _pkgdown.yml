@@ -19,6 +19,10 @@ reference:
       - onb_data
       - snb_data
 
+  - subtitle: Cache
+    contents:
+      - cache
+
   - subtitle: Metadata
     contents:
       - bbk_metadata

@@ -73,6 +73,7 @@ snb <- function(id, ..., lang = "en") {
     req_url_path_append(lang) |>
     req_url_query(...) |>
     req_error(body = snb_error_body) |>
+    req_bbk_cache() |>
     req_perform() |>
     resp_body_json(check_type = FALSE)
 }

@@ -194,6 +194,7 @@ ecb <- function(resource, ...) {
     req_url_path_append(resource) |>
     req_url_query(...) |>
     req_error(body = ecb_error_body) |>
+    req_bbk_cache() |>
     req_perform() |>
     resp_body_xml()
 }

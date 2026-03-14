@@ -257,6 +257,7 @@ onb <- function(resource, ...) {
         }
       }
     ) |>
+    req_bbk_cache() |>
     req_perform() |>
     resp_body_xml()
 }

@@ -67,6 +67,7 @@ boe <- function(...) {
       },
       body = boe_error_body
     ) |>
+    req_bbk_cache() |>
     req_perform() |>
     resp_body_xml()
 }

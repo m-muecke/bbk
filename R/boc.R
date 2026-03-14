@@ -181,6 +181,7 @@ boc <- function(resource, name, ...) {
     req_url_path_append(resource, name, "json") |>
     req_url_query(...) |>
     req_error(body = boc_error_body) |>
+    req_bbk_cache() |>
     req_perform() |>
     resp_body_json()
 }

@@ -76,6 +76,7 @@ Other data:
 \code{\link{bdf_dataset}()},
 \code{\link{boc_data}()},
 \code{\link{boe_data}()},
+\code{\link{nob_data}()},
 \code{\link{onb_data}()},
 \code{\link{snb_data}()}
 }

@@ -16,6 +16,7 @@ reference:
       - boe_data
       - ecb_data
       - ecb_fx_rates
+      - nob_data
       - onb_data
       - snb_data
 
@@ -31,6 +32,7 @@ reference:
       - boc_catalog
       - boc_metadata
       - ecb_metadata
+      - nob_metadata
       - onb_dimension
       - onb_frequency
       - onb_hierarchy

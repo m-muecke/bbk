@@ -77,6 +77,7 @@ Other data:
 \code{\link{boc_data}()},
 \code{\link{boe_data}()},
 \code{\link{ecb_data}()},
+\code{\link{nob_data}()},
 \code{\link{snb_data}()}
 }
 \concept{data}

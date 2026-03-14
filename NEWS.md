@@ -1,6 +1,7 @@
 # bbk (development version)
 
 * Add optional caching of API responses via `options(bbk.cache = TRUE)`. Cached responses are stored for 1 day by default and can be customized with `options(bbk.cache_max_age = seconds)`. Use `bbk_cache_dir()` to find the cache location and `bbk_cache_clear()` to clear it.
+* Support for Norges Bank (NoB) data.
 
 # bbk 0.8.0
 

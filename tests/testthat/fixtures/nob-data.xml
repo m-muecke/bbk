@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<message:StructureSpecificData xmlns:ss="http://www.sdmx.org/resources/sdmxml/schemas/v3_0/data/structurespecific" xmlns:footer="http://www.sdmx.org/resources/sdmxml/schemas/v3_0/message/footer" xmlns:ns1="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:EXR(1.0):ObsLevelDim:TIME_PERIOD" xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v3_0/message" xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v3_0/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sdmx.org/resources/sdmxml/schemas/v3_0/message https://registry.sdmx.org/schemas/v3_0/SDMXMessage.xsd urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:EXR(1.0):ObsLevelDim:TIME_PERIOD https://data.norges-bank.no/api/schema/dataflow/NB/EXR/1.0?format=sdmx-3.0">
+  <message:Header>
+    <message:ID>IREF812312</message:ID>
+    <message:Test>false</message:Test>
+    <message:Prepared>2026-03-14T09:40:37Z</message:Prepared>
+    <message:Sender id="Unknown"/>
+    <message:Receiver id="guest"/>
+    <message:Structure structureID="NB_EXR_1_0" namespace="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:EXR(1.0):ObsLevelDim:TIME_PERIOD" dimensionAtObservation="TIME_PERIOD">
+      <common:StructureUsage>urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:EXR(1.0)</common:StructureUsage>
+    </message:Structure>
+    <message:DataSetAction>Information</message:DataSetAction>
+    <message:DataSetID>d328c176-5663-452d-9c06-449916240a73</message:DataSetID>
+    <message:Extracted>2026-03-14T09:40:37</message:Extracted>
+    <message:ReportingBegin>2026-03-12T00:00:00</message:ReportingBegin>
+    <message:ReportingEnd>2026-03-13T23:59:59</message:ReportingEnd>
+  </message:Header>
+  <message:DataSet xsi:type="ns1:DataSetType" ss:structureRef="NB_EXR_1_0">
+    <Series FREQ="B" BASE_CUR="USD" QUOTE_CUR="NOK" TENOR="SP" COLLECTION="C" CALCULATED="false" DECIMALS="4" UNIT_MULT="0">
+      <Obs TIME_PERIOD="2026-03-12" OBS_VALUE="9.6627"/>
+      <Obs TIME_PERIOD="2026-03-13" OBS_VALUE="9.7238"/>
+    </Series>
+    <Series FREQ="B" BASE_CUR="EUR" QUOTE_CUR="NOK" TENOR="SP" COLLECTION="C" CALCULATED="false" DECIMALS="4" UNIT_MULT="0">
+      <Obs TIME_PERIOD="2026-03-12" OBS_VALUE="11.1575"/>
+      <Obs TIME_PERIOD="2026-03-13" OBS_VALUE="11.159"/>
+    </Series>
+  </message:DataSet>
+</message:StructureSpecificData>

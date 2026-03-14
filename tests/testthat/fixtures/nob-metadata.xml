@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mes:Structure xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mes="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:str="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure" xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">
+  <mes:Header>
+    <mes:ID>IREF812313</mes:ID>
+    <mes:Test>false</mes:Test>
+    <mes:Prepared>2026-03-14T09:40:37Z</mes:Prepared>
+    <mes:Sender id="Unknown"/>
+    <mes:Receiver id="not_supplied"/>
+  </mes:Header>
+  <mes:Structures>
+    <str:Dataflows>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:ANN_FX_SPU(1.0)" isExternalReference="false" agencyID="NB" id="ANN_FX_SPU" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Announcement of foreign exchange transactions on behalf of SPU</com:Name>
+        <com:Name xml:lang="no">Annonsering av valutatransaksjoner for SPU</com:Name>
+        <com:Description xml:lang="en">Norges Banks announcements of foreign exchange transactions on behalf of the government</com:Description>
+        <com:Description xml:lang="no">Norges Banks annonsering av valutatransaksjoner på vegne av staten</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_ANN_FX_SPU" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:ANN_KPRA(1.0)" isExternalReference="false" agencyID="NB" id="ANN_KPRA" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Key policy rate announcement</com:Name>
+        <com:Name xml:lang="no">Publisering av styringsrenten</com:Name>
+        <com:Description xml:lang="en">Norges Banks announcements of key policy rate decisions</com:Description>
+        <com:Description xml:lang="no">Norges Banks annonseringer av rentebeslutninger</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_ANN_KPRA" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:ANN_TEST(1.0)" isExternalReference="false" agencyID="NB" id="ANN_TEST" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Announcement of test messages</com:Name>
+        <com:Name xml:lang="no">Annonsering av test meldinger</com:Name>
+        <com:Description xml:lang="en">Used internally by Norges Bank for technical verification of our publishing solution</com:Description>
+        <com:Description xml:lang="no">Benyttes internt av Norges Bank for teknisk verifikasjon av publiseringsløsningen</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_ANN_TEST" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:EXR(1.0)" isExternalReference="false" agencyID="NB" id="EXR" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Exchange rates</com:Name>
+        <com:Name xml:lang="no">Valutakurser</com:Name>
+        <com:Description xml:lang="en">Norges Bank exchange rate statistics</com:Description>
+        <com:Description xml:lang="no">Norges Banks valutakurser</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_EXR" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:FAUCTION(1.0)" isExternalReference="false" agencyID="NB" id="FAUCTION" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Announcements and results of F-auctions</com:Name>
+        <com:Name xml:lang="no">Auksjonsinnbydelser og resultater av F-auksjoner</com:Name>
+        <com:Description xml:lang="en">Norges Banks announcements and results of F-auctions. TIME_PERIOD indicates bidding deadline in the dataset.</com:Description>
+        <com:Description xml:lang="no">Norges Banks auksjonsinnbydelser og resultater av F-auksjon. TIME_PERIOD indikerer budfrist i datasettet.</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_FAUCTION" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:FINANCIAL_INDICATORS(1.0)" isExternalReference="false" agencyID="NB" id="FINANCIAL_INDICATORS" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Financial indicators</com:Name>
+        <com:Name xml:lang="no">Finansielle indikatorer</com:Name>
+        <com:Description xml:lang="en">Financial indicators, as calculated by Norges Bank</com:Description>
+        <com:Description xml:lang="no">Finansielle indikatorer, beregnet av Norges Bank</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_FINANCIAL_INDICATORS" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:GOVT_GENERIC_RATES(1.0)" isExternalReference="false" agencyID="NB" id="GOVT_GENERIC_RATES" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Generic interest rates</com:Name>
+        <com:Name xml:lang="no">Generiske renter</com:Name>
+        <com:Description xml:lang="en">The "generic yield" is the yield on that bond, with maturity that is close to the chosen maturity point, for that date.</com:Description>
+        <com:Description xml:lang="no">Generisk rente er den effektive renten på et statspapir som er nærmest den oppgitte løpetiden målt fra dagens dato.</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_GOVT_GENERIC_RATES" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:GOVT_IRS(1.0)" isExternalReference="false" agencyID="NB" id="GOVT_IRS" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Interest rate swaps</com:Name>
+        <com:Name xml:lang="no">Rentebytteavtaler</com:Name>
+        <com:Description xml:lang="en">Norwegian government debt - Interest rate swaps</com:Description>
+        <com:Description xml:lang="no">Norsk statsgjeld - Rentebytteavtaler</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_GOVT_IRS" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:GOVT_KEYFIGURES(1.0)" isExternalReference="false" agencyID="NB" id="GOVT_KEYFIGURES" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Key Goverment Debt Indicators</com:Name>
+        <com:Name xml:lang="no">Nøkkeltall for statsgjelden</com:Name>
+        <com:Description xml:lang="en">Key Goverment Debt Indicators</com:Description>
+        <com:Description xml:lang="no">Nøkkeltall for statsgjelden</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_GOVT_KEYFIGURES" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:GOVT_PRIMARY_MARKET(1.0)" isExternalReference="false" agencyID="NB" id="GOVT_PRIMARY_MARKET" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Norwegian government securities – Primary market</com:Name>
+        <com:Name xml:lang="no">Statslån – førstehåndsmarkedet</com:Name>
+        <com:Description xml:lang="en">Primary market for government debt securities</com:Description>
+        <com:Description xml:lang="no">Førstehåndsmarkedet for norske statspapirer</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_GOVT_PRIMARY_MARKET" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:GOVT_SECONDARY_MARKET(1.0)" isExternalReference="false" agencyID="NB" id="GOVT_SECONDARY_MARKET" isFinal="false" version="1.0">
+        <com:Name xml:lang="no">Omsetning av statspapirer</com:Name>
+        <com:Name xml:lang="en">Norwegian government securities – Secondary market</com:Name>
+        <com:Description xml:lang="en">Secondary market turnover of government securities by region and investor category</com:Description>
+        <com:Description xml:lang="no">Omsetning av statspapirer annenhåndsmarkedet fordelt på regioner og investorer</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_GOVT_SECONDARY_MARKET" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:GOVT_ZEROCOUPON(1.0)" isExternalReference="false" agencyID="NB" id="GOVT_ZEROCOUPON" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Norwegian government securities - Zero coupon yields</com:Name>
+        <com:Name xml:lang="no">Statslån - nullkupongrenter</com:Name>
+        <com:Description xml:lang="en">Calculated by a parametric method developed by Nelson, Siegel and Svensson.</com:Description>
+        <com:Description xml:lang="no">Beregnet ved en parametrisk metode utviklet av Nelson, Siegel og Svensson.</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_GOVT_ZEROCOUPON" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:IR(1.1)" isExternalReference="false" agencyID="NB" id="IR" isFinal="false" version="1.1">
+        <com:Name xml:lang="en">Policy rate</com:Name>
+        <com:Name xml:lang="no">Styringsrente</com:Name>
+        <com:Description xml:lang="en">Policy rate</com:Description>
+        <com:Description xml:lang="no">Styringsrente</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_IR" version="1.1" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:LIQUIDITY_FORECAST(1.0)" isExternalReference="false" agencyID="NB" id="LIQUIDITY_FORECAST" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Structural liquidity and total liquidity</com:Name>
+        <com:Name xml:lang="no">Strukturell likviditet og total likviditet</com:Name>
+        <com:Description xml:lang="no">Faktisk utvikling og prognose for likviditeten i banksystemet per kalenderår</com:Description>
+        <com:Description xml:lang="en">Actual development and forecast for bank liquidity per calendar year</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_LIQUIDITY_FORECAST" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:LIQUIDITY_STATISTICS(1.0)" isExternalReference="false" agencyID="NB" id="LIQUIDITY_STATISTICS" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Liquidity statistics</com:Name>
+        <com:Name xml:lang="no">Likviditetsstatistikk</com:Name>
+        <com:Description xml:lang="en">Statistics for bank liquidity.</com:Description>
+        <com:Description xml:lang="no">Statistikk for likviditeten i banksystemet</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_LIQUIDITY_STATISTICS" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:MONEY_MARKET(1.0)" isExternalReference="false" agencyID="NB" id="MONEY_MARKET" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Money market data</com:Name>
+        <com:Name xml:lang="no">Pengemarkedsdata</com:Name>
+        <com:Description xml:lang="en">Aggregated data from Norges Bank’s money market reporting</com:Description>
+        <com:Description xml:lang="no">Aggregerte data fra Norges Banks pengemarkedsrapportering</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_MONEY_MARKET" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:REGNET(1.0)" isExternalReference="false" agencyID="NB" id="REGNET" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Regional Network</com:Name>
+        <com:Name xml:lang="no">Regionalt nettverk</com:Name>
+        <com:Description xml:lang="en">Regional Network</com:Description>
+        <com:Description xml:lang="no">Regionalt nettverk</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_REGNET" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:SEC(1.0)" isExternalReference="false" agencyID="NB" id="SEC" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Norwegian government securities - Prices and yields</com:Name>
+        <com:Name xml:lang="no">Statslån - kurser og renter</com:Name>
+        <com:Description xml:lang="no">Beste kjøps- og salgskurser/renter ved markedsslutt.</com:Description>
+        <com:Description xml:lang="en">Best bid and ask prices/yields at market close.</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_SEC" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:SETTLEMENT_STATISTICS(1.0)" isExternalReference="false" agencyID="NB" id="SETTLEMENT_STATISTICS" isFinal="false" version="1.0">
+        <com:Name xml:lang="en">Settlement Statistics</com:Name>
+        <com:Name xml:lang="no">Statistikk fra oppgjørssystemet</com:Name>
+        <com:Description xml:lang="en">Data from Norges Bank Settlement System</com:Description>
+        <com:Description xml:lang="no">Data fra Norges Bank Oppgjørssystem</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_SETTLEMENT_STATISTICS" version="1.0" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+      <str:Dataflow urn="urn:sdmx:org.sdmx.infomodel.datastructure.Dataflow=NB:SHORT_RATES(1.2)" isExternalReference="false" agencyID="NB" id="SHORT_RATES" isFinal="false" version="1.2">
+        <com:Name xml:lang="en">Short rates</com:Name>
+        <com:Name xml:lang="no">Renter med kort løpetid</com:Name>
+        <com:Description xml:lang="en">Nowa</com:Description>
+        <com:Description xml:lang="no">Nowa</com:Description>
+        <str:Structure>
+          <Ref package="datastructure" agencyID="NB" id="DSD_SHORT_RATES" version="1.2" class="DataStructure"/>
+        </str:Structure>
+      </str:Dataflow>
+    </str:Dataflows>
+  </mes:Structures>
+</mes:Structure>

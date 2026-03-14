@@ -54,7 +54,8 @@ Other metadata:
 [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),
 [`onb_hierarchy()`](https://m-muecke.github.io/bbk/reference/onb_hierarchy.md),
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
-[`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md)
+[`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
+[`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
 
 ## Examples
 

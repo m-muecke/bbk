@@ -72,7 +72,8 @@ Other data:
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md),
-[`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md)
+[`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md),
+[`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md)
 
 ## Examples
 

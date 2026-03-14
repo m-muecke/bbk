@@ -19,6 +19,7 @@ reference:
       - nob_data
       - onb_data
       - snb_data
+      - srb_data
 
   - subtitle: Cache
     contents:
@@ -38,3 +39,4 @@ reference:
       - onb_hierarchy
       - onb_metadata
       - onb_toc
+      - srb_series

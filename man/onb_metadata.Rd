@@ -40,6 +40,7 @@ Other metadata:
 \code{\link{onb_dimension}()},
 \code{\link{onb_frequency}()},
 \code{\link{onb_hierarchy}()},
-\code{\link{onb_toc}()}
+\code{\link{onb_toc}()},
+\code{\link{srb_series}()}
 }
 \concept{metadata}

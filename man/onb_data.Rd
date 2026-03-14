@@ -78,6 +78,7 @@ Other data:
 \code{\link{boe_data}()},
 \code{\link{ecb_data}()},
 \code{\link{nob_data}()},
-\code{\link{snb_data}()}
+\code{\link{snb_data}()},
+\code{\link{srb_data}()}
 }
 \concept{data}

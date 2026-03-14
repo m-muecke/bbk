@@ -28,6 +28,8 @@ bbk is minimal R client for the following APIs:
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [Norges Bank
   (NoB)](https://www.norges-bank.no/en/topics/Statistics/open-data/)
+- [Sveriges Riksbank
+  (SRb)](https://developer.api.riksbank.se/)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)
 - [Österreichische Nationalbank
   (OeNB)](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html)
@@ -55,7 +57,7 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed according to the central bank they access
-(`bbk_`, `ecb_`, `snb_`, `boe_`, `bde_`, `bdf_`, `onb_`, `boc_`, `nob_`)
+(`bbk_`, `ecb_`, `snb_`, `boe_`, `bde_`, `bdf_`, `onb_`, `boc_`, `nob_`, `srb_`)
 and follow the naming conventions of their respective APIs.
 
 The typical workflow involves:

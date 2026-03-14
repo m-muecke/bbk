@@ -1,0 +1,48 @@
+test_that("srb_data input validation works", {
+  expect_error(srb_data(1L))
+  expect_error(srb_data(TRUE))
+  expect_error(srb_data(NULL))
+  expect_error(srb_data(NA))
+  expect_error(srb_data(c("a", "b")))
+  # start_date
+  expect_error(srb_data("SEKUSDPMI", start_date = TRUE))
+  expect_error(srb_data("SEKUSDPMI", start_date = c("a", "b")))
+  # end_date
+  expect_error(srb_data("SEKUSDPMI", end_date = TRUE))
+  expect_error(srb_data("SEKUSDPMI", end_date = c("a", "b")))
+})
+
+test_that("parse_srb_data works", {
+  json <- jsonlite::fromJSON(test_path("fixtures", "srb-data.json"), simplifyVector = FALSE)
+  actual <- parse_srb_data(json, "SEKUSDPMI")
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_numeric(actual$value)
+  expect_true(all(c("date", "series", "value") %in% names(actual)))
+})
+
+test_that("parse_srb_data handles empty response", {
+  actual <- parse_srb_data(list(), "SEKUSDPMI")
+  expect_data_table(actual, nrows = 0L)
+  expect_true(all(c("date", "series", "value") %in% names(actual)))
+})
+
+test_that("srb_series input validation works", {
+  expect_error(srb_series(1L))
+  expect_error(srb_series("invalid"))
+})
+
+test_that("parse_srb_series works", {
+  json <- jsonlite::fromJSON(test_path("fixtures", "srb-series.json"), simplifyVector = FALSE)
+  actual <- parse_srb_series(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_true(all(c("series_id", "source", "long_description") %in% names(actual)))
+  expect_true("SEKUSDPMI" %in% actual$series_id)
+})
+
+test_that("parse_srb_groups works", {
+  json <- jsonlite::fromJSON(test_path("fixtures", "srb-groups.json"), simplifyVector = FALSE)
+  actual <- parse_srb_groups(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_true(all(c("group_id", "name") %in% names(actual)))
+})

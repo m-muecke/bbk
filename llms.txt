@@ -112,6 +112,12 @@ yield_curve <- bbk_data(
 - [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md) :
   Fetch Swiss National Bank (SNB) data
 
+### Cache
+
+- [`bbk_cache_dir()`](https://m-muecke.github.io/bbk/reference/cache.md)
+  [`bbk_cache_clear()`](https://m-muecke.github.io/bbk/reference/cache.md)
+  : Get or manage the bbk API cache
+
 ### Metadata
 
 - [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md)

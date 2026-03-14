@@ -23,7 +23,6 @@ Retrieve available series or group metadata from the Sveriges Riksbank SWEA API.
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 srb_series()
-srb_series("groups")
 }
 \dontshow{\}) # examplesIf}
 }

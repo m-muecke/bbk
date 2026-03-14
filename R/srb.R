@@ -50,7 +50,6 @@ srb_data <- function(series, start_date = NULL, end_date = NULL) {
 #' @examplesIf curl::has_internet()
 #' \donttest{
 #' srb_series()
-#' srb_series("groups")
 #' }
 srb_series <- function(type = "series") {
   assert_choice(type, c("series", "groups"))
@@ -62,6 +61,7 @@ parse_srb_data <- function(json, series) {
   if (length(json) == 0L) {
     return(data.table(date = as.Date(character()), series = character(), value = numeric()))
   }
+  value <- NULL
   dt <- rbindlist(lapply(json, setDT))
   dt[, let(
     date = as.Date(date),

@@ -73,9 +73,7 @@ parse_srb_data <- function(json, series) {
 }
 
 parse_srb_series <- function(json) {
-  dt <- rbindlist(lapply(json, function(x) {
-    setDT(lapply(x, \(v) v %??% NA_character_))
-  }))
+  dt <- rbindlist(lapply(json, \(x) setDT(lapply(x, \(v) v %??% NA_character_))))
   nms <- convert_camel_case(names(dt))
   setnames(dt, nms)
   dt[]

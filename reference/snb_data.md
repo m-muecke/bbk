@@ -52,6 +52,7 @@ Other data:
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
+[`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
 
 ## Examples

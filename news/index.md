@@ -9,6 +9,7 @@
   to find the cache location and
   [`bbk_cache_clear()`](https://m-muecke.github.io/bbk/reference/cache.md)
   to clear it.
+- Support for Norges Bank (NoB) data.
 
 ## bbk 0.8.0
 

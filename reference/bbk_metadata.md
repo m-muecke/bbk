@@ -49,6 +49,7 @@ with the requested metadata. The columns are:
 
 Other metadata:
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
+[`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
 [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),
 [`onb_hierarchy()`](https://m-muecke.github.io/bbk/reference/onb_hierarchy.md),

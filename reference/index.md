@@ -21,6 +21,8 @@
 - [`ecb_fx_rates()`](https://m-muecke.github.io/bbk/reference/ecb_fx_rates.md)
   [`ecb_euro_rates()`](https://m-muecke.github.io/bbk/reference/ecb_fx_rates.md)
   : Fetch Euro foreign exchange reference rates
+- [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md) :
+  Fetch Norges Bank (NoB) data
 - [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md) :
   Fetch Österreichische Nationalbank (OeNB) data
 - [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md) :
@@ -46,6 +48,8 @@
   : Fetch Bank of Canada (BoC) metadata (details)
 - [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md)
   : Fetch European Central Bank (ECB) metadata
+- [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
+  : Fetch Norges Bank (NoB) metadata
 - [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md)
   : Fetch Österreichische Nationalbank (OeNB) dimension
 - [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md)

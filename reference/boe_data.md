@@ -46,6 +46,7 @@ Other data:
 [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md),
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
+[`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md),
 [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md)
 

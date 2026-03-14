@@ -12,6 +12,8 @@ España API'
 (<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>),
 the 'Banque de France Web Service'
 (<https://webstat.banque-france.fr/en/pages/guide-migration-api/>), the
+'Norges Bank SDMX Web Service'
+(<https://www.norges-bank.no/en/topics/Statistics/open-data/>), the
 'Oesterreichische Nationalbank Web Service'
 (<https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>),
 and 'Bank of Canada Valet API'

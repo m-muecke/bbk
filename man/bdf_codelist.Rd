@@ -7,12 +7,15 @@
 \url{https://webstat.banque-france.fr/en/pages/guide-migration-api/}
 }
 \usage{
-bdf_codelist(...)
+bdf_codelist(..., lang = "en")
 }
 \arguments{
 \item{...}{(\code{any})\cr
 Extra arguments appended to the API request.
 Combined with the default arguments with \code{\link[=modifyList]{modifyList()}}.}
+
+\item{lang}{(\code{character(1)})\cr
+Language to query. Default \code{"en"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

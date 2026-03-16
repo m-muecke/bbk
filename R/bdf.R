@@ -11,6 +11,8 @@
 #'   Start date of the data. Default `NULL`.
 #' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
 #'   End date of the data. Default `NULL`.
+#' @param lang (`character(1)`)\cr
+#'   Language to query. Default `"en"`.
 #' @param api_key (`character(1)`)\cr
 #'   API key to use for the request. Defaults to the value returned by `bdf_key()`, which reads from
 #'   the `BANQUEDEFRANCE_KEY` environment variable.
@@ -31,8 +33,16 @@
 #' # advanced filter with where clause
 #' bdf_data(key = "ICP.M.FR.N.000000.4.ANR", where = "time_period_start >= date'2025-01-01'")
 #' }
-bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_key = bdf_key()) {
+bdf_data <- function(
+  ...,
+  key = NULL,
+  start_date = NULL,
+  end_date = NULL,
+  lang = "en",
+  api_key = bdf_key()
+) {
   assert_string(key, min.chars = 1L, null.ok = TRUE)
+  assert_string(lang, min.chars = 1L)
   assert_string(api_key, min.chars = 1L)
   start_date <- assert_dateish(start_date, null.ok = TRUE)
   end_date <- assert_dateish(end_date, null.ok = TRUE)
@@ -50,7 +60,7 @@ bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_ke
     where <- c(where, end_date)
   }
   where <- if (length(where) > 0L) paste(where, collapse = " and ") else NULL
-  params <- list(refine = key, where = where)
+  params <- list(refine = key, where = where, lang = lang)
   params <- utils::modifyList(params, list(...))
 
   dt <- do.call(bdf, c(list(resource = "observations/exports/csv", api_key = api_key), params))
@@ -71,8 +81,9 @@ bdf_data <- function(..., key = NULL, start_date = NULL, end_date = NULL, api_ke
 #' # structure of a dataset
 #' bdf_dataset(where = "dataset_id = 'CONJ2'")
 #' }
-bdf_dataset <- function(...) {
-  dt <- bdf(resource = "webstat-datasets/exports/csv", ...)
+bdf_dataset <- function(..., lang = "en") {
+  assert_string(lang, min.chars = 1L)
+  dt <- bdf(resource = "webstat-datasets/exports/csv", lang = lang, ...)
   parse_bdf_dataset(dt)
 }
 
@@ -90,8 +101,9 @@ bdf_dataset <- function(...) {
 #' # filter for a specific codelist
 #' bdf_codelist(where = "codelist_id = 'CL_FREQ'")
 #' }
-bdf_codelist <- function(...) {
-  bdf(resource = "codelists/exports/csv", ...)
+bdf_codelist <- function(..., lang = "en") {
+  assert_string(lang, min.chars = 1L)
+  bdf(resource = "codelists/exports/csv", lang = lang, ...)
 }
 
 parse_bdf_data <- function(dt) {

@@ -126,7 +126,7 @@ parse_onb_metadata <- function(xml) {
 #' onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 #' onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 #' }
-onb_frequency <- function(hier_id, key, lang = "en", ...) {
+onb_frequency <- function(hier_id, key, ..., lang = "en") {
   hier_id <- assert_count(hier_id, positive = TRUE, coerce = TRUE)
   assert_string(key, min.chars = 1L, null.ok = TRUE)
   assert_string(lang, n.chars = 2L)

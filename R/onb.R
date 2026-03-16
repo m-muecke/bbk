@@ -207,7 +207,7 @@ parse_onb_toc <- function(xml) {
     xml2::xml_attrs() |>
     lapply(\(x) setDT(as.list(x))) |>
     rbindlist()
-  desc <- xml2::xml_find_all(elem, "text") |> xml2::xml_text()
+  desc <- xml2::xml_text(xml2::xml_find_all(elem, "text"))
   id <- parent <- NULL
   dt[, let(id = as.integer(id), parent = as.integer(parent), description = desc)]
   dt[]

@@ -85,20 +85,16 @@ srb_series()
 #> 117:                                                                                                                                                                                                                                                                              SEK/USD Forward Premium Maturity 6-Months
 #>      group_id observation_max_date observation_min_date series_closed
 #>         <int>               <char>               <char>        <lgcl>
-#>   1:        2           2026-03-13           1994-06-01         FALSE
-#>   2:        2           2026-03-13           1994-06-01         FALSE
-#>   3:        2           2026-03-13           1994-06-01         FALSE
-#>   4:        2           2026-03-13           2022-06-08         FALSE
+#>   1:        2           2026-03-16           1994-06-01         FALSE
+#>   2:        2           2026-03-16           1994-06-01         FALSE
+#>   3:        2           2026-03-16           1994-06-01         FALSE
+#>   4:        2           2026-03-16           2022-06-08         FALSE
 #>   5:        2           1994-05-31           1987-01-30          TRUE
 #>  ---                                                                 
-#> 113:      130           2026-03-13           1994-03-01         FALSE
-#> 114:      138           2026-03-12           2011-06-27         FALSE
-#> 115:      151           2026-03-13           1992-11-18         FALSE
+#> 113:      130           2026-03-16           1994-03-01         FALSE
+#> 114:      138           2026-03-13           2011-06-27         FALSE
+#> 115:      151           2026-03-16           1992-11-18         FALSE
 #> 116:      155           2026-03-13           1980-01-02         FALSE
 #> 117:      155           2026-03-13           1980-01-02         FALSE
-srb_series("groups")
-#> Error in req_perform(req_bbk_cache(req_error(req_url_path_append(req_user_agent(request("https://api.riksbank.se/swea/v1"),     bbk_user_agent()), ...), body = srb_error_body))): HTTP 429 Too Many Requests.
-#> ℹ { "statusCode": 429, "message": "Rate limit is exceeded. Try again in 59
-#>   seconds." }
 # }
 ```

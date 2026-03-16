@@ -5,7 +5,7 @@ Fetch Banque de France (BdF) datasets
 ## Usage
 
 ``` r
-bdf_dataset(...)
+bdf_dataset(..., lang = "en")
 ```
 
 ## Source
@@ -20,6 +20,11 @@ bdf_dataset(...)
   Extra arguments appended to the API request. Combined with the default
   arguments with
   [`modifyList()`](https://rdrr.io/r/utils/modifyList.html).
+
+- lang:
+
+  (`character(1)`)  
+  Language to query. Default `"en"`.
 
 ## Value
 

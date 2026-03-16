@@ -5,7 +5,7 @@ Fetch Österreichische Nationalbank (OeNB) data frequency
 ## Usage
 
 ``` r
-onb_frequency(hier_id, key, lang = "en", ...)
+onb_frequency(hier_id, key, ..., lang = "en")
 ```
 
 ## Arguments
@@ -20,15 +20,15 @@ onb_frequency(hier_id, key, lang = "en", ...)
   ([`character()`](https://rdrr.io/r/base/character.html))  
   The series keys to query.
 
-- lang:
-
-  (`character(1)`)  
-  Language to query. Default `"en"`.
-
 - ...:
 
   (`any`)  
   Additional parameters to pass to the API.
+
+- lang:
+
+  (`character(1)`)  
+  Language to query. Default `"en"`.
 
 ## Value
 

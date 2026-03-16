@@ -10,6 +10,7 @@ bdf_data(
   key = NULL,
   start_date = NULL,
   end_date = NULL,
+  lang = "en",
   api_key = bdf_key()
 )
 ```
@@ -41,6 +42,11 @@ bdf_data(
 
   (`NULL` \| `character(1)` \| `Date(1)`)  
   End date of the data. Default `NULL`.
+
+- lang:
+
+  (`character(1)`)  
+  Language to query. Default `"en"`.
 
 - api_key:
 

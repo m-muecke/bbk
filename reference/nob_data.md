@@ -10,6 +10,7 @@ nob_data(
   key = NULL,
   start_period = NULL,
   end_period = NULL,
+  first_n = NULL,
   last_n = NULL
 )
 ```
@@ -46,6 +47,12 @@ nob_data(
   (`NULL` \| `character(1)` \| `integer(1)`)  
   End date of the data, in the same format as start_period. If `NULL`,
   no end date restriction is applied. Default `NULL`.
+
+- first_n:
+
+  (`NULL` \| `numeric(1)`)  
+  Number of observations to retrieve from the start of the series. If
+  `NULL`, no restriction is applied. Default `NULL`.
 
 - last_n:
 

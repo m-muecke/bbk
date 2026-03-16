@@ -50,6 +50,7 @@
 <span>  key <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  start_period <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  end_period <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  first_n <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  last_n <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -84,6 +85,12 @@ is applied. Default <code>NULL</code>.</p></dd>
 <dt id="arg-end-period">end_period<a class="anchor" aria-label="anchor" href="#arg-end-period"></a></dt>
 <dd><p>(<code>NULL</code> | <code>character(1)</code> | <code>integer(1)</code>)<br>
 End date of the data, in the same format as start_period. If <code>NULL</code>, no end date restriction is
+applied. Default <code>NULL</code>.</p></dd>
+
+
+<dt id="arg-first-n">first_n<a class="anchor" aria-label="anchor" href="#arg-first-n"></a></dt>
+<dd><p>(<code>NULL</code> | <code>numeric(1)</code>)<br>
+Number of observations to retrieve from the start of the series. If <code>NULL</code>, no restriction is
 applied. Default <code>NULL</code>.</p></dd>
 
 

@@ -12,6 +12,7 @@ nob_data(
   key = NULL,
   start_period = NULL,
   end_period = NULL,
+  first_n = NULL,
   last_n = NULL
 )
 }
@@ -31,6 +32,10 @@ is applied. Default \code{NULL}.}
 
 \item{end_period}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr
 End date of the data, in the same format as start_period. If \code{NULL}, no end date restriction is
+applied. Default \code{NULL}.}
+
+\item{first_n}{(\code{NULL} | \code{numeric(1)})\cr
+Number of observations to retrieve from the start of the series. If \code{NULL}, no restriction is
 applied. Default \code{NULL}.}
 
 \item{last_n}{(\code{NULL} | \code{numeric(1)})\cr

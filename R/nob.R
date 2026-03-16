@@ -15,6 +15,9 @@
 #' @param end_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   End date of the data, in the same format as start_period. If `NULL`, no end date restriction is
 #'   applied. Default `NULL`.
+#' @param first_n (`NULL` | `numeric(1)`)\cr
+#'   Number of observations to retrieve from the start of the series. If `NULL`, no restriction is
+#'   applied. Default `NULL`.
 #' @param last_n (`NULL` | `numeric(1)`)\cr
 #'   Number of observations to retrieve from the end of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
@@ -38,12 +41,14 @@ nob_data <- function(
   key = NULL,
   start_period = NULL,
   end_period = NULL,
+  first_n = NULL,
   last_n = NULL
 ) {
   assert_string(flow, min.chars = 1L)
   assert_string(key, min.chars = 1L, null.ok = TRUE)
   assert_period(start_period)
   assert_period(end_period)
+  first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
   flow <- toupper(flow)
@@ -52,6 +57,7 @@ nob_data <- function(
     resource,
     startPeriod = start_period,
     endPeriod = end_period,
+    firstNObservations = first_n,
     lastNObservations = last_n
   )
   parse_nob_data(xml)

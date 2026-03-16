@@ -105,8 +105,8 @@ parse_nob_data <- function(xml) {
 
     obs <- xml2::xml_find_all(x, ".//Obs", ns)
     obs_attrs <- lapply(obs, xml2::xml_attrs)
-    date <- vapply(obs_attrs, \(x) x[["TIME_PERIOD"]], character(1L))
-    value <- as.numeric(vapply(obs_attrs, \(x) x[["OBS_VALUE"]], character(1L)))
+    date <- vapply(obs_attrs, \(x) x[["TIME_PERIOD"]], NA_character_)
+    value <- as.numeric(vapply(obs_attrs, \(x) x[["OBS_VALUE"]], NA_character_))
 
     key <- paste(
       attrs[!nms %in% c("collection", "calculated", "decimals", "unit_mult")],
@@ -157,6 +157,7 @@ nob <- function(resource, ...) {
     req_url_path_append(resource) |>
     req_url_query(...) |>
     req_error(body = nob_error_body) |>
+    req_bbk_retry() |>
     req_bbk_cache() |>
     req_perform() |>
     resp_body_xml()

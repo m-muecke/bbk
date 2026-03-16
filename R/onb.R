@@ -250,14 +250,18 @@ onb <- function(resource, ...) {
         x <- resp |> resp_body_xml() |> xml2::xml_find_first("errors")
         !is.na(x)
       },
-      body = function(resp) {
-        content_type <- resp_content_type(resp)
-        if (identical(content_type, "application/xml")) {
-          resp |> resp_body_xml() |> xml2::xml_text()
-        }
-      }
+      body = onb_error_body
     ) |>
+    req_bbk_retry() |>
     req_bbk_cache() |>
     req_perform() |>
     resp_body_xml()
+}
+
+
+onb_error_body <- function(resp) {
+  content_type <- resp_content_type(resp)
+  if (identical(content_type, "application/xml")) {
+    xml2::xml_text(resp_body_xml(resp))
+  }
 }

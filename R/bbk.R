@@ -108,6 +108,7 @@ bbk_series <- function(key) {
   assert_string(key, min.chars = 1L)
   body <- bbk_build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
+    req_bbk_retry() |>
     req_bbk_cache() |>
     req_perform() |>
     resp_body_raw()
@@ -312,6 +313,7 @@ bbk_build_request <- function(resource, accept = NULL) {
 bbk_make_request <- function(resource, ...) {
   bbk_build_request(resource) |>
     req_url_query(...) |>
+    req_bbk_retry() |>
     req_bbk_cache() |>
     req_perform() |>
     resp_body_xml()

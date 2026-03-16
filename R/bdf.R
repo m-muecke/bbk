@@ -146,6 +146,7 @@ bdf <- function(resource, ..., api_key = bdf_key()) {
     req_headers(Authorization = paste("Apikey", api_key)) |>
     req_error(body = bdf_error_body) |>
     req_url_query(..., delimiter = ";", compressed = TRUE) |>
+    req_bbk_retry() |>
     req_bbk_cache() |>
     req_perform(path = tf)
   fread(file = tf, sep = ";")

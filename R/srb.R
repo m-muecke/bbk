@@ -30,7 +30,7 @@ srb_data <- function(series, start_date = NULL, end_date = NULL) {
   if (is.null(start_date) || is.null(end_date)) {
     meta <- srb("Observations/Latest", series)
     start_date <- start_date %??% as.Date("1900-01-01")
-    end_date <- end_date %??% as.Date(meta[["date"]])
+    end_date <- end_date %??% as.Date(meta$date)
   }
 
   json <- srb("Observations", series, format(start_date), format(end_date))
@@ -73,9 +73,10 @@ parse_srb_data <- function(json, series) {
 }
 
 parse_srb_series <- function(json) {
-  dt <- rbindlist(lapply(json, \(x) setDT(lapply(x, \(v) v %??% NA_character_))))
-  nms <- convert_camel_case(names(dt))
-  setnames(dt, nms)
+  dt <- json |>
+    lapply(\(x) setDT(lapply(x, \(v) v %??% NA_character_))) |>
+    rbindlist() |>
+    setnames(convert_camel_case)
   dt[]
 }
 
@@ -92,14 +93,12 @@ parse_srb_groups <- function(json) {
     }
     res
   }
-  dt <- rbindlist(flatten_groups(json))
-  nms <- convert_camel_case(names(dt))
-  setnames(dt, nms)
-  dt[]
-}
 
-srb_error_body <- function(resp) {
-  resp_body_string(resp, "UTF-8")
+  dt <- json |>
+    flatten_groups() |>
+    rbindlist() |>
+    setnames(convert_camel_case)
+  dt[]
 }
 
 srb <- function(...) {
@@ -107,7 +106,12 @@ srb <- function(...) {
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(...) |>
     req_error(body = srb_error_body) |>
+    req_bbk_retry() |>
     req_bbk_cache() |>
     req_perform() |>
     resp_body_json()
+}
+
+srb_error_body <- function(resp) {
+  resp_body_string(resp, "UTF-8")
 }

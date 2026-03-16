@@ -37,6 +37,10 @@ bbk_cache_clear <- function() {
   }
 }
 
+req_bbk_retry <- function(req) {
+  req_retry(req, max_tries = 3L)
+}
+
 req_bbk_cache <- function(req) {
   if (isTRUE(getOption("bbk.cache", FALSE))) {
     req <- req_cache(

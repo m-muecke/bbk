@@ -36,14 +36,14 @@ parse_snb_data <- function(json) {
     lapply(function(x) {
       meta <- as.data.table(x$metadata)
       header <- x$header
-      cols <- vapply(header, \(x) x$dim, character(1L))
+      cols <- vapply(header, \(x) x$dim, NA_character_)
       cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
       item <- setNames(lapply(header, \(x) x$dimItem), cols)
       ref <- setDT(item)
       vals <- x$values
       vals <- data.table(
-        date = vapply(vals, \(x) x$date, character(1L)),
-        value = vapply(vals, \(x) x$value, numeric(1L))
+        date = vapply(vals, \(x) x$date, NA_character_),
+        value = vapply(vals, \(x) x$value, NA_real_)
       )
       vals[, names(meta) := meta]
       vals[, names(ref) := ref]
@@ -73,6 +73,7 @@ snb <- function(id, ..., lang = "en") {
     req_url_path_append(lang) |>
     req_url_query(...) |>
     req_error(body = snb_error_body) |>
+    req_bbk_retry() |>
     req_bbk_cache() |>
     req_perform() |>
     resp_body_json(check_type = FALSE)

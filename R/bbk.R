@@ -70,14 +70,7 @@ bbk_data <- function(
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
-  flow <- toupper(flow)
-  if (is.null(key)) {
-    resource <- sprintf("data/%s", flow)
-  } else {
-    key <- toupper(key)
-    key <- paste(key, collapse = "+")
-    resource <- sprintf("data/%s/%s", flow, key)
-  }
+  resource <- sdmx_data_resource(flow, key)
   xml <- bbk_make_request(
     resource = resource,
     startPeriod = start_period,
@@ -186,13 +179,7 @@ parse_bbk_series <- function(body, key) {
   comment <- sub("^\"", "", comment)
   src <- extract_metadata(metadata, "^Source \\(in english\\),")
 
-  freq <- switch(
-    freq,
-    P1M = "monthly",
-    P3M = "quarterly",
-    P1Y = "annual",
-    P1D = "daily"
-  )
+  freq <- sdmx_freq(freq)
   dt[, let(
     date = parse_date(date, freq),
     key = key,
@@ -207,16 +194,6 @@ parse_bbk_series <- function(body, key) {
   )]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
-}
-
-parse_bbk_metadata <- function(x, lang) {
-  rbindlist(lapply(x, function(node) {
-    id <- xml2::xml_attr(node, "id")
-    nms <- node |>
-      xml2::xml_find_all(sprintf(".//common:Name[@xml:lang='%s']", lang)) |>
-      xml2::xml_text()
-    data.table(id = id, name = nms)
-  }))
 }
 
 parse_bbk_data <- function(xml) {
@@ -239,8 +216,6 @@ parse_bbk_data <- function(xml) {
     nms <- attrs |>
       xml2::xml_attr("id") |>
       tolower()
-    nms <- replace(nms, nms == "bbk_title_eng", "title")
-    nms <- replace(nms, nms == "bbk_id", "key")
     attrs <- attrs |>
       xml2::xml_attr("value") |>
       setNames(nms) |>
@@ -250,15 +225,18 @@ parse_bbk_data <- function(xml) {
     nms <- names(data)
     nms <- sub("^bbk_(seis_)?", "", nms)
     nms <- sub("^std_", "", nms)
-    names(data) <- replace(nms, nms == "web_category", "category")
-
-    data$freq <- switch(
-      data$time_format,
-      P1M = "monthly",
-      P3M = "quarterly",
-      P1Y = "annual",
-      P1D = "daily"
+    has_eng <- paste0(nms, "_eng") %in% nms
+    data <- data[!has_eng]
+    nms <- sub("_eng$", "", nms[!has_eng])
+    # fmt: skip
+    nms <- fcase(
+      nms == "id", "key",
+      nms == "web_category", "category",
+      default = nms
     )
+    names(data) <- nms
+
+    data$freq <- sdmx_freq(data$time_format)
 
     entries <- xml2::xml_find_all(xml, "//generic:Obs[generic:ObsValue]")
     data$date <- entries |>
@@ -290,7 +268,7 @@ fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
   }
   xml <- bbk_make_request(resource)
   entries <- xml2::xml_find_all(xml, xpath)
-  parse_bbk_metadata(entries, lang)
+  sdmx_metadata(entries, lang, ns_prefix = "common")
 }
 
 bbk_error_body <- function(resp) {
@@ -311,10 +289,5 @@ bbk_build_request <- function(resource, accept = NULL) {
 }
 
 bbk_make_request <- function(resource, ...) {
-  bbk_build_request(resource) |>
-    req_url_query(...) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
-    req_perform() |>
-    resp_body_xml()
+  sdmx_request("https://api.statistiken.bundesbank.de/rest", resource, bbk_error_body, ...)
 }

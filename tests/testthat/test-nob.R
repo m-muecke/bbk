@@ -40,10 +40,10 @@ test_that("nob_metadata input validation works", {
   expect_error(nob_metadata("dataflow", lang = "fr"))
 })
 
-test_that("parse_nob_metadata works", {
+test_that("sdmx_metadata works for nob", {
   body <- xml2::read_xml(test_path("fixtures", "nob-metadata.xml"))
   entries <- xml2::xml_find_all(body, "//str:Dataflow")
-  actual <- parse_nob_metadata(entries)
+  actual <- sdmx_metadata(entries)
   expect_data_table(actual, min.rows = 1L)
   expect_true(all(c("id", "name") %in% names(actual)))
   expect_true("EXR" %in% actual$id)

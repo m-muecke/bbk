@@ -185,7 +185,7 @@ head(data)
 #> 4:        2    ISK         0     WEDE
 #> 5:        2    ISK         0     WEDE
 #> 6:        2    ISK         0     WEDE
-#>                                                                                                                                      comm_gen_eng
+#>                                                                                                                                          comm_gen
 #>                                                                                                                                            <char>
 #> 1: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.
 #> 2: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.
@@ -193,7 +193,7 @@ head(data)
 #> 4: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.
 #> 5: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.
 #> 6: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.
-#>                                                             comm_meth_eng
+#>                                                                 comm_meth
 #>                                                                    <char>
 #> 1: Until March 2020, calculated on the basis of buying and selling rates.
 #> 2: Until March 2020, calculated on the basis of buying and selling rates.
@@ -201,7 +201,7 @@ head(data)
 #> 4: Until March 2020, calculated on the basis of buying and selling rates.
 #> 5: Until March 2020, calculated on the basis of buying and selling rates.
 #> 6: Until March 2020, calculated on the basis of buying and selling rates.
-#>                      comm_src_eng
+#>                          comm_src
 #>                            <char>
 #> 1: Sedlabanki Islands, Reykjavik.
 #> 2: Sedlabanki Islands, Reykjavik.

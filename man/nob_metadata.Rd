@@ -12,7 +12,7 @@ nob_metadata(type, id = NULL, lang = "en")
 \arguments{
 \item{type}{(\code{character(1)})\cr
 The type of metadata to query.
-One of: \code{"datastructure"}, \code{"dataflow"}, or \code{"codelist"}.}
+One of: \code{"datastructure"}, \code{"dataflow"}, \code{"codelist"}, or \code{"concept"}.}
 
 \item{id}{(\code{NULL} | \code{character(1)})\cr
 The id to query. Default \code{NULL}.}
@@ -38,6 +38,7 @@ nob_metadata("codelist", "CL_CURRENCY")
 \seealso{
 Other metadata: 
 \code{\link{bbk_metadata}()},
+\code{\link{bis_metadata}()},
 \code{\link{ecb_metadata}()},
 \code{\link{onb_dimension}()},
 \code{\link{onb_frequency}()},

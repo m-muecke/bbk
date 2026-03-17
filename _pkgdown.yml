@@ -10,6 +10,7 @@ reference:
       - bbk_data
       - bbk_series
       - bde_data
+      - bis_data
       - bdf_data
       - boc_data
       - boc_fx_rates
@@ -29,6 +30,7 @@ reference:
     contents:
       - bbk_metadata
       - bdf_codelist
+      - bis_metadata
       - bdf_dataset
       - boc_catalog
       - boc_metadata

@@ -68,7 +68,7 @@ nob_data <- function(
 #'
 #' @param type (`character(1)`)\cr
 #'   The type of metadata to query.
-#'   One of: `"datastructure"`, `"dataflow"`, or `"codelist"`.
+#'   One of: `"datastructure"`, `"dataflow"`, `"codelist"`, or `"concept"`.
 #' @param id (`NULL` | `character(1)`)\cr
 #'   The id to query. Default `NULL`.
 #' @param lang (`character(1)`)\cr
@@ -84,7 +84,7 @@ nob_data <- function(
 #' nob_metadata("codelist", "CL_CURRENCY")
 #' }
 nob_metadata <- function(type, id = NULL, lang = "en") {
-  assert_choice(type, c("datastructure", "dataflow", "codelist"))
+  assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   assert_string(id, min.chars = 1L, null.ok = TRUE)
   assert_choice(lang, c("en", "no"))
 
@@ -92,8 +92,10 @@ nob_metadata <- function(type, id = NULL, lang = "en") {
     type,
     datastructure = "//str:DataStructure",
     dataflow = "//str:Dataflow",
-    codelist = "//str:Codelist"
+    codelist = "//str:Codelist",
+    concept = "//str:ConceptScheme"
   )
+  type <- if (type == "concept") "conceptscheme" else type
   resource <- if (is.null(id)) type else paste(type, "NB", toupper(id), sep = "/")
   xml <- nob(resource)
   entries <- xml2::xml_find_all(xml, xpath)

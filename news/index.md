@@ -9,6 +9,7 @@
   to find the cache location and
   [`bbk_cache_clear()`](https://m-muecke.github.io/bbk/reference/cache.md)
   to clear it.
+- Support for Bank for International Settlements (BIS) data.
 - Support for Norges Bank (NoB) data.
 - Support for Sveriges Riksbank (SRb) data.
 

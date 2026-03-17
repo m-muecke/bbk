@@ -18,7 +18,7 @@ nob_metadata(type, id = NULL, lang = "en")
 
   (`character(1)`)  
   The type of metadata to query. One of: `"datastructure"`,
-  `"dataflow"`, or `"codelist"`.
+  `"dataflow"`, `"codelist"`, or `"concept"`.
 
 - id:
 
@@ -40,6 +40,7 @@ with the requested metadata.
 
 Other metadata:
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
 [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),

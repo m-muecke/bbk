@@ -8,6 +8,8 @@
   : Fetch the Deutsche Bundesbank (BBk) series
 - [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md) :
   Fetch Banco de España (BdE) data
+- [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md) :
+  Fetch Bank for International Settlements (BIS) data
 - [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md) :
   Fetch Banque de France (BdF) data
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md) :
@@ -42,6 +44,8 @@
   : Fetch Deutsche Bundesbank (BBk) metadata
 - [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md)
   : Fetch Banque de France (BdF) codelists
+- [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md)
+  : Fetch Bank for International Settlements (BIS) metadata
 - [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md)
   : Fetch Banque de France (BdF) datasets
 - [`boc_catalog()`](https://m-muecke.github.io/bbk/reference/boc_catalog.md)

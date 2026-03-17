@@ -35,6 +35,7 @@ with the requested data.
 
 Other metadata:
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),

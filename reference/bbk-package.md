@@ -10,7 +10,9 @@ Interactive Statistical Database'
 (<https://www.bankofengland.co.uk/boeapps/database>), the 'Banco de
 España API'
 (<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>),
-the 'Banque de France Web Service'
+the 'Bank for International Settlements SDMX Web Service'
+(<https://stats.bis.org/api-doc/v1/>), the 'Banque de France Web
+Service'
 (<https://webstat.banque-france.fr/en/pages/guide-migration-api/>), the
 'Norges Bank SDMX Web Service'
 (<https://www.norges-bank.no/en/topics/Statistics/open-data/>), the

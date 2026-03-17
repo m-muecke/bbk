@@ -53,8 +53,7 @@ ecb_data <- function(
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
-  key <- if (!is.null(key)) paste(key, collapse = "+") else "all"
-  resource <- paste("data", flow, key, sep = "/")
+  resource <- sdmx_data_resource(flow, key, default_key = "all")
   xml <- ecb(
     resource = resource,
     startPeriod = start_period,
@@ -143,16 +142,7 @@ parse_ecb_data <- function(xml) {
 
     data <- c(series_key, attrs)
     data$key <- paste(series_key, collapse = ".")
-
-    data$freq <- switch(
-      data$freq,
-      A = "annual",
-      S = "semi-annual",
-      Q = "quarterly",
-      M = "monthly",
-      W = "weekly",
-      D = "daily"
-    )
+    data$freq <- sdmx_freq(data$freq)
 
     entries <- xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
     data$date <- x |>
@@ -173,15 +163,15 @@ parse_ecb_data <- function(xml) {
   res
 }
 
-parse_ecb_metadata <- function(x, lang = "en") {
-  rbindlist(lapply(x, function(node) {
-    agency <- xml2::xml_attr(node, "agencyID")
-    id <- xml2::xml_attr(node, "id")
-    nms <- node |>
-      xml2::xml_find_all(sprintf(".//com:Name[@xml:lang='%s']", lang)) |>
-      xml2::xml_text()
-    data.table(agency = agency, id = id, name = nms)
-  }))
+parse_ecb_metadata <- function(entries) {
+  agency <- NULL
+  entries |>
+    lapply(function(node) {
+      dt <- sdmx_metadata(list(node))
+      dt[, agency := xml2::xml_attr(node, "agencyID")]
+    }) |>
+    rbindlist() |>
+    setcolorder(c("agency", "id", "name"))
 }
 
 ecb_error_body <- function(resp) {
@@ -191,13 +181,5 @@ ecb_error_body <- function(resp) {
 }
 
 ecb <- function(resource, ...) {
-  request("https://data-api.ecb.europa.eu/service/") |>
-    req_user_agent(bbk_user_agent()) |>
-    req_url_path_append(resource) |>
-    req_url_query(...) |>
-    req_error(body = ecb_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
-    req_perform() |>
-    resp_body_xml()
+  sdmx_request("https://data-api.ecb.europa.eu/service/", resource, ecb_error_body, ...)
 }

@@ -51,8 +51,7 @@ nob_data <- function(
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
-  flow <- toupper(flow)
-  resource <- if (is.null(key)) sprintf("data/%s", flow) else sprintf("data/%s/%s", flow, key)
+  resource <- sdmx_data_resource(flow, key)
   xml <- nob(
     resource,
     startPeriod = start_period,
@@ -98,7 +97,7 @@ nob_metadata <- function(type, id = NULL, lang = "en") {
   resource <- if (is.null(id)) type else paste(type, "NB", toupper(id), sep = "/")
   xml <- nob(resource)
   entries <- xml2::xml_find_all(xml, xpath)
-  parse_nob_metadata(entries, lang)
+  sdmx_metadata(entries, lang)
 }
 
 parse_nob_data <- function(xml) {
@@ -119,16 +118,7 @@ parse_nob_data <- function(xml) {
       collapse = "."
     )
 
-    freq <- switch(
-      attrs[["freq"]],
-      A = "annual",
-      S = "semi-annual",
-      Q = "quarterly",
-      M = "monthly",
-      W = "weekly",
-      B = ,
-      D = "daily"
-    )
+    freq <- sdmx_freq(attrs[["freq"]])
 
     extra <- attrs[!nms %in% c("freq", "collection", "calculated", "decimals", "unit_mult")]
     data <- c(
@@ -143,28 +133,10 @@ parse_nob_data <- function(xml) {
   res
 }
 
-parse_nob_metadata <- function(x, lang = "en") {
-  rbindlist(lapply(x, function(node) {
-    id <- xml2::xml_attr(node, "id")
-    nms <- node |>
-      xml2::xml_find_all(sprintf(".//com:Name[@xml:lang='%s']", lang)) |>
-      xml2::xml_text()
-    data.table(id = id, name = nms)
-  }))
-}
-
 nob_error_body <- function(resp) {
   resp_body_string(resp, "UTF-8")
 }
 
 nob <- function(resource, ...) {
-  request("https://data.norges-bank.no/api") |>
-    req_user_agent(bbk_user_agent()) |>
-    req_url_path_append(resource) |>
-    req_url_query(...) |>
-    req_error(body = nob_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
-    req_perform() |>
-    resp_body_xml()
+  sdmx_request("https://data.norges-bank.no/api", resource, nob_error_body, ...)
 }

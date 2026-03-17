@@ -4,6 +4,8 @@ bbk is minimal R client for the following APIs:
 
 - [Banco de España
   (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
+- [Bank for International Settlements
+  (BIS)](https://stats.bis.org/api-doc/v1/)
 - [Bank of Canada
   (BoC)](https://www.bankofcanada.ca/valet-api-how-to/#about)
 - [Bank of England
@@ -44,8 +46,9 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed according to the central bank they access
-(`bbk_`, `ecb_`, `snb_`, `boe_`, `bde_`, `bdf_`, `onb_`, `boc_`, `nob_`,
-`srb_`) and follow the naming conventions of their respective APIs.
+(`bbk_`, `ecb_`, `snb_`, `bis_`, `boe_`, `bde_`, `bdf_`, `onb_`, `boc_`,
+`nob_`, `srb_`) and follow the naming conventions of their respective
+APIs.
 
 The typical workflow involves:
 
@@ -68,6 +71,8 @@ yield_curve <- bbk_data(
 
 ## Related work
 
+- [BIS](https://github.com/stefanangrick/BIS): R package for downloading
+  data from the Bank for International Settlements (BIS).
 - [SNBdata](https://github.com/enricoschumann/SNBdata): R package for
   downloading data from the Swiss National Bank (SNB).
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts

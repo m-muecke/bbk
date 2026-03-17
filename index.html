@@ -62,6 +62,7 @@
 <p>bbk is minimal R client for the following APIs:</p>
 <ul>
 <li><a href="https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html" class="external-link">Banco de España (BdE)</a></li>
+<li><a href="https://stats.bis.org/api-doc/v1/" class="external-link">Bank for International Settlements (BIS)</a></li>
 <li><a href="https://www.bankofcanada.ca/valet-api-how-to/#about" class="external-link">Bank of Canada (BoC)</a></li>
 <li><a href="https://www.bankofengland.co.uk/boeapps/database" class="external-link">Bank of England (BoE)</a></li>
 <li><a href="https://webstat.banque-france.fr/en/pages/guide-migration-api/" class="external-link">Banque de France (BdF)</a></li>
@@ -89,7 +90,7 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>bbk functions are prefixed according to the central bank they access (<code>bbk_</code>, <code>ecb_</code>, <code>snb_</code>, <code>boe_</code>, <code>bde_</code>, <code>bdf_</code>, <code>onb_</code>, <code>boc_</code>, <code>nob_</code>, <code>srb_</code>) and follow the naming conventions of their respective APIs.</p>
+<p>bbk functions are prefixed according to the central bank they access (<code>bbk_</code>, <code>ecb_</code>, <code>snb_</code>, <code>bis_</code>, <code>boe_</code>, <code>bde_</code>, <code>bdf_</code>, <code>onb_</code>, <code>boc_</code>, <code>nob_</code>, <code>srb_</code>) and follow the naming conventions of their respective APIs.</p>
 <p>The typical workflow involves:</p>
 <ol style="list-style-type: decimal">
 <li>Finding the time series identifier on the relevant central bank’s website</li>
@@ -110,6 +111,8 @@
 <h2 id="related-work">Related work<a class="anchor" aria-label="anchor" href="#related-work"></a>
 </h2>
 <ul>
+<li>
+<a href="https://github.com/stefanangrick/BIS" class="external-link">BIS</a>: R package for downloading data from the Bank for International Settlements (BIS).</li>
 <li>
 <a href="https://github.com/enricoschumann/SNBdata" class="external-link">SNBdata</a>: R package for downloading data from the Swiss National Bank (SNB).</li>
 <li>

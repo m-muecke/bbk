@@ -66,8 +66,46 @@ parse_snb_data <- function(json) {
   dt[]
 }
 
-snb <- function(id, ..., lang = "en") {
-  url <- sprintf("https://data.snb.ch/api/cube/%s/data/json", id)
+#' Fetch Swiss National Bank (SNB) dimensions
+#'
+#' Retrieve the dimension structure for a given cube from the SNB data portal.
+#'
+#' @inheritParams snb_data
+#' @returns A [data.table::data.table()] with the dimension structure.
+#' @export
+#' @source <https://data.snb.ch/en>
+#' @family metadata
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' snb_dimensions("rendopar")
+#' }
+snb_dimensions <- function(key, lang = "en") {
+  assert_string(key, min.chars = 1L)
+  assert_choice(lang, c("en", "de"))
+
+  json <- snb(key, resource = "dimensions", lang = lang)
+  parse_snb_dimensions(json)
+}
+
+parse_snb_dimensions <- function(json) {
+  dt <- rbindlist(lapply(json$dimensions, function(x) {
+    items <- x$dimensionItems
+    has_children <- vapply(items, \(item) !is.null(item$dimensionItems), NA)
+    if (any(has_children)) {
+      items <- unlist(lapply(items, \(x) x$dimensionItems), recursive = FALSE)
+    }
+    data.table(
+      dim_id = x$id,
+      dim_name = x$name,
+      item_id = vapply(items, \(x) x$id, NA_character_),
+      item_name = vapply(items, \(x) x$name, NA_character_)
+    )
+  }))
+  dt[]
+}
+
+snb <- function(id, ..., resource = "data/json", lang = "en") {
+  url <- sprintf("https://data.snb.ch/api/cube/%s/%s", id, resource)
   request(url) |>
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(lang) |>

@@ -14,6 +14,20 @@ test_that("snb_data input validation works", {
   expect_error(snb_data("abc", lang = "fr"))
 })
 
+test_that("snb_dimensions input validation works", {
+  expect_error(snb_dimensions(c("id1", "id2")))
+  expect_error(snb_dimensions(123L))
+  expect_error(snb_dimensions(NULL))
+  expect_error(snb_dimensions("abc", lang = "fr"))
+})
+
+test_that("parse_snb_dimensions() works", {
+  body <- readRDS(test_path("fixtures", "snb-dimensions.rds"))
+  actual <- parse_snb_dimensions(body)
+  expect_data_table(actual, min.rows = 1L)
+  expect_names(names(actual), must.include = c("dim_id", "dim_name", "item_id", "item_name"))
+})
+
 test_that("parse_snb_data() works", {
   body <- readRDS(test_path("fixtures", "snb-data.rds"))
   actual <- parse_snb_data(body)

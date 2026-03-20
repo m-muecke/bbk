@@ -6,6 +6,7 @@
   location and `bbk_cache_clear()` to clear it.
 * Support for Bank for International Settlements (BIS) data.
 * Support for Norges Bank (NoB) data.
+* `snb_dimensions()` returns the dimension structure for a given SNB cube.
 * Support for Sveriges Riksbank (SRb) data.
 
 # bbk 0.8.0

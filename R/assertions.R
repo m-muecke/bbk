@@ -31,4 +31,5 @@ assert_period <- function(x, .var.name = vname(x)) {
     check_count(x, positive = TRUE),
     .var.name = .var.name
   )
+  invisible(x)
 }

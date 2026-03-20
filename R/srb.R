@@ -101,6 +101,44 @@ parse_srb_groups <- function(json) {
   dt[]
 }
 
+#' Fetch Sveriges Riksbank (SRb) calendar days
+#'
+#' Retrieve Swedish banking calendar information from the Sveriges Riksbank SWEA API.
+#'
+#' @param start_date (`Date(1)` | `character(1)`)\cr
+#'   Start date of the range (e.g., `"2024-01-01"`).
+#' @param end_date (`NULL` | `Date(1)` | `character(1)`)\cr
+#'   End date of the range. If `NULL`, data up to the latest available date is returned.
+#'   Default `NULL`.
+#' @returns A [data.table::data.table()] with the calendar day information.
+#' @source <https://developer.api.riksbank.se/>
+#' @family metadata
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' srb_calendar("2024-01-01", "2024-01-31")
+#' }
+srb_calendar <- function(start_date, end_date = NULL) {
+  start_date <- assert_dateish(start_date)
+  end_date <- assert_dateish(end_date, null.ok = TRUE)
+
+  args <- list("CalendarDays", format(start_date))
+  if (!is.null(end_date)) {
+    args <- c(args, format(end_date))
+  }
+  json <- do.call(srb, args)
+  parse_srb_calendar(json)
+}
+
+parse_srb_calendar <- function(json) {
+  dt <- json |>
+    lapply(setDT) |>
+    rbindlist() |>
+    setnames(convert_camel_case)
+  dt[, calendar_date := as.Date(calendar_date)]
+  dt[]
+}
+
 srb <- function(...) {
   request("https://api.riksbank.se/swea/v1") |>
     req_user_agent(bbk_user_agent()) |>

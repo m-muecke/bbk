@@ -27,6 +27,21 @@ test_that("parse_srb_data handles empty response", {
   expect_true(all(c("date", "series", "value") %in% names(actual)))
 })
 
+test_that("srb_calendar input validation works", {
+  expect_error(srb_calendar(1L))
+  expect_error(srb_calendar(NULL))
+  expect_error(srb_calendar("2024-01-01", end_date = TRUE))
+})
+
+test_that("parse_srb_calendar works", {
+  json <- readRDS(test_path("fixtures", "srb-calendar.rds"))
+  actual <- parse_srb_calendar(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$calendar_date)
+  expect_logical(actual$swedish_bankday)
+  expect_names(names(actual), must.include = c("calendar_date", "swedish_bankday", "week_number"))
+})
+
 test_that("srb_series input validation works", {
   expect_error(srb_series(1L))
   expect_error(srb_series("invalid"))

@@ -13,8 +13,12 @@
 - Support for Norges Bank (NoB) data.
 - [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
   returns the most recently published value for one or more BdE series.
-- [`snb_dimensions()`](https://m-muecke.github.io/bbk/reference/snb_dimensions.md)
+- [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md)
   returns the dimension structure for a given SNB cube.
+- [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md)
+  returns Swedish banking calendar day information.
+- [`srb_cross_rates()`](https://m-muecke.github.io/bbk/reference/srb_cross_rates.md)
+  computes cross exchange rates between two Riksbank currency series.
 - Support for Sveriges Riksbank (SRb) data.
 
 ## bbk 0.8.0

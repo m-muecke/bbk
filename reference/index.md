@@ -31,6 +31,8 @@
   Fetch Österreichische Nationalbank (OeNB) data
 - [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md) :
   Fetch Swiss National Bank (SNB) data
+- [`srb_cross_rates()`](https://m-muecke.github.io/bbk/reference/srb_cross_rates.md)
+  : Fetch Sveriges Riksbank (SRb) cross rates
 - [`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md) :
   Fetch Sveriges Riksbank (SRb) data
 
@@ -68,7 +70,9 @@
   : Fetch Österreichische Nationalbank (OeNB) metadata
 - [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md) :
   Fetch Österreichische Nationalbank (OeNB) table of contents
-- [`snb_dimensions()`](https://m-muecke.github.io/bbk/reference/snb_dimensions.md)
+- [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md)
   : Fetch Swiss National Bank (SNB) dimensions
+- [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md)
+  : Fetch Sveriges Riksbank (SRb) calendar days
 - [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
   : Fetch Sveriges Riksbank (SRb) series metadata

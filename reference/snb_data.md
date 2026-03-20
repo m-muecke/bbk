@@ -56,6 +56,7 @@ Other data:
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md),
+[`srb_cross_rates()`](https://m-muecke.github.io/bbk/reference/srb_cross_rates.md),
 [`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md)
 
 ## Examples

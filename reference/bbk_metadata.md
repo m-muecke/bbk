@@ -56,7 +56,8 @@ Other metadata:
 [`onb_hierarchy()`](https://m-muecke.github.io/bbk/reference/onb_hierarchy.md),
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
 [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
-[`snb_dimensions()`](https://m-muecke.github.io/bbk/reference/snb_dimensions.md),
+[`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md),
+[`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md),
 [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
 
 ## Examples

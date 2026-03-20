@@ -1,35 +1,35 @@
-# Fetch Österreichische Nationalbank (OeNB) dimension
+# Fetch Swiss National Bank (SNB) dimensions
 
-Fetch Österreichische Nationalbank (OeNB) dimension
+Retrieve the dimension structure for a given cube from the SNB data
+portal.
 
 ## Usage
 
 ``` r
-onb_dimension(hier_id, key, lang = "en")
+snb_dimension(key, lang = "en")
 ```
+
+## Source
+
+<https://data.snb.ch/en>
 
 ## Arguments
 
-- hier_id:
-
-  (`integer(1)`)  
-  Hierarchy id to query.
-
 - key:
 
-  ([`character()`](https://rdrr.io/r/base/character.html))  
-  The series keys to query.
+  (`character(1)`)  
+  The series key to query.
 
 - lang:
 
   (`character(1)`)  
-  Language to query. Default `"en"`.
+  Language to query, either `"en"` or `"de"`. Default `"en"`.
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with the requested data.
+with the dimension structure.
 
 ## See also
 
@@ -38,11 +38,11 @@ Other metadata:
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
+[`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
 [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),
 [`onb_hierarchy()`](https://m-muecke.github.io/bbk/reference/onb_hierarchy.md),
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
 [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
-[`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md),
 [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md),
 [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
 
@@ -50,12 +50,14 @@ Other metadata:
 
 ``` r
 # \donttest{
-onb_dimension(hier_id = 11, key = "VDBFKBSC217000")
-#>       nr         name hidden
-#>    <int>       <char> <char>
-#> 1:     1    PRODUZENT  false
-#> 2:     2 BANKENSEKTOR  false
-#> 3:     3       REGION  false
-#> 4:     4     WAEHRUNG   true
+snb_dimension("rendopar")
+#>    dim_id dim_name item_id item_name
+#>    <char>   <char>  <char>    <char>
+#> 1:     d0 Overview      b0        B0
+#> 2:     d0 Overview      b1        B1
+#> 3:     d0 Overview      b2        B2
+#> 4:     d0 Overview      b3        B3
+#> 5:     d0 Overview      t1        T1
+#> 6:     d0 Overview      t2        T2
 # }
 ```

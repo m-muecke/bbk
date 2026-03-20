@@ -35,7 +35,7 @@ bde_data <- function(key, time_range = NULL, lang = "en") {
   assert_period(time_range)
   assert_choice(lang, c("en", "es"))
 
-  json <- bde(key, time_range, lang)
+  json <- bde(key, lang = lang, rango = time_range)
   parse_bde_data(json)
 }
 
@@ -100,11 +100,49 @@ parse_bde_data <- function(json) {
   dt[]
 }
 
-bde <- function(key, time_range, lang) {
-  url <- "https://app.bde.es/bierest/resources/srdatosapp/listaSeries"
+#' Fetch latest Banco de España (BdE) data
+#'
+#' Retrieve the most recently published value for one or more series from the BdE statistics API.
+#'
+#' @inheritParams bde_data
+#' @returns A [data.table::data.table()] with the latest observation per series.
+#' @source <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' bde_latest("D_1NBAF472")
+#' bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
+#' }
+bde_latest <- function(key, lang = "en") {
+  assert_character(key, min.chars = 1L)
+  assert_choice(lang, c("en", "es"))
+
+  json <- bde(key, lang = lang, resource = "favoritas")
+
+  old_cols <- c(
+    "serie",
+    "descripcionCorta",
+    "codFrecuencia",
+    "decimales",
+    "simbolo",
+    "tendencia",
+    "fechaValor",
+    "valor"
+  )
+  new_cols <- c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
+  dt <- rbindlist(lapply(json, setDT))
+  setnames(dt, old_cols, new_cols)
+  dt[, date := as.POSIXct(date, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]
+  setcolorder(dt, col_order, skip_absent = TRUE)
+  dt[]
+}
+
+bde <- function(key, ..., lang, resource = "listaSeries") {
+  url <- sprintf("https://app.bde.es/bierest/resources/srdatosapp/%s", resource)
   request(url) |>
     req_user_agent(bbk_user_agent()) |>
-    req_url_query(idioma = lang, series = key, rango = time_range, .multi = "comma") |>
+    req_url_query(idioma = lang, series = key, ..., .multi = "comma") |>
     req_error(body = bde_error_body) |>
     req_bbk_retry() |>
     req_bbk_cache() |>

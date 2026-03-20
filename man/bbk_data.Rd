@@ -87,6 +87,7 @@ head(data)
 Other data: 
 \code{\link{bbk_series}()},
 \code{\link{bde_data}()},
+\code{\link{bde_latest}()},
 \code{\link{bdf_codelist}()},
 \code{\link{bdf_data}()},
 \code{\link{bdf_dataset}()},

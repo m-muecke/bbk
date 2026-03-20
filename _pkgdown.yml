@@ -10,6 +10,7 @@ reference:
       - bbk_data
       - bbk_series
       - bde_data
+      - bde_latest
       - bis_data
       - bdf_data
       - boc_data
@@ -41,4 +42,5 @@ reference:
       - onb_hierarchy
       - onb_metadata
       - onb_toc
+      - snb_dimensions
       - srb_series

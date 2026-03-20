@@ -6,6 +6,7 @@
   location and `bbk_cache_clear()` to clear it.
 * Support for Bank for International Settlements (BIS) data.
 * Support for Norges Bank (NoB) data.
+* `bde_latest()` returns the most recently published value for one or more BdE series.
 * `snb_dimensions()` returns the dimension structure for a given SNB cube.
 * Support for Sveriges Riksbank (SRb) data.
 

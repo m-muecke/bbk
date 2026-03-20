@@ -27,6 +27,22 @@ test_that("parse_srb_data handles empty response", {
   expect_true(all(c("date", "series", "value") %in% names(actual)))
 })
 
+test_that("srb_cross_rates input validation works", {
+  expect_error(srb_cross_rates(1L, "b", "2024-01-01"))
+  expect_error(srb_cross_rates("a", 1L, "2024-01-01"))
+  expect_error(srb_cross_rates("a", "b", NULL))
+  expect_error(srb_cross_rates("a", "b", "2024-01-01", end_date = TRUE))
+})
+
+test_that("srb_cross_rates works", {
+  json <- readRDS(test_path("fixtures", "srb-crossrates.rds"))
+  actual <- parse_srb_data(json, "SEKUSDPMI/SEKEURPMI")
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_numeric(actual$value)
+  expect_identical(unique(actual$series), "SEKUSDPMI/SEKEURPMI")
+})
+
 test_that("srb_calendar input validation works", {
   expect_error(srb_calendar(1L))
   expect_error(srb_calendar(NULL))

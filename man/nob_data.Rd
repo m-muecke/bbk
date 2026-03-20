@@ -77,6 +77,7 @@ Other data:
 \code{\link{ecb_data}()},
 \code{\link{onb_data}()},
 \code{\link{snb_data}()},
+\code{\link{srb_cross_rates}()},
 \code{\link{srb_data}()}
 }
 \concept{data}

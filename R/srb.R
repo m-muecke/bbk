@@ -101,6 +101,39 @@ parse_srb_groups <- function(json) {
   dt[]
 }
 
+#' Fetch Sveriges Riksbank (SRb) cross rates
+#'
+#' Compute cross exchange rates between two currency series from the Sveriges Riksbank SWEA API.
+#'
+#' @param series1 (`character(1)`)\cr
+#'   The first series ID (e.g., `"SEKUSDPMI"`).
+#' @param series2 (`character(1)`)\cr
+#'   The second series ID (e.g., `"SEKEURPMI"`).
+#' @inheritParams srb_data
+#' @returns A [data.table::data.table()] with the cross rate data.
+#' @source <https://developer.api.riksbank.se/>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' # USD/EUR cross rate
+#' srb_cross_rates("SEKUSDPMI", "SEKEURPMI", start_date = "2024-01-01", end_date = "2024-01-31")
+#' }
+srb_cross_rates <- function(series1, series2, start_date, end_date = NULL) {
+  assert_string(series1, min.chars = 1L)
+  assert_string(series2, min.chars = 1L)
+  start_date <- assert_dateish(start_date)
+  end_date <- assert_dateish(end_date, null.ok = TRUE)
+
+  args <- list("CrossRates", series1, series2, format(start_date))
+  if (!is.null(end_date)) {
+    args <- c(args, format(end_date))
+  }
+  json <- do.call(srb, args)
+  series <- paste(series1, series2, sep = "/")
+  parse_srb_data(json, series)
+}
+
 #' Fetch Sveriges Riksbank (SRb) calendar days
 #'
 #' Retrieve Swedish banking calendar information from the Sveriges Riksbank SWEA API.

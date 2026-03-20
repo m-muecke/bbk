@@ -21,6 +21,7 @@ reference:
       - nob_data
       - onb_data
       - snb_data
+      - srb_cross_rates
       - srb_data
 
   - subtitle: Cache

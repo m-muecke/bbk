@@ -132,7 +132,7 @@ parse_nob_data <- function(xml) {
   res <- res |>
     rbindlist(fill = TRUE) |>
     setcolorder(col_order, skip_absent = TRUE)
-  res
+  res[]
 }
 
 nob_error_body <- function(resp) {

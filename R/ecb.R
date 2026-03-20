@@ -160,18 +160,19 @@ parse_ecb_data <- function(xml) {
   res <- res |>
     rbindlist(fill = TRUE) |>
     setcolorder(col_order, skip_absent = TRUE)
-  res
+  res[]
 }
 
 parse_ecb_metadata <- function(entries) {
   agency <- NULL
-  entries |>
+  dt <- entries |>
     lapply(function(node) {
       dt <- sdmx_metadata(list(node))
       dt[, agency := xml2::xml_attr(node, "agencyID")]
     }) |>
     rbindlist() |>
     setcolorder(c("agency", "id", "name"))
+  dt[]
 }
 
 ecb_error_body <- function(resp) {

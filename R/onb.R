@@ -83,7 +83,7 @@ parse_onb_data <- function(xml) {
     setnames(convert_camel_case) |>
     setnames(c("pos", "pos_title"), c("key", "title")) |>
     setcolorder(col_order, skip_absent = TRUE)
-  dt
+  dt[]
 }
 
 #' Fetch Österreichische Nationalbank (OeNB) metadata

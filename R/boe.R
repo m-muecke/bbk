@@ -30,31 +30,32 @@ boe_data <- function(key, start_date, end_date = Sys.Date()) {
 }
 
 parse_boe_data <- function(xml) {
-  xml2::xml_ns_strip(xml)
-  series <- xml2::xml_children(xml)
-  res <- lapply(series, function(x) {
-    id <- xml2::xml_attr(x, "SCODE")
-    desc <- xml2::xml_attr(x, "DESC")
-    freq_name <- x |>
-      xml2::xml_find_first("./Cube[@FREQ_NAME]") |>
-      xml2::xml_attr("FREQ_NAME") |>
-      tolower()
-    attrs <- xml2::xml_find_all(x, "./Cube[@CAT_NAME]")
-    nms <- xml2::xml_attr(attrs, "CAT_NAME")
-    nms <- gsub(" ", "_", tolower(nms), fixed = TRUE)
-    attrs <- attrs |>
-      xml2::xml_attr("VAL_DESC") |>
-      setNames(nms) |>
-      as.list()
+  xml |>
+    xml2::xml_ns_strip() |>
+    xml2::xml_children() |>
+    lapply(function(x) {
+      id <- xml2::xml_attr(x, "SCODE")
+      desc <- xml2::xml_attr(x, "DESC")
+      freq_name <- x |>
+        xml2::xml_find_first("./Cube[@FREQ_NAME]") |>
+        xml2::xml_attr("FREQ_NAME") |>
+        tolower()
+      attrs <- xml2::xml_find_all(x, "./Cube[@CAT_NAME]")
+      nms <- xml2::xml_attr(attrs, "CAT_NAME")
+      nms <- gsub(" ", "_", tolower(nms), fixed = TRUE)
+      attrs <- attrs |>
+        xml2::xml_attr("VAL_DESC") |>
+        setNames(nms) |>
+        as.list()
 
-    vals <- xml2::xml_find_all(x, "./Cube[@TIME and @OBS_VALUE]")
-    date <- as.Date(xml2::xml_attr(vals, "TIME"))
-    value <- as.numeric(xml2::xml_attr(vals, "OBS_VALUE"))
-    dt <- data.table(date = date, id = id, value = value, description = desc, freq = freq_name)
-    setnames(dt, "id", "key")
-    dt[, (names(attrs)) := attrs]
-  })
-  rbindlist(res, fill = TRUE)
+      vals <- xml2::xml_find_all(x, "./Cube[@TIME and @OBS_VALUE]")
+      date <- as.Date(xml2::xml_attr(vals, "TIME"))
+      value <- as.numeric(xml2::xml_attr(vals, "OBS_VALUE"))
+      dt <- data.table(date = date, id = id, value = value, description = desc, freq = freq_name)
+      setnames(dt, "id", "key")
+      dt[, (names(attrs)) := attrs]
+    }) |>
+    rbindlist(fill = TRUE)
 }
 
 boe <- function(...) {

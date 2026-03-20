@@ -146,9 +146,10 @@ parse_bis_data <- function(xml) {
 
     as.data.table(data)
   })
-  res |>
+  res <- res |>
     rbindlist(fill = TRUE) |>
     setcolorder(col_order, skip_absent = TRUE)
+  res[]
 }
 
 bis_error_body <- function(resp) {

@@ -32,23 +32,21 @@ snb_data <- function(key, start_date = NULL, end_date = NULL, lang = "en") {
 }
 
 parse_snb_data <- function(json) {
-  dt <- json$timeseries |>
-    lapply(function(x) {
-      meta <- as.data.table(x$metadata)
-      header <- x$header
-      cols <- vapply(header, \(x) x$dim, NA_character_)
-      cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
-      item <- setNames(lapply(header, \(x) x$dimItem), cols)
-      ref <- setDT(item)
-      vals <- x$values
-      vals <- data.table(
-        date = vapply(vals, \(x) x$date, NA_character_),
-        value = vapply(vals, \(x) x$value, NA_real_)
-      )
-      vals[, names(meta) := meta]
-      vals[, names(ref) := ref]
-    }) |>
-    rbindlist()
+  dt <- rbindlist(lapply(json$timeseries, function(x) {
+    meta <- as.data.table(x$metadata)
+    header <- x$header
+    cols <- vapply(header, \(x) x$dim, NA_character_)
+    cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
+    item <- setNames(lapply(header, \(x) x$dimItem), cols)
+    ref <- setDT(item)
+    vals <- x$values
+    vals <- data.table(
+      date = vapply(vals, \(x) x$date, NA_character_),
+      value = vapply(vals, \(x) x$value, NA_real_)
+    )
+    vals[, names(meta) := meta]
+    vals[, names(ref) := ref]
+  }))
 
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "duration")
@@ -88,7 +86,7 @@ snb_dimensions <- function(key, lang = "en") {
 }
 
 parse_snb_dimensions <- function(json) {
-  dt <- rbindlist(lapply(json$dimensions, function(x) {
+  rbindlist(lapply(json$dimensions, function(x) {
     items <- x$dimensionItems
     has_children <- vapply(items, \(item) !is.null(item$dimensionItems), NA)
     if (any(has_children)) {
@@ -101,7 +99,6 @@ parse_snb_dimensions <- function(json) {
       item_name = vapply(items, \(x) x$name, NA_character_)
     )
   }))
-  dt[]
 }
 
 snb <- function(id, ..., resource = "data/json", lang = "en") {

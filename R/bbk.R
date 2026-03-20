@@ -198,7 +198,7 @@ parse_bbk_series <- function(body, key) {
 
 parse_bbk_data <- function(xml) {
   series <- xml2::xml_find_all(xml, ".//generic:Series")
-  res <- lapply(series, function(x) {
+  dt <- rbindlist(lapply(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()
@@ -250,8 +250,7 @@ parse_bbk_data <- function(xml) {
       as.numeric()
 
     as.data.table(data)
-  })
-  dt <- rbindlist(res)
+  }))
   decimals <- NULL
   dt[, decimals := as.integer(decimals)]
   setcolorder(dt, col_order, skip_absent = TRUE)

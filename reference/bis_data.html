@@ -115,6 +115,7 @@ applied. Default <code>NULL</code>.</p></dd>
 <code><a href="bbk_data.html">bbk_data()</a></code>,
 <code><a href="bbk_series.html">bbk_series()</a></code>,
 <code><a href="bde_data.html">bde_data()</a></code>,
+<code><a href="bde_latest.html">bde_latest()</a></code>,
 <code><a href="bdf_codelist.html">bdf_codelist()</a></code>,
 <code><a href="bdf_data.html">bdf_data()</a></code>,
 <code><a href="bdf_dataset.html">bdf_dataset()</a></code>,
@@ -133,10 +134,12 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-in"><span><span class="co"># fetch Swiss central bank policy rate</span></span></span>
 <span class="r-in"><span><span class="fu">bis_data</span><span class="op">(</span><span class="st">"WS_CBPOL"</span>, <span class="st">"M.CH"</span>, last_n <span class="op">=</span> <span class="fl">5L</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Undefined namespace prefix [1219]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null data.table (0 rows and 0 cols)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch effective exchange rates</span></span></span>
 <span class="r-in"><span><span class="fu">bis_data</span><span class="op">(</span><span class="st">"WS_EER"</span>, <span class="st">"M.N.B.CH"</span>, start_period <span class="op">=</span> <span class="st">"2020-01"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Undefined namespace prefix [1219]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Null data.table (0 rows and 0 cols)</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -8,6 +8,8 @@
   : Fetch the Deutsche Bundesbank (BBk) series
 - [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md) :
   Fetch Banco de España (BdE) data
+- [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
+  : Fetch latest Banco de España (BdE) data
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md) :
   Fetch Bank for International Settlements (BIS) data
 - [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md) :
@@ -66,5 +68,7 @@
   : Fetch Österreichische Nationalbank (OeNB) metadata
 - [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md) :
   Fetch Österreichische Nationalbank (OeNB) table of contents
+- [`snb_dimensions()`](https://m-muecke.github.io/bbk/reference/snb_dimensions.md)
+  : Fetch Swiss National Bank (SNB) dimensions
 - [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
   : Fetch Sveriges Riksbank (SRb) series metadata

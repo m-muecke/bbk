@@ -11,6 +11,10 @@
   to clear it.
 - Support for Bank for International Settlements (BIS) data.
 - Support for Norges Bank (NoB) data.
+- [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
+  returns the most recently published value for one or more BdE series.
+- [`snb_dimensions()`](https://m-muecke.github.io/bbk/reference/snb_dimensions.md)
+  returns the dimension structure for a given SNB cube.
 - Support for Sveriges Riksbank (SRb) data.
 
 ## bbk 0.8.0

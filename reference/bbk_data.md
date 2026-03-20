@@ -83,6 +83,7 @@ with the requested data.
 Other data:
 [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md),
 [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
+[`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md),
 [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md),
 [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md),
 [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md),

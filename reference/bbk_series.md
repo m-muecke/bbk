@@ -33,6 +33,7 @@ an endpoint with more options.
 Other data:
 [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
 [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
+[`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md),
 [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md),
 [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md),
 [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md),

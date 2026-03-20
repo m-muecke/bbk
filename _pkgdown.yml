@@ -43,6 +43,6 @@ reference:
       - onb_hierarchy
       - onb_metadata
       - onb_toc
-      - snb_dimensions
+      - snb_dimension
       - srb_calendar
       - srb_series

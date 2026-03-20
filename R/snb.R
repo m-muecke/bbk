@@ -75,17 +75,17 @@ parse_snb_data <- function(json) {
 #' @family metadata
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' snb_dimensions("rendopar")
+#' snb_dimension("rendopar")
 #' }
-snb_dimensions <- function(key, lang = "en") {
+snb_dimension <- function(key, lang = "en") {
   assert_string(key, min.chars = 1L)
   assert_choice(lang, c("en", "de"))
 
   json <- snb(key, resource = "dimensions", lang = lang)
-  parse_snb_dimensions(json)
+  parse_snb_dimension(json)
 }
 
-parse_snb_dimensions <- function(json) {
+parse_snb_dimension <- function(json) {
   rbindlist(lapply(json$dimensions, function(x) {
     items <- x$dimensionItems
     has_children <- vapply(items, \(item) !is.null(item$dimensionItems), NA)

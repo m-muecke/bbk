@@ -36,7 +36,7 @@ Other metadata:
 \code{\link{onb_frequency}()},
 \code{\link{onb_metadata}()},
 \code{\link{onb_toc}()},
-\code{\link{snb_dimensions}()},
+\code{\link{snb_dimension}()},
 \code{\link{srb_calendar}()},
 \code{\link{srb_series}()}
 }

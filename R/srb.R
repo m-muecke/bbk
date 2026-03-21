@@ -59,16 +59,16 @@ srb_series <- function(type = "series") {
 
 parse_srb_data <- function(json, series) {
   if (length(json) == 0L) {
-    return(data.table(date = as.Date(character()), series = character(), value = numeric()))
+    return(data.table(date = as.Date(character()), key = character(), value = numeric()))
   }
   value <- NULL
   dt <- rbindlist(map(json, setDT))
   dt[, let(
     date = as.Date(date),
-    series = toupper(series),
+    key = toupper(series),
     value = as.numeric(value)
   )]
-  setcolorder(dt, c("date", "series", "value"))
+  setcolorder(dt, c("date", "key", "value"))
   dt[]
 }
 

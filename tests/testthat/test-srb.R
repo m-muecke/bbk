@@ -18,13 +18,13 @@ test_that("parse_srb_data works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_true(all(c("date", "series", "value") %in% names(actual)))
+  expect_true(all(c("date", "key", "value") %in% names(actual)))
 })
 
 test_that("parse_srb_data handles empty response", {
   actual <- parse_srb_data(list(), "SEKUSDPMI")
   expect_data_table(actual, nrows = 0L)
-  expect_true(all(c("date", "series", "value") %in% names(actual)))
+  expect_true(all(c("date", "key", "value") %in% names(actual)))
 })
 
 test_that("srb_cross_rates input validation works", {
@@ -40,7 +40,7 @@ test_that("srb_cross_rates works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_identical(unique(actual$series), "SEKUSDPMI/SEKEURPMI")
+  expect_identical(unique(actual$key), "SEKUSDPMI/SEKEURPMI")
 })
 
 test_that("srb_calendar input validation works", {

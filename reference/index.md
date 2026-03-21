@@ -44,10 +44,14 @@
 
 ### Metadata
 
+- [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md)
+  : Fetch Deutsche Bundesbank (BBk) dimensions
 - [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md)
   : Fetch Deutsche Bundesbank (BBk) metadata
 - [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md)
   : Fetch Banque de France (BdF) codelists
+- [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md)
+  : Fetch Bank for International Settlements (BIS) dimensions
 - [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md)
   : Fetch Bank for International Settlements (BIS) metadata
 - [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md)
@@ -56,8 +60,12 @@
   : Fetch Bank of Canada (BoC) available series or group
 - [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)
   : Fetch Bank of Canada (BoC) metadata (details)
+- [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md)
+  : Fetch European Central Bank (ECB) dimensions
 - [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md)
   : Fetch European Central Bank (ECB) metadata
+- [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md)
+  : Fetch Norges Bank (NoB) dimensions
 - [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
   : Fetch Norges Bank (NoB) metadata
 - [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md)

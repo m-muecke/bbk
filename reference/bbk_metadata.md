@@ -48,8 +48,12 @@ with the requested metadata. The columns are:
 ## See also
 
 Other metadata:
+[`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
+[`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
+[`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
+[`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
 [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),

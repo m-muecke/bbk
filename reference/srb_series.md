@@ -30,9 +30,13 @@ with the requested metadata.
 ## See also
 
 Other metadata:
+[`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
+[`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
+[`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
 [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),
@@ -97,7 +101,7 @@ srb_series()
 #> 113:      130           2026-03-20           1994-03-01         FALSE
 #> 114:      138           2026-03-19           2011-06-27         FALSE
 #> 115:      151           2026-03-20           1992-11-18         FALSE
-#> 116:      155           2026-03-19           1980-01-02         FALSE
-#> 117:      155           2026-03-19           1980-01-02         FALSE
+#> 116:      155           2026-03-20           1980-01-02         FALSE
+#> 117:      155           2026-03-20           1980-01-02         FALSE
 # }
 ```

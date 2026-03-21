@@ -168,6 +168,7 @@ parse_srb_calendar <- function(json) {
     map(setDT) |>
     rbindlist() |>
     setnames(convert_camel_case)
+  calendar_date <- NULL
   dt[, calendar_date := as.Date(calendar_date)]
   dt[]
 }

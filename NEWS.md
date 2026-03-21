@@ -7,6 +7,11 @@
 * Support for Bank for International Settlements (BIS) data.
 * Support for Norges Bank (NoB) data.
 * `bde_latest()` returns the most recently published value for one or more BdE series.
+* `bbk_dimension()` returns the dimension structure for a given Bundesbank dataflow.
+* `bis_dimension()` returns the dimension structure for a given BIS dataflow.
+* `ecb_data()` gains an `updated_after` parameter to retrieve only observations updated after a given timestamp.
+* `ecb_dimension()` returns the dimension structure for a given ECB dataflow.
+* `nob_dimension()` returns the dimension structure for a given Norges Bank dataflow.
 * `snb_dimension()` returns the dimension structure for a given SNB cube.
 * `srb_calendar()` returns Swedish banking calendar day information.
 * `srb_cross_rates()` computes cross exchange rates between two Riksbank currency series.

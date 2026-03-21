@@ -32,6 +32,10 @@ test_that("ecb_data input validation works", {
   expect_error(ecb_data("abcde", "abc", last_n = 1.5))
   expect_error(ecb_data("abcde", "abc", last_n = -1L))
   expect_error(ecb_data("abcde", "abc", last_n = 0L))
+  # updated_after should be a character(1) or NULL
+  expect_error(ecb_data("abcde", "abc", updated_after = 1L))
+  expect_error(ecb_data("abcde", "abc", updated_after = TRUE))
+  expect_error(ecb_data("abcde", "abc", updated_after = c("a", "b")))
 })
 
 test_that("parse_bbk_data works", {

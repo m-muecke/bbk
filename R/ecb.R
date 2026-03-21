@@ -26,6 +26,9 @@
 #' @param last_n (`NULL` | `numeric(1)`)\cr
 #'   Number of observations to retrieve from the end of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
+#' @param updated_after (`NULL` | `character(1)`)\cr
+#'   ISO 8601 timestamp to retrieve only observations updated after the given time
+#'   (e.g., `"2024-06-01T00:00:00"`). If `NULL`, no restriction is applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://data.ecb.europa.eu/help/api/data>
 #' @family data
@@ -44,7 +47,8 @@ ecb_data <- function(
   start_period = NULL,
   end_period = NULL,
   first_n = NULL,
-  last_n = NULL
+  last_n = NULL,
+  updated_after = NULL
 ) {
   assert_string(flow, min.chars = 1L)
   assert_character(key, min.chars = 1L, null.ok = TRUE)
@@ -52,6 +56,7 @@ ecb_data <- function(
   assert_period(end_period)
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  assert_string(updated_after, null.ok = TRUE)
 
   resource <- sdmx_data_resource(flow, key, default_key = "all")
   xml <- ecb(
@@ -59,7 +64,8 @@ ecb_data <- function(
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
-    lastNObservations = last_n
+    lastNObservations = last_n,
+    updatedAfter = updated_after
   )
   parse_ecb_data(xml)
 }

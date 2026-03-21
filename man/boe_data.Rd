@@ -28,6 +28,16 @@ Retrieve time series data from the BoE database.
 \examples{
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
+# Bank Rate
+boe_data("IUDBEDR", "2015-01-01")
+
+# SONIA daily rate
+boe_data("IUDSOIA", "2015-01-01")
+
+# 10-year nominal par yield
+boe_data("IUDMNPY", "2015-01-01")
+
+# multiple series
 boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 }
 \dontshow{\}) # examplesIf}

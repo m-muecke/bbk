@@ -6,6 +6,7 @@
   location and `bbk_cache_clear()` to clear it.
 * Support for Bank for International Settlements (BIS) data.
 * Support for Norges Bank (NoB) data.
+* `boc_data()` now returns a `value` column instead of `rate` for consistency with other data functions.
 * `bde_latest()` returns the most recently published value for one or more BdE series.
 * `bbk_dimension()` returns the dimension structure for a given Bundesbank dataflow.
 * `bis_dimension()` returns the dimension structure for a given BIS dataflow.

@@ -130,14 +130,14 @@ boc_series_obs <- function(name, start_date, end_date) {
     melt(
       id.vars = "date",
       variable.name = "name",
-      value.name = "rate",
+      value.name = "value",
       na.rm = TRUE,
       variable.factor = FALSE
     )
 
   obs <- meta[obs, on = "name"]
-  rate <- NULL
-  obs[, let(date = as.Date(date), rate = as.numeric(rate))]
+  value <- NULL
+  obs[, let(date = as.Date(date), value = as.numeric(value))]
   obs[]
 }
 
@@ -162,12 +162,12 @@ boc_group_obs <- function(name = "FX_RATES_DAILY", start_date = NULL, end_date =
     melt(
       id.vars = "date",
       variable.name = "name",
-      value.name = "rate",
+      value.name = "value",
       na.rm = TRUE,
       variable.factor = FALSE
     )
-  rate <- NULL
-  obs[, let(date = as.Date(date), rate = as.numeric(rate))]
+  value <- NULL
+  obs[, let(date = as.Date(date), value = as.numeric(value))]
   setnames(obs, "name", "series_name")
 
   obs <- meta[obs, on = "series_name"]

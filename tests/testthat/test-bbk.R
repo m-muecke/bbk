@@ -92,7 +92,7 @@ test_that("metadata input validation works", {
   expect_error(bbk_metadata("datastructure", id = 1L))
   expect_error(bbk_metadata("datastructure", id = TRUE))
   expect_error(bbk_metadata("datastructure", id = c("a", "b")))
-  # lang shoula be en or de
+  # lang should be en or de
   expect_error(bbk_metadata(lang = "abc"))
   expect_error(bbk_metadata(lang = 1L))
   expect_error(bbk_metadata(lang = NA))

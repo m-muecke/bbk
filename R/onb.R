@@ -30,7 +30,7 @@
 #' # Austrian imports and exports of goods from/to Germany, 2002–2012, annual frequency:
 #' onb_data(hier_id = 901, key = "VDBQZA1000", start_period = 2002, end_period = 2012, freq = "A")
 #'
-#' # Number of Austrian banks' subsidiaries abroad an in the EU, from 2005, semiannual:
+#' # Number of Austrian banks' subsidiaries abroad and in the EU, from 2005, semiannual:
 #' onb_data(
 #'   hier_id = 321,
 #'   key = c("VDBKISDANZTAU", "VDBKISDANZTEU"),

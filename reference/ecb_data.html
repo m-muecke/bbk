@@ -51,7 +51,8 @@
 <span>  start_period <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  end_period <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  first_n <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  last_n <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  last_n <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  updated_after <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -101,6 +102,12 @@ applied. Default <code>NULL</code>.</p></dd>
 <dd><p>(<code>NULL</code> | <code>numeric(1)</code>)<br>
 Number of observations to retrieve from the end of the series. If <code>NULL</code>, no restriction is
 applied. Default <code>NULL</code>.</p></dd>
+
+
+<dt id="arg-updated-after">updated_after<a class="anchor" aria-label="anchor" href="#arg-updated-after"></a></dt>
+<dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
+ISO 8601 timestamp to retrieve only observations updated after the given time
+(e.g., <code>"2024-06-01T00:00:00"</code>). If <code>NULL</code>, no restriction is applied. Default <code>NULL</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

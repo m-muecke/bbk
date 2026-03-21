@@ -13,6 +13,17 @@
 - Support for Norges Bank (NoB) data.
 - [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
   returns the most recently published value for one or more BdE series.
+- [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md)
+  returns the dimension structure for a given Bundesbank dataflow.
+- [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md)
+  returns the dimension structure for a given BIS dataflow.
+- [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
+  gains an `updated_after` parameter to retrieve only observations
+  updated after a given timestamp.
+- [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md)
+  returns the dimension structure for a given ECB dataflow.
+- [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md)
+  returns the dimension structure for a given Norges Bank dataflow.
 - [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md)
   returns the dimension structure for a given SNB cube.
 - [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md)

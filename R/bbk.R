@@ -198,7 +198,7 @@ parse_bbk_series <- function(body, key) {
 
 parse_bbk_data <- function(xml) {
   series <- xml2::xml_find_all(xml, ".//generic:Series")
-  dt <- rbindlist(lapply(series, function(x) {
+  dt <- rbindlist(map(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()

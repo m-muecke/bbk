@@ -109,7 +109,7 @@ boc_fx_rates <- function(start_date = NULL, end_date = NULL, limit = NULL, skip 
     resp_body_json()
 
   dt <- json$ForeignExchangeRates |>
-    lapply(as.data.table) |>
+    map(as.data.table) |>
     rbindlist() |>
     setnames(convert_camel_case)
 

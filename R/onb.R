@@ -70,7 +70,7 @@ onb_data <- function(
 parse_onb_data <- function(xml) {
   dt <- xml |>
     xml2::xml_find_all(".//dataSet") |>
-    lapply(function(x) {
+    map(function(x) {
       obs <- xml2::xml_find_all(x, ".//obs")
       dt <- data.table(
         date = xml2::xml_attr(obs, "periode"),
@@ -138,7 +138,7 @@ onb_frequency <- function(hier_id, key, ..., lang = "en") {
 parse_onb_frequency <- function(xml) {
   dt <- xml |>
     xml2::xml_find_all(".//dataSet") |>
-    lapply(function(x) {
+    map(function(x) {
       freq <- x |> xml2::xml_find_all(".//periods") |> xml2::xml_attr("frequency")
       avail <- x |> xml2::xml_find_all(".//periods/available") |> xml2::xml_text()
       dt <- data.table(freq = freq, available = avail)
@@ -205,7 +205,7 @@ parse_onb_toc <- function(xml) {
   elem <- xml2::xml_find_all(xml, ".//content/element")
   dt <- elem |>
     xml2::xml_attrs() |>
-    lapply(\(x) setDT(as.list(x))) |>
+    map(\(x) setDT(as.list(x))) |>
     rbindlist()
   desc <- xml2::xml_text(xml2::xml_find_all(elem, "text"))
   id <- parent <- NULL
@@ -216,7 +216,7 @@ parse_onb_toc <- function(xml) {
 parse_onb_hierarchy <- function(xml) {
   xml |>
     xml2::xml_find_all(".//group") |>
-    lapply(function(grp) {
+    map(function(grp) {
       pos <- xml2::xml_find_all(grp, ".//position")
       data.table(
         group = xml2::xml_attr(grp, "name"),
@@ -231,7 +231,7 @@ parse_onb_dimension <- function(xml) {
   dt <- xml |>
     xml2::xml_find_all(".//data_content/structure/dimension") |>
     xml2::xml_attrs() |>
-    lapply(\(x) setDT(as.list(x))) |>
+    map(\(x) setDT(as.list(x))) |>
     rbindlist()
   nr <- NULL
   dt[, nr := as.integer(nr)][]

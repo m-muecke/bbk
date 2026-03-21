@@ -105,15 +105,15 @@ nob_metadata <- function(type, id = NULL, lang = "en") {
 parse_nob_data <- function(xml) {
   ns <- xml2::xml_ns(xml)
   series <- xml2::xml_find_all(xml, ".//Series", ns)
-  res <- lapply(series, function(x) {
+  res <- map(series, function(x) {
     attrs <- xml2::xml_attrs(x)
     nms <- tolower(names(attrs))
     names(attrs) <- nms
 
     obs <- xml2::xml_find_all(x, ".//Obs", ns)
-    obs_attrs <- lapply(obs, xml2::xml_attrs)
-    date <- vapply(obs_attrs, \(x) x[["TIME_PERIOD"]], NA_character_)
-    value <- as.numeric(vapply(obs_attrs, \(x) x[["OBS_VALUE"]], NA_character_))
+    obs_attrs <- map(obs, xml2::xml_attrs)
+    date <- map_chr(obs_attrs, "TIME_PERIOD")
+    value <- as.numeric(map_chr(obs_attrs, "OBS_VALUE"))
 
     key <- paste(
       attrs[!nms %in% c("collection", "calculated", "decimals", "unit_mult")],

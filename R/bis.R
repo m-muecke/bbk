@@ -105,7 +105,7 @@ bis_metadata <- function(type, id = NULL) {
 
 parse_bis_data <- function(xml) {
   series <- xml2::xml_find_all(xml, ".//generic:Series")
-  res <- lapply(series, function(x) {
+  res <- map(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()

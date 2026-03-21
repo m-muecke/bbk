@@ -62,7 +62,7 @@ parse_srb_data <- function(json, series) {
     return(data.table(date = as.Date(character()), series = character(), value = numeric()))
   }
   value <- NULL
-  dt <- rbindlist(lapply(json, setDT))
+  dt <- rbindlist(map(json, setDT))
   dt[, let(
     date = as.Date(date),
     series = toupper(series),
@@ -74,7 +74,7 @@ parse_srb_data <- function(json, series) {
 
 parse_srb_series <- function(json) {
   dt <- json |>
-    lapply(\(x) setDT(lapply(x, \(v) v %??% NA_character_))) |>
+    map(\(x) setDT(map(x, \(v) v %??% NA_character_))) |>
     rbindlist() |>
     setnames(convert_camel_case)
   dt[]
@@ -86,7 +86,7 @@ parse_srb_groups <- function(json) {
     for (g in groups) {
       children <- g$childGroups
       g$childGroups <- NULL
-      res <- c(res, list(setDT(lapply(g, \(v) v %??% NA_character_))))
+      res <- c(res, list(setDT(map(g, \(v) v %??% NA_character_))))
       if (length(children) > 0L) {
         res <- c(res, flatten_groups(children))
       }
@@ -165,7 +165,7 @@ srb_calendar <- function(start_date, end_date = NULL) {
 
 parse_srb_calendar <- function(json) {
   dt <- json |>
-    lapply(setDT) |>
+    map(setDT) |>
     rbindlist() |>
     setnames(convert_camel_case)
   dt[, calendar_date := as.Date(calendar_date)]

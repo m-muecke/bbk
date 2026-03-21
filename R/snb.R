@@ -32,17 +32,17 @@ snb_data <- function(key, start_date = NULL, end_date = NULL, lang = "en") {
 }
 
 parse_snb_data <- function(json) {
-  dt <- rbindlist(lapply(json$timeseries, function(x) {
+  dt <- rbindlist(map(json$timeseries, function(x) {
     meta <- as.data.table(x$metadata)
     header <- x$header
-    cols <- vapply(header, \(x) x$dim, NA_character_)
+    cols <- map_chr(header, "dim")
     cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
-    item <- setNames(lapply(header, \(x) x$dimItem), cols)
+    item <- setNames(map(header, "dimItem"), cols)
     ref <- setDT(item)
     vals <- x$values
     vals <- data.table(
-      date = vapply(vals, \(x) x$date, NA_character_),
-      value = vapply(vals, \(x) x$value, NA_real_)
+      date = map_chr(vals, "date"),
+      value = map_dbl(vals, "value")
     )
     vals[, names(meta) := meta]
     vals[, names(ref) := ref]
@@ -86,17 +86,17 @@ snb_dimension <- function(key, lang = "en") {
 }
 
 parse_snb_dimension <- function(json) {
-  rbindlist(lapply(json$dimensions, function(x) {
+  rbindlist(map(json$dimensions, function(x) {
     items <- x$dimensionItems
-    has_children <- vapply(items, \(item) !is.null(item$dimensionItems), NA)
+    has_children <- map_lgl(items, \(item) !is.null(item$dimensionItems))
     if (any(has_children)) {
-      items <- unlist(lapply(items, \(x) x$dimensionItems), recursive = FALSE)
+      items <- unlist(map(items, "dimensionItems"), recursive = FALSE)
     }
     data.table(
       dim_id = x$id,
       dim_name = x$name,
-      item_id = vapply(items, \(x) x$id, NA_character_),
-      item_name = vapply(items, \(x) x$name, NA_character_)
+      item_id = map_chr(items, "id"),
+      item_name = map_chr(items, "name")
     )
   }))
 }

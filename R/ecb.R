@@ -127,10 +127,9 @@ ecb_dimension <- function(id) {
   data.table(
     id = xml2::xml_attr(dims, "id"),
     position = as.integer(xml2::xml_attr(dims, "position")),
-    codelist = vapply(
+    codelist = map_chr(
       dims,
-      \(x) xml2::xml_attr(xml2::xml_find_first(x, ".//str:Enumeration/Ref"), "id"),
-      NA_character_
+      \(x) xml2::xml_attr(xml2::xml_find_first(x, ".//str:Enumeration/Ref"), "id")
     )
   )
 }
@@ -149,7 +148,7 @@ fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
 
 parse_ecb_data <- function(xml) {
   series <- xml2::xml_find_all(xml, ".//generic:Series")
-  res <- lapply(series, function(x) {
+  res <- map(series, function(x) {
     series_key <- x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()
@@ -199,7 +198,7 @@ parse_ecb_data <- function(xml) {
 parse_ecb_metadata <- function(entries) {
   agency <- NULL
   dt <- entries |>
-    lapply(function(node) {
+    map(function(node) {
       dt <- sdmx_metadata(list(node))
       dt[, agency := xml2::xml_attr(node, "agencyID")]
     }) |>

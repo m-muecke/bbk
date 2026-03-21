@@ -37,7 +37,7 @@ sdmx_freq <- function(code) {
 
 sdmx_metadata <- function(entries, lang = "en", ns_prefix = "com") {
   xpath <- sprintf(".//%s:Name[@xml:lang='%s']", ns_prefix, lang)
-  rbindlist(lapply(entries, function(node) {
+  rbindlist(map(entries, function(node) {
     id <- xml2::xml_attr(node, "id")
     nms <- node |>
       xml2::xml_find_all(xpath) |>

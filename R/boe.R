@@ -43,7 +43,7 @@ parse_boe_data <- function(xml) {
   xml |>
     xml2::xml_ns_strip() |>
     xml2::xml_children() |>
-    lapply(function(x) {
+    map(function(x) {
       id <- xml2::xml_attr(x, "SCODE")
       desc <- xml2::xml_attr(x, "DESC")
       freq_name <- x |>

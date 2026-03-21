@@ -65,10 +65,10 @@ parse_bde_data <- function(json) {
     "value"
   )
   dt <- json |>
-    lapply(function(x) {
+    map(function(x) {
       dt <- as.data.table(x[names(x) != "informacion"])
       meta <- x$informacion |>
-        lapply(setDT) |>
+        map(setDT) |>
         rbindlist() |>
         setnames(c("name", "value"))
       name <- NULL
@@ -134,7 +134,7 @@ bde_latest <- function(key, lang = "en") {
   )
   new_cols <- c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
   dt <- json |>
-    lapply(setDT) |>
+    map(setDT) |>
     rbindlist() |>
     setnames(old_cols, new_cols)
   dt[, date := as.POSIXct(date, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]

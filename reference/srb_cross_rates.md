@@ -68,7 +68,7 @@ Other data:
 # \donttest{
 # USD/EUR cross rate
 srb_cross_rates("SEKUSDPMI", "SEKEURPMI", start_date = "2024-01-01", end_date = "2024-01-31")
-#>           date              series   value
+#>           date                 key   value
 #>         <Date>              <char>   <num>
 #>  1: 2024-01-02 SEKUSDPMI/SEKEURPMI 0.91274
 #>  2: 2024-01-03 SEKUSDPMI/SEKEURPMI 0.91583
@@ -92,7 +92,7 @@ srb_cross_rates("SEKUSDPMI", "SEKEURPMI", start_date = "2024-01-01", end_date = 
 #> 20: 2024-01-29 SEKUSDPMI/SEKEURPMI 0.92396
 #> 21: 2024-01-30 SEKUSDPMI/SEKEURPMI 0.92200
 #> 22: 2024-01-31 SEKUSDPMI/SEKEURPMI 0.92276
-#>           date              series   value
+#>           date                 key   value
 #>         <Date>              <char>   <num>
 # }
 ```

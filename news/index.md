@@ -11,6 +11,9 @@
   to clear it.
 - Support for Bank for International Settlements (BIS) data.
 - Support for Norges Bank (NoB) data.
+- [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
+  now returns a `value` column instead of `rate` for consistency with
+  other data functions.
 - [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
   returns the most recently published value for one or more BdE series.
 - [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md)

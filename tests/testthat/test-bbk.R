@@ -82,6 +82,13 @@ test_that("bbk_series input validation works", {
   expect_error(bbk_series(c("BBEX3.M.DKK.EUR.BB.AC.A01", "BBEX3.M.DKK.EUR.BB.AC.A02")))
 })
 
+test_that("bbk_dimension input validation works", {
+  expect_error(bbk_dimension(1L))
+  expect_error(bbk_dimension(TRUE))
+  expect_error(bbk_dimension(NULL))
+  expect_error(bbk_dimension(c("a", "b")))
+})
+
 test_that("metadata input validation works", {
   # type should be one of datastructure, dataflow, codelist, concept
   expect_error(bbk_metadata(1L))

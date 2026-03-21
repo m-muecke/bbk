@@ -147,6 +147,30 @@ bbk_metadata <- function(type, id = NULL, lang = "en") {
   dt[!nzchar(name), name := NA_character_][]
 }
 
+#' Fetch Deutsche Bundesbank (BBk) dimensions
+#'
+#' Retrieve the dimension structure for a given dataflow from the Bundesbank SDMX Web Service.
+#'
+#' @param id (`character(1)`)\cr
+#'   The id of the data structure definition to query (e.g., `"BBK_BBSIS"`).
+#' @returns A [data.table::data.table()] with columns:
+#'   \item{id}{The dimension id (e.g., `"BBK_STD_FREQ"`, `"BBK_STD_AREA"`)}
+#'   \item{position}{The position of the dimension in the series key}
+#'   \item{codelist}{The id of the associated codelist}
+#' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
+#' @family metadata
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' bbk_dimension("BBK_ERX")
+#' }
+bbk_dimension <- function(id) {
+  assert_string(id, min.chars = 1L)
+  resource <- paste("metadata", "datastructure", "BBK", toupper(id), sep = "/")
+  xml <- bbk_make_request(resource)
+  sdmx_dimension(xml, ns_prefix = "structure")
+}
+
 parse_bbk_series <- function(body, key) {
   td <- tempfile()
   dir.create(td)

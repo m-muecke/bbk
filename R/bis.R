@@ -103,6 +103,30 @@ bis_metadata <- function(type, id = NULL) {
   sdmx_metadata(entries)
 }
 
+#' Fetch Bank for International Settlements (BIS) dimensions
+#'
+#' Retrieve the dimension structure for a given dataflow from the BIS SDMX Web Service.
+#'
+#' @param id (`character(1)`)\cr
+#'   The id of the data structure definition to query (e.g., `"BIS_CBPOL"`).
+#' @returns A [data.table::data.table()] with columns:
+#'   \item{id}{The dimension id (e.g., `"FREQ"`, `"REF_AREA"`)}
+#'   \item{position}{The position of the dimension in the series key}
+#'   \item{codelist}{The id of the associated codelist (e.g., `"CL_FREQ"`)}
+#' @source <https://stats.bis.org/api-doc/v1/>
+#' @family metadata
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' bis_dimension("BIS_CBPOL")
+#' }
+bis_dimension <- function(id) {
+  assert_string(id, min.chars = 1L)
+  resource <- paste("datastructure", "BIS", toupper(id), sep = "/")
+  xml <- bis(resource)
+  sdmx_dimension(xml)
+}
+
 parse_bis_data <- function(xml) {
   series <- xml2::xml_find_all(xml, ".//generic:Series")
   res <- map(series, function(x) {

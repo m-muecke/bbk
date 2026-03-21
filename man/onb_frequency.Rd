@@ -35,10 +35,13 @@ onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 }
 \seealso{
 Other metadata: 
+\code{\link{bbk_dimension}()},
 \code{\link{bbk_metadata}()},
+\code{\link{bis_dimension}()},
 \code{\link{bis_metadata}()},
 \code{\link{ecb_dimension}()},
 \code{\link{ecb_metadata}()},
+\code{\link{nob_dimension}()},
 \code{\link{nob_metadata}()},
 \code{\link{onb_dimension}()},
 \code{\link{onb_hierarchy}()},

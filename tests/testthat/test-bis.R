@@ -36,6 +36,13 @@ test_that("parse_bis_data works", {
   expect_identical(unique(actual$freq), "monthly")
 })
 
+test_that("bis_dimension input validation works", {
+  expect_error(bis_dimension(1L))
+  expect_error(bis_dimension(TRUE))
+  expect_error(bis_dimension(NULL))
+  expect_error(bis_dimension(c("a", "b")))
+})
+
 test_that("bis_metadata input validation works", {
   expect_error(bis_metadata(1L))
   expect_error(bis_metadata(TRUE))

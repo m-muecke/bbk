@@ -30,14 +30,17 @@ reference:
 
   - subtitle: Metadata
     contents:
+      - bbk_dimension
       - bbk_metadata
       - bdf_codelist
+      - bis_dimension
       - bis_metadata
       - bdf_dataset
       - boc_catalog
       - boc_metadata
       - ecb_dimension
       - ecb_metadata
+      - nob_dimension
       - nob_metadata
       - onb_dimension
       - onb_frequency

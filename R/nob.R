@@ -102,6 +102,30 @@ nob_metadata <- function(type, id = NULL, lang = "en") {
   sdmx_metadata(entries, lang)
 }
 
+#' Fetch Norges Bank (NoB) dimensions
+#'
+#' Retrieve the dimension structure for a given dataflow from the Norges Bank SDMX Web Service.
+#'
+#' @param id (`character(1)`)\cr
+#'   The id of the data structure definition to query (e.g., `"NB_EXR"`).
+#' @returns A [data.table::data.table()] with columns:
+#'   \item{id}{The dimension id (e.g., `"FREQ"`, `"BASE_CUR"`)}
+#'   \item{position}{The position of the dimension in the series key}
+#'   \item{codelist}{The id of the associated codelist (e.g., `"CL_FREQ"`)}
+#' @source <https://www.norges-bank.no/en/topics/Statistics/open-data/>
+#' @family metadata
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' nob_dimension("DSD_EXR")
+#' }
+nob_dimension <- function(id) {
+  assert_string(id, min.chars = 1L)
+  resource <- paste("datastructure", "NB", toupper(id), sep = "/")
+  xml <- nob(resource)
+  sdmx_dimension(xml)
+}
+
 parse_nob_data <- function(xml) {
   ns <- xml2::xml_ns(xml)
   series <- xml2::xml_find_all(xml, ".//Series", ns)

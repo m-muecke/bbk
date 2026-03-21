@@ -30,6 +30,13 @@ test_that("parse_nob_data works", {
   expect_true(all(c("date", "key", "value", "freq") %in% names(actual)))
 })
 
+test_that("nob_dimension input validation works", {
+  expect_error(nob_dimension(1L))
+  expect_error(nob_dimension(TRUE))
+  expect_error(nob_dimension(NULL))
+  expect_error(nob_dimension(c("a", "b")))
+})
+
 test_that("nob_metadata input validation works", {
   expect_error(nob_metadata(1L))
   expect_error(nob_metadata(TRUE))

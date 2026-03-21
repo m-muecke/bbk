@@ -123,15 +123,7 @@ ecb_dimension <- function(id) {
   assert_string(id, min.chars = 1L)
   resource <- paste("datastructure", "ECB", toupper(id), sep = "/")
   xml <- ecb(resource)
-  dims <- xml2::xml_find_all(xml, ".//str:DimensionList/str:Dimension")
-  data.table(
-    id = xml2::xml_attr(dims, "id"),
-    position = as.integer(xml2::xml_attr(dims, "position")),
-    codelist = map_chr(
-      dims,
-      \(x) xml2::xml_attr(xml2::xml_find_first(x, ".//str:Enumeration/Ref"), "id")
-    )
-  )
+  sdmx_dimension(xml)
 }
 
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {

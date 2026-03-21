@@ -34,6 +34,7 @@ srb_calendar("2024-01-01", "2024-01-31")
 Other metadata: 
 \code{\link{bbk_metadata}()},
 \code{\link{bis_metadata}()},
+\code{\link{ecb_dimension}()},
 \code{\link{ecb_metadata}()},
 \code{\link{nob_metadata}()},
 \code{\link{onb_dimension}()},

@@ -102,6 +102,39 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
   do.call(fetch_ecb_metadata, c(args, list(agency, id)))
 }
 
+#' Fetch European Central Bank (ECB) dimensions
+#'
+#' Retrieve the dimension structure for a given dataflow from the ECB SDMX Web Service.
+#'
+#' @param id (`character(1)`)\cr
+#'   The id of the data structure definition to query (e.g., `"ECB_EXR1"`).
+#' @returns A [data.table::data.table()] with columns:
+#'   \item{id}{The dimension id (e.g., `"FREQ"`, `"CURRENCY"`)}
+#'   \item{position}{The position of the dimension in the series key}
+#'   \item{codelist}{The id of the associated codelist (e.g., `"CL_FREQ"`)}
+#' @source <https://data.ecb.europa.eu/help/api/metadata>
+#' @family metadata
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' ecb_dimension("ECB_EXR1")
+#' }
+ecb_dimension <- function(id) {
+  assert_string(id, min.chars = 1L)
+  resource <- paste("datastructure", "ECB", toupper(id), sep = "/")
+  xml <- ecb(resource)
+  dims <- xml2::xml_find_all(xml, ".//str:DimensionList/str:Dimension")
+  data.table(
+    id = xml2::xml_attr(dims, "id"),
+    position = as.integer(xml2::xml_attr(dims, "position")),
+    codelist = vapply(
+      dims,
+      \(x) xml2::xml_attr(xml2::xml_find_first(x, ".//str:Enumeration/Ref"), "id"),
+      NA_character_
+    )
+  )
+}
+
 fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
   assert_string(agency, min.chars = 1L, null.ok = TRUE)
   assert_string(id, min.chars = 1L, null.ok = TRUE)

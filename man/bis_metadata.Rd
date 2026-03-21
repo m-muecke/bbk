@@ -35,6 +35,7 @@ bis_metadata("codelist", "CL_FREQ")
 \seealso{
 Other metadata: 
 \code{\link{bbk_metadata}()},
+\code{\link{ecb_dimension}()},
 \code{\link{ecb_metadata}()},
 \code{\link{nob_metadata}()},
 \code{\link{onb_dimension}()},

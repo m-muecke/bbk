@@ -36,6 +36,7 @@ reference:
       - bdf_dataset
       - boc_catalog
       - boc_metadata
+      - ecb_dimension
       - ecb_metadata
       - nob_metadata
       - onb_dimension

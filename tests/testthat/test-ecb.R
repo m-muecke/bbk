@@ -48,6 +48,13 @@ test_that("parse_bbk_data works", {
   expect_date(actual$date)
 })
 
+test_that("ecb_dimension input validation works", {
+  expect_error(ecb_dimension(1L))
+  expect_error(ecb_dimension(TRUE))
+  expect_error(ecb_dimension(NULL))
+  expect_error(ecb_dimension(c("a", "b")))
+})
+
 test_that("metadata input validation works", {
   # type should be one of datastructure, dataflow, codelist, concept
   expect_error(ecb_metadata(1L))

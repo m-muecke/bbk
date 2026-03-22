@@ -8,15 +8,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/m-muecke/bbk/blob/v0.9.0/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/m-muecke/bbk/blob/main/DESCRIPTION)
 
 Mücke M (2026). *bbk: Client for Central Bank APIs*. R package version
-0.9.0, <https://m-muecke.github.io/bbk/>.
+0.9.0.9000, <https://m-muecke.github.io/bbk/>.
 
     @Manual{,
       title = {bbk: Client for Central Bank APIs},
       author = {Maximilian Mücke},
       year = {2026},
-      note = {R package version 0.9.0},
+      note = {R package version 0.9.0.9000},
       url = {https://m-muecke.github.io/bbk/},
     }

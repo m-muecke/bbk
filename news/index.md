@@ -2,6 +2,8 @@
 
 ## bbk 0.9.0
 
+CRAN release: 2026-03-21
+
 - Add optional caching of API responses via `options(bbk.cache = TRUE)`.
   Cached responses are stored for 1 day by default and can be customized
   with `options(bbk.cache_max_age = seconds)`. Use

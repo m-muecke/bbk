@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/m-muecke/bbk/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/m-muecke/bbk/blob/v0.9.0/DESCRIPTION)
 
 Mücke M (2026). *bbk: Client for Central Bank APIs*. R package version
 0.9.0, <https://m-muecke.github.io/bbk/>.

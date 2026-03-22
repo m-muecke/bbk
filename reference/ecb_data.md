@@ -216,31 +216,31 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 #> 14060:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
 #> 14061:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
 #> 14062:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
-#>        currency currency_denom exr_type exr_suffix time_format   unit
-#>          <char>         <char>   <char>     <char>      <char> <char>
-#>     1:      JPY            EUR     SP00          A         P1D    JPY
-#>     2:      JPY            EUR     SP00          A         P1D    JPY
-#>     3:      JPY            EUR     SP00          A         P1D    JPY
-#>     4:      JPY            EUR     SP00          A         P1D    JPY
-#>     5:      JPY            EUR     SP00          A         P1D    JPY
+#>        currency currency_denom exr_type exr_suffix   unit time_format
+#>          <char>         <char>   <char>     <char> <char>      <char>
+#>     1:      JPY            EUR     SP00          A    JPY         P1D
+#>     2:      JPY            EUR     SP00          A    JPY         P1D
+#>     3:      JPY            EUR     SP00          A    JPY         P1D
+#>     4:      JPY            EUR     SP00          A    JPY         P1D
+#>     5:      JPY            EUR     SP00          A    JPY         P1D
 #>    ---                                                               
-#> 14058:      USD            EUR     SP00          A         P1D    USD
-#> 14059:      USD            EUR     SP00          A         P1D    USD
-#> 14060:      USD            EUR     SP00          A         P1D    USD
-#> 14061:      USD            EUR     SP00          A         P1D    USD
-#> 14062:      USD            EUR     SP00          A         P1D    USD
-#>        unit_index_base collection decimals unit_mult source_agency
-#>                 <char>     <char>   <char>    <char>        <char>
-#>     1:        99Q1=100          A        2         0           4F0
-#>     2:        99Q1=100          A        2         0           4F0
-#>     3:        99Q1=100          A        2         0           4F0
-#>     4:        99Q1=100          A        2         0           4F0
-#>     5:        99Q1=100          A        2         0           4F0
+#> 14058:      USD            EUR     SP00          A    USD         P1D
+#> 14059:      USD            EUR     SP00          A    USD         P1D
+#> 14060:      USD            EUR     SP00          A    USD         P1D
+#> 14061:      USD            EUR     SP00          A    USD         P1D
+#> 14062:      USD            EUR     SP00          A    USD         P1D
+#>        source_agency collection unit_mult unit_index_base decimals
+#>               <char>     <char>    <char>          <char>   <char>
+#>     1:           4F0          A         0        99Q1=100        2
+#>     2:           4F0          A         0        99Q1=100        2
+#>     3:           4F0          A         0        99Q1=100        2
+#>     4:           4F0          A         0        99Q1=100        2
+#>     5:           4F0          A         0        99Q1=100        2
 #>    ---                                                            
-#> 14058:        99Q1=100          A        4         0           4F0
-#> 14059:        99Q1=100          A        4         0           4F0
-#> 14060:        99Q1=100          A        4         0           4F0
-#> 14061:        99Q1=100          A        4         0           4F0
-#> 14062:        99Q1=100          A        4         0           4F0
+#> 14058:           4F0          A         0        99Q1=100        4
+#> 14059:           4F0          A         0        99Q1=100        4
+#> 14060:           4F0          A         0        99Q1=100        4
+#> 14061:           4F0          A         0        99Q1=100        4
+#> 14062:           4F0          A         0        99Q1=100        4
 # }
 ```

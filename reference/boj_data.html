@@ -117,26 +117,6 @@ Language for series names, either <code>"en"</code> or <code>"jp"</code>. Defaul
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch USD/JPY exchange rate</span></span></span>
 <span class="r-in"><span><span class="fu">boj_data</span><span class="op">(</span><span class="st">"FM08"</span>, <span class="st">"FXERD01"</span>, start_date <span class="op">=</span> <span class="st">"202401"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: parse_boj_date(dates, freq)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> debug: switch(freq, daily = , `weekly(monday)` = , `weekly(tuesday)` = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     `weekly(wednesday)` = , `weekly(thursday)` = , `weekly(friday)` = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     `weekly(saturday)` = , `weekly(sunday)` = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(as.character(dates), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, monthly = as.Date(paste0(dates, "01"), format = "%Y%m%d"), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     quarterly = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         dates_chr &lt;- as.character(dates)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         year &lt;- substr(dates_chr, 1L, 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         quarter &lt;- as.integer(substr(dates_chr, 5L, 6L))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         month &lt;- sprintf("%02d", (quarter - 1L) * 3L + 1L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, semiannual = , `semiannual(sep)` = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         dates_chr &lt;- as.character(dates)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         year &lt;- substr(dates_chr, 1L, 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         half &lt;- as.integer(substr(dates_chr, 5L, 6L))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         month &lt;- sprintf("%02d", (half - 1L) * 6L + 1L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, annual = , `annual(mar)` = as.integer(dates), as.character(dates))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> debug: as.Date(as.character(dates), format = "%Y%m%d")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            date     key  value   freq</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;  &lt;char&gt;  &lt;num&gt; &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2024-01-04 FXERD01 142.98  daily</span>
@@ -166,46 +146,6 @@ Language for series names, either <code>"en"</code> or <code>"jp"</code>. Defaul
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch multiple exchange rates</span></span></span>
 <span class="r-in"><span><span class="fu">boj_data</span><span class="op">(</span><span class="st">"FM08"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FXERD01"</span>, <span class="st">"FXERD02"</span><span class="op">)</span>, start_date <span class="op">=</span> <span class="st">"202401"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: parse_boj_date(dates, freq)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> debug: switch(freq, daily = , `weekly(monday)` = , `weekly(tuesday)` = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     `weekly(wednesday)` = , `weekly(thursday)` = , `weekly(friday)` = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     `weekly(saturday)` = , `weekly(sunday)` = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(as.character(dates), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, monthly = as.Date(paste0(dates, "01"), format = "%Y%m%d"), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     quarterly = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         dates_chr &lt;- as.character(dates)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         year &lt;- substr(dates_chr, 1L, 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         quarter &lt;- as.integer(substr(dates_chr, 5L, 6L))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         month &lt;- sprintf("%02d", (quarter - 1L) * 3L + 1L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, semiannual = , `semiannual(sep)` = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         dates_chr &lt;- as.character(dates)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         year &lt;- substr(dates_chr, 1L, 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         half &lt;- as.integer(substr(dates_chr, 5L, 6L))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         month &lt;- sprintf("%02d", (half - 1L) * 6L + 1L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, annual = , `annual(mar)` = as.integer(dates), as.character(dates))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> debug: as.Date(as.character(dates), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: parse_boj_date(dates, freq)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> debug: switch(freq, daily = , `weekly(monday)` = , `weekly(tuesday)` = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     `weekly(wednesday)` = , `weekly(thursday)` = , `weekly(friday)` = , </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     `weekly(saturday)` = , `weekly(sunday)` = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(as.character(dates), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, monthly = as.Date(paste0(dates, "01"), format = "%Y%m%d"), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     quarterly = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         dates_chr &lt;- as.character(dates)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         year &lt;- substr(dates_chr, 1L, 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         quarter &lt;- as.integer(substr(dates_chr, 5L, 6L))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         month &lt;- sprintf("%02d", (quarter - 1L) * 3L + 1L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, semiannual = , `semiannual(sep)` = {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         dates_chr &lt;- as.character(dates)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         year &lt;- substr(dates_chr, 1L, 4L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         half &lt;- as.integer(substr(dates_chr, 5L, 6L))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         month &lt;- sprintf("%02d", (half - 1L) * 6L + 1L)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     }, annual = , `annual(mar)` = as.integer(dates), as.character(dates))</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> debug: as.Date(as.character(dates), format = "%Y%m%d")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             date     key  value   freq</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;  &lt;char&gt;  &lt;num&gt; &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: 2024-01-04 FXERD01 142.98  daily</span>

@@ -82,26 +82,6 @@ Other data:
 # \donttest{
 # fetch USD/JPY exchange rate
 boj_data("FM08", "FXERD01", start_date = "202401")
-#> Called from: parse_boj_date(dates, freq)
-#> debug: switch(freq, daily = , `weekly(monday)` = , `weekly(tuesday)` = , 
-#>     `weekly(wednesday)` = , `weekly(thursday)` = , `weekly(friday)` = , 
-#>     `weekly(saturday)` = , `weekly(sunday)` = {
-#>         as.Date(as.character(dates), format = "%Y%m%d")
-#>     }, monthly = as.Date(paste0(dates, "01"), format = "%Y%m%d"), 
-#>     quarterly = {
-#>         dates_chr <- as.character(dates)
-#>         year <- substr(dates_chr, 1L, 4L)
-#>         quarter <- as.integer(substr(dates_chr, 5L, 6L))
-#>         month <- sprintf("%02d", (quarter - 1L) * 3L + 1L)
-#>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")
-#>     }, semiannual = , `semiannual(sep)` = {
-#>         dates_chr <- as.character(dates)
-#>         year <- substr(dates_chr, 1L, 4L)
-#>         half <- as.integer(substr(dates_chr, 5L, 6L))
-#>         month <- sprintf("%02d", (half - 1L) * 6L + 1L)
-#>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")
-#>     }, annual = , `annual(mar)` = as.integer(dates), as.character(dates))
-#> debug: as.Date(as.character(dates), format = "%Y%m%d")
 #>            date     key  value   freq
 #>          <Date>  <char>  <num> <char>
 #>   1: 2024-01-04 FXERD01 142.98  daily
@@ -131,46 +111,6 @@ boj_data("FM08", "FXERD01", start_date = "202401")
 
 # fetch multiple exchange rates
 boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
-#> Called from: parse_boj_date(dates, freq)
-#> debug: switch(freq, daily = , `weekly(monday)` = , `weekly(tuesday)` = , 
-#>     `weekly(wednesday)` = , `weekly(thursday)` = , `weekly(friday)` = , 
-#>     `weekly(saturday)` = , `weekly(sunday)` = {
-#>         as.Date(as.character(dates), format = "%Y%m%d")
-#>     }, monthly = as.Date(paste0(dates, "01"), format = "%Y%m%d"), 
-#>     quarterly = {
-#>         dates_chr <- as.character(dates)
-#>         year <- substr(dates_chr, 1L, 4L)
-#>         quarter <- as.integer(substr(dates_chr, 5L, 6L))
-#>         month <- sprintf("%02d", (quarter - 1L) * 3L + 1L)
-#>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")
-#>     }, semiannual = , `semiannual(sep)` = {
-#>         dates_chr <- as.character(dates)
-#>         year <- substr(dates_chr, 1L, 4L)
-#>         half <- as.integer(substr(dates_chr, 5L, 6L))
-#>         month <- sprintf("%02d", (half - 1L) * 6L + 1L)
-#>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")
-#>     }, annual = , `annual(mar)` = as.integer(dates), as.character(dates))
-#> debug: as.Date(as.character(dates), format = "%Y%m%d")
-#> Called from: parse_boj_date(dates, freq)
-#> debug: switch(freq, daily = , `weekly(monday)` = , `weekly(tuesday)` = , 
-#>     `weekly(wednesday)` = , `weekly(thursday)` = , `weekly(friday)` = , 
-#>     `weekly(saturday)` = , `weekly(sunday)` = {
-#>         as.Date(as.character(dates), format = "%Y%m%d")
-#>     }, monthly = as.Date(paste0(dates, "01"), format = "%Y%m%d"), 
-#>     quarterly = {
-#>         dates_chr <- as.character(dates)
-#>         year <- substr(dates_chr, 1L, 4L)
-#>         quarter <- as.integer(substr(dates_chr, 5L, 6L))
-#>         month <- sprintf("%02d", (quarter - 1L) * 3L + 1L)
-#>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")
-#>     }, semiannual = , `semiannual(sep)` = {
-#>         dates_chr <- as.character(dates)
-#>         year <- substr(dates_chr, 1L, 4L)
-#>         half <- as.integer(substr(dates_chr, 5L, 6L))
-#>         month <- sprintf("%02d", (half - 1L) * 6L + 1L)
-#>         as.Date(paste0(year, month, "01"), format = "%Y%m%d")
-#>     }, annual = , `annual(mar)` = as.integer(dates), as.character(dates))
-#> debug: as.Date(as.character(dates), format = "%Y%m%d")
 #>             date     key  value   freq
 #>           <Date>  <char>  <num> <char>
 #>    1: 2024-01-04 FXERD01 142.98  daily

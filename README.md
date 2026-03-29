@@ -22,6 +22,8 @@ bbk is minimal R client for the following APIs:
   (BoC)](https://www.bankofcanada.ca/valet-api-how-to/#about)
 - [Bank of England
   (BoE)](https://www.bankofengland.co.uk/boeapps/database)
+- [Bank of Japan
+  (BoJ)](https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html)
 - [Banque de France
   (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
 - [Deutsche Bundesbank
@@ -58,9 +60,9 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed according to the central bank they access
-(`bbk_`, `ecb_`, `snb_`, `bis_`, `boe_`, `bde_`, `bdf_`, `onb_`, `boc_`,
-`nob_`, `srb_`) and follow the naming conventions of their respective
-APIs.
+(`bbk_`, `ecb_`, `snb_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`, `onb_`,
+`boc_`, `nob_`, `srb_`) and follow the naming conventions of their
+respective APIs.
 
 The typical workflow involves:
 
@@ -89,6 +91,8 @@ yield_curve <- bbk_data(
   downloading data from the Bank for International Settlements (BIS).
 - [boe](https://github.com/charlescoverdale/boe): R package for
   downloading data from the Bank of England (BoE).
+- [BOJ](https://github.com/stefanangrick/BOJ): R package for downloading
+  data from the Bank of Japan (BoJ).
 - [SNBdata](https://github.com/enricoschumann/SNBdata): R package for
   downloading data from the Swiss National Bank (SNB).
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts

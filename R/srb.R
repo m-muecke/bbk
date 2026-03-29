@@ -53,14 +53,14 @@ srb_data <- function(series, start_date = NULL, end_date = NULL) {
 #' }
 srb_series <- function(type = "series") {
   assert_choice(type, c("series", "groups"))
-  json <- srb(if (type == "series") "Series" else "Groups")
+  type <- if (type == "series") "Series" else "Groups"
+  json <- srb(type)
   if (type == "series") parse_srb_series(json) else parse_srb_groups(json)
 }
 
 parse_srb_data <- function(json, series) {
   if (length(json) == 0L) {
-    dt <- data.table(date = as.Date(character()), k = character(), value = numeric())
-    return(setnames(dt, "k", "key"))
+    return(setDT(list(date = as.Date(character()), key = character(), value = numeric())))
   }
   value <- NULL
   dt <- rbindlist(map(json, setDT))

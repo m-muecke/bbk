@@ -83,6 +83,7 @@ Other data:
 \code{\link{bis_data}()},
 \code{\link{boc_data}()},
 \code{\link{boe_data}()},
+\code{\link{boj_data}()},
 \code{\link{nob_data}()},
 \code{\link{onb_data}()},
 \code{\link{snb_data}()},

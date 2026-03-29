@@ -1,5 +1,7 @@
 # bbk (development version)
 
+* Support for Bank of Japan (BoJ) data.
+
 # bbk 0.9.0
 
 * Add optional caching of API responses via `options(bbk.cache = TRUE)`. Cached

@@ -46,6 +46,7 @@ Other metadata:
 \code{\link{bbk_metadata}()},
 \code{\link{bis_dimension}()},
 \code{\link{bis_metadata}()},
+\code{\link{boj_metadata}()},
 \code{\link{ecb_dimension}()},
 \code{\link{nob_dimension}()},
 \code{\link{nob_metadata}()},

@@ -16,6 +16,7 @@ reference:
       - boc_data
       - boc_fx_rates
       - boe_data
+      - boj_data
       - ecb_data
       - ecb_fx_rates
       - nob_data
@@ -36,6 +37,7 @@ reference:
       - bis_dimension
       - bis_metadata
       - bdf_dataset
+      - boj_metadata
       - boc_catalog
       - boc_metadata
       - ecb_dimension

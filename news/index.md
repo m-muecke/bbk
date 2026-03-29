@@ -2,6 +2,8 @@
 
 ## bbk (development version)
 
+- Support for Bank of Japan (BoJ) data.
+
 ## bbk 0.9.0
 
 CRAN release: 2026-03-21

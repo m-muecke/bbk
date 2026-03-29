@@ -120,6 +120,8 @@ yield_curve <- bbk_data(
   : Fetch Bank of Canada foreign exchange rates
 - [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md) :
   Fetch Bank of England (BoE) data
+- [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md) :
+  Fetch Bank of Japan (BoJ) data
 - [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md) :
   Fetch European Central Bank (ECB) data
 - [`ecb_fx_rates()`](https://m-muecke.github.io/bbk/reference/ecb_fx_rates.md)
@@ -156,6 +158,8 @@ yield_curve <- bbk_data(
   : Fetch Bank for International Settlements (BIS) metadata
 - [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md)
   : Fetch Banque de France (BdF) datasets
+- [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md)
+  : Fetch Bank of Japan (BoJ) metadata
 - [`boc_catalog()`](https://m-muecke.github.io/bbk/reference/boc_catalog.md)
   : Fetch Bank of Canada (BoC) available series or group
 - [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)

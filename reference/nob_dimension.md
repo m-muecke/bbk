@@ -45,6 +45,7 @@ Other metadata:
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
+[`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),

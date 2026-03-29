@@ -65,6 +65,7 @@ Other data:
 [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
+[`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md),
@@ -455,10 +456,10 @@ bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #> 4:      Q BP. Goods BP. Goods. Balance        0 M&euro; 1993-01-01 09:15:00
 #>               end_date
 #>                 <POSc>
-#> 1: 2025-07-01 08:15:00
-#> 2: 2025-07-01 08:15:00
-#> 3: 2025-07-01 08:15:00
-#> 4: 2025-07-01 08:15:00
+#> 1: 2025-10-01 08:15:00
+#> 2: 2025-10-01 08:15:00
+#> 3: 2025-10-01 08:15:00
+#> 4: 2025-10-01 08:15:00
 #>                                                 long_description
 #>                                                           <char>
 #> 1: External statistics. Balance of payments. BP. Goods. Balance.

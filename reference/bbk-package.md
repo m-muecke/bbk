@@ -18,8 +18,10 @@ Service'
 (<https://www.norges-bank.no/en/topics/Statistics/open-data/>), the
 'Oesterreichische Nationalbank Web Service'
 (<https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>),
-and 'Bank of Canada Valet API'
-(<https://www.bankofcanada.ca/valet/docs>).
+the 'Bank of Canada Valet API'
+(<https://www.bankofcanada.ca/valet/docs>), and 'Bank of Japan
+Statistics API'
+(<https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html>).
 
 ## See also
 

@@ -49,7 +49,7 @@ test_that("parse_boj_metadata works", {
   expect_data_table(actual, min.rows = 1L)
   expect_true(all(c("code", "name", "unit", "frequency", "category") %in% names(actual)))
   expect_true("FXERD01" %in% actual$code)
-  expect_false(any(actual$code == ""))
+  expect_true(all(nzchar(actual$code)))
 })
 
 test_that("parse_boj_metadata handles empty response", {
@@ -59,11 +59,11 @@ test_that("parse_boj_metadata handles empty response", {
 })
 
 test_that("parse_boj_date handles different frequencies", {
-  expect_equal(parse_boj_date(20250115, "daily"), as.Date("2025-01-15"))
-  expect_equal(parse_boj_date(202501, "monthly"), as.Date("2025-01-01"))
-  expect_equal(parse_boj_date(202501, "quarterly"), as.Date("2025-01-01"))
-  expect_equal(parse_boj_date(202503, "quarterly"), as.Date("2025-07-01"))
-  expect_equal(parse_boj_date(2025, "annual"), 2025L)
+  expect_identical(parse_boj_date(20250115, "daily"), as.Date("2025-01-15"))
+  expect_identical(parse_boj_date(202501, "monthly"), as.Date("2025-01-01"))
+  expect_identical(parse_boj_date(202501, "quarterly"), as.Date("2025-01-01"))
+  expect_identical(parse_boj_date(202503, "quarterly"), as.Date("2025-07-01"))
+  expect_identical(parse_boj_date(2025, "annual"), 2025L)
 })
 
 test_that("boj_freq maps correctly", {

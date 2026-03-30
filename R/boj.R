@@ -73,8 +73,8 @@ boj_metadata <- function(db, lang = "en") {
 }
 
 parse_boj_data <- function(json) {
-  results <- json$RESULTSET
-  if (length(results) == 0L) {
+  series <- json$RESULTSET
+  if (length(series) == 0L) {
     return(setDT(list(
       date = as.Date(character()),
       key = character(),
@@ -85,28 +85,27 @@ parse_boj_data <- function(json) {
     )))
   }
 
-  res <- rbindlist(map(results, function(x) {
+  dt <- rbindlist(map(series, function(x) {
     dates <- unlist(x$VALUES$SURVEY_DATES)
-    values <- as.numeric(map(x$VALUES$VALUES, \(x) x %||% NA_real_))
+    values <- as.numeric(map(x$VALUES$VALUES, \(x) x %??% NA_real_))
     freq <- tolower(x$FREQUENCY)
 
-    data <- list(
+    dt <- as.data.table(list(
       date = parse_boj_date(dates, freq),
       key = x$SERIES_CODE,
       value = values,
       freq = boj_freq(freq),
-      name = x$NAME_OF_TIME_SERIES %||% x$NAME_OF_TIME_SERIES_J,
-      unit = x$UNIT %||% x$UNIT_J
-    )
-    dt <- as.data.table(data)
+      name = x$NAME_OF_TIME_SERIES %??% x$NAME_OF_TIME_SERIES_J,
+      unit = x$UNIT %??% x$UNIT_J
+    ))
     na.omit(dt, cols = "value")
   }))
-  res[]
+  dt[]
 }
 
 parse_boj_metadata <- function(json) {
-  results <- json$RESULTSET
-  if (length(results) == 0L) {
+  series <- json$RESULTSET
+  if (length(series) == 0L) {
     return(data.table(
       code = character(),
       name = character(),
@@ -116,20 +115,20 @@ parse_boj_metadata <- function(json) {
     ))
   }
 
-  res <- rbindlist(map(results, function(x) {
+  dt <- rbindlist(map(series, function(x) {
     code <- x$SERIES_CODE
     if (is.null(code) || !nzchar(code)) {
       return(NULL)
     }
     data.table(
       code = code,
-      name = x$NAME_OF_TIME_SERIES %||% x$NAME_OF_TIME_SERIES_J %||% NA_character_,
-      unit = x$UNIT %||% x$UNIT_J %||% NA_character_,
-      frequency = x$FREQUENCY %||% NA_character_,
-      category = x$CATEGORY %||% x$CATEGORY_J %||% NA_character_
+      name = x$NAME_OF_TIME_SERIES %??% x$NAME_OF_TIME_SERIES_J %??% NA_character_,
+      unit = x$UNIT %??% x$UNIT_J %??% NA_character_,
+      frequency = x$FREQUENCY %??% NA_character_,
+      category = x$CATEGORY %??% x$CATEGORY_J %??% NA_character_
     )
   }))
-  res[]
+  dt[]
 }
 
 parse_boj_date <- function(dates, freq) {

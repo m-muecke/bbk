@@ -14,7 +14,7 @@ test_that("bde_latest input validation works", {
 
 test_that("bde_latest works", {
   json <- readRDS(test_path("fixtures", "bde-latest.rds"))
-  dt <- rbindlist(lapply(json, setDT))
+  dt <- rbindlist(map(json, setDT))
   # fmt: skip
   old_cols <- c("serie", "descripcionCorta", "codFrecuencia", "decimales", "simbolo", "tendencia", "fechaValor", "valor") # nolint
   new_cols <- c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
@@ -34,5 +34,5 @@ test_that("parse_bde_data works", {
     c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL")
   )
   expect_posixct(actual$date)
-  expect_false(any(unlist(lapply(actual, class)) == "list"))
+  expect_false(any(unlist(map(actual, class)) == "list"))
 })

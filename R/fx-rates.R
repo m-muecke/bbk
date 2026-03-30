@@ -38,7 +38,7 @@ ecb_fx_rates <- function(x = "latest") {
   fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
   Date <- NULL
   dt[, Date := as.Date(Date, fmt)]
-  dt[, names(.SD) := lapply(.SD, as.numeric), .SDcols = !"Date"]
+  dt[, names(.SD) := map(.SD, as.numeric), .SDcols = !"Date"]
   dt <- dt |>
     melt(
       id.vars = "Date",
@@ -113,11 +113,11 @@ boc_fx_rates <- function(start_date = NULL, end_date = NULL, limit = NULL, skip 
     rbindlist() |>
     setnames(convert_camel_case)
 
-  dt[, names(.SD) := lapply(.SD, \(x) unlist(x, use.names = FALSE)), .SDcols = is.list]
+  dt[, names(.SD) := map(.SD, \(x) unlist(x, use.names = FALSE)), .SDcols = is.list]
   rate <- NULL
   dt[, rate := as.numeric(rate)]
   dt[,
-    names(.SD) := lapply(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")),
+    names(.SD) := map(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")),
     .SDcols = patterns("_timestamp$")
   ]
   dt[]

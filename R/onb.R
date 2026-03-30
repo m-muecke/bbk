@@ -111,8 +111,8 @@ parse_onb_metadata <- function(xml) {
   x <- x[lengths(x) == 1L]
   x <- unlist(x, recursive = FALSE)
   dt <- setDT(x)
-  dt[, names(dt) := lapply(.SD, trimws), .SDcols = is.character]
-  dt[, names(dt) := lapply(.SD, \(x) replace(x, x == "-", NA)), .SDcols = is.character][]
+  dt[, names(dt) := map(.SD, trimws), .SDcols = is.character]
+  dt[, names(dt) := map(.SD, \(x) replace(x, x == "-", NA)), .SDcols = is.character][]
 }
 
 #' Fetch Österreichische Nationalbank (OeNB) data frequency

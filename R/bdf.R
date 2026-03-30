@@ -110,7 +110,7 @@ parse_bdf_data <- function(dt) {
   cols <- names(dt)
   path_cols <- grepv("^path_", cols)
   if (length(path_cols) > 0L) {
-    dt[, (path_cols) := lapply(mget(path_cols), \(x) strsplit(x, ",", fixed = TRUE))]
+    dt[, (path_cols) := map(mget(path_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
   if ("observations_attributes_and_values" %in% cols) {
     observations_attributes_and_values <- NULL # nolint
@@ -123,7 +123,7 @@ parse_bdf_data <- function(dt) {
       )
     ]
     dt[,
-      observations_attributes_and_values := lapply(
+      observations_attributes_and_values := map(
         observations_attributes_and_values,
         jsonlite::fromJSON
       )
@@ -136,13 +136,13 @@ parse_bdf_dataset <- function(dt) {
   cols <- names(dt)
   paths_cols <- grepv("^paths_", cols)
   if (length(paths_cols) > 0L) {
-    dt[, (paths_cols) := lapply(mget(paths_cols), \(x) strsplit(x, ",", fixed = TRUE))]
+    dt[, (paths_cols) := map(mget(paths_cols), \(x) strsplit(x, ",", fixed = TRUE))]
   }
   codelist_cols <- grepv("_codelists$", cols)
   if (length(codelist_cols) > 0L) {
     dt[,
-      (codelist_cols) := lapply(mget(codelist_cols), function(x) {
-        lapply(gsub('""', '"', x, fixed = TRUE), jsonlite::fromJSON)
+      (codelist_cols) := map(mget(codelist_cols), function(x) {
+        map(gsub('""', '"', x, fixed = TRUE), jsonlite::fromJSON)
       })
     ]
   }

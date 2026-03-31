@@ -132,11 +132,11 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-in"><span><span class="fu">nob_data</span><span class="op">(</span><span class="st">"EXR"</span>, <span class="st">"B.USD.NOK.SP"</span>, last_n <span class="op">=</span> <span class="fl">5L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          date          key  value   freq base_cur quote_cur  tenor</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;Date&gt;       &lt;char&gt;  &lt;num&gt; &lt;char&gt;   &lt;char&gt;    &lt;char&gt; &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 2026-03-23 B.USD.NOK.SP 9.7318  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: 2026-03-24 B.USD.NOK.SP 9.7049  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: 2026-03-25 B.USD.NOK.SP 9.7356  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: 2026-03-26 B.USD.NOK.SP 9.6425  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: 2026-03-27 B.USD.NOK.SP 9.7148  daily      USD       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 2026-03-24 B.USD.NOK.SP 9.7049  daily      USD       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: 2026-03-25 B.USD.NOK.SP 9.7356  daily      USD       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: 2026-03-26 B.USD.NOK.SP 9.6425  daily      USD       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: 2026-03-27 B.USD.NOK.SP 9.7148  daily      USD       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: 2026-03-30 B.USD.NOK.SP 9.7510  daily      USD       NOK     SP</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch multiple exchange rates</span></span></span>
 <span class="r-in"><span><span class="fu">nob_data</span><span class="op">(</span><span class="st">"EXR"</span>, <span class="st">"B.USD+EUR+GBP.NOK.SP"</span>, start_period <span class="op">=</span> <span class="st">"2024-01-01"</span><span class="op">)</span></span></span>
@@ -148,11 +148,11 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 2024-01-05 B.USD.NOK.SP 10.3553  daily      USD       NOK     SP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 2024-01-08 B.USD.NOK.SP 10.3800  daily      USD       NOK     SP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1685: 2026-03-23 B.EUR.NOK.SP 11.2850  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1686: 2026-03-24 B.EUR.NOK.SP 11.2305  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1687: 2026-03-25 B.EUR.NOK.SP 11.2855  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1688: 2026-03-26 B.EUR.NOK.SP 11.1265  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1689: 2026-03-27 B.EUR.NOK.SP 11.1885  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1688: 2026-03-24 B.EUR.NOK.SP 11.2305  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1689: 2026-03-25 B.EUR.NOK.SP 11.2855  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1690: 2026-03-26 B.EUR.NOK.SP 11.1265  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1691: 2026-03-27 B.EUR.NOK.SP 11.1885  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1692: 2026-03-30 B.EUR.NOK.SP 11.1980  daily      EUR       NOK     SP</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch policy rate</span></span></span>
 <span class="r-in"><span><span class="fu">nob_data</span><span class="op">(</span><span class="st">"IR"</span>, last_n <span class="op">=</span> <span class="fl">5L</span><span class="op">)</span></span></span>
@@ -163,21 +163,21 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  3: 1975-07-17 A.KPRA.SD.R  3.54  annual            KPRA     SD            R</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  4: 1975-07-18 A.KPRA.SD.R  4.50  annual            KPRA     SD            R</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  5: 1975-07-19 A.KPRA.SD.R  4.29  annual            KPRA     SD            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2026-03-20 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2026-03-23 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2026-03-24 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2026-03-25 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2026-03-26 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2026-03-20 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2026-03-23 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2026-03-24 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2026-03-25 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2026-03-26 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2026-03-20 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2026-03-23 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2026-03-24 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2026-03-25 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2026-03-26 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2026-03-24 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2026-03-25 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2026-03-26 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2026-03-27 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2026-03-30 B.KPRA.OL.R  5.00   daily            KPRA     OL            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2026-03-24 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2026-03-25 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2026-03-26 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2026-03-27 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2026-03-30 B.KPRA.SD.R  4.00   daily            KPRA     SD            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2026-03-24 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2026-03-25 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2026-03-26 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2026-03-27 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2026-03-30 B.KPRA.RR.R  3.00   daily            KPRA     RR            R</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2025-10-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2025-11-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2025-12-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R</span>

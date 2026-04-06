@@ -118,7 +118,7 @@ parse_boj_metadata <- function(json) {
   dt <- rbindlist(map(series, function(x) {
     code <- x$SERIES_CODE
     if (is.null(code) || !nzchar(code)) {
-      return(NULL)
+      return()
     }
     data.table(
       code = code,

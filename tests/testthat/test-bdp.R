@@ -18,6 +18,12 @@ test_that("bdp_dataset input validation works", {
   expect_error(bdp_dataset(1L, lang = "FR"))
 })
 
+test_that("bdp_dimension input validation works", {
+  expect_error(bdp_dimension("a"))
+  expect_error(bdp_dimension(1L, dimension_id = "a"))
+  expect_error(bdp_dimension(1L, lang = "FR"))
+})
+
 test_that("bdp_domain input validation works", {
   expect_error(bdp_domain("a"))
   expect_error(bdp_domain(lang = "FR"))
@@ -51,6 +57,20 @@ test_that("parse_bdp_dataset works", {
     names(actual),
     must.include = c("id", "label", "num_series", "obs_updated_at")
   )
+})
+
+test_that("parse_bdp_dimension works", {
+  items <- readRDS(test_path("fixtures", "bdp-dimension.rds"))
+  actual <- parse_bdp_dimension(items)
+  expect_data_table(actual, min.rows = 1L)
+  expect_names(names(actual), must.include = c("id", "label", "description"))
+})
+
+test_that("parse_bdp_category works", {
+  json <- readRDS(test_path("fixtures", "bdp-category.rds"))
+  actual <- parse_bdp_category(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_names(names(actual), must.include = c("id", "label"))
 })
 
 test_that("parse_bdp_domain works", {

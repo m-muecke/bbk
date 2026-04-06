@@ -190,6 +190,55 @@ parse_bdp_dataset <- function(items) {
   )
 }
 
+#' Fetch Banco de Portugal (BdP) dimensions
+#'
+#' Retrieve the list of dimensions for a given domain, or the categories within a single dimension.
+#'
+#' @inheritParams bdp_data
+#' @param dimension_id (`NULL` | `integer(1)`)\cr
+#'   Optional dimension ID. If `NULL`, all dimensions for the domain are returned. If specified,
+#'   the categories within that dimension are returned.
+#' @returns A [data.table::data.table()] with dimensions or categories.
+#' @source <https://bpstat.bportugal.pt/data/docs>
+#' @family metadata
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' bdp_dimension(54L)
+#' }
+bdp_dimension <- function(domain_id, dimension_id = NULL, lang = "en") {
+  domain_id <- assert_count(domain_id, positive = TRUE, coerce = TRUE)
+  dimension_id <- assert_count(dimension_id, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+  assert_choice(lang, c("en", "pt"))
+
+  if (is.null(dimension_id)) {
+    req <- bdp_request("domains", domain_id, "dimensions", lang = lang)
+    items <- req |>
+      req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf) |>
+      resps_data(\(resp) resp_body_json(resp)$link$item)
+    parse_bdp_dimension(items)
+  } else {
+    json <- bdp("domains", domain_id, "dimensions", dimension_id, lang = lang)
+    parse_bdp_category(json)
+  }
+}
+
+parse_bdp_dimension <- function(items) {
+  data.table(
+    id = map_int(items, \(x) x$extension$id),
+    label = map_chr(items, "label"),
+    description = map_chr(items, \(x) x$extension$description)
+  )
+}
+
+parse_bdp_category <- function(json) {
+  labels <- json$category$label
+  data.table(
+    id = as.integer(names(labels)),
+    label = unlist(labels, use.names = FALSE)
+  )
+}
+
 #' Fetch Banco de Portugal (BdP) domains
 #'
 #' Retrieve the list of available statistical domains from the BPstat API, or details for a single

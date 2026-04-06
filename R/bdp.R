@@ -41,12 +41,12 @@ bdp_data <- function(
   last_n = NULL,
   lang = "EN"
 ) {
-  assert_count(domain_id, positive = TRUE)
+  domain_id <- assert_count(domain_id, positive = TRUE, coerce = TRUE)
   assert_string(dataset_id, min.chars = 1L)
   assert_integerish(series_ids, lower = 1L, null.ok = TRUE)
   start_date <- assert_dateish(start_date, null.ok = TRUE)
   end_date <- assert_dateish(end_date, null.ok = TRUE)
-  assert_count(last_n, positive = TRUE, null.ok = TRUE)
+  last_n <- assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("EN", "PT"))
 
   json <- bdp(
@@ -64,73 +64,25 @@ bdp_data <- function(
 }
 
 parse_bdp_data <- function(json) {
-  dims <- json$id
   time_dim <- json$role$time[[1L]]
-
   dates <- unlist(json$dimension[[time_dim]]$category$index, use.names = FALSE)
-  values <- unlist(json$value, use.names = FALSE)
-  statuses <- unlist(json$status, use.names = FALSE)
-
-  non_time <- setdiff(dims, time_dim)
-  dim_labels <- map(non_time, function(d) {
-    cat_lab <- json$dimension[[d]]$category$label
-    data.table(
-      dim = json$dimension[[d]]$label,
-      id = names(cat_lab),
-      label = unlist(cat_lab, use.names = FALSE)
-    )
-  })
-
   n_dates <- length(dates)
-
-  series_meta <- NULL
-  if (!is.null(json$extension$series)) {
-    series <- json$extension$series
-    series_meta <- data.table(
-      series_id = map_int(series, "id"),
-      series_label = map_chr(series, "label")
-    )
-  }
-
+  values <- unlist(json$value, use.names = FALSE)
   n_series <- length(values) %/% n_dates
 
-  if (n_series == 1L) {
-    dt <- data.table(date = dates, value = values)
-    if (!is.null(statuses)) {
-      dt[, "status" := statuses]
-    }
+  dt <- data.table(
+    date = as.Date(rep(dates, times = n_series)),
+    value = values,
+    status = unlist(json$status, use.names = FALSE)
+  )
 
-    for (dl in dim_labels) {
-      dt[, (dl$dim) := dl$label]
-    }
-    if (!is.null(series_meta) && nrow(series_meta) == 1L) {
-      dt[, key := series_meta$series_id]
-      dt[, title := series_meta$series_label]
-    }
-  } else {
-    rows <- list()
-    for (i in seq_len(n_series)) {
-      start_idx <- (i - 1L) * n_dates + 1L
-      end_idx <- i * n_dates
-      row_dt <- data.table(
-        date = dates,
-        value = values[start_idx:end_idx]
-      )
-      if (!is.null(statuses)) {
-        row_dt[, "status" := statuses[start_idx:end_idx]]
-      }
-      if (!is.null(series_meta) && nrow(series_meta) >= i) {
-        row_dt[, key := series_meta$series_id[i]]
-        row_dt[, title := series_meta$series_label[i]]
-      }
-      rows[[i]] <- row_dt
-    }
-    dt <- rbindlist(rows)
+  series <- json$extension$series
+  if (!is.null(series)) {
+    dt[, key := rep(map_int(series, "id"), each = n_dates)]
+    dt[, title := rep(map_chr(series, "label"), each = n_dates)]
   }
 
-  dt[, date := as.Date(date)]
-  freq <- bdp_freq(dates)
-  dt[, freq := freq]
+  dt[, freq := bdp_freq(dates)]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }

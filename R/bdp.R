@@ -39,7 +39,7 @@ bdp_data <- function(
   start_date = NULL,
   end_date = NULL,
   last_n = NULL,
-  lang = "EN"
+  lang = "en"
 ) {
   domain_id <- assert_count(domain_id, positive = TRUE, coerce = TRUE)
   assert_string(dataset_id, min.chars = 1L)
@@ -47,7 +47,7 @@ bdp_data <- function(
   start_date <- assert_dateish(start_date, null.ok = TRUE)
   end_date <- assert_dateish(end_date, null.ok = TRUE)
   last_n <- assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
-  assert_choice(lang, c("EN", "PT"))
+  assert_choice(lang, c("en", "pt"))
 
   json <- bdp(
     "domains",
@@ -82,7 +82,7 @@ parse_bdp_data <- function(json) {
     dt[, title := rep(map_chr(series, "label"), each = n_dates)]
   }
 
-  dt[, freq := bdp_freq(dates)]
+  dt[, "freq" := bdp_freq(dates)]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }
@@ -122,9 +122,9 @@ bdp_freq <- function(dates) {
 #' \donttest{
 #' bdp_series(12518356L)
 #' }
-bdp_series <- function(series_ids, lang = "EN") {
+bdp_series <- function(series_ids, lang = "en") {
   assert_integerish(series_ids, lower = 1L, min.len = 1L)
-  assert_choice(lang, c("EN", "PT"))
+  assert_choice(lang, c("en", "pt"))
 
   json <- bdp("series", lang = lang, series_ids = series_ids)
   parse_bdp_series(json)
@@ -157,8 +157,8 @@ parse_bdp_series <- function(json) {
 #' \donttest{
 #' bdp_domains()
 #' }
-bdp_domains <- function(lang = "EN") {
-  assert_choice(lang, c("EN", "PT"))
+bdp_domains <- function(lang = "en") {
+  assert_choice(lang, c("en", "pt"))
 
   json <- bdp("domains", lang = lang)
   parse_bdp_domains(json)
@@ -178,7 +178,7 @@ parse_bdp_domains <- function(json) {
 
 bdp <- function(
   ...,
-  lang = "EN",
+  lang = "en",
   series_ids = NULL,
   obs_since = NULL,
   obs_to = NULL,

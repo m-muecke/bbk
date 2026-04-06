@@ -7,7 +7,7 @@
 \url{https://bpstat.bportugal.pt/data/docs}
 }
 \usage{
-bdp_series(series_ids, lang = "EN")
+bdp_series(series_ids, lang = "en")
 }
 \arguments{
 \item{series_ids}{(\code{integer()})\cr

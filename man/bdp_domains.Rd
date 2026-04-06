@@ -7,7 +7,7 @@
 \url{https://bpstat.bportugal.pt/data/docs}
 }
 \usage{
-bdp_domains(lang = "EN")
+bdp_domains(lang = "en")
 }
 \arguments{
 \item{lang}{(\code{character(1)})\cr

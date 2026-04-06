@@ -14,7 +14,7 @@ bdp_data(
   start_date = NULL,
   end_date = NULL,
   last_n = NULL,
-  lang = "EN"
+  lang = "en"
 )
 }
 \arguments{

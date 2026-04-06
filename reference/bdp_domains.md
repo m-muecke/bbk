@@ -17,7 +17,7 @@ bdp_domains(lang = "en")
 - lang:
 
   (`character(1)`)  
-  Language for labels, either `"en"` or `"pt"`.
+  Language for labels, either `"EN"` or `"PT"`.
 
 ## Value
 

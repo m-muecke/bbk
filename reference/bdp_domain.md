@@ -1,11 +1,12 @@
 # Fetch Banco de Portugal (BdP) domains
 
-Retrieve the list of available statistical domains from the BPstat API.
+Retrieve the list of available statistical domains from the BPstat API,
+or details for a single domain.
 
 ## Usage
 
 ``` r
-bdp_domain(lang = "en")
+bdp_domain(domain_id = NULL, lang = "en")
 ```
 
 ## Source
@@ -13,6 +14,11 @@ bdp_domain(lang = "en")
 <https://bpstat.bportugal.pt/data/docs>
 
 ## Arguments
+
+- domain_id:
+
+  (`NULL` \| `integer(1)`)  
+  Optional domain ID. If `NULL`, all domains are returned.
 
 - lang:
 

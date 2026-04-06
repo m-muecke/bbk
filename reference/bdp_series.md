@@ -7,7 +7,7 @@ useful to discover the `domain_id` and `dataset_id` needed for
 ## Usage
 
 ``` r
-bdp_series(series_ids, lang = "EN")
+bdp_series(series_ids, lang = "en")
 ```
 
 ## Source
@@ -24,7 +24,7 @@ bdp_series(series_ids, lang = "EN")
 - lang:
 
   (`character(1)`)  
-  Language for labels, either `"EN"` or `"PT"`.
+  Language for labels, either `"en"` or `"pt"`.
 
 ## Value
 
@@ -59,14 +59,7 @@ Other metadata:
 ``` r
 # \donttest{
 bdp_series(12518356L)
-#>          id                     label                  short_label
-#>       <int>                    <char>                       <char>
-#> 1: 12518356 GDP at market prices-CP-A GDPmp PT A Current Prices M€
-#>                                                                                                 description
-#>                                                                                                      <char>
-#> 1: GDP expenditure approach - GDP at market prices - Portugal - current prices - millions of euros - annual
-#>                          dataset_id domain_id      obs_updated_at
-#>                              <char>     <int>              <POSc>
-#> 1: ce3e4e50cda325537eff729ef64037cd        54 2025-10-28 17:00:00
+#> Error in req_perform(req_bbk_cache(req_bbk_retry(req_error(req_url_query(req_url_path_append(req_user_agent(request("https://bpstat.bportugal.pt/data/v1"),     bbk_user_agent()), ...), lang = lang, series_ids = series_ids,     obs_since = obs_since, obs_to = obs_to, obs_last_n = obs_last_n,     .multi = "comma"), body = bdp_error_body)))): HTTP 400 Bad Request.
+#> ℹ See docs at <https://bpstat.bportugal.pt/data/docs>
 # }
 ```

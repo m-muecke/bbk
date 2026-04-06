@@ -41,6 +41,8 @@ with the requested data.
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bdp_domains()`](https://m-muecke.github.io/bbk/reference/bdp_domains.md),
+[`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
@@ -65,7 +67,7 @@ onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 #>    <char>              <char>         <char> <char> <char> <char> <char>
 #> 1:      M Jan.  80 - Jan.  26 VDBOSBHAGBSTIN      N     AT     Z5     25
 #> 2:      A         1959 - 2026 VDBOSBHAGBSTIN      N     AT     Z5     01
-#> 3:      M Jan.  80 - Jan.  26 VDBOSBHAGBSTIN      N     AT     Z5     01
+#> 3:      M Jan.  80 - Feb.  26 VDBOSBHAGBSTIN      N     AT     Z5     01
 #> 4:      A         2013 - 2023 VDBOSBHAGBSTIN      N     AT     Z5     02
 onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 #>      freq           available            pos  dval1   dval2  dval3  dval4

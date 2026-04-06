@@ -85,6 +85,7 @@ End date of the data. Default is today's date.</p></dd>
 <code><a href="bdf_codelist.html">bdf_codelist()</a></code>,
 <code><a href="bdf_data.html">bdf_data()</a></code>,
 <code><a href="bdf_dataset.html">bdf_dataset()</a></code>,
+<code><a href="bdp_data.html">bdp_data()</a></code>,
 <code><a href="bis_data.html">bis_data()</a></code>,
 <code><a href="boc_data.html">boc_data()</a></code>,
 <code><a href="boj_data.html">boj_data()</a></code>,
@@ -109,11 +110,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 2015-01-07 IUDBEDR  0.50 Official Bank Rate  daily Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 2015-01-08 IUDBEDR  0.50 Official Bank Rate  daily Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2837: 2026-03-24 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2838: 2026-03-25 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2839: 2026-03-26 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2840: 2026-03-27 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2841: 2026-03-30 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2842: 2026-03-31 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2843: 2026-04-01 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># SONIA daily rate</span></span></span>
 <span class="r-in"><span><span class="fu">boe_data</span><span class="op">(</span><span class="st">"IUDSOIA"</span>, <span class="st">"2015-01-01"</span><span class="op">)</span></span></span>
@@ -125,11 +126,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 2015-01-07 IUDSOIA 0.4292</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 2015-01-08 IUDSOIA 0.4339</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2836: 2026-03-23 IUDSOIA 3.7274</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2837: 2026-03-24 IUDSOIA 3.7274</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2838: 2026-03-25 IUDSOIA 3.7278</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2839: 2026-03-26 IUDSOIA 3.7282</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2840: 2026-03-27 IUDSOIA 3.7284</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2841: 2026-03-30 IUDSOIA 3.7281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2842: 2026-03-31 IUDSOIA 3.7296</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                               description   freq</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                    &lt;char&gt; &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: Daily Sterling overnight index average (SONIA) rate  daily</span>
@@ -138,11 +139,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: Daily Sterling overnight index average (SONIA) rate  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: Daily Sterling overnight index average (SONIA) rate  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2836: Daily Sterling overnight index average (SONIA) rate  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2837: Daily Sterling overnight index average (SONIA) rate  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2838: Daily Sterling overnight index average (SONIA) rate  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2839: Daily Sterling overnight index average (SONIA) rate  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2840: Daily Sterling overnight index average (SONIA) rate  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2841: Daily Sterling overnight index average (SONIA) rate  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2842: Daily Sterling overnight index average (SONIA) rate  daily</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 10-year nominal par yield</span></span></span>
 <span class="r-in"><span><span class="fu">boe_data</span><span class="op">(</span><span class="st">"IUDMNPY"</span>, <span class="st">"2015-01-01"</span><span class="op">)</span></span></span>
@@ -154,11 +155,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 2015-01-07 IUDMNPY 1.6584</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 2015-01-08 IUDMNPY 1.6970</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2836: 2026-03-23 IUDMNPY 4.8703</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2837: 2026-03-24 IUDMNPY 4.8699</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2838: 2026-03-25 IUDMNPY 4.7721</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2839: 2026-03-26 IUDMNPY 4.8935</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2840: 2026-03-27 IUDMNPY 4.8935</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2841: 2026-03-30 IUDMNPY 4.8806</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2842: 2026-03-31 IUDMNPY 4.8615</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                               description</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: Yield from British Government Securities, 10 year Nominal Par Yield</span>
@@ -167,11 +168,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: Yield from British Government Securities, 10 year Nominal Par Yield</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: Yield from British Government Securities, 10 year Nominal Par Yield</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2836: Yield from British Government Securities, 10 year Nominal Par Yield</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2837: Yield from British Government Securities, 10 year Nominal Par Yield</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2838: Yield from British Government Securities, 10 year Nominal Par Yield</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2839: Yield from British Government Securities, 10 year Nominal Par Yield</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2840: Yield from British Government Securities, 10 year Nominal Par Yield</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2841: Yield from British Government Securities, 10 year Nominal Par Yield</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2842: Yield from British Government Securities, 10 year Nominal Par Yield</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         freq     seasonal_adjustment   type output_in instrument_currency</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;                  &lt;char&gt; &lt;char&gt;    &lt;char&gt;              &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
@@ -180,11 +181,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2836:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2837:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2838:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2839:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2840:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2841:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2842:  daily Not seasonally adjusted  Yield   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      instruments</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                           &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: Nominal par yield, 10 year</span>
@@ -193,11 +194,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: Nominal par yield, 10 year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: Nominal par yield, 10 year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2836: Nominal par yield, 10 year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2837: Nominal par yield, 10 year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2838: Nominal par yield, 10 year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2839: Nominal par yield, 10 year</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2840: Nominal par yield, 10 year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2841: Nominal par yield, 10 year</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2842: Nominal par yield, 10 year</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># multiple series</span></span></span>
 <span class="r-in"><span><span class="fu">boe_data</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"IUMABEDR"</span>, <span class="st">"IUALBEDR"</span><span class="op">)</span>, <span class="st">"2015-01-01"</span><span class="op">)</span></span></span>
@@ -209,11 +210,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2015-04-30 IUMABEDR  0.50 Monthly average of official Bank Rate monthly</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2015-05-31 IUMABEDR  0.50 Monthly average of official Bank Rate monthly</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141: 2021-12-31 IUALBEDR  0.25           End year official Bank Rate  annual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142: 2022-12-31 IUALBEDR  3.50           End year official Bank Rate  annual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 143: 2023-12-31 IUALBEDR  5.25           End year official Bank Rate  annual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144: 2024-12-31 IUALBEDR  4.75           End year official Bank Rate  annual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145: 2025-12-31 IUALBEDR  3.75           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142: 2021-12-31 IUALBEDR  0.25           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143: 2022-12-31 IUALBEDR  3.50           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144: 2023-12-31 IUALBEDR  5.25           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145: 2024-12-31 IUALBEDR  4.75           End year official Bank Rate  annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146: 2025-12-31 IUALBEDR  3.75           End year official Bank Rate  annual</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          seasonal_adjustment          type output_in instrument_currency</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                       &lt;char&gt;        &lt;char&gt;    &lt;char&gt;              &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: Not seasonally adjusted Interest rate   Percent            Sterling</span>
@@ -222,11 +223,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: Not seasonally adjusted Interest rate   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: Not seasonally adjusted Interest rate   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 142:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 143:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 144:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 145:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146:                    &lt;NA&gt; Interest rate   Percent            Sterling</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             instruments</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: Official Bank Rate</span>
@@ -235,11 +236,11 @@ End date of the data. Default is today's date.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141: Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 142: Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 143: Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 144: Official Bank Rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 145: Official Bank Rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146: Official Bank Rate</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -36,6 +36,8 @@ with the requested metadata.
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bdp_domains()`](https://m-muecke.github.io/bbk/reference/bdp_domains.md),
+[`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),

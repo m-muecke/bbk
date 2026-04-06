@@ -49,6 +49,8 @@ with the requested metadata. The columns are:
 
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
+[`bdp_domains()`](https://m-muecke.github.io/bbk/reference/bdp_domains.md),
+[`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
@@ -114,48 +116,47 @@ bbk_metadata("datastructure")
 #> 40:            BBK_TH3
 #> 41: BBK_MAMM_ECB_MMSR1
 #> 42:     BBK_MAMM_MMSR1
-#> 43:           BBK_RCOH
-#> 44:           BBK_DOCR
-#> 45:           BBK_SESY
-#> 46:           BBK_BBK1
-#> 47:           BBK_SEDI
-#> 48:         BBK_ES_BOP
-#> 49:          BBK_VOEXP
-#> 50:            BBK_GFS
-#> 51:         BBK_BSBBK1
-#> 52:        BBK_BSBBK10
-#> 53:        BBK_BSBBK11
-#> 54:        BBK_BSBBK12
-#> 55:        BBK_BSBBK13
-#> 56:        BBK_BSBBK20
-#> 57:         BBK_BSBBK4
-#> 58:         BBK_BSBBK5
-#> 59:         BBK_BSBBK6
-#> 60:         BBK_BSBBK7
-#> 61:         BBK_BSBBK8
-#> 62:         BBK_BSBBK9
-#> 63:           BBK_IRBB
-#> 64:            BBK_IRM
-#> 65:          BBK_IRCBR
-#> 66:           BBK_IRMM
-#> 67:        BBK_BSEBBK1
-#> 68:           BBK_SEEI
-#> 69:       BBK_MAFABBK1
-#> 70:       BBK_AQFA2010
-#> 71:         BBK_BSPAY1
-#> 72:         BBK_BSPAY2
-#> 73:         BBK_BSPAY3
-#> 74:         BBK_BSPAY4
-#> 75:         BBK_BSPAY5
-#> 76:         BBK_BSPAY6
-#> 77:         BBK_BSPAY8
-#> 78:        BBK_BSPAY11
-#> 79:        BBK_BSPAY12
-#> 80:     BBK_BSPAY_SSIA
-#> 81:           BBK_BSI1
-#> 82:         BBK_ES_FDI
-#> 83:         BBK_WACAAF
-#> 84:          BBK_EXPR2
+#> 43:           BBK_DOCR
+#> 44:           BBK_SESY
+#> 45:           BBK_BBK1
+#> 46:           BBK_SEDI
+#> 47:         BBK_ES_BOP
+#> 48:          BBK_VOEXP
+#> 49:            BBK_GFS
+#> 50:         BBK_BSBBK1
+#> 51:        BBK_BSBBK10
+#> 52:        BBK_BSBBK11
+#> 53:        BBK_BSBBK12
+#> 54:        BBK_BSBBK13
+#> 55:        BBK_BSBBK20
+#> 56:         BBK_BSBBK4
+#> 57:         BBK_BSBBK5
+#> 58:         BBK_BSBBK6
+#> 59:         BBK_BSBBK7
+#> 60:         BBK_BSBBK8
+#> 61:         BBK_BSBBK9
+#> 62:           BBK_IRBB
+#> 63:            BBK_IRM
+#> 64:          BBK_IRCBR
+#> 65:           BBK_IRMM
+#> 66:        BBK_BSEBBK1
+#> 67:           BBK_SEEI
+#> 68:       BBK_MAFABBK1
+#> 69:       BBK_AQFA2010
+#> 70:         BBK_BSPAY1
+#> 71:         BBK_BSPAY2
+#> 72:         BBK_BSPAY3
+#> 73:         BBK_BSPAY4
+#> 74:         BBK_BSPAY5
+#> 75:         BBK_BSPAY6
+#> 76:         BBK_BSPAY8
+#> 77:        BBK_BSPAY11
+#> 78:        BBK_BSPAY12
+#> 79:     BBK_BSPAY_SSIA
+#> 80:           BBK_BSI1
+#> 81:         BBK_ES_FDI
+#> 82:         BBK_WACAAF
+#> 83:          BBK_EXPR2
 #>                     id
 #>                 <char>
 #>                                                                                                                                                name
@@ -202,48 +203,47 @@ bbk_metadata("datastructure")
 #> 40:                                                                                                                    Time series of department H3
 #> 41:                                                                                                                   Money Market Statistics (ECB)
 #> 42:                                                                                               Money Market Statistics (ECB; based on ECB_MMSR1)
-#> 43:                                                                                            Research Center - Bundesbank Online-Panel Househould
-#> 44:                                                                                                                              Calendar regressor
-#> 45:                                                                                                                                   Single yields
-#> 46:                                                                                                            SDMX structure for BBK01 time series
-#> 47:                                                               Discount interest rates pursuant to section 253 (2) of the German Commercial Code
-#> 48:                                                                                                          BOP Data Structure Definition (17-DIM)
-#> 49:                                                                                                        Macroeconomic Expectations and Forecasts
-#> 50:                                                                                                                   Government finance statistics
-#> 51:                                           Banking statistics, Balance Sheet Items, BSI - Banks in Germany (MFI and non-MFI credit institutions)
-#> 52: Banking statistics, Balance Sheet Items,  German contribution, ECB-aggregates  (MFI and non-MFI credit institutions), Bundesbank BSI-statistics
-#> 53:                                                                             Banking statistics, Balance Sheet Items, Weekly financial statement
-#> 54:                                                                                                   IMF data, Financial Soundnes Indicators, SDDS
-#> 55:                                                           Banking statistics, Balance Sheet Items, ECB-aggregates (non-MFI credit institutions)
-#> 56:                                                                                 Banking statistics, Balance Sheet Items, historical time series
-#> 57:                                         Banking statistics, Balance Sheet Items, BSI - Multi-office banks (MFI and non-MFI credit institutions)
-#> 58:                                          Banking statistics, Balance Sheet Items,  BSI - Foreign branches (MFI and non-MFI credit institutions)
-#> 59:                                                             Banking statistics, Balance Sheet Items, Foreign subsidiaries of German banks (MFI)
-#> 60:                                                                        Banking statistics, Balance Sheet Items, BSI - Regional statistics (MFI)
-#> 61:                                                                    Banking statistics, Balance Sheet Items, FVC - Financial vehicle corporation
-#> 62:                                                      Banking statistics, Balance Sheet Items, structural figures, size categories, publications
-#> 63:                                                                                         Bundesbank's interest rate statistics (until June 2003)
-#> 64:                                                                                                                    MFI interest rate statistics
-#> 65:                                                                                                                              Central bank rates
-#> 66:                                                                                                                                    Money market
-#> 67:                                                                                           Banking statistics, External Position of Banks, AUSTA
-#> 68:                                                                                  Expectation of inflation rate and expected real interest rates
-#> 69:                                                                                                               Financial market data, short keys
-#> 70:                                                                                                       Financial accounts - internet time series
+#> 43:                                                                                                                              Calendar regressor
+#> 44:                                                                                                                                   Single yields
+#> 45:                                                                                                            SDMX structure for BBK01 time series
+#> 46:                                                               Discount interest rates pursuant to section 253 (2) of the German Commercial Code
+#> 47:                                                                                                          BOP Data Structure Definition (17-DIM)
+#> 48:                                                                                                        Macroeconomic Expectations and Forecasts
+#> 49:                                                                                                                   Government finance statistics
+#> 50:                                           Banking statistics, Balance Sheet Items, BSI - Banks in Germany (MFI and non-MFI credit institutions)
+#> 51: Banking statistics, Balance Sheet Items,  German contribution, ECB-aggregates  (MFI and non-MFI credit institutions), Bundesbank BSI-statistics
+#> 52:                                                                             Banking statistics, Balance Sheet Items, Weekly financial statement
+#> 53:                                                                                                   IMF data, Financial Soundnes Indicators, SDDS
+#> 54:                                                           Banking statistics, Balance Sheet Items, ECB-aggregates (non-MFI credit institutions)
+#> 55:                                                                                 Banking statistics, Balance Sheet Items, historical time series
+#> 56:                                         Banking statistics, Balance Sheet Items, BSI - Multi-office banks (MFI and non-MFI credit institutions)
+#> 57:                                          Banking statistics, Balance Sheet Items,  BSI - Foreign branches (MFI and non-MFI credit institutions)
+#> 58:                                                             Banking statistics, Balance Sheet Items, Foreign subsidiaries of German banks (MFI)
+#> 59:                                                                        Banking statistics, Balance Sheet Items, BSI - Regional statistics (MFI)
+#> 60:                                                                    Banking statistics, Balance Sheet Items, FVC - Financial vehicle corporation
+#> 61:                                                      Banking statistics, Balance Sheet Items, structural figures, size categories, publications
+#> 62:                                                                                         Bundesbank's interest rate statistics (until June 2003)
+#> 63:                                                                                                                    MFI interest rate statistics
+#> 64:                                                                                                                              Central bank rates
+#> 65:                                                                                                                                    Money market
+#> 66:                                                                                           Banking statistics, External Position of Banks, AUSTA
+#> 67:                                                                                  Expectation of inflation rate and expected real interest rates
+#> 68:                                                                                                               Financial market data, short keys
+#> 69:                                                                                                       Financial accounts - internet time series
+#> 70:                                                                                                                        Payments Statistics 2021
 #> 71:                                                                                                                        Payments Statistics 2021
-#> 72:                                                                                                                        Payments Statistics 2021
+#> 72:                                                                                                                             Payments Statistics
 #> 73:                                                                                                                             Payments Statistics
 #> 74:                                                                                                                             Payments Statistics
 #> 75:                                                                                                                             Payments Statistics
 #> 76:                                                                                                                             Payments Statistics
 #> 77:                                                                                                                             Payments Statistics
 #> 78:                                                                                                                             Payments Statistics
-#> 79:                                                                                                                             Payments Statistics
-#> 80:                                                                                                            ZVS additional structural indicators
-#> 81:                                                                              Deutsche Bundesbank, Balance Sheet Items, EMU, Monetary aggregates
-#> 82:                                                                                                          FDI Data Structure Definition (18-DIM)
-#> 83:                                                                        Statistics of negotiated wages - Aggregates and forecasts of time series
-#> 84:                                                                                           Consumer Prices of foreign countries (incl. ECOICOP2)
+#> 79:                                                                                                            ZVS additional structural indicators
+#> 80:                                                                              Deutsche Bundesbank, Balance Sheet Items, EMU, Monetary aggregates
+#> 81:                                                                                                          FDI Data Structure Definition (18-DIM)
+#> 82:                                                                        Statistics of negotiated wages - Aggregates and forecasts of time series
+#> 83:                                                                                           Consumer Prices of foreign countries (incl. ECOICOP2)
 #>                                                                                                                                                name
 #>                                                                                                                                              <char>
 bbk_metadata("dataflow", "BBSIS")

@@ -4,6 +4,7 @@ bbk is minimal R client for the following APIs:
 
 - [Banco de España
   (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
+- [Banco de Portugal (BdP)](https://bpstat.bportugal.pt/data/docs)
 - [Bank for International Settlements
   (BIS)](https://stats.bis.org/api-doc/v1/)
 - [Bank of Canada
@@ -48,9 +49,9 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed according to the central bank they access
-(`bbk_`, `ecb_`, `snb_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`, `onb_`,
-`boc_`, `nob_`, `srb_`) and follow the naming conventions of their
-respective APIs.
+(`bbk_`, `ecb_`, `snb_`, `bdp_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`,
+`onb_`, `boc_`, `nob_`, `srb_`) and follow the naming conventions of
+their respective APIs.
 
 The typical workflow involves:
 

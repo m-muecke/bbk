@@ -19,8 +19,9 @@ Service'
 'Oesterreichische Nationalbank Web Service'
 (<https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>),
 the 'Bank of Canada Valet API'
-(<https://www.bankofcanada.ca/valet/docs>), and 'Bank of Japan
-Statistics API'
+(<https://www.bankofcanada.ca/valet/docs>), the 'Banco de Portugal
+BPstat API' (<https://bpstat.bportugal.pt/data/docs>), and 'Bank of
+Japan Statistics API'
 (<https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html>).
 
 ## See also

@@ -1,43 +1,36 @@
-# Fetch Bank for International Settlements (BIS) dimensions
+# Fetch Banco de Portugal (BdP) series metadata
 
-Retrieve the dimension structure for a given dataflow from the BIS SDMX
-Web Service.
+Retrieve metadata for one or more series from the BPstat API. This is
+useful to discover the `domain_id` and `dataset_id` needed for
+[`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md).
 
 ## Usage
 
 ``` r
-bis_dimension(id)
+bdp_series(series_ids, lang = "EN")
 ```
 
 ## Source
 
-<https://stats.bis.org/api-doc/v1/>
+<https://bpstat.bportugal.pt/data/docs>
 
 ## Arguments
 
-- id:
+- series_ids:
+
+  ([`integer()`](https://rdrr.io/r/base/integer.html))  
+  One or more series IDs to look up.
+
+- lang:
 
   (`character(1)`)  
-  The id of the data structure definition to query (e.g.,
-  `"BIS_CBPOL"`).
+  Language for labels, either `"EN"` or `"PT"`.
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with columns:
-
-- id:
-
-  The dimension id (e.g., `"FREQ"`, `"REF_AREA"`)
-
-- position:
-
-  The position of the dimension in the series key
-
-- codelist:
-
-  The id of the associated codelist (e.g., `"CL_FREQ"`)
+with series metadata including `domain_ids` and `dataset_id`.
 
 ## See also
 
@@ -45,7 +38,7 @@ Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
 [`bdp_domains()`](https://m-muecke.github.io/bbk/reference/bdp_domains.md),
-[`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
+[`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
@@ -65,10 +58,15 @@ Other metadata:
 
 ``` r
 # \donttest{
-bis_dimension("BIS_CBPOL")
-#>          id position           codelist
-#>      <char>    <int>             <char>
-#> 1:     FREQ        1            CL_FREQ
-#> 2: REF_AREA        2 CL_BIS_GL_REF_AREA
+bdp_series(12518356L)
+#>          id                     label                  short_label
+#>       <int>                    <char>                       <char>
+#> 1: 12518356 GDP at market prices-CP-A GDPmp PT A Current Prices M€
+#>                                                                                                 description
+#>                                                                                                      <char>
+#> 1: GDP expenditure approach - GDP at market prices - Portugal - current prices - millions of euros - annual
+#>                          dataset_id domain_id      obs_updated_at
+#>                              <char>     <int>              <POSc>
+#> 1: ce3e4e50cda325537eff729ef64037cd        54 2025-10-28 17:00:00
 # }
 ```

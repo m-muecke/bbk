@@ -32,6 +32,8 @@ with the requested metadata.
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bdp_domains()`](https://m-muecke.github.io/bbk/reference/bdp_domains.md),
+[`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
@@ -93,16 +95,16 @@ srb_series()
 #> 117:                                                                                                                                                                                                                                                                              SEK/USD Forward Premium Maturity 6-Months
 #>      group_id observation_max_date observation_min_date series_closed
 #>         <int>               <char>               <char>        <lgcl>
-#>   1:        2           2026-03-31           1994-06-01         FALSE
-#>   2:        2           2026-03-31           1994-06-01         FALSE
-#>   3:        2           2026-03-31           1994-06-01         FALSE
-#>   4:        2           2026-03-31           2022-06-08         FALSE
+#>   1:        2           2026-04-02           1994-06-01         FALSE
+#>   2:        2           2026-04-02           1994-06-01         FALSE
+#>   3:        2           2026-04-02           1994-06-01         FALSE
+#>   4:        2           2026-04-02           2022-06-08         FALSE
 #>   5:        2           1994-05-31           1987-01-30          TRUE
 #>  ---                                                                 
-#> 113:      130           2026-03-30           1994-03-01         FALSE
-#> 114:      138           2026-03-30           2011-06-27         FALSE
-#> 115:      151           2026-03-30           1992-11-18         FALSE
-#> 116:      155           2026-03-30           1980-01-02         FALSE
-#> 117:      155           2026-03-30           1980-01-02         FALSE
+#> 113:      130           2026-04-02           1994-03-01         FALSE
+#> 114:      138           2026-04-02           2011-06-27         FALSE
+#> 115:      151           2026-04-02           1992-11-18         FALSE
+#> 116:      155           2026-04-02           1980-01-02         FALSE
+#> 117:      155           2026-04-02           1980-01-02         FALSE
 # }
 ```

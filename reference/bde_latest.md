@@ -40,6 +40,7 @@ Other data:
 [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md),
 [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md),
 [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md),
+[`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md),
 [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
@@ -58,18 +59,18 @@ Other data:
 bde_latest("D_1NBAF472")
 #>                   date        key value   freq            title decimals symbol
 #>                 <POSc>     <char> <num> <char>           <char>    <int> <char>
-#> 1: 2026-02-01 09:15:00 D_1NBAF472 2.221      M One-year Euribor        3      %
+#> 1: 2026-03-01 09:15:00 D_1NBAF472 2.565      M One-year Euribor        3      %
 #>     trend
 #>    <char>
-#> 1:      -
+#> 1:      +
 bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
 #>                   date                      key   value   freq
 #>                 <POSc>                   <char>   <num> <char>
-#> 1: 2026-02-01 09:15:00               D_1NBAF472   2.221      M
+#> 1: 2026-03-01 09:15:00               D_1NBAF472   2.565      M
 #> 2: 2025-10-01 08:15:00 DTNPDE2010_P0000P_PS_APU 100.700      Q
 #>                                        title decimals symbol  trend
 #>                                       <char>    <int> <char> <char>
-#> 1:                          One-year Euribor        3      %      -
+#> 1:                          One-year Euribor        3      %      +
 #> 2: EDP debt. General government. % of GDP mp        1      %      -
 # }
 ```

@@ -77,6 +77,8 @@ Other data:
 \code{\link{boe_data}()},
 \code{\link{boj_data}()},
 \code{\link{ecb_data}()},
+\code{\link{nbp_fx_rates}()},
+\code{\link{nbp_gold}()},
 \code{\link{onb_data}()},
 \code{\link{snb_data}()},
 \code{\link{srb_cross_rates}()},

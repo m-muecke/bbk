@@ -20,6 +20,8 @@ reference:
       - boj_data
       - ecb_data
       - ecb_fx_rates
+      - nbp_fx_rates
+      - nbp_gold
       - nob_data
       - onb_data
       - snb_data

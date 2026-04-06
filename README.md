@@ -31,6 +31,7 @@ bbk is minimal R client for the following APIs:
   (BBk)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 - [European Central Bank
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
+- [National Bank of Poland (NBP)](https://api.nbp.pl/en.html)
 - [Norges Bank
   (NoB)](https://www.norges-bank.no/en/topics/Statistics/open-data/)
 - [Sveriges Riksbank (SRb)](https://developer.api.riksbank.se/)
@@ -62,8 +63,8 @@ pak::pak("m-muecke/bbk")
 
 bbk functions are prefixed according to the central bank they access
 (`bbk_`, `ecb_`, `snb_`, `bdp_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`,
-`onb_`, `boc_`, `nob_`, `srb_`) and follow the naming conventions of
-their respective APIs.
+`nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the naming
+conventions of their respective APIs.
 
 The typical workflow involves:
 
@@ -104,6 +105,8 @@ yield_curve <- bbk_data(
   OeNB’s API.
 - [pdfetch](https://github.com/abielr/pdfetch): R package for
   downloading economic and financial time series from public sources.
+- [rnbp](https://github.com/szymanskir/rnbp): R package for accessing
+  the National Bank of Poland (NBP) API.
 - [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for
   reading SDMX data and metadata.
 - [rsdmx](https://github.com/eblondel/rsdmx): R package for reading SDMX

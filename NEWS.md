@@ -2,6 +2,7 @@
 
 * Support for Banco de Portugal (BdP) data.
 * Support for Bank of Japan (BoJ) data.
+* Support for National Bank of Poland (NBP) exchange rates and gold prices.
 
 # bbk 0.9.0
 

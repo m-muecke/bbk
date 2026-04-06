@@ -54,7 +54,9 @@
   : Fetch Deutsche Bundesbank (BBk) metadata
 - [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md)
   : Fetch Banque de France (BdF) codelists
-- [`bdp_domains()`](https://m-muecke.github.io/bbk/reference/bdp_domains.md)
+- [`bdp_dataset()`](https://m-muecke.github.io/bbk/reference/bdp_dataset.md)
+  : Fetch Banco de Portugal (BdP) datasets
+- [`bdp_domain()`](https://m-muecke.github.io/bbk/reference/bdp_domain.md)
   : Fetch Banco de Portugal (BdP) domains
 - [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md)
   : Fetch Banco de Portugal (BdP) series metadata

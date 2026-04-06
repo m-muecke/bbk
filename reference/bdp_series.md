@@ -37,7 +37,8 @@ with series metadata including `domain_ids` and `dataset_id`.
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
-[`bdp_domains()`](https://m-muecke.github.io/bbk/reference/bdp_domains.md),
+[`bdp_dataset()`](https://m-muecke.github.io/bbk/reference/bdp_dataset.md),
+[`bdp_domain()`](https://m-muecke.github.io/bbk/reference/bdp_domain.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
@@ -59,7 +60,14 @@ Other metadata:
 ``` r
 # \donttest{
 bdp_series(12518356L)
-#> Error in req_perform(req_bbk_cache(req_bbk_retry(req_error(req_url_query(req_url_path_append(req_user_agent(request("https://bpstat.bportugal.pt/data/v1"),     bbk_user_agent()), ...), lang = lang, series_ids = series_ids,     obs_since = obs_since, obs_to = obs_to, obs_last_n = obs_last_n,     .multi = "comma"), body = bdp_error_body)))): HTTP 400 Bad Request.
-#> ℹ See docs at <https://bpstat.bportugal.pt/data/docs>
+#>          id                     label                  short_label
+#>       <int>                    <char>                       <char>
+#> 1: 12518356 GDP at market prices-CP-A GDPmp PT A Current Prices M€
+#>                                                                                                 description
+#>                                                                                                      <char>
+#> 1: GDP expenditure approach - GDP at market prices - Portugal - current prices - millions of euros - annual
+#>                          dataset_id domain_id      obs_updated_at
+#>                              <char>     <int>              <POSc>
+#> 1: ce3e4e50cda325537eff729ef64037cd        54 2025-10-28 17:00:00
 # }
 ```

@@ -79,7 +79,8 @@ Language for labels, either <code>"EN"</code> or <code>"PT"</code>.</p></dd>
     <div class="dont-index"><p>Other metadata:
 <code><a href="bbk_dimension.html">bbk_dimension()</a></code>,
 <code><a href="bbk_metadata.html">bbk_metadata()</a></code>,
-<code><a href="bdp_domains.html">bdp_domains()</a></code>,
+<code><a href="bdp_dataset.html">bdp_dataset()</a></code>,
+<code><a href="bdp_domain.html">bdp_domain()</a></code>,
 <code><a href="bis_dimension.html">bis_dimension()</a></code>,
 <code><a href="bis_metadata.html">bis_metadata()</a></code>,
 <code><a href="boj_metadata.html">boj_metadata()</a></code>,
@@ -101,8 +102,15 @@ Language for labels, either <code>"EN"</code> or <code>"PT"</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bdp_series</span><span class="op">(</span><span class="fl">12518356L</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_bbk_cache(req_bbk_retry(req_error(req_url_query(req_url_path_append(req_user_agent(request("https://bpstat.bportugal.pt/data/v1"),     bbk_user_agent()), ...), lang = lang, series_ids = series_ids,     obs_since = obs_since, obs_to = obs_to, obs_last_n = obs_last_n,     .multi = "comma"), body = bdp_error_body)))):</span> HTTP 400 Bad Request.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See docs at &lt;https://bpstat.bportugal.pt/data/docs&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          id                     label                  short_label</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;int&gt;                    &lt;char&gt;                       &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 12518356 GDP at market prices-CP-A GDPmp PT A Current Prices M€</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                 description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                      &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: GDP expenditure approach - GDP at market prices - Portugal - current prices - millions of euros - annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                          dataset_id domain_id      obs_updated_at</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                              &lt;char&gt;     &lt;int&gt;              &lt;POSc&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: ce3e4e50cda325537eff729ef64037cd        54 2025-10-28 17:00:00</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

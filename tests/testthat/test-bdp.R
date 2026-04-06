@@ -13,8 +13,14 @@ test_that("bdp_series input validation works", {
   expect_error(bdp_series(1L, lang = "FR"))
 })
 
-test_that("bdp_domains input validation works", {
-  expect_error(bdp_domains(lang = "FR"))
+test_that("bdp_dataset input validation works", {
+  expect_error(bdp_dataset("a"))
+  expect_error(bdp_dataset(1L, lang = "FR"))
+})
+
+test_that("bdp_domain input validation works", {
+  expect_error(bdp_domain("a"))
+  expect_error(bdp_domain(lang = "FR"))
 })
 
 test_that("parse_bdp_data works", {
@@ -37,9 +43,19 @@ test_that("parse_bdp_series works", {
   expect_identical(actual$id, 12518356L)
 })
 
-test_that("parse_bdp_domains works", {
+test_that("parse_bdp_dataset works", {
+  json <- readRDS(test_path("fixtures", "bdp-dataset.rds"))
+  actual <- parse_bdp_dataset(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_names(
+    names(actual),
+    must.include = c("id", "label", "num_series", "obs_updated_at")
+  )
+})
+
+test_that("parse_bdp_domain works", {
   json <- readRDS(test_path("fixtures", "bdp-domains.rds"))
-  actual <- parse_bdp_domains(json)
+  actual <- parse_bdp_domain(json)
   expect_data_table(actual, min.rows = 1L)
   expect_names(
     names(actual),

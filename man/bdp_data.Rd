@@ -19,7 +19,7 @@ bdp_data(
 }
 \arguments{
 \item{domain_id}{(\code{integer(1)})\cr
-The domain ID. Use \code{\link[=bdp_domains]{bdp_domains()}} to list available domains.}
+The domain ID. Use \code{\link[=bdp_domain]{bdp_domain()}} to list available domains.}
 
 \item{dataset_id}{(\code{character(1)})\cr
 The dataset ID within the domain.}

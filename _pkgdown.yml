@@ -35,7 +35,8 @@ reference:
       - bbk_dimension
       - bbk_metadata
       - bdf_codelist
-      - bdp_domains
+      - bdp_dataset
+      - bdp_domain
       - bdp_series
       - bis_dimension
       - bis_metadata

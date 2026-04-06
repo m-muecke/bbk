@@ -36,7 +36,8 @@ bis_metadata("codelist", "CL_FREQ")
 Other metadata: 
 \code{\link{bbk_dimension}()},
 \code{\link{bbk_metadata}()},
-\code{\link{bdp_domains}()},
+\code{\link{bdp_dataset}()},
+\code{\link{bdp_domain}()},
 \code{\link{bdp_series}()},
 \code{\link{bis_dimension}()},
 \code{\link{boj_metadata}()},

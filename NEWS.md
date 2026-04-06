@@ -1,5 +1,6 @@
 # bbk (development version)
 
+* Support for Banco de Portugal (BdP) data.
 * Support for Bank of Japan (BoJ) data.
 
 # bbk 0.9.0

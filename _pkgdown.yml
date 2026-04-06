@@ -11,6 +11,7 @@ reference:
       - bbk_series
       - bde_data
       - bde_latest
+      - bdp_data
       - bis_data
       - bdf_data
       - boc_data
@@ -34,6 +35,8 @@ reference:
       - bbk_dimension
       - bbk_metadata
       - bdf_codelist
+      - bdp_domains
+      - bdp_series
       - bis_dimension
       - bis_metadata
       - bdf_dataset

@@ -42,6 +42,8 @@ bbk_metadata("concept", "CS_BBK_BSPL")
 \seealso{
 Other metadata: 
 \code{\link{bbk_dimension}()},
+\code{\link{bdp_domains}()},
+\code{\link{bdp_series}()},
 \code{\link{bis_dimension}()},
 \code{\link{bis_metadata}()},
 \code{\link{boj_metadata}()},

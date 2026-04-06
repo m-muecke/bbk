@@ -77,6 +77,7 @@ Other data:
 \code{\link{bdf_codelist}()},
 \code{\link{bdf_data}()},
 \code{\link{bdf_dataset}()},
+\code{\link{bdp_data}()},
 \code{\link{boc_data}()},
 \code{\link{boe_data}()},
 \code{\link{boj_data}()},

@@ -33,6 +33,8 @@ onb_dimension(hier_id = 11, key = "VDBFKBSC217000")
 Other metadata: 
 \code{\link{bbk_dimension}()},
 \code{\link{bbk_metadata}()},
+\code{\link{bdp_domains}()},
+\code{\link{bdp_series}()},
 \code{\link{bis_dimension}()},
 \code{\link{bis_metadata}()},
 \code{\link{boj_metadata}()},

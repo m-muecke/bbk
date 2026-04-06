@@ -33,6 +33,8 @@ bis_dimension("BIS_CBPOL")
 Other metadata: 
 \code{\link{bbk_dimension}()},
 \code{\link{bbk_metadata}()},
+\code{\link{bdp_domains}()},
+\code{\link{bdp_series}()},
 \code{\link{bis_metadata}()},
 \code{\link{boj_metadata}()},
 \code{\link{ecb_dimension}()},

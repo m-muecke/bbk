@@ -93,6 +93,8 @@ available date is returned. Default <code>NULL</code>.</p></dd>
 <code><a href="boe_data.html">boe_data()</a></code>,
 <code><a href="boj_data.html">boj_data()</a></code>,
 <code><a href="ecb_data.html">ecb_data()</a></code>,
+<code><a href="nbp_fx_rates.html">nbp_fx_rates()</a></code>,
+<code><a href="nbp_gold.html">nbp_gold()</a></code>,
 <code><a href="nob_data.html">nob_data()</a></code>,
 <code><a href="onb_data.html">onb_data()</a></code>,
 <code><a href="snb_data.html">snb_data()</a></code>,
@@ -112,35 +114,36 @@ available date is returned. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2024-01-05 SEKUSDPMI 10.28752</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2024-01-08 SEKUSDPMI 10.24073</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 560: 2026-03-27 SEKUSDPMI  9.44517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 561: 2026-03-30 SEKUSDPMI  9.49669</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 562: 2026-03-31 SEKUSDPMI  9.51731</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 563: 2026-04-01 SEKUSDPMI  9.38216</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 564: 2026-04-02 SEKUSDPMI  9.49935</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 565: 2026-04-07 SEKUSDPMI  9.50939</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 566: 2026-04-08 SEKUSDPMI  9.21237</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 567: 2026-04-09 SEKUSDPMI  9.30809</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 568: 2026-04-10 SEKUSDPMI  9.25284</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch EUR/SEK exchange rate</span></span></span>
 <span class="r-in"><span><span class="fu">srb_data</span><span class="op">(</span><span class="st">"SEKEURPMI"</span>, start_date <span class="op">=</span> <span class="st">"2024-01-01"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■                               </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■                              </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■                            </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■                           </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■                         </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■                        </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■                      </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■                     </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■                   </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■                  </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■                </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■               </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■             </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■            </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■          </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■         </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■       </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■      </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■    </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 59s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■                               </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■                              </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■                             </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■                           </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■                          </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■                        </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■                       </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■                     </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■                    </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■                  </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■                 </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■               </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■              </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■            </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■           </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■         </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■        </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■      </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■     </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  </span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Waiting 60s for retry backoff <span style="color: #00BB00;">■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            date       key   value</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;Date&gt;    &lt;char&gt;   &lt;num&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: 2024-01-02 SEKEURPMI 11.1545</span>
@@ -149,11 +152,11 @@ available date is returned. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2024-01-05 SEKEURPMI 11.2350</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2024-01-08 SEKEURPMI 11.2095</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 560: 2026-03-27 SEKEURPMI 10.8780</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 561: 2026-03-30 SEKEURPMI 10.9060</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 562: 2026-03-31 SEKEURPMI 10.9430</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 563: 2026-04-01 SEKEURPMI 10.8880</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 564: 2026-04-02 SEKEURPMI 10.9480</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 565: 2026-04-07 SEKEURPMI 10.9900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 566: 2026-04-08 SEKEURPMI 10.7840</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 567: 2026-04-09 SEKEURPMI 10.8765</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 568: 2026-04-10 SEKEURPMI 10.8360</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

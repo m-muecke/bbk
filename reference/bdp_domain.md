@@ -227,7 +227,7 @@ bdp_domain()
 #>  1:             FA       TRUE      16644            1
 #>  2:             ES      FALSE         NA           NA
 #>  3:            BOP       TRUE       6673            8
-#>  4:            IIP       TRUE       4746            5
+#>  4:            IIP       TRUE       4747            5
 #>  5:           EBIS       TRUE        799            4
 #>  6:            IRS       TRUE        378            2
 #>  7:             PS       TRUE        399           19
@@ -250,7 +250,7 @@ bdp_domain()
 #> 24:            GGF       TRUE         32            4
 #> 25:            GGD       TRUE        582            8
 #> 26:             ER       TRUE        705            1
-#> 27:            ERI       TRUE         86            1
+#> 27:            ERI       TRUE         90            1
 #> 28:       TSPE-GDP       TRUE         49            2
 #> 29:        TSPE-HW       TRUE         11            1
 #> 30:         GGISFI       TRUE         39            3

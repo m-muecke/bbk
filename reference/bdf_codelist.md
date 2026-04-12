@@ -47,6 +47,8 @@ Other data:
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
+[`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md),
+[`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md),
 [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md),
 [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md),

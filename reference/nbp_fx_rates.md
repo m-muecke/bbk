@@ -1,50 +1,57 @@
-# Fetch Bank of Canada (BoC) data
+# Fetch National Bank of Poland (NBP) exchange rates
 
-Retrieve time series data from the Bank of Canada Valet API.
+Retrieve foreign currency exchange rates from the NBP Web API.
 
 ## Usage
 
 ``` r
-boc_data(
-  group_name = NULL,
-  series_name = NULL,
+nbp_fx_rates(
+  table,
+  code = NULL,
   start_date = NULL,
-  end_date = NULL
+  end_date = NULL,
+  last_n = NULL
 )
 ```
 
 ## Source
 
-<https://www.bankofcanada.ca/valet/docs>
+<https://api.nbp.pl/en.html>
 
 ## Arguments
 
-- group_name:
+- table:
+
+  (`character(1)`)  
+  Table type: `"a"` (mid rates, major currencies), `"b"` (mid rates,
+  less common currencies), or `"c"` (bid/ask rates).
+
+- code:
 
   (`NULL` \| `character(1)`)  
-  Name of the group. Only one of `group_name` or `series_name` can be
-  used.
-
-- series_name:
-
-  (`NULL` \| [`character()`](https://rdrr.io/r/base/character.html))  
-  Name of the series.
+  ISO 4217 currency code (e.g. `"usd"`, `"eur"`). If `NULL`, returns all
+  currencies.
 
 - start_date:
 
-  (`NULL` \| `Date(1)` \| `character(1)`)  
-  Start date of the data. Default `NULL`.
+  (`NULL` \| `character(1)` \| `Date(1)`)  
+  Start date of the data.
 
 - end_date:
 
-  (`NULL` \| `Date(1)` \| `character(1)`)  
-  End date of the data. Default `NULL`.
+  (`NULL` \| `character(1)` \| `Date(1)`)  
+  End date of the data.
+
+- last_n:
+
+  (`NULL` \| `integer(1)`)  
+  Return only the last `n` quotations.
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with the requested data.
+with exchange rates.
 
 ## See also
 
@@ -58,10 +65,10 @@ Other data:
 [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md),
 [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md),
 [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+[`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
-[`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md),
 [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md),
 [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md),
@@ -72,17 +79,10 @@ Other data:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-# fetch all data for a single group
-dt <- boc_data(group_name = "FX_RATES_DAILY")
-head(dt)
-
-# or for multiple series ids
-dt <- boc_data(
-  series_name = c("FXUSDCAD", "FXEURCAD"),
-  start_date = "2023-01-23",
-  end_date = "2023-07-19"
-)
-head(dt)
-} # }
+# \donttest{
+nbp_fx_rates("a", "eur")
+#>          date   code currency    mid
+#>        <Date> <char>   <char>  <num>
+#> 1: 2026-04-10    EUR     euro 4.2534
+# }
 ```

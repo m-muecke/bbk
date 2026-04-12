@@ -29,6 +29,10 @@
 - [`ecb_fx_rates()`](https://m-muecke.github.io/bbk/reference/ecb_fx_rates.md)
   [`ecb_euro_rates()`](https://m-muecke.github.io/bbk/reference/ecb_fx_rates.md)
   : Fetch Euro foreign exchange reference rates
+- [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
+  : Fetch National Bank of Poland (NBP) exchange rates
+- [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md) :
+  Fetch National Bank of Poland (NBP) gold prices
 - [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md) :
   Fetch Norges Bank (NoB) data
 - [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md) :

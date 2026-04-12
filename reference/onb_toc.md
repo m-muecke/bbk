@@ -65,31 +65,33 @@ onb_toc()
 #> 11:        24      2
 #> 12:        25      2
 #> 13:      2502     25
-#> 14:         3      0
-#> 15:        31      3
-#> 16:      3101     31
-#> 17:       318     31
-#> 18:       321     31
-#> 19:      3102     31
-#> 20:      3103     31
-#> 21:      3104     31
-#> 22:        32      3
-#> 23:        33      3
-#> 24:        34      3
-#> 25:        35      3
-#> 26:         4      0
-#> 27:        41      4
-#> 28:         6      0
-#> 29:         7      0
-#> 30:        74      7
-#> 31:        75      7
-#> 32:         8      0
-#> 33:         9      0
-#> 34:       901      9
-#> 35:       902      9
-#> 36:       904      9
-#> 37:       905      9
-#> 38:        97      9
+#> 14:      2503     25
+#> 15:      2504     25
+#> 16:         3      0
+#> 17:        31      3
+#> 18:      3101     31
+#> 19:       318     31
+#> 20:       321     31
+#> 21:      3102     31
+#> 22:      3103     31
+#> 23:      3104     31
+#> 24:        32      3
+#> 25:        33      3
+#> 26:        34      3
+#> 27:        35      3
+#> 28:         4      0
+#> 29:        41      4
+#> 30:         6      0
+#> 31:         7      0
+#> 32:        74      7
+#> 33:        75      7
+#> 34:         8      0
+#> 35:         9      0
+#> 36:       901      9
+#> 37:       902      9
+#> 38:       904      9
+#> 39:       905      9
+#> 40:        97      9
 #>            id parent
 #>         <int>  <int>
 #>                                                                                      description
@@ -107,31 +109,33 @@ onb_toc()
 #> 11:                                                              Austrian government bond yields
 #> 12:                                                                               Exchange rates
 #> 13:                                                  Effective exchange rate indices of the Euro
-#> 14:                                                                       Financial institutions
-#> 15:                                                                                        Banks
-#> 16:                                      Balance Sheet and Profit & Loss Account - Selected Data
-#> 17:                                                               Building and Loan Associations
-#> 18:                                                                              Number of Banks
-#> 19:                                                                              Severance Funds
-#> 20: Foreign subsidiaries, which are fully consolidated by Austrian groups of credit institutions
-#> 21:                  Aggregated regulatory capital requirements, financial and income statements
-#> 22:                                                                                 Mutual funds
-#> 23:                                                                                Pension funds
-#> 24:                                                                          Insurance companies
-#> 25:                                Instruments subject to credit risk in accordance with FinStab
-#> 26:                                                                                   Securities
-#> 27:                                                                              Debt securities
-#> 28:                                                                      Prices, competitiveness
-#> 29:                                                             Economic and industry indicators
-#> 30:                                                                           General government
-#> 31:                                                                          Economic indicators
-#> 32:                                                                           Financial accounts
-#> 33:                                                                              External sector
-#> 34:                                    Balance of payments and International Investment Position
-#> 35:                                                                            Direct investment
-#> 36:                                                                         Portfolio investment
-#> 37:                                                                             Other investment
-#> 38:                                                                    Foreign trade and tourism
+#> 14:                                                                          ECB reference rates
+#> 15:                                               Currencies and foreign exchange rates in other
+#> 16:                                                                       Financial institutions
+#> 17:                                                                                        Banks
+#> 18:                                      Balance Sheet and Profit & Loss Account - Selected Data
+#> 19:                                                               Building and Loan Associations
+#> 20:                                                                              Number of Banks
+#> 21:                                                                              Severance Funds
+#> 22: Foreign subsidiaries, which are fully consolidated by Austrian groups of credit institutions
+#> 23:                  Aggregated regulatory capital requirements, financial and income statements
+#> 24:                                                                                 Mutual funds
+#> 25:                                                                                Pension funds
+#> 26:                                                                          Insurance companies
+#> 27:                                Instruments subject to credit risk in accordance with FinStab
+#> 28:                                                                                   Securities
+#> 29:                                                                              Debt securities
+#> 30:                                                                      Prices, competitiveness
+#> 31:                                                             Economic and industry indicators
+#> 32:                                                                           General government
+#> 33:                                                                          Economic indicators
+#> 34:                                                                           Financial accounts
+#> 35:                                                                              External sector
+#> 36:                                    Balance of payments and International Investment Position
+#> 37:                                                                            Direct investment
+#> 38:                                                                         Portfolio investment
+#> 39:                                                                             Other investment
+#> 40:                                                                    Foreign trade and tourism
 #>                                                                                      description
 #>                                                                                           <char>
 # }

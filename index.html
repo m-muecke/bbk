@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Client for Central Bank APIs">
-<meta name="description" content="A client for retrieving data and metadata from major central bank APIs. It supports access to the Bundesbank SDMX Web Service API (&lt;https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data&gt;), the Swiss National Bank Data Portal (&lt;https://data.snb.ch/en&gt;), the European Central Bank Data Portal API (&lt;https://data.ecb.europa.eu/help/api/overview&gt;), the Bank of England Interactive Statistical Database (&lt;https://www.bankofengland.co.uk/boeapps/database&gt;), the Banco de España API (&lt;https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html&gt;), the Bank for International Settlements SDMX Web Service (&lt;https://stats.bis.org/api-doc/v1/&gt;), the Banque de France Web Service (&lt;https://webstat.banque-france.fr/en/pages/guide-migration-api/&gt;), the Norges Bank SDMX Web Service (&lt;https://www.norges-bank.no/en/topics/Statistics/open-data/&gt;), the Oesterreichische Nationalbank Web Service (&lt;https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html&gt;), the Bank of Canada Valet API (&lt;https://www.bankofcanada.ca/valet/docs&gt;), the Banco de Portugal BPstat API (&lt;https://bpstat.bportugal.pt/data/docs&gt;), and Bank of Japan Statistics API (&lt;https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html&gt;).">
-<meta property="og:description" content="A client for retrieving data and metadata from major central bank APIs. It supports access to the Bundesbank SDMX Web Service API (&lt;https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data&gt;), the Swiss National Bank Data Portal (&lt;https://data.snb.ch/en&gt;), the European Central Bank Data Portal API (&lt;https://data.ecb.europa.eu/help/api/overview&gt;), the Bank of England Interactive Statistical Database (&lt;https://www.bankofengland.co.uk/boeapps/database&gt;), the Banco de España API (&lt;https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html&gt;), the Bank for International Settlements SDMX Web Service (&lt;https://stats.bis.org/api-doc/v1/&gt;), the Banque de France Web Service (&lt;https://webstat.banque-france.fr/en/pages/guide-migration-api/&gt;), the Norges Bank SDMX Web Service (&lt;https://www.norges-bank.no/en/topics/Statistics/open-data/&gt;), the Oesterreichische Nationalbank Web Service (&lt;https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html&gt;), the Bank of Canada Valet API (&lt;https://www.bankofcanada.ca/valet/docs&gt;), the Banco de Portugal BPstat API (&lt;https://bpstat.bportugal.pt/data/docs&gt;), and Bank of Japan Statistics API (&lt;https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html&gt;).">
+<meta name="description" content="A client for retrieving data and metadata from central bank APIs including Banco de España (BdE), Banco de Portugal (BdP), Bank for International Settlements (BIS), Bank of Canada (BoC), Bank of England (BoE), Bank of Japan (BoJ), Banque de France (BdF), Deutsche Bundesbank (BBk), European Central Bank (ECB), National Bank of Poland (NBP), Norges Bank (NoB), Oesterreichische Nationalbank (OeNB), Sveriges Riksbank (SRb), and Swiss National Bank (SNB).">
+<meta property="og:description" content="A client for retrieving data and metadata from central bank APIs including Banco de España (BdE), Banco de Portugal (BdP), Bank for International Settlements (BIS), Bank of Canada (BoC), Bank of England (BoE), Bank of Japan (BoJ), Banque de France (BdF), Deutsche Bundesbank (BBk), European Central Bank (ECB), National Bank of Poland (NBP), Norges Bank (NoB), Oesterreichische Nationalbank (OeNB), Sveriges Riksbank (SRb), and Swiss National Bank (SNB).">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -70,6 +70,7 @@
 <li><a href="https://webstat.banque-france.fr/en/pages/guide-migration-api/" class="external-link">Banque de France (BdF)</a></li>
 <li><a href="https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service" class="external-link">Deutsche Bundesbank (BBk)</a></li>
 <li><a href="https://data.ecb.europa.eu/help/api/overview" class="external-link">European Central Bank (ECB)</a></li>
+<li><a href="https://api.nbp.pl/en.html" class="external-link">National Bank of Poland (NBP)</a></li>
 <li><a href="https://www.norges-bank.no/en/topics/Statistics/open-data/" class="external-link">Norges Bank (NoB)</a></li>
 <li><a href="https://developer.api.riksbank.se/" class="external-link">Sveriges Riksbank (SRb)</a></li>
 <li><a href="https://data.snb.ch/en" class="external-link">Swiss National Bank (SNB)</a></li>
@@ -92,7 +93,7 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>bbk functions are prefixed according to the central bank they access (<code>bbk_</code>, <code>ecb_</code>, <code>snb_</code>, <code>bdp_</code>, <code>bis_</code>, <code>boe_</code>, <code>boj_</code>, <code>bde_</code>, <code>bdf_</code>, <code>onb_</code>, <code>boc_</code>, <code>nob_</code>, <code>srb_</code>) and follow the naming conventions of their respective APIs.</p>
+<p>bbk functions are prefixed according to the central bank they access (<code>bbk_</code>, <code>ecb_</code>, <code>snb_</code>, <code>bdp_</code>, <code>bis_</code>, <code>boe_</code>, <code>boj_</code>, <code>bde_</code>, <code>bdf_</code>, <code>nbp_</code>, <code>onb_</code>, <code>boc_</code>, <code>nob_</code>, <code>srb_</code>) and follow the naming conventions of their respective APIs.</p>
 <p>The typical workflow involves:</p>
 <ol style="list-style-type: decimal">
 <li>Finding the time series identifier on the relevant central bank’s website</li>
@@ -131,6 +132,8 @@
 <a href="https://github.com/franzmohr/oenb" class="external-link">oenb</a>: R package for accessing the OeNB’s API.</li>
 <li>
 <a href="https://github.com/abielr/pdfetch" class="external-link">pdfetch</a>: R package for downloading economic and financial time series from public sources.</li>
+<li>
+<a href="https://github.com/szymanskir/rnbp" class="external-link">rnbp</a>: R package for accessing the National Bank of Poland (NBP) API.</li>
 <li>
 <a href="https://github.com/mdequeljoe/readsdmx" class="external-link">readsdmx</a>: R package for reading SDMX data and metadata.</li>
 <li>

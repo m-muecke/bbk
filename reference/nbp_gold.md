@@ -1,50 +1,39 @@
-# Fetch Bank of Canada (BoC) data
+# Fetch National Bank of Poland (NBP) gold prices
 
-Retrieve time series data from the Bank of Canada Valet API.
+Retrieve the price of gold from the NBP Web API.
 
 ## Usage
 
 ``` r
-boc_data(
-  group_name = NULL,
-  series_name = NULL,
-  start_date = NULL,
-  end_date = NULL
-)
+nbp_gold(start_date = NULL, end_date = NULL, last_n = NULL)
 ```
 
 ## Source
 
-<https://www.bankofcanada.ca/valet/docs>
+<https://api.nbp.pl/en.html>
 
 ## Arguments
 
-- group_name:
-
-  (`NULL` \| `character(1)`)  
-  Name of the group. Only one of `group_name` or `series_name` can be
-  used.
-
-- series_name:
-
-  (`NULL` \| [`character()`](https://rdrr.io/r/base/character.html))  
-  Name of the series.
-
 - start_date:
 
-  (`NULL` \| `Date(1)` \| `character(1)`)  
-  Start date of the data. Default `NULL`.
+  (`NULL` \| `character(1)` \| `Date(1)`)  
+  Start date of the data.
 
 - end_date:
 
-  (`NULL` \| `Date(1)` \| `character(1)`)  
-  End date of the data. Default `NULL`.
+  (`NULL` \| `character(1)` \| `Date(1)`)  
+  End date of the data.
+
+- last_n:
+
+  (`NULL` \| `integer(1)`)  
+  Return only the last `n` quotations.
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with the requested data.
+with gold prices.
 
 ## See also
 
@@ -58,11 +47,11 @@ Other data:
 [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md),
 [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md),
 [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+[`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md),
-[`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md),
 [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
 [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md),
 [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md),
@@ -72,17 +61,19 @@ Other data:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-# fetch all data for a single group
-dt <- boc_data(group_name = "FX_RATES_DAILY")
-head(dt)
-
-# or for multiple series ids
-dt <- boc_data(
-  series_name = c("FXUSDCAD", "FXEURCAD"),
-  start_date = "2023-01-23",
-  end_date = "2023-07-19"
-)
-head(dt)
-} # }
+# \donttest{
+nbp_gold(last_n = 10L)
+#>           date  price
+#>         <Date>  <num>
+#>  1: 2026-03-27 525.40
+#>  2: 2026-03-30 529.66
+#>  3: 2026-03-31 543.51
+#>  4: 2026-04-01 549.34
+#>  5: 2026-04-02 561.97
+#>  6: 2026-04-03 552.46
+#>  7: 2026-04-07 557.13
+#>  8: 2026-04-08 555.24
+#>  9: 2026-04-09 562.26
+#> 10: 2026-04-10 554.60
+# }
 ```

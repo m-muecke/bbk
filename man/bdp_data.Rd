@@ -37,7 +37,7 @@ End date of the data.}
 Return only the last \code{n} observations per series.}
 
 \item{lang}{(\code{character(1)})\cr
-Language for labels, either \code{"EN"} or \code{"PT"}.}
+Language for labels, either \code{"en"} or \code{"pt"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

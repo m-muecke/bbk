@@ -18,7 +18,7 @@ Optional dimension ID. If \code{NULL}, all dimensions for the domain are returne
 the categories within that dimension are returned.}
 
 \item{lang}{(\code{character(1)})\cr
-Language for labels, either \code{"EN"} or \code{"PT"}.}
+Language for labels, either \code{"en"} or \code{"pt"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with dimensions or categories.

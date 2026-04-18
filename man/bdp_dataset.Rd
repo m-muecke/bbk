@@ -14,7 +14,7 @@ bdp_dataset(domain_id, lang = "en")
 The domain ID. Use \code{\link[=bdp_domain]{bdp_domain()}} to list available domains.}
 
 \item{lang}{(\code{character(1)})\cr
-Language for labels, either \code{"EN"} or \code{"PT"}.}
+Language for labels, either \code{"en"} or \code{"pt"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with available datasets.

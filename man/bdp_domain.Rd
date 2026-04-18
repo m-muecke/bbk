@@ -14,7 +14,7 @@ bdp_domain(domain_id = NULL, lang = "en")
 Optional domain ID. If \code{NULL}, all domains are returned.}
 
 \item{lang}{(\code{character(1)})\cr
-Language for labels, either \code{"EN"} or \code{"PT"}.}
+Language for labels, either \code{"en"} or \code{"pt"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with available domains.

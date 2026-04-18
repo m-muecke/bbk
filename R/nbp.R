@@ -29,7 +29,7 @@ nbp_fx_rates <- function(
   last_n = NULL
 ) {
   assert_choice(table, c("a", "b", "c"))
-  assert_string(code, min.chars = 3L, null.ok = TRUE)
+  assert_string(code, n.chars = 3L, null.ok = TRUE)
   start_date <- assert_dateish(start_date, null.ok = TRUE)
   end_date <- assert_dateish(end_date, null.ok = TRUE)
   last_n <- assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)

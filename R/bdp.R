@@ -22,7 +22,7 @@
 #' @param last_n (`NULL` | `integer(1)`)\cr
 #'   Return only the last `n` observations per series.
 #' @param lang (`character(1)`)\cr
-#'   Language for labels, either `"EN"` or `"PT"`.
+#'   Language for labels, either `"en"` or `"pt"`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://bpstat.bportugal.pt/data/docs>
 #' @family data
@@ -112,8 +112,8 @@ bdp_freq <- function(dates) {
 #' @param series_ids (`integer()`)\cr
 #'   One or more series IDs to look up.
 #' @param lang (`character(1)`)\cr
-#'   Language for labels, either `"EN"` or `"PT"`.
-#' @returns A [data.table::data.table()] with series metadata including `domain_ids` and
+#'   Language for labels, either `"en"` or `"pt"`.
+#' @returns A [data.table::data.table()] with series metadata including `domain_id` and
 #'   `dataset_id`.
 #' @source <https://bpstat.bportugal.pt/data/docs>
 #' @family metadata

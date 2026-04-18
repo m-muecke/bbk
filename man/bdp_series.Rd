@@ -14,10 +14,10 @@ bdp_series(series_ids, lang = "en")
 One or more series IDs to look up.}
 
 \item{lang}{(\code{character(1)})\cr
-Language for labels, either \code{"EN"} or \code{"PT"}.}
+Language for labels, either \code{"en"} or \code{"pt"}.}
 }
 \value{
-A \code{\link[data.table:data.table]{data.table::data.table()}} with series metadata including \code{domain_ids} and
+A \code{\link[data.table:data.table]{data.table::data.table()}} with series metadata including \code{domain_id} and
 \code{dataset_id}.
 }
 \description{

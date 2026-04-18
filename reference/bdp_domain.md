@@ -23,7 +23,7 @@ bdp_domain(domain_id = NULL, lang = "en")
 - lang:
 
   (`character(1)`)  
-  Language for labels, either `"EN"` or `"PT"`.
+  Language for labels, either `"en"` or `"pt"`.
 
 ## Value
 

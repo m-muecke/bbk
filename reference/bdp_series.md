@@ -24,13 +24,13 @@ bdp_series(series_ids, lang = "en")
 - lang:
 
   (`character(1)`)  
-  Language for labels, either `"EN"` or `"PT"`.
+  Language for labels, either `"en"` or `"pt"`.
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with series metadata including `domain_ids` and `dataset_id`.
+with series metadata including `domain_id` and `dataset_id`.
 
 ## See also
 

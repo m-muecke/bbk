@@ -70,23 +70,26 @@ nob_metadata("dataflow")
 #>  1:            ANN_FX_SPU
 #>  2:              ANN_KPRA
 #>  3:              ANN_TEST
-#>  4:                   EXR
-#>  5:              FAUCTION
-#>  6:  FINANCIAL_INDICATORS
-#>  7:    GOVT_GENERIC_RATES
-#>  8:              GOVT_IRS
-#>  9:       GOVT_KEYFIGURES
-#> 10:   GOVT_PRIMARY_MARKET
-#> 11: GOVT_SECONDARY_MARKET
-#> 12:       GOVT_ZEROCOUPON
-#> 13:                    IR
-#> 14:    LIQUIDITY_FORECAST
-#> 15:  LIQUIDITY_STATISTICS
-#> 16:          MONEY_MARKET
-#> 17:                REGNET
-#> 18:                   SEC
-#> 19: SETTLEMENT_STATISTICS
-#> 20:           SHORT_RATES
+#>  4:          CBC_CALENDAR
+#>  5:       CBC_INSTRUMENTS
+#>  6:      CBC_TRANSACTIONS
+#>  7:                   EXR
+#>  8:              FAUCTION
+#>  9:  FINANCIAL_INDICATORS
+#> 10:    GOVT_GENERIC_RATES
+#> 11:              GOVT_IRS
+#> 12:       GOVT_KEYFIGURES
+#> 13:   GOVT_PRIMARY_MARKET
+#> 14: GOVT_SECONDARY_MARKET
+#> 15:       GOVT_ZEROCOUPON
+#> 16:                    IR
+#> 17:    LIQUIDITY_FORECAST
+#> 18:  LIQUIDITY_STATISTICS
+#> 19:          MONEY_MARKET
+#> 20:                REGNET
+#> 21:                   SEC
+#> 22: SETTLEMENT_STATISTICS
+#> 23:           SHORT_RATES
 #>                        id
 #>                    <char>
 #>                                                               name
@@ -94,23 +97,26 @@ nob_metadata("dataflow")
 #>  1: Announcement of foreign exchange transactions on behalf of SPU
 #>  2:                                   Key policy rate announcement
 #>  3:                                  Announcement of test messages
-#>  4:                                                 Exchange rates
-#>  5:                        Announcements and results of F-auctions
-#>  6:                                           Financial indicators
-#>  7:                                         Generic interest rates
-#>  8:                                            Interest rate swaps
-#>  9:                                  Key Goverment Debt Indicators
-#> 10:               Norwegian government securities – Primary market
-#> 11:             Norwegian government securities – Secondary market
-#> 12:           Norwegian government securities - Zero coupon yields
-#> 13:                                                    Policy rate
-#> 14:                       Structural liquidity and total liquidity
-#> 15:                                           Liquidity statistics
-#> 16:                                              Money market data
-#> 17:                                               Regional Network
-#> 18:            Norwegian government securities - Prices and yields
-#> 19:                                          Settlement Statistics
-#> 20:                                                    Short rates
+#>  4:                                 Central Bank Issuance Calendar
+#>  5:                              Central bank issuance instruments
+#>  6:                          Central bank certificate transactions
+#>  7:                                                 Exchange rates
+#>  8:                        Announcements and results of F-auctions
+#>  9:                                           Financial indicators
+#> 10:                                         Generic interest rates
+#> 11:                                            Interest rate swaps
+#> 12:                                  Key Goverment Debt Indicators
+#> 13:               Norwegian government securities – Primary market
+#> 14:             Norwegian government securities – Secondary market
+#> 15:           Norwegian government securities - Zero coupon yields
+#> 16:                                                    Policy rate
+#> 17:                       Structural liquidity and total liquidity
+#> 18:                                           Liquidity statistics
+#> 19:                                              Money market data
+#> 20:                                               Regional Network
+#> 21:            Norwegian government securities - Prices and yields
+#> 22:                                          Settlement Statistics
+#> 23:                                                    Short rates
 #>                                                               name
 #>                                                             <char>
 nob_metadata("datastructure")
@@ -119,23 +125,26 @@ nob_metadata("datastructure")
 #>  1:            DSD_ANN_FX_SPU
 #>  2:              DSD_ANN_KPRA
 #>  3:              DSD_ANN_TEST
-#>  4:                   DSD_EXR
-#>  5:              DSD_FAUCTION
-#>  6:  DSD_FINANCIAL_INDICATORS
-#>  7:    DSD_GOVT_GENERIC_RATES
-#>  8:              DSD_GOVT_IRS
-#>  9:       DSD_GOVT_KEYFIGURES
-#> 10:   DSD_GOVT_PRIMARY_MARKET
-#> 11: DSD_GOVT_SECONDARY_MARKET
-#> 12:       DSD_GOVT_ZEROCOUPON
-#> 13:                    DSD_IR
-#> 14:    DSD_LIQUIDITY_FORECAST
-#> 15:  DSD_LIQUIDITY_STATISTICS
-#> 16:          DSD_MONEY_MARKET
-#> 17:                DSD_REGNET
-#> 18:                   DSD_SEC
-#> 19: DSD_SETTLEMENT_STATISTICS
-#> 20:           DSD_SHORT_RATES
+#>  4:          DSD_CBC_CALENDAR
+#>  5:       DSD_CBC_INSTRUMENTS
+#>  6:      DSD_CBC_TRANSACTIONS
+#>  7:                   DSD_EXR
+#>  8:              DSD_FAUCTION
+#>  9:  DSD_FINANCIAL_INDICATORS
+#> 10:    DSD_GOVT_GENERIC_RATES
+#> 11:              DSD_GOVT_IRS
+#> 12:       DSD_GOVT_KEYFIGURES
+#> 13:   DSD_GOVT_PRIMARY_MARKET
+#> 14: DSD_GOVT_SECONDARY_MARKET
+#> 15:       DSD_GOVT_ZEROCOUPON
+#> 16:                    DSD_IR
+#> 17:    DSD_LIQUIDITY_FORECAST
+#> 18:  DSD_LIQUIDITY_STATISTICS
+#> 19:          DSD_MONEY_MARKET
+#> 20:                DSD_REGNET
+#> 21:                   DSD_SEC
+#> 22: DSD_SETTLEMENT_STATISTICS
+#> 23:           DSD_SHORT_RATES
 #>                            id
 #>                        <char>
 #>                                                     name
@@ -143,23 +152,26 @@ nob_metadata("datastructure")
 #>  1: Announcement of foreign exchange transaction for SPU
 #>  2:                         Key policy rate announcement
 #>  3:                        Announcement of test messages
-#>  4:                                       Exchange rates
-#>  5:              Announcements and results of F-auctions
-#>  6:                                 Financial indicators
-#>  7:                               Generic interest rates
-#>  8:                                  Interest rate swaps
-#>  9:                Norwegian government debt key figures
-#> 10:                                       Primary market
-#> 11:                            Secondary Market turnover
-#> 12:             Government securities Zero coupons rates
-#> 13:                                          Policy rate
-#> 14:             Structural liquidity and total liquidity
-#> 15:                                 Liquidity statistics
-#> 16:                                 Money Market Figures
-#> 17:                                     Regional Network
-#> 18:                                           Securities
-#> 19:                                Settlement Statistics
-#> 20:                                 Short Interest rates
+#>  4:            Central bank certificate auction calendar
+#>  5:                             Central bank instruments
+#>  6:                Central bank certificate transactions
+#>  7:                                       Exchange rates
+#>  8:              Announcements and results of F-auctions
+#>  9:                                 Financial indicators
+#> 10:                               Generic interest rates
+#> 11:                                  Interest rate swaps
+#> 12:                Norwegian government debt key figures
+#> 13:                                       Primary market
+#> 14:                            Secondary Market turnover
+#> 15:             Government securities Zero coupons rates
+#> 16:                                          Policy rate
+#> 17:             Structural liquidity and total liquidity
+#> 18:                                 Liquidity statistics
+#> 19:                                 Money Market Figures
+#> 20:                                     Regional Network
+#> 21:                                           Securities
+#> 22:                                Settlement Statistics
+#> 23:                                 Short Interest rates
 #>                                                     name
 #>                                                   <char>
 nob_metadata("codelist", "CL_CURRENCY")

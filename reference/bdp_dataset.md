@@ -24,7 +24,7 @@ bdp_dataset(domain_id, lang = "en")
 - lang:
 
   (`character(1)`)  
-  Language for labels, either `"EN"` or `"PT"`.
+  Language for labels, either `"en"` or `"pt"`.
 
 ## Value
 

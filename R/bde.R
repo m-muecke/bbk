@@ -73,7 +73,7 @@ parse_bde_data <- function(json) {
         setnames(c("name", "value"))
       name <- NULL
       meta[, name := tolower(name)]
-      meta[, name := gsub(" ", "_", tolower(name), fixed = TRUE)]
+      meta[, name := chartr(" ", "_", tolower(name))]
       meta[, name := gsub("[()]", "", name)]
       exclude <- c(
         "name",

@@ -52,7 +52,7 @@ parse_boe_data <- function(xml) {
         tolower()
       attrs <- xml2::xml_find_all(x, "./Cube[@CAT_NAME]")
       nms <- xml2::xml_attr(attrs, "CAT_NAME")
-      nms <- gsub(" ", "_", tolower(nms), fixed = TRUE)
+      nms <- chartr(" ", "_", tolower(nms))
       attrs <- attrs |>
         xml2::xml_attr("VAL_DESC") |>
         setNames(nms) |>

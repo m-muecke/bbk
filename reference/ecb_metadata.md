@@ -96,80 +96,81 @@ ecb_metadata("datastructure")
 #> 14:      ECB        ECB_DCM1
 #> 15:      ECB         ECB_DD1
 #> 16:      ECB        ECB_DWA1
-#> 17:      ECB        ECB_EON1
-#> 18:      ECB        ECB_ESA1
-#> 19:      ECB        ECB_EST1
-#> 20:      ECB        ECB_EWT1
-#> 21:      ECB        ECB_EXR1
-#> 22:      ECB        ECB_FCT1
-#> 23:      ECB        ECB_FMD2
-#> 24:      ECB        ECB_FVC1
-#> 25:      ECB        ECB_FXS1
-#> 26:      ECB        ECB_GST1
-#> 27:      ECB        ECB_ICO1
-#> 28:      ECB        ECB_ICP1
-#> 29:      ECB        ECB_ICP2
-#> 30:      ECB        ECB_ICP3
-#> 31:      ECB       ECB_ICPF1
-#> 32:      ECB        ECB_IFI1
-#> 33:      ECB        ECB_ILM1
-#> 34:      ECB        ECB_IRS1
-#> 35:      ECB        ECB_IVF1
-#> 36:      ECB        ECB_LIG1
-#> 37:      ECB        ECB_MFI1
-#> 38:      ECB        ECB_MIR1
-#> 39:      ECB        ECB_MMS1
-#> 40:      ECB       ECB_MMSR1
-#> 41:      ECB        ECB_MPD1
-#> 42:      ECB        ECB_OFI1
-#> 43:      ECB        ECB_OMO1
-#> 44:      ECB        ECB_PAY1
-#> 45:      ECB       ECB_PAY10
-#> 46:      ECB       ECB_PAY11
-#> 47:      ECB       ECB_PAY12
-#> 48:      ECB       ECB_PAY13
-#> 49:      ECB       ECB_PAY14
-#> 50:      ECB        ECB_PAY2
-#> 51:      ECB        ECB_PAY3
-#> 52:      ECB        ECB_PAY4
-#> 53:      ECB        ECB_PAY5
-#> 54:      ECB        ECB_PAY6
-#> 55:      ECB        ECB_PAY7
-#> 56:      ECB        ECB_PAY8
-#> 57:      ECB        ECB_PAY9
-#> 58:      ECB        ECB_PFM1
-#> 59:      ECB        ECB_PSS1
-#> 60:      ECB        ECB_RAI1
-#> 61:      ECB        ECB_RES1
-#> 62:      ECB        ECB_RIR2
-#> 63:      ECB        ECB_RPP1
-#> 64:      ECB        ECB_RTD1
-#> 65:      ECB        ECB_SAFE
-#> 66:      ECB        ECB_SEC1
-#> 67:      ECB        ECB_SEE1
-#> 68:      ECB      ECB_SESFOD
-#> 69:      ECB        ECB_SHI1
-#> 70:      ECB        ECB_SHS6
-#> 71:      ECB        ECB_SSI1
-#> 72:      ECB        ECB_SSS1
-#> 73:      ECB        ECB_STP1
-#> 74:      ECB        ECB_STS1
-#> 75:      ECB        ECB_SUP1
-#> 76:      ECB        ECB_SUR1
-#> 77:      ECB        ECB_SUR2
-#> 78:      ECB        ECB_TGB1
-#> 79:      ECB        ECB_TRD1
-#> 80:      ECB        ECB_WTS1
-#> 81:      ECB EUROSTAT_BOP_01
-#> 82:    ESTAT             JVS
-#> 83:    ESTAT             LCI
-#> 84:    ESTAT         NA_MAIN
-#> 85:    ESTAT          NA_SEC
-#> 86: EUROSTAT    ESTAT_ESAIEA
-#> 87: EUROSTAT   EUROSTAT_JVC2
-#> 88: EUROSTAT   EUROSTAT_LFS1
-#> 89:      IMF             BOP
-#> 90:      IMF         BOP1_15
+#> 17:      ECB       ECB_EMMS1
+#> 18:      ECB        ECB_EON1
+#> 19:      ECB        ECB_ESA1
+#> 20:      ECB        ECB_EST1
+#> 21:      ECB        ECB_EWT1
+#> 22:      ECB        ECB_EXR1
+#> 23:      ECB        ECB_FCT1
+#> 24:      ECB        ECB_FMD2
+#> 25:      ECB        ECB_FVC1
+#> 26:      ECB        ECB_FXS1
+#> 27:      ECB        ECB_GST1
+#> 28:      ECB        ECB_ICO1
+#> 29:      ECB        ECB_ICP1
+#> 30:      ECB        ECB_ICP2
+#> 31:      ECB        ECB_ICP3
+#> 32:      ECB       ECB_ICPF1
+#> 33:      ECB        ECB_IFI1
+#> 34:      ECB        ECB_ILM1
+#> 35:      ECB        ECB_IRS1
+#> 36:      ECB        ECB_IVF1
+#> 37:      ECB        ECB_LIG1
+#> 38:      ECB        ECB_MFI1
+#> 39:      ECB        ECB_MIR1
+#> 40:      ECB        ECB_MMS1
+#> 41:      ECB       ECB_MMSR1
+#> 42:      ECB        ECB_MPD1
+#> 43:      ECB        ECB_OFI1
+#> 44:      ECB        ECB_OMO1
+#> 45:      ECB        ECB_PAY1
+#> 46:      ECB       ECB_PAY10
+#> 47:      ECB       ECB_PAY11
+#> 48:      ECB       ECB_PAY12
+#> 49:      ECB       ECB_PAY13
+#> 50:      ECB       ECB_PAY14
+#> 51:      ECB        ECB_PAY2
+#> 52:      ECB        ECB_PAY3
+#> 53:      ECB        ECB_PAY4
+#> 54:      ECB        ECB_PAY5
+#> 55:      ECB        ECB_PAY6
+#> 56:      ECB        ECB_PAY7
+#> 57:      ECB        ECB_PAY8
+#> 58:      ECB        ECB_PAY9
+#> 59:      ECB        ECB_PFM1
+#> 60:      ECB        ECB_PSS1
+#> 61:      ECB        ECB_RAI1
+#> 62:      ECB        ECB_RES1
+#> 63:      ECB        ECB_RIR2
+#> 64:      ECB        ECB_RPP1
+#> 65:      ECB        ECB_RTD1
+#> 66:      ECB        ECB_SAFE
+#> 67:      ECB        ECB_SEC1
+#> 68:      ECB        ECB_SEE1
+#> 69:      ECB      ECB_SESFOD
+#> 70:      ECB        ECB_SHI1
+#> 71:      ECB        ECB_SHS6
+#> 72:      ECB        ECB_SSI1
+#> 73:      ECB        ECB_SSS1
+#> 74:      ECB        ECB_STP1
+#> 75:      ECB        ECB_STS1
+#> 76:      ECB        ECB_SUP1
+#> 77:      ECB        ECB_SUR1
+#> 78:      ECB        ECB_SUR2
+#> 79:      ECB        ECB_TGB1
+#> 80:      ECB        ECB_TRD1
+#> 81:      ECB        ECB_WTS1
+#> 82:      ECB EUROSTAT_BOP_01
+#> 83:    ESTAT             JVS
+#> 84:    ESTAT             LCI
+#> 85:    ESTAT         NA_MAIN
+#> 86:    ESTAT          NA_SEC
+#> 87: EUROSTAT    ESTAT_ESAIEA
+#> 88: EUROSTAT   EUROSTAT_JVC2
+#> 89: EUROSTAT   EUROSTAT_LFS1
+#> 90:      IMF             BOP
+#> 91:      IMF         BOP1_15
 #>       agency              id
 #>       <char>          <char>
 #>                                                                                                                        name
@@ -190,80 +191,81 @@ ecb_metadata("datastructure")
 #> 14:                                                                                                                Dealogic
 #> 15:                                                                                                            Derived Data
 #> 16:                                                                                          Distributional Wealth Accounts
-#> 17:                                                                                                     Internal Eonia Rate
-#> 18:                                                                                                 ESA95 National Accounts
-#> 19:                                                                                                    Euro Short-Term Rate
-#> 20:                                                                                                        ECB Wage Tracker
-#> 21:                                                                                                          Exchange Rates
-#> 22:                                                                                                                Forecast
-#> 23:                                                                 Financial market data (not related to foreign exchange)
-#> 24:                                                                    Financial Vehicle Corporation Assets and Liabilities
-#> 25:                                                    Foreign eXchange Statistics (foreign reserves & exchange operations)
-#> 26:                                                                                                   Government Statistics
-#> 27:                                                                                       Insurance corporations operations
-#> 28:                                                                                              Indices of Consumer Prices
+#> 17:                                                                                        Extended Money Market Statistics
+#> 18:                                                                                                     Internal Eonia Rate
+#> 19:                                                                                                 ESA95 National Accounts
+#> 20:                                                                                                    Euro Short-Term Rate
+#> 21:                                                                                                        ECB Wage Tracker
+#> 22:                                                                                                          Exchange Rates
+#> 23:                                                                                                                Forecast
+#> 24:                                                                 Financial market data (not related to foreign exchange)
+#> 25:                                                                    Financial Vehicle Corporation Assets and Liabilities
+#> 26:                                                    Foreign eXchange Statistics (foreign reserves & exchange operations)
+#> 27:                                                                                                   Government Statistics
+#> 28:                                                                                       Insurance corporations operations
 #> 29:                                                                                              Indices of Consumer Prices
 #> 30:                                                                                              Indices of Consumer Prices
-#> 31:                                                         Insurance corporations and pension funds assets and liabilities
-#> 32:                                                                                     Indicators of Financial Integration
-#> 33:                                                                                           Internal Liquidity Management
-#> 34:                                                                Interest Rate Statistics (2004 EU Member States & ACCBs)
-#> 35:                                                                                                        Investment Funds
-#> 36:                                                                                        Large Insurance Group Statistics
-#> 37:                                                                           MFI - List of monetary financial institutions
-#> 38:                                                                                            MFI Interest Rate Statistics
-#> 39:                                                                                                     Money Market Survey
-#> 40:                                                                                                 Money Market Statistics
-#> 41:                                                                                       Macroeconomic Projection database
-#> 42:                                                                                          Other Financial Intermediaries
-#> 43:                                                                                                  Open market operations
-#> 44:                                                                                  Payments transactions (Key indicators)
-#> 45:                                                                      Electronic card payments sent by merchant category
-#> 46:                                                     Number of cards issued by resident PSPs by card function and scheme
-#> 47:                                                      Number of terminals provided by resident PSPs by type and function
-#> 48:                                                                              Number of participants in payments systems
-#> 49:                                                                                        Transactions in payments systems
-#> 50:                                                                                 Credit transfers (including fraud data)
-#> 51:                                                                                    Direct debits (including fraud data)
-#> 52:                                                                     E-money payment transactions (including fraud data)
-#> 53:                                                   Card payments and cash withdrawals using cards (including fraud data)
-#> 54:                                                                      Payment initiation services (including fraud data)
-#> 55:                                                                                 Losses due to fraud by liability bearer
-#> 56:                                                                                  ATM, OTC and POS terminal transactions
-#> 57:                                                                                   Payments transactions by PSP category
-#> 58:                                                                                        Pension funds` number of members
-#> 59:                                                                                          Payment and Settlement Systems
-#> 60:                                                                                              Risk Assessment Indicators
-#> 61:                                                                                                  Real Estate Statistics
-#> 62:                                                                                                   Retail Interest Rates
-#> 63:                                                                                   Residential Property Price Indicators
-#> 64:                                                        Real Time Database (context of Euro Area Business Cycle Network)
-#> 65:                                                         Survey on the Access to Finance of Small and Medium Enterprises
-#> 66:                                                                                                              Securities
-#> 67:                                                                                Securities Exchange (trading) Statistics
-#> 68: Survey on credit terms and conditions in euro-denominated securities financing and over-the-counter derivatives markets
-#> 69:                                                                                Structural Housing Indicators Statistics
-#> 70:                                                                                           Securities Holding Statistics
-#> 71:                                                                               Banking Structural Statistical Indicators
-#> 72:                                                                                        Securities Settlement Statistics
-#> 73:                                                                             Short-Term European Paper Statistics (STEP)
-#> 74:                                                                                                   Short-Term Statistics
-#> 75:                                                                                          Supervisory Banking Statistics
-#> 76:                                                                                                         Opinion Surveys
+#> 31:                                                                                              Indices of Consumer Prices
+#> 32:                                                         Insurance corporations and pension funds assets and liabilities
+#> 33:                                                                                     Indicators of Financial Integration
+#> 34:                                                                                           Internal Liquidity Management
+#> 35:                                                                Interest Rate Statistics (2004 EU Member States & ACCBs)
+#> 36:                                                                                                        Investment Funds
+#> 37:                                                                                        Large Insurance Group Statistics
+#> 38:                                                                           MFI - List of monetary financial institutions
+#> 39:                                                                                            MFI Interest Rate Statistics
+#> 40:                                                                                                     Money Market Survey
+#> 41:                                                                                                 Money Market Statistics
+#> 42:                                                                                       Macroeconomic Projection database
+#> 43:                                                                                          Other Financial Intermediaries
+#> 44:                                                                                                  Open market operations
+#> 45:                                                                                  Payments transactions (Key indicators)
+#> 46:                                                                      Electronic card payments sent by merchant category
+#> 47:                                                     Number of cards issued by resident PSPs by card function and scheme
+#> 48:                                                      Number of terminals provided by resident PSPs by type and function
+#> 49:                                                                              Number of participants in payments systems
+#> 50:                                                                                        Transactions in payments systems
+#> 51:                                                                                 Credit transfers (including fraud data)
+#> 52:                                                                                    Direct debits (including fraud data)
+#> 53:                                                                     E-money payment transactions (including fraud data)
+#> 54:                                                   Card payments and cash withdrawals using cards (including fraud data)
+#> 55:                                                                      Payment initiation services (including fraud data)
+#> 56:                                                                                 Losses due to fraud by liability bearer
+#> 57:                                                                                  ATM, OTC and POS terminal transactions
+#> 58:                                                                                   Payments transactions by PSP category
+#> 59:                                                                                        Pension funds` number of members
+#> 60:                                                                                          Payment and Settlement Systems
+#> 61:                                                                                              Risk Assessment Indicators
+#> 62:                                                                                                  Real Estate Statistics
+#> 63:                                                                                                   Retail Interest Rates
+#> 64:                                                                                   Residential Property Price Indicators
+#> 65:                                                        Real Time Database (context of Euro Area Business Cycle Network)
+#> 66:                                                         Survey on the Access to Finance of Small and Medium Enterprises
+#> 67:                                                                                                              Securities
+#> 68:                                                                                Securities Exchange (trading) Statistics
+#> 69: Survey on credit terms and conditions in euro-denominated securities financing and over-the-counter derivatives markets
+#> 70:                                                                                Structural Housing Indicators Statistics
+#> 71:                                                                                           Securities Holding Statistics
+#> 72:                                                                               Banking Structural Statistical Indicators
+#> 73:                                                                                        Securities Settlement Statistics
+#> 74:                                                                             Short-Term European Paper Statistics (STEP)
+#> 75:                                                                                                   Short-Term Statistics
+#> 76:                                                                                          Supervisory Banking Statistics
 #> 77:                                                                                                         Opinion Surveys
-#> 78:                                                                                                         Target Balances
-#> 79:                                                                                                          External Trade
-#> 80:                                                            Overall, Import, Export and Double Export Weights Statistics
-#> 81:                                                                                            Eurostat Balance of Payments
-#> 82:                                                                                                  Job Vacancy Statistics
-#> 83:                                                                                                       Labour Cost Index
-#> 84:                                                                                        National Account Main Aggregates
-#> 85:                                                                                                National Sector Accounts
-#> 86:                                                                                                                  Sector
-#> 87:                                                                                                  Job Vacancy Statistics
-#> 88:                                                                                                     Labour Force Survey
-#> 89:                                                                          Balance of Payments, I.I.P. and Reserve Assets
-#> 90:                                                                   Balance of Payments, I.I.P. and Reserve Assets, v1.15
+#> 78:                                                                                                         Opinion Surveys
+#> 79:                                                                                                         Target Balances
+#> 80:                                                                                                          External Trade
+#> 81:                                                            Overall, Import, Export and Double Export Weights Statistics
+#> 82:                                                                                            Eurostat Balance of Payments
+#> 83:                                                                                                  Job Vacancy Statistics
+#> 84:                                                                                                       Labour Cost Index
+#> 85:                                                                                        National Account Main Aggregates
+#> 86:                                                                                                National Sector Accounts
+#> 87:                                                                                                                  Sector
+#> 88:                                                                                                  Job Vacancy Statistics
+#> 89:                                                                                                     Labour Force Survey
+#> 90:                                                                          Balance of Payments, I.I.P. and Reserve Assets
+#> 91:                                                                   Balance of Payments, I.I.P. and Reserve Assets, v1.15
 #>                                                                                                                        name
 #>                                                                                                                      <char>
 ecb_metadata("datastructure", "ECB")
@@ -285,71 +287,72 @@ ecb_metadata("datastructure", "ECB")
 #> 14:    ECB        ECB_DCM1
 #> 15:    ECB         ECB_DD1
 #> 16:    ECB        ECB_DWA1
-#> 17:    ECB        ECB_EON1
-#> 18:    ECB        ECB_ESA1
-#> 19:    ECB        ECB_EST1
-#> 20:    ECB        ECB_EWT1
-#> 21:    ECB        ECB_EXR1
-#> 22:    ECB        ECB_FCT1
-#> 23:    ECB        ECB_FMD2
-#> 24:    ECB        ECB_FVC1
-#> 25:    ECB        ECB_FXS1
-#> 26:    ECB        ECB_GST1
-#> 27:    ECB        ECB_ICO1
-#> 28:    ECB        ECB_ICP1
-#> 29:    ECB        ECB_ICP2
-#> 30:    ECB        ECB_ICP3
-#> 31:    ECB       ECB_ICPF1
-#> 32:    ECB        ECB_IFI1
-#> 33:    ECB        ECB_ILM1
-#> 34:    ECB        ECB_IRS1
-#> 35:    ECB        ECB_IVF1
-#> 36:    ECB        ECB_LIG1
-#> 37:    ECB        ECB_MFI1
-#> 38:    ECB        ECB_MIR1
-#> 39:    ECB        ECB_MMS1
-#> 40:    ECB       ECB_MMSR1
-#> 41:    ECB        ECB_MPD1
-#> 42:    ECB        ECB_OFI1
-#> 43:    ECB        ECB_OMO1
-#> 44:    ECB        ECB_PAY1
-#> 45:    ECB       ECB_PAY10
-#> 46:    ECB       ECB_PAY11
-#> 47:    ECB       ECB_PAY12
-#> 48:    ECB       ECB_PAY13
-#> 49:    ECB       ECB_PAY14
-#> 50:    ECB        ECB_PAY2
-#> 51:    ECB        ECB_PAY3
-#> 52:    ECB        ECB_PAY4
-#> 53:    ECB        ECB_PAY5
-#> 54:    ECB        ECB_PAY6
-#> 55:    ECB        ECB_PAY7
-#> 56:    ECB        ECB_PAY8
-#> 57:    ECB        ECB_PAY9
-#> 58:    ECB        ECB_PFM1
-#> 59:    ECB        ECB_PSS1
-#> 60:    ECB        ECB_RAI1
-#> 61:    ECB        ECB_RES1
-#> 62:    ECB        ECB_RIR2
-#> 63:    ECB        ECB_RPP1
-#> 64:    ECB        ECB_RTD1
-#> 65:    ECB        ECB_SAFE
-#> 66:    ECB        ECB_SEC1
-#> 67:    ECB        ECB_SEE1
-#> 68:    ECB      ECB_SESFOD
-#> 69:    ECB        ECB_SHI1
-#> 70:    ECB        ECB_SHS6
-#> 71:    ECB        ECB_SSI1
-#> 72:    ECB        ECB_SSS1
-#> 73:    ECB        ECB_STP1
-#> 74:    ECB        ECB_STS1
-#> 75:    ECB        ECB_SUP1
-#> 76:    ECB        ECB_SUR1
-#> 77:    ECB        ECB_SUR2
-#> 78:    ECB        ECB_TGB1
-#> 79:    ECB        ECB_TRD1
-#> 80:    ECB        ECB_WTS1
-#> 81:    ECB EUROSTAT_BOP_01
+#> 17:    ECB       ECB_EMMS1
+#> 18:    ECB        ECB_EON1
+#> 19:    ECB        ECB_ESA1
+#> 20:    ECB        ECB_EST1
+#> 21:    ECB        ECB_EWT1
+#> 22:    ECB        ECB_EXR1
+#> 23:    ECB        ECB_FCT1
+#> 24:    ECB        ECB_FMD2
+#> 25:    ECB        ECB_FVC1
+#> 26:    ECB        ECB_FXS1
+#> 27:    ECB        ECB_GST1
+#> 28:    ECB        ECB_ICO1
+#> 29:    ECB        ECB_ICP1
+#> 30:    ECB        ECB_ICP2
+#> 31:    ECB        ECB_ICP3
+#> 32:    ECB       ECB_ICPF1
+#> 33:    ECB        ECB_IFI1
+#> 34:    ECB        ECB_ILM1
+#> 35:    ECB        ECB_IRS1
+#> 36:    ECB        ECB_IVF1
+#> 37:    ECB        ECB_LIG1
+#> 38:    ECB        ECB_MFI1
+#> 39:    ECB        ECB_MIR1
+#> 40:    ECB        ECB_MMS1
+#> 41:    ECB       ECB_MMSR1
+#> 42:    ECB        ECB_MPD1
+#> 43:    ECB        ECB_OFI1
+#> 44:    ECB        ECB_OMO1
+#> 45:    ECB        ECB_PAY1
+#> 46:    ECB       ECB_PAY10
+#> 47:    ECB       ECB_PAY11
+#> 48:    ECB       ECB_PAY12
+#> 49:    ECB       ECB_PAY13
+#> 50:    ECB       ECB_PAY14
+#> 51:    ECB        ECB_PAY2
+#> 52:    ECB        ECB_PAY3
+#> 53:    ECB        ECB_PAY4
+#> 54:    ECB        ECB_PAY5
+#> 55:    ECB        ECB_PAY6
+#> 56:    ECB        ECB_PAY7
+#> 57:    ECB        ECB_PAY8
+#> 58:    ECB        ECB_PAY9
+#> 59:    ECB        ECB_PFM1
+#> 60:    ECB        ECB_PSS1
+#> 61:    ECB        ECB_RAI1
+#> 62:    ECB        ECB_RES1
+#> 63:    ECB        ECB_RIR2
+#> 64:    ECB        ECB_RPP1
+#> 65:    ECB        ECB_RTD1
+#> 66:    ECB        ECB_SAFE
+#> 67:    ECB        ECB_SEC1
+#> 68:    ECB        ECB_SEE1
+#> 69:    ECB      ECB_SESFOD
+#> 70:    ECB        ECB_SHI1
+#> 71:    ECB        ECB_SHS6
+#> 72:    ECB        ECB_SSI1
+#> 73:    ECB        ECB_SSS1
+#> 74:    ECB        ECB_STP1
+#> 75:    ECB        ECB_STS1
+#> 76:    ECB        ECB_SUP1
+#> 77:    ECB        ECB_SUR1
+#> 78:    ECB        ECB_SUR2
+#> 79:    ECB        ECB_TGB1
+#> 80:    ECB        ECB_TRD1
+#> 81:    ECB        ECB_WTS1
+#> 82:    ECB EUROSTAT_BOP_01
 #>     agency              id
 #>     <char>          <char>
 #>                                                                                                                        name
@@ -370,71 +373,72 @@ ecb_metadata("datastructure", "ECB")
 #> 14:                                                                                                                Dealogic
 #> 15:                                                                                                            Derived Data
 #> 16:                                                                                          Distributional Wealth Accounts
-#> 17:                                                                                                     Internal Eonia Rate
-#> 18:                                                                                                 ESA95 National Accounts
-#> 19:                                                                                                    Euro Short-Term Rate
-#> 20:                                                                                                        ECB Wage Tracker
-#> 21:                                                                                                          Exchange Rates
-#> 22:                                                                                                                Forecast
-#> 23:                                                                 Financial market data (not related to foreign exchange)
-#> 24:                                                                    Financial Vehicle Corporation Assets and Liabilities
-#> 25:                                                    Foreign eXchange Statistics (foreign reserves & exchange operations)
-#> 26:                                                                                                   Government Statistics
-#> 27:                                                                                       Insurance corporations operations
-#> 28:                                                                                              Indices of Consumer Prices
+#> 17:                                                                                        Extended Money Market Statistics
+#> 18:                                                                                                     Internal Eonia Rate
+#> 19:                                                                                                 ESA95 National Accounts
+#> 20:                                                                                                    Euro Short-Term Rate
+#> 21:                                                                                                        ECB Wage Tracker
+#> 22:                                                                                                          Exchange Rates
+#> 23:                                                                                                                Forecast
+#> 24:                                                                 Financial market data (not related to foreign exchange)
+#> 25:                                                                    Financial Vehicle Corporation Assets and Liabilities
+#> 26:                                                    Foreign eXchange Statistics (foreign reserves & exchange operations)
+#> 27:                                                                                                   Government Statistics
+#> 28:                                                                                       Insurance corporations operations
 #> 29:                                                                                              Indices of Consumer Prices
 #> 30:                                                                                              Indices of Consumer Prices
-#> 31:                                                         Insurance corporations and pension funds assets and liabilities
-#> 32:                                                                                     Indicators of Financial Integration
-#> 33:                                                                                           Internal Liquidity Management
-#> 34:                                                                Interest Rate Statistics (2004 EU Member States & ACCBs)
-#> 35:                                                                                                        Investment Funds
-#> 36:                                                                                        Large Insurance Group Statistics
-#> 37:                                                                           MFI - List of monetary financial institutions
-#> 38:                                                                                            MFI Interest Rate Statistics
-#> 39:                                                                                                     Money Market Survey
-#> 40:                                                                                                 Money Market Statistics
-#> 41:                                                                                       Macroeconomic Projection database
-#> 42:                                                                                          Other Financial Intermediaries
-#> 43:                                                                                                  Open market operations
-#> 44:                                                                                  Payments transactions (Key indicators)
-#> 45:                                                                      Electronic card payments sent by merchant category
-#> 46:                                                     Number of cards issued by resident PSPs by card function and scheme
-#> 47:                                                      Number of terminals provided by resident PSPs by type and function
-#> 48:                                                                              Number of participants in payments systems
-#> 49:                                                                                        Transactions in payments systems
-#> 50:                                                                                 Credit transfers (including fraud data)
-#> 51:                                                                                    Direct debits (including fraud data)
-#> 52:                                                                     E-money payment transactions (including fraud data)
-#> 53:                                                   Card payments and cash withdrawals using cards (including fraud data)
-#> 54:                                                                      Payment initiation services (including fraud data)
-#> 55:                                                                                 Losses due to fraud by liability bearer
-#> 56:                                                                                  ATM, OTC and POS terminal transactions
-#> 57:                                                                                   Payments transactions by PSP category
-#> 58:                                                                                        Pension funds` number of members
-#> 59:                                                                                          Payment and Settlement Systems
-#> 60:                                                                                              Risk Assessment Indicators
-#> 61:                                                                                                  Real Estate Statistics
-#> 62:                                                                                                   Retail Interest Rates
-#> 63:                                                                                   Residential Property Price Indicators
-#> 64:                                                        Real Time Database (context of Euro Area Business Cycle Network)
-#> 65:                                                         Survey on the Access to Finance of Small and Medium Enterprises
-#> 66:                                                                                                              Securities
-#> 67:                                                                                Securities Exchange (trading) Statistics
-#> 68: Survey on credit terms and conditions in euro-denominated securities financing and over-the-counter derivatives markets
-#> 69:                                                                                Structural Housing Indicators Statistics
-#> 70:                                                                                           Securities Holding Statistics
-#> 71:                                                                               Banking Structural Statistical Indicators
-#> 72:                                                                                        Securities Settlement Statistics
-#> 73:                                                                             Short-Term European Paper Statistics (STEP)
-#> 74:                                                                                                   Short-Term Statistics
-#> 75:                                                                                          Supervisory Banking Statistics
-#> 76:                                                                                                         Opinion Surveys
+#> 31:                                                                                              Indices of Consumer Prices
+#> 32:                                                         Insurance corporations and pension funds assets and liabilities
+#> 33:                                                                                     Indicators of Financial Integration
+#> 34:                                                                                           Internal Liquidity Management
+#> 35:                                                                Interest Rate Statistics (2004 EU Member States & ACCBs)
+#> 36:                                                                                                        Investment Funds
+#> 37:                                                                                        Large Insurance Group Statistics
+#> 38:                                                                           MFI - List of monetary financial institutions
+#> 39:                                                                                            MFI Interest Rate Statistics
+#> 40:                                                                                                     Money Market Survey
+#> 41:                                                                                                 Money Market Statistics
+#> 42:                                                                                       Macroeconomic Projection database
+#> 43:                                                                                          Other Financial Intermediaries
+#> 44:                                                                                                  Open market operations
+#> 45:                                                                                  Payments transactions (Key indicators)
+#> 46:                                                                      Electronic card payments sent by merchant category
+#> 47:                                                     Number of cards issued by resident PSPs by card function and scheme
+#> 48:                                                      Number of terminals provided by resident PSPs by type and function
+#> 49:                                                                              Number of participants in payments systems
+#> 50:                                                                                        Transactions in payments systems
+#> 51:                                                                                 Credit transfers (including fraud data)
+#> 52:                                                                                    Direct debits (including fraud data)
+#> 53:                                                                     E-money payment transactions (including fraud data)
+#> 54:                                                   Card payments and cash withdrawals using cards (including fraud data)
+#> 55:                                                                      Payment initiation services (including fraud data)
+#> 56:                                                                                 Losses due to fraud by liability bearer
+#> 57:                                                                                  ATM, OTC and POS terminal transactions
+#> 58:                                                                                   Payments transactions by PSP category
+#> 59:                                                                                        Pension funds` number of members
+#> 60:                                                                                          Payment and Settlement Systems
+#> 61:                                                                                              Risk Assessment Indicators
+#> 62:                                                                                                  Real Estate Statistics
+#> 63:                                                                                                   Retail Interest Rates
+#> 64:                                                                                   Residential Property Price Indicators
+#> 65:                                                        Real Time Database (context of Euro Area Business Cycle Network)
+#> 66:                                                         Survey on the Access to Finance of Small and Medium Enterprises
+#> 67:                                                                                                              Securities
+#> 68:                                                                                Securities Exchange (trading) Statistics
+#> 69: Survey on credit terms and conditions in euro-denominated securities financing and over-the-counter derivatives markets
+#> 70:                                                                                Structural Housing Indicators Statistics
+#> 71:                                                                                           Securities Holding Statistics
+#> 72:                                                                               Banking Structural Statistical Indicators
+#> 73:                                                                                        Securities Settlement Statistics
+#> 74:                                                                             Short-Term European Paper Statistics (STEP)
+#> 75:                                                                                                   Short-Term Statistics
+#> 76:                                                                                          Supervisory Banking Statistics
 #> 77:                                                                                                         Opinion Surveys
-#> 78:                                                                                                         Target Balances
-#> 79:                                                                                                          External Trade
-#> 80:                                                            Overall, Import, Export and Double Export Weights Statistics
-#> 81:                                                                                            Eurostat Balance of Payments
+#> 78:                                                                                                         Opinion Surveys
+#> 79:                                                                                                         Target Balances
+#> 80:                                                                                                          External Trade
+#> 81:                                                            Overall, Import, Export and Double Export Weights Statistics
+#> 82:                                                                                            Eurostat Balance of Payments
 #>                                                                                                                        name
 #>                                                                                                                      <char>
 ecb_metadata("datastructure", "ECB", "ECB_EXR1")

@@ -75,9 +75,9 @@ bdp_dataset(54L)
 #> 4:                                                                                                                                          Expenditure aggregates; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Reference territory; Unit of measure
 #>    num_series      obs_updated_at
 #>         <int>              <POSc>
-#> 1:         89 2026-03-09 16:30:00
+#> 1:         91 2026-04-21 15:30:00
 #> 2:          3 2025-10-28 17:00:00
-#> 3:          5 2026-03-09 16:30:00
-#> 4:        412 2026-03-06 17:00:00
+#> 3:          5 2026-04-21 15:30:00
+#> 4:        412 2026-04-20 16:00:00
 # }
 ```

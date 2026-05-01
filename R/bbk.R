@@ -20,7 +20,7 @@
 #' @param end_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   The end date of the data, in the same format as start_period. If `NULL`, no end date
 #'   restriction is applied (data retrieved up to the most recent available date). Default `NULL`.
-#' @param first_n (`NULL` | `numeric(1)`) \cr
+#' @param first_n (`NULL` | `numeric(1)`)\cr
 #'   Number of observations to retrieve from the start of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
 #' @param last_n (`NULL` | `numeric(1)`)\cr

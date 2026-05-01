@@ -41,7 +41,7 @@ date). Default \code{NULL}.}
 The end date of the data, in the same format as start_period. If \code{NULL}, no end date
 restriction is applied (data retrieved up to the most recent available date). Default \code{NULL}.}
 
-\item{first_n}{(\code{NULL} | \code{numeric(1)}) \cr
+\item{first_n}{(\code{NULL} | \code{numeric(1)})\cr
 Number of observations to retrieve from the start of the series. If \code{NULL}, no restriction is
 applied. Default \code{NULL}.}
 

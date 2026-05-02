@@ -27,26 +27,26 @@ srb_series()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other metadata: 
-\code{\link{bbk_dimension}()},
-\code{\link{bbk_metadata}()},
-\code{\link{bdp_dataset}()},
-\code{\link{bdp_dimension}()},
-\code{\link{bdp_domain}()},
-\code{\link{bdp_series}()},
-\code{\link{bis_dimension}()},
-\code{\link{bis_metadata}()},
-\code{\link{boj_metadata}()},
-\code{\link{ecb_dimension}()},
-\code{\link{ecb_metadata}()},
-\code{\link{nob_dimension}()},
-\code{\link{nob_metadata}()},
-\code{\link{onb_dimension}()},
-\code{\link{onb_frequency}()},
-\code{\link{onb_hierarchy}()},
-\code{\link{onb_metadata}()},
-\code{\link{onb_toc}()},
-\code{\link{snb_dimension}()},
-\code{\link{srb_calendar}()}
+Other metadata:
+\code{\link[=bbk_dimension]{bbk_dimension()}},
+\code{\link[=bbk_metadata]{bbk_metadata()}},
+\code{\link[=bdp_dataset]{bdp_dataset()}},
+\code{\link[=bdp_dimension]{bdp_dimension()}},
+\code{\link[=bdp_domain]{bdp_domain()}},
+\code{\link[=bdp_series]{bdp_series()}},
+\code{\link[=bis_dimension]{bis_dimension()}},
+\code{\link[=bis_metadata]{bis_metadata()}},
+\code{\link[=boj_metadata]{boj_metadata()}},
+\code{\link[=ecb_dimension]{ecb_dimension()}},
+\code{\link[=ecb_metadata]{ecb_metadata()}},
+\code{\link[=nob_dimension]{nob_dimension()}},
+\code{\link[=nob_metadata]{nob_metadata()}},
+\code{\link[=onb_dimension]{onb_dimension()}},
+\code{\link[=onb_frequency]{onb_frequency()}},
+\code{\link[=onb_hierarchy]{onb_hierarchy()}},
+\code{\link[=onb_metadata]{onb_metadata()}},
+\code{\link[=onb_toc]{onb_toc()}},
+\code{\link[=snb_dimension]{snb_dimension()}},
+\code{\link[=srb_calendar]{srb_calendar()}}
 }
 \concept{metadata}

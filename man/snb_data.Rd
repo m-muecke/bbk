@@ -39,25 +39,25 @@ snb_data("rendopar", "2020-01-01", "2020-12-31")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other data: 
-\code{\link{bbk_data}()},
-\code{\link{bbk_series}()},
-\code{\link{bde_data}()},
-\code{\link{bde_latest}()},
-\code{\link{bdf_codelist}()},
-\code{\link{bdf_data}()},
-\code{\link{bdf_dataset}()},
-\code{\link{bdp_data}()},
-\code{\link{bis_data}()},
-\code{\link{boc_data}()},
-\code{\link{boe_data}()},
-\code{\link{boj_data}()},
-\code{\link{ecb_data}()},
-\code{\link{nbp_fx_rates}()},
-\code{\link{nbp_gold}()},
-\code{\link{nob_data}()},
-\code{\link{onb_data}()},
-\code{\link{srb_cross_rates}()},
-\code{\link{srb_data}()}
+Other data:
+\code{\link[=bbk_data]{bbk_data()}},
+\code{\link[=bbk_series]{bbk_series()}},
+\code{\link[=bde_data]{bde_data()}},
+\code{\link[=bde_latest]{bde_latest()}},
+\code{\link[=bdf_codelist]{bdf_codelist()}},
+\code{\link[=bdf_data]{bdf_data()}},
+\code{\link[=bdf_dataset]{bdf_dataset()}},
+\code{\link[=bdp_data]{bdp_data()}},
+\code{\link[=bis_data]{bis_data()}},
+\code{\link[=boc_data]{boc_data()}},
+\code{\link[=boe_data]{boe_data()}},
+\code{\link[=boj_data]{boj_data()}},
+\code{\link[=ecb_data]{ecb_data()}},
+\code{\link[=nbp_fx_rates]{nbp_fx_rates()}},
+\code{\link[=nbp_gold]{nbp_gold()}},
+\code{\link[=nob_data]{nob_data()}},
+\code{\link[=onb_data]{onb_data()}},
+\code{\link[=srb_cross_rates]{srb_cross_rates()}},
+\code{\link[=srb_data]{srb_data()}}
 }
 \concept{data}

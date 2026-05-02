@@ -37,12 +37,14 @@ You can install the released version of bbk from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 install.packages("bbk")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("m-muecke/bbk")
 ```
@@ -61,6 +63,7 @@ The typical workflow involves:
 2.  Using the appropriate bbk function to retrieve the data
 
 ``` r
+
 library(bbk)
 
 # Deutsche Bundesbank - fetch 10 year daily yield curve

@@ -12,6 +12,7 @@ bdp_data(
   start_date = NULL,
   end_date = NULL,
   last_n = NULL,
+  updated_after = NULL,
   lang = "en"
 )
 ```
@@ -53,6 +54,13 @@ bdp_data(
 
   (`NULL` \| `integer(1)`)  
   Return only the last `n` observations per series.
+
+- updated_after:
+
+  (`NULL` \| `character(1)` \| `Date(1)` \| `POSIXct(1)`)  
+  Retrieve only observations published after the given timestamp (e.g.,
+  `"2024-06-01T00:00:00"`). Useful for incremental retrieval. If `NULL`,
+  no restriction is applied. Default `NULL`.
 
 - lang:
 

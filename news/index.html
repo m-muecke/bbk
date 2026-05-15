@@ -41,6 +41,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="bbk-development-version">bbk (development version)<a class="anchor" aria-label="anchor" href="#bbk-development-version"></a></h2>
 <ul><li>
+<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, and <code><a href="../reference/bdp_data.html">bdp_data()</a></code> gained an <code>updated_after</code> argument for incremental retrieval of revised observations, matching the existing parameter on <code><a href="../reference/ecb_data.html">ecb_data()</a></code>. All four now accept a <code>Date</code>, <code>POSIXct</code>, or ISO 8601 string.</li>
+<li>
 <code><a href="../reference/bis_data.html">bis_data()</a></code> now requests the SDMX generic data format explicitly, fixing a silent regression where the BIS endpoint started returning structure-specific data and the parser produced zero rows.</li>
 <li>Support for Banco de Portugal (BdP) data.</li>
 <li>Support for Bank of Japan (BoJ) data.</li>

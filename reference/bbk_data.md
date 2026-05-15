@@ -11,7 +11,8 @@ bbk_data(
   start_period = NULL,
   end_period = NULL,
   first_n = NULL,
-  last_n = NULL
+  last_n = NULL,
+  updated_after = NULL
 )
 ```
 
@@ -71,6 +72,13 @@ bbk_data(
   (`NULL` \| `numeric(1)`)  
   Number of observations to retrieve from the end of the series. If
   `NULL`, no restriction is applied. Default `NULL`.
+
+- updated_after:
+
+  (`NULL` \| `character(1)` \| `Date(1)` \| `POSIXct(1)`)  
+  Retrieve only observations updated after the given timestamp (e.g.,
+  `"2024-06-01T00:00:00"`). Useful for incremental retrieval. If `NULL`,
+  no restriction is applied. Default `NULL`.
 
 ## Value
 

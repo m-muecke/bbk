@@ -2,6 +2,14 @@
 
 ## bbk (development version)
 
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
+  [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+  and
+  [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md)
+  gained an `updated_after` argument for incremental retrieval of
+  revised observations, matching the existing parameter on
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md).
+  All four now accept a `Date`, `POSIXct`, or ISO 8601 string.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now requests the SDMX generic data format explicitly, fixing a silent
   regression where the BIS endpoint started returning structure-specific

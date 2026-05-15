@@ -97,11 +97,11 @@ Other data:
 nob_data("EXR", "B.USD.NOK.SP", last_n = 5L)
 #>          date          key  value   freq base_cur quote_cur  tenor
 #>        <Date>       <char>  <num> <char>   <char>    <char> <char>
-#> 1: 2026-05-07 B.USD.NOK.SP 9.2332  daily      USD       NOK     SP
-#> 2: 2026-05-08 B.USD.NOK.SP 9.2012  daily      USD       NOK     SP
-#> 3: 2026-05-11 B.USD.NOK.SP 9.2031  daily      USD       NOK     SP
-#> 4: 2026-05-12 B.USD.NOK.SP 9.1762  daily      USD       NOK     SP
-#> 5: 2026-05-13 B.USD.NOK.SP 9.1690  daily      USD       NOK     SP
+#> 1: 2026-05-08 B.USD.NOK.SP 9.2012  daily      USD       NOK     SP
+#> 2: 2026-05-11 B.USD.NOK.SP 9.2031  daily      USD       NOK     SP
+#> 3: 2026-05-12 B.USD.NOK.SP 9.1762  daily      USD       NOK     SP
+#> 4: 2026-05-13 B.USD.NOK.SP 9.1690  daily      USD       NOK     SP
+#> 5: 2026-05-15 B.USD.NOK.SP 9.3266  daily      USD       NOK     SP
 
 # fetch multiple exchange rates
 nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
@@ -113,11 +113,11 @@ nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
 #>    4: 2024-01-05 B.USD.NOK.SP 10.3553  daily      USD       NOK     SP
 #>    5: 2024-01-08 B.USD.NOK.SP 10.3800  daily      USD       NOK     SP
 #>   ---                                                                 
-#> 1772: 2026-05-07 B.EUR.NOK.SP 10.8675  daily      EUR       NOK     SP
-#> 1773: 2026-05-08 B.EUR.NOK.SP 10.8215  daily      EUR       NOK     SP
-#> 1774: 2026-05-11 B.EUR.NOK.SP 10.8275  daily      EUR       NOK     SP
-#> 1775: 2026-05-12 B.EUR.NOK.SP 10.7710  daily      EUR       NOK     SP
-#> 1776: 2026-05-13 B.EUR.NOK.SP 10.7415  daily      EUR       NOK     SP
+#> 1775: 2026-05-08 B.EUR.NOK.SP 10.8215  daily      EUR       NOK     SP
+#> 1776: 2026-05-11 B.EUR.NOK.SP 10.8275  daily      EUR       NOK     SP
+#> 1777: 2026-05-12 B.EUR.NOK.SP 10.7710  daily      EUR       NOK     SP
+#> 1778: 2026-05-13 B.EUR.NOK.SP 10.7415  daily      EUR       NOK     SP
+#> 1779: 2026-05-15 B.EUR.NOK.SP 10.8450  daily      EUR       NOK     SP
 
 # fetch policy rate
 nob_data("IR", last_n = 5L)

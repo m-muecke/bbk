@@ -21,13 +21,7 @@
 #' \donttest{
 #' nbp_fx_rates("a", "eur")
 #' }
-nbp_fx_rates <- function(
-  table,
-  code = NULL,
-  start_date = NULL,
-  end_date = NULL,
-  last_n = NULL
-) {
+nbp_fx_rates <- function(table, code = NULL, start_date = NULL, end_date = NULL, last_n = NULL) {
   assert_choice(table, c("a", "b", "c"))
   assert_string(code, n.chars = 3L, null.ok = TRUE)
   start_date <- assert_dateish(start_date, null.ok = TRUE)
@@ -76,8 +70,7 @@ nbp_gold <- function(start_date = NULL, end_date = NULL, last_n = NULL) {
 
 parse_nbp_fx_rates <- function(json, table, code) {
   if (is.null(code)) {
-    # Table endpoint: [{effectiveDate, rates: [{currency, code, mid/bid/ask}]}]
-    tables <- if (is.null(json[[1L]]$table)) list(json) else json
+    tables <- if (is.null(json[[1L]]$table)) list(json) else json # nolint
     rows <- list()
     for (tbl in tables) {
       date <- tbl$effectiveDate
@@ -87,7 +80,6 @@ parse_nbp_fx_rates <- function(json, table, code) {
       }
     }
   } else {
-    # Single currency endpoint: {currency, code, rates: [{effectiveDate, mid/bid/ask}]}
     rows <- json$rates
     for (i in seq_along(rows)) {
       rows[[i]]$code <- json$code

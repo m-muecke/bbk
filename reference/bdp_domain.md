@@ -234,7 +234,7 @@ bdp_domain()
 #>  8:            BCS       TRUE        323            2
 #>  9:             BO       TRUE        128            1
 #> 10:             NA      FALSE         NA           NA
-#> 11:            CPI       TRUE        134            4
+#> 11:            CPI       TRUE        144            4
 #> 12:            PEU       TRUE        517           10
 #> 13:             MF      FALSE         NA           NA
 #> 14:            ERS      FALSE         NA           NA

@@ -26,6 +26,10 @@
 #' @param last_n (`NULL` | `numeric(1)`)\cr
 #'   Number of observations to retrieve from the end of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
+#' @param updated_after (`NULL` | `character(1)` | `Date(1)` | `POSIXct(1)`)\cr
+#'   Retrieve only observations updated after the given timestamp (e.g.,
+#'   `"2024-06-01T00:00:00"`). Useful for incremental retrieval. If `NULL`, no restriction is
+#'   applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
 #' @family data
@@ -61,7 +65,8 @@ bbk_data <- function(
   start_period = NULL,
   end_period = NULL,
   first_n = NULL,
-  last_n = NULL
+  last_n = NULL,
+  updated_after = NULL
 ) {
   assert_string(flow, min.chars = 5L, max.chars = 8L)
   assert_character(key, min.chars = 1L, null.ok = TRUE)
@@ -69,6 +74,7 @@ bbk_data <- function(
   assert_period(end_period)
   first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
   last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  updated_after <- assert_timestampish(updated_after, null.ok = TRUE)
 
   resource <- sdmx_data_resource(flow, key)
   xml <- bbk_make_request(
@@ -76,7 +82,8 @@ bbk_data <- function(
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
-    lastNObservations = last_n
+    lastNObservations = last_n,
+    preparedAfter = updated_after
   )
   parse_bbk_data(xml)
 }

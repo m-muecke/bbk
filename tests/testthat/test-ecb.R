@@ -32,10 +32,21 @@ test_that("ecb_data input validation works", {
   expect_error(ecb_data("abcde", "abc", last_n = 1.5))
   expect_error(ecb_data("abcde", "abc", last_n = -1L))
   expect_error(ecb_data("abcde", "abc", last_n = 0L))
-  # updated_after should be a character(1) or NULL
+  # updated_after should be NULL, Date, POSIXct, or ISO 8601 string
   expect_error(ecb_data("abcde", "abc", updated_after = 1L))
   expect_error(ecb_data("abcde", "abc", updated_after = TRUE))
-  expect_error(ecb_data("abcde", "abc", updated_after = c("a", "b")))
+  expect_error(ecb_data("abcde", "abc", updated_after = NA))
+})
+
+test_that("ecb_data passes updated_after as updatedAfter", {
+  captured <- NULL
+  httr2::local_mocked_responses(function(req) {
+    captured <<- req
+    httr2::response(200L, headers = "content-type: application/xml", body = charToRaw("<x/>"))
+  })
+  local_mocked_bindings(parse_ecb_data = function(xml) data.table())
+  ecb_data("EXR", "D.USD.EUR.SP00.A", updated_after = as.Date("2024-06-01"))
+  expect_match(captured$url, "updatedAfter=2024-06-01T00%3A00%3A00")
 })
 
 test_that("parse_bbk_data works", {

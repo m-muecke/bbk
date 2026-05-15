@@ -50,9 +50,10 @@ applied. Default \code{NULL}.}
 Number of observations to retrieve from the end of the series. If \code{NULL}, no restriction is
 applied. Default \code{NULL}.}
 
-\item{updated_after}{(\code{NULL} | \code{character(1)})\cr
-ISO 8601 timestamp to retrieve only observations updated after the given time
-(e.g., \code{"2024-06-01T00:00:00"}). If \code{NULL}, no restriction is applied. Default \code{NULL}.}
+\item{updated_after}{(\code{NULL} | \code{character(1)} | \code{Date(1)} | \code{POSIXct(1)})\cr
+Retrieve only observations updated after the given timestamp (e.g.,
+\code{"2024-06-01T00:00:00"}). Useful for incremental retrieval. If \code{NULL}, no restriction is
+applied. Default \code{NULL}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

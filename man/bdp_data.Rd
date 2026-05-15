@@ -14,6 +14,7 @@ bdp_data(
   start_date = NULL,
   end_date = NULL,
   last_n = NULL,
+  updated_after = NULL,
   lang = "en"
 )
 }
@@ -35,6 +36,11 @@ End date of the data.}
 
 \item{last_n}{(\code{NULL} | \code{integer(1)})\cr
 Return only the last \code{n} observations per series.}
+
+\item{updated_after}{(\code{NULL} | \code{character(1)} | \code{Date(1)} | \code{POSIXct(1)})\cr
+Retrieve only observations published after the given timestamp (e.g.,
+\code{"2024-06-01T00:00:00"}). Useful for incremental retrieval. If \code{NULL}, no restriction is
+applied. Default \code{NULL}.}
 
 \item{lang}{(\code{character(1)})\cr
 Language for labels, either \code{"en"} or \code{"pt"}.}

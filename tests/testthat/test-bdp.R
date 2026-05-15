@@ -5,6 +5,20 @@ test_that("bdp_data input validation works", {
   expect_error(bdp_data(1L, "b", start_date = ""))
   expect_error(bdp_data(1L, "b", end_date = 1L))
   expect_error(bdp_data(1L, "b", lang = "FR"))
+  expect_error(bdp_data(1L, "b", updated_after = 1L))
+  expect_error(bdp_data(1L, "b", updated_after = TRUE))
+  expect_error(bdp_data(1L, "b", updated_after = NA))
+})
+
+test_that("bdp_data passes updated_after as obs_published_since", {
+  captured <- NULL
+  httr2::local_mocked_responses(function(req) {
+    captured <<- req
+    httr2::response(200L, headers = "content-type: application/json", body = charToRaw("{}"))
+  })
+  local_mocked_bindings(parse_bdp_data = function(json) data.table())
+  bdp_data(54L, "ce3e", updated_after = as.Date("2024-06-01"))
+  expect_match(captured$url, "obs_published_since=2024-06-01T00%3A00%3A00")
 })
 
 test_that("bdp_series input validation works", {

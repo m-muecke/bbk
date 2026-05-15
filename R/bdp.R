@@ -21,6 +21,10 @@
 #'   End date of the data.
 #' @param last_n (`NULL` | `integer(1)`)\cr
 #'   Return only the last `n` observations per series.
+#' @param updated_after (`NULL` | `character(1)` | `Date(1)` | `POSIXct(1)`)\cr
+#'   Retrieve only observations published after the given timestamp (e.g.,
+#'   `"2024-06-01T00:00:00"`). Useful for incremental retrieval. If `NULL`, no restriction is
+#'   applied. Default `NULL`.
 #' @param lang (`character(1)`)\cr
 #'   Language for labels, either `"en"` or `"pt"`.
 #' @returns A [data.table::data.table()] with the requested data.
@@ -39,6 +43,7 @@ bdp_data <- function(
   start_date = NULL,
   end_date = NULL,
   last_n = NULL,
+  updated_after = NULL,
   lang = "en"
 ) {
   domain_id <- assert_count(domain_id, positive = TRUE, coerce = TRUE)
@@ -47,6 +52,7 @@ bdp_data <- function(
   start_date <- assert_dateish(start_date, null.ok = TRUE)
   end_date <- assert_dateish(end_date, null.ok = TRUE)
   last_n <- assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+  updated_after <- assert_timestampish(updated_after, null.ok = TRUE)
   assert_choice(lang, c("en", "pt"))
 
   json <- bdp(
@@ -58,7 +64,8 @@ bdp_data <- function(
     series_ids = series_ids,
     obs_since = start_date,
     obs_to = end_date,
-    obs_last_n = last_n
+    obs_last_n = last_n,
+    obs_published_since = updated_after
   )
   parse_bdp_data(json)
 }
@@ -284,7 +291,8 @@ bdp <- function(
   series_ids = NULL,
   obs_since = NULL,
   obs_to = NULL,
-  obs_last_n = NULL
+  obs_last_n = NULL,
+  obs_published_since = NULL
 ) {
   bdp_request(
     ...,
@@ -292,7 +300,8 @@ bdp <- function(
     series_ids = series_ids,
     obs_since = obs_since,
     obs_to = obs_to,
-    obs_last_n = obs_last_n
+    obs_last_n = obs_last_n,
+    obs_published_since = obs_published_since
   ) |>
     req_perform() |>
     resp_body_json()
@@ -304,7 +313,8 @@ bdp_request <- function(
   series_ids = NULL,
   obs_since = NULL,
   obs_to = NULL,
-  obs_last_n = NULL
+  obs_last_n = NULL,
+  obs_published_since = NULL
 ) {
   request("https://bpstat.bportugal.pt/data/v1") |>
     req_user_agent(bbk_user_agent()) |>
@@ -315,6 +325,7 @@ bdp_request <- function(
       obs_since = obs_since,
       obs_to = obs_to,
       obs_last_n = obs_last_n,
+      obs_published_since = obs_published_since,
       .multi = "comma"
     ) |>
     req_error(body = bdp_error_body) |>

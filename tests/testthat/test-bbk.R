@@ -32,6 +32,21 @@ test_that("bbk_data input validation works", {
   expect_error(bbk_data("abcde", "abc", last_n = 1.5))
   expect_error(bbk_data("abcde", "abc", last_n = -1L))
   expect_error(bbk_data("abcde", "abc", last_n = 0L))
+  # updated_after should be NULL, Date, POSIXct, or ISO 8601 string
+  expect_error(bbk_data("abcde", "abc", updated_after = 1L))
+  expect_error(bbk_data("abcde", "abc", updated_after = TRUE))
+  expect_error(bbk_data("abcde", "abc", updated_after = NA))
+})
+
+test_that("bbk_data passes updated_after as preparedAfter", {
+  captured <- NULL
+  httr2::local_mocked_responses(function(req) {
+    captured <<- req
+    httr2::response(200L, headers = "content-type: application/xml", body = charToRaw("<x/>"))
+  })
+  local_mocked_bindings(parse_bbk_data = function(xml) data.table())
+  bbk_data("BBSIS", "abc", updated_after = as.Date("2024-06-01"))
+  expect_match(captured$url, "preparedAfter=2024-06-01T00%3A00%3A00")
 })
 
 test_that("parse_bbk_data works", {

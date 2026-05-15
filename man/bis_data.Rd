@@ -13,7 +13,8 @@ bis_data(
   start_period = NULL,
   end_period = NULL,
   first_n = NULL,
-  last_n = NULL
+  last_n = NULL,
+  updated_after = NULL
 )
 }
 \arguments{
@@ -49,6 +50,11 @@ applied. Default \code{NULL}.}
 
 \item{last_n}{(\code{NULL} | \code{numeric(1)})\cr
 Number of observations to retrieve from the end of the series. If \code{NULL}, no restriction is
+applied. Default \code{NULL}.}
+
+\item{updated_after}{(\code{NULL} | \code{character(1)} | \code{Date(1)} | \code{POSIXct(1)})\cr
+Retrieve only observations updated after the given timestamp (e.g.,
+\code{"2024-06-01T00:00:00"}). Useful for incremental retrieval. If \code{NULL}, no restriction is
 applied. Default \code{NULL}.}
 }
 \value{

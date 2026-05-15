@@ -1,6 +1,7 @@
-sdmx_request <- function(base_url, resource, error_body, ...) {
+sdmx_request <- function(base_url, resource, error_body, ..., accept = NULL) {
   request(base_url) |>
     req_user_agent(bbk_user_agent()) |>
+    req_headers(accept = accept) |>
     req_url_path_append(resource) |>
     req_url_query(...) |>
     req_error(body = error_body) |>

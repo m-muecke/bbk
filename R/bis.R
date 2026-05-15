@@ -181,5 +181,11 @@ bis_error_body <- function(resp) {
 }
 
 bis <- function(resource, ...) {
-  sdmx_request("https://stats.bis.org/api/v1", resource, bis_error_body, ...)
+  sdmx_request(
+    "https://stats.bis.org/api/v1",
+    resource = resource,
+    error_body = bis_error_body,
+    accept = "application/vnd.sdmx.genericdata+xml;version=2.1",
+    ...
+  )
 }

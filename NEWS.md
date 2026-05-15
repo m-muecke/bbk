@@ -1,5 +1,6 @@
 # bbk (development version)
 
+* `bis_data()` now requests the SDMX generic data format explicitly, fixing a silent regression where the BIS endpoint started returning structure-specific data and the parser produced zero rows.
 * Support for Banco de Portugal (BdP) data.
 * Support for Bank of Japan (BoJ) data.
 * Support for National Bank of Poland (NBP) exchange rates and gold prices.

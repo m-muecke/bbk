@@ -52,6 +52,16 @@ test_that("bis_metadata input validation works", {
   expect_error(bis_metadata("dataflow", id = TRUE))
 })
 
+test_that("bis_data returns rows from the live endpoint", {
+  skip_if_offline()
+  skip_on_cran()
+  skip_on_ci()
+
+  x <- bis_data("WS_CBPOL", "M.CH", last_n = 5L)
+  expect_data_table(x, min.rows = 1L)
+  expect_true(all(c("date", "key", "value", "freq") %in% names(x)))
+})
+
 test_that("sdmx_metadata works for bis", {
   body <- xml2::read_xml(test_path("fixtures", "bis-metadata.xml"))
   entries <- xml2::xml_find_all(body, "//str:Dataflow")

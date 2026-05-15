@@ -68,13 +68,9 @@ Other metadata:
 ``` r
 # \donttest{
 bis_dimension("BIS_CBPOL")
-#> Error in req_perform(req_bbk_cache(req_bbk_retry(req_error(req_url_query(req_url_path_append(req_headers(req_user_agent(request(base_url),     bbk_user_agent()), accept = accept), resource), ...), body = error_body)))): HTTP 406 Not Acceptable.
-#> ℹ <?xml version="1.0" ?> <message:Error
-#>   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-#>   xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"
-#>   xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">
-#>   <message:ErrorMessage code="406"> <com:Text>Unsupported Accept format:
-#>   application/vnd.sdmx.genericdata+xml;version=2.1</com:Text>
-#>   </message:ErrorMessage> </message:Error>
+#>          id position           codelist
+#>      <char>    <int>             <char>
+#> 1:     FREQ        1            CL_FREQ
+#> 2: REF_AREA        2 CL_BIS_GL_REF_AREA
 # }
 ```

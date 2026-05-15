@@ -19,7 +19,7 @@
 #' @param lang (`character(1)`)\cr
 #'   Language for series names, either `"en"` or `"jp"`. Default `"en"`.
 #' @returns A [data.table::data.table()] with the requested data.
-#' @source <https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html>
+#' @source <https://www.stat-search.boj.or.jp/index_en.html>
 #' @family data
 #' @export
 #' @examplesIf curl::has_internet()
@@ -68,7 +68,7 @@ boj_next_position <- function(resp) {
 #' @param lang (`character(1)`)\cr
 #'   Language for names, either `"en"` or `"jp"`. Default `"en"`.
 #' @returns A [data.table::data.table()] with the requested metadata.
-#' @source <https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html>
+#' @source <https://www.stat-search.boj.or.jp/index_en.html>
 #' @family metadata
 #' @export
 #' @examplesIf curl::has_internet()

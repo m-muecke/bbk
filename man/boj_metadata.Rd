@@ -4,7 +4,7 @@
 \alias{boj_metadata}
 \title{Fetch Bank of Japan (BoJ) metadata}
 \source{
-\url{https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html}
+\url{https://www.stat-search.boj.or.jp/index_en.html}
 }
 \usage{
 boj_metadata(db, lang = "en")

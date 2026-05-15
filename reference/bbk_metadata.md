@@ -193,7 +193,7 @@ bbk_metadata("datastructure")
 #> 28:                                                                                                                             WpInvest aggregates
 #> 29:                                                                                                           Securities Issues Statistics (Shares)
 #> 30:                                                                                                        Performance Indices Investment Funds BBk
-#> 31:                                                                                                                            Investment Funds BBk
+#> 31:                                                                                                                                Investment Funds
 #> 32:                                                                                                             Number of customer deposit accounts
 #> 33:                                                                                                            Securities Issues Statistics (Bonds)
 #> 34:                                                                                                                             Sales and Purchases

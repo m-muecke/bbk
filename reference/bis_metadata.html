@@ -100,58 +100,32 @@ The id to query. Default <code>NULL</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bis_metadata</span><span class="op">(</span><span class="st">"dataflow"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   id                                         name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;char&gt;                                       &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1:      BIS_REL_CAL                         BIS_RELEASE_CALENDAR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  2:         WS_CBPOL                    Central bank policy rates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3:       WS_CBS_PUB                         Consolidated banking</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4:          WS_CBTA                    Central bank total assets</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  5: WS_CPMI_CASHLESS                       CPMI cashless payments</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  6:      WS_CPMI_CT1               CPMI comparative tables type 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7:      WS_CPMI_CT2               CPMI comparative tables type 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  8:  WS_CPMI_DEVICES                         CPMI payment devices</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  9: WS_CPMI_INSTITUT                            CPMI institutions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10:    WS_CPMI_MACRO                                   CPMI macro</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11: WS_CPMI_PARTICIP                            CPMI participants</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12:  WS_CPMI_SYSTEMS                                 CPMI systems</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13:           WS_CPP                   Commercial property prices</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14:    WS_CREDIT_GAP                           Credit-to-GDP gaps</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15: WS_DEBT_SEC2_PUB International debt securities (BIS-compiled)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16:   WS_DER_OTC_TOV                     OTC derivatives turnover</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17:           WS_DPP         Detailed residential property prices</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18:           WS_DSR                          Debt service ratios</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19:           WS_EER                     Effective exchange rates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20:           WS_GLI                  Global liquidity indicators</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21:     WS_LBS_D_PUB                           Locational banking</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22:      WS_LONG_CPI                   Consumer prices statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23:     WS_NA_SEC_C3               BIS debt securities statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24:    WS_NA_SEC_DSS                   Debt securities statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25:    WS_OTC_DERIV2                  OTC derivatives outstanding</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26:           WS_SPP         Selected residential property prices</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27:            WS_TC                                 Total credit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28:           WS_XRU                     US dollar exchange rates</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29:     WS_XTD_DERIV                  Exchange-traded derivatives</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30:              CBS              Consolidated Banking Statistics</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31:             LBSN Locational Banking Statistics by Nationality</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32:             LBSR   Locational Banking Statistics by Residence</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   id                                         name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;char&gt;                                       &lt;char&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_bbk_cache(req_bbk_retry(req_error(req_url_query(req_url_path_append(req_headers(req_user_agent(request(base_url),     bbk_user_agent()), accept = accept), resource), ...), body = error_body)))):</span> HTTP 406 Not Acceptable.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> &lt;?xml version="1.0" ?&gt; &lt;message:Error</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common"&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   &lt;message:ErrorMessage code="406"&gt; &lt;com:Text&gt;Unsupported Accept format:</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   application/vnd.sdmx.genericdata+xml;version=2.1&lt;/com:Text&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   &lt;/message:ErrorMessage&gt; &lt;/message:Error&gt;</span>
 <span class="r-in"><span><span class="fu">bis_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, <span class="st">"BIS_CBPOL"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           id                          name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;                        &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: BIS_CBPOL BIS Central Bank Policy Rates</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_bbk_cache(req_bbk_retry(req_error(req_url_query(req_url_path_append(req_headers(req_user_agent(request(base_url),     bbk_user_agent()), accept = accept), resource), ...), body = error_body)))):</span> HTTP 406 Not Acceptable.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> &lt;?xml version="1.0" ?&gt; &lt;message:Error</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common"&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   &lt;message:ErrorMessage code="406"&gt; &lt;com:Text&gt;Unsupported Accept format:</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   application/vnd.sdmx.genericdata+xml;version=2.1&lt;/com:Text&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   &lt;/message:ErrorMessage&gt; &lt;/message:Error&gt;</span>
 <span class="r-in"><span><span class="fu">bis_metadata</span><span class="op">(</span><span class="st">"codelist"</span>, <span class="st">"CL_FREQ"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         id                                  name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     &lt;char&gt;                                &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: CL_FREQ        Code list for Frequency (FREQ)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: CL_FREQ                                Annual</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: CL_FREQ Daily - business week (not supported)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: CL_FREQ                                 Daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: CL_FREQ                 Event (not supported)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6: CL_FREQ                           Half-yearly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7: CL_FREQ                               Monthly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8: CL_FREQ                             Quarterly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9: CL_FREQ                                Weekly</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_bbk_cache(req_bbk_retry(req_error(req_url_query(req_url_path_append(req_headers(req_user_agent(request(base_url),     bbk_user_agent()), accept = accept), resource), ...), body = error_body)))):</span> HTTP 406 Not Acceptable.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> &lt;?xml version="1.0" ?&gt; &lt;message:Error</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common"&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   &lt;message:ErrorMessage code="406"&gt; &lt;com:Text&gt;Unsupported Accept format:</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   application/vnd.sdmx.genericdata+xml;version=2.1&lt;/com:Text&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span>   &lt;/message:ErrorMessage&gt; &lt;/message:Error&gt;</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

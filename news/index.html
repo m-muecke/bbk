@@ -40,7 +40,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="bbk-development-version">bbk (development version)<a class="anchor" aria-label="anchor" href="#bbk-development-version"></a></h2>
-<ul><li>Support for Banco de Portugal (BdP) data.</li>
+<ul><li>
+<code><a href="../reference/bis_data.html">bis_data()</a></code> now requests the SDMX generic data format explicitly, fixing a silent regression where the BIS endpoint started returning structure-specific data and the parser produced zero rows.</li>
+<li>Support for Banco de Portugal (BdP) data.</li>
 <li>Support for Bank of Japan (BoJ) data.</li>
 <li>Support for National Bank of Poland (NBP) exchange rates and gold prices.</li>
 </ul></div>

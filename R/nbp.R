@@ -69,35 +69,24 @@ nbp_gold <- function(start_date = NULL, end_date = NULL, last_n = NULL) {
 }
 
 parse_nbp_fx_rates <- function(json, table, code) {
-  if (is.null(code)) {
-    tables <- if (is.null(json[[1L]]$table)) list(json) else json # nolint
-    rows <- list()
-    for (tbl in tables) {
-      date <- tbl$effectiveDate
-      for (r in tbl$rates) {
-        r$effectiveDate <- date
-        rows[[length(rows) + 1L]] <- r
-      }
-    }
-  } else {
-    rows <- json$rates
-    for (i in seq_along(rows)) {
-      rows[[i]]$code <- json$code
-      rows[[i]]$currency <- json$currency
-    }
-  }
-  dt <- data.table(
-    date = as.Date(map_chr(rows, "effectiveDate")),
-    code = map_chr(rows, "code"),
-    currency = map_chr(rows, "currency")
-  )
-  if (identical(table, "c")) {
-    dt[, "bid" := map_dbl(rows, "bid")]
-    dt[, "ask" := map_dbl(rows, "ask")]
-  } else {
-    dt[, "mid" := map_dbl(rows, "mid")]
-  }
-  dt[]
+  dt <- if (is.null(code)) parse_nbp_tables(json) else parse_nbp_currency(json)
+  value_cols <- if (identical(table, "c")) c("bid", "ask") else "mid"
+  dt[, c("date", "code", "currency", value_cols), with = FALSE]
+}
+
+parse_nbp_tables <- function(json) {
+  first <- json[[1L]]
+  tables <- if (is.null(first$table)) list(json) else json # nolint
+  rbindlist(map(tables, function(tbl) {
+    dt <- rbindlist(map(tbl$rates, as.data.table))
+    dt[, "date" := as.Date(tbl$effectiveDate)]
+  }))
+}
+
+parse_nbp_currency <- function(json) {
+  dt <- rbindlist(map(json$rates, as.data.table))
+  setnames(dt, "effectiveDate", "date")
+  dt[, let(date = as.Date(date), code = json$code, currency = json$currency)]
 }
 
 parse_nbp_gold <- function(json) {

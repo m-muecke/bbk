@@ -64,6 +64,7 @@ bis_data <- function(
   resource <- sdmx_data_resource(flow, key)
   xml <- bis(
     resource,
+    accept = "application/vnd.sdmx.genericdata+xml;version=2.1",
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
@@ -187,12 +188,12 @@ bis_error_body <- function(resp) {
   resp_body_string(resp, "UTF-8")
 }
 
-bis <- function(resource, ...) {
+bis <- function(resource, ..., accept = NULL) {
   sdmx_request(
     "https://stats.bis.org/api/v1",
     resource = resource,
     error_body = bis_error_body,
-    accept = "application/vnd.sdmx.genericdata+xml;version=2.1",
+    accept = accept,
     ...
   )
 }

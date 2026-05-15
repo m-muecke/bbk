@@ -35,6 +35,29 @@ test_that("parse_boj_data handles empty response", {
   expect_true(all(c("date", "key", "value") %in% names(actual)))
 })
 
+test_that("boj_data follows NEXTPOSITION across pages", {
+  json_resp <- function(body) {
+    httr2::response_json(body = body)
+  }
+  series <- function(code) {
+    list(
+      SERIES_CODE = code,
+      NAME_OF_TIME_SERIES = code,
+      UNIT = "x",
+      FREQUENCY = "DAILY",
+      VALUES = list(SURVEY_DATES = list("20240101"), VALUES = list("1"))
+    )
+  }
+  httr2::local_mocked_responses(list(
+    json_resp(list(NEXTPOSITION = 2L, RESULTSET = list(series("A")))),
+    json_resp(list(NEXTPOSITION = NULL, RESULTSET = list(series("B"), series("C"))))
+  ))
+
+  x <- boj_data("FM08", c("A", "B", "C"))
+  expect_identical(sort(unique(x$key)), c("A", "B", "C"))
+  expect_identical(nrow(x), 3L)
+})
+
 test_that("boj_metadata input validation works", {
   expect_error(boj_metadata(1L))
   expect_error(boj_metadata(TRUE))

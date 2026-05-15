@@ -37,7 +37,7 @@ boj_data <- function(db, code, start_date = NULL, end_date = NULL, lang = "en") 
   assert_boj_date(end_date)
   assert_choice(lang, c("en", "jp"))
 
-  json <- boj(
+  req <- boj_request(
     "getDataCode",
     db = toupper(db),
     code = code,
@@ -45,7 +45,18 @@ boj_data <- function(db, code, start_date = NULL, end_date = NULL, lang = "en") 
     endDate = end_date,
     lang = lang
   )
-  parse_boj_data(json)
+  resps <- req_perform_iterative(
+    req,
+    next_req = iterate_with_cursor("startPosition", boj_next_position),
+    max_reqs = Inf
+  )
+  series <- resps_data(resps, \(resp) resp_body_json(resp)$RESULTSET)
+  parse_boj_data(list(RESULTSET = series))
+}
+
+boj_next_position <- function(resp) {
+  pos <- resp_body_json(resp)$NEXTPOSITION
+  if (length(pos) == 0L) NULL else pos
 }
 
 #' Fetch Bank of Japan (BoJ) metadata
@@ -202,14 +213,18 @@ boj_error_body <- function(resp) {
   json$MESSAGE
 }
 
-boj <- function(resource, ...) {
+boj_request <- function(resource, ...) {
   request("https://www.stat-search.boj.or.jp/api/v1") |>
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(resource) |>
     req_url_query(..., .multi = "comma") |>
     req_error(body = boj_error_body) |>
     req_bbk_retry() |>
-    req_bbk_cache() |>
+    req_bbk_cache()
+}
+
+boj <- function(resource, ...) {
+  boj_request(resource, ...) |>
     req_perform() |>
     resp_body_json()
 }

@@ -11,8 +11,7 @@ bbk is minimal R client for the following APIs:
   (BoC)](https://www.bankofcanada.ca/valet-api-how-to/#about)
 - [Bank of England
   (BoE)](https://www.bankofengland.co.uk/boeapps/database)
-- [Bank of Japan
-  (BoJ)](https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html)
+- [Bank of Japan (BoJ)](https://www.stat-search.boj.or.jp/index_en.html)
 - [Banque de France
   (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
 - [Deutsche Bundesbank

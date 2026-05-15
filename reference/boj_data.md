@@ -10,7 +10,7 @@ boj_data(db, code, start_date = NULL, end_date = NULL, lang = "en")
 
 ## Source
 
-<https://www.stat-search.boj.or.jp/ssi/html/nme_a_en.html>
+<https://www.stat-search.boj.or.jp/index_en.html>
 
 ## Arguments
 

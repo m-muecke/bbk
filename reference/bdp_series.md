@@ -69,6 +69,6 @@ bdp_series(12518356L)
 #> 1: GDP expenditure approach - GDP at market prices - Portugal - current prices - millions of euros - annual
 #>                          dataset_id domain_id      obs_updated_at
 #>                              <char>     <int>              <POSc>
-#> 1: ce3e4e50cda325537eff729ef64037cd        54 2025-10-28 17:00:00
+#> 1: ce3e4e50cda325537eff729ef64037cd        54 2026-05-15 16:00:00
 # }
 ```

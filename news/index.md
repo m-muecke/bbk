@@ -1,6 +1,8 @@
 # Changelog
 
-## bbk (development version)
+## bbk 0.10.0
+
+CRAN release: 2026-05-16
 
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),

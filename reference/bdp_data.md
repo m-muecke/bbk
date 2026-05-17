@@ -186,7 +186,8 @@ bdp_data(54L, "ce3e4e50cda325537eff729ef64037cd", series_ids = 12518356L)
 #> 69: 2021-12-31 12518356 216493.745 annual GDP at market prices-CP-A      F
 #> 70: 2022-12-31 12518356 243957.086 annual GDP at market prices-CP-A      F
 #> 71: 2023-12-31 12518356 270352.615 annual GDP at market prices-CP-A      F
-#> 72: 2024-12-31 12518356 289427.973 annual GDP at market prices-CP-A      F
+#> 72: 2024-12-31 12518356 289784.317 annual GDP at market prices-CP-A      F
+#> 73: 2025-12-31 12518356 306765.485 annual GDP at market prices-CP-A      F
 #>           date      key      value   freq                     title status
 #>         <Date>    <int>      <num> <char>                    <char> <char>
 # }

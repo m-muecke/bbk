@@ -140,22 +140,21 @@ parse_nob_data <- function(xml) {
     value <- as.numeric(map_chr(obs_attrs, "OBS_VALUE"))
 
     key <- paste(
-      attrs[!nms %in% c("collection", "calculated", "decimals", "unit_mult")],
+      attrs[nms %nin% c("collection", "calculated", "decimals", "unit_mult")],
       collapse = "."
     )
 
     freq <- sdmx_freq(attrs[["freq"]])
 
-    extra <- attrs[!nms %in% c("freq", "collection", "calculated", "decimals", "unit_mult")]
+    extra <- attrs[nms %nin% c("freq", "collection", "calculated", "decimals", "unit_mult")]
     data <- c(
-      list(date = parse_date(date, freq), id = key, value = value, freq = freq),
+      list(date = parse_date(date, freq), key = key, value = value, freq = freq),
       as.list(extra)
     )
     as.data.table(data)
   })
   res <- res |>
     rbindlist(fill = TRUE) |>
-    setnames("id", "key") |>
     setcolorder(col_order, skip_absent = TRUE)
   res[]
 }

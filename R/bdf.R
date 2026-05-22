@@ -142,7 +142,7 @@ bdf_dimension <- function(dataset_id, lang = "en", api_key = bdf_key()) {
 
 parse_bdf_dimension <- function(dt) {
   empty <- data.table(id = character(), position = integer(), codelist = character())
-  if (nrow(dt) == 0L || !"dimensions_and_codelists" %in% names(dt)) {
+  if (nrow(dt) == 0L || "dimensions_and_codelists" %nin% names(dt)) {
     return(empty)
   }
   raw <- gsub('""', '"', dt$dimensions_and_codelists[[1L]], fixed = TRUE)

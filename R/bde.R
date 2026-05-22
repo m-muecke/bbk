@@ -84,7 +84,7 @@ parse_bde_data <- function(json) {
         "min_value",
         "max_value"
       )
-      meta <- meta[!name %in% exclude]
+      meta <- meta[name %nin% exclude]
       meta <- transpose(meta, make.names = "name")
       setnames(meta, c("units", "description"), c("unit", "long_description"))
       dt[, names(meta) := meta]

@@ -259,8 +259,10 @@ parse_bbk_data <- function(xml) {
     has_eng <- paste0(nms, "_eng") %in% nms
     data <- data[!has_eng]
     nms <- sub("_eng$", "", nms[!has_eng])
+    # fmt: skip
     nms <- fcase(
-      nms == "web_category" , "category" ,
+      nms == "id", "key",
+      nms == "web_category", "category",
       default = nms
     )
     names(data) <- nms
@@ -280,7 +282,6 @@ parse_bbk_data <- function(xml) {
 
     as.data.table(data)
   }))
-  setnames(dt, "id", "key")
   decimals <- NULL
   dt[, decimals := as.integer(decimals)]
   setcolorder(dt, col_order, skip_absent = TRUE)

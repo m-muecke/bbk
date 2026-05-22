@@ -2,6 +2,14 @@
 
 ## bbk (development version)
 
+- [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md)
+  returns the dimension structure for a given Banque de France dataset.
+- [`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md)
+  returns cube-level metadata (title, frequency, source, publication
+  date) from the SNB data portal.
+- [`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md)
+  returns the publication topic tree from the SNB data portal.
+
 ## bbk 0.10.0
 
 CRAN release: 2026-05-16

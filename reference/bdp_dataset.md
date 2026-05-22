@@ -37,6 +37,7 @@ with available datasets.
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md),
 [`bdp_dimension()`](https://m-muecke.github.io/bbk/reference/bdp_dimension.md),
 [`bdp_domain()`](https://m-muecke.github.io/bbk/reference/bdp_domain.md),
 [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
@@ -53,6 +54,8 @@ Other metadata:
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
 [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
 [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md),
+[`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md),
+[`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md),
 [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md),
 [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
 

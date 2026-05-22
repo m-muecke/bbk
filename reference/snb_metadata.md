@@ -1,43 +1,67 @@
-# Fetch Bank for International Settlements (BIS) dimensions
+# Fetch Swiss National Bank (SNB) cube metadata
 
-Retrieve the dimension structure for a given dataflow from the BIS SDMX
-Web Service.
+Retrieve cube-level metadata (title, frequency, source, publication
+date) from the SNB data portal.
 
 ## Usage
 
 ``` r
-bis_dimension(id)
+snb_metadata(key, lang = "en")
 ```
 
 ## Source
 
-<https://stats.bis.org/api-doc/v1/>
+<https://data.snb.ch/en>
 
 ## Arguments
 
-- id:
+- key:
 
   (`character(1)`)  
-  The id of the data structure definition to query (e.g.,
-  `"BIS_CBPOL"`).
+  The series key to query.
+
+- lang:
+
+  (`character(1)`)  
+  Language to query, either `"en"` or `"de"`. Default `"en"`.
 
 ## Value
 
-A
+A single-row
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
 with columns:
 
-- id:
+- key:
 
-  The dimension id (e.g., `"FREQ"`, `"REF_AREA"`)
+  The cube key
 
-- position:
+- title:
 
-  The position of the dimension in the series key
+  The cube title
 
-- codelist:
+- sub_title:
 
-  The id of the associated codelist (e.g., `"CL_FREQ"`)
+  The cube subtitle
+
+- publishing_title:
+
+  The publishing section title
+
+- public_since_date:
+
+  The first publication date
+
+- frequency:
+
+  The frequency specification (e.g., `"Day"`, `"Month"`)
+
+- source:
+
+  The data source
+
+- has_multiple_sources:
+
+  Whether the cube has multiple sources
 
 ## See also
 
@@ -49,6 +73,7 @@ Other metadata:
 [`bdp_dimension()`](https://m-muecke.github.io/bbk/reference/bdp_dimension.md),
 [`bdp_domain()`](https://m-muecke.github.io/bbk/reference/bdp_domain.md),
 [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
+[`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
@@ -61,7 +86,6 @@ Other metadata:
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
 [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
 [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md),
-[`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md),
 [`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md),
 [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md),
 [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
@@ -70,10 +94,6 @@ Other metadata:
 
 ``` r
 # \donttest{
-bis_dimension("BIS_CBPOL")
-#>          id position           codelist
-#>      <char>    <int>             <char>
-#> 1:     FREQ        1            CL_FREQ
-#> 2: REF_AREA        2 CL_BIS_GL_REF_AREA
+snb_metadata("rendopar")
 # }
 ```

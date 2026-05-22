@@ -41,6 +41,7 @@ with the requested data.
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md),
 [`bdp_dataset()`](https://m-muecke.github.io/bbk/reference/bdp_dataset.md),
 [`bdp_dimension()`](https://m-muecke.github.io/bbk/reference/bdp_dimension.md),
 [`bdp_domain()`](https://m-muecke.github.io/bbk/reference/bdp_domain.md),
@@ -57,6 +58,8 @@ Other metadata:
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
 [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
 [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md),
+[`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md),
+[`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md),
 [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md),
 [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
 
@@ -69,7 +72,7 @@ onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 #>    <char>              <char>         <char> <char> <char> <char> <char>
 #> 1:      M Jan.  80 - Mar.  26 VDBOSBHAGBSTIN      N     AT     Z5     25
 #> 2:      A         1959 - 2026 VDBOSBHAGBSTIN      N     AT     Z5     01
-#> 3:      M Jan.  80 - Feb.  26 VDBOSBHAGBSTIN      N     AT     Z5     01
+#> 3:      M Jan.  80 - Mar.  26 VDBOSBHAGBSTIN      N     AT     Z5     01
 #> 4:      A         2013 - 2023 VDBOSBHAGBSTIN      N     AT     Z5     02
 onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
 #>      freq           available            pos  dval1   dval2  dval3  dval4

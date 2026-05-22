@@ -72,6 +72,8 @@
   : Fetch Bank for International Settlements (BIS) metadata
 - [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md)
   : Fetch Banque de France (BdF) datasets
+- [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md)
+  : Fetch Banque de France (BdF) dimensions
 - [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md)
   : Fetch Bank of Japan (BoJ) metadata
 - [`boc_catalog()`](https://m-muecke.github.io/bbk/reference/boc_catalog.md)
@@ -98,6 +100,10 @@
   Fetch Österreichische Nationalbank (OeNB) table of contents
 - [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md)
   : Fetch Swiss National Bank (SNB) dimensions
+- [`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md)
+  : Fetch Swiss National Bank (SNB) cube metadata
+- [`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md) :
+  Fetch Swiss National Bank (SNB) table of contents
 - [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md)
   : Fetch Sveriges Riksbank (SRb) calendar days
 - [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)

@@ -1,25 +1,38 @@
-# Fetch Bank for International Settlements (BIS) dimensions
+# Fetch Banque de France (BdF) dimensions
 
-Retrieve the dimension structure for a given dataflow from the BIS SDMX
-Web Service.
+Retrieve the dimension structure for a given dataset from the BdF
+Webstat API.
 
 ## Usage
 
 ``` r
-bis_dimension(id)
+bdf_dimension(dataset_id, lang = "en", api_key = bdf_key())
 ```
 
 ## Source
 
-<https://stats.bis.org/api-doc/v1/>
+<https://webstat.banque-france.fr/en/pages/guide-migration-api/>
 
 ## Arguments
 
-- id:
+- dataset_id:
 
   (`character(1)`)  
-  The id of the data structure definition to query (e.g.,
-  `"BIS_CBPOL"`).
+  The id of the dataset to query (e.g., `"CONJ2"`). See
+  [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md)
+  for available datasets.
+
+- lang:
+
+  (`character(1)`)  
+  Language to query. Default `"en"`.
+
+- api_key:
+
+  (`character(1)`)  
+  API key to use for the request. Defaults to the value returned by
+  `bdf_key()`, which reads from the `BANQUEDEFRANCE_KEY` environment
+  variable.
 
 ## Value
 
@@ -37,18 +50,18 @@ with columns:
 
 - codelist:
 
-  The id of the associated codelist (e.g., `"CL_FREQ"`)
+  The id of the associated codelist
 
 ## See also
 
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
-[`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md),
 [`bdp_dataset()`](https://m-muecke.github.io/bbk/reference/bdp_dataset.md),
 [`bdp_dimension()`](https://m-muecke.github.io/bbk/reference/bdp_dimension.md),
 [`bdp_domain()`](https://m-muecke.github.io/bbk/reference/bdp_domain.md),
 [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
+[`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
@@ -69,11 +82,7 @@ Other metadata:
 ## Examples
 
 ``` r
-# \donttest{
-bis_dimension("BIS_CBPOL")
-#>          id position           codelist
-#>      <char>    <int>             <char>
-#> 1:     FREQ        1            CL_FREQ
-#> 2: REF_AREA        2 CL_BIS_GL_REF_AREA
-# }
+if (FALSE) { # \dontrun{
+bdf_dimension("CONJ2")
+} # }
 ```

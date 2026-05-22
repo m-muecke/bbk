@@ -60,7 +60,9 @@ srb_series <- function(type = "series") {
 
 parse_srb_data <- function(json, series) {
   if (length(json) == 0L) {
-    return(setDT(list(date = as.Date(character()), key = character(), value = numeric())))
+    dt <- data.table(date = as.Date(character()), id = character(), value = numeric())
+    setnames(dt, "id", "key")
+    return(dt)
   }
   value <- NULL
   dt <- rbindlist(map(json, setDT))

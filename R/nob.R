@@ -148,13 +148,14 @@ parse_nob_data <- function(xml) {
 
     extra <- attrs[!nms %in% c("freq", "collection", "calculated", "decimals", "unit_mult")]
     data <- c(
-      list(date = parse_date(date, freq), key = key, value = value, freq = freq),
+      list(date = parse_date(date, freq), id = key, value = value, freq = freq),
       as.list(extra)
     )
     as.data.table(data)
   })
   res <- res |>
     rbindlist(fill = TRUE) |>
+    setnames("id", "key") |>
     setcolorder(col_order, skip_absent = TRUE)
   res[]
 }

@@ -86,14 +86,16 @@ boj_metadata <- function(db, lang = "en") {
 parse_boj_data <- function(json) {
   series <- json$RESULTSET
   if (length(series) == 0L) {
-    return(setDT(list(
+    dt <- data.table(
       date = as.Date(character()),
-      key = character(),
+      id = character(),
       value = numeric(),
       freq = character(),
       name = character(),
       unit = character()
-    )))
+    )
+    setnames(dt, "id", "key")
+    return(dt)
   }
 
   dt <- rbindlist(map(series, function(x) {
@@ -101,16 +103,17 @@ parse_boj_data <- function(json) {
     values <- as.numeric(map(x$VALUES$VALUES, \(x) x %??% NA_real_))
     freq <- tolower(x$FREQUENCY)
 
-    dt <- as.data.table(list(
+    dt <- data.table(
       date = parse_boj_date(dates, freq),
-      key = x$SERIES_CODE,
+      id = x$SERIES_CODE,
       value = values,
       freq = boj_freq(freq),
       name = x$NAME_OF_TIME_SERIES %??% x$NAME_OF_TIME_SERIES_J,
       unit = x$UNIT %??% x$UNIT_J
-    ))
+    )
     na.omit(dt, cols = "value")
   }))
+  setnames(dt, "id", "key")
   dt[]
 }
 

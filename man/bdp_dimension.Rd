@@ -37,6 +37,7 @@ bdp_dimension(54L)
 Other metadata:
 \code{\link[=bbk_dimension]{bbk_dimension()}},
 \code{\link[=bbk_metadata]{bbk_metadata()}},
+\code{\link[=bdf_dimension]{bdf_dimension()}},
 \code{\link[=bdp_dataset]{bdp_dataset()}},
 \code{\link[=bdp_domain]{bdp_domain()}},
 \code{\link[=bdp_series]{bdp_series()}},
@@ -53,6 +54,8 @@ Other metadata:
 \code{\link[=onb_metadata]{onb_metadata()}},
 \code{\link[=onb_toc]{onb_toc()}},
 \code{\link[=snb_dimension]{snb_dimension()}},
+\code{\link[=snb_metadata]{snb_metadata()}},
+\code{\link[=snb_toc]{snb_toc()}},
 \code{\link[=srb_calendar]{srb_calendar()}},
 \code{\link[=srb_series]{srb_series()}}
 }

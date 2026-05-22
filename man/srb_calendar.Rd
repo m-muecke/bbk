@@ -34,6 +34,7 @@ srb_calendar("2024-01-01", "2024-01-31")
 Other metadata:
 \code{\link[=bbk_dimension]{bbk_dimension()}},
 \code{\link[=bbk_metadata]{bbk_metadata()}},
+\code{\link[=bdf_dimension]{bdf_dimension()}},
 \code{\link[=bdp_dataset]{bdp_dataset()}},
 \code{\link[=bdp_dimension]{bdp_dimension()}},
 \code{\link[=bdp_domain]{bdp_domain()}},
@@ -51,6 +52,8 @@ Other metadata:
 \code{\link[=onb_metadata]{onb_metadata()}},
 \code{\link[=onb_toc]{onb_toc()}},
 \code{\link[=snb_dimension]{snb_dimension()}},
+\code{\link[=snb_metadata]{snb_metadata()}},
+\code{\link[=snb_toc]{snb_toc()}},
 \code{\link[=srb_series]{srb_series()}}
 }
 \concept{metadata}

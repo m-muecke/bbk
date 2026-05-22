@@ -44,6 +44,7 @@ reference:
       - bis_dimension
       - bis_metadata
       - bdf_dataset
+      - bdf_dimension
       - boj_metadata
       - boc_catalog
       - boc_metadata
@@ -57,5 +58,7 @@ reference:
       - onb_metadata
       - onb_toc
       - snb_dimension
+      - snb_metadata
+      - snb_toc
       - srb_calendar
       - srb_series

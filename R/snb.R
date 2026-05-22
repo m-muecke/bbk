@@ -101,11 +101,127 @@ parse_snb_dimension <- function(json) {
   }))
 }
 
-snb <- function(id, ..., resource = "data/json", lang = "en") {
-  url <- sprintf("https://data.snb.ch/api/cube/%s/%s", id, resource)
-  request(url) |>
+#' Fetch Swiss National Bank (SNB) cube metadata
+#'
+#' Retrieve cube-level metadata (title, frequency, source, publication date) from the SNB data
+#' portal.
+#'
+#' @inheritParams snb_data
+#' @returns A single-row [data.table::data.table()] with columns:
+#'   \item{key}{The cube key}
+#'   \item{title}{The cube title}
+#'   \item{sub_title}{The cube subtitle}
+#'   \item{publishing_title}{The publishing section title}
+#'   \item{public_since_date}{The first publication date}
+#'   \item{frequency}{The frequency specification (e.g., `"Day"`, `"Month"`)}
+#'   \item{source}{The data source}
+#'   \item{has_multiple_sources}{Whether the cube has multiple sources}
+#' @export
+#' @source <https://data.snb.ch/en>
+#' @family metadata
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' snb_metadata("rendopar")
+#' }
+snb_metadata <- function(key, lang = "en") {
+  assert_string(key, min.chars = 1L)
+  assert_choice(lang, c("en", "de"))
+
+  json <- snb_json(
+    "/json/table/getCubeInfo",
+    cubeId = key,
+    lang = lang,
+    isWarehouse = "false",
+    pageViewTime = snb_page_view_time()
+  )
+  parse_snb_metadata(json, key)
+}
+
+parse_snb_metadata <- function(json, key) {
+  setDT(list(
+    key = key,
+    title = json$title %??% NA_character_,
+    sub_title = json$subTitle %??% NA_character_,
+    publishing_title = json$publishingTitle %??% NA_character_,
+    public_since_date = as.Date(json$publicSinceDate %??% NA_character_),
+    frequency = json$frequencySpecification %??% NA_character_,
+    source = json$source %??% NA_character_,
+    has_multiple_sources = json$hasMultipleSources %??% NA
+  ))
+}
+
+#' Fetch Swiss National Bank (SNB) table of contents
+#'
+#' Retrieve the publication topic tree from the SNB data portal, listing the cubes and charts
+#' available under each topic.
+#'
+#' @param lang (`character(1)`)\cr
+#'   Language to query, either `"en"` or `"de"`. Default `"en"`.
+#' @returns A [data.table::data.table()] with one row per topic node and columns:
+#'   \item{topic_id}{The top-level topic id}
+#'   \item{topic}{The top-level topic title}
+#'   \item{sub_topic}{The sub-topic title}
+#'   \item{cube_id}{The associated cube id (if any)}
+#'   \item{chart_id}{The associated chart id (if any)}
+#'   \item{doc_id}{The associated documentation id (if any)}
+#' @export
+#' @source <https://data.snb.ch/en>
+#' @family metadata
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' snb_toc()
+#' }
+snb_toc <- function(lang = "en") {
+  assert_choice(lang, c("en", "de"))
+
+  json <- snb_json(
+    "/json/topic/getTopicsWithRootSubTopics",
+    lang = lang,
+    pageViewTime = snb_page_view_time(),
+    cache = "true"
+  )
+  parse_snb_toc(json)
+}
+
+parse_snb_toc <- function(json) {
+  topics <- json$publicationTopics
+  if (length(topics) == 0L) {
+    return(data.table(
+      topic_id = character(),
+      topic = character(),
+      sub_topic = character(),
+      cube_id = character(),
+      chart_id = character(),
+      doc_id = character()
+    ))
+  }
+  rbindlist(map(topics, function(top) {
+    subs <- top$subTopics
+    if (length(subs) == 0L) {
+      return(data.table(
+        topic_id = top$topicId,
+        topic = top$title,
+        sub_topic = NA_character_,
+        cube_id = top$cubeId %??% NA_character_,
+        chart_id = top$chartId %??% NA_character_,
+        doc_id = top$docId %??% NA_character_
+      ))
+    }
+    data.table(
+      topic_id = top$topicId,
+      topic = top$title,
+      sub_topic = map_chr(subs, \(s) s$title %??% NA_character_),
+      cube_id = map_chr(subs, \(s) s$cubeId %??% NA_character_),
+      chart_id = map_chr(subs, \(s) s$chartId %??% NA_character_),
+      doc_id = map_chr(subs, \(s) s$docId %??% NA_character_)
+    )
+  }))
+}
+
+snb_json <- function(path, ...) {
+  request("https://data.snb.ch") |>
+    req_url_path_append(path) |>
     req_user_agent(bbk_user_agent()) |>
-    req_url_path_append(lang) |>
     req_url_query(...) |>
     req_error(body = snb_error_body) |>
     req_bbk_retry() |>
@@ -114,8 +230,19 @@ snb <- function(id, ..., resource = "data/json", lang = "en") {
     resp_body_json(check_type = FALSE)
 }
 
+snb <- function(id, ..., resource = "data/json", lang = "en") {
+  snb_json(sprintf("/api/cube/%s/%s/%s", id, resource, lang), ...)
+}
+
+snb_page_view_time <- function() {
+  snb_json("/json/application/properties")$pageViewTime
+}
+
 snb_error_body <- function(resp) {
   body <- resp_body_string(resp, "UTF-8")
+  if (startsWith(body, "<")) {
+    return(c("SNB API request failed.", "See docs at <https://data.snb.ch/en>"))
+  }
   msg <- jsonlite::fromJSON(body)
   docs <- "See docs at <https://data.snb.ch/en>"
   c(msg$message, docs)

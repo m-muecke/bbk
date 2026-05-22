@@ -106,6 +106,57 @@ bdf_codelist <- function(..., lang = "en") {
   bdf(resource = "codelists/exports/csv", lang = lang, ...)
 }
 
+#' Fetch Banque de France (BdF) dimensions
+#'
+#' Retrieve the dimension structure for a given dataset from the BdF Webstat API.
+#'
+#' @param dataset_id (`character(1)`)\cr
+#'   The id of the dataset to query (e.g., `"CONJ2"`). See [bdf_dataset()] for available datasets.
+#' @inheritParams bdf_data
+#' @returns A [data.table::data.table()] with columns:
+#'   \item{id}{The dimension id (e.g., `"FREQ"`, `"REF_AREA"`)}
+#'   \item{position}{The position of the dimension in the series key}
+#'   \item{codelist}{The id of the associated codelist}
+#' @source <https://webstat.banque-france.fr/en/pages/guide-migration-api/>
+#' @family metadata
+#' @export
+#' @examples
+#' \dontrun{
+#' bdf_dimension("CONJ2")
+#' }
+bdf_dimension <- function(dataset_id, lang = "en", api_key = bdf_key()) {
+  assert_string(dataset_id, min.chars = 1L)
+  assert_string(lang, min.chars = 1L)
+  assert_string(api_key, min.chars = 1L)
+
+  where <- sprintf("dataset_id = '%s'", toupper(dataset_id))
+  dt <- bdf(
+    resource = "webstat-datasets/exports/csv",
+    api_key = api_key,
+    lang = lang,
+    where = where,
+    select = "dimensions_and_codelists"
+  )
+  parse_bdf_dimension(dt)
+}
+
+parse_bdf_dimension <- function(dt) {
+  empty <- data.table(id = character(), position = integer(), codelist = character())
+  if (nrow(dt) == 0L || !"dimensions_and_codelists" %in% names(dt)) {
+    return(empty)
+  }
+  raw <- gsub('""', '"', dt$dimensions_and_codelists[[1L]], fixed = TRUE)
+  obj <- jsonlite::fromJSON(raw)
+  if (length(obj) == 0L) {
+    return(empty)
+  }
+  data.table(
+    id = names(obj),
+    position = seq_along(obj),
+    codelist = unname(map_chr(obj, \(x) x %??% NA_character_))
+  )
+}
+
 parse_bdf_data <- function(dt) {
   cols <- names(dt)
   path_cols <- grepv("^path_", cols)

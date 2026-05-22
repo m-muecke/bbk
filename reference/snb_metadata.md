@@ -95,5 +95,17 @@ Other metadata:
 ``` r
 # \donttest{
 snb_metadata("rendopar")
+#>         key                             title
+#>      <char>                            <char>
+#> 1: rendopar Nelson-Siegel-Svensson parameters
+#>                                                       sub_title
+#>                                                          <char>
+#> 1: For calculating the daily yield curve of Confederation bonds
+#>                     publishing_title public_since_date frequency
+#>                               <char>            <Date>    <char>
+#> 1: Interest rates and exchange rates        2025-09-01       Day
+#>                       source has_multiple_sources
+#>                       <char>               <lgcl>
+#> 1: Swiss National Bank (SNB)                FALSE
 # }
 ```

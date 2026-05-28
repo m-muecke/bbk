@@ -1,6 +1,8 @@
 # bbk (development version)
 
 * `bdf_dimension()` returns the dimension structure for a given Banque de France dataset.
+* `cnb_data()`, `cnb_indicators()`, `cnb_dimension()`, `cnb_tree()`, and `cnb_snapshots()` add support for the Czech National Bank (CNB) ARAD time series database, which requires an API key supplied via the `CNB_ARAD_KEY` environment variable.
+* `cnb_fx_rates()` and `cnb_pribor()` add support for Czech National Bank (CNB) exchange rate fixings and PRIBOR reference rates.
 * `snb_metadata()` returns cube-level metadata (title, frequency, source, publication date) from the SNB data portal.
 * `snb_toc()` returns the publication topic tree from the SNB data portal.
 

@@ -1,0 +1,88 @@
+---
+title: "Getting started with bbk"
+---
+
+```{r}
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+bbk gives you one consistent way to pull data from many central bank APIs.
+Every workflow follows the same two steps, no matter which bank you query:
+
+1. **Find the identifier** of the series (or dataset) you want.
+2. **Fetch it** with the matching `*_data()` function.
+
+```{r}
+#| message: false
+library(bbk)
+```
+
+## Step 1: find the identifier
+
+Most central banks organise data into *datasets* (dataflows), each built on a *data structure* that
+defines the dimensions whose codes combine into a series key. bbk lets you explore both from R.
+
+Browse the Bundesbank's available dataflows:
+
+```{r}
+head(bbk_metadata("dataflow"))
+```
+
+Take `BBEX3`, the exchange-rate dataset. It is built on the `BBK_ERX` data structure, whose
+dimensions you can list with `bbk_dimension()`:
+
+```{r}
+bbk_dimension("BBK_ERX")
+```
+
+Each dimension supplies one dot-separated part of the key. So a monthly (`M`) US dollar (`USD`) per
+euro (`EUR`) rate, of series type `BB`, rate type `AC`, suffix `A01`, has the key
+`M.USD.EUR.BB.AC.A01`.
+
+## Step 2: fetch the data
+
+Pass the dataflow and key to `bbk_data()`:
+
+```{r}
+usd_eur <- bbk_data("BBEX3", key = "M.USD.EUR.BB.AC.A01", start_period = "2015-01-01")
+head(usd_eur)
+```
+
+Every `*_data()` function returns a tidy `data.table` with a `date` column and a `value` column,
+ready for analysis or plotting.
+
+The same two steps work for every supported bank: swap the prefix (`bbk_`, `ecb_`, `snb_`, `cnb_`,
+...) and use that bank's discovery and `*_data()` functions. See the
+[function reference](../reference/index.html) for what each bank provides, and
+[Comparing exchange rates across central banks](cross-bank-comparison.html) for a worked example
+that pulls a comparable series from several banks at once.
+
+## Caching
+
+bbk can cache API responses on disk, so re-running a query is instant and you avoid hammering the
+upstream API. Caching is **off by default**; enabling it is recommended:
+
+```{r}
+#| eval: false
+options(bbk.cache = TRUE)
+```
+
+Put that line in your `.Rprofile` to enable caching for every session. Cached responses are kept
+for one day by default; tune this with `options(bbk.cache_max_age = <seconds>)`. Inspect or clear
+the cache with:
+
+```{r}
+#| eval: false
+bbk_cache_dir()    # where responses are stored
+bbk_cache_clear()  # wipe the cache
+```
+
+## Where to go next
+
+- The function reference, grouped by bank, lists every available endpoint.
+- Each `*_data()` help page documents that bank's identifier scheme and links to its official
+  catalogue.

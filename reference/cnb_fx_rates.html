@@ -18,6 +18,10 @@ CNB API."></head><body>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/getting-started.html">Getting started with bbk</a></li>
+  </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -115,36 +119,36 @@ of Czech koruna per <code>amount</code> units of the foreign currency.</p>
 <span class="r-in"><span><span class="fu">cnb_fx_rates</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           date currency_code   currency        country amount   rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt;        &lt;char&gt;     &lt;char&gt;         &lt;char&gt;  &lt;int&gt;  &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2026-05-28           AUD     dollar      Australia      1 14.889</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2026-05-28           BRL       real         Brazil      1  4.122</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2026-05-28           CAD     dollar         Canada      1 15.096</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2026-05-28           CNY   renminbi          China      1  3.084</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2026-05-28           DKK      krone        Denmark      1  3.251</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2026-05-28           EUR       euro            EMU      1 24.295</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2026-05-28           HKD     dollar       Hongkong      1  2.669</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2026-05-28           HUF     forint        Hungary    100  6.840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2026-05-28           ISK      krona        Iceland    100 16.966</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2026-05-28           XDR        SDR            IMF      1 28.611</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2026-05-28           INR      rupee          India    100 21.849</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2026-05-28           IDR     rupiah      Indonesia   1000  1.176</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2026-05-28           ILS new shekel         Israel      1  7.377</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2026-05-28           JPY        yen          Japan    100 13.115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2026-05-28           MYR    ringgit       Malaysia      1  5.256</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2026-05-28           MXN       peso         Mexico      1  1.202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2026-05-28           NZD     dollar    New Zealand      1 12.324</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2026-05-28           NOK      krone         Norway      1  2.251</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2026-05-28           PHP       peso    Philippines    100 33.955</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2026-05-28           PLN      zloty         Poland      1  5.739</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2026-05-28           RON        leu        Romania      1  4.629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2026-05-28           SGD     dollar      Singapore      1 16.344</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2026-05-28           ZAR       rand   South Africa      1  1.279</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2026-05-28           KRW        won    South Korea    100  1.391</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2026-05-28           SEK      krona         Sweden      1  2.245</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2026-05-28           CHF      franc    Switzerland      1 26.509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2026-05-28           THB       baht       Thailand    100 63.949</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2026-05-28           TRY       lira         Turkey    100 45.550</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2026-05-28           GBP      pound United Kingdom      1 28.032</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2026-05-28           USD     dollar            USA      1 20.909</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2026-05-29           AUD     dollar      Australia      1 14.958</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2026-05-29           BRL       real         Brazil      1  4.132</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2026-05-29           CAD     dollar         Canada      1 15.107</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2026-05-29           CNY   renminbi          China      1  3.081</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2026-05-29           DKK      krone        Denmark      1  3.250</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2026-05-29           EUR       euro            EMU      1 24.285</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2026-05-29           HKD     dollar       Hongkong      1  2.661</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2026-05-29           HUF     forint        Hungary    100  6.864</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2026-05-29           ISK      krona        Iceland    100 16.935</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2026-05-29           XDR        SDR            IMF      1 28.496</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2026-05-29           INR      rupee          India    100 21.947</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2026-05-29           IDR     rupiah      Indonesia   1000  1.167</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2026-05-29           ILS new shekel         Israel      1  7.426</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2026-05-29           JPY        yen          Japan    100 13.092</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2026-05-29           MYR    ringgit       Malaysia      1  5.259</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2026-05-29           MXN       peso         Mexico      1  1.202</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2026-05-29           NZD     dollar    New Zealand      1 12.460</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2026-05-29           NOK      krone         Norway      1  2.254</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2026-05-29           PHP       peso    Philippines    100 33.865</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2026-05-29           PLN      zloty         Poland      1  5.744</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2026-05-29           RON        leu        Romania      1  4.623</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2026-05-29           SGD     dollar      Singapore      1 16.329</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2026-05-29           ZAR       rand   South Africa      1  1.285</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2026-05-29           KRW        won    South Korea    100  1.384</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2026-05-29           SEK      krona         Sweden      1  2.254</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2026-05-29           CHF      franc    Switzerland      1 26.667</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2026-05-29           THB       baht       Thailand    100 64.116</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2026-05-29           TRY       lira         Turkey    100 45.441</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2026-05-29           GBP      pound United Kingdom      1 28.000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2026-05-29           USD     dollar            USA      1 20.851</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           date currency_code   currency        country amount   rate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt;        &lt;char&gt;     &lt;char&gt;         &lt;char&gt;  &lt;int&gt;  &lt;num&gt;</span>
 <span class="r-in"><span></span></span>

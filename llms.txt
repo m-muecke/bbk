@@ -236,3 +236,9 @@ yield_curve <- bbk_data(
 - [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
   : Fetch Sveriges Riksbank (SRb) series metadata
 
+# Articles
+
+### All vignettes
+
+- [Getting started with
+  bbk](https://m-muecke.github.io/bbk/articles/getting-started.md):

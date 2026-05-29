@@ -70,6 +70,9 @@ Other data:
 [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
+[`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
+[`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md),
+[`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md),
 [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md),
@@ -93,11 +96,11 @@ boj_data("FM08", "FXERD01", start_date = "202401")
 #>   4: 2024-01-10 FXERD01 144.43  daily
 #>   5: 2024-01-11 FXERD01 145.73  daily
 #>  ---                                 
-#> 574: 2026-05-14 FXERD01 157.86  daily
-#> 575: 2026-05-15 FXERD01 158.39  daily
-#> 576: 2026-05-18 FXERD01 158.85  daily
-#> 577: 2026-05-19 FXERD01 158.88  daily
-#> 578: 2026-05-20 FXERD01 159.05  daily
+#> 579: 2026-05-21 FXERD01 158.89  daily
+#> 580: 2026-05-22 FXERD01 159.03  daily
+#> 581: 2026-05-25 FXERD01 158.95  daily
+#> 582: 2026-05-26 FXERD01 158.97  daily
+#> 583: 2026-05-27 FXERD01 159.25  daily
 #>                                                      name                unit
 #>                                                    <char>              <char>
 #>   1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
@@ -106,11 +109,11 @@ boj_data("FM08", "FXERD01", start_date = "202401")
 #>   4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>   5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>  ---                                                                         
-#> 574: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 575: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 576: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 577: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 578: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 579: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 580: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 581: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 582: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 583: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 
 # fetch multiple exchange rates
 boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
@@ -122,11 +125,11 @@ boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 #>    4: 2024-01-10 FXERD01 144.43  daily
 #>    5: 2024-01-11 FXERD01 145.73  daily
 #>   ---                                 
-#> 1152: 2026-05-14 FXERD02 157.99  daily
-#> 1153: 2026-05-15 FXERD02 158.66  daily
-#> 1154: 2026-05-18 FXERD02 159.08  daily
-#> 1155: 2026-05-19 FXERD02 159.13  daily
-#> 1156: 2026-05-20 FXERD02 159.09  daily
+#> 1162: 2026-05-21 FXERD02 159.08  daily
+#> 1163: 2026-05-22 FXERD02 159.14  daily
+#> 1164: 2026-05-25 FXERD02 159.04  daily
+#> 1165: 2026-05-26 FXERD02 159.21  daily
+#> 1166: 2026-05-27 FXERD02 159.37  daily
 #>                                                       name                unit
 #>                                                     <char>              <char>
 #>    1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
@@ -135,10 +138,10 @@ boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 #>    4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>    5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>   ---                                                                         
-#> 1152:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1153:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1154:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1155:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1156:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1162:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1163:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1164:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1165:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1166:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
 # }
 ```

@@ -68,6 +68,9 @@ Other data:
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
+[`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
+[`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md),
+[`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md),
 [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
@@ -83,6 +86,6 @@ Other data:
 nbp_fx_rates("a", "eur")
 #>          date   code currency    mid
 #>        <Date> <char>   <char>  <num>
-#> 1: 2026-05-22    EUR     euro 4.2453
+#> 1: 2026-05-28    EUR     euro 4.2355
 # }
 ```

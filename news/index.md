@@ -4,6 +4,20 @@
 
 - [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md)
   returns the dimension structure for a given Banque de France dataset.
+- [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
+  [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md),
+  [`cnb_dimension()`](https://m-muecke.github.io/bbk/reference/cnb_dimension.md),
+  [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md),
+  and
+  [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md)
+  add support for the Czech National Bank (CNB) ARAD time series
+  database, which requires an API key supplied via the `CNB_ARAD_KEY`
+  environment variable.
+- [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
+  and
+  [`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md)
+  add support for Czech National Bank (CNB) exchange rate fixings and
+  PRIBOR reference rates.
 - [`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md)
   returns cube-level metadata (title, frequency, source, publication
   date) from the SNB data portal.

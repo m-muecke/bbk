@@ -14,6 +14,7 @@ bbk is minimal R client for the following APIs:
 - [Bank of Japan (BoJ)](https://www.stat-search.boj.or.jp/index_en.html)
 - [Banque de France
   (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
+- [Czech National Bank (CNB)](https://api.cnb.cz/cnbapi/swagger-ui.html)
 - [Deutsche Bundesbank
   (BBk)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 - [European Central Bank
@@ -52,7 +53,7 @@ pak::pak("m-muecke/bbk")
 
 bbk functions are prefixed according to the central bank they access
 (`bbk_`, `ecb_`, `snb_`, `bdp_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`,
-`nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the naming
+`cnb_`, `nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the naming
 conventions of their respective APIs.
 
 The typical workflow involves:
@@ -89,6 +90,8 @@ yield_curve <- bbk_data(
   downloading data from the Swiss National Bank (SNB).
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
   for downloading time-series data from the Bundesbank.
+- [czechrates](https://github.com/jla-data/czechrates): R package for
+  Czech National Bank (CNB) foreign exchange and interest rates.
 - [ecb](https://github.com/expersso/ecb): R interface to the European
   Central Bank’s Statistical Data Warehouse (SDW) API.
 - [oenb](https://github.com/franzmohr/oenb): R package for accessing the

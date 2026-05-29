@@ -16,6 +16,12 @@
   Fetch Bank for International Settlements (BIS) data
 - [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md) :
   Fetch Banque de France (BdF) data
+- [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md) :
+  Fetch Czech National Bank (CNB) ARAD time series data
+- [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
+  : Fetch Czech National Bank (CNB) exchange rates
+- [`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md)
+  : Fetch Czech National Bank (CNB) PRIBOR rates
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md) :
   Fetch Bank of Canada (BoC) data
 - [`boc_fx_rates()`](https://m-muecke.github.io/bbk/reference/boc_fx_rates.md)
@@ -80,6 +86,14 @@
   : Fetch Bank of Canada (BoC) available series or group
 - [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)
   : Fetch Bank of Canada (BoC) metadata (details)
+- [`cnb_dimension()`](https://m-muecke.github.io/bbk/reference/cnb_dimension.md)
+  : Fetch Czech National Bank (CNB) ARAD dimensions
+- [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md)
+  : Fetch Czech National Bank (CNB) ARAD indicators
+- [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md)
+  : Fetch Czech National Bank (CNB) ARAD snapshots
+- [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md) :
+  Fetch Czech National Bank (CNB) ARAD indicator tree
 - [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md)
   : Fetch European Central Bank (ECB) dimensions
 - [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md)

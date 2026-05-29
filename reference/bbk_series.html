@@ -80,6 +80,9 @@ The series keys to query.</p></dd>
 <code><a href="boc_data.html">boc_data()</a></code>,
 <code><a href="boe_data.html">boe_data()</a></code>,
 <code><a href="boj_data.html">boj_data()</a></code>,
+<code><a href="cnb_data.html">cnb_data()</a></code>,
+<code><a href="cnb_fx_rates.html">cnb_fx_rates()</a></code>,
+<code><a href="cnb_pribor.html">cnb_pribor()</a></code>,
 <code><a href="ecb_data.html">ecb_data()</a></code>,
 <code><a href="nbp_fx_rates.html">nbp_fx_rates()</a></code>,
 <code><a href="nbp_gold.html">nbp_gold()</a></code>,
@@ -208,11 +211,11 @@ The series keys to query.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1999-01-22 BBBK11.D.TTA000  27475  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999-01-29 BBBK11.D.TTA000  27475  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1426: 2026-04-17 BBBK11.D.TTA000 430173  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1427: 2026-04-24 BBBK11.D.TTA000 430173  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1428: 2026-05-01 BBBK11.D.TTA000 430074  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1429: 2026-05-08 BBBK11.D.TTA000 430074  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1430: 2026-05-15 BBBK11.D.TTA000 430074  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1431: 2026-05-22 BBBK11.D.TTA000 430074  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                              title category</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                             &lt;char&gt;   &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
@@ -221,24 +224,24 @@ The series keys to query.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1426: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1427: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1428: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1429: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1430: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1431: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         unit unit_mult         last_update comment source</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;char&gt;    &lt;char&gt;              &lt;char&gt;  &lt;char&gt; &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    3:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    4:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    5:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1426:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1427:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1428:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1429:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1430:   EURO  Millions 2026-05-22 13:00:24    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1427:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1428:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1429:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1430:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1431:   EURO  Millions 2026-05-27 12:37:23    &lt;NA&gt;   &lt;NA&gt;</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

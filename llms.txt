@@ -14,6 +14,7 @@ bbk is minimal R client for the following APIs:
 - [Bank of Japan (BoJ)](https://www.stat-search.boj.or.jp/index_en.html)
 - [Banque de France
   (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
+- [Czech National Bank (CNB)](https://api.cnb.cz/cnbapi/swagger-ui.html)
 - [Deutsche Bundesbank
   (BBk)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
 - [European Central Bank
@@ -52,7 +53,7 @@ pak::pak("m-muecke/bbk")
 
 bbk functions are prefixed according to the central bank they access
 (`bbk_`, `ecb_`, `snb_`, `bdp_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`,
-`nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the naming
+`cnb_`, `nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the naming
 conventions of their respective APIs.
 
 The typical workflow involves:
@@ -89,6 +90,8 @@ yield_curve <- bbk_data(
   downloading data from the Swiss National Bank (SNB).
 - [bundesbank](https://github.com/enricoschumann/bundesbank): R scripts
   for downloading time-series data from the Bundesbank.
+- [czechrates](https://github.com/jla-data/czechrates): R package for
+  Czech National Bank (CNB) foreign exchange and interest rates.
 - [ecb](https://github.com/expersso/ecb): R interface to the European
   Central Bank’s Statistical Data Warehouse (SDW) API.
 - [oenb](https://github.com/franzmohr/oenb): R package for accessing the
@@ -126,6 +129,12 @@ yield_curve <- bbk_data(
   Fetch Bank for International Settlements (BIS) data
 - [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md) :
   Fetch Banque de France (BdF) data
+- [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md) :
+  Fetch Czech National Bank (CNB) ARAD time series data
+- [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
+  : Fetch Czech National Bank (CNB) exchange rates
+- [`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md)
+  : Fetch Czech National Bank (CNB) PRIBOR rates
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md) :
   Fetch Bank of Canada (BoC) data
 - [`boc_fx_rates()`](https://m-muecke.github.io/bbk/reference/boc_fx_rates.md)
@@ -190,6 +199,14 @@ yield_curve <- bbk_data(
   : Fetch Bank of Canada (BoC) available series or group
 - [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)
   : Fetch Bank of Canada (BoC) metadata (details)
+- [`cnb_dimension()`](https://m-muecke.github.io/bbk/reference/cnb_dimension.md)
+  : Fetch Czech National Bank (CNB) ARAD dimensions
+- [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md)
+  : Fetch Czech National Bank (CNB) ARAD indicators
+- [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md)
+  : Fetch Czech National Bank (CNB) ARAD snapshots
+- [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md) :
+  Fetch Czech National Bank (CNB) ARAD indicator tree
 - [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md)
   : Fetch European Central Bank (ECB) dimensions
 - [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md)

@@ -105,6 +105,9 @@ Language for series names, either <code>"en"</code> or <code>"jp"</code>. Defaul
 <code><a href="bis_data.html">bis_data()</a></code>,
 <code><a href="boc_data.html">boc_data()</a></code>,
 <code><a href="boe_data.html">boe_data()</a></code>,
+<code><a href="cnb_data.html">cnb_data()</a></code>,
+<code><a href="cnb_fx_rates.html">cnb_fx_rates()</a></code>,
+<code><a href="cnb_pribor.html">cnb_pribor()</a></code>,
 <code><a href="ecb_data.html">ecb_data()</a></code>,
 <code><a href="nbp_fx_rates.html">nbp_fx_rates()</a></code>,
 <code><a href="nbp_gold.html">nbp_gold()</a></code>,
@@ -128,11 +131,11 @@ Language for series names, either <code>"en"</code> or <code>"jp"</code>. Defaul
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: 2024-01-10 FXERD01 144.43  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: 2024-01-11 FXERD01 145.73  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 574: 2026-05-14 FXERD01 157.86  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 575: 2026-05-15 FXERD01 158.39  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 576: 2026-05-18 FXERD01 158.85  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 577: 2026-05-19 FXERD01 158.88  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 578: 2026-05-20 FXERD01 159.05  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 579: 2026-05-21 FXERD01 158.89  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 580: 2026-05-22 FXERD01 159.03  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 581: 2026-05-25 FXERD01 158.95  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 582: 2026-05-26 FXERD01 158.97  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 583: 2026-05-27 FXERD01 159.25  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                      name                unit</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                    &lt;char&gt;              &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
@@ -141,11 +144,11 @@ Language for series names, either <code>"en"</code> or <code>"jp"</code>. Defaul
 <span class="r-out co"><span class="r-pr">#&gt;</span>   4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 574: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 575: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 576: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 577: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 578: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 579: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 580: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 581: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 582: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 583: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch multiple exchange rates</span></span></span>
 <span class="r-in"><span><span class="fu">boj_data</span><span class="op">(</span><span class="st">"FM08"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FXERD01"</span>, <span class="st">"FXERD02"</span><span class="op">)</span>, start_date <span class="op">=</span> <span class="st">"202401"</span><span class="op">)</span></span></span>
@@ -157,11 +160,11 @@ Language for series names, either <code>"en"</code> or <code>"jp"</code>. Defaul
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 2024-01-10 FXERD01 144.43  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 2024-01-11 FXERD01 145.73  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1152: 2026-05-14 FXERD02 157.99  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1153: 2026-05-15 FXERD02 158.66  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1154: 2026-05-18 FXERD02 159.08  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1155: 2026-05-19 FXERD02 159.13  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1156: 2026-05-20 FXERD02 159.09  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1162: 2026-05-21 FXERD02 159.08  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1163: 2026-05-22 FXERD02 159.14  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1164: 2026-05-25 FXERD02 159.04  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1165: 2026-05-26 FXERD02 159.21  daily</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1166: 2026-05-27 FXERD02 159.37  daily</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                       name                unit</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                     &lt;char&gt;              &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
@@ -170,11 +173,11 @@ Language for series names, either <code>"en"</code> or <code>"jp"</code>. Defaul
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1152:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1153:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1154:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1155:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1156:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1162:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1163:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1164:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1165:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1166:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

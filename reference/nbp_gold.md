@@ -50,6 +50,9 @@ Other data:
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
+[`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
+[`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md),
+[`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md),
 [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
@@ -65,15 +68,15 @@ Other data:
 nbp_gold(last_n = 10L)
 #>           date  price
 #>         <Date>  <num>
-#>  1: 2026-05-11 544.92
-#>  2: 2026-05-12 540.25
-#>  3: 2026-05-13 546.81
-#>  4: 2026-05-14 549.04
-#>  5: 2026-05-15 546.22
-#>  6: 2026-05-18 534.69
-#>  7: 2026-05-19 533.10
-#>  8: 2026-05-20 532.49
-#>  9: 2026-05-21 529.09
-#> 10: 2026-05-22 532.19
+#>  1: 2026-05-18 534.69
+#>  2: 2026-05-19 533.10
+#>  3: 2026-05-20 532.49
+#>  4: 2026-05-21 529.09
+#>  5: 2026-05-22 532.19
+#>  6: 2026-05-25 531.56
+#>  7: 2026-05-26 532.66
+#>  8: 2026-05-27 529.21
+#>  9: 2026-05-28 526.29
+#> 10: 2026-05-29 514.16
 # }
 ```

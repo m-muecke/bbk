@@ -42,6 +42,9 @@ Other data:
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
+[`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
+[`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md),
+[`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md),
 [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md),
@@ -170,11 +173,11 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: 1999-01-22 BBBK11.D.TTA000  27475  daily
 #>    5: 1999-01-29 BBBK11.D.TTA000  27475  daily
 #>   ---                                         
-#> 1426: 2026-04-17 BBBK11.D.TTA000 430173  daily
 #> 1427: 2026-04-24 BBBK11.D.TTA000 430173  daily
 #> 1428: 2026-05-01 BBBK11.D.TTA000 430074  daily
 #> 1429: 2026-05-08 BBBK11.D.TTA000 430074  daily
 #> 1430: 2026-05-15 BBBK11.D.TTA000 430074  daily
+#> 1431: 2026-05-22 BBBK11.D.TTA000 430074  daily
 #>                                                              title category
 #>                                                             <char>   <char>
 #>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
@@ -183,23 +186,23 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>   ---                                                                      
-#> 1426: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1427: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1428: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1429: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1430: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
+#> 1431: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
-#>    1:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#>    2:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#>    3:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#>    4:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#>    5:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
+#>    1:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#>    2:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#>    3:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#>    4:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#>    5:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
 #>   ---                                                    
-#> 1426:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#> 1427:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#> 1428:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#> 1429:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
-#> 1430:   EURO  Millions 2026-05-22 13:00:24    <NA>   <NA>
+#> 1427:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#> 1428:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#> 1429:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#> 1430:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
+#> 1431:   EURO  Millions 2026-05-27 12:37:23    <NA>   <NA>
 # }
 ```

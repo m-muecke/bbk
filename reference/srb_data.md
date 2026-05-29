@@ -54,6 +54,9 @@ Other data:
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
+[`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
+[`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md),
+[`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md),
 [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
 [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md),
 [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md),
@@ -76,36 +79,35 @@ srb_data("SEKUSDPMI", start_date = "2024-01-01")
 #>   4: 2024-01-05 SEKUSDPMI 10.28752
 #>   5: 2024-01-08 SEKUSDPMI 10.24073
 #>  ---                              
-#> 592: 2026-05-18 SEKUSDPMI  9.39775
-#> 593: 2026-05-19 SEKUSDPMI  9.38812
-#> 594: 2026-05-20 SEKUSDPMI  9.37716
-#> 595: 2026-05-21 SEKUSDPMI  9.36417
 #> 596: 2026-05-22 SEKUSDPMI  9.37430
+#> 597: 2026-05-25 SEKUSDPMI  9.27295
+#> 598: 2026-05-26 SEKUSDPMI  9.30419
+#> 599: 2026-05-27 SEKUSDPMI  9.27172
+#> 600: 2026-05-28 SEKUSDPMI  9.31523
 
 # fetch EUR/SEK exchange rate
 srb_data("SEKEURPMI", start_date = "2024-01-01")
-#> Waiting 60s for retry backoff ■                               
-#> Waiting 60s for retry backoff ■■                              
-#> Waiting 60s for retry backoff ■■■                             
-#> Waiting 60s for retry backoff ■■■■■                           
-#> Waiting 60s for retry backoff ■■■■■■                          
-#> Waiting 60s for retry backoff ■■■■■■■■                        
-#> Waiting 60s for retry backoff ■■■■■■■■■                       
-#> Waiting 60s for retry backoff ■■■■■■■■■■■                     
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■                    
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■                  
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■                 
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■               
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■              
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■            
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■           
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■         
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■      
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■     
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
-#> Waiting 60s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
+#> Waiting 59s for retry backoff ■                               
+#> Waiting 59s for retry backoff ■■                              
+#> Waiting 59s for retry backoff ■■■■                            
+#> Waiting 59s for retry backoff ■■■■■                           
+#> Waiting 59s for retry backoff ■■■■■■■                         
+#> Waiting 59s for retry backoff ■■■■■■■■                        
+#> Waiting 59s for retry backoff ■■■■■■■■■■                      
+#> Waiting 59s for retry backoff ■■■■■■■■■■■                     
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■                   
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■                  
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■                
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■               
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■             
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■            
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■          
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■         
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■       
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■      
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
 #>            date       key   value
 #>          <Date>    <char>   <num>
 #>   1: 2024-01-02 SEKEURPMI 11.1545
@@ -114,10 +116,10 @@ srb_data("SEKEURPMI", start_date = "2024-01-01")
 #>   4: 2024-01-05 SEKEURPMI 11.2350
 #>   5: 2024-01-08 SEKEURPMI 11.2095
 #>  ---                             
-#> 592: 2026-05-18 SEKEURPMI 10.9465
-#> 593: 2026-05-19 SEKEURPMI 10.9090
-#> 594: 2026-05-20 SEKEURPMI 10.8775
-#> 595: 2026-05-21 SEKEURPMI 10.8615
 #> 596: 2026-05-22 SEKEURPMI 10.8695
+#> 597: 2026-05-25 SEKEURPMI 10.7965
+#> 598: 2026-05-26 SEKEURPMI 10.8245
+#> 599: 2026-05-27 SEKEURPMI 10.7895
+#> 600: 2026-05-28 SEKEURPMI 10.8215
 # }
 ```

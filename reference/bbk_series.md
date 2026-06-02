@@ -67,11 +67,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: 1999-04-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4323 monthly
 #>   5: 1999-05-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4318 monthly
 #>  ---                                                    
-#> 324: 2025-12-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4689 monthly
 #> 325: 2026-01-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4674 monthly
 #> 326: 2026-02-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4718 monthly
 #> 327: 2026-03-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4730 monthly
 #> 328: 2026-04-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4716 monthly
+#> 329: 2026-05-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4731 monthly
 #>                                                                            title
 #>                                                                           <char>
 #>   1: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
@@ -80,24 +80,24 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>   5: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>  ---                                                                            
-#> 324: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 325: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 326: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 327: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 328: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
+#> 329: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>      category   unit unit_mult         last_update
 #>        <char> <char>    <char>              <char>
-#>   1:     WEDE    DKK       One 2026-04-30 16:08:35
-#>   2:     WEDE    DKK       One 2026-04-30 16:08:35
-#>   3:     WEDE    DKK       One 2026-04-30 16:08:35
-#>   4:     WEDE    DKK       One 2026-04-30 16:08:35
-#>   5:     WEDE    DKK       One 2026-04-30 16:08:35
+#>   1:     WEDE    DKK       One 2026-05-29 15:59:20
+#>   2:     WEDE    DKK       One 2026-05-29 15:59:20
+#>   3:     WEDE    DKK       One 2026-05-29 15:59:20
+#>   4:     WEDE    DKK       One 2026-05-29 15:59:20
+#>   5:     WEDE    DKK       One 2026-05-29 15:59:20
 #>  ---                                              
-#> 324:     WEDE    DKK       One 2026-04-30 16:08:35
-#> 325:     WEDE    DKK       One 2026-04-30 16:08:35
-#> 326:     WEDE    DKK       One 2026-04-30 16:08:35
-#> 327:     WEDE    DKK       One 2026-04-30 16:08:35
-#> 328:     WEDE    DKK       One 2026-04-30 16:08:35
+#> 325:     WEDE    DKK       One 2026-05-29 15:59:20
+#> 326:     WEDE    DKK       One 2026-05-29 15:59:20
+#> 327:     WEDE    DKK       One 2026-05-29 15:59:20
+#> 328:     WEDE    DKK       One 2026-05-29 15:59:20
+#> 329:     WEDE    DKK       One 2026-05-29 15:59:20
 #>                                                            comment
 #>                                                             <char>
 #>   1: The ECB publishes daily euro foreign exchange reference rates
@@ -106,11 +106,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: The ECB publishes daily euro foreign exchange reference rates
 #>   5: The ECB publishes daily euro foreign exchange reference rates
 #>  ---                                                              
-#> 324: The ECB publishes daily euro foreign exchange reference rates
 #> 325: The ECB publishes daily euro foreign exchange reference rates
 #> 326: The ECB publishes daily euro foreign exchange reference rates
 #> 327: The ECB publishes daily euro foreign exchange reference rates
 #> 328: The ECB publishes daily euro foreign exchange reference rates
+#> 329: The ECB publishes daily euro foreign exchange reference rates
 #>                            source
 #>                            <char>
 #>   1: European Central Bank (ECB).
@@ -119,11 +119,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: European Central Bank (ECB).
 #>   5: European Central Bank (ECB).
 #>  ---                             
-#> 324: European Central Bank (ECB).
 #> 325: European Central Bank (ECB).
 #> 326: European Central Bank (ECB).
 #> 327: European Central Bank (ECB).
 #> 328: European Central Bank (ECB).
+#> 329: European Central Bank (ECB).
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>         date                                 key value      freq
 #>       <char>                              <char> <num>    <char>

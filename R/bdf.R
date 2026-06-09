@@ -151,7 +151,7 @@ parse_bdf_dimension <- function(dt) {
   data.table(
     id = names(obj),
     position = seq_along(obj),
-    codelist = unname(map_chr(obj, \(x) x %??% NA_character_))
+    codelist = unname(map_chr(obj, \(x) x %||% NA_character_))
   )
 }
 

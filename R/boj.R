@@ -100,7 +100,7 @@ parse_boj_data <- function(json) {
 
   dt <- rbindlist(map(series, function(x) {
     dates <- unlist(x$VALUES$SURVEY_DATES)
-    values <- as.numeric(map(x$VALUES$VALUES, \(x) x %??% NA_real_))
+    values <- as.numeric(map(x$VALUES$VALUES, \(x) x %||% NA_real_))
     freq <- tolower(x$FREQUENCY)
 
     dt <- data.table(
@@ -108,8 +108,8 @@ parse_boj_data <- function(json) {
       id = x$SERIES_CODE,
       value = values,
       freq = boj_freq(freq),
-      name = x$NAME_OF_TIME_SERIES %??% x$NAME_OF_TIME_SERIES_J,
-      unit = x$UNIT %??% x$UNIT_J
+      name = x$NAME_OF_TIME_SERIES %||% x$NAME_OF_TIME_SERIES_J,
+      unit = x$UNIT %||% x$UNIT_J
     )
     na.omit(dt, cols = "value")
   }))
@@ -136,10 +136,10 @@ parse_boj_metadata <- function(json) {
     }
     data.table(
       code = code,
-      name = x$NAME_OF_TIME_SERIES %??% x$NAME_OF_TIME_SERIES_J %??% NA_character_,
-      unit = x$UNIT %??% x$UNIT_J %??% NA_character_,
-      frequency = x$FREQUENCY %??% NA_character_,
-      category = x$CATEGORY %??% x$CATEGORY_J %??% NA_character_
+      name = x$NAME_OF_TIME_SERIES %||% x$NAME_OF_TIME_SERIES_J %||% NA_character_,
+      unit = x$UNIT %||% x$UNIT_J %||% NA_character_,
+      frequency = x$FREQUENCY %||% NA_character_,
+      category = x$CATEGORY %||% x$CATEGORY_J %||% NA_character_
     )
   }))
   dt[]

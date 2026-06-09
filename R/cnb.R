@@ -381,7 +381,7 @@ arad <- function(resource, ..., api_key = cnb_arad_key()) {
 arad_error_body <- function(resp) {
   if (identical(resp_content_type(resp), "application/json")) {
     json <- resp_body_json(resp)
-    json$message$en %??% json$message$cs
+    json$message$en %||% json$message$cs
   }
 }
 

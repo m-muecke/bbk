@@ -140,13 +140,13 @@ snb_metadata <- function(key, lang = "en") {
 parse_snb_metadata <- function(json, key) {
   dt <- data.table(
     id = key,
-    title = json$title %??% NA_character_,
-    sub_title = json$subTitle %??% NA_character_,
-    publishing_title = json$publishingTitle %??% NA_character_,
-    public_since_date = as.Date(json$publicSinceDate %??% NA_character_),
-    frequency = json$frequencySpecification %??% NA_character_,
-    source = json$source %??% NA_character_,
-    has_multiple_sources = json$hasMultipleSources %??% NA
+    title = json$title %||% NA_character_,
+    sub_title = json$subTitle %||% NA_character_,
+    publishing_title = json$publishingTitle %||% NA_character_,
+    public_since_date = as.Date(json$publicSinceDate %||% NA_character_),
+    frequency = json$frequencySpecification %||% NA_character_,
+    source = json$source %||% NA_character_,
+    has_multiple_sources = json$hasMultipleSources %||% NA
   )
   setnames(dt, "id", "key")
   dt
@@ -204,18 +204,18 @@ parse_snb_toc <- function(json) {
         topic_id = top$topicId,
         topic = top$title,
         sub_topic = NA_character_,
-        cube_id = top$cubeId %??% NA_character_,
-        chart_id = top$chartId %??% NA_character_,
-        doc_id = top$docId %??% NA_character_
+        cube_id = top$cubeId %||% NA_character_,
+        chart_id = top$chartId %||% NA_character_,
+        doc_id = top$docId %||% NA_character_
       ))
     }
     data.table(
       topic_id = top$topicId,
       topic = top$title,
-      sub_topic = map_chr(subs, \(s) s$title %??% NA_character_),
-      cube_id = map_chr(subs, \(s) s$cubeId %??% NA_character_),
-      chart_id = map_chr(subs, \(s) s$chartId %??% NA_character_),
-      doc_id = map_chr(subs, \(s) s$docId %??% NA_character_)
+      sub_topic = map_chr(subs, \(s) s$title %||% NA_character_),
+      cube_id = map_chr(subs, \(s) s$cubeId %||% NA_character_),
+      chart_id = map_chr(subs, \(s) s$chartId %||% NA_character_),
+      doc_id = map_chr(subs, \(s) s$docId %||% NA_character_)
     )
   }))
 }

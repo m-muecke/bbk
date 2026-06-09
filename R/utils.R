@@ -2,6 +2,10 @@
   !match(x, y, nomatch = 0L)
 }
 
+`%||%` <- function(lhs, rhs) {
+  if (is.null(lhs)) rhs else lhs # nolint
+}
+
 `%&&%` <- function(lhs, rhs) {
   if (is.null(lhs)) NULL else rhs
 }

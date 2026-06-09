@@ -276,12 +276,12 @@ bdp_domain <- function(domain_id = NULL, lang = "en") {
 parse_bdp_domain <- function(json) {
   data.table(
     id = map_int(json, "id"),
-    parent_id = map_int(json, \(x) x$parent_id %??% NA_integer_),
+    parent_id = map_int(json, \(x) x$parent_id %||% NA_integer_),
     label = map_chr(json, "label"),
     short_label = map_chr(json, "short_label"),
     has_series = map_lgl(json, "has_series"),
-    num_series = map_int(json, \(x) x$num_series %??% NA_integer_),
-    num_datasets = map_int(json, \(x) x$num_datasets %??% NA_integer_)
+    num_series = map_int(json, \(x) x$num_series %||% NA_integer_),
+    num_datasets = map_int(json, \(x) x$num_datasets %||% NA_integer_)
   )
 }
 
@@ -337,7 +337,7 @@ bdp_error_body <- function(resp) {
   content_type <- resp_content_type(resp)
   if (identical(content_type, "application/json")) {
     json <- resp_body_json(resp)
-    msg <- json$detail %??% json$message
+    msg <- json$detail %||% json$message
     docs <- "See docs at <https://bpstat.bportugal.pt/data/docs>"
     c(msg, docs)
   }

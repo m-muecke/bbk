@@ -29,8 +29,8 @@ srb_data <- function(series, start_date = NULL, end_date = NULL) {
 
   if (is.null(start_date) || is.null(end_date)) {
     meta <- srb("Observations/Latest", series)
-    start_date <- start_date %??% as.Date("1900-01-01")
-    end_date <- end_date %??% as.Date(meta$date)
+    start_date <- start_date %||% as.Date("1900-01-01")
+    end_date <- end_date %||% as.Date(meta$date)
   }
 
   json <- srb("Observations", series, format(start_date), format(end_date))
@@ -77,7 +77,7 @@ parse_srb_data <- function(json, series) {
 
 parse_srb_series <- function(json) {
   dt <- json |>
-    map(\(x) setDT(map(x, \(v) v %??% NA_character_))) |>
+    map(\(x) setDT(map(x, \(v) v %||% NA_character_))) |>
     rbindlist() |>
     setnames(convert_camel_case)
   dt[]
@@ -89,7 +89,7 @@ parse_srb_groups <- function(json) {
     for (g in groups) {
       children <- g$childGroups
       g$childGroups <- NULL
-      res <- c(res, list(setDT(map(g, \(v) v %??% NA_character_))))
+      res <- c(res, list(setDT(map(g, \(v) v %||% NA_character_))))
       if (length(children) > 0L) {
         res <- c(res, flatten_groups(children))
       }

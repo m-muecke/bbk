@@ -33,7 +33,7 @@ cnb_fx_rates <- function(date = NULL, year = NULL, lang = "EN") {
   }
 
   json <- if (is.null(year)) {
-    cnb("exrates/daily", date = if (!is.null(date)) format(date), lang = lang)
+    cnb("exrates/daily", date = date %&&% format(date), lang = lang)
   } else {
     cnb("exrates/daily-year", year = year, lang = lang)
   }
@@ -72,7 +72,7 @@ cnb_pribor <- function(date = NULL, year = NULL) {
   }
 
   json <- if (is.null(year)) {
-    cnb("pribor/daily", date = if (!is.null(date)) format(date))
+    cnb("pribor/daily", date = date %&&% format(date))
   } else {
     cnb("pribor/daily-year", year = year)
   }
@@ -189,7 +189,7 @@ cnb_data <- function(
     selection_id = selection_id,
     period_from = arad_period(start_period),
     period_to = arad_period(end_period),
-    snapshot_id_list = if (!is.null(snapshot_id)) paste(snapshot_id, collapse = ",")
+    snapshot_id_list = snapshot_id %&&% paste(snapshot_id, collapse = ",")
   )
   parse_cnb_data(dt)
 }
@@ -331,11 +331,11 @@ arad_scope <- function(indicator_id, set_id, base_id, selection_id) {
       call. = FALSE
     )
   }
-  if (!is.null(indicator_id)) paste(indicator_id, collapse = ",") else NULL
+  indicator_id %&&% paste(indicator_id, collapse = ",")
 }
 
 arad_period <- function(date) {
-  if (!is.null(date)) format(date, "%Y%m%d")
+  date %&&% format(date, "%Y%m%d")
 }
 
 parse_cnb_data <- function(dt) {

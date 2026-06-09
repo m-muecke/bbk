@@ -47,9 +47,7 @@ bdf_data <- function(
   start_date <- assert_dateish(start_date, null.ok = TRUE)
   end_date <- assert_dateish(end_date, null.ok = TRUE)
 
-  if (!is.null(key)) {
-    key <- sprintf('series_key:"%s"', key)
-  }
+  key <- key %&&% sprintf('series_key:"%s"', key)
   where <- character()
   if (!is.null(start_date)) {
     start_date <- sprintf("time_period_start >= date'%s'", start_date)

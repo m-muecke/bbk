@@ -7,7 +7,7 @@
 }
 
 `%&&%` <- function(lhs, rhs) {
-  if (is.null(lhs)) NULL else rhs
+  if (is.null(lhs)) lhs else rhs
 }
 
 grepv <- function(...) {

@@ -65,83 +65,10 @@ should occur after 7 pm ET to ensure retrieval of the latest updates.
 # \donttest{
 # fetch latest exchange rates
 boc_fx_rates()
-#>      exchange_rate_id     rate exchange_rate_effective_timestamp
-#>                 <int>    <num>                            <POSc>
-#>   1:          5830354 0.984000                        2026-06-10
-#>   2:          5830355 0.811300                        2026-06-10
-#>   3:          5830356 0.000077                        2026-06-10
-#>   4:          5830357 1.000000                        2026-06-10
-#>   5:          5830358 0.000001                        2026-06-10
-#>  ---                                                            
-#> 150:          5830503 0.004120                        2026-06-10
-#> 151:          5830504 0.476600                        2026-06-10
-#> 152:          5830505 0.000530                        2026-06-10
-#> 153:          5830506 0.002470                        2026-06-10
-#> 154:          5830507 0.079140                        2026-06-10
-#>      exchange_rate_expiry_timestamp exchange_rate_source from_currency
-#>                              <POSc>               <char>        <char>
-#>   1:            2026-06-10 23:59:59                  BoC           AUD
-#>   2:            2026-06-10 23:59:59                  BoC           NZD
-#>   3:            2026-06-10 23:59:59                  BoC           IDR
-#>   4:            2026-06-10 23:59:59                 CBSA           SKL
-#>   5:            2026-06-10 23:59:59                 CBSA           XXD
-#>  ---                                                                  
-#> 150:            2026-06-10 23:59:59                 CBSA           LKR
-#> 151:            2026-06-10 23:59:59                 CBSA           TND
-#> 152:            2026-06-10 23:59:59                 CBSA           TZS
-#> 153:            2026-06-10 23:59:59                 CBSA           VES
-#> 154:            2026-06-10 23:59:59                 CBSA           ZMW
-#>      from_currency_csn to_currency to_currency_csn
-#>                  <int>      <char>           <int>
-#>   1:                12         CAD              36
-#>   2:               150         CAD              36
-#>   3:                92         CAD              36
-#>   4:               180         CAD              36
-#>   5:               223         CAD              36
-#>  ---                                              
-#> 150:               115         CAD              36
-#> 151:               196         CAD              36
-#> 152:               202         CAD              36
-#> 153:               214         CAD              36
-#> 154:               229         CAD              36
+#> Error in req_perform(req_bbk_cache(req_bbk_retry(req_url_query(req_user_agent(request(url),     bbk_user_agent()), startDate = start_date, endDate = end_date,     limit = limit, skip = skip)))): HTTP 403 Forbidden.
 
 # fetch historical exchange rates
 boc_fx_rates(start_date = "2021-10-22", end_date = "2021-10-23", limit = 10, skip = 2)
-#>     exchange_rate_id     rate exchange_rate_effective_timestamp
-#>                <int>    <num>                            <POSc>
-#>  1:          5546931 0.193100                        2021-10-22
-#>  2:          5546932 1.437200                        2021-10-22
-#>  3:          5546933 0.158900                        2021-10-22
-#>  4:          5546934 0.016500                        2021-10-22
-#>  5:          5546935 0.000087                        2021-10-22
-#>  6:          5546936 0.010850                        2021-10-22
-#>  7:          5546937 0.060900                        2021-10-22
-#>  8:          5546938 0.884600                        2021-10-22
-#>  9:          5546939 0.147900                        2021-10-22
-#> 10:          5546940 0.312500                        2021-10-22
-#>     exchange_rate_expiry_timestamp exchange_rate_source from_currency
-#>                             <POSc>               <char>        <char>
-#>  1:            2021-10-22 23:59:59                  BoC           CNY
-#>  2:            2021-10-22 23:59:59                  BoC           EUR
-#>  3:            2021-10-22 23:59:59                  BoC           HKD
-#>  4:            2021-10-22 23:59:59                  BoC           INR
-#>  5:            2021-10-22 23:59:59                  BoC           IDR
-#>  6:            2021-10-22 23:59:59                  BoC           JPY
-#>  7:            2021-10-22 23:59:59                  BoC           MXN
-#>  8:            2021-10-22 23:59:59                  BoC           NZD
-#>  9:            2021-10-22 23:59:59                  BoC           NOK
-#> 10:            2021-10-22 23:59:59                  BoC           PEN
-#>     from_currency_csn to_currency to_currency_csn
-#>                 <int>      <char>           <int>
-#>  1:                42         CAD              36
-#>  2:                66         CAD              36
-#>  3:                87         CAD              36
-#>  4:                95         CAD              36
-#>  5:                92         CAD              36
-#>  6:               102         CAD              36
-#>  7:               138         CAD              36
-#>  8:               150         CAD              36
-#>  9:               148         CAD              36
-#> 10:               154         CAD              36
+#> Error in req_perform(req_bbk_cache(req_bbk_retry(req_url_query(req_user_agent(request(url),     bbk_user_agent()), startDate = start_date, endDate = end_date,     limit = limit, skip = skip)))): HTTP 403 Forbidden.
 # }
 ```

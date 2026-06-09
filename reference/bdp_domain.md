@@ -241,7 +241,7 @@ bdp_domain()
 #>  8:            BCS       TRUE        323            2
 #>  9:             BO       TRUE        128            1
 #> 10:             NA      FALSE         NA           NA
-#> 11:            CPI       TRUE        144            4
+#> 11:            CPI       TRUE        144            2
 #> 12:            PEU       TRUE        517           10
 #> 13:             MF      FALSE         NA           NA
 #> 14:            ERS      FALSE         NA           NA
@@ -265,7 +265,7 @@ bdp_domain()
 #> 32:           Comp       TRUE          6            2
 #> 33:             HP       TRUE          9            2
 #> 34:              P      FALSE         NA           NA
-#> 35:           HICP       TRUE         79            5
+#> 35:           HICP       TRUE         79            4
 #> 36:            PLM      FALSE         NA           NA
 #> 37:            LCP       TRUE         10            1
 #> 38:       TSPE-HDI       TRUE         14            2

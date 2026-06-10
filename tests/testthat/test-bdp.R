@@ -52,6 +52,21 @@ test_that("parse_bdp_data works", {
   expect_names(names(actual), must.include = c("date", "value", "freq"))
 })
 
+test_that("parse_bdp_data keeps missing observations as NA instead of collapsing", {
+  json = list(
+    role = list(time = list("reference_date")),
+    dimension = list(
+      reference_date = list(category = list(index = list("2020-01-01", "2020-02-01", "2020-03-01")))
+    ),
+    value = list(1.5, NULL, 2.0),
+    status = list("F", "M", "F"),
+    extension = list(series = list(list(id = 1L, label = "s1")))
+  )
+  actual = parse_bdp_data(json)
+  expect_identical(actual$value, c(1.5, NA, 2.0))
+  expect_identical(actual$date, as.Date(c("2020-01-01", "2020-02-01", "2020-03-01")))
+})
+
 test_that("parse_bdp_series works", {
   json = readRDS(test_path("fixtures", "bdp-series.rds"))
   actual = parse_bdp_series(json)

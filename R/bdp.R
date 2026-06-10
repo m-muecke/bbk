@@ -74,14 +74,16 @@ parse_bdp_data = function(json) {
   time_dim = json$role$time[[1L]]
   dates = unlist(json$dimension[[time_dim]]$category$index, use.names = FALSE)
   n_dates = length(dates)
-  values = unlist(json$value, use.names = FALSE)
+  values = map_dbl(json$value, \(x) x %||% NA_real_)
   n_series = length(values) %/% n_dates
 
   dt = data.table(
     date = as.Date(rep(dates, times = n_series)),
-    value = values,
-    status = unlist(json$status, use.names = FALSE)
+    value = values
   )
+  if (!is.null(json$status)) {
+    dt[, "status" := map_chr(json$status, \(x) x %||% NA_character_)]
+  }
 
   series = json$extension$series
   if (!is.null(series)) {

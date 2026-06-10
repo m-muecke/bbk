@@ -15,6 +15,9 @@ grepv = function(...) {
 }
 
 parse_date = function(date, freq) {
+  if (length(freq) != 1L || is.na(freq)) {
+    return(date)
+  }
   switch(
     freq,
     daily = as.Date(date),

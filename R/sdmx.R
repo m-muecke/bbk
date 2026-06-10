@@ -22,8 +22,10 @@ sdmx_freq = function(code) {
     code,
     # ISO 8601 duration codes (BBk)
     P1D = "daily",
+    P7D = "weekly",
     P1M = "monthly",
     P3M = "quarterly",
+    P6M = "semi-annual",
     P1Y = "annual",
     # SDMX frequency codes (ECB, NoB)
     A = "annual",
@@ -32,7 +34,9 @@ sdmx_freq = function(code) {
     M = "monthly",
     W = "weekly",
     B = ,
-    D = "daily"
+    D = "daily",
+    # unknown codes
+    code
   )
 }
 

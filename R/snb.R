@@ -52,13 +52,7 @@ parse_snb_data = function(json) {
   setnames(dt, "frequency", "duration")
   duration = NULL
   dt[, duration := substring(duration, 1L, 3L)]
-  freq = switch(
-    dt[1L, duration],
-    P1M = "monthly",
-    P3M = "quarterly",
-    P1Y = "annual",
-    P1D = "daily"
-  )
+  freq = sdmx_freq(dt[1L, duration])
   dt[, let(date = parse_date(date, freq), freq = freq)]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]

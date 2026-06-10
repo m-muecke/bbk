@@ -26,12 +26,12 @@
 #' # multiple series
 #' boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 #' }
-boe_data <- function(key, start_date, end_date = Sys.Date()) {
+boe_data = function(key, start_date, end_date = Sys.Date()) {
   assert_character(key, min.chars = 1L, max.len = 300L)
-  start_date <- assert_dateish(start_date)
-  end_date <- assert_dateish(end_date)
+  start_date = assert_dateish(start_date)
+  end_date = assert_dateish(end_date)
 
-  xml <- boe(
+  xml = boe(
     SeriesCodes = key,
     Datefrom = format(start_date, "%d/%b/%Y"),
     Dateto = format(end_date, "%d/%b/%Y")
@@ -39,36 +39,36 @@ boe_data <- function(key, start_date, end_date = Sys.Date()) {
   parse_boe_data(xml)
 }
 
-parse_boe_data <- function(xml) {
+parse_boe_data = function(xml) {
   xml |>
     xml2::xml_ns_strip() |>
     xml2::xml_children() |>
     map(function(x) {
-      id <- xml2::xml_attr(x, "SCODE")
-      desc <- xml2::xml_attr(x, "DESC")
-      freq_name <- x |>
+      id = xml2::xml_attr(x, "SCODE")
+      desc = xml2::xml_attr(x, "DESC")
+      freq_name = x |>
         xml2::xml_find_first("./Cube[@FREQ_NAME]") |>
         xml2::xml_attr("FREQ_NAME") |>
         tolower()
-      attrs <- xml2::xml_find_all(x, "./Cube[@CAT_NAME]")
-      nms <- xml2::xml_attr(attrs, "CAT_NAME")
-      nms <- chartr(" ", "_", tolower(nms))
-      attrs <- attrs |>
+      attrs = xml2::xml_find_all(x, "./Cube[@CAT_NAME]")
+      nms = xml2::xml_attr(attrs, "CAT_NAME")
+      nms = chartr(" ", "_", tolower(nms))
+      attrs = attrs |>
         xml2::xml_attr("VAL_DESC") |>
         setNames(nms) |>
         as.list()
 
-      vals <- xml2::xml_find_all(x, "./Cube[@TIME and @OBS_VALUE]")
-      date <- as.Date(xml2::xml_attr(vals, "TIME"))
-      value <- as.numeric(xml2::xml_attr(vals, "OBS_VALUE"))
-      dt <- data.table(date = date, id = id, value = value, description = desc, freq = freq_name)
+      vals = xml2::xml_find_all(x, "./Cube[@TIME and @OBS_VALUE]")
+      date = as.Date(xml2::xml_attr(vals, "TIME"))
+      value = as.numeric(xml2::xml_attr(vals, "OBS_VALUE"))
+      dt = data.table(date = date, id = id, value = value, description = desc, freq = freq_name)
       setnames(dt, "id", "key")
       dt[, (names(attrs)) := attrs]
     }) |>
     rbindlist(fill = TRUE)
 }
 
-boe <- function(...) {
+boe = function(...) {
   request("https://www.bankofengland.co.uk/boeapps/database/_iadb-fromshowcolumns.asp") |>
     req_user_agent(bbk_user_agent()) |>
     req_url_query(..., xml.x = "yes", .multi = "comma") |>
@@ -84,7 +84,7 @@ boe <- function(...) {
     resp_body_xml()
 }
 
-boe_error_body <- function(resp) {
-  msg <- "The BoE returned an error for the request."
+boe_error_body = function(resp) {
+  msg = "The BoE returned an error for the request."
   c(msg, sprintf("See docs at <%s>", resp_url(resp)))
 }

@@ -13,8 +13,8 @@ test_that("srb_data input validation works", {
 })
 
 test_that("parse_srb_data works", {
-  json <- jsonlite::fromJSON(test_path("fixtures", "srb-data.json"), simplifyVector = FALSE)
-  actual <- parse_srb_data(json, "SEKUSDPMI")
+  json = jsonlite::fromJSON(test_path("fixtures", "srb-data.json"), simplifyVector = FALSE)
+  actual = parse_srb_data(json, "SEKUSDPMI")
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
@@ -22,7 +22,7 @@ test_that("parse_srb_data works", {
 })
 
 test_that("parse_srb_data handles empty response", {
-  actual <- parse_srb_data(list(), "SEKUSDPMI")
+  actual = parse_srb_data(list(), "SEKUSDPMI")
   expect_data_table(actual, nrows = 0L)
   expect_true(all(c("date", "key", "value") %in% names(actual)))
 })
@@ -35,8 +35,8 @@ test_that("srb_cross_rates input validation works", {
 })
 
 test_that("srb_cross_rates works", {
-  json <- readRDS(test_path("fixtures", "srb-crossrates.rds"))
-  actual <- parse_srb_data(json, "SEKUSDPMI/SEKEURPMI")
+  json = readRDS(test_path("fixtures", "srb-crossrates.rds"))
+  actual = parse_srb_data(json, "SEKUSDPMI/SEKEURPMI")
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
@@ -50,8 +50,8 @@ test_that("srb_calendar input validation works", {
 })
 
 test_that("parse_srb_calendar works", {
-  json <- readRDS(test_path("fixtures", "srb-calendar.rds"))
-  actual <- parse_srb_calendar(json)
+  json = readRDS(test_path("fixtures", "srb-calendar.rds"))
+  actual = parse_srb_calendar(json)
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$calendar_date)
   expect_logical(actual$swedish_bankday)
@@ -64,16 +64,16 @@ test_that("srb_series input validation works", {
 })
 
 test_that("parse_srb_series works", {
-  json <- jsonlite::fromJSON(test_path("fixtures", "srb-series.json"), simplifyVector = FALSE)
-  actual <- parse_srb_series(json)
+  json = jsonlite::fromJSON(test_path("fixtures", "srb-series.json"), simplifyVector = FALSE)
+  actual = parse_srb_series(json)
   expect_data_table(actual, min.rows = 1L)
   expect_true(all(c("series_id", "source", "long_description") %in% names(actual)))
   expect_true("SEKUSDPMI" %in% actual$series_id)
 })
 
 test_that("parse_srb_groups works", {
-  json <- jsonlite::fromJSON(test_path("fixtures", "srb-groups.json"), simplifyVector = FALSE)
-  actual <- parse_srb_groups(json)
+  json = jsonlite::fromJSON(test_path("fixtures", "srb-groups.json"), simplifyVector = FALSE)
+  actual = parse_srb_groups(json)
   expect_data_table(actual, min.rows = 1L)
   expect_true(all(c("group_id", "name") %in% names(actual)))
 })

@@ -37,15 +37,15 @@
 #' @examplesIf curl::has_internet()
 #' \donttest{
 #' # fetch all data for a given flow and key
-#' data <- bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+#' data = bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 #' head(data)
 #'
 #' # fetch data for multiple keys
-#' data <- bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
+#' data = bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
 #' head(data)
 #'
 #' # specified period (start date-end date) for daily data
-#' data <- bbk_data(
+#' data = bbk_data(
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2020-01-01",
 #'   end_period = "2020-08-01"
@@ -53,13 +53,13 @@
 #' head(data)
 #'
 #' # or only specify the start date
-#' data <- bbk_data(
+#' data = bbk_data(
 #'   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
 #'   start_period = "2024-04-01"
 #' )
 #' head(data)
 #' }
-bbk_data <- function(
+bbk_data = function(
   flow,
   key = NULL,
   start_period = NULL,
@@ -72,12 +72,12 @@ bbk_data <- function(
   assert_character(key, min.chars = 1L, null.ok = TRUE)
   assert_period(start_period)
   assert_period(end_period)
-  first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
-  last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
-  updated_after <- assert_timestampish(updated_after, null.ok = TRUE)
+  first_n = assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  last_n = assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  updated_after = assert_timestampish(updated_after, null.ok = TRUE)
 
-  resource <- sdmx_data_resource(flow, key)
-  xml <- bbk_make_request(
+  resource = sdmx_data_resource(flow, key)
+  xml = bbk_make_request(
     resource = resource,
     startPeriod = start_period,
     endPeriod = end_period,
@@ -104,9 +104,9 @@ bbk_data <- function(
 #' bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #' bbk_series("BBBK11.D.TTA000")
 #' }
-bbk_series <- function(key) {
+bbk_series = function(key) {
   assert_string(key, min.chars = 1L)
-  body <- bbk_build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
+  body = bbk_build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
     req_bbk_retry() |>
     req_bbk_cache() |>
@@ -140,17 +140,17 @@ bbk_series <- function(key) {
 #' bbk_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
 #' bbk_metadata("concept", "CS_BBK_BSPL")
 #' }
-bbk_metadata <- function(type, id = NULL, lang = "en") {
+bbk_metadata = function(type, id = NULL, lang = "en") {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
-  args <- switch(
+  args = switch(
     type,
     datastructure = list("datastructure/BBK", "//structure:DataStructure"),
     dataflow = list("dataflow/BBK", "//structure:Dataflow"),
     codelist = list("codelist/BBK", "//structure:Codelist"),
     concept = list("conceptscheme/BBK", "//structure:ConceptScheme")
   )
-  dt <- do.call(fetch_bbk_metadata, c(args, list(id, lang)))
-  name <- NULL
+  dt = do.call(fetch_bbk_metadata, c(args, list(id, lang)))
+  name = NULL
   dt[!nzchar(name), name := NA_character_][]
 }
 
@@ -171,46 +171,46 @@ bbk_metadata <- function(type, id = NULL, lang = "en") {
 #' \donttest{
 #' bbk_dimension("BBK_ERX")
 #' }
-bbk_dimension <- function(id) {
+bbk_dimension = function(id) {
   assert_string(id, min.chars = 1L)
-  resource <- paste("metadata", "datastructure", "BBK", toupper(id), sep = "/")
-  xml <- bbk_make_request(resource)
+  resource = paste("metadata", "datastructure", "BBK", toupper(id), sep = "/")
+  xml = bbk_make_request(resource)
   sdmx_dimension(xml, ns_prefix = "structure")
 }
 
-parse_bbk_series <- function(body, key) {
-  td <- tempfile()
+parse_bbk_series = function(body, key) {
+  td = tempfile()
   dir.create(td)
   on.exit(unlink(td, recursive = TRUE), add = TRUE)
-  tf <- file.path(td, "tempfile.zip")
+  tf = file.path(td, "tempfile.zip")
   writeBin(body, tf)
   utils::unzip(tf, exdir = td)
 
-  files <- list.files(td, full.names = TRUE)
-  path <- grepv("\\.csv$", files)[[1L]]
+  files = list.files(td, full.names = TRUE)
+  path = grepv("\\.csv$", files)[[1L]]
 
-  dt <- fread(file = path, header = FALSE, skip = 10L, select = 1:2)
+  dt = fread(file = path, header = FALSE, skip = 10L, select = 1:2)
   setnames(dt, c("date", "value"))
-  value <- NULL
+  value = NULL
   dt[value == ".", value := NA_character_]
-  dt <- na.omit(dt)
+  dt = na.omit(dt)
 
-  metadata <- readLines(path, n = 10L)
-  title <- sub("^[\",]+", "", metadata[[2L]])
-  title <- sub("[\",]+$", "", title)
-  freq <- extract_metadata(metadata, "^Time format code")
-  unit <- extract_metadata(metadata, "^Unit \\(in english\\),")
+  metadata = readLines(path, n = 10L)
+  title = sub("^[\",]+", "", metadata[[2L]])
+  title = sub("[\",]+$", "", title)
+  freq = extract_metadata(metadata, "^Time format code")
+  unit = extract_metadata(metadata, "^Unit \\(in english\\),")
   if (is.na(unit)) {
-    unit <- extract_metadata(metadata, "^unit,")
+    unit = extract_metadata(metadata, "^unit,")
   }
-  unit_mult <- extract_metadata(metadata, "^unit multiplier,")
-  category <- extract_metadata(metadata, "^category,")
-  last_update <- extract_metadata(metadata, "^last update,")
-  comment <- extract_metadata(metadata, "^Comment \\(in english\\),")
-  comment <- sub("^\"", "", comment)
-  src <- extract_metadata(metadata, "^Source \\(in english\\),")
+  unit_mult = extract_metadata(metadata, "^unit multiplier,")
+  category = extract_metadata(metadata, "^category,")
+  last_update = extract_metadata(metadata, "^last update,")
+  comment = extract_metadata(metadata, "^Comment \\(in english\\),")
+  comment = sub("^\"", "", comment)
+  src = extract_metadata(metadata, "^Source \\(in english\\),")
 
-  freq <- sdmx_freq(freq)
+  freq = sdmx_freq(freq)
   dt[, let(
     date = parse_date(date, freq),
     key = key,
@@ -227,90 +227,90 @@ parse_bbk_series <- function(body, key) {
   dt[]
 }
 
-parse_bbk_data <- function(xml) {
-  series <- xml2::xml_find_all(xml, ".//generic:Series")
-  dt <- rbindlist(map(series, function(x) {
-    series_key <- x |>
+parse_bbk_data = function(xml) {
+  series = xml2::xml_find_all(xml, ".//generic:Series")
+  dt = rbindlist(map(series, function(x) {
+    series_key = x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()
-    nms <- series_key |>
+    nms = series_key |>
       xml2::xml_attr("id") |>
       tolower()
-    series_key <- series_key |>
+    series_key = series_key |>
       xml2::xml_attr("value") |>
       setNames(nms) |>
       as.list()
 
-    attrs <- x |>
+    attrs = x |>
       xml2::xml_find_first(".//generic:Attributes") |>
       xml2::xml_children()
-    nms <- attrs |>
+    nms = attrs |>
       xml2::xml_attr("id") |>
       tolower()
-    attrs <- attrs |>
+    attrs = attrs |>
       xml2::xml_attr("value") |>
       setNames(nms) |>
       as.list()
 
-    data <- c(series_key, attrs)
-    nms <- names(data)
-    nms <- sub("^bbk_(seis_)?", "", nms)
-    nms <- sub("^std_", "", nms)
-    has_eng <- paste0(nms, "_eng") %in% nms
-    data <- data[!has_eng]
-    nms <- sub("_eng$", "", nms[!has_eng])
+    data = c(series_key, attrs)
+    nms = names(data)
+    nms = sub("^bbk_(seis_)?", "", nms)
+    nms = sub("^std_", "", nms)
+    has_eng = paste0(nms, "_eng") %in% nms
+    data = data[!has_eng]
+    nms = sub("_eng$", "", nms[!has_eng])
     # fmt: skip
-    nms <- fcase(
+    nms = fcase(
       nms == "id", "key",
       nms == "web_category", "category",
       default = nms
     )
-    names(data) <- nms
+    names(data) = nms
 
-    data$freq <- sdmx_freq(data$time_format)
+    data$freq = sdmx_freq(data$time_format)
 
-    entries <- xml2::xml_find_all(xml, "//generic:Obs[generic:ObsValue]")
-    data$date <- entries |>
+    entries = xml2::xml_find_all(xml, "//generic:Obs[generic:ObsValue]")
+    data$date = entries |>
       xml2::xml_find_all(".//generic:ObsDimension") |>
       xml2::xml_attr("value") |>
       parse_date(data$freq)
 
-    data$value <- entries |>
+    data$value = entries |>
       xml2::xml_find_all(".//generic:ObsValue") |>
       xml2::xml_attr("value") |>
       as.numeric()
 
     as.data.table(data)
   }))
-  decimals <- NULL
+  decimals = NULL
   dt[, decimals := as.integer(decimals)]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }
 
-fetch_bbk_metadata <- function(resource, xpath, id = NULL, lang = "en") {
+fetch_bbk_metadata = function(resource, xpath, id = NULL, lang = "en") {
   assert_choice(lang, c("en", "de"))
   assert_string(id, min.chars = 1L, null.ok = TRUE)
 
-  resource <- paste("metadata", resource, sep = "/")
+  resource = paste("metadata", resource, sep = "/")
   if (!is.null(id)) {
-    resource <- paste(resource, toupper(id), sep = "/")
+    resource = paste(resource, toupper(id), sep = "/")
   }
-  xml <- bbk_make_request(resource)
-  entries <- xml2::xml_find_all(xml, xpath)
+  xml = bbk_make_request(resource)
+  entries = xml2::xml_find_all(xml, xpath)
   sdmx_metadata(entries, lang, ns_prefix = "common")
 }
 
-bbk_error_body <- function(resp) {
-  content_type <- resp_content_type(resp)
+bbk_error_body = function(resp) {
+  content_type = resp_content_type(resp)
   if (identical(content_type, "application/json")) {
-    msg <- resp_body_json(resp)$title
-    docs <- "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
+    msg = resp_body_json(resp)$title
+    docs = "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
     c(msg, docs)
   }
 }
 
-bbk_build_request <- function(resource, accept = NULL) {
+bbk_build_request = function(resource, accept = NULL) {
   request("https://api.statistiken.bundesbank.de/rest") |>
     req_user_agent(bbk_user_agent()) |>
     req_headers(`Accept-Language` = "en", accept = accept) |>
@@ -318,6 +318,6 @@ bbk_build_request <- function(resource, accept = NULL) {
     req_error(body = bbk_error_body)
 }
 
-bbk_make_request <- function(resource, ...) {
+bbk_make_request = function(resource, ...) {
   sdmx_request("https://api.statistiken.bundesbank.de/rest", resource, bbk_error_body, ...)
 }

@@ -21,26 +21,26 @@
 #' # or filter for date range
 #' snb_data("rendopar", "2020-01-01", "2020-12-31")
 #' }
-snb_data <- function(key, start_date = NULL, end_date = NULL, lang = "en") {
+snb_data = function(key, start_date = NULL, end_date = NULL, lang = "en") {
   assert_string(key, min.chars = 1L)
-  start_date <- assert_dateish(start_date, null.ok = TRUE)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
   assert_choice(lang, c("en", "de"))
 
-  json <- snb(id = key, fromDate = start_date, toDate = end_date, lang = lang)
+  json = snb(id = key, fromDate = start_date, toDate = end_date, lang = lang)
   parse_snb_data(json)
 }
 
-parse_snb_data <- function(json) {
-  dt <- rbindlist(map(json$timeseries, function(x) {
-    meta <- as.data.table(x$metadata)
-    header <- x$header
-    cols <- map_chr(header, "dim")
-    cols <- gsub("[[:space:][:punct:]]", "_", tolower(cols))
-    item <- setNames(map(header, "dimItem"), cols)
-    ref <- setDT(item)
-    vals <- x$values
-    vals <- data.table(
+parse_snb_data = function(json) {
+  dt = rbindlist(map(json$timeseries, function(x) {
+    meta = as.data.table(x$metadata)
+    header = x$header
+    cols = map_chr(header, "dim")
+    cols = gsub("[[:space:][:punct:]]", "_", tolower(cols))
+    item = setNames(map(header, "dimItem"), cols)
+    ref = setDT(item)
+    vals = x$values
+    vals = data.table(
       date = map_chr(vals, "date"),
       value = map_dbl(vals, "value")
     )
@@ -50,9 +50,9 @@ parse_snb_data <- function(json) {
 
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "duration")
-  duration <- NULL
+  duration = NULL
   dt[, duration := substring(duration, 1L, 3L)]
-  freq <- switch(
+  freq = switch(
     dt[1L, duration],
     P1M = "monthly",
     P3M = "quarterly",
@@ -77,20 +77,20 @@ parse_snb_data <- function(json) {
 #' \donttest{
 #' snb_dimension("rendopar")
 #' }
-snb_dimension <- function(key, lang = "en") {
+snb_dimension = function(key, lang = "en") {
   assert_string(key, min.chars = 1L)
   assert_choice(lang, c("en", "de"))
 
-  json <- snb(key, resource = "dimensions", lang = lang)
+  json = snb(key, resource = "dimensions", lang = lang)
   parse_snb_dimension(json)
 }
 
-parse_snb_dimension <- function(json) {
+parse_snb_dimension = function(json) {
   rbindlist(map(json$dimensions, function(x) {
-    items <- x$dimensionItems
-    has_children <- map_lgl(items, \(item) !is.null(item$dimensionItems))
+    items = x$dimensionItems
+    has_children = map_lgl(items, \(item) !is.null(item$dimensionItems))
     if (any(has_children)) {
-      items <- unlist(map(items, "dimensionItems"), recursive = FALSE)
+      items = unlist(map(items, "dimensionItems"), recursive = FALSE)
     }
     data.table(
       dim_id = x$id,
@@ -123,11 +123,11 @@ parse_snb_dimension <- function(json) {
 #' \donttest{
 #' snb_metadata("rendopar")
 #' }
-snb_metadata <- function(key, lang = "en") {
+snb_metadata = function(key, lang = "en") {
   assert_string(key, min.chars = 1L)
   assert_choice(lang, c("en", "de"))
 
-  json <- snb_json(
+  json = snb_json(
     "/json/table/getCubeInfo",
     cubeId = key,
     lang = lang,
@@ -137,8 +137,8 @@ snb_metadata <- function(key, lang = "en") {
   parse_snb_metadata(json, key)
 }
 
-parse_snb_metadata <- function(json, key) {
-  dt <- data.table(
+parse_snb_metadata = function(json, key) {
+  dt = data.table(
     id = key,
     title = json$title %||% NA_character_,
     sub_title = json$subTitle %||% NA_character_,
@@ -173,10 +173,10 @@ parse_snb_metadata <- function(json, key) {
 #' \donttest{
 #' snb_toc()
 #' }
-snb_toc <- function(lang = "en") {
+snb_toc = function(lang = "en") {
   assert_choice(lang, c("en", "de"))
 
-  json <- snb_json(
+  json = snb_json(
     "/json/topic/getTopicsWithRootSubTopics",
     lang = lang,
     pageViewTime = snb_page_view_time(),
@@ -185,8 +185,8 @@ snb_toc <- function(lang = "en") {
   parse_snb_toc(json)
 }
 
-parse_snb_toc <- function(json) {
-  topics <- json$publicationTopics
+parse_snb_toc = function(json) {
+  topics = json$publicationTopics
   if (length(topics) == 0L) {
     return(data.table(
       topic_id = character(),
@@ -198,7 +198,7 @@ parse_snb_toc <- function(json) {
     ))
   }
   rbindlist(map(topics, function(top) {
-    subs <- top$subTopics
+    subs = top$subTopics
     if (length(subs) == 0L) {
       return(data.table(
         topic_id = top$topicId,
@@ -220,7 +220,7 @@ parse_snb_toc <- function(json) {
   }))
 }
 
-snb_json <- function(path, ...) {
+snb_json = function(path, ...) {
   request("https://data.snb.ch") |>
     req_url_path_append(path) |>
     req_user_agent(bbk_user_agent()) |>
@@ -232,20 +232,20 @@ snb_json <- function(path, ...) {
     resp_body_json(check_type = FALSE)
 }
 
-snb <- function(id, ..., resource = "data/json", lang = "en") {
+snb = function(id, ..., resource = "data/json", lang = "en") {
   snb_json(sprintf("/api/cube/%s/%s/%s", id, resource, lang), ...)
 }
 
-snb_page_view_time <- function() {
+snb_page_view_time = function() {
   snb_json("/json/application/properties")$pageViewTime
 }
 
-snb_error_body <- function(resp) {
-  body <- resp_body_string(resp, "UTF-8")
+snb_error_body = function(resp) {
+  body = resp_body_string(resp, "UTF-8")
   if (startsWith(body, "<")) {
     return(c("SNB API request failed.", "See docs at <https://data.snb.ch/en>"))
   }
-  msg <- jsonlite::fromJSON(body)
-  docs <- "See docs at <https://data.snb.ch/en>"
+  msg = jsonlite::fromJSON(body)
+  docs = "See docs at <https://data.snb.ch/en>"
   c(msg$message, docs)
 }

@@ -39,7 +39,7 @@ test_that("bbk_data input validation works", {
 })
 
 test_that("bbk_data passes updated_after as preparedAfter", {
-  captured <- NULL
+  captured = NULL
   httr2::local_mocked_responses(function(req) {
     captured <<- req
     httr2::response(200L, headers = "content-type: application/xml", body = charToRaw("<x/>"))
@@ -50,8 +50,8 @@ test_that("bbk_data passes updated_after as preparedAfter", {
 })
 
 test_that("parse_bbk_data works", {
-  body <- xml2::read_xml(test_path("fixtures", "bbk-data.xml"))
-  actual <- parse_bbk_data(body)
+  body = xml2::read_xml(test_path("fixtures", "bbk-data.xml"))
+  actual = parse_bbk_data(body)
   expect_data_table(actual, min.rows = 1L)
   expect_identical(
     unique(actual$key),
@@ -61,12 +61,12 @@ test_that("parse_bbk_data works", {
 })
 
 test_that("parse_bbk_series works", {
-  body <- readRDS(test_path("fixtures", "bbk-series.rds"))
-  actual <- parse_bbk_series(
+  body = readRDS(test_path("fixtures", "bbk-series.rds"))
+  actual = parse_bbk_series(
     body,
     "BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
   )
-  nms <- c(
+  nms = c(
     "key",
     "date",
     "value",
@@ -125,10 +125,10 @@ test_that("bbk_series does frequency conversion", {
   skip_on_cran()
   skip_on_ci()
 
-  x <- bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
+  x = bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
   expect_all_equal(x$freq, "monthly")
-  x <- bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
+  x = bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
   expect_all_equal(x$freq, "quarterly")
-  x <- bbk_series("BBBK11.D.TTA000")
+  x = bbk_series("BBBK11.D.TTA000")
   expect_all_equal(x$freq, "daily")
 })

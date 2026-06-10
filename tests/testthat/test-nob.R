@@ -22,8 +22,8 @@ test_that("nob_data input validation works", {
 })
 
 test_that("parse_nob_data works", {
-  body <- xml2::read_xml(test_path("fixtures", "nob-data.xml"))
-  actual <- parse_nob_data(body)
+  body = xml2::read_xml(test_path("fixtures", "nob-data.xml"))
+  actual = parse_nob_data(body)
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
@@ -48,9 +48,9 @@ test_that("nob_metadata input validation works", {
 })
 
 test_that("sdmx_metadata works for nob", {
-  body <- xml2::read_xml(test_path("fixtures", "nob-metadata.xml"))
-  entries <- xml2::xml_find_all(body, "//str:Dataflow")
-  actual <- sdmx_metadata(entries)
+  body = xml2::read_xml(test_path("fixtures", "nob-metadata.xml"))
+  entries = xml2::xml_find_all(body, "//str:Dataflow")
+  actual = sdmx_metadata(entries)
   expect_data_table(actual, min.rows = 1L)
   expect_true(all(c("id", "name") %in% names(actual)))
   expect_true("EXR" %in% actual$id)

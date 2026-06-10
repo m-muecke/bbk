@@ -13,30 +13,30 @@ test_that("nbp_gold input validation works", {
 })
 
 test_that("parse_nbp_fx_rates works for single currency", {
-  json <- readRDS(test_path("fixtures", "nbp-fx-rates.rds"))
-  actual <- parse_nbp_fx_rates(json, "a", "eur")
+  json = readRDS(test_path("fixtures", "nbp-fx-rates.rds"))
+  actual = parse_nbp_fx_rates(json, "a", "eur")
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), must.include = c("date", "code", "currency", "mid"))
   expect_date(actual$date)
 })
 
 test_that("parse_nbp_fx_rates works for table", {
-  json <- readRDS(test_path("fixtures", "nbp-fx-table.rds"))
-  actual <- parse_nbp_fx_rates(json, "a", NULL)
+  json = readRDS(test_path("fixtures", "nbp-fx-table.rds"))
+  actual = parse_nbp_fx_rates(json, "a", NULL)
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), must.include = c("date", "code", "currency", "mid"))
 })
 
 test_that("parse_nbp_fx_rates works for bid/ask", {
-  json <- readRDS(test_path("fixtures", "nbp-fx-rates-c.rds"))
-  actual <- parse_nbp_fx_rates(json, "c", "eur")
+  json = readRDS(test_path("fixtures", "nbp-fx-rates-c.rds"))
+  actual = parse_nbp_fx_rates(json, "c", "eur")
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), must.include = c("date", "code", "currency", "bid", "ask"))
 })
 
 test_that("parse_nbp_gold works", {
-  json <- readRDS(test_path("fixtures", "nbp-gold.rds"))
-  actual <- parse_nbp_gold(json)
+  json = readRDS(test_path("fixtures", "nbp-gold.rds"))
+  actual = parse_nbp_gold(json)
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), must.include = c("date", "price"))
   expect_date(actual$date)

@@ -13,11 +13,11 @@ test_that("bde_latest input validation works", {
 })
 
 test_that("bde_latest works", {
-  json <- readRDS(test_path("fixtures", "bde-latest.rds"))
-  dt <- rbindlist(map(json, setDT))
+  json = readRDS(test_path("fixtures", "bde-latest.rds"))
+  dt = rbindlist(map(json, setDT))
   # fmt: skip
-  old_cols <- c("serie", "descripcionCorta", "codFrecuencia", "decimales", "simbolo", "tendencia", "fechaValor", "valor") # nolint
-  new_cols <- c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
+  old_cols = c("serie", "descripcionCorta", "codFrecuencia", "decimales", "simbolo", "tendencia", "fechaValor", "valor") # nolint
+  new_cols = c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
   setnames(dt, old_cols, new_cols)
   dt[, date := as.POSIXct(date, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]
   expect_data_table(dt, nrows = 2L)
@@ -26,8 +26,8 @@ test_that("bde_latest works", {
 })
 
 test_that("parse_bde_data works", {
-  json <- readRDS(test_path("fixtures", "bde-data.rds"))
-  actual <- parse_bde_data(json)
+  json = readRDS(test_path("fixtures", "bde-data.rds"))
+  actual = parse_bde_data(json)
   expect_data_table(actual, min.rows = 1L)
   expect_identical(
     unique(actual$key),

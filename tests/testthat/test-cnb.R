@@ -12,8 +12,8 @@ test_that("cnb_pribor input validation works", {
 })
 
 test_that("parse_cnb_fx_rates works", {
-  json <- readRDS(test_path("fixtures", "cnb-fx-rates.rds"))
-  actual <- parse_cnb_fx_rates(json)
+  json = readRDS(test_path("fixtures", "cnb-fx-rates.rds"))
+  actual = parse_cnb_fx_rates(json)
   expect_data_table(actual, min.rows = 1L)
   expect_names(
     names(actual),
@@ -24,8 +24,8 @@ test_that("parse_cnb_fx_rates works", {
 })
 
 test_that("parse_cnb_pribor works", {
-  json <- readRDS(test_path("fixtures", "cnb-pribor.rds"))
-  actual <- parse_cnb_pribor(json)
+  json = readRDS(test_path("fixtures", "cnb-pribor.rds"))
+  actual = parse_cnb_pribor(json)
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), identical.to = c("date", "period", "pribor"))
   expect_date(actual$date)
@@ -52,8 +52,8 @@ test_that("cnb_snapshots input validation works", {
 })
 
 test_that("parse_cnb_data works", {
-  dt <- readRDS(test_path("fixtures", "cnb-arad-data.rds"))
-  actual <- parse_cnb_data(dt)
+  dt = readRDS(test_path("fixtures", "cnb-arad-data.rds"))
+  actual = parse_cnb_data(dt)
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), identical.to = c("date", "indicator_id", "snapshot_id", "value"))
   expect_date(actual$date)
@@ -62,26 +62,26 @@ test_that("parse_cnb_data works", {
 })
 
 test_that("parse_cnb_data parses values and snapshot ids", {
-  dt <- data.table(
+  dt = data.table(
     indicator_id = c("X", "X", "X"),
     snapshot_id = c("NULL", "", "29"),
     period = c("20230131", "20230228", "20230331"),
     value = c("1 234,56", "2,5", "-3,0")
   )
-  actual <- parse_cnb_data(dt)
+  actual = parse_cnb_data(dt)
   expect_equal(actual$date, as.Date(c("2023-01-31", "2023-02-28", "2023-03-31")))
   expect_equal(actual$value, c(1234.56, 2.5, -3))
   expect_equal(actual$snapshot_id, c(NA_character_, NA_character_, "29"))
 })
 
 test_that("parse_cnb_data handles empty input", {
-  empty <- data.table(
+  empty = data.table(
     indicator_id = character(),
     snapshot_id = character(),
     period = character(),
     value = character()
   )
-  actual <- parse_cnb_data(empty)
+  actual = parse_cnb_data(empty)
   expect_data_table(actual, nrows = 0L)
   expect_names(names(actual), identical.to = c("date", "indicator_id", "snapshot_id", "value"))
   expect_date(actual$date)
@@ -89,8 +89,8 @@ test_that("parse_cnb_data handles empty input", {
 })
 
 test_that("parse_cnb_dimension coerces dim_rank", {
-  dt <- readRDS(test_path("fixtures", "cnb-arad-dimension.rds"))
-  actual <- parse_cnb_dimension(dt)
+  dt = readRDS(test_path("fixtures", "cnb-arad-dimension.rds"))
+  actual = parse_cnb_dimension(dt)
   expect_data_table(actual, min.rows = 1L)
   expect_integer(actual$dim_rank, any.missing = FALSE)
 })

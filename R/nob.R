@@ -36,7 +36,7 @@
 #' # fetch policy rate
 #' nob_data("IR", last_n = 5L)
 #' }
-nob_data <- function(
+nob_data = function(
   flow,
   key = NULL,
   start_period = NULL,
@@ -48,11 +48,11 @@ nob_data <- function(
   assert_string(key, min.chars = 1L, null.ok = TRUE)
   assert_period(start_period)
   assert_period(end_period)
-  first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
-  last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  first_n = assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  last_n = assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
-  resource <- sdmx_data_resource(flow, key)
-  xml <- nob(
+  resource = sdmx_data_resource(flow, key)
+  xml = nob(
     resource,
     startPeriod = start_period,
     endPeriod = end_period,
@@ -83,22 +83,22 @@ nob_data <- function(
 #' nob_metadata("datastructure")
 #' nob_metadata("codelist", "CL_CURRENCY")
 #' }
-nob_metadata <- function(type, id = NULL, lang = "en") {
+nob_metadata = function(type, id = NULL, lang = "en") {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   assert_string(id, min.chars = 1L, null.ok = TRUE)
   assert_choice(lang, c("en", "no"))
 
-  xpath <- switch(
+  xpath = switch(
     type,
     datastructure = "//str:DataStructure",
     dataflow = "//str:Dataflow",
     codelist = "//str:Codelist",
     concept = "//str:ConceptScheme"
   )
-  type <- if (type == "concept") "conceptscheme" else type
-  resource <- if (is.null(id)) type else paste(type, "NB", toupper(id), sep = "/")
-  xml <- nob(resource)
-  entries <- xml2::xml_find_all(xml, xpath)
+  type = if (type == "concept") "conceptscheme" else type
+  resource = if (is.null(id)) type else paste(type, "NB", toupper(id), sep = "/")
+  xml = nob(resource)
+  entries = xml2::xml_find_all(xml, xpath)
   sdmx_metadata(entries, lang)
 }
 
@@ -119,50 +119,50 @@ nob_metadata <- function(type, id = NULL, lang = "en") {
 #' \donttest{
 #' nob_dimension("DSD_EXR")
 #' }
-nob_dimension <- function(id) {
+nob_dimension = function(id) {
   assert_string(id, min.chars = 1L)
-  resource <- paste("datastructure", "NB", toupper(id), sep = "/")
-  xml <- nob(resource)
+  resource = paste("datastructure", "NB", toupper(id), sep = "/")
+  xml = nob(resource)
   sdmx_dimension(xml)
 }
 
-parse_nob_data <- function(xml) {
-  ns <- xml2::xml_ns(xml)
-  series <- xml2::xml_find_all(xml, ".//Series", ns)
-  res <- map(series, function(x) {
-    attrs <- xml2::xml_attrs(x)
-    nms <- tolower(names(attrs))
-    names(attrs) <- nms
+parse_nob_data = function(xml) {
+  ns = xml2::xml_ns(xml)
+  series = xml2::xml_find_all(xml, ".//Series", ns)
+  res = map(series, function(x) {
+    attrs = xml2::xml_attrs(x)
+    nms = tolower(names(attrs))
+    names(attrs) = nms
 
-    obs <- xml2::xml_find_all(x, ".//Obs", ns)
-    obs_attrs <- map(obs, xml2::xml_attrs)
-    date <- map_chr(obs_attrs, "TIME_PERIOD")
-    value <- as.numeric(map_chr(obs_attrs, "OBS_VALUE"))
+    obs = xml2::xml_find_all(x, ".//Obs", ns)
+    obs_attrs = map(obs, xml2::xml_attrs)
+    date = map_chr(obs_attrs, "TIME_PERIOD")
+    value = as.numeric(map_chr(obs_attrs, "OBS_VALUE"))
 
-    key <- paste(
+    key = paste(
       attrs[nms %nin% c("collection", "calculated", "decimals", "unit_mult")],
       collapse = "."
     )
 
-    freq <- sdmx_freq(attrs[["freq"]])
+    freq = sdmx_freq(attrs[["freq"]])
 
-    extra <- attrs[nms %nin% c("freq", "collection", "calculated", "decimals", "unit_mult")]
-    data <- c(
+    extra = attrs[nms %nin% c("freq", "collection", "calculated", "decimals", "unit_mult")]
+    data = c(
       list(date = parse_date(date, freq), key = key, value = value, freq = freq),
       as.list(extra)
     )
     as.data.table(data)
   })
-  res <- res |>
+  res = res |>
     rbindlist(fill = TRUE) |>
     setcolorder(col_order, skip_absent = TRUE)
   res[]
 }
 
-nob_error_body <- function(resp) {
+nob_error_body = function(resp) {
   resp_body_string(resp, "UTF-8")
 }
 
-nob <- function(resource, ...) {
+nob = function(resource, ...) {
   sdmx_request("https://data.norges-bank.no/api", resource, nob_error_body, ...)
 }

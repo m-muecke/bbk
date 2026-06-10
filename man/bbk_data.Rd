@@ -65,15 +65,15 @@ Retrieve time series data from the Bundesbank SDMX Web Service.
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 # fetch all data for a given flow and key
-data <- bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+data = bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 head(data)
 
 # fetch data for multiple keys
-data <- bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
+data = bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
 head(data)
 
 # specified period (start date-end date) for daily data
-data <- bbk_data(
+data = bbk_data(
   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01",
   end_period = "2020-08-01"
@@ -81,7 +81,7 @@ data <- bbk_data(
 head(data)
 
 # or only specify the start date
-data <- bbk_data(
+data = bbk_data(
   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2024-04-01"
 )

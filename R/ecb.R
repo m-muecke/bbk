@@ -42,7 +42,7 @@
 #' # fetch data for multiple keys
 #' ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 #' }
-ecb_data <- function(
+ecb_data = function(
   flow,
   key = NULL,
   start_period = NULL,
@@ -55,12 +55,12 @@ ecb_data <- function(
   assert_character(key, min.chars = 1L, null.ok = TRUE)
   assert_period(start_period)
   assert_period(end_period)
-  first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
-  last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
-  updated_after <- assert_timestampish(updated_after, null.ok = TRUE)
+  first_n = assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  last_n = assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  updated_after = assert_timestampish(updated_after, null.ok = TRUE)
 
-  resource <- sdmx_data_resource(flow, key, default_key = "all")
-  xml <- ecb(
+  resource = sdmx_data_resource(flow, key, default_key = "all")
+  xml = ecb(
     resource = resource,
     startPeriod = start_period,
     endPeriod = end_period,
@@ -97,9 +97,9 @@ ecb_data <- function(
 #' ecb_metadata("datastructure", "ECB", "ECB_EXR1")
 #' ecb_metadata("datastructure", id = "ECB_EXR1")
 #' }
-ecb_metadata <- function(type, agency = NULL, id = NULL) {
+ecb_metadata = function(type, agency = NULL, id = NULL) {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
-  args <- switch(
+  args = switch(
     type,
     datastructure = list("datastructure", "//str:DataStructure"),
     dataflow = list("dataflow", "//str:Dataflow"),
@@ -126,79 +126,79 @@ ecb_metadata <- function(type, agency = NULL, id = NULL) {
 #' \donttest{
 #' ecb_dimension("ECB_EXR1")
 #' }
-ecb_dimension <- function(id) {
+ecb_dimension = function(id) {
   assert_string(id, min.chars = 1L)
-  resource <- paste("datastructure", "ECB", toupper(id), sep = "/")
-  xml <- ecb(resource)
+  resource = paste("datastructure", "ECB", toupper(id), sep = "/")
+  xml = ecb(resource)
   sdmx_dimension(xml)
 }
 
-fetch_ecb_metadata <- function(resource, xpath, agency = NULL, id = NULL) {
+fetch_ecb_metadata = function(resource, xpath, agency = NULL, id = NULL) {
   assert_string(agency, min.chars = 1L, null.ok = TRUE)
   assert_string(id, min.chars = 1L, null.ok = TRUE)
 
-  agency <- if (!is.null(agency)) toupper(agency) else "all"
-  id <- if (!is.null(id)) toupper(id) else "all"
-  resource <- paste(resource, agency, id, sep = "/")
-  xml <- ecb(resource)
-  entries <- xml2::xml_find_all(xml, xpath)
+  agency = if (!is.null(agency)) toupper(agency) else "all"
+  id = if (!is.null(id)) toupper(id) else "all"
+  resource = paste(resource, agency, id, sep = "/")
+  xml = ecb(resource)
+  entries = xml2::xml_find_all(xml, xpath)
   parse_ecb_metadata(entries)
 }
 
-parse_ecb_data <- function(xml) {
-  series <- xml2::xml_find_all(xml, ".//generic:Series")
-  res <- map(series, function(x) {
-    series_key <- x |>
+parse_ecb_data = function(xml) {
+  series = xml2::xml_find_all(xml, ".//generic:Series")
+  res = map(series, function(x) {
+    series_key = x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()
-    nms <- series_key |>
+    nms = series_key |>
       xml2::xml_attr("id") |>
       tolower()
-    series_key <- series_key |>
+    series_key = series_key |>
       xml2::xml_attr("value") |>
       setNames(nms) |>
       as.list()
 
-    attrs <- x |>
+    attrs = x |>
       xml2::xml_find_first(".//generic:Attributes") |>
       xml2::xml_children()
-    nms <- attrs |>
+    nms = attrs |>
       xml2::xml_attr("id") |>
       tolower()
-    nms <- replace(nms, nms == "title_compl", "description")
-    attrs <- attrs |>
+    nms = replace(nms, nms == "title_compl", "description")
+    attrs = attrs |>
       xml2::xml_attr("value") |>
       setNames(nms) |>
       as.list()
 
-    data <- c(series_key, attrs)
-    data$key <- paste(series_key, collapse = ".")
-    data$freq <- sdmx_freq(data$freq)
+    data = c(series_key, attrs)
+    data$key = paste(series_key, collapse = ".")
+    data$freq = sdmx_freq(data$freq)
 
-    entries <- xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
-    data$date <- x |>
+    entries = xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
+    data$date = x |>
       xml2::xml_find_all(".//generic:ObsDimension") |>
       xml2::xml_attr("value") |>
       parse_date(data$freq)
 
-    data$value <- entries |>
+    data$value = entries |>
       xml2::xml_find_all(".//generic:ObsValue") |>
       xml2::xml_attr("value") |>
       as.numeric()
 
     as.data.table(data)
   })
-  res <- res |>
+  res = res |>
     rbindlist(fill = TRUE) |>
     setcolorder(col_order, skip_absent = TRUE)
   res[]
 }
 
-parse_ecb_metadata <- function(entries) {
-  agency <- NULL
-  dt <- entries |>
+parse_ecb_metadata = function(entries) {
+  agency = NULL
+  dt = entries |>
     map(function(node) {
-      dt <- sdmx_metadata(list(node))
+      dt = sdmx_metadata(list(node))
       dt[, agency := xml2::xml_attr(node, "agencyID")]
     }) |>
     rbindlist() |>
@@ -206,12 +206,12 @@ parse_ecb_metadata <- function(entries) {
   dt[]
 }
 
-ecb_error_body <- function(resp) {
-  message <- resp_body_string(resp, "UTF-8")
-  docs <- "See docs at <https://data.ecb.europa.eu/help/api/status-codes>"
+ecb_error_body = function(resp) {
+  message = resp_body_string(resp, "UTF-8")
+  docs = "See docs at <https://data.ecb.europa.eu/help/api/status-codes>"
   c(message, docs)
 }
 
-ecb <- function(resource, ...) {
+ecb = function(resource, ...) {
   sdmx_request("https://data-api.ecb.europa.eu/service/", resource, ecb_error_body, ...)
 }

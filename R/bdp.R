@@ -36,7 +36,7 @@
 #' # Portuguese GDP (annual, current prices)
 #' bdp_data(54L, "ce3e4e50cda325537eff729ef64037cd", series_ids = 12518356L)
 #' }
-bdp_data <- function(
+bdp_data = function(
   domain_id,
   dataset_id,
   series_ids = NULL,
@@ -46,16 +46,16 @@ bdp_data <- function(
   updated_after = NULL,
   lang = "en"
 ) {
-  domain_id <- assert_count(domain_id, positive = TRUE, coerce = TRUE)
+  domain_id = assert_count(domain_id, positive = TRUE, coerce = TRUE)
   assert_string(dataset_id, min.chars = 1L)
   assert_integerish(series_ids, lower = 1L, null.ok = TRUE)
-  start_date <- assert_dateish(start_date, null.ok = TRUE)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
-  last_n <- assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
-  updated_after <- assert_timestampish(updated_after, null.ok = TRUE)
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
+  last_n = assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+  updated_after = assert_timestampish(updated_after, null.ok = TRUE)
   assert_choice(lang, c("en", "pt"))
 
-  json <- bdp(
+  json = bdp(
     "domains",
     domain_id,
     "datasets",
@@ -70,20 +70,20 @@ bdp_data <- function(
   parse_bdp_data(json)
 }
 
-parse_bdp_data <- function(json) {
-  time_dim <- json$role$time[[1L]]
-  dates <- unlist(json$dimension[[time_dim]]$category$index, use.names = FALSE)
-  n_dates <- length(dates)
-  values <- unlist(json$value, use.names = FALSE)
-  n_series <- length(values) %/% n_dates
+parse_bdp_data = function(json) {
+  time_dim = json$role$time[[1L]]
+  dates = unlist(json$dimension[[time_dim]]$category$index, use.names = FALSE)
+  n_dates = length(dates)
+  values = unlist(json$value, use.names = FALSE)
+  n_series = length(values) %/% n_dates
 
-  dt <- data.table(
+  dt = data.table(
     date = as.Date(rep(dates, times = n_series)),
     value = values,
     status = unlist(json$status, use.names = FALSE)
   )
 
-  series <- json$extension$series
+  series = json$extension$series
   if (!is.null(series)) {
     dt[, "key" := rep(map_int(series, "id"), each = n_dates)]
     dt[, "title" := rep(map_chr(series, "label"), each = n_dates)]
@@ -94,12 +94,12 @@ parse_bdp_data <- function(json) {
   dt[]
 }
 
-bdp_freq <- function(dates) {
+bdp_freq = function(dates) {
   if (length(dates) < 2L) {
     return("annual")
   }
-  d <- as.Date(dates)
-  diff_days <- as.integer(diff(d[1:2]))
+  d = as.Date(dates)
+  diff_days = as.integer(diff(d[1:2]))
   if (diff_days <= 1L) {
     "daily"
   } else if (diff_days <= 35L) {
@@ -129,16 +129,16 @@ bdp_freq <- function(dates) {
 #' \donttest{
 #' bdp_series(12518356L)
 #' }
-bdp_series <- function(series_ids, lang = "en") {
+bdp_series = function(series_ids, lang = "en") {
   assert_integerish(series_ids, lower = 1L, min.len = 1L)
   assert_choice(lang, c("en", "pt"))
 
-  json <- bdp("series", lang = lang, series_ids = series_ids)
+  json = bdp("series", lang = lang, series_ids = series_ids)
   parse_bdp_series(json)
 }
 
-parse_bdp_series <- function(json) {
-  dt <- data.table(
+parse_bdp_series = function(json) {
+  dt = data.table(
     id = map_int(json, "id"),
     label = map_chr(json, "label"),
     short_label = map_chr(json, "short_label"),
@@ -147,7 +147,7 @@ parse_bdp_series <- function(json) {
     domain_id = map_int(json, \(x) x$domain_ids[[1L]]),
     obs_updated_at = map_chr(json, "obs_updated_at")
   )
-  obs_updated_at <- NULL
+  obs_updated_at = NULL
   dt[, obs_updated_at := as.POSIXct(obs_updated_at, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]
   dt[]
 }
@@ -165,26 +165,26 @@ parse_bdp_series <- function(json) {
 #' \donttest{
 #' bdp_dataset(54L)
 #' }
-bdp_dataset <- function(domain_id, lang = "en") {
-  domain_id <- assert_count(domain_id, positive = TRUE, coerce = TRUE)
+bdp_dataset = function(domain_id, lang = "en") {
+  domain_id = assert_count(domain_id, positive = TRUE, coerce = TRUE)
   assert_choice(lang, c("en", "pt"))
 
-  req <- bdp_request("domains", domain_id, "datasets", lang = lang)
-  items <- req |>
+  req = bdp_request("domains", domain_id, "datasets", lang = lang)
+  items = req |>
     req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf) |>
     resps_data(\(resp) resp_body_json(resp)$link$item)
   parse_bdp_dataset(items)
 }
 
-bdp_next_req <- function(resp, req) {
-  next_url <- resp_body_json(resp)$extension$next_page
+bdp_next_req = function(resp, req) {
+  next_url = resp_body_json(resp)$extension$next_page
   if (is.null(next_url)) {
     return()
   }
   req_url(req, next_url)
 }
 
-parse_bdp_dataset <- function(items) {
+parse_bdp_dataset = function(items) {
   data.table(
     id = map_chr(items, \(x) x$extension$id),
     label = map_chr(items, "label"),
@@ -213,24 +213,24 @@ parse_bdp_dataset <- function(items) {
 #' \donttest{
 #' bdp_dimension(54L)
 #' }
-bdp_dimension <- function(domain_id, dimension_id = NULL, lang = "en") {
-  domain_id <- assert_count(domain_id, positive = TRUE, coerce = TRUE)
-  dimension_id <- assert_count(dimension_id, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+bdp_dimension = function(domain_id, dimension_id = NULL, lang = "en") {
+  domain_id = assert_count(domain_id, positive = TRUE, coerce = TRUE)
+  dimension_id = assert_count(dimension_id, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("en", "pt"))
 
   if (is.null(dimension_id)) {
-    req <- bdp_request("domains", domain_id, "dimensions", lang = lang)
-    items <- req |>
+    req = bdp_request("domains", domain_id, "dimensions", lang = lang)
+    items = req |>
       req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf) |>
       resps_data(\(resp) resp_body_json(resp)$link$item)
     parse_bdp_dimension(items)
   } else {
-    json <- bdp("domains", domain_id, "dimensions", dimension_id, lang = lang)
+    json = bdp("domains", domain_id, "dimensions", dimension_id, lang = lang)
     parse_bdp_category(json)
   }
 }
 
-parse_bdp_dimension <- function(items) {
+parse_bdp_dimension = function(items) {
   data.table(
     id = map_int(items, \(x) x$extension$id),
     label = map_chr(items, "label"),
@@ -238,8 +238,8 @@ parse_bdp_dimension <- function(items) {
   )
 }
 
-parse_bdp_category <- function(json) {
-  labels <- json$category$label
+parse_bdp_category = function(json) {
+  labels = json$category$label
   data.table(
     id = as.integer(names(labels)),
     label = unlist(labels, use.names = FALSE)
@@ -262,18 +262,18 @@ parse_bdp_category <- function(json) {
 #' \donttest{
 #' bdp_domain()
 #' }
-bdp_domain <- function(domain_id = NULL, lang = "en") {
-  domain_id <- assert_count(domain_id, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+bdp_domain = function(domain_id = NULL, lang = "en") {
+  domain_id = assert_count(domain_id, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("en", "pt"))
 
-  json <- bdp("domains", domain_id, lang = lang)
+  json = bdp("domains", domain_id, lang = lang)
   if (!is.null(domain_id)) {
-    json <- list(json)
+    json = list(json)
   }
   parse_bdp_domain(json)
 }
 
-parse_bdp_domain <- function(json) {
+parse_bdp_domain = function(json) {
   data.table(
     id = map_int(json, "id"),
     parent_id = map_int(json, \(x) x$parent_id %||% NA_integer_),
@@ -285,7 +285,7 @@ parse_bdp_domain <- function(json) {
   )
 }
 
-bdp <- function(
+bdp = function(
   ...,
   lang = "en",
   series_ids = NULL,
@@ -307,7 +307,7 @@ bdp <- function(
     resp_body_json()
 }
 
-bdp_request <- function(
+bdp_request = function(
   ...,
   lang = "en",
   series_ids = NULL,
@@ -333,12 +333,12 @@ bdp_request <- function(
     req_bbk_cache()
 }
 
-bdp_error_body <- function(resp) {
-  content_type <- resp_content_type(resp)
+bdp_error_body = function(resp) {
+  content_type = resp_content_type(resp)
   if (identical(content_type, "application/json")) {
-    json <- resp_body_json(resp)
-    msg <- json$detail %||% json$message
-    docs <- "See docs at <https://bpstat.bportugal.pt/data/docs>"
+    json = resp_body_json(resp)
+    msg = json$detail %||% json$message
+    docs = "See docs at <https://bpstat.bportugal.pt/data/docs>"
     c(msg, docs)
   }
 }

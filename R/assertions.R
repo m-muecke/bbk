@@ -1,4 +1,4 @@
-check_dateish <- function(x, null.ok = FALSE) {
+check_dateish = function(x, null.ok = FALSE) {
   if (null.ok && is.null(x)) {
     return(TRUE)
   }
@@ -15,16 +15,16 @@ check_dateish <- function(x, null.ok = FALSE) {
   }
 }
 
-assert_dateish <- function(x, null.ok = FALSE, .var.name = vname(x), add = NULL) {
-  res <- check_dateish(x, null.ok)
+assert_dateish = function(x, null.ok = FALSE, .var.name = vname(x), add = NULL) {
+  res = check_dateish(x, null.ok)
   makeAssertion(x, res, .var.name, add)
   if (!is.null(x) && !inherits(x, "Date")) {
-    x <- as.Date(x)
+    x = as.Date(x)
   }
   invisible(x)
 }
 
-check_timestampish <- function(x, null.ok = FALSE) {
+check_timestampish = function(x, null.ok = FALSE) {
   if (null.ok && is.null(x)) {
     return(TRUE)
   }
@@ -41,19 +41,19 @@ check_timestampish <- function(x, null.ok = FALSE) {
   }
 }
 
-assert_timestampish <- function(x, null.ok = FALSE, .var.name = vname(x), add = NULL) {
-  res <- check_timestampish(x, null.ok)
+assert_timestampish = function(x, null.ok = FALSE, .var.name = vname(x), add = NULL) {
+  res = check_timestampish(x, null.ok)
   makeAssertion(x, res, .var.name, add)
   if (is.null(x)) {
     return(invisible())
   }
   if (inherits(x, c("POSIXt", "Date"))) {
-    x <- format(as.POSIXct(x, tz = "UTC"), "%Y-%m-%dT%H:%M:%S", tz = "UTC")
+    x = format(as.POSIXct(x, tz = "UTC"), "%Y-%m-%dT%H:%M:%S", tz = "UTC")
   }
   invisible(x)
 }
 
-assert_period <- function(x, .var.name = vname(x)) {
+assert_period = function(x, .var.name = vname(x)) {
   assert(
     check_null(x),
     check_string(x, min.chars = 1L),

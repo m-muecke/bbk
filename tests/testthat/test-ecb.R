@@ -39,7 +39,7 @@ test_that("ecb_data input validation works", {
 })
 
 test_that("ecb_data passes updated_after as updatedAfter", {
-  captured <- NULL
+  captured = NULL
   httr2::local_mocked_responses(function(req) {
     captured <<- req
     httr2::response(200L, headers = "content-type: application/xml", body = charToRaw("<x/>"))
@@ -50,14 +50,14 @@ test_that("ecb_data passes updated_after as updatedAfter", {
 })
 
 test_that("parse_bbk_data works", {
-  body <- xml2::read_xml(test_path("fixtures", "ecb-data.xml"))
-  actual <- parse_ecb_data(body)
+  body = xml2::read_xml(test_path("fixtures", "ecb-data.xml"))
+  actual = parse_ecb_data(body)
   expect_data_table(actual, min.rows = 1L)
   expect_identical(unique(actual$key), "D.USD.EUR.SP00.A")
   expect_date(actual$date)
 
-  body <- xml2::read_xml(test_path("fixtures", "ecb-data-fm.xml"))
-  actual <- parse_ecb_data(body)
+  body = xml2::read_xml(test_path("fixtures", "ecb-data-fm.xml"))
+  actual = parse_ecb_data(body)
   expect_data_table(actual, min.rows = 1L)
   expect_gt(length(unique(actual$key)), 0L)
   expect_date(actual$date)

@@ -30,17 +30,17 @@
 #' bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
 #' bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #' }
-bde_data <- function(key, time_range = NULL, lang = "en") {
+bde_data = function(key, time_range = NULL, lang = "en") {
   assert_character(key, min.chars = 1L)
   assert_period(time_range)
   assert_choice(lang, c("en", "es"))
 
-  json <- bde(key, lang = lang, rango = time_range)
+  json = bde(key, lang = lang, rango = time_range)
   parse_bde_data(json)
 }
 
-parse_bde_data <- function(json) {
-  old_cols <- c(
+parse_bde_data = function(json) {
+  old_cols = c(
     "serie",
     "descripcion",
     "descripcionCorta",
@@ -52,7 +52,7 @@ parse_bde_data <- function(json) {
     "fechas",
     "valores"
   )
-  new_cols <- c(
+  new_cols = c(
     "key",
     "description",
     "title",
@@ -64,18 +64,18 @@ parse_bde_data <- function(json) {
     "date",
     "value"
   )
-  dt <- json |>
+  dt = json |>
     map(function(x) {
-      dt <- as.data.table(x[names(x) != "informacion"])
-      meta <- x$informacion |>
+      dt = as.data.table(x[names(x) != "informacion"])
+      meta = x$informacion |>
         map(setDT) |>
         rbindlist() |>
         setnames(c("name", "value"))
-      name <- NULL
+      name = NULL
       meta[, name := tolower(name)]
       meta[, name := chartr(" ", "_", tolower(name))]
       meta[, name := gsub("[()]", "", name)]
-      exclude <- c(
+      exclude = c(
         "name",
         "decimals",
         "first_value",
@@ -84,15 +84,15 @@ parse_bde_data <- function(json) {
         "min_value",
         "max_value"
       )
-      meta <- meta[name %nin% exclude]
-      meta <- transpose(meta, make.names = "name")
+      meta = meta[name %nin% exclude]
+      meta = transpose(meta, make.names = "name")
       setnames(meta, c("units", "description"), c("unit", "long_description"))
       dt[, names(meta) := meta]
     }) |>
     rbindlist(fill = TRUE) |>
     setnames(old_cols, new_cols)
 
-  value <- NULL
+  value = NULL
   dt[, let(date = unlist(date, use.names = FALSE), value = unlist(value, use.names = FALSE))]
   dt[,
     names(.SD) := map(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")),
@@ -116,13 +116,13 @@ parse_bde_data <- function(json) {
 #' bde_latest("D_1NBAF472")
 #' bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
 #' }
-bde_latest <- function(key, lang = "en") {
+bde_latest = function(key, lang = "en") {
   assert_character(key, min.chars = 1L)
   assert_choice(lang, c("en", "es"))
 
-  json <- bde(key, lang = lang, resource = "favoritas")
+  json = bde(key, lang = lang, resource = "favoritas")
 
-  old_cols <- c(
+  old_cols = c(
     "serie",
     "descripcionCorta",
     "codFrecuencia",
@@ -132,8 +132,8 @@ bde_latest <- function(key, lang = "en") {
     "fechaValor",
     "valor"
   )
-  new_cols <- c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
-  dt <- json |>
+  new_cols = c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
+  dt = json |>
     map(setDT) |>
     rbindlist() |>
     setnames(old_cols, new_cols)
@@ -142,8 +142,8 @@ bde_latest <- function(key, lang = "en") {
   dt[]
 }
 
-bde <- function(key, ..., lang, resource = "listaSeries") {
-  url <- sprintf("https://app.bde.es/bierest/resources/srdatosapp/%s", resource)
+bde = function(key, ..., lang, resource = "listaSeries") {
+  url = sprintf("https://app.bde.es/bierest/resources/srdatosapp/%s", resource)
   request(url) |>
     req_user_agent(bbk_user_agent()) |>
     req_url_query(idioma = lang, series = key, ..., .multi = "comma") |>
@@ -154,12 +154,12 @@ bde <- function(key, ..., lang, resource = "listaSeries") {
     resp_body_json()
 }
 
-bde_error_body <- function(resp) {
-  content_type <- resp_content_type(resp)
+bde_error_body = function(resp) {
+  content_type = resp_content_type(resp)
   if (identical(content_type, "application/json")) {
-    json <- resp_body_json(resp)
-    msg <- c(json$errMsgUsr, json$errMsgDebug)
-    docs <- "See docs at <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>" # nolint
+    json = resp_body_json(resp)
+    msg = c(json$errMsgUsr, json$errMsgDebug)
+    docs = "See docs at <https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>" # nolint
     c(msg, docs)
   }
 }

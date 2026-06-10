@@ -17,25 +17,25 @@
 #' @examples
 #' \dontrun{
 #' # fetch all data for a single group
-#' dt <- boc_data(group_name = "FX_RATES_DAILY")
+#' dt = boc_data(group_name = "FX_RATES_DAILY")
 #' head(dt)
 #'
 #' # or for multiple series ids
-#' dt <- boc_data(
+#' dt = boc_data(
 #'   series_name = c("FXUSDCAD", "FXEURCAD"),
 #'   start_date = "2023-01-23",
 #'   end_date = "2023-07-19"
 #' )
 #' head(dt)
 #' }
-boc_data <- function(group_name = NULL, series_name = NULL, start_date = NULL, end_date = NULL) {
+boc_data = function(group_name = NULL, series_name = NULL, start_date = NULL, end_date = NULL) {
   assert_string(group_name, min.chars = 1L, null.ok = TRUE)
   assert_character(series_name, min.chars = 1L, min.len = 1L, null.ok = TRUE)
   if (!xor(is.null(group_name), is.null(series_name))) {
     stop("Exactly one of `group_name` or `series_name` must be provided.", call. = FALSE)
   }
-  start_date <- assert_dateish(start_date, null.ok = TRUE)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
   if (!is.null(group_name)) {
     boc_group_obs(group_name, start_date, end_date)
   } else {
@@ -54,7 +54,7 @@ boc_data <- function(group_name = NULL, series_name = NULL, start_date = NULL, e
 #' boc_metadata(group_name = "FX_RATES_DAILY")
 #' boc_metadata(series_name = "FXUSDCAD")
 #' }
-boc_metadata <- function(group_name = NULL, series_name = NULL) {
+boc_metadata = function(group_name = NULL, series_name = NULL) {
   assert_string(group_name, min.chars = 1L, null.ok = TRUE)
   assert_string(series_name, min.chars = 1L, null.ok = TRUE)
   if (!xor(is.null(group_name), is.null(series_name))) {
@@ -74,52 +74,52 @@ boc_metadata <- function(group_name = NULL, series_name = NULL) {
 #' @export
 #' @examples
 #' \dontrun{
-#' catalog <- boc_catalog()
+#' catalog = boc_catalog()
 #' head(catalog)
 #'
 #' # filter for effective exchange rate series
-#' dt <- catalog[grepl("CEER", label)]
+#' dt = catalog[grepl("CEER", label)]
 #' head(dt)
 #' }
-boc_catalog <- function(type = "groups") {
+boc_catalog = function(type = "groups") {
   assert_choice(type, c("groups", "series"))
-  json <- boc("lists", type)
-  lst <- json[[type]]
-  dt <- rbindlist(map(lst, setDT))
+  json = boc("lists", type)
+  lst = json[[type]]
+  dt = rbindlist(map(lst, setDT))
   dt[, "name" := names(lst)]
   dt[]
 }
 
-boc_details_series <- function(name) {
-  json <- boc("series", name)
-  dt <- setDT(json$seriesDetails)
+boc_details_series = function(name) {
+  json = boc("series", name)
+  dt = setDT(json$seriesDetails)
   dt
 }
 
-boc_details_group <- function(name) {
-  json <- boc("groups", name)
-  grp <- json$groupDetails
-  meta <- setDT(grp[lengths(grp) == 1L])
+boc_details_group = function(name) {
+  json = boc("groups", name)
+  grp = json$groupDetails
+  meta = setDT(grp[lengths(grp) == 1L])
   setnames(meta, \(x) paste("group", x, sep = "_"))
-  series <- rbindlist(map(grp$groupSeries, setDT))
+  series = rbindlist(map(grp$groupSeries, setDT))
   series[, "name" := names(grp$groupSeries)]
   setnames(series, \(x) paste("series", x, sep = "_"))
   series[, names(meta) := meta]
-  cols <- names(series)
+  cols = names(series)
   setcolorder(series, cols[startsWith(cols, "group_")])
   series[]
 }
 
-boc_series_obs <- function(name, start_date, end_date) {
-  name <- paste(name, collapse = ",")
-  json <- boc("observations", name, start_date = start_date, end_date = end_date)
+boc_series_obs = function(name, start_date, end_date) {
+  name = paste(name, collapse = ",")
+  json = boc("observations", name, start_date = start_date, end_date = end_date)
 
-  meta <- rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
+  meta = rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
   meta[, "name" := names(json$seriesDetail)]
 
-  obs <- json$observations |>
+  obs = json$observations |>
     map(function(x) {
-      nms <- names(x)
+      nms = names(x)
       x |>
         unlist(recursive = FALSE, use.names = FALSE) |>
         setDT() |>
@@ -135,23 +135,23 @@ boc_series_obs <- function(name, start_date, end_date) {
       variable.factor = FALSE
     )
 
-  obs <- meta[obs, on = "name"]
-  value <- NULL
+  obs = meta[obs, on = "name"]
+  value = NULL
   obs[, let(date = as.Date(date), value = as.numeric(value))]
   obs[]
 }
 
-boc_group_obs <- function(name = "FX_RATES_DAILY", start_date = NULL, end_date = NULL) {
-  json <- boc("observations/group", name)
-  grp <- setDT(map(json$groupDetail, \(x) x %||% NA_character_))
+boc_group_obs = function(name = "FX_RATES_DAILY", start_date = NULL, end_date = NULL) {
+  json = boc("observations/group", name)
+  grp = setDT(map(json$groupDetail, \(x) x %||% NA_character_))
   setnames(grp, \(x) paste("group", x, sep = "_"))
-  meta <- rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
+  meta = rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
   meta[, "name" := names(json$seriesDetail)]
   setnames(meta, \(x) paste("series", x, sep = "_"))
 
-  obs <- json$observations |>
+  obs = json$observations |>
     map(function(x) {
-      nms <- names(x)
+      nms = names(x)
       x |>
         unlist(recursive = FALSE, use.names = FALSE) |>
         setDT() |>
@@ -166,16 +166,16 @@ boc_group_obs <- function(name = "FX_RATES_DAILY", start_date = NULL, end_date =
       na.rm = TRUE,
       variable.factor = FALSE
     )
-  value <- NULL
+  value = NULL
   obs[, let(date = as.Date(date), value = as.numeric(value))]
   setnames(obs, "name", "series_name")
 
-  obs <- meta[obs, on = "series_name"]
+  obs = meta[obs, on = "series_name"]
   obs[, names(grp) := grp]
   obs[]
 }
 
-boc <- function(resource, name, ...) {
+boc = function(resource, name, ...) {
   request("https://www.bankofcanada.ca/valet") |>
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(resource, name, "json") |>
@@ -187,12 +187,12 @@ boc <- function(resource, name, ...) {
     resp_body_json()
 }
 
-boc_error_body <- function(resp) {
-  content_type <- resp_content_type(resp)
+boc_error_body = function(resp) {
+  content_type = resp_content_type(resp)
   if (identical(content_type, "application/json")) {
-    json <- resp_body_json(resp)
-    msg <- json$message
-    docs <- sprintf("See docs at <%s>", json$docs)
+    json = resp_body_json(resp)
+    msg = json$message
+    docs = sprintf("See docs at <%s>", json$docs)
     c(msg, docs)
   }
 }

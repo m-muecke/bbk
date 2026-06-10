@@ -1,4 +1,4 @@
-sdmx_request <- function(base_url, resource, error_body, ..., accept = NULL) {
+sdmx_request = function(base_url, resource, error_body, ..., accept = NULL) {
   request(base_url) |>
     req_user_agent(bbk_user_agent()) |>
     req_headers(accept = accept) |>
@@ -11,13 +11,13 @@ sdmx_request <- function(base_url, resource, error_body, ..., accept = NULL) {
     resp_body_xml()
 }
 
-sdmx_data_resource <- function(flow, key, default_key = NULL) {
-  flow <- toupper(flow)
-  key <- if (is.null(key)) default_key else paste(toupper(key), collapse = "+")
+sdmx_data_resource = function(flow, key, default_key = NULL) {
+  flow = toupper(flow)
+  key = if (is.null(key)) default_key else paste(toupper(key), collapse = "+")
   paste(c("data", flow, key), collapse = "/")
 }
 
-sdmx_freq <- function(code) {
+sdmx_freq = function(code) {
   switch(
     code,
     # ISO 8601 duration codes (BBk)
@@ -36,10 +36,10 @@ sdmx_freq <- function(code) {
   )
 }
 
-sdmx_dimension <- function(xml, ns_prefix = "str") {
-  xpath <- sprintf(".//%s:DimensionList/%s:Dimension", ns_prefix, ns_prefix)
-  dims <- xml2::xml_find_all(xml, xpath)
-  codelist_xpath <- sprintf(".//%s:Enumeration/Ref", ns_prefix)
+sdmx_dimension = function(xml, ns_prefix = "str") {
+  xpath = sprintf(".//%s:DimensionList/%s:Dimension", ns_prefix, ns_prefix)
+  dims = xml2::xml_find_all(xml, xpath)
+  codelist_xpath = sprintf(".//%s:Enumeration/Ref", ns_prefix)
   data.table(
     id = xml2::xml_attr(dims, "id"),
     position = as.integer(xml2::xml_attr(dims, "position")),
@@ -47,8 +47,8 @@ sdmx_dimension <- function(xml, ns_prefix = "str") {
   )
 }
 
-sdmx_metadata <- function(entries, lang = "en", ns_prefix = "com") {
-  xpath <- sprintf(".//%s:Name[@xml:lang='%s']", ns_prefix, lang)
+sdmx_metadata = function(entries, lang = "en", ns_prefix = "com") {
+  xpath = sprintf(".//%s:Name[@xml:lang='%s']", ns_prefix, lang)
   rbindlist(map(entries, function(node) {
     data.table(
       id = xml2::xml_attr(node, "id"),

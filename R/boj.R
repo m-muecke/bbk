@@ -30,14 +30,14 @@
 #' # fetch multiple exchange rates
 #' boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 #' }
-boj_data <- function(db, code, start_date = NULL, end_date = NULL, lang = "en") {
+boj_data = function(db, code, start_date = NULL, end_date = NULL, lang = "en") {
   assert_string(db, min.chars = 1L)
   assert_character(code, min.chars = 1L, min.len = 1L, max.len = 250L)
   assert_boj_date(start_date)
   assert_boj_date(end_date)
   assert_choice(lang, c("en", "jp"))
 
-  req <- boj_request(
+  req = boj_request(
     "getDataCode",
     db = toupper(db),
     code = code,
@@ -45,17 +45,17 @@ boj_data <- function(db, code, start_date = NULL, end_date = NULL, lang = "en") 
     endDate = end_date,
     lang = lang
   )
-  resps <- req_perform_iterative(
+  resps = req_perform_iterative(
     req,
     next_req = iterate_with_cursor("startPosition", boj_next_position),
     max_reqs = Inf
   )
-  series <- resps_data(resps, \(resp) resp_body_json(resp)$RESULTSET)
+  series = resps_data(resps, \(resp) resp_body_json(resp)$RESULTSET)
   parse_boj_data(list(RESULTSET = series))
 }
 
-boj_next_position <- function(resp) {
-  pos <- resp_body_json(resp)$NEXTPOSITION
+boj_next_position = function(resp) {
+  pos = resp_body_json(resp)$NEXTPOSITION
   if (length(pos) == 0L) NULL else pos
 }
 
@@ -75,18 +75,18 @@ boj_next_position <- function(resp) {
 #' \donttest{
 #' boj_metadata("FM08")
 #' }
-boj_metadata <- function(db, lang = "en") {
+boj_metadata = function(db, lang = "en") {
   assert_string(db, min.chars = 1L)
   assert_choice(lang, c("en", "jp"))
 
-  json <- boj("getMetadata", db = toupper(db), lang = lang)
+  json = boj("getMetadata", db = toupper(db), lang = lang)
   parse_boj_metadata(json)
 }
 
-parse_boj_data <- function(json) {
-  series <- json$RESULTSET
+parse_boj_data = function(json) {
+  series = json$RESULTSET
   if (length(series) == 0L) {
-    dt <- data.table(
+    dt = data.table(
       date = as.Date(character()),
       id = character(),
       value = numeric(),
@@ -98,12 +98,12 @@ parse_boj_data <- function(json) {
     return(dt)
   }
 
-  dt <- rbindlist(map(series, function(x) {
-    dates <- unlist(x$VALUES$SURVEY_DATES)
-    values <- as.numeric(map(x$VALUES$VALUES, \(x) x %||% NA_real_))
-    freq <- tolower(x$FREQUENCY)
+  dt = rbindlist(map(series, function(x) {
+    dates = unlist(x$VALUES$SURVEY_DATES)
+    values = as.numeric(map(x$VALUES$VALUES, \(x) x %||% NA_real_))
+    freq = tolower(x$FREQUENCY)
 
-    dt <- data.table(
+    dt = data.table(
       date = parse_boj_date(dates, freq),
       id = x$SERIES_CODE,
       value = values,
@@ -117,8 +117,8 @@ parse_boj_data <- function(json) {
   dt[]
 }
 
-parse_boj_metadata <- function(json) {
-  series <- json$RESULTSET
+parse_boj_metadata = function(json) {
+  series = json$RESULTSET
   if (length(series) == 0L) {
     return(data.table(
       code = character(),
@@ -129,8 +129,8 @@ parse_boj_metadata <- function(json) {
     ))
   }
 
-  dt <- rbindlist(map(series, function(x) {
-    code <- x$SERIES_CODE
+  dt = rbindlist(map(series, function(x) {
+    code = x$SERIES_CODE
     if (is.null(code) || !nzchar(code)) {
       return()
     }
@@ -145,7 +145,7 @@ parse_boj_metadata <- function(json) {
   dt[]
 }
 
-parse_boj_date <- function(dates, freq) {
+parse_boj_date = function(dates, freq) {
   switch(
     freq,
     daily = ,
@@ -160,18 +160,18 @@ parse_boj_date <- function(dates, freq) {
     },
     monthly = as.Date(paste0(dates, "01"), format = "%Y%m%d"),
     quarterly = {
-      dates_chr <- as.character(dates)
-      year <- substr(dates_chr, 1L, 4L)
-      quarter <- as.integer(substr(dates_chr, 5L, 6L))
-      month <- sprintf("%02d", (quarter - 1L) * 3L + 1L)
+      dates_chr = as.character(dates)
+      year = substr(dates_chr, 1L, 4L)
+      quarter = as.integer(substr(dates_chr, 5L, 6L))
+      month = sprintf("%02d", (quarter - 1L) * 3L + 1L)
       as.Date(paste0(year, month, "01"), format = "%Y%m%d")
     },
     semiannual = ,
     `semiannual(sep)` = {
-      dates_chr <- as.character(dates)
-      year <- substr(dates_chr, 1L, 4L)
-      half <- as.integer(substr(dates_chr, 5L, 6L))
-      month <- sprintf("%02d", (half - 1L) * 6L + 1L)
+      dates_chr = as.character(dates)
+      year = substr(dates_chr, 1L, 4L)
+      half = as.integer(substr(dates_chr, 5L, 6L))
+      month = sprintf("%02d", (half - 1L) * 6L + 1L)
       as.Date(paste0(year, month, "01"), format = "%Y%m%d")
     },
     annual = ,
@@ -180,7 +180,7 @@ parse_boj_date <- function(dates, freq) {
   )
 }
 
-boj_freq <- function(freq) {
+boj_freq = function(freq) {
   switch(
     freq,
     daily = "daily",
@@ -201,7 +201,7 @@ boj_freq <- function(freq) {
   )
 }
 
-assert_boj_date <- function(x, .var.name = vname(x)) {
+assert_boj_date = function(x, .var.name = vname(x)) {
   assert(
     check_null(x),
     check_string(x, min.chars = 4L, pattern = "^\\d+$"),
@@ -211,12 +211,12 @@ assert_boj_date <- function(x, .var.name = vname(x)) {
   invisible(x)
 }
 
-boj_error_body <- function(resp) {
-  json <- resp_body_json(resp)
+boj_error_body = function(resp) {
+  json = resp_body_json(resp)
   json$MESSAGE
 }
 
-boj_request <- function(resource, ...) {
+boj_request = function(resource, ...) {
   request("https://www.stat-search.boj.or.jp/api/v1") |>
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(resource) |>
@@ -226,7 +226,7 @@ boj_request <- function(resource, ...) {
     req_bbk_cache()
 }
 
-boj <- function(resource, ...) {
+boj = function(resource, ...) {
   boj_request(resource, ...) |>
     req_perform() |>
     resp_body_json()

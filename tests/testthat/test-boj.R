@@ -18,8 +18,8 @@ test_that("boj_data input validation works", {
 })
 
 test_that("parse_boj_data works", {
-  json <- jsonlite::fromJSON(test_path("fixtures", "boj-data.json"), simplifyVector = FALSE)
-  actual <- parse_boj_data(json)
+  json = jsonlite::fromJSON(test_path("fixtures", "boj-data.json"), simplifyVector = FALSE)
+  actual = parse_boj_data(json)
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
@@ -29,17 +29,17 @@ test_that("parse_boj_data works", {
 })
 
 test_that("parse_boj_data handles empty response", {
-  json <- list(RESULTSET = list())
-  actual <- parse_boj_data(json)
+  json = list(RESULTSET = list())
+  actual = parse_boj_data(json)
   expect_data_table(actual, nrows = 0L)
   expect_true(all(c("date", "key", "value") %in% names(actual)))
 })
 
 test_that("boj_data follows NEXTPOSITION across pages", {
-  json_resp <- function(body) {
+  json_resp = function(body) {
     httr2::response_json(body = body)
   }
-  series <- function(code) {
+  series = function(code) {
     list(
       SERIES_CODE = code,
       NAME_OF_TIME_SERIES = code,
@@ -53,7 +53,7 @@ test_that("boj_data follows NEXTPOSITION across pages", {
     json_resp(list(NEXTPOSITION = NULL, RESULTSET = list(series("B"), series("C"))))
   ))
 
-  x <- boj_data("FM08", c("A", "B", "C"))
+  x = boj_data("FM08", c("A", "B", "C"))
   expect_identical(sort(unique(x$key)), c("A", "B", "C"))
   expect_identical(nrow(x), 3L)
 })
@@ -67,8 +67,8 @@ test_that("boj_metadata input validation works", {
 })
 
 test_that("parse_boj_metadata works", {
-  json <- jsonlite::fromJSON(test_path("fixtures", "boj-metadata.json"), simplifyVector = FALSE)
-  actual <- parse_boj_metadata(json)
+  json = jsonlite::fromJSON(test_path("fixtures", "boj-metadata.json"), simplifyVector = FALSE)
+  actual = parse_boj_metadata(json)
   expect_data_table(actual, min.rows = 1L)
   expect_true(all(c("code", "name", "unit", "frequency", "category") %in% names(actual)))
   expect_true("FXERD01" %in% actual$code)
@@ -76,8 +76,8 @@ test_that("parse_boj_metadata works", {
 })
 
 test_that("parse_boj_metadata handles empty response", {
-  json <- list(RESULTSET = list())
-  actual <- parse_boj_metadata(json)
+  json = list(RESULTSET = list())
+  actual = parse_boj_metadata(json)
   expect_data_table(actual, nrows = 0L)
 })
 

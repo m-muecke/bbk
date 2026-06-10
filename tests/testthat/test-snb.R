@@ -22,15 +22,15 @@ test_that("snb_dimension input validation works", {
 })
 
 test_that("parse_snb_dimension() works", {
-  body <- readRDS(test_path("fixtures", "snb-dimensions.rds"))
-  actual <- parse_snb_dimension(body)
+  body = readRDS(test_path("fixtures", "snb-dimensions.rds"))
+  actual = parse_snb_dimension(body)
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), must.include = c("dim_id", "dim_name", "item_id", "item_name"))
 })
 
 test_that("parse_snb_data() works", {
-  body <- readRDS(test_path("fixtures", "snb-data.rds"))
-  actual <- parse_snb_data(body)
+  body = readRDS(test_path("fixtures", "snb-data.rds"))
+  actual = parse_snb_data(body)
   expect_data_table(actual, min.rows = 1L)
   expect_match(actual$key, "^EPB@SNB.rendopar")
   expect_date(actual$date)
@@ -44,8 +44,8 @@ test_that("snb_metadata input validation works", {
 })
 
 test_that("parse_snb_metadata() works", {
-  json <- readRDS(test_path("fixtures", "snb-metadata.rds"))
-  actual <- parse_snb_metadata(json, "rendopar")
+  json = readRDS(test_path("fixtures", "snb-metadata.rds"))
+  actual = parse_snb_metadata(json, "rendopar")
   expect_data_table(actual, nrows = 1L)
   expect_names(
     names(actual),
@@ -70,8 +70,8 @@ test_that("snb_toc input validation works", {
 })
 
 test_that("parse_snb_toc() works", {
-  json <- readRDS(test_path("fixtures", "snb-toc.rds"))
-  actual <- parse_snb_toc(json)
+  json = readRDS(test_path("fixtures", "snb-toc.rds"))
+  actual = parse_snb_toc(json)
   expect_data_table(actual, min.rows = 1L)
   expect_names(
     names(actual),
@@ -81,7 +81,7 @@ test_that("parse_snb_toc() works", {
 })
 
 test_that("parse_snb_toc() handles empty input", {
-  actual <- parse_snb_toc(list(publicationTopics = list()))
+  actual = parse_snb_toc(list(publicationTopics = list()))
   expect_data_table(actual, nrows = 0L)
   expect_names(
     names(actual),

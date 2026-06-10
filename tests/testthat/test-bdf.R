@@ -7,8 +7,8 @@ test_that("bdf_dimension input validation works", {
 })
 
 test_that("parse_bdf_dimension() works", {
-  dt <- readRDS(test_path("fixtures", "bdf-dimension.rds"))
-  actual <- parse_bdf_dimension(dt)
+  dt = readRDS(test_path("fixtures", "bdf-dimension.rds"))
+  actual = parse_bdf_dimension(dt)
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), identical.to = c("id", "position", "codelist"))
   expect_character(actual$id, any.missing = FALSE)
@@ -18,8 +18,8 @@ test_that("parse_bdf_dimension() works", {
 })
 
 test_that("parse_bdf_dimension() handles empty input", {
-  empty <- data.table(dimensions_and_codelists = character())
-  actual <- parse_bdf_dimension(empty)
+  empty = data.table(dimensions_and_codelists = character())
+  actual = parse_bdf_dimension(empty)
   expect_data_table(actual, nrows = 0L)
   expect_names(names(actual), identical.to = c("id", "position", "codelist"))
 })

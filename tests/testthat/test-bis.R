@@ -31,7 +31,7 @@ test_that("bis_data input validation works", {
 })
 
 test_that("bis_data passes updated_after as updatedAfter", {
-  captured <- NULL
+  captured = NULL
   httr2::local_mocked_responses(function(req) {
     captured <<- req
     httr2::response(200L, headers = "content-type: application/xml", body = charToRaw("<x/>"))
@@ -42,8 +42,8 @@ test_that("bis_data passes updated_after as updatedAfter", {
 })
 
 test_that("parse_bis_data works", {
-  body <- xml2::read_xml(test_path("fixtures", "bis-data.xml"))
-  actual <- parse_bis_data(body)
+  body = xml2::read_xml(test_path("fixtures", "bis-data.xml"))
+  actual = parse_bis_data(body)
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
@@ -72,15 +72,15 @@ test_that("bis_data returns rows from the live endpoint", {
   skip_on_cran()
   skip_on_ci()
 
-  x <- bis_data("WS_CBPOL", "M.CH", last_n = 5L)
+  x = bis_data("WS_CBPOL", "M.CH", last_n = 5L)
   expect_data_table(x, min.rows = 1L)
   expect_true(all(c("date", "key", "value", "freq") %in% names(x)))
 })
 
 test_that("sdmx_metadata works for bis", {
-  body <- xml2::read_xml(test_path("fixtures", "bis-metadata.xml"))
-  entries <- xml2::xml_find_all(body, "//str:Dataflow")
-  actual <- sdmx_metadata(entries)
+  body = xml2::read_xml(test_path("fixtures", "bis-metadata.xml"))
+  entries = xml2::xml_find_all(body, "//str:Dataflow")
+  actual = sdmx_metadata(entries)
   expect_data_table(actual, min.rows = 1L)
   expect_true(all(c("id", "name") %in% names(actual)))
   expect_true("WS_CBPOL" %in% actual$id)

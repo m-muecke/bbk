@@ -22,18 +22,18 @@
 #' # fetch EUR/SEK exchange rate
 #' srb_data("SEKEURPMI", start_date = "2024-01-01")
 #' }
-srb_data <- function(series, start_date = NULL, end_date = NULL) {
+srb_data = function(series, start_date = NULL, end_date = NULL) {
   assert_string(series, min.chars = 1L)
-  start_date <- assert_dateish(start_date, null.ok = TRUE)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
 
   if (is.null(start_date) || is.null(end_date)) {
-    meta <- srb("Observations/Latest", series)
-    start_date <- start_date %||% as.Date("1900-01-01")
-    end_date <- end_date %||% as.Date(meta$date)
+    meta = srb("Observations/Latest", series)
+    start_date = start_date %||% as.Date("1900-01-01")
+    end_date = end_date %||% as.Date(meta$date)
   }
 
-  json <- srb("Observations", series, format(start_date), format(end_date))
+  json = srb("Observations", series, format(start_date), format(end_date))
   parse_srb_data(json, series)
 }
 
@@ -51,21 +51,21 @@ srb_data <- function(series, start_date = NULL, end_date = NULL) {
 #' \donttest{
 #' srb_series()
 #' }
-srb_series <- function(type = "series") {
+srb_series = function(type = "series") {
   assert_choice(type, c("series", "groups"))
-  type <- if (type == "series") "Series" else "Groups"
-  json <- srb(type)
+  type = if (type == "series") "Series" else "Groups"
+  json = srb(type)
   if (type == "series") parse_srb_series(json) else parse_srb_groups(json)
 }
 
-parse_srb_data <- function(json, series) {
+parse_srb_data = function(json, series) {
   if (length(json) == 0L) {
-    dt <- data.table(date = as.Date(character()), id = character(), value = numeric())
+    dt = data.table(date = as.Date(character()), id = character(), value = numeric())
     setnames(dt, "id", "key")
     return(dt)
   }
-  value <- NULL
-  dt <- rbindlist(map(json, setDT))
+  value = NULL
+  dt = rbindlist(map(json, setDT))
   dt[, let(
     date = as.Date(date),
     key = toupper(series),
@@ -75,29 +75,29 @@ parse_srb_data <- function(json, series) {
   dt[]
 }
 
-parse_srb_series <- function(json) {
-  dt <- json |>
+parse_srb_series = function(json) {
+  dt = json |>
     map(\(x) setDT(map(x, \(v) v %||% NA_character_))) |>
     rbindlist() |>
     setnames(convert_camel_case)
   dt[]
 }
 
-parse_srb_groups <- function(json) {
-  flatten_groups <- function(groups) {
-    res <- list()
+parse_srb_groups = function(json) {
+  flatten_groups = function(groups) {
+    res = list()
     for (g in groups) {
-      children <- g$childGroups
-      g$childGroups <- NULL
-      res <- c(res, list(setDT(map(g, \(v) v %||% NA_character_))))
+      children = g$childGroups
+      g$childGroups = NULL
+      res = c(res, list(setDT(map(g, \(v) v %||% NA_character_))))
       if (length(children) > 0L) {
-        res <- c(res, flatten_groups(children))
+        res = c(res, flatten_groups(children))
       }
     }
     res
   }
 
-  dt <- json |>
+  dt = json |>
     flatten_groups() |>
     rbindlist() |>
     setnames(convert_camel_case)
@@ -122,18 +122,18 @@ parse_srb_groups <- function(json) {
 #' # USD/EUR cross rate
 #' srb_cross_rates("SEKUSDPMI", "SEKEURPMI", start_date = "2024-01-01", end_date = "2024-01-31")
 #' }
-srb_cross_rates <- function(series1, series2, start_date, end_date = NULL) {
+srb_cross_rates = function(series1, series2, start_date, end_date = NULL) {
   assert_string(series1, min.chars = 1L)
   assert_string(series2, min.chars = 1L)
-  start_date <- assert_dateish(start_date)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
+  start_date = assert_dateish(start_date)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
 
-  args <- list("CrossRates", series1, series2, format(start_date))
+  args = list("CrossRates", series1, series2, format(start_date))
   if (!is.null(end_date)) {
-    args <- c(args, format(end_date))
+    args = c(args, format(end_date))
   }
-  json <- do.call(srb, args)
-  series <- paste(series1, series2, sep = "/")
+  json = do.call(srb, args)
+  series = paste(series1, series2, sep = "/")
   parse_srb_data(json, series)
 }
 
@@ -154,29 +154,29 @@ srb_cross_rates <- function(series1, series2, start_date, end_date = NULL) {
 #' \donttest{
 #' srb_calendar("2024-01-01", "2024-01-31")
 #' }
-srb_calendar <- function(start_date, end_date = NULL) {
-  start_date <- assert_dateish(start_date)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
+srb_calendar = function(start_date, end_date = NULL) {
+  start_date = assert_dateish(start_date)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
 
-  args <- list("CalendarDays", format(start_date))
+  args = list("CalendarDays", format(start_date))
   if (!is.null(end_date)) {
-    args <- c(args, format(end_date))
+    args = c(args, format(end_date))
   }
-  json <- do.call(srb, args)
+  json = do.call(srb, args)
   parse_srb_calendar(json)
 }
 
-parse_srb_calendar <- function(json) {
-  dt <- json |>
+parse_srb_calendar = function(json) {
+  dt = json |>
     map(setDT) |>
     rbindlist() |>
     setnames(convert_camel_case)
-  calendar_date <- NULL
+  calendar_date = NULL
   dt[, calendar_date := as.Date(calendar_date)]
   dt[]
 }
 
-srb <- function(...) {
+srb = function(...) {
   request("https://api.riksbank.se/swea/v1") |>
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(...) |>
@@ -187,6 +187,6 @@ srb <- function(...) {
     resp_body_json()
 }
 
-srb_error_body <- function(resp) {
+srb_error_body = function(resp) {
   resp_body_string(resp, "UTF-8")
 }

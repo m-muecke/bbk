@@ -44,7 +44,7 @@
 #' # fetch effective exchange rates
 #' bis_data("WS_EER", "M.N.B.CH", start_period = "2020-01")
 #' }
-bis_data <- function(
+bis_data = function(
   flow,
   key = NULL,
   start_period = NULL,
@@ -57,12 +57,12 @@ bis_data <- function(
   assert_character(key, min.chars = 1L, null.ok = TRUE)
   assert_period(start_period)
   assert_period(end_period)
-  first_n <- assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
-  last_n <- assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
-  updated_after <- assert_timestampish(updated_after, null.ok = TRUE)
+  first_n = assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  last_n = assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
+  updated_after = assert_timestampish(updated_after, null.ok = TRUE)
 
-  resource <- sdmx_data_resource(flow, key)
-  xml <- bis(
+  resource = sdmx_data_resource(flow, key)
+  xml = bis(
     resource,
     accept = "application/vnd.sdmx.genericdata+xml;version=2.1",
     startPeriod = start_period,
@@ -93,21 +93,21 @@ bis_data <- function(
 #' bis_metadata("datastructure", "BIS_CBPOL")
 #' bis_metadata("codelist", "CL_FREQ")
 #' }
-bis_metadata <- function(type, id = NULL) {
+bis_metadata = function(type, id = NULL) {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   assert_string(id, min.chars = 1L, null.ok = TRUE)
 
-  xpath <- switch(
+  xpath = switch(
     type,
     datastructure = "//str:DataStructure",
     dataflow = "//str:Dataflow",
     codelist = "//str:Codelist",
     concept = "//str:ConceptScheme"
   )
-  type <- if (type == "concept") "conceptscheme" else type
-  resource <- if (is.null(id)) type else paste(type, "BIS", toupper(id), sep = "/")
-  xml <- bis(resource)
-  entries <- xml2::xml_find_all(xml, xpath)
+  type = if (type == "concept") "conceptscheme" else type
+  resource = if (is.null(id)) type else paste(type, "BIS", toupper(id), sep = "/")
+  xml = bis(resource)
+  entries = xml2::xml_find_all(xml, xpath)
   sdmx_metadata(entries)
 }
 
@@ -128,67 +128,67 @@ bis_metadata <- function(type, id = NULL) {
 #' \donttest{
 #' bis_dimension("BIS_CBPOL")
 #' }
-bis_dimension <- function(id) {
+bis_dimension = function(id) {
   assert_string(id, min.chars = 1L)
-  resource <- paste("datastructure", "BIS", toupper(id), sep = "/")
-  xml <- bis(resource)
+  resource = paste("datastructure", "BIS", toupper(id), sep = "/")
+  xml = bis(resource)
   sdmx_dimension(xml)
 }
 
-parse_bis_data <- function(xml) {
-  series <- xml2::xml_find_all(xml, ".//generic:Series")
-  res <- map(series, function(x) {
-    series_key <- x |>
+parse_bis_data = function(xml) {
+  series = xml2::xml_find_all(xml, ".//generic:Series")
+  res = map(series, function(x) {
+    series_key = x |>
       xml2::xml_find_first(".//generic:SeriesKey") |>
       xml2::xml_children()
-    nms <- series_key |>
+    nms = series_key |>
       xml2::xml_attr("id") |>
       tolower()
-    series_key <- series_key |>
+    series_key = series_key |>
       xml2::xml_attr("value") |>
       setNames(nms) |>
       as.list()
 
-    attrs <- x |>
+    attrs = x |>
       xml2::xml_find_first(".//generic:Attributes") |>
       xml2::xml_children()
-    nms <- attrs |>
+    nms = attrs |>
       xml2::xml_attr("id") |>
       tolower()
-    attrs <- attrs |>
+    attrs = attrs |>
       xml2::xml_attr("value") |>
       setNames(nms) |>
       as.list()
 
-    data <- c(series_key, attrs)
-    data$key <- paste(series_key, collapse = ".")
-    data$freq <- sdmx_freq(data$freq)
-    data$title <- trimws(data$title)
+    data = c(series_key, attrs)
+    data$key = paste(series_key, collapse = ".")
+    data$freq = sdmx_freq(data$freq)
+    data$title = trimws(data$title)
 
-    entries <- xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
-    data$date <- x |>
+    entries = xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
+    data$date = x |>
       xml2::xml_find_all(".//generic:ObsDimension") |>
       xml2::xml_attr("value") |>
       parse_date(data$freq)
 
-    data$value <- entries |>
+    data$value = entries |>
       xml2::xml_find_all(".//generic:ObsValue") |>
       xml2::xml_attr("value") |>
       as.numeric()
 
     as.data.table(data)
   })
-  res <- res |>
+  res = res |>
     rbindlist(fill = TRUE) |>
     setcolorder(col_order, skip_absent = TRUE)
   res[]
 }
 
-bis_error_body <- function(resp) {
+bis_error_body = function(resp) {
   resp_body_string(resp, "UTF-8")
 }
 
-bis <- function(resource, ..., accept = NULL) {
+bis = function(resource, ..., accept = NULL) {
   sdmx_request(
     "https://stats.bis.org/api/v1",
     resource = resource,

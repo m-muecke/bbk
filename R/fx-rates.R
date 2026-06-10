@@ -24,22 +24,22 @@
 #' \donttest{
 #' ecb_fx_rates()
 #' }
-ecb_fx_rates <- function(x = "latest") {
+ecb_fx_rates = function(x = "latest") {
   assert_choice(x, c("latest", "history"))
-  url <- switch(
+  url = switch(
     x,
     latest = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref.zip",
     history = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip"
   )
-  tf <- tempfile()
+  tf = tempfile()
   on.exit(unlink(tf), add = TRUE)
   curl::curl_download(url, tf)
-  dt <- fread(file = tf, sep = ",", na.strings = c("NA", "N/A"))
-  fmt <- if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
-  Date <- NULL
+  dt = fread(file = tf, sep = ",", na.strings = c("NA", "N/A"))
+  fmt = if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
+  Date = NULL
   dt[, Date := as.Date(Date, fmt)]
   dt[, names(.SD) := map(.SD, as.numeric), .SDcols = !"Date"]
-  dt <- dt |>
+  dt = dt |>
     melt(
       id.vars = "Date",
       variable.name = "currency",
@@ -53,7 +53,7 @@ ecb_fx_rates <- function(x = "latest") {
 
 #' @rdname ecb_fx_rates
 #' @export
-ecb_euro_rates <- ecb_fx_rates
+ecb_euro_rates = ecb_fx_rates
 
 #' Fetch Bank of Canada foreign exchange rates
 #'
@@ -93,14 +93,14 @@ ecb_euro_rates <- ecb_fx_rates
 #' # fetch historical exchange rates
 #' boc_fx_rates(start_date = "2021-10-22", end_date = "2021-10-23", limit = 10, skip = 2)
 #' }
-boc_fx_rates <- function(start_date = NULL, end_date = NULL, limit = NULL, skip = NULL) {
-  start_date <- assert_dateish(start_date, null.ok = TRUE)
-  end_date <- assert_dateish(end_date, null.ok = TRUE)
-  limit <- assert_count(limit, positive = TRUE, null.ok = TRUE, coerce = TRUE)
-  skip <- assert_count(skip, null.ok = TRUE, coerce = TRUE)
+boc_fx_rates = function(start_date = NULL, end_date = NULL, limit = NULL, skip = NULL) {
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
+  limit = assert_count(limit, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+  skip = assert_count(skip, null.ok = TRUE, coerce = TRUE)
 
-  url <- "https://bcd-api-dca-ipa.cbsa-asfc.cloud-nuage.canada.ca/exchange-rate-lambda/exchange-rates" # nolint
-  json <- request(url) |>
+  url = "https://bcd-api-dca-ipa.cbsa-asfc.cloud-nuage.canada.ca/exchange-rate-lambda/exchange-rates" # nolint
+  json = request(url) |>
     req_user_agent(bbk_user_agent()) |>
     req_url_query(startDate = start_date, endDate = end_date, limit = limit, skip = skip) |>
     req_bbk_retry() |>
@@ -108,13 +108,13 @@ boc_fx_rates <- function(start_date = NULL, end_date = NULL, limit = NULL, skip 
     req_perform() |>
     resp_body_json()
 
-  dt <- json$ForeignExchangeRates |>
+  dt = json$ForeignExchangeRates |>
     map(as.data.table) |>
     rbindlist() |>
     setnames(convert_camel_case)
 
   dt[, names(.SD) := map(.SD, \(x) unlist(x, use.names = FALSE)), .SDcols = is.list]
-  rate <- NULL
+  rate = NULL
   dt[, rate := as.numeric(rate)]
   dt[,
     names(.SD) := map(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")),

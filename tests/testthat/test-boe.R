@@ -13,8 +13,8 @@ test_that("boe_data input validation works", {
 })
 
 test_that("parse_boe_data() works", {
-  body <- xml2::read_xml(test_path("fixtures", "boe-data.xml"))
-  actual <- parse_boe_data(body)
+  body = xml2::read_xml(test_path("fixtures", "boe-data.xml"))
+  actual = parse_boe_data(body)
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
 })

@@ -24,15 +24,15 @@
 #' # all fixings for a given year
 #' cnb_fx_rates(year = 2024L)
 #' }
-cnb_fx_rates <- function(date = NULL, year = NULL, lang = "EN") {
-  date <- assert_dateish(date, null.ok = TRUE)
-  year <- assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+cnb_fx_rates = function(date = NULL, year = NULL, lang = "EN") {
+  date = assert_dateish(date, null.ok = TRUE)
+  year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("EN", "CZ"))
   if (!is.null(date) && !is.null(year)) {
     stop("`date` and `year` are mutually exclusive.", call. = FALSE)
   }
 
-  json <- if (is.null(year)) {
+  json = if (is.null(year)) {
     cnb("exrates/daily", date = date %&&% format(date), lang = lang)
   } else {
     cnb("exrates/daily-year", year = year, lang = lang)
@@ -64,14 +64,14 @@ cnb_fx_rates <- function(date = NULL, year = NULL, lang = "EN") {
 #' # all rates for a given year
 #' cnb_pribor(year = 2024L)
 #' }
-cnb_pribor <- function(date = NULL, year = NULL) {
-  date <- assert_dateish(date, null.ok = TRUE)
-  year <- assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+cnb_pribor = function(date = NULL, year = NULL) {
+  date = assert_dateish(date, null.ok = TRUE)
+  year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   if (!is.null(date) && !is.null(year)) {
     stop("`date` and `year` are mutually exclusive.", call. = FALSE)
   }
 
-  json <- if (is.null(year)) {
+  json = if (is.null(year)) {
     cnb("pribor/daily", date = date %&&% format(date))
   } else {
     cnb("pribor/daily-year", year = year)
@@ -79,21 +79,21 @@ cnb_pribor <- function(date = NULL, year = NULL) {
   parse_cnb_pribor(json)
 }
 
-parse_cnb_fx_rates <- function(json) {
-  date <- NULL
-  dt <- json$rates |>
+parse_cnb_fx_rates = function(json) {
+  date = NULL
+  dt = json$rates |>
     map(as.data.table) |>
     rbindlist(fill = TRUE) |>
     setnames(convert_camel_case) |>
     setnames("valid_for", "date")
   dt[, "date" := as.Date(date)]
-  cols <- c("date", "currency_code", "currency", "country", "amount", "rate")
+  cols = c("date", "currency_code", "currency", "country", "amount", "rate")
   dt[, intersect(cols, names(dt)), with = FALSE]
 }
 
-parse_cnb_pribor <- function(json) {
-  date <- NULL
-  dt <- json$pribs |>
+parse_cnb_pribor = function(json) {
+  date = NULL
+  dt = json$pribs |>
     map(\(x) as.data.table(x[lengths(x) == 1L])) |>
     rbindlist(fill = TRUE) |>
     setnames(convert_camel_case) |>
@@ -102,7 +102,7 @@ parse_cnb_pribor <- function(json) {
   dt[, c("date", "period", "pribor")]
 }
 
-cnb <- function(resource, ...) {
+cnb = function(resource, ...) {
   request("https://api.cnb.cz/cnbapi") |>
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(resource) |>
@@ -114,7 +114,7 @@ cnb <- function(resource, ...) {
     resp_body_json()
 }
 
-cnb_error_body <- function(resp) {
+cnb_error_body = function(resp) {
   resp_body_json(resp)$description
 }
 
@@ -160,7 +160,7 @@ cnb_error_body <- function(resp) {
 #' # every indicator in a set
 #' cnb_data(set_id = "1058")
 #' }
-cnb_data <- function(
+cnb_data = function(
   indicator_id = NULL,
   set_id = NULL,
   base_id = NULL,
@@ -174,13 +174,13 @@ cnb_data <- function(
   assert_string(set_id, min.chars = 1L, null.ok = TRUE)
   assert_string(base_id, min.chars = 1L, null.ok = TRUE)
   assert_string(selection_id, min.chars = 1L, null.ok = TRUE)
-  start_period <- assert_dateish(start_period, null.ok = TRUE)
-  end_period <- assert_dateish(end_period, null.ok = TRUE)
+  start_period = assert_dateish(start_period, null.ok = TRUE)
+  end_period = assert_dateish(end_period, null.ok = TRUE)
   assert_character(snapshot_id, min.chars = 1L, null.ok = TRUE)
   assert_string(api_key, min.chars = 1L)
-  indicator_id_list <- arad_scope(indicator_id, set_id, base_id, selection_id)
+  indicator_id_list = arad_scope(indicator_id, set_id, base_id, selection_id)
 
-  dt <- arad(
+  dt = arad(
     "data",
     api_key = api_key,
     indicator_id_list = indicator_id_list,
@@ -212,7 +212,7 @@ cnb_data <- function(
 #' \dontrun{
 #' cnb_indicators(set_id = "1058")
 #' }
-cnb_indicators <- function(
+cnb_indicators = function(
   indicator_id = NULL,
   set_id = NULL,
   base_id = NULL,
@@ -238,7 +238,7 @@ cnb_indicators <- function(
 #' \dontrun{
 #' cnb_dimension(indicator_id = "MIRFMDF12ERATPECD")
 #' }
-cnb_dimension <- function(
+cnb_dimension = function(
   indicator_id = NULL,
   set_id = NULL,
   base_id = NULL,
@@ -246,7 +246,7 @@ cnb_dimension <- function(
   lang = "en",
   api_key = cnb_arad_key()
 ) {
-  dt <- arad_metadata(
+  dt = arad_metadata(
     "indicators-dims",
     indicator_id,
     set_id,
@@ -272,7 +272,7 @@ cnb_dimension <- function(
 #' \dontrun{
 #' cnb_tree(indicator_id = "MIRFMDF12ERATPECD")
 #' }
-cnb_tree <- function(
+cnb_tree = function(
   indicator_id = NULL,
   set_id = NULL,
   base_id = NULL,
@@ -297,20 +297,20 @@ cnb_tree <- function(
 #' \dontrun{
 #' cnb_snapshots()
 #' }
-cnb_snapshots <- function(lang = "en", api_key = cnb_arad_key()) {
+cnb_snapshots = function(lang = "en", api_key = cnb_arad_key()) {
   assert_choice(lang, c("en", "cs"))
   assert_string(api_key, min.chars = 1L)
   arad("snapshots", api_key = api_key, lang = lang)
 }
 
-arad_metadata <- function(resource, indicator_id, set_id, base_id, selection_id, lang, api_key) {
+arad_metadata = function(resource, indicator_id, set_id, base_id, selection_id, lang, api_key) {
   assert_character(indicator_id, min.chars = 1L, null.ok = TRUE)
   assert_string(set_id, min.chars = 1L, null.ok = TRUE)
   assert_string(base_id, min.chars = 1L, null.ok = TRUE)
   assert_string(selection_id, min.chars = 1L, null.ok = TRUE)
   assert_choice(lang, c("en", "cs"))
   assert_string(api_key, min.chars = 1L)
-  indicator_id_list <- arad_scope(indicator_id, set_id, base_id, selection_id)
+  indicator_id_list = arad_scope(indicator_id, set_id, base_id, selection_id)
 
   arad(
     resource,
@@ -323,8 +323,8 @@ arad_metadata <- function(resource, indicator_id, set_id, base_id, selection_id,
   )
 }
 
-arad_scope <- function(indicator_id, set_id, base_id, selection_id) {
-  n <- sum(is.null(indicator_id), is.null(set_id), is.null(base_id), is.null(selection_id))
+arad_scope = function(indicator_id, set_id, base_id, selection_id) {
+  n = sum(is.null(indicator_id), is.null(set_id), is.null(base_id), is.null(selection_id))
   if (n != 3L) {
     stop(
       "Exactly one of `indicator_id`, `set_id`, `base_id`, or `selection_id` must be provided.",
@@ -334,12 +334,12 @@ arad_scope <- function(indicator_id, set_id, base_id, selection_id) {
   indicator_id %&&% paste(indicator_id, collapse = ",")
 }
 
-arad_period <- function(date) {
+arad_period = function(date) {
   date %&&% format(date, "%Y%m%d")
 }
 
-parse_cnb_data <- function(dt) {
-  cols <- c("date", "indicator_id", "snapshot_id", "value")
+parse_cnb_data = function(dt) {
+  cols = c("date", "indicator_id", "snapshot_id", "value")
   if (nrow(dt) == 0L) {
     return(data.table(
       date = as.Date(character()),
@@ -348,7 +348,7 @@ parse_cnb_data <- function(dt) {
       value = numeric()
     ))
   }
-  period <- value <- snapshot_id <- NULL
+  period = value = snapshot_id = NULL
   dt[, let(
     date = as.Date(as.character(period), "%Y%m%d"),
     value = as.numeric(gsub("[ \u00a0]", "", chartr(",", ".", value))),
@@ -357,16 +357,16 @@ parse_cnb_data <- function(dt) {
   dt[, cols, with = FALSE]
 }
 
-parse_cnb_dimension <- function(dt) {
+parse_cnb_dimension = function(dt) {
   if (nrow(dt) > 0L && "dim_rank" %in% names(dt)) {
-    dim_rank <- NULL
+    dim_rank = NULL
     dt[, dim_rank := as.integer(dim_rank)]
   }
   dt[]
 }
 
-arad <- function(resource, ..., api_key = cnb_arad_key()) {
-  body <- request("https://www.cnb.cz/aradb/api/v1") |>
+arad = function(resource, ..., api_key = cnb_arad_key()) {
+  body = request("https://www.cnb.cz/aradb/api/v1") |>
     req_user_agent(bbk_user_agent()) |>
     req_url_path_append(resource) |>
     req_url_query(..., api_key = api_key, delimiter = "pipe") |>
@@ -378,15 +378,15 @@ arad <- function(resource, ..., api_key = cnb_arad_key()) {
   fread(text = body, sep = "|", colClasses = "character")
 }
 
-arad_error_body <- function(resp) {
+arad_error_body = function(resp) {
   if (identical(resp_content_type(resp), "application/json")) {
-    json <- resp_body_json(resp)
+    json = resp_body_json(resp)
     json$message$en %||% json$message$cs
   }
 }
 
-cnb_arad_key <- function() {
-  key <- Sys.getenv("CNB_ARAD_KEY")
+cnb_arad_key = function() {
+  key = Sys.getenv("CNB_ARAD_KEY")
   if (nzchar(key)) {
     return(key)
   }

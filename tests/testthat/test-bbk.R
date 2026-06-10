@@ -60,6 +60,29 @@ test_that("parse_bbk_data works", {
   expect_date(actual$date)
 })
 
+test_that("parse_bbk_data scopes observations to each series", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey><generic:Value id="ID" value="S1"/></generic:SeriesKey>
+          <generic:Attributes><generic:Value id="BBK_TIME_FORMAT" value="P1M"/></generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2020-01"/><generic:ObsValue value="1"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2020-02"/><generic:ObsValue value="2"/></generic:Obs>
+        </generic:Series>
+        <generic:Series>
+          <generic:SeriesKey><generic:Value id="ID" value="S2"/></generic:SeriesKey>
+          <generic:Attributes><generic:Value id="BBK_TIME_FORMAT" value="P1M"/></generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2020-01"/><generic:ObsValue value="9"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_bbk_data(body)
+  expect_identical(actual$key, c("S1", "S1", "S2"))
+  expect_identical(actual$value, c(1, 2, 9))
+})
+
 test_that("parse_bbk_series works", {
   body = readRDS(test_path("fixtures", "bbk-series.rds"))
   actual = parse_bbk_series(

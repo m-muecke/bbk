@@ -27,12 +27,20 @@
 
 ### Bug fixes
 
+- Data requests no longer abort when a series uses an unsupported
+  frequency code; the code is kept and the date is returned unparsed.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
   now returns the correct observations per series when querying multiple
   keys.
+- [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md)
+  now keeps missing observations as `NA` instead of returning an empty
+  result.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now keeps dates and values aligned when a series has observations
   without a value.
+- [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
+  now applies `start_date` and `end_date` when fetching a group, which
+  were previously ignored.
 - [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md)
   no longer errors when a series omits both name or unit translations.
 - [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)

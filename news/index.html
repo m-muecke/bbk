@@ -59,10 +59,15 @@
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
-<ul><li>
+<ul><li>Data requests no longer abort when a series uses an unsupported frequency code; the code is kept and the date is returned unparsed.</li>
+<li>
 <code><a href="../reference/bbk_data.html">bbk_data()</a></code> now returns the correct observations per series when querying multiple keys.</li>
 <li>
+<code><a href="../reference/bdp_data.html">bdp_data()</a></code> now keeps missing observations as <code>NA</code> instead of returning an empty result.</li>
+<li>
 <code><a href="../reference/bis_data.html">bis_data()</a></code> now keeps dates and values aligned when a series has observations without a value.</li>
+<li>
+<code><a href="../reference/boc_data.html">boc_data()</a></code> now applies <code>start_date</code> and <code>end_date</code> when fetching a group, which were previously ignored.</li>
 <li>
 <code><a href="../reference/boj_data.html">boj_data()</a></code> no longer errors when a series omits both name or unit translations.</li>
 <li>

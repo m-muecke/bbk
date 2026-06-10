@@ -44,10 +44,12 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="bbk-development-version">bbk (development version)<a class="anchor" aria-label="anchor" href="#bbk-development-version"></a></h2>
+<div class="section level3">
+<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
 <ul><li>
 <code><a href="../reference/bdf_dimension.html">bdf_dimension()</a></code> returns the dimension structure for a given Banque de France dataset.</li>
 <li>
-<code><a href="../reference/cnb_data.html">cnb_data()</a></code>, <code><a href="../reference/cnb_indicators.html">cnb_indicators()</a></code>, <code><a href="../reference/cnb_dimension.html">cnb_dimension()</a></code>, <code><a href="../reference/cnb_tree.html">cnb_tree()</a></code>, and <code><a href="../reference/cnb_snapshots.html">cnb_snapshots()</a></code> add support for the Czech National Bank (CNB) ARAD time series database, which requires an API key supplied via the <code>CNB_ARAD_KEY</code> environment variable.</li>
+<code><a href="../reference/cnb_data.html">cnb_data()</a></code>, <code><a href="../reference/cnb_indicators.html">cnb_indicators()</a></code>, <code><a href="../reference/cnb_dimension.html">cnb_dimension()</a></code>, <code><a href="../reference/cnb_tree.html">cnb_tree()</a></code>, and <code><a href="../reference/cnb_snapshots.html">cnb_snapshots()</a></code> add support for the Czech National Bank (CNB) ARAD database, using an API key from <code>CNB_ARAD_KEY</code>.</li>
 <li>
 <code><a href="../reference/cnb_fx_rates.html">cnb_fx_rates()</a></code> and <code><a href="../reference/cnb_pribor.html">cnb_pribor()</a></code> add support for Czech National Bank (CNB) exchange rate fixings and PRIBOR reference rates.</li>
 <li>
@@ -55,6 +57,18 @@
 <li>
 <code><a href="../reference/snb_toc.html">snb_toc()</a></code> returns the publication topic tree from the SNB data portal.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/bbk_data.html">bbk_data()</a></code> now returns the correct observations per series when querying multiple keys.</li>
+<li>
+<code><a href="../reference/bis_data.html">bis_data()</a></code> now keeps dates and values aligned when a series has observations without a value.</li>
+<li>
+<code><a href="../reference/boj_data.html">boj_data()</a></code> no longer errors when a series omits both name or unit translations.</li>
+<li>
+<code><a href="../reference/ecb_data.html">ecb_data()</a></code> now keeps dates and values aligned when a series has observations without a value.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.10.0" id="bbk-0100">bbk 0.10.0<a class="anchor" aria-label="anchor" href="#bbk-0100"></a></h2><p class="text-muted">CRAN release: 2026-05-16</p>
 <ul><li>

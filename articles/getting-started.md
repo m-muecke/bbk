@@ -69,7 +69,7 @@ Pass the dataflow and key to
 
 ``` r
 
-usd_eur <- bbk_data("BBEX3", key = "M.USD.EUR.BB.AC.A01", start_period = "2015-01-01")
+usd_eur = bbk_data("BBEX3", key = "M.USD.EUR.BB.AC.A01", start_period = "2015-01-01")
 head(usd_eur)
 #>          date                       key  value    freq
 #>        <Date>                    <char>  <num>  <char>

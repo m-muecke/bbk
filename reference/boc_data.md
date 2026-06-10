@@ -77,11 +77,11 @@ Other data:
 ``` r
 if (FALSE) { # \dontrun{
 # fetch all data for a single group
-dt <- boc_data(group_name = "FX_RATES_DAILY")
+dt = boc_data(group_name = "FX_RATES_DAILY")
 head(dt)
 
 # or for multiple series ids
-dt <- boc_data(
+dt = boc_data(
   series_name = c("FXUSDCAD", "FXEURCAD"),
   start_date = "2023-01-23",
   end_date = "2023-07-19"

@@ -2,6 +2,8 @@
 
 ## bbk (development version)
 
+### New features
+
 - [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md)
   returns the dimension structure for a given Banque de France dataset.
 - [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
@@ -10,9 +12,8 @@
   [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md),
   and
   [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md)
-  add support for the Czech National Bank (CNB) ARAD time series
-  database, which requires an API key supplied via the `CNB_ARAD_KEY`
-  environment variable.
+  add support for the Czech National Bank (CNB) ARAD database, using an
+  API key from `CNB_ARAD_KEY`.
 - [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
   and
   [`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md)
@@ -23,6 +24,20 @@
   date) from the SNB data portal.
 - [`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md)
   returns the publication topic tree from the SNB data portal.
+
+### Bug fixes
+
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
+  now returns the correct observations per series when querying multiple
+  keys.
+- [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
+  now keeps dates and values aligned when a series has observations
+  without a value.
+- [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md)
+  no longer errors when a series omits both name or unit translations.
+- [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
+  now keeps dates and values aligned when a series has observations
+  without a value.
 
 ## bbk 0.10.0
 

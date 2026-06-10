@@ -30,11 +30,11 @@ with the requested data.
 
 ``` r
 if (FALSE) { # \dontrun{
-catalog <- boc_catalog()
+catalog = boc_catalog()
 head(catalog)
 
 # filter for effective exchange rate series
-dt <- catalog[grepl("CEER", label)]
+dt = catalog[grepl("CEER", label)]
 head(dt)
 } # }
 ```

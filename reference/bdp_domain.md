@@ -271,9 +271,9 @@ bdp_domain()
 #> 38:       TSPE-HDI       TRUE         14            2
 #> 39:          IConf       TRUE          7            2
 #> 40:         CoincI       TRUE          2            1
-#> 41:       SI-Manuf       TRUE         86           13
-#> 42:       SI-Trade       TRUE         43            7
-#> 43:        SI-Serv       TRUE         30            5
+#> 41:       SI-Manuf       TRUE         41           10
+#> 42:       SI-Trade       TRUE         30            6
+#> 43:        SI-Serv       TRUE         23            4
 #> 44:       SI-Const       TRUE          2            2
 #> 45:      IT-goods        TRUE         72            3
 #> 46: NA-Expenditure       TRUE        511            4

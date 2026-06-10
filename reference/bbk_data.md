@@ -117,7 +117,7 @@ Other data:
 ``` r
 # \donttest{
 # fetch all data for a given flow and key
-data <- bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+data = bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 head(data)
 #>          date                                                   key value
 #>        <Date>                                                <char> <num>
@@ -169,7 +169,7 @@ head(data)
 #> 6:         P1D        2 PROZENT         0     ZRZS
 
 # fetch data for multiple keys
-data <- bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
+data = bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
 head(data)
 #>          date                       key value    freq
 #>        <Date>                    <char> <num>  <char>
@@ -229,7 +229,7 @@ head(data)
 #> 6: Sedlabanki Islands, Reykjavik.
 
 # specified period (start date-end date) for daily data
-data <- bbk_data(
+data = bbk_data(
   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01",
   end_period = "2020-08-01"
@@ -285,7 +285,7 @@ head(data)
 #> 6:         P1D        2 PROZENT         0     ZRZS
 
 # or only specify the start date
-data <- bbk_data(
+data = bbk_data(
   "BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2024-04-01"
 )

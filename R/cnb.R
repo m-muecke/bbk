@@ -500,15 +500,5 @@ arad_error_body = function(resp) {
 }
 
 cnb_arad_key = function() {
-  key = Sys.getenv("CNB_ARAD_KEY")
-  if (nzchar(key)) {
-    return(key)
-  }
-  if (is_testing()) {
-    testthat::skip("CNB_ARAD_KEY env var is not configured")
-  }
-  stop(
-    "No API key found, please supply with `api_key` argument or with CNB_ARAD_KEY env var.",
-    call. = FALSE
-  )
+  get_api_key("CNB_ARAD_KEY")
 }

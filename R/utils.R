@@ -39,3 +39,24 @@ extract_metadata = function(string, pattern, fixed = FALSE) {
 convert_camel_case = function(x) {
   tolower(gsub("((?<=[a-z0-9])[A-Z]|(?!^)[A-Z](?=[a-z]))", "_\\1", x, perl = TRUE))
 }
+
+get_api_key = function(env_var) {
+  key = Sys.getenv(env_var)
+  if (nzchar(key)) {
+    return(key)
+  }
+  if (is_testing()) {
+    testthat::skip(sprintf("%s env var is not configured", env_var))
+  }
+  stop(
+    sprintf(
+      "No API key found, please supply with `api_key` argument or with %s env var.",
+      env_var
+    ),
+    call. = FALSE
+  )
+}
+
+is_testing = function() {
+  identical(Sys.getenv("TESTTHAT"), "true")
+}

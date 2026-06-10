@@ -224,19 +224,5 @@ bdf_error_body = function(resp) {
 }
 
 bdf_key = function() {
-  key = Sys.getenv("BANQUEDEFRANCE_KEY")
-  if (nzchar(key)) {
-    return(key)
-  }
-  if (is_testing()) {
-    testthat::skip(sprintf("%s env var is not configured", "BDF"))
-  }
-  stop(
-    "No API key found, please supply with `api_key` argument or with BANQUEDEFRANCE_KEY env var.",
-    call. = FALSE
-  )
-}
-
-is_testing = function() {
-  identical(Sys.getenv("TESTTHAT"), "true")
+  get_api_key("BANQUEDEFRANCE_KEY")
 }

@@ -52,6 +52,9 @@
 - [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
   now keeps dates and values aligned when a series has observations
   without a value.
+- [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
+  no longer errors and returns an empty table when a series has no
+  observations in the requested period.
 
 ## bbk 0.10.0
 

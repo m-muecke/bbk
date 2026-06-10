@@ -175,6 +175,16 @@ parse_cnb_czeonia = function(json) {
 }
 
 parse_cnb_fx_rates = function(json) {
+  if (length(json$rates) == 0L) {
+    return(data.table(
+      date = as.Date(character()),
+      currency_code = character(),
+      currency = character(),
+      country = character(),
+      amount = integer(),
+      rate = numeric()
+    ))
+  }
   date = NULL
   dt = json$rates |>
     map(as.data.table) |>

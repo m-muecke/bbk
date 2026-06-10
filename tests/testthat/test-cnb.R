@@ -56,6 +56,16 @@ test_that("parse_cnb_fx_rates works", {
   expect_double(actual$rate)
 })
 
+test_that("parse_cnb_fx_rates handles no rates", {
+  actual = parse_cnb_fx_rates(list(rates = list()))
+  expect_data_table(actual, nrows = 0L)
+  expect_names(
+    names(actual),
+    identical.to = c("date", "currency_code", "currency", "country", "amount", "rate")
+  )
+  expect_date(actual$date)
+})
+
 test_that("parse_cnb_pribor works", {
   json = readRDS(test_path("fixtures", "cnb-pribor.rds"))
   actual = parse_cnb_pribor(json)

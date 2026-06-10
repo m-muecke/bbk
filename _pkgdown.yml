@@ -5,69 +5,108 @@ template:
   light-switch: true
 
 reference:
-  - subtitle: Data
+  - subtitle: Deutsche Bundesbank (BBk)
     contents:
       - bbk_data
       - bbk_series
+      - bbk_dimension
+      - bbk_metadata
+
+  - subtitle: European Central Bank (ECB)
+    contents:
+      - ecb_data
+      - ecb_fx_rates
+      - ecb_dimension
+      - ecb_metadata
+
+  - subtitle: Bank for International Settlements (BIS)
+    contents:
+      - bis_data
+      - bis_dimension
+      - bis_metadata
+
+  - subtitle: Banco de España (BdE)
+    contents:
       - bde_data
       - bde_latest
+
+  - subtitle: Banco de Portugal (BdP)
+    contents:
       - bdp_data
-      - bis_data
+      - bdp_series
+      - bdp_dataset
+      - bdp_dimension
+      - bdp_domain
+
+  - subtitle: Banque de France (BdF)
+    contents:
       - bdf_data
+      - bdf_dataset
+      - bdf_dimension
+      - bdf_codelist
+
+  - subtitle: Bank of Canada (BoC)
+    contents:
+      - boc_data
+      - boc_fx_rates
+      - boc_catalog
+      - boc_metadata
+
+  - subtitle: Bank of England (BoE)
+    contents:
+      - boe_data
+
+  - subtitle: Bank of Japan (BoJ)
+    contents:
+      - boj_data
+      - boj_metadata
+
+  - subtitle: Czech National Bank (CNB)
+    contents:
       - cnb_data
       - cnb_fx_rates
       - cnb_fx_other_rates
       - cnb_pribor
       - cnb_czeonia
-      - boc_data
-      - boc_fx_rates
-      - boe_data
-      - boj_data
-      - ecb_data
-      - ecb_fx_rates
-      - nbp_fx_rates
-      - nbp_gold
-      - nob_data
-      - onb_data
-      - snb_data
-      - srb_cross_rates
-      - srb_data
-
-  - subtitle: Cache
-    contents:
-      - cache
-
-  - subtitle: Metadata
-    contents:
-      - bbk_dimension
-      - bbk_metadata
-      - bdf_codelist
-      - bdp_dataset
-      - bdp_dimension
-      - bdp_domain
-      - bdp_series
-      - bis_dimension
-      - bis_metadata
-      - bdf_dataset
-      - bdf_dimension
-      - boj_metadata
-      - boc_catalog
-      - boc_metadata
       - cnb_dimension
       - cnb_indicators
       - cnb_snapshots
       - cnb_tree
-      - ecb_dimension
-      - ecb_metadata
+
+  - subtitle: National Bank of Poland (NBP)
+    contents:
+      - nbp_fx_rates
+      - nbp_gold
+
+  - subtitle: Norges Bank (NoB)
+    contents:
+      - nob_data
       - nob_dimension
       - nob_metadata
+
+  - subtitle: Oesterreichische Nationalbank (OeNB)
+    contents:
+      - onb_data
       - onb_dimension
       - onb_frequency
       - onb_hierarchy
       - onb_metadata
       - onb_toc
+
+  - subtitle: Sveriges Riksbank (SRb)
+    contents:
+      - srb_data
+      - srb_series
+      - srb_cross_rates
+      - srb_calendar
+
+  - subtitle: Swiss National Bank (SNB)
+    contents:
+      - snb_data
       - snb_dimension
       - snb_metadata
       - snb_toc
-      - srb_calendar
-      - srb_series
+
+  - subtitle: Cache
+    contents:
+      - cache

@@ -161,6 +161,10 @@ parse_cnb_czeonia = function(json) {
   if (!is.null(recs$rate)) {
     recs = list(recs)
   }
+  if (length(recs) == 0L) {
+    return(data.table(date = as.Date(character()), czeonia = numeric(), volume = numeric()))
+  }
+
   date = NULL
   dt = recs |>
     map(\(x) as.data.table(x[lengths(x) == 1L])) |>
@@ -185,6 +189,7 @@ parse_cnb_fx_rates = function(json) {
       rate = numeric()
     ))
   }
+
   date = NULL
   dt = json$rates |>
     map(as.data.table) |>
@@ -197,6 +202,10 @@ parse_cnb_fx_rates = function(json) {
 }
 
 parse_cnb_pribor = function(json) {
+  if (length(json$pribs) == 0L) {
+    return(data.table(date = as.Date(character()), period = character(), pribor = numeric()))
+  }
+
   date = NULL
   dt = json$pribs |>
     map(\(x) as.data.table(x[lengths(x) == 1L])) |>

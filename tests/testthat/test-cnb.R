@@ -75,6 +75,22 @@ test_that("parse_cnb_pribor works", {
   expect_double(actual$pribor)
 })
 
+test_that("parse_cnb_pribor handles no rates", {
+  actual = parse_cnb_pribor(list(pribs = list()))
+  expect_data_table(actual, nrows = 0L)
+  expect_names(names(actual), identical.to = c("date", "period", "pribor"))
+  expect_date(actual$date)
+  expect_double(actual$pribor)
+})
+
+test_that("parse_cnb_czeonia handles no rates", {
+  actual = parse_cnb_czeonia(list(rates = list()))
+  expect_data_table(actual, nrows = 0L)
+  expect_names(names(actual), identical.to = c("date", "czeonia", "volume"))
+  expect_date(actual$date)
+  expect_double(actual$czeonia)
+})
+
 test_that("cnb_data input validation works", {
   expect_error(cnb_data(api_key = "x"), "Exactly one")
   expect_error(cnb_data("a", set_id = "b", api_key = "x"), "Exactly one")

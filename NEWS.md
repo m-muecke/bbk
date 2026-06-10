@@ -14,6 +14,7 @@
 * `bbk_data()` now returns the correct observations per series when querying multiple keys.
 * `bdp_data()` now keeps missing observations as `NA` instead of returning an empty result.
 * `bis_data()` now keeps dates and values aligned when a series has observations without a value.
+* `boc_data()` now applies `start_date` and `end_date` when fetching a group, which were previously ignored.
 * `boj_data()` no longer errors when a series omits both name or unit translations.
 * `ecb_data()` now keeps dates and values aligned when a series has observations without a value.
 

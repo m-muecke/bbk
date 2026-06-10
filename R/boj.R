@@ -108,8 +108,8 @@ parse_boj_data = function(json) {
       id = x$SERIES_CODE,
       value = values,
       freq = boj_freq(freq),
-      name = x$NAME_OF_TIME_SERIES %||% x$NAME_OF_TIME_SERIES_J,
-      unit = x$UNIT %||% x$UNIT_J
+      name = x$NAME_OF_TIME_SERIES %||% x$NAME_OF_TIME_SERIES_J %||% NA_character_,
+      unit = x$UNIT %||% x$UNIT_J %||% NA_character_
     )
     na.omit(dt, cols = "value")
   }))

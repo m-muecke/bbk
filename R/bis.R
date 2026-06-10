@@ -166,7 +166,7 @@ parse_bis_data = function(xml) {
     data$title = trimws(data$title)
 
     entries = xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
-    data$date = x |>
+    data$date = entries |>
       xml2::xml_find_all(".//generic:ObsDimension") |>
       xml2::xml_attr("value") |>
       parse_date(data$freq)

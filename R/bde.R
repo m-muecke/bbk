@@ -72,7 +72,6 @@ parse_bde_data = function(json) {
         rbindlist() |>
         setnames(c("name", "value"))
       name = NULL
-      meta[, name := tolower(name)]
       meta[, name := chartr(" ", "_", tolower(name))]
       meta[, name := gsub("[()]", "", name)]
       exclude = c(

@@ -176,7 +176,7 @@ parse_ecb_data = function(xml) {
     data$freq = sdmx_freq(data$freq)
 
     entries = xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
-    data$date = x |>
+    data$date = entries |>
       xml2::xml_find_all(".//generic:ObsDimension") |>
       xml2::xml_attr("value") |>
       parse_date(data$freq)

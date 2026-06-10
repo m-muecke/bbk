@@ -51,6 +51,28 @@ test_that("parse_bis_data works", {
   expect_identical(unique(actual$freq), "monthly")
 })
 
+test_that("parse_bis_data drops observations without a value and keeps alignment", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="M"/>
+            <generic:Value id="REF_AREA" value="US"/>
+          </generic:SeriesKey>
+          <generic:Attributes><generic:Value id="TITLE" value="t"/></generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2020-01"/><generic:ObsValue value="1"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2020-02"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2020-03"/><generic:ObsValue value="3"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_bis_data(body)
+  expect_identical(actual$date, as.Date(c("2020-01-01", "2020-03-01")))
+  expect_identical(actual$value, c(1, 3))
+})
+
 test_that("bis_dimension input validation works", {
   expect_error(bis_dimension(1L))
   expect_error(bis_dimension(TRUE))

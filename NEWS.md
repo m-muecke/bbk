@@ -1,11 +1,19 @@
 # bbk (development version)
 
-* `bbk_data()` now returns the correct observations for each series when querying multiple keys; previously every series was given all observations from the response.
+## New features
+
 * `bdf_dimension()` returns the dimension structure for a given Banque de France dataset.
-* `cnb_data()`, `cnb_indicators()`, `cnb_dimension()`, `cnb_tree()`, and `cnb_snapshots()` add support for the Czech National Bank (CNB) ARAD time series database, which requires an API key supplied via the `CNB_ARAD_KEY` environment variable.
+* `cnb_data()`, `cnb_indicators()`, `cnb_dimension()`, `cnb_tree()`, and `cnb_snapshots()` add support for the Czech National Bank (CNB) ARAD database, using an API key from `CNB_ARAD_KEY`.
 * `cnb_fx_rates()` and `cnb_pribor()` add support for Czech National Bank (CNB) exchange rate fixings and PRIBOR reference rates.
 * `snb_metadata()` returns cube-level metadata (title, frequency, source, publication date) from the SNB data portal.
 * `snb_toc()` returns the publication topic tree from the SNB data portal.
+
+## Bug fixes
+
+* `bbk_data()` now returns the correct observations per series when querying multiple keys.
+* `bis_data()` now keeps dates and values aligned when a series has observations without a value.
+* `boj_data()` no longer errors when a series omits both name or unit translations.
+* `ecb_data()` now keeps dates and values aligned when a series has observations without a value.
 
 # bbk 0.10.0
 

@@ -119,7 +119,7 @@ of Czech koruna per <code>amount</code> units of the foreign currency.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># latest month for all other currencies</span></span></span>
 <span class="r-in"><span><span class="fu">cnb_fx_other_rates</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in setnames(setnames(rbindlist(map(json$rates, as.data.table), fill = TRUE),     convert_camel_case), "valid_for", "date"):</span> Items of 'old' not found in column names: [valid_for]. Consider skip_absent=TRUE.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Empty data.table (0 rows and 6 cols): date,currency_code,currency,country,amount,rate</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># a specific month</span></span></span>
 <span class="r-in"><span><span class="fu">cnb_fx_other_rates</span><span class="op">(</span>year_month <span class="op">=</span> <span class="st">"2024-01"</span><span class="op">)</span></span></span>

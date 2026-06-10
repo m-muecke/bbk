@@ -77,7 +77,7 @@ Other data:
 # \donttest{
 # latest month for all other currencies
 cnb_fx_other_rates()
-#> Error in setnames(setnames(rbindlist(map(json$rates, as.data.table), fill = TRUE),     convert_camel_case), "valid_for", "date"): Items of 'old' not found in column names: [valid_for]. Consider skip_absent=TRUE.
+#> Empty data.table (0 rows and 6 cols): date,currency_code,currency,country,amount,rate
 
 # a specific month
 cnb_fx_other_rates(year_month = "2024-01")

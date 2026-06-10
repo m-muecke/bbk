@@ -6,6 +6,9 @@
 
 - [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md)
   returns the dimension structure for a given Banque de France dataset.
+- [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)
+  returns the CZEONIA overnight reference rate from the Czech National
+  Bank (CNB).
 - [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
   [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md),
   [`cnb_dimension()`](https://m-muecke.github.io/bbk/reference/cnb_dimension.md),
@@ -14,6 +17,9 @@
   [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md)
   add support for the Czech National Bank (CNB) ARAD database, using an
   API key from `CNB_ARAD_KEY`.
+- [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
+  returns the Czech National Bank (CNB) monthly exchange rates for other
+  (less commonly traded) currencies.
 - [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
   and
   [`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md)

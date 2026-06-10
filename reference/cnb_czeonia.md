@@ -1,35 +1,38 @@
-# Fetch latest Banco de España (BdE) data
+# Fetch Czech National Bank (CNB) CZEONIA rates
 
-Retrieve the most recently published value for one or more series from
-the BdE statistics API.
+Retrieve the Czech Overnight Index Average (CZEONIA) reference rate from
+the CNB API.
 
 ## Usage
 
 ``` r
-bde_latest(key, lang = "en")
+cnb_czeonia(date = NULL, year = NULL)
 ```
 
 ## Source
 
-<https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html>
+<https://api.cnb.cz/cnbapi/swagger-ui.html>
 
 ## Arguments
 
-- key:
+- date:
 
-  ([`character()`](https://rdrr.io/r/base/character.html))  
-  The series keys to query.
+  (`NULL` \| `character(1)` \| `Date(1)`)  
+  The date to query. If `NULL`, the latest available rates are returned.
+  Mutually exclusive with `year`. Default `NULL`.
 
-- lang:
+- year:
 
-  (`character(1)`)  
-  Language to query, either `"en"` or `"es"`.
+  (`NULL` \| `integer(1)`)  
+  A calendar year, returning rates for every working day of that year.
+  Mutually exclusive with `date`. Default `NULL`.
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with the latest observation per series.
+with the requested rates. The `czeonia` column holds the rate in percent
+and `volume` the trading volume in millions of Czech koruna.
 
 ## See also
 
@@ -37,6 +40,7 @@ Other data:
 [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
 [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md),
 [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
+[`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md),
 [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md),
 [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md),
 [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md),
@@ -45,7 +49,6 @@ Other data:
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
-[`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md),
 [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
 [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md),
 [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md),
@@ -63,21 +66,26 @@ Other data:
 
 ``` r
 # \donttest{
-bde_latest("D_1NBAF472")
-#>                   date        key value   freq            title decimals symbol
-#>                 <POSc>     <char> <num> <char>           <char>    <int> <char>
-#> 1: 2026-05-01 08:15:00 D_1NBAF472 2.804      M One-year Euribor        3      %
-#>     trend
-#>    <char>
-#> 1:      +
-bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
-#>                   date                      key   value   freq
-#>                 <POSc>                   <char>   <num> <char>
-#> 1: 2026-05-01 08:15:00               D_1NBAF472   2.804      M
-#> 2: 2025-10-01 08:15:00 DTNPDE2010_P0000P_PS_APU 100.700      Q
-#>                                        title decimals symbol  trend
-#>                                       <char>    <int> <char> <char>
-#> 1:                          One-year Euribor        3      %      +
-#> 2: EDP debt. General government. % of GDP mp        1      %      -
+# latest rate
+cnb_czeonia()
+#>          date czeonia volume
+#>        <Date>   <num>  <int>
+#> 1: 2026-06-09    3.24   9848
+
+# all rates for a given year
+cnb_czeonia(year = 2024L)
+#>            date czeonia volume
+#>          <Date>   <num>  <int>
+#>   1: 2024-01-02    5.80 148757
+#>   2: 2024-01-03    5.80  76156
+#>   3: 2024-01-04    6.51  15554
+#>   4: 2024-01-05    6.45  17510
+#>   5: 2024-01-08    6.56  13277
+#>  ---                          
+#> 248: 2024-12-20    3.68  21338
+#> 249: 2024-12-23    3.03  54766
+#> 250: 2024-12-27    3.04  62260
+#> 251: 2024-12-30    3.03  88900
+#> 252: 2024-12-31    3.00 150350
 # }
 ```

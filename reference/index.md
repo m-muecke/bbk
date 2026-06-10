@@ -1,91 +1,103 @@
 # Package index
 
-### Data
+### Deutsche Bundesbank (BBk)
 
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md) :
   Fetch Deutsche Bundesbank (BBk) data
 - [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
   : Fetch the Deutsche Bundesbank (BBk) series
-- [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md) :
-  Fetch Banco de España (BdE) data
-- [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
-  : Fetch latest Banco de España (BdE) data
-- [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md) :
-  Fetch Banco de Portugal (BdP) data
-- [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md) :
-  Fetch Bank for International Settlements (BIS) data
-- [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md) :
-  Fetch Banque de France (BdF) data
-- [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md) :
-  Fetch Czech National Bank (CNB) ARAD time series data
-- [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
-  : Fetch Czech National Bank (CNB) exchange rates
-- [`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md)
-  : Fetch Czech National Bank (CNB) PRIBOR rates
-- [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md) :
-  Fetch Bank of Canada (BoC) data
-- [`boc_fx_rates()`](https://m-muecke.github.io/bbk/reference/boc_fx_rates.md)
-  : Fetch Bank of Canada foreign exchange rates
-- [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md) :
-  Fetch Bank of England (BoE) data
-- [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md) :
-  Fetch Bank of Japan (BoJ) data
+- [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md)
+  : Fetch Deutsche Bundesbank (BBk) dimensions
+- [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md)
+  : Fetch Deutsche Bundesbank (BBk) metadata
+
+### European Central Bank (ECB)
+
 - [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md) :
   Fetch European Central Bank (ECB) data
 - [`ecb_fx_rates()`](https://m-muecke.github.io/bbk/reference/ecb_fx_rates.md)
   [`ecb_euro_rates()`](https://m-muecke.github.io/bbk/reference/ecb_fx_rates.md)
   : Fetch Euro foreign exchange reference rates
-- [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
-  : Fetch National Bank of Poland (NBP) exchange rates
-- [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md) :
-  Fetch National Bank of Poland (NBP) gold prices
-- [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md) :
-  Fetch Norges Bank (NoB) data
-- [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md) :
-  Fetch Österreichische Nationalbank (OeNB) data
-- [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md) :
-  Fetch Swiss National Bank (SNB) data
-- [`srb_cross_rates()`](https://m-muecke.github.io/bbk/reference/srb_cross_rates.md)
-  : Fetch Sveriges Riksbank (SRb) cross rates
-- [`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md) :
-  Fetch Sveriges Riksbank (SRb) data
+- [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md)
+  : Fetch European Central Bank (ECB) dimensions
+- [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md)
+  : Fetch European Central Bank (ECB) metadata
 
-### Cache
+### Bank for International Settlements (BIS)
 
-- [`bbk_cache_dir()`](https://m-muecke.github.io/bbk/reference/cache.md)
-  [`bbk_cache_clear()`](https://m-muecke.github.io/bbk/reference/cache.md)
-  : Get or manage the bbk API cache
+- [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md) :
+  Fetch Bank for International Settlements (BIS) data
+- [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md)
+  : Fetch Bank for International Settlements (BIS) dimensions
+- [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md)
+  : Fetch Bank for International Settlements (BIS) metadata
 
-### Metadata
+### Banco de España (BdE)
 
-- [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md)
-  : Fetch Deutsche Bundesbank (BBk) dimensions
-- [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md)
-  : Fetch Deutsche Bundesbank (BBk) metadata
-- [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md)
-  : Fetch Banque de France (BdF) codelists
+- [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md) :
+  Fetch Banco de España (BdE) data
+- [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
+  : Fetch latest Banco de España (BdE) data
+
+### Banco de Portugal (BdP)
+
+- [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md) :
+  Fetch Banco de Portugal (BdP) data
+- [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md)
+  : Fetch Banco de Portugal (BdP) series metadata
 - [`bdp_dataset()`](https://m-muecke.github.io/bbk/reference/bdp_dataset.md)
   : Fetch Banco de Portugal (BdP) datasets
 - [`bdp_dimension()`](https://m-muecke.github.io/bbk/reference/bdp_dimension.md)
   : Fetch Banco de Portugal (BdP) dimensions
 - [`bdp_domain()`](https://m-muecke.github.io/bbk/reference/bdp_domain.md)
   : Fetch Banco de Portugal (BdP) domains
-- [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md)
-  : Fetch Banco de Portugal (BdP) series metadata
-- [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md)
-  : Fetch Bank for International Settlements (BIS) dimensions
-- [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md)
-  : Fetch Bank for International Settlements (BIS) metadata
+
+### Banque de France (BdF)
+
+- [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md) :
+  Fetch Banque de France (BdF) data
 - [`bdf_dataset()`](https://m-muecke.github.io/bbk/reference/bdf_dataset.md)
   : Fetch Banque de France (BdF) datasets
 - [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md)
   : Fetch Banque de France (BdF) dimensions
-- [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md)
-  : Fetch Bank of Japan (BoJ) metadata
+- [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md)
+  : Fetch Banque de France (BdF) codelists
+
+### Bank of Canada (BoC)
+
+- [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md) :
+  Fetch Bank of Canada (BoC) data
+- [`boc_fx_rates()`](https://m-muecke.github.io/bbk/reference/boc_fx_rates.md)
+  : Fetch Bank of Canada foreign exchange rates
 - [`boc_catalog()`](https://m-muecke.github.io/bbk/reference/boc_catalog.md)
   : Fetch Bank of Canada (BoC) available series or group
 - [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)
   : Fetch Bank of Canada (BoC) metadata (details)
+
+### Bank of England (BoE)
+
+- [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md) :
+  Fetch Bank of England (BoE) data
+
+### Bank of Japan (BoJ)
+
+- [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md) :
+  Fetch Bank of Japan (BoJ) data
+- [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md)
+  : Fetch Bank of Japan (BoJ) metadata
+
+### Czech National Bank (CNB)
+
+- [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md) :
+  Fetch Czech National Bank (CNB) ARAD time series data
+- [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
+  : Fetch Czech National Bank (CNB) exchange rates
+- [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
+  : Fetch Czech National Bank (CNB) exchange rates of other currencies
+- [`cnb_pribor()`](https://m-muecke.github.io/bbk/reference/cnb_pribor.md)
+  : Fetch Czech National Bank (CNB) PRIBOR rates
+- [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)
+  : Fetch Czech National Bank (CNB) CZEONIA rates
 - [`cnb_dimension()`](https://m-muecke.github.io/bbk/reference/cnb_dimension.md)
   : Fetch Czech National Bank (CNB) ARAD dimensions
 - [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md)
@@ -94,14 +106,27 @@
   : Fetch Czech National Bank (CNB) ARAD snapshots
 - [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md) :
   Fetch Czech National Bank (CNB) ARAD indicator tree
-- [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md)
-  : Fetch European Central Bank (ECB) dimensions
-- [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md)
-  : Fetch European Central Bank (ECB) metadata
+
+### National Bank of Poland (NBP)
+
+- [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
+  : Fetch National Bank of Poland (NBP) exchange rates
+- [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md) :
+  Fetch National Bank of Poland (NBP) gold prices
+
+### Norges Bank (NoB)
+
+- [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md) :
+  Fetch Norges Bank (NoB) data
 - [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md)
   : Fetch Norges Bank (NoB) dimensions
 - [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
   : Fetch Norges Bank (NoB) metadata
+
+### Oesterreichische Nationalbank (OeNB)
+
+- [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md) :
+  Fetch Österreichische Nationalbank (OeNB) data
 - [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md)
   : Fetch Österreichische Nationalbank (OeNB) dimension
 - [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md)
@@ -112,13 +137,31 @@
   : Fetch Österreichische Nationalbank (OeNB) metadata
 - [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md) :
   Fetch Österreichische Nationalbank (OeNB) table of contents
+
+### Sveriges Riksbank (SRb)
+
+- [`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md) :
+  Fetch Sveriges Riksbank (SRb) data
+- [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
+  : Fetch Sveriges Riksbank (SRb) series metadata
+- [`srb_cross_rates()`](https://m-muecke.github.io/bbk/reference/srb_cross_rates.md)
+  : Fetch Sveriges Riksbank (SRb) cross rates
+- [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md)
+  : Fetch Sveriges Riksbank (SRb) calendar days
+
+### Swiss National Bank (SNB)
+
+- [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md) :
+  Fetch Swiss National Bank (SNB) data
 - [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md)
   : Fetch Swiss National Bank (SNB) dimensions
 - [`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md)
   : Fetch Swiss National Bank (SNB) cube metadata
 - [`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md) :
   Fetch Swiss National Bank (SNB) table of contents
-- [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md)
-  : Fetch Sveriges Riksbank (SRb) calendar days
-- [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
-  : Fetch Sveriges Riksbank (SRb) series metadata
+
+### Cache
+
+- [`bbk_cache_dir()`](https://m-muecke.github.io/bbk/reference/cache.md)
+  [`bbk_cache_clear()`](https://m-muecke.github.io/bbk/reference/cache.md)
+  : Get or manage the bbk API cache

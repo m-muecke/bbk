@@ -16,7 +16,9 @@ reference:
       - bdf_data
       - cnb_data
       - cnb_fx_rates
+      - cnb_fx_other_rates
       - cnb_pribor
+      - cnb_czeonia
       - boc_data
       - boc_fx_rates
       - boe_data

@@ -79,6 +79,101 @@ cnb_pribor = function(date = NULL, year = NULL) {
   parse_cnb_pribor(json)
 }
 
+#' Fetch Czech National Bank (CNB) CZEONIA rates
+#'
+#' Retrieve the Czech Overnight Index Average (CZEONIA) reference rate from the CNB API.
+#'
+#' @inheritParams cnb_pribor
+#' @returns A [data.table::data.table()] with the requested rates. The `czeonia` column holds the
+#'   rate in percent and `volume` the trading volume in millions of Czech koruna.
+#' @source <https://api.cnb.cz/cnbapi/swagger-ui.html>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' # latest rate
+#' cnb_czeonia()
+#'
+#' # all rates for a given year
+#' cnb_czeonia(year = 2024L)
+#' }
+cnb_czeonia = function(date = NULL, year = NULL) {
+  date = assert_dateish(date, null.ok = TRUE)
+  year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+  if (!is.null(date) && !is.null(year)) {
+    stop("`date` and `year` are mutually exclusive.", call. = FALSE)
+  }
+
+  json = if (is.null(year)) {
+    cnb("czeonia/daily", date = date %&&% format(date))
+  } else {
+    cnb("czeonia/daily-year", year = year)
+  }
+  parse_cnb_czeonia(json)
+}
+
+#' Fetch Czech National Bank (CNB) exchange rates of other currencies
+#'
+#' Retrieve the monthly exchange rate fixing for less commonly traded ("other") currencies from the
+#' CNB API. These currencies are not part of the daily fixing returned by [cnb_fx_rates()].
+#'
+#' @param year_month (`NULL` | `character(1)`)\cr
+#'   The month to query in `"YYYY-MM"` format, returning rates for all currencies in that month. If
+#'   `NULL`, the latest available month is returned. Mutually exclusive with `year`. Default `NULL`.
+#' @param year (`NULL` | `integer(1)`)\cr
+#'   A calendar year, returning rates for all currencies in every month of that year. Mutually
+#'   exclusive with `year_month`. Default `NULL`.
+#' @param lang (`character(1)`)\cr
+#'   Language for the country and currency names, either `"EN"` or `"CZ"`. Default `"EN"`.
+#' @inherit cnb_fx_rates return
+#' @source <https://api.cnb.cz/cnbapi/swagger-ui.html>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' # latest month for all other currencies
+#' cnb_fx_other_rates()
+#'
+#' # a specific month
+#' cnb_fx_other_rates(year_month = "2024-01")
+#'
+#' # all months of a given year
+#' cnb_fx_other_rates(year = 2024L)
+#' }
+cnb_fx_other_rates = function(year_month = NULL, year = NULL, lang = "EN") {
+  assert_string(year_month, pattern = "^\\d{4}-\\d{2}$", null.ok = TRUE)
+  year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
+  assert_choice(lang, c("EN", "CZ"))
+  if (!is.null(year_month) && !is.null(year)) {
+    stop("`year_month` and `year` are mutually exclusive.", call. = FALSE)
+  }
+
+  json = if (is.null(year)) {
+    cnb("fxrates/daily-month", yearMonth = year_month, lang = lang)
+  } else {
+    cnb("fxrates/daily-year", year = year, lang = lang)
+  }
+  parse_cnb_fx_rates(json)
+}
+
+parse_cnb_czeonia = function(json) {
+  recs = json$rates %||% json$czeoniaDaily
+  if (!is.null(recs$rate)) {
+    recs = list(recs)
+  }
+  date = NULL
+  dt = recs |>
+    map(\(x) as.data.table(x[lengths(x) == 1L])) |>
+    rbindlist(fill = TRUE) |>
+    setnames(
+      c("validFor", "rate", "volumeInCZKmio"),
+      c("date", "czeonia", "volume"),
+      skip_absent = TRUE
+    )
+  dt[, "date" := as.Date(date)]
+  dt[, intersect(c("date", "czeonia", "volume"), names(dt)), with = FALSE]
+}
+
 parse_cnb_fx_rates = function(json) {
   date = NULL
   dt = json$rates |>

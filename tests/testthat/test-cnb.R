@@ -11,6 +11,39 @@ test_that("cnb_pribor input validation works", {
   expect_error(cnb_pribor(date = "2024-01-01", year = 2024L), "mutually exclusive")
 })
 
+test_that("cnb_czeonia input validation works", {
+  expect_error(cnb_czeonia(date = ""))
+  expect_error(cnb_czeonia(year = -1L))
+  expect_error(cnb_czeonia(date = "2024-01-01", year = 2024L), "mutually exclusive")
+})
+
+test_that("cnb_fx_other_rates input validation works", {
+  expect_error(cnb_fx_other_rates(year_month = "2024"))
+  expect_error(cnb_fx_other_rates(year = -1L))
+  expect_error(cnb_fx_other_rates(lang = "DE"))
+  expect_error(cnb_fx_other_rates(year_month = "2024-01", year = 2024L), "mutually exclusive")
+})
+
+test_that("parse_cnb_czeonia works", {
+  json = list(
+    rates = list(
+      list(rate = 6.5, validFor = "2024-01-02", volumeInCZKmio = 100L),
+      list(rate = 6.4, validFor = "2024-01-03", volumeInCZKmio = 120L)
+    )
+  )
+  actual = parse_cnb_czeonia(json)
+  expect_names(names(actual), identical.to = c("date", "czeonia", "volume"))
+  expect_date(actual$date)
+  expect_identical(actual$czeonia, c(6.5, 6.4))
+})
+
+test_that("parse_cnb_czeonia handles a single daily record", {
+  json = list(czeoniaDaily = list(rate = 6.5, validFor = "2024-01-02", volumeInCZKmio = 100L))
+  actual = parse_cnb_czeonia(json)
+  expect_identical(nrow(actual), 1L)
+  expect_identical(actual$czeonia, 6.5)
+})
+
 test_that("parse_cnb_fx_rates works", {
   json = readRDS(test_path("fixtures", "cnb-fx-rates.rds"))
   actual = parse_cnb_fx_rates(json)

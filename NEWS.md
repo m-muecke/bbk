@@ -3,7 +3,9 @@
 ## New features
 
 * `bdf_dimension()` returns the dimension structure for a given Banque de France dataset.
+* `cnb_czeonia()` returns the CZEONIA overnight reference rate from the Czech National Bank (CNB).
 * `cnb_data()`, `cnb_indicators()`, `cnb_dimension()`, `cnb_tree()`, and `cnb_snapshots()` add support for the Czech National Bank (CNB) ARAD database, using an API key from `CNB_ARAD_KEY`.
+* `cnb_fx_other_rates()` returns the Czech National Bank (CNB) monthly exchange rates for other (less commonly traded) currencies.
 * `cnb_fx_rates()` and `cnb_pribor()` add support for Czech National Bank (CNB) exchange rate fixings and PRIBOR reference rates.
 * `snb_metadata()` returns cube-level metadata (title, frequency, source, publication date) from the SNB data portal.
 * `snb_toc()` returns the publication topic tree from the SNB data portal.

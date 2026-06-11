@@ -39,7 +39,7 @@ bbk_data(
   (`NULL` \| `character(1)` \| `integer(1)`)  
   The start date of the data. Supported formats:
 
-  - YYYY for annual data (e.g., \`2019“)
+  - YYYY for annual data (e.g., `2019`)
 
   - YYYY-S\[1-2\] for semi-annual data (e.g., `"2019-S1"`)
 

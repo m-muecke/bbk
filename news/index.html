@@ -69,13 +69,11 @@
 <li>
 <code><a href="../reference/bdp_data.html">bdp_data()</a></code> now keeps missing observations as <code>NA</code> instead of returning an empty result.</li>
 <li>
-<code><a href="../reference/bis_data.html">bis_data()</a></code> now keeps dates and values aligned when a series has observations without a value.</li>
+<code><a href="../reference/bis_data.html">bis_data()</a></code> and <code><a href="../reference/ecb_data.html">ecb_data()</a></code> now keep dates and values aligned when a series has observations without a value.</li>
 <li>
 <code><a href="../reference/boc_data.html">boc_data()</a></code> now applies <code>start_date</code> and <code>end_date</code> when fetching a group, which were previously ignored.</li>
 <li>
-<code><a href="../reference/boj_data.html">boj_data()</a></code> no longer errors when a series omits both name or unit translations.</li>
-<li>
-<code><a href="../reference/ecb_data.html">ecb_data()</a></code> now keeps dates and values aligned when a series has observations without a value.</li>
+<code><a href="../reference/boj_data.html">boj_data()</a></code> no longer errors when a series omits both the English and Japanese translations of its name or unit.</li>
 <li>
 <code><a href="../reference/onb_data.html">onb_data()</a></code> no longer errors and returns an empty table when a series has no observations in the requested period.</li>
 </ul></div>

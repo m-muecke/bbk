@@ -10,6 +10,7 @@ you query:
 ``` r
 
 library(bbk)
+library(ggplot2)
 ```
 
 ## Step 1: find the identifier
@@ -121,8 +122,29 @@ head(usd_eur)
 #> 6: European Central Bank (ECB).
 ```
 
+If you already know the full identifier,
+[`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
+fetches a single series in one call by prefixing the key with the
+dataflow:
+
+``` r
+
+bbk_series("BBEX3.M.USD.EUR.BB.AC.A01")
+```
+
 Every `*_data()` function returns a tidy `data.table` with a `date`
-column and a `value` column, ready for analysis or plotting.
+column and a `value` column, ready for analysis or plotting:
+
+``` r
+
+ggplot(usd_eur, aes(date, value)) +
+  geom_line() +
+  theme_minimal() +
+  theme(axis.title = element_blank()) +
+  labs(title = "US dollar per euro, monthly", subtitle = "Source: Deutsche Bundesbank")
+```
+
+![](getting-started_files/figure-html/usd-eur-1.png)
 
 The same two steps work for every supported bank: swap the prefix
 (`bbk_`, `ecb_`, `snb_`, `cnb_`, …) and use that bank’s discovery and
@@ -132,6 +154,15 @@ each bank provides, and [Comparing exchange rates across central
 banks](https://m-muecke.github.io/bbk/articles/cross-bank-comparison.md)
 for a worked example that pulls a comparable series from several banks
 at once.
+
+## API keys
+
+Most banks require no authentication. The exceptions are Banque de
+France (`bdf_*`) and the Czech National Bank ARAD database
+([`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md)
+and friends), which each need a free API key. Pass it via the `api_key`
+argument, or set it once in the `BANQUEDEFRANCE_KEY` or `CNB_ARAD_KEY`
+environment variable (e.g. in your `.Renviron`).
 
 ## Caching
 

@@ -42,16 +42,16 @@
   now keeps missing observations as `NA` instead of returning an empty
   result.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
-  now keeps dates and values aligned when a series has observations
+  and
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
+  now keep dates and values aligned when a series has observations
   without a value.
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
   now applies `start_date` and `end_date` when fetching a group, which
   were previously ignored.
 - [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md)
-  no longer errors when a series omits both name or unit translations.
-- [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
-  now keeps dates and values aligned when a series has observations
-  without a value.
+  no longer errors when a series omits both the English and Japanese
+  translations of its name or unit.
 - [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
   no longer errors and returns an empty table when a series has no
   observations in the requested period.

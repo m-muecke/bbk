@@ -21,7 +21,6 @@ Every workflow follows the same two steps, no matter which bank you query:
 ```{r}
 #| message: false
 library(bbk)
-library(ggplot2)
 ```
 
 ## Step 1: find the identifier
@@ -68,6 +67,9 @@ ready for analysis or plotting:
 
 ```{r}
 #| label: usd-eur
+#| message: false
+library(ggplot2)
+
 ggplot(usd_eur, aes(date, value)) +
   geom_line() +
   theme_minimal() +

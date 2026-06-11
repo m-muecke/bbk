@@ -67,7 +67,7 @@ The typical workflow involves:
 library(bbk)
 
 # Deutsche Bundesbank - fetch 10 year daily yield curve
-yield_curve <- bbk_data(
+yield_curve = bbk_data(
   flow = "BBSIS",
   key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
   start_period = "2020-01-01"

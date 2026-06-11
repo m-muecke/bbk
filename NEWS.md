@@ -15,10 +15,9 @@
 * Data requests no longer abort when a series uses an unsupported frequency code; the code is kept and the date is returned unparsed.
 * `bbk_data()` now returns the correct observations per series when querying multiple keys.
 * `bdp_data()` now keeps missing observations as `NA` instead of returning an empty result.
-* `bis_data()` now keeps dates and values aligned when a series has observations without a value.
+* `bis_data()` and `ecb_data()` now keep dates and values aligned when a series has observations without a value.
 * `boc_data()` now applies `start_date` and `end_date` when fetching a group, which were previously ignored.
-* `boj_data()` no longer errors when a series omits both name or unit translations.
-* `ecb_data()` now keeps dates and values aligned when a series has observations without a value.
+* `boj_data()` no longer errors when a series omits both the English and Japanese translations of its name or unit.
 * `onb_data()` no longer errors and returns an empty table when a series has no observations in the requested period.
 
 # bbk 0.10.0

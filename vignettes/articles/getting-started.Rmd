@@ -6,7 +6,9 @@ title: "Getting started with bbk"
 #| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  out.width = "100%",
+  dpi = 300L
 )
 ```
 
@@ -19,6 +21,7 @@ Every workflow follows the same two steps, no matter which bank you query:
 ```{r}
 #| message: false
 library(bbk)
+library(ggplot2)
 ```
 
 ## Step 1: find the identifier
@@ -52,14 +55,38 @@ usd_eur = bbk_data("BBEX3", key = "M.USD.EUR.BB.AC.A01", start_period = "2015-01
 head(usd_eur)
 ```
 
+If you already know the full identifier, `bbk_series()` fetches a single series in one call by
+prefixing the key with the dataflow:
+
+```{r}
+#| eval: false
+bbk_series("BBEX3.M.USD.EUR.BB.AC.A01")
+```
+
 Every `*_data()` function returns a tidy `data.table` with a `date` column and a `value` column,
-ready for analysis or plotting.
+ready for analysis or plotting:
+
+```{r}
+#| label: usd-eur
+ggplot(usd_eur, aes(date, value)) +
+  geom_line() +
+  theme_minimal() +
+  theme(axis.title = element_blank()) +
+  labs(title = "US dollar per euro, monthly", subtitle = "Source: Deutsche Bundesbank")
+```
 
 The same two steps work for every supported bank: swap the prefix (`bbk_`, `ecb_`, `snb_`, `cnb_`,
 ...) and use that bank's discovery and `*_data()` functions. See the
 [function reference](../reference/index.html) for what each bank provides, and
 [Comparing exchange rates across central banks](cross-bank-comparison.html) for a worked example
 that pulls a comparable series from several banks at once.
+
+## API keys
+
+Most banks require no authentication. The exceptions are Banque de France (`bdf_*`) and the Czech
+National Bank ARAD database (`cnb_data()` and friends), which each need a free API key. Pass it via
+the `api_key` argument, or set it once in the `BANQUEDEFRANCE_KEY` or `CNB_ARAD_KEY` environment
+variable (e.g. in your `.Renviron`).
 
 ## Caching
 

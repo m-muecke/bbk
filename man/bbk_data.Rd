@@ -27,7 +27,7 @@ The series keys to query.}
 \item{start_period}{(\code{NULL} | \code{character(1)} | \code{integer(1)})\cr
 The start date of the data. Supported formats:
 \itemize{
-\item YYYY for annual data (e.g., `2019``)
+\item YYYY for annual data (e.g., \code{2019})
 \item YYYY-S[1-2] for semi-annual data (e.g., \code{"2019-S1"})
 \item YYYY-Q[1-4] for quarterly data (e.g., \code{"2019-Q1"})
 \item YYYY-MM for monthly data (e.g., \code{"2019-01"})

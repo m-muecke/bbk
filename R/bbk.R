@@ -8,7 +8,7 @@
 #'   The series keys to query.
 #' @param start_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   The start date of the data. Supported formats:
-#'   * YYYY for annual data (e.g., `2019``)
+#'   * YYYY for annual data (e.g., `2019`)
 #'   * YYYY-S\[1-2\] for semi-annual data (e.g., `"2019-S1"`)
 #'   * YYYY-Q\[1-4\] for quarterly data (e.g., `"2019-Q1"`)
 #'   * YYYY-MM for monthly data (e.g., `"2019-01"`)

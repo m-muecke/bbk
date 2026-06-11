@@ -10,7 +10,6 @@ you query:
 ``` r
 
 library(bbk)
-library(ggplot2)
 ```
 
 ## Step 1: find the identifier
@@ -136,6 +135,8 @@ Every `*_data()` function returns a tidy `data.table` with a `date`
 column and a `value` column, ready for analysis or plotting:
 
 ``` r
+
+library(ggplot2)
 
 ggplot(usd_eur, aes(date, value)) +
   geom_line() +

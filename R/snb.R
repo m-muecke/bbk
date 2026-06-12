@@ -215,13 +215,10 @@ parse_snb_toc = function(json) {
 }
 
 snb_json = function(path, ...) {
-  request("https://data.snb.ch") |>
+  base_request("https://data.snb.ch") |>
     req_url_path_append(path) |>
-    req_user_agent(bbk_user_agent()) |>
     req_url_query(...) |>
     req_error(body = snb_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_json(check_type = FALSE)
 }

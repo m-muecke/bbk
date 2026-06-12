@@ -177,12 +177,9 @@ parse_srb_calendar = function(json) {
 }
 
 srb = function(...) {
-  request("https://api.riksbank.se/swea/v1") |>
-    req_user_agent(bbk_user_agent()) |>
+  base_request("https://api.riksbank.se/swea/v1") |>
     req_url_path_append(...) |>
     req_error(body = srb_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_json()
 }

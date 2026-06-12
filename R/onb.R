@@ -249,8 +249,7 @@ parse_onb_dimension = function(xml) {
 }
 
 onb = function(resource, ...) {
-  request("https://www.oenb.at/isadataservice") |>
-    req_user_agent(bbk_user_agent()) |>
+  base_request("https://www.oenb.at/isadataservice") |>
     req_url_path_append(resource) |>
     req_url_query(..., .multi = "explode") |>
     req_error(
@@ -263,8 +262,6 @@ onb = function(resource, ...) {
       },
       body = onb_error_body
     ) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_xml()
 }

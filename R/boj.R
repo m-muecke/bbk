@@ -217,13 +217,10 @@ boj_error_body = function(resp) {
 }
 
 boj_request = function(resource, ...) {
-  request("https://www.stat-search.boj.or.jp/api/v1") |>
-    req_user_agent(bbk_user_agent()) |>
+  base_request("https://www.stat-search.boj.or.jp/api/v1") |>
     req_url_path_append(resource) |>
     req_url_query(..., .multi = "comma") |>
-    req_error(body = boj_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache()
+    req_error(body = boj_error_body)
 }
 
 boj = function(resource, ...) {

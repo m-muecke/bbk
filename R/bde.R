@@ -143,12 +143,9 @@ bde_latest = function(key, lang = "en") {
 
 bde = function(key, ..., lang, resource = "listaSeries") {
   url = sprintf("https://app.bde.es/bierest/resources/srdatosapp/%s", resource)
-  request(url) |>
-    req_user_agent(bbk_user_agent()) |>
+  base_request(url) |>
     req_url_query(idioma = lang, series = key, ..., .multi = "comma") |>
     req_error(body = bde_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_json()
 }

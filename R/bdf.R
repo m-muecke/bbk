@@ -201,14 +201,11 @@ parse_bdf_dataset = function(dt) {
 bdf = function(resource, ..., api_key = bdf_key()) {
   tf = tempfile()
   on.exit(unlink(tf), add = TRUE)
-  request("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets") |>
+  base_request("https://webstat.banque-france.fr/api/explore/v2.1/catalog/datasets") |>
     req_url_path_append(resource) |>
-    req_user_agent(bbk_user_agent()) |>
     req_headers(Authorization = paste("Apikey", api_key)) |>
     req_error(body = bdf_error_body) |>
     req_url_query(..., delimiter = ";", compressed = TRUE) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform(path = tf)
   fread(file = tf, sep = ";")
 }

@@ -318,8 +318,7 @@ bdp_request = function(
   obs_last_n = NULL,
   obs_published_since = NULL
 ) {
-  request("https://bpstat.bportugal.pt/data/v1") |>
-    req_user_agent(bbk_user_agent()) |>
+  base_request("https://bpstat.bportugal.pt/data/v1") |>
     req_url_path_append(...) |>
     req_url_query(
       lang = toupper(lang),
@@ -330,9 +329,7 @@ bdp_request = function(
       obs_published_since = obs_published_since,
       .multi = "comma"
     ) |>
-    req_error(body = bdp_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache()
+    req_error(body = bdp_error_body)
 }
 
 bdp_error_body = function(resp) {

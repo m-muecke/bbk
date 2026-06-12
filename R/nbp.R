@@ -116,13 +116,10 @@ nbp_path = function(
 }
 
 nbp = function(path) {
-  request("https://api.nbp.pl/api") |>
-    req_user_agent(bbk_user_agent()) |>
+  base_request("https://api.nbp.pl/api") |>
     req_url_path_append(path) |>
     req_url_query(format = "json") |>
     req_error(body = nbp_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_json()
 }

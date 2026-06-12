@@ -51,3 +51,10 @@ req_bbk_cache = function(req) {
   }
   req
 }
+
+base_request = function(url) {
+  request(url) |>
+    req_user_agent(bbk_user_agent()) |>
+    req_bbk_retry() |>
+    req_bbk_cache()
+}

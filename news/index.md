@@ -4,6 +4,8 @@
 
 ## bbk 0.11.0
 
+CRAN release: 2026-06-11
+
 ### New features
 
 - [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md)

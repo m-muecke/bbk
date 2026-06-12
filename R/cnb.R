@@ -28,9 +28,7 @@ cnb_fx_rates = function(date = NULL, year = NULL, lang = "EN") {
   date = assert_dateish(date, null.ok = TRUE)
   year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("EN", "CZ"))
-  if (!is.null(date) && !is.null(year)) {
-    stop("`date` and `year` are mutually exclusive.", call. = FALSE)
-  }
+  assert_exclusive(date, year)
 
   json = if (is.null(year)) {
     cnb("exrates/daily", date = date %&&% format(date), lang = lang)
@@ -67,9 +65,7 @@ cnb_fx_rates = function(date = NULL, year = NULL, lang = "EN") {
 cnb_pribor = function(date = NULL, year = NULL) {
   date = assert_dateish(date, null.ok = TRUE)
   year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
-  if (!is.null(date) && !is.null(year)) {
-    stop("`date` and `year` are mutually exclusive.", call. = FALSE)
-  }
+  assert_exclusive(date, year)
 
   json = if (is.null(year)) {
     cnb("pribor/daily", date = date %&&% format(date))
@@ -100,9 +96,7 @@ cnb_pribor = function(date = NULL, year = NULL) {
 cnb_czeonia = function(date = NULL, year = NULL) {
   date = assert_dateish(date, null.ok = TRUE)
   year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
-  if (!is.null(date) && !is.null(year)) {
-    stop("`date` and `year` are mutually exclusive.", call. = FALSE)
-  }
+  assert_exclusive(date, year)
 
   json = if (is.null(year)) {
     cnb("czeonia/daily", date = date %&&% format(date))
@@ -144,9 +138,7 @@ cnb_fx_other_rates = function(year_month = NULL, year = NULL, lang = "EN") {
   assert_string(year_month, pattern = "^\\d{4}-\\d{2}$", null.ok = TRUE)
   year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("EN", "CZ"))
-  if (!is.null(year_month) && !is.null(year)) {
-    stop("`year_month` and `year` are mutually exclusive.", call. = FALSE)
-  }
+  assert_exclusive(year_month, year)
 
   json = if (is.null(year)) {
     cnb("fxrates/daily-month", yearMonth = year_month, lang = lang)
@@ -217,13 +209,10 @@ parse_cnb_pribor = function(json) {
 }
 
 cnb = function(resource, ...) {
-  request("https://api.cnb.cz/cnbapi") |>
-    req_user_agent(bbk_user_agent()) |>
+  base_request("https://api.cnb.cz/cnbapi") |>
     req_url_path_append(resource) |>
     req_url_query(...) |>
     req_error(body = cnb_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_json()
 }
@@ -480,13 +469,10 @@ parse_cnb_dimension = function(dt) {
 }
 
 arad = function(resource, ..., api_key = cnb_arad_key()) {
-  body = request("https://www.cnb.cz/aradb/api/v1") |>
-    req_user_agent(bbk_user_agent()) |>
+  body = base_request("https://www.cnb.cz/aradb/api/v1") |>
     req_url_path_append(resource) |>
     req_url_query(..., api_key = api_key, delimiter = "pipe") |>
     req_error(body = arad_error_body) |>
-    req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_string(encoding = "windows-1250")
   fread(text = body, sep = "|", colClasses = "character")

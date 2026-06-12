@@ -62,3 +62,16 @@ assert_period = function(x, .var.name = vname(x)) {
   )
   invisible(x)
 }
+
+assert_exclusive = function(x, y) {
+  if (!is.null(x) && !is.null(y)) {
+    stop(
+      sprintf(
+        "`%s` and `%s` are mutually exclusive.",
+        deparse1(substitute(x)),
+        deparse1(substitute(y))
+      ),
+      call. = FALSE
+    )
+  }
+}

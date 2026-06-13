@@ -2,6 +2,7 @@
 
 bbk is minimal R client for the following APIs:
 
+- [Banco Central do Brasil (BCB)](https://dadosabertos.bcb.gov.br/)
 - [Banco de España
   (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
 - [Banco de Portugal (BdP)](https://bpstat.bportugal.pt/data/docs)
@@ -53,8 +54,8 @@ pak::pak("m-muecke/bbk")
 
 bbk functions are prefixed according to the central bank they access
 (`bbk_`, `ecb_`, `snb_`, `bdp_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`,
-`cnb_`, `nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the naming
-conventions of their respective APIs.
+`bcb_`, `cnb_`, `nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the
+naming conventions of their respective APIs.
 
 The typical workflow involves:
 
@@ -98,6 +99,8 @@ yield_curve = bbk_data(
   OeNB’s API.
 - [pdfetch](https://github.com/abielr/pdfetch): R package for
   downloading economic and financial time series from public sources.
+- [rbcb](https://github.com/wilsonfreitas/rbcb): R interface to the
+  Banco Central do Brasil (BCB) web services.
 - [rnbp](https://github.com/szymanskir/rnbp): R package for accessing
   the National Bank of Poland (NBP) API.
 - [readsdmx](https://github.com/mdequeljoe/readsdmx): R package for

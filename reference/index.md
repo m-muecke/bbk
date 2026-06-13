@@ -23,6 +23,11 @@
 - [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md)
   : Fetch European Central Bank (ECB) metadata
 
+### Banco Central do Brasil (BCB)
+
+- [`bcb_data()`](https://m-muecke.github.io/bbk/reference/bcb_data.md) :
+  Fetch Banco Central do Brasil (BCB) data
+
 ### Bank for International Settlements (BIS)
 
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md) :

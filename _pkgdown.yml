@@ -22,6 +22,8 @@ reference:
   - subtitle: Banco Central do Brasil (BCB)
     contents:
       - bcb_data
+      - bcb_fx_rates
+      - bcb_currencies
 
   - subtitle: Bank for International Settlements (BIS)
     contents:

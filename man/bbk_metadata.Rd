@@ -42,6 +42,7 @@ bbk_metadata("concept", "CS_BBK_BSPL")
 \seealso{
 Other metadata:
 \code{\link[=bbk_dimension]{bbk_dimension()}},
+\code{\link[=bcb_currencies]{bcb_currencies()}},
 \code{\link[=bdf_dimension]{bdf_dimension()}},
 \code{\link[=bdp_dataset]{bdp_dataset()}},
 \code{\link[=bdp_dimension]{bdp_dimension()}},

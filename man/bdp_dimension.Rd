@@ -37,6 +37,7 @@ bdp_dimension(54L)
 Other metadata:
 \code{\link[=bbk_dimension]{bbk_dimension()}},
 \code{\link[=bbk_metadata]{bbk_metadata()}},
+\code{\link[=bcb_currencies]{bcb_currencies()}},
 \code{\link[=bdf_dimension]{bdf_dimension()}},
 \code{\link[=bdp_dataset]{bdp_dataset()}},
 \code{\link[=bdp_domain]{bdp_domain()}},

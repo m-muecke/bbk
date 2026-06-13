@@ -27,6 +27,12 @@
 
 - [`bcb_data()`](https://m-muecke.github.io/bbk/reference/bcb_data.md) :
   Fetch Banco Central do Brasil (BCB) data
+- [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
+  : Fetch Banco Central do Brasil (BCB) exchange rates
+- [`bcb_currencies()`](https://m-muecke.github.io/bbk/reference/bcb_currencies.md)
+  : Fetch Banco Central do Brasil (BCB) currencies
+- [`bcb_expectations()`](https://m-muecke.github.io/bbk/reference/bcb_expectations.md)
+  : Fetch Banco Central do Brasil (BCB) market expectations
 
 ### Bank for International Settlements (BIS)
 

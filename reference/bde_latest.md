@@ -37,6 +37,8 @@ Other data:
 [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
 [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md),
 [`bcb_data()`](https://m-muecke.github.io/bbk/reference/bcb_data.md),
+[`bcb_expectations()`](https://m-muecke.github.io/bbk/reference/bcb_expectations.md),
+[`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md),
 [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
 [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md),
 [`bdf_data()`](https://m-muecke.github.io/bbk/reference/bdf_data.md),

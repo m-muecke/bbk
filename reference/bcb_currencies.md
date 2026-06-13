@@ -1,49 +1,29 @@
-# Fetch European Central Bank (ECB) dimensions
+# Fetch Banco Central do Brasil (BCB) currencies
 
-Retrieve the dimension structure for a given dataflow from the ECB SDMX
-Web Service.
+Retrieve the list of currencies available from the Banco Central do
+Brasil PTAX API.
 
 ## Usage
 
 ``` r
-ecb_dimension(id)
+bcb_currencies()
 ```
 
 ## Source
 
-<https://data.ecb.europa.eu/help/api/metadata>
-
-## Arguments
-
-- id:
-
-  (`character(1)`)  
-  The id of the data structure definition to query (e.g., `"ECB_EXR1"`).
+<https://dadosabertos.bcb.gov.br/>
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with columns:
-
-- id:
-
-  The dimension id (e.g., `"FREQ"`, `"CURRENCY"`)
-
-- position:
-
-  The position of the dimension in the series key
-
-- codelist:
-
-  The id of the associated codelist (e.g., `"CL_FREQ"`)
+with columns `code`, `name`, and `type`.
 
 ## See also
 
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
-[`bcb_currencies()`](https://m-muecke.github.io/bbk/reference/bcb_currencies.md),
 [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md),
 [`bdp_dataset()`](https://m-muecke.github.io/bbk/reference/bdp_dataset.md),
 [`bdp_dimension()`](https://m-muecke.github.io/bbk/reference/bdp_dimension.md),
@@ -56,6 +36,7 @@ Other metadata:
 [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md),
 [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md),
 [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md),
+[`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
 [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
@@ -74,13 +55,18 @@ Other metadata:
 
 ``` r
 # \donttest{
-ecb_dimension("ECB_EXR1")
-#>                id position      codelist
-#>            <char>    <int>        <char>
-#> 1:           FREQ        1       CL_FREQ
-#> 2:       CURRENCY        2   CL_CURRENCY
-#> 3: CURRENCY_DENOM        3   CL_CURRENCY
-#> 4:       EXR_TYPE        4   CL_EXR_TYPE
-#> 5:     EXR_SUFFIX        5 CL_EXR_SUFFIX
+bcb_currencies()
+#>       code                     name   type
+#>     <char>                   <char> <char>
+#>  1:    AUD        Dólar australiano      B
+#>  2:    CAD          Dólar canadense      A
+#>  3:    CHF             Franco suíço      A
+#>  4:    DKK       Coroa dinamarquesa      A
+#>  5:    EUR                     Euro      B
+#>  6:    GBP          Libra Esterlina      B
+#>  7:    JPY                     Iene      A
+#>  8:    NOK         Coroa norueguesa      A
+#>  9:    SEK              Coroa sueca      A
+#> 10:    USD Dólar dos Estados Unidos      A
 # }
 ```

@@ -54,6 +54,7 @@ with the requested metadata. The columns are:
 Other metadata:
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+[`bcb_currencies()`](https://m-muecke.github.io/bbk/reference/bcb_currencies.md),
 [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md),
 [`bdp_dataset()`](https://m-muecke.github.io/bbk/reference/bdp_dataset.md),
 [`bdp_dimension()`](https://m-muecke.github.io/bbk/reference/bdp_dimension.md),

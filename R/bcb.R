@@ -125,6 +125,90 @@ parse_bcb_currencies = function(json) {
   )
 }
 
+#' Fetch Banco Central do Brasil (BCB) market expectations
+#'
+#' Retrieve market expectations from the Banco Central do Brasil Focus survey (Relatório Focus) via
+#' the Olinda API. Each row is the summary of survey responses collected on a given date for a future
+#' reference period.
+#'
+#' Querying without a filter returns the full history, which is large; supplying `indicator` and/or a
+#' date range is recommended.
+#'
+#' @param type (`character(1)`)\cr
+#'   The forecast horizon. One of `"annual"`, `"monthly"`, or `"quarterly"`. Default `"annual"`.
+#' @param indicator (`NULL` | `character(1)`)\cr
+#'   The economic indicator to filter on (e.g. `"IPCA"`, `"Selic"`, `"Câmbio"`). If `NULL`, all
+#'   indicators are returned. Default `NULL`.
+#' @param start_date (`NULL` | `Date(1)` | `character(1)`)\cr
+#'   Start of the survey date range (e.g., `"2024-01-01"`). If `NULL`, no lower bound is applied.
+#'   Default `NULL`.
+#' @param end_date (`NULL` | `Date(1)` | `character(1)`)\cr
+#'   End of the survey date range, in the same format as start_date. If `NULL`, no upper bound is
+#'   applied. Default `NULL`.
+#' @returns A [data.table::data.table()] with columns `date`, `indicator`, `detail`, `reference`,
+#'   `mean`, `median`, `sd`, `min`, `max`, `respondents`, and `base`.
+#' @source <https://dadosabertos.bcb.gov.br/>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' # annual IPCA inflation expectations
+#' bcb_expectations("annual", "IPCA", start_date = "2024-01-01", end_date = "2024-01-31")
+#' }
+bcb_expectations = function(type = "annual", indicator = NULL, start_date = NULL, end_date = NULL) {
+  assert_choice(type, c("annual", "monthly", "quarterly"))
+  assert_string(indicator, min.chars = 1L, null.ok = TRUE)
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
+
+  resource = switch(
+    type,
+    annual = "ExpectativasMercadoAnuais",
+    monthly = "ExpectativaMercadoMensais",
+    quarterly = "ExpectativasMercadoTrimestrais"
+  )
+  filters = c(
+    indicator %&&% sprintf("Indicador eq '%s'", indicator),
+    start_date %&&% sprintf("Data ge '%s'", format(start_date)),
+    end_date %&&% sprintf("Data le '%s'", format(end_date))
+  )
+  filter = if (length(filters) > 0L) paste(filters, collapse = " and ") else NULL
+  json = bcb_olinda("Expectativas", resource, `$filter` = filter, `$orderby` = "Data")
+  parse_bcb_expectations(json)
+}
+
+parse_bcb_expectations = function(json) {
+  value = json$value
+  if (length(value) == 0L) {
+    return(data.table(
+      date = as.Date(character()),
+      indicator = character(),
+      detail = character(),
+      reference = character(),
+      mean = numeric(),
+      median = numeric(),
+      sd = numeric(),
+      min = numeric(),
+      max = numeric(),
+      respondents = integer(),
+      base = integer()
+    ))
+  }
+  data.table(
+    date = as.Date(map_chr(value, "Data")),
+    indicator = map_chr(value, "Indicador"),
+    detail = map_chr(value, \(x) x$IndicadorDetalhe %||% NA_character_),
+    reference = map_chr(value, "DataReferencia"),
+    mean = map_dbl(value, \(x) as.numeric(x$Media)),
+    median = map_dbl(value, \(x) as.numeric(x$Mediana)),
+    sd = map_dbl(value, \(x) as.numeric(x$DesvioPadrao %||% NA_real_)),
+    min = map_dbl(value, \(x) as.numeric(x$Minimo %||% NA_real_)),
+    max = map_dbl(value, \(x) as.numeric(x$Maximo %||% NA_real_)),
+    respondents = map_int(value, \(x) as.integer(x$numeroRespondentes %||% NA_integer_)),
+    base = map_int(value, \(x) as.integer(x$baseCalculo %||% NA_integer_))
+  )
+}
+
 parse_bcb_fx_rates = function(json, currency) {
   value = json$value
   if (length(value) == 0L) {

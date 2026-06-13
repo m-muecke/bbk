@@ -62,3 +62,43 @@ test_that("parse_bcb_currencies works", {
   expect_names(names(actual), permutation.of = c("code", "name", "type"))
   expect_true("USD" %in% actual$code)
 })
+
+test_that("bcb_expectations input validation works", {
+  expect_error(bcb_expectations("yearly"))
+  expect_error(bcb_expectations(1L))
+  expect_error(bcb_expectations("annual", indicator = 1L))
+  expect_error(bcb_expectations("annual", start_date = TRUE))
+  expect_error(bcb_expectations("annual", end_date = TRUE))
+})
+
+test_that("parse_bcb_expectations works", {
+  json = jsonlite::fromJSON(test_path("fixtures", "bcb-expectations.json"), simplifyVector = FALSE)
+  actual = parse_bcb_expectations(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_numeric(actual$mean)
+  expect_integer(actual$respondents)
+  expect_names(
+    names(actual),
+    permutation.of = c(
+      "date",
+      "indicator",
+      "detail",
+      "reference",
+      "mean",
+      "median",
+      "sd",
+      "min",
+      "max",
+      "respondents",
+      "base"
+    )
+  )
+  expect_identical(unique(actual$indicator), "IPCA")
+})
+
+test_that("parse_bcb_expectations handles empty response", {
+  actual = parse_bcb_expectations(list(value = list()))
+  expect_data_table(actual, nrows = 0L)
+  expect_names(names(actual), must.include = c("date", "indicator", "mean"))
+})

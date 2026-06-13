@@ -93,6 +93,7 @@ head(data)
 Other data:
 \code{\link[=bbk_series]{bbk_series()}},
 \code{\link[=bcb_data]{bcb_data()}},
+\code{\link[=bcb_expectations]{bcb_expectations()}},
 \code{\link[=bcb_fx_rates]{bcb_fx_rates()}},
 \code{\link[=bde_data]{bde_data()}},
 \code{\link[=bde_latest]{bde_latest()}},

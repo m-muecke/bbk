@@ -24,6 +24,7 @@ reference:
       - bcb_data
       - bcb_fx_rates
       - bcb_currencies
+      - bcb_expectations
 
   - subtitle: Bank for International Settlements (BIS)
     contents:

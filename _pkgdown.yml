@@ -19,6 +19,10 @@ reference:
       - ecb_dimension
       - ecb_metadata
 
+  - subtitle: Banco Central do Brasil (BCB)
+    contents:
+      - bcb_data
+
   - subtitle: Bank for International Settlements (BIS)
     contents:
       - bis_data

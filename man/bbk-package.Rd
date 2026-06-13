@@ -6,7 +6,7 @@
 \alias{bbk-package}
 \title{bbk: Client for Central Bank APIs}
 \description{
-A client for retrieving data and metadata from central bank APIs including 'Banco de España' (BdE), 'Banco de Portugal' (BdP), 'Bank for International Settlements' (BIS), 'Bank of Canada' (BoC), 'Bank of England' (BoE), 'Bank of Japan' (BoJ), 'Banque de France' (BdF), 'Czech National Bank' (CNB), 'Deutsche Bundesbank' (BBk), 'European Central Bank' (ECB), 'National Bank of Poland' (NBP), 'Norges Bank' (NoB), 'Oesterreichische Nationalbank' (OeNB), 'Sveriges Riksbank' (SRb), and 'Swiss National Bank' (SNB).
+A client for retrieving data and metadata from central bank APIs including 'Banco Central do Brasil' (BCB), 'Banco de España' (BdE), 'Banco de Portugal' (BdP), 'Bank for International Settlements' (BIS), 'Bank of Canada' (BoC), 'Bank of England' (BoE), 'Bank of Japan' (BoJ), 'Banque de France' (BdF), 'Czech National Bank' (CNB), 'Deutsche Bundesbank' (BBk), 'European Central Bank' (ECB), 'National Bank of Poland' (NBP), 'Norges Bank' (NoB), 'Oesterreichische Nationalbank' (OeNB), 'Sveriges Riksbank' (SRb), and 'Swiss National Bank' (SNB).
 }
 \seealso{
 Useful links:

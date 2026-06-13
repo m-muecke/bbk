@@ -5,13 +5,14 @@ Authors@R:
     person("Maximilian", "Mücke", , "muecke.maximilian@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0000-9432-9795"))
 Description: A client for retrieving data and metadata from central bank
-    APIs including 'Banco de España' (BdE), 'Banco de Portugal' (BdP),
-    'Bank for International Settlements' (BIS), 'Bank of Canada' (BoC),
-    'Bank of England' (BoE), 'Bank of Japan' (BoJ), 'Banque de France'
-    (BdF), 'Czech National Bank' (CNB), 'Deutsche Bundesbank' (BBk),
-    'European Central Bank' (ECB), 'National Bank of Poland' (NBP),
-    'Norges Bank' (NoB), 'Oesterreichische Nationalbank' (OeNB), 'Sveriges
-    Riksbank' (SRb), and 'Swiss National Bank' (SNB).
+    APIs including 'Banco Central do Brasil' (BCB), 'Banco de España'
+    (BdE), 'Banco de Portugal' (BdP), 'Bank for International Settlements'
+    (BIS), 'Bank of Canada' (BoC), 'Bank of England' (BoE), 'Bank of
+    Japan' (BoJ), 'Banque de France' (BdF), 'Czech National Bank' (CNB),
+    'Deutsche Bundesbank' (BBk), 'European Central Bank' (ECB), 'National
+    Bank of Poland' (NBP), 'Norges Bank' (NoB), 'Oesterreichische
+    Nationalbank' (OeNB), 'Sveriges Riksbank' (SRb), and 'Swiss National
+    Bank' (SNB).
 License: MIT + file LICENSE
 URL: https://m-muecke.github.io/bbk/, https://github.com/m-muecke/bbk
 BugReports: https://github.com/m-muecke/bbk/issues

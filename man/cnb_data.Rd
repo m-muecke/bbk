@@ -72,6 +72,7 @@ cnb_data(set_id = "1058")
 Other data:
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
+\code{\link[=bcb_data]{bcb_data()}},
 \code{\link[=bde_data]{bde_data()}},
 \code{\link[=bde_latest]{bde_latest()}},
 \code{\link[=bdf_codelist]{bdf_codelist()}},

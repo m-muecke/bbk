@@ -1,5 +1,7 @@
 # bbk (development version)
 
+* Support for Banco Central do Brasil (BCB) data.
+
 # bbk 0.11.0
 
 ## New features

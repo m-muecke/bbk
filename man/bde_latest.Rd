@@ -34,6 +34,7 @@ bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
 Other data:
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
+\code{\link[=bcb_data]{bcb_data()}},
 \code{\link[=bde_data]{bde_data()}},
 \code{\link[=bdf_codelist]{bdf_codelist()}},
 \code{\link[=bdf_data]{bdf_data()}},

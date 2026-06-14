@@ -102,3 +102,123 @@ test_that("parse_bcb_expectations handles empty response", {
   expect_data_table(actual, nrows = 0L)
   expect_names(names(actual), must.include = c("date", "indicator", "mean"))
 })
+
+test_that("bcb_top5 input validation works", {
+  expect_error(bcb_top5("yearly"))
+  expect_error(bcb_top5(1L))
+  expect_error(bcb_top5("annual", indicator = 1L))
+  expect_error(bcb_top5("annual", start_date = TRUE))
+  expect_error(bcb_top5("annual", end_date = TRUE))
+})
+
+test_that("parse_bcb_top5 works", {
+  json = jsonlite::fromJSON(test_path("fixtures", "bcb-top5.json"), simplifyVector = FALSE)
+  actual = parse_bcb_top5(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_numeric(actual$mean)
+  expect_names(
+    names(actual),
+    permutation.of = c(
+      "date",
+      "indicator",
+      "type_calc",
+      "reference",
+      "mean",
+      "median",
+      "sd",
+      "min",
+      "max"
+    )
+  )
+  expect_identical(unique(actual$indicator), "IPCA")
+})
+
+test_that("parse_bcb_top5 handles the Selic resource's lower-case schema", {
+  json = jsonlite::fromJSON(test_path("fixtures", "bcb-top5-selic.json"), simplifyVector = FALSE)
+  actual = parse_bcb_top5(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_numeric(actual$mean)
+  expect_identical(unique(actual$indicator), "Selic")
+  expect_match(actual$reference, "^R[0-9]+/[0-9]{4}$")
+})
+
+test_that("parse_bcb_top5 handles empty response", {
+  actual = parse_bcb_top5(list(value = list()))
+  expect_data_table(actual, nrows = 0L)
+  expect_names(names(actual), must.include = c("date", "indicator", "mean"))
+})
+
+test_that("bcb_inflation input validation works", {
+  expect_error(bcb_inflation("36m"))
+  expect_error(bcb_inflation(1L))
+  expect_error(bcb_inflation("12m", indicator = 1L))
+  expect_error(bcb_inflation("12m", start_date = TRUE))
+  expect_error(bcb_inflation("12m", end_date = TRUE))
+})
+
+test_that("parse_bcb_inflation works", {
+  json = jsonlite::fromJSON(test_path("fixtures", "bcb-inflation.json"), simplifyVector = FALSE)
+  actual = parse_bcb_inflation(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_logical(actual$smoothed)
+  expect_integer(actual$respondents)
+  expect_names(
+    names(actual),
+    permutation.of = c(
+      "date",
+      "indicator",
+      "smoothed",
+      "mean",
+      "median",
+      "sd",
+      "min",
+      "max",
+      "respondents",
+      "base"
+    )
+  )
+  expect_identical(unique(actual$indicator), "IPCA")
+})
+
+test_that("parse_bcb_inflation handles empty response", {
+  actual = parse_bcb_inflation(list(value = list()))
+  expect_data_table(actual, nrows = 0L)
+  expect_names(names(actual), must.include = c("date", "indicator", "smoothed"))
+})
+
+test_that("bcb_selic input validation works", {
+  expect_error(bcb_selic(start_date = TRUE))
+  expect_error(bcb_selic(end_date = TRUE))
+})
+
+test_that("parse_bcb_selic works", {
+  json = jsonlite::fromJSON(test_path("fixtures", "bcb-selic.json"), simplifyVector = FALSE)
+  actual = parse_bcb_selic(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_character(actual$meeting)
+  expect_integer(actual$respondents)
+  expect_names(
+    names(actual),
+    permutation.of = c(
+      "date",
+      "meeting",
+      "mean",
+      "median",
+      "sd",
+      "min",
+      "max",
+      "respondents",
+      "base"
+    )
+  )
+})
+
+test_that("parse_bcb_selic handles empty response", {
+  actual = parse_bcb_selic(list(value = list()))
+  expect_data_table(actual, nrows = 0L)
+  expect_names(names(actual), must.include = c("date", "meeting", "mean"))
+})

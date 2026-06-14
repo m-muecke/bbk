@@ -2,6 +2,9 @@
 
 * Support for Banco Central do Brasil (BCB) data.
 * `banxico_data()` and `banxico_metadata()` add support for the Banco de México (Banxico) SIE API, using an API key from `BANXICO_KEY`.
+* `bcb_inflation()` returns the rolling 12- or 24-month inflation expectations from the Banco Central do Brasil (BCB) Focus survey.
+* `bcb_selic()` returns the Selic target rate expectations from the Banco Central do Brasil (BCB) Focus survey.
+* `bcb_top5()` returns the Top-5 market expectations from the Banco Central do Brasil (BCB) Focus survey.
 
 # bbk 0.11.0
 

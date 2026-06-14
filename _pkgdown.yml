@@ -25,6 +25,9 @@ reference:
       - bcb_fx_rates
       - bcb_currencies
       - bcb_expectations
+      - bcb_top5
+      - bcb_inflation
+      - bcb_selic
 
   - subtitle: Banco de México (Banxico)
     contents:

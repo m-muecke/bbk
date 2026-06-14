@@ -167,12 +167,11 @@ bcb_expectations = function(type = "annual", indicator = NULL, start_date = NULL
     monthly = "ExpectativaMercadoMensais",
     quarterly = "ExpectativasMercadoTrimestrais"
   )
-  filters = c(
+  filter = bcb_odata_filter(
     indicator %&&% sprintf("Indicador eq '%s'", indicator),
     start_date %&&% sprintf("Data ge '%s'", format(start_date)),
     end_date %&&% sprintf("Data le '%s'", format(end_date))
   )
-  filter = if (length(filters) > 0L) paste(filters, collapse = " and ") else NULL
   json = bcb_olinda("Expectativas", resource, `$filter` = filter, `$orderby` = "Data")
   parse_bcb_expectations(json)
 }
@@ -207,6 +206,226 @@ parse_bcb_expectations = function(json) {
     respondents = map_int(value, \(x) as.integer(x$numeroRespondentes %||% NA_integer_)),
     base = map_int(value, \(x) as.integer(x$baseCalculo %||% NA_integer_))
   )
+}
+
+#' Fetch Banco Central do Brasil (BCB) Top-5 market expectations
+#'
+#' Retrieve the Top-5 market expectations from the Banco Central do Brasil Focus survey (Relatório
+#' Focus) via the Olinda API. The Top-5 ranking summarises the forecasts of the institutions with
+#' the most accurate projections for a given indicator.
+#'
+#' @param type (`character(1)`)\cr
+#'   The forecast horizon. One of `"annual"`, `"monthly"`, `"quarterly"`, or `"selic"`. Default
+#'   `"annual"`.
+#' @inheritParams bcb_expectations
+#' @returns A [data.table::data.table()] with columns `date`, `indicator`, `type_calc`, `reference`,
+#'   `mean`, `median`, `sd`, `min`, and `max`. The `type_calc` column holds the ranking horizon
+#'   (`"C"` short, `"M"` medium, or `"L"` long term). For `type = "selic"` the `reference` column
+#'   holds the COPOM meeting (e.g. `"R4/2026"`).
+#' @source <https://dadosabertos.bcb.gov.br/>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' # annual Top-5 IPCA inflation expectations
+#' bcb_top5("annual", "IPCA", start_date = "2024-01-01", end_date = "2024-01-31")
+#'
+#' # Top-5 Selic target rate expectations
+#' bcb_top5("selic", start_date = "2024-01-01", end_date = "2024-01-31")
+#' }
+bcb_top5 = function(type = "annual", indicator = NULL, start_date = NULL, end_date = NULL) {
+  assert_choice(type, c("annual", "monthly", "quarterly", "selic"))
+  assert_string(indicator, min.chars = 1L, null.ok = TRUE)
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
+
+  resource = switch(
+    type,
+    annual = "ExpectativasMercadoTop5Anuais",
+    monthly = "ExpectativasMercadoTop5Mensais",
+    quarterly = "ExpectativaMercadoTop5Trimestral",
+    selic = "ExpectativasMercadoTop5Selic"
+  )
+  # the Selic Top-5 resource names its indicator property in lower case
+  indic_field = if (type == "selic") "indicador" else "Indicador"
+  filter = bcb_odata_filter(
+    indicator %&&% sprintf("%s eq '%s'", indic_field, indicator),
+    start_date %&&% sprintf("Data ge '%s'", format(start_date)),
+    end_date %&&% sprintf("Data le '%s'", format(end_date))
+  )
+  json = bcb_olinda("Expectativas", resource, `$filter` = filter, `$orderby` = "Data")
+  parse_bcb_top5(json)
+}
+
+parse_bcb_top5 = function(json) {
+  value = json$value
+  if (length(value) == 0L) {
+    return(data.table(
+      date = as.Date(character()),
+      indicator = character(),
+      type_calc = character(),
+      reference = character(),
+      mean = numeric(),
+      median = numeric(),
+      sd = numeric(),
+      min = numeric(),
+      max = numeric()
+    ))
+  }
+  # the Selic Top-5 resource uses lower-case field names and `reuniao` for the reference
+  data.table(
+    date = as.Date(map_chr(value, "Data")),
+    indicator = map_chr(value, \(x) x$Indicador %||% x$indicador),
+    type_calc = map_chr(value, \(x) x$tipoCalculo %||% NA_character_),
+    reference = map_chr(value, \(x) x$DataReferencia %||% x$reuniao %||% NA_character_),
+    mean = map_dbl(value, \(x) as.numeric(x$Media %||% x$media)),
+    median = map_dbl(value, \(x) as.numeric(x$Mediana %||% x$mediana)),
+    sd = map_dbl(value, \(x) as.numeric(x$DesvioPadrao %||% x$desvioPadrao %||% NA_real_)),
+    min = map_dbl(value, \(x) as.numeric(x$Minimo %||% x$minimo %||% NA_real_)),
+    max = map_dbl(value, \(x) as.numeric(x$Maximo %||% x$maximo %||% NA_real_))
+  )
+}
+
+#' Fetch Banco Central do Brasil (BCB) inflation expectations
+#'
+#' Retrieve the rolling 12- or 24-month inflation expectations from the Banco Central do Brasil
+#' Focus survey (Relatório Focus) via the Olinda API.
+#'
+#' @param horizon (`character(1)`)\cr
+#'   The forecast horizon, either `"12m"` (next 12 months) or `"24m"` (next 24 months). Default
+#'   `"12m"`.
+#' @inheritParams bcb_expectations
+#' @returns A [data.table::data.table()] with columns `date`, `indicator`, `smoothed`, `mean`,
+#'   `median`, `sd`, `min`, `max`, `respondents`, and `base`. The `smoothed` column indicates
+#'   whether the forecast is the smoothed (suavizada) series.
+#' @source <https://dadosabertos.bcb.gov.br/>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' # next-12-months IPCA inflation expectations
+#' bcb_inflation("12m", "IPCA", start_date = "2024-01-01", end_date = "2024-01-31")
+#' }
+bcb_inflation = function(horizon = "12m", indicator = NULL, start_date = NULL, end_date = NULL) {
+  assert_choice(horizon, c("12m", "24m"))
+  assert_string(indicator, min.chars = 1L, null.ok = TRUE)
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
+
+  resource = switch(
+    horizon,
+    `12m` = "ExpectativasMercadoInflacao12Meses",
+    `24m` = "ExpectativasMercadoInflacao24Meses"
+  )
+  filter = bcb_odata_filter(
+    indicator %&&% sprintf("Indicador eq '%s'", indicator),
+    start_date %&&% sprintf("Data ge '%s'", format(start_date)),
+    end_date %&&% sprintf("Data le '%s'", format(end_date))
+  )
+  json = bcb_olinda("Expectativas", resource, `$filter` = filter, `$orderby` = "Data")
+  parse_bcb_inflation(json)
+}
+
+parse_bcb_inflation = function(json) {
+  value = json$value
+  if (length(value) == 0L) {
+    return(data.table(
+      date = as.Date(character()),
+      indicator = character(),
+      smoothed = logical(),
+      mean = numeric(),
+      median = numeric(),
+      sd = numeric(),
+      min = numeric(),
+      max = numeric(),
+      respondents = integer(),
+      base = integer()
+    ))
+  }
+  data.table(
+    date = as.Date(map_chr(value, "Data")),
+    indicator = map_chr(value, "Indicador"),
+    smoothed = map_chr(value, \(x) x$Suavizada %||% NA_character_) == "S",
+    mean = map_dbl(value, \(x) as.numeric(x$Media)),
+    median = map_dbl(value, \(x) as.numeric(x$Mediana)),
+    sd = map_dbl(value, \(x) as.numeric(x$DesvioPadrao %||% NA_real_)),
+    min = map_dbl(value, \(x) as.numeric(x$Minimo %||% NA_real_)),
+    max = map_dbl(value, \(x) as.numeric(x$Maximo %||% NA_real_)),
+    respondents = map_int(value, \(x) as.integer(x$numeroRespondentes %||% NA_integer_)),
+    base = map_int(value, \(x) as.integer(x$baseCalculo %||% NA_integer_))
+  )
+}
+
+#' Fetch Banco Central do Brasil (BCB) Selic expectations
+#'
+#' Retrieve market expectations for the Selic target rate from the Banco Central do Brasil Focus
+#' survey (Relatório Focus) via the Olinda API. Each row summarises the forecasts collected on a
+#' given survey date for a future COPOM meeting.
+#'
+#' @param start_date (`NULL` | `Date(1)` | `character(1)`)\cr
+#'   Start of the survey date range (e.g., `"2024-01-01"`). If `NULL`, no lower bound is applied.
+#'   Default `NULL`.
+#' @param end_date (`NULL` | `Date(1)` | `character(1)`)\cr
+#'   End of the survey date range, in the same format as start_date. If `NULL`, no upper bound is
+#'   applied. Default `NULL`.
+#' @returns A [data.table::data.table()] with columns `date`, `meeting`, `mean`, `median`, `sd`,
+#'   `min`, `max`, `respondents`, and `base`. The `meeting` column identifies the COPOM meeting the
+#'   forecast refers to (e.g. `"R3/2028"`).
+#' @source <https://dadosabertos.bcb.gov.br/>
+#' @family data
+#' @export
+#' @examplesIf curl::has_internet()
+#' \donttest{
+#' bcb_selic(start_date = "2024-01-01", end_date = "2024-01-31")
+#' }
+bcb_selic = function(start_date = NULL, end_date = NULL) {
+  start_date = assert_dateish(start_date, null.ok = TRUE)
+  end_date = assert_dateish(end_date, null.ok = TRUE)
+
+  filter = bcb_odata_filter(
+    start_date %&&% sprintf("Data ge '%s'", format(start_date)),
+    end_date %&&% sprintf("Data le '%s'", format(end_date))
+  )
+  json = bcb_olinda(
+    "Expectativas",
+    "ExpectativasMercadoSelic",
+    `$filter` = filter,
+    `$orderby` = "Data"
+  )
+  parse_bcb_selic(json)
+}
+
+parse_bcb_selic = function(json) {
+  value = json$value
+  if (length(value) == 0L) {
+    return(data.table(
+      date = as.Date(character()),
+      meeting = character(),
+      mean = numeric(),
+      median = numeric(),
+      sd = numeric(),
+      min = numeric(),
+      max = numeric(),
+      respondents = integer(),
+      base = integer()
+    ))
+  }
+  data.table(
+    date = as.Date(map_chr(value, "Data")),
+    meeting = map_chr(value, \(x) x$Reuniao %||% NA_character_),
+    mean = map_dbl(value, \(x) as.numeric(x$Media)),
+    median = map_dbl(value, \(x) as.numeric(x$Mediana)),
+    sd = map_dbl(value, \(x) as.numeric(x$DesvioPadrao %||% NA_real_)),
+    min = map_dbl(value, \(x) as.numeric(x$Minimo %||% NA_real_)),
+    max = map_dbl(value, \(x) as.numeric(x$Maximo %||% NA_real_)),
+    respondents = map_int(value, \(x) as.integer(x$numeroRespondentes %||% NA_integer_)),
+    base = map_int(value, \(x) as.integer(x$baseCalculo %||% NA_integer_))
+  )
+}
+
+bcb_odata_filter = function(...) {
+  clauses = c(...)
+  if (length(clauses) > 0L) paste(clauses, collapse = " and ") else NULL
 }
 
 parse_bcb_fx_rates = function(json, currency) {

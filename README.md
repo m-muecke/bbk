@@ -120,6 +120,8 @@ yield_curve = bbk_data(
   data and metadata.
 - [rwebstat](https://github.com/cran/rwebstat): R package for accessing
   the Banque de France’s Webstat API.
+- [siebanxicor](https://github.com/cran/siebanxicor): R package for
+  querying data series from the Banco de México (Banxico) SIE API.
 - [tidyBdE](https://github.com/rOpenSpain/tidyBdE): R package for
   accessing the Banco de España’s API.
 - [valet](https://github.com/runkelcorey/valet): R client to the Bank of

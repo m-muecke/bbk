@@ -17,6 +17,8 @@ bbk is minimal R client for the following APIs:
 - [Banco Central do Brasil (BCB)](https://dadosabertos.bcb.gov.br/)
 - [Banco de España
   (BdE)](https://www.bde.es/webbe/en/estadisticas/recursos/api-estadisticas-bde.html)
+- [Banco de México
+  (Banxico)](https://www.banxico.org.mx/SieAPIRest/service/v1/)
 - [Banco de Portugal (BdP)](https://bpstat.bportugal.pt/data/docs)
 - [Bank for International Settlements
   (BIS)](https://stats.bis.org/api-doc/v1/)

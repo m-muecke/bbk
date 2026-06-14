@@ -76,6 +76,7 @@ bis_data("WS_EER", "M.N.B.CH", start_period = "2020-01")
 }
 \seealso{
 Other data:
+\code{\link[=banxico_data]{banxico_data()}},
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
 \code{\link[=bcb_data]{bcb_data()}},

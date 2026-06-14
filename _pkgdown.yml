@@ -26,6 +26,11 @@ reference:
       - bcb_currencies
       - bcb_expectations
 
+  - subtitle: Banco de México (Banxico)
+    contents:
+      - banxico_data
+      - banxico_metadata
+
   - subtitle: Bank for International Settlements (BIS)
     contents:
       - bis_data

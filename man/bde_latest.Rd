@@ -32,6 +32,7 @@ bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
 }
 \seealso{
 Other data:
+\code{\link[=banxico_data]{banxico_data()}},
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
 \code{\link[=bcb_data]{bcb_data()}},

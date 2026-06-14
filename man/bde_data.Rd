@@ -50,6 +50,7 @@ bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 }
 \seealso{
 Other data:
+\code{\link[=banxico_data]{banxico_data()}},
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
 \code{\link[=bcb_data]{bcb_data()}},

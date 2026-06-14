@@ -40,6 +40,7 @@ srb_cross_rates("SEKUSDPMI", "SEKEURPMI", start_date = "2024-01-01", end_date = 
 }
 \seealso{
 Other data:
+\code{\link[=banxico_data]{banxico_data()}},
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
 \code{\link[=bcb_data]{bcb_data()}},

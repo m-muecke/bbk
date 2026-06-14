@@ -1,6 +1,7 @@
 # bbk (development version)
 
 * Support for Banco Central do Brasil (BCB) data.
+* `banxico_data()` and `banxico_metadata()` add support for the Banco de México (Banxico) SIE API, using an API key from `BANXICO_KEY`.
 
 # bbk 0.11.0
 

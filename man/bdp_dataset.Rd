@@ -31,6 +31,7 @@ bdp_dataset(54L)
 }
 \seealso{
 Other metadata:
+\code{\link[=banxico_metadata]{banxico_metadata()}},
 \code{\link[=bbk_dimension]{bbk_dimension()}},
 \code{\link[=bbk_metadata]{bbk_metadata()}},
 \code{\link[=bcb_currencies]{bcb_currencies()}},

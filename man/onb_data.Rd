@@ -68,6 +68,7 @@ onb_data(
 }
 \seealso{
 Other data:
+\code{\link[=banxico_data]{banxico_data()}},
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
 \code{\link[=bcb_data]{bcb_data()}},

@@ -50,6 +50,7 @@ boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 }
 \seealso{
 Other data:
+\code{\link[=banxico_data]{banxico_data()}},
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bbk_series]{bbk_series()}},
 \code{\link[=bcb_data]{bcb_data()}},

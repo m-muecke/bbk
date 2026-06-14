@@ -32,6 +32,7 @@ bbk_series("BBBK11.D.TTA000")
 \code{\link[=bbk_data]{bbk_data()}} for an endpoint with more options.
 
 Other data:
+\code{\link[=banxico_data]{banxico_data()}},
 \code{\link[=bbk_data]{bbk_data()}},
 \code{\link[=bcb_data]{bcb_data()}},
 \code{\link[=bcb_expectations]{bcb_expectations()}},

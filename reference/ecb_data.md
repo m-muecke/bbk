@@ -87,11 +87,15 @@ with the requested data.
 ## See also
 
 Other data:
+[`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md),
 [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
 [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md),
 [`bcb_data()`](https://m-muecke.github.io/bbk/reference/bcb_data.md),
 [`bcb_expectations()`](https://m-muecke.github.io/bbk/reference/bcb_expectations.md),
 [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md),
+[`bcb_inflation()`](https://m-muecke.github.io/bbk/reference/bcb_inflation.md),
+[`bcb_selic()`](https://m-muecke.github.io/bbk/reference/bcb_selic.md),
+[`bcb_top5()`](https://m-muecke.github.io/bbk/reference/bcb_top5.md),
 [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
 [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md),
 [`bdf_codelist()`](https://m-muecke.github.io/bbk/reference/bdf_codelist.md),
@@ -228,31 +232,31 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 #> 14174:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
 #> 14175:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
 #> 14176:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
-#>        currency currency_denom exr_type exr_suffix source_agency
-#>          <char>         <char>   <char>     <char>        <char>
-#>     1:      JPY            EUR     SP00          A           4F0
-#>     2:      JPY            EUR     SP00          A           4F0
-#>     3:      JPY            EUR     SP00          A           4F0
-#>     4:      JPY            EUR     SP00          A           4F0
-#>     5:      JPY            EUR     SP00          A           4F0
-#>    ---                                                          
-#> 14172:      USD            EUR     SP00          A           4F0
-#> 14173:      USD            EUR     SP00          A           4F0
-#> 14174:      USD            EUR     SP00          A           4F0
-#> 14175:      USD            EUR     SP00          A           4F0
-#> 14176:      USD            EUR     SP00          A           4F0
-#>        unit_index_base   unit decimals time_format collection unit_mult
-#>                 <char> <char>   <char>      <char>     <char>    <char>
-#>     1:        99Q1=100    JPY        2         P1D          A         0
-#>     2:        99Q1=100    JPY        2         P1D          A         0
-#>     3:        99Q1=100    JPY        2         P1D          A         0
-#>     4:        99Q1=100    JPY        2         P1D          A         0
-#>     5:        99Q1=100    JPY        2         P1D          A         0
-#>    ---                                                                 
-#> 14172:        99Q1=100    USD        4         P1D          A         0
-#> 14173:        99Q1=100    USD        4         P1D          A         0
-#> 14174:        99Q1=100    USD        4         P1D          A         0
-#> 14175:        99Q1=100    USD        4         P1D          A         0
-#> 14176:        99Q1=100    USD        4         P1D          A         0
+#>        currency currency_denom exr_type exr_suffix decimals   unit
+#>          <char>         <char>   <char>     <char>   <char> <char>
+#>     1:      JPY            EUR     SP00          A        2    JPY
+#>     2:      JPY            EUR     SP00          A        2    JPY
+#>     3:      JPY            EUR     SP00          A        2    JPY
+#>     4:      JPY            EUR     SP00          A        2    JPY
+#>     5:      JPY            EUR     SP00          A        2    JPY
+#>    ---                                                            
+#> 14172:      USD            EUR     SP00          A        4    USD
+#> 14173:      USD            EUR     SP00          A        4    USD
+#> 14174:      USD            EUR     SP00          A        4    USD
+#> 14175:      USD            EUR     SP00          A        4    USD
+#> 14176:      USD            EUR     SP00          A        4    USD
+#>        unit_index_base source_agency collection unit_mult time_format
+#>                 <char>        <char>     <char>    <char>      <char>
+#>     1:        99Q1=100           4F0          A         0         P1D
+#>     2:        99Q1=100           4F0          A         0         P1D
+#>     3:        99Q1=100           4F0          A         0         P1D
+#>     4:        99Q1=100           4F0          A         0         P1D
+#>     5:        99Q1=100           4F0          A         0         P1D
+#>    ---                                                               
+#> 14172:        99Q1=100           4F0          A         0         P1D
+#> 14173:        99Q1=100           4F0          A         0         P1D
+#> 14174:        99Q1=100           4F0          A         0         P1D
+#> 14175:        99Q1=100           4F0          A         0         P1D
+#> 14176:        99Q1=100           4F0          A         0         P1D
 # }
 ```

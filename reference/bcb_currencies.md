@@ -22,6 +22,7 @@ with columns `code`, `name`, and `type`.
 ## See also
 
 Other metadata:
+[`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md),
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
 [`bdf_dimension()`](https://m-muecke.github.io/bbk/reference/bdf_dimension.md),

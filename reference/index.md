@@ -33,6 +33,19 @@
   : Fetch Banco Central do Brasil (BCB) currencies
 - [`bcb_expectations()`](https://m-muecke.github.io/bbk/reference/bcb_expectations.md)
   : Fetch Banco Central do Brasil (BCB) market expectations
+- [`bcb_top5()`](https://m-muecke.github.io/bbk/reference/bcb_top5.md) :
+  Fetch Banco Central do Brasil (BCB) Top-5 market expectations
+- [`bcb_inflation()`](https://m-muecke.github.io/bbk/reference/bcb_inflation.md)
+  : Fetch Banco Central do Brasil (BCB) inflation expectations
+- [`bcb_selic()`](https://m-muecke.github.io/bbk/reference/bcb_selic.md)
+  : Fetch Banco Central do Brasil (BCB) Selic expectations
+
+### Banco de México (Banxico)
+
+- [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
+  : Fetch Banco de México (Banxico) data
+- [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
+  : Fetch Banco de México (Banxico) metadata
 
 ### Bank for International Settlements (BIS)
 

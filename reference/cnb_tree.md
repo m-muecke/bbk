@@ -67,6 +67,7 @@ slash-separated location of the indicator in the ARAD tree.
 ## See also
 
 Other metadata:
+[`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md),
 [`bbk_dimension()`](https://m-muecke.github.io/bbk/reference/bbk_dimension.md),
 [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
 [`bcb_currencies()`](https://m-muecke.github.io/bbk/reference/bcb_currencies.md),

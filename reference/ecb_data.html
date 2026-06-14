@@ -122,11 +122,15 @@ applied. Default <code>NULL</code>.</p></dd>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other data:
+<code><a href="banxico_data.html">banxico_data()</a></code>,
 <code><a href="bbk_data.html">bbk_data()</a></code>,
 <code><a href="bbk_series.html">bbk_series()</a></code>,
 <code><a href="bcb_data.html">bcb_data()</a></code>,
 <code><a href="bcb_expectations.html">bcb_expectations()</a></code>,
 <code><a href="bcb_fx_rates.html">bcb_fx_rates()</a></code>,
+<code><a href="bcb_inflation.html">bcb_inflation()</a></code>,
+<code><a href="bcb_selic.html">bcb_selic()</a></code>,
+<code><a href="bcb_top5.html">bcb_top5()</a></code>,
 <code><a href="bde_data.html">bde_data()</a></code>,
 <code><a href="bde_latest.html">bde_latest()</a></code>,
 <code><a href="bdf_codelist.html">bdf_codelist()</a></code>,
@@ -263,32 +267,32 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14174:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14175:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14176:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        currency currency_denom exr_type exr_suffix source_agency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;char&gt;         &lt;char&gt;   &lt;char&gt;     &lt;char&gt;        &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:      JPY            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:      JPY            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:      JPY            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:      JPY            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:      JPY            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14172:      USD            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14173:      USD            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14174:      USD            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14175:      USD            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14176:      USD            EUR     SP00          A           4F0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        unit_index_base   unit decimals time_format collection unit_mult</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 &lt;char&gt; &lt;char&gt;   &lt;char&gt;      &lt;char&gt;     &lt;char&gt;    &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1:        99Q1=100    JPY        2         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     2:        99Q1=100    JPY        2         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     3:        99Q1=100    JPY        2         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     4:        99Q1=100    JPY        2         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     5:        99Q1=100    JPY        2         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14172:        99Q1=100    USD        4         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14173:        99Q1=100    USD        4         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14174:        99Q1=100    USD        4         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14175:        99Q1=100    USD        4         P1D          A         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14176:        99Q1=100    USD        4         P1D          A         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        currency currency_denom exr_type exr_suffix decimals   unit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          &lt;char&gt;         &lt;char&gt;   &lt;char&gt;     &lt;char&gt;   &lt;char&gt; &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:      JPY            EUR     SP00          A        2    JPY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:      JPY            EUR     SP00          A        2    JPY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:      JPY            EUR     SP00          A        2    JPY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4:      JPY            EUR     SP00          A        2    JPY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5:      JPY            EUR     SP00          A        2    JPY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14172:      USD            EUR     SP00          A        4    USD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14173:      USD            EUR     SP00          A        4    USD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14174:      USD            EUR     SP00          A        4    USD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14175:      USD            EUR     SP00          A        4    USD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14176:      USD            EUR     SP00          A        4    USD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        unit_index_base source_agency collection unit_mult time_format</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 &lt;char&gt;        &lt;char&gt;     &lt;char&gt;    &lt;char&gt;      &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     3:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     4:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ---                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14172:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14173:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14174:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14175:        99Q1=100           4F0          A         0         P1D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14176:        99Q1=100           4F0          A         0         P1D</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

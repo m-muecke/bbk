@@ -65,26 +65,12 @@ assert_period = function(x, .var.name = vname(x)) {
 
 assert_exclusive = function(x, y) {
   if (!is.null(x) && !is.null(y)) {
-    stop(
-      sprintf(
-        "`%s` and `%s` are mutually exclusive.",
-        deparse1(substitute(x)),
-        deparse1(substitute(y))
-      ),
-      call. = FALSE
-    )
+    stop(sprintf("`%s` and `%s` are mutually exclusive.", vname(x), vname(y)), call. = FALSE)
   }
 }
 
 assert_paired = function(x, y) {
   if (xor(is.null(x), is.null(y))) {
-    stop(
-      sprintf(
-        "`%s` and `%s` must be supplied together.",
-        deparse1(substitute(x)),
-        deparse1(substitute(y))
-      ),
-      call. = FALSE
-    )
+    stop(sprintf("`%s` and `%s` must be supplied together.", vname(x), vname(y)), call. = FALSE)
   }
 }

@@ -6,18 +6,18 @@
 #' <https://www.banxico.org.mx/SieAPIRest/service/v1/token> and supply it via the `api_key`
 #' argument or the `BANXICO_KEY` environment variable.
 #'
-#' Both `start_date` and `end_date` must be supplied to restrict the period; if either is `NULL`
-#' the complete history of each series is returned.
+#' Supply both `start_date` and `end_date` to restrict the period, or neither to return the
+#' complete history of each series. Supplying only one is an error.
 #'
 #' @param series (`character()`)\cr
 #'   One or more SIE series codes to query (e.g., `"SF43718"` for the FIX peso/US dollar exchange
 #'   rate). Series codes can be found on the SIE website.
 #' @param start_date (`NULL` | `Date(1)` | `character(1)`)\cr
-#'   Start date of the data (e.g., `"2024-01-01"`). Must be paired with `end_date`. If `NULL`, the
-#'   full history is returned. Default `NULL`.
+#'   Start date of the data (e.g., `"2024-01-01"`). Must be paired with `end_date`. If both are
+#'   `NULL`, the full history is returned. Default `NULL`.
 #' @param end_date (`NULL` | `Date(1)` | `character(1)`)\cr
 #'   End date of the data, in the same format as start_date. Must be paired with `start_date`. If
-#'   `NULL`, the full history is returned. Default `NULL`.
+#'   both are `NULL`, the full history is returned. Default `NULL`.
 #' @param api_key (`character(1)`)\cr
 #'   The SIE API token. Defaults to the `BANXICO_KEY` environment variable.
 #' @returns A [data.table::data.table()] with columns `date`, `key`, and `value`.
@@ -36,17 +36,15 @@ banxico_data = function(series, start_date = NULL, end_date = NULL, api_key = ba
   assert_character(series, min.len = 1L, min.chars = 1L, any.missing = FALSE)
   start_date = assert_dateish(start_date, null.ok = TRUE)
   end_date = assert_dateish(end_date, null.ok = TRUE)
+  assert_paired(start_date, end_date)
   assert_string(api_key, min.chars = 1L)
 
   ids = paste(series, collapse = ",")
   resource = paste0("series/", ids, "/datos")
-  if (!is.null(start_date) && !is.null(end_date)) {
-    resource = paste(
-      resource,
-      format(start_date, "%Y-%m-%d"),
-      format(end_date, "%Y-%m-%d"),
-      sep = "/"
-    )
+  resource = if (is.null(start_date)) {
+    resource
+  } else {
+    paste(resource, format(start_date, "%Y-%m-%d"), format(end_date, "%Y-%m-%d"), sep = "/")
   }
   json = banxico(resource, api_key = api_key)
   parse_banxico_data(json)

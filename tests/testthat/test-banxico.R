@@ -6,6 +6,13 @@ test_that("banxico_data input validation works", {
   expect_error(banxico_data("SF43718", end_date = TRUE))
 })
 
+test_that("banxico_data requires both or neither date", {
+  expect_snapshot(error = TRUE, {
+    banxico_data("SF43718", start_date = "2024-01-01", api_key = "dummy")
+    banxico_data("SF43718", end_date = "2024-01-31", api_key = "dummy")
+  })
+})
+
 test_that("parse_banxico_data works", {
   json = jsonlite::fromJSON(test_path("fixtures", "banxico-data.json"), simplifyVector = FALSE)
   actual = parse_banxico_data(json)

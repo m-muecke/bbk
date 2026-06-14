@@ -75,3 +75,16 @@ assert_exclusive = function(x, y) {
     )
   }
 }
+
+assert_paired = function(x, y) {
+  if (xor(is.null(x), is.null(y))) {
+    stop(
+      sprintf(
+        "`%s` and `%s` must be supplied together.",
+        deparse1(substitute(x)),
+        deparse1(substitute(y))
+      ),
+      call. = FALSE
+    )
+  }
+}

@@ -20,12 +20,12 @@ One or more SIE series codes to query (e.g., \code{"SF43718"} for the FIX peso/U
 rate). Series codes can be found on the SIE website.}
 
 \item{start_date}{(\code{NULL} | \code{Date(1)} | \code{character(1)})\cr
-Start date of the data (e.g., \code{"2024-01-01"}). Must be paired with \code{end_date}. If \code{NULL}, the
-full history is returned. Default \code{NULL}.}
+Start date of the data (e.g., \code{"2024-01-01"}). Must be paired with \code{end_date}. If both are
+\code{NULL}, the full history is returned. Default \code{NULL}.}
 
 \item{end_date}{(\code{NULL} | \code{Date(1)} | \code{character(1)})\cr
 End date of the data, in the same format as start_date. Must be paired with \code{start_date}. If
-\code{NULL}, the full history is returned. Default \code{NULL}.}
+both are \code{NULL}, the full history is returned. Default \code{NULL}.}
 
 \item{api_key}{(\code{character(1)})\cr
 The SIE API token. Defaults to the \code{BANXICO_KEY} environment variable.}
@@ -41,8 +41,8 @@ The SIE API requires a free access token. Request one at
 \url{https://www.banxico.org.mx/SieAPIRest/service/v1/token} and supply it via the \code{api_key}
 argument or the \code{BANXICO_KEY} environment variable.
 
-Both \code{start_date} and \code{end_date} must be supplied to restrict the period; if either is \code{NULL}
-the complete history of each series is returned.
+Supply both \code{start_date} and \code{end_date} to restrict the period, or neither to return the
+complete history of each series. Supplying only one is an error.
 }
 \examples{
 \dontshow{if (curl::has_internet() && nzchar(Sys.getenv("BANXICO_KEY"))) withAutoprint(\{ # examplesIf}

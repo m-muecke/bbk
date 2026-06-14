@@ -3,6 +3,7 @@
 * `banxico_data()` and `banxico_metadata()` now reject requests for more than 20 series, matching the Banxico API limit.
 * `banxico_data()` and `banxico_metadata()` now report detailed Banxico API errors when available.
 * `bcb_fx_rates()` now rejects currency codes that do not contain exactly three characters.
+* `boi_data()`, `boi_dimension()`, and `boi_metadata()` add support for Bank of Israel (BoI) data from the SDMX web service.
 
 # bbk 0.12.0
 

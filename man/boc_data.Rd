@@ -67,6 +67,7 @@ Other data:
 \code{\link[=bdp_data]{bdp_data()}},
 \code{\link[=bis_data]{bis_data()}},
 \code{\link[=boe_data]{boe_data()}},
+\code{\link[=boi_data]{boi_data()}},
 \code{\link[=boj_data]{boj_data()}},
 \code{\link[=cnb_czeonia]{cnb_czeonia()}},
 \code{\link[=cnb_data]{cnb_data()}},

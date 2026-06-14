@@ -73,14 +73,14 @@ rate). Series codes can be found on the SIE website.</p></dd>
 
 <dt id="arg-start-date">start_date<a class="anchor" aria-label="anchor" href="#arg-start-date"></a></dt>
 <dd><p>(<code>NULL</code> | <code>Date(1)</code> | <code>character(1)</code>)<br>
-Start date of the data (e.g., <code>"2024-01-01"</code>). Must be paired with <code>end_date</code>. If <code>NULL</code>, the
-full history is returned. Default <code>NULL</code>.</p></dd>
+Start date of the data (e.g., <code>"2024-01-01"</code>). Must be paired with <code>end_date</code>. If both are
+<code>NULL</code>, the full history is returned. Default <code>NULL</code>.</p></dd>
 
 
 <dt id="arg-end-date">end_date<a class="anchor" aria-label="anchor" href="#arg-end-date"></a></dt>
 <dd><p>(<code>NULL</code> | <code>Date(1)</code> | <code>character(1)</code>)<br>
 End date of the data, in the same format as start_date. Must be paired with <code>start_date</code>. If
-<code>NULL</code>, the full history is returned. Default <code>NULL</code>.</p></dd>
+both are <code>NULL</code>, the full history is returned. Default <code>NULL</code>.</p></dd>
 
 
 <dt id="arg-api-key">api_key<a class="anchor" aria-label="anchor" href="#arg-api-key"></a></dt>
@@ -97,8 +97,8 @@ The SIE API token. Defaults to the <code>BANXICO_KEY</code> environment variable
     <p>The SIE API requires a free access token. Request one at
 <a href="https://www.banxico.org.mx/SieAPIRest/service/v1/token" class="external-link">https://www.banxico.org.mx/SieAPIRest/service/v1/token</a> and supply it via the <code>api_key</code>
 argument or the <code>BANXICO_KEY</code> environment variable.</p>
-<p>Both <code>start_date</code> and <code>end_date</code> must be supplied to restrict the period; if either is <code>NULL</code>
-the complete history of each series is returned.</p>
+<p>Supply both <code>start_date</code> and <code>end_date</code> to restrict the period, or neither to return the
+complete history of each series. Supplying only one is an error.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

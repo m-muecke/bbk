@@ -31,14 +31,15 @@ banxico_data(
 
   (`NULL` \| `Date(1)` \| `character(1)`)  
   Start date of the data (e.g., `"2024-01-01"`). Must be paired with
-  `end_date`. If `NULL`, the full history is returned. Default `NULL`.
+  `end_date`. If both are `NULL`, the full history is returned. Default
+  `NULL`.
 
 - end_date:
 
   (`NULL` \| `Date(1)` \| `character(1)`)  
   End date of the data, in the same format as start_date. Must be paired
-  with `start_date`. If `NULL`, the full history is returned. Default
-  `NULL`.
+  with `start_date`. If both are `NULL`, the full history is returned.
+  Default `NULL`.
 
 - api_key:
 
@@ -57,9 +58,9 @@ The SIE API requires a free access token. Request one at
 <https://www.banxico.org.mx/SieAPIRest/service/v1/token> and supply it
 via the `api_key` argument or the `BANXICO_KEY` environment variable.
 
-Both `start_date` and `end_date` must be supplied to restrict the
-period; if either is `NULL` the complete history of each series is
-returned.
+Supply both `start_date` and `end_date` to restrict the period, or
+neither to return the complete history of each series. Supplying only
+one is an error.
 
 ## See also
 

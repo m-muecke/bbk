@@ -32,7 +32,14 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
   }
 
   resource = if (is.null(code)) "exchangerates/tables" else "exchangerates/rates"
-  path = nbp_path(resource, table, code, start_date, end_date, last_n)
+  path = nbp_path(
+    resource,
+    table = table,
+    code = code,
+    start_date = start_date %&&% format(start_date),
+    end_date = end_date %&&% format(end_date),
+    last_n = last_n
+  )
   json = nbp(path)
   parse_nbp_fx_rates(json, table, code)
 }
@@ -63,7 +70,12 @@ nbp_gold = function(start_date = NULL, end_date = NULL, last_n = NULL) {
     stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
   }
 
-  path = nbp_path("cenyzlota", start_date = start_date, end_date = end_date, last_n = last_n)
+  path = nbp_path(
+    "cenyzlota",
+    start_date = start_date %&&% format(start_date),
+    end_date = end_date %&&% format(end_date),
+    last_n = last_n
+  )
   json = nbp(path)
   parse_nbp_gold(json)
 }

@@ -12,6 +12,28 @@ test_that("nbp_gold input validation works", {
   expect_error(nbp_gold(start_date = "2025-01-01", last_n = 5L), "mutually exclusive")
 })
 
+test_that("nbp_fx_rates builds path with ISO date strings", {
+  local_mocked_bindings(nbp = function(path) path)
+  local_mocked_bindings(parse_nbp_fx_rates = function(json, table, code) json)
+  expect_equal(
+    nbp_fx_rates("a", "usd", "2024-01-01", "2024-01-31"),
+    "exchangerates/rates/a/usd/2024-01-01/2024-01-31"
+  )
+  expect_equal(
+    nbp_fx_rates("a", "usd", last_n = 10L),
+    "exchangerates/rates/a/usd/last/10"
+  )
+})
+
+test_that("nbp_gold builds path with ISO date strings", {
+  local_mocked_bindings(nbp = function(path) path)
+  local_mocked_bindings(parse_nbp_gold = function(json) json)
+  expect_equal(
+    nbp_gold("2024-01-01", "2024-01-31"),
+    "cenyzlota/2024-01-01/2024-01-31"
+  )
+})
+
 test_that("parse_nbp_fx_rates works for single currency", {
   json = readRDS(test_path("fixtures", "nbp-fx-rates.rds"))
   actual = parse_nbp_fx_rates(json, "a", "eur")

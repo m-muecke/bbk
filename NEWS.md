@@ -5,6 +5,7 @@
 * `bcb_inflation()` returns the rolling 12- or 24-month inflation expectations from the Banco Central do Brasil (BCB) Focus survey.
 * `bcb_selic()` returns the Selic target rate expectations from the Banco Central do Brasil (BCB) Focus survey.
 * `bcb_top5()` returns the Top-5 market expectations from the Banco Central do Brasil (BCB) Focus survey.
+* `nbp_fx_rates()` and `nbp_gold()` now build the request path with the correct dates instead of integer day counts when `start_date`/`end_date` are supplied.
 
 # bbk 0.11.0
 

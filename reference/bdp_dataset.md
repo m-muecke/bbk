@@ -74,19 +74,16 @@ bdp_dataset(54L)
 #>                              <char>
 #> 1: 8a9766347128321e0bd8a7806d8d2c02
 #> 2: 8b6aeea21d8686f3788d49c7551779df
-#> 3: b8689dffe321f45a2e5f70a77295e20d
-#> 4: ce3e4e50cda325537eff729ef64037cd
-#>                                                                                                                                                                                                                                                                              label
-#>                                                                                                                                                                                                                                                                             <char>
-#> 1:                                                                                                       Expenditure aggregates; Adjustments and temporary effects; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Reference territory; Unit of measure
-#> 2:                                                                                                                  Expenditure aggregates; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Counterparty territory; Reference territory; Unit of measure
-#> 3: Expenditure aggregates; Adjustments and temporary effects; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Counterparty institutional sector; Reference institutional sector; Counterparty territory; Reference territory; Data type; Unit of measure
-#> 4:                                                                                                                                          Expenditure aggregates; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Reference territory; Unit of measure
+#> 3: ce3e4e50cda325537eff729ef64037cd
+#>                                                                                                                                                                        label
+#>                                                                                                                                                                       <char>
+#> 1: Expenditure aggregates; Adjustments and temporary effects; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Reference territory; Unit of measure
+#> 2:            Expenditure aggregates; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Counterparty territory; Reference territory; Unit of measure
+#> 3:                                    Expenditure aggregates; Source; Flows, stocks and prices; Valuation method; Metrics; Periodicity; Reference territory; Unit of measure
 #>    num_series      obs_updated_at
 #>         <int>              <POSc>
 #> 1:         91 2026-06-08 15:30:00
 #> 2:          3 2026-05-15 16:00:00
-#> 3:          5 2026-06-08 15:30:00
-#> 4:        412 2026-06-05 16:00:00
+#> 3:        417 2026-06-08 15:30:00
 # }
 ```

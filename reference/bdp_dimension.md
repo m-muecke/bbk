@@ -82,31 +82,25 @@ bdp_dimension(54L)
 #>     <int>                            <char>
 #>  1:     2            Expenditure aggregates
 #>  2:     5 Adjustments and temporary effects
-#>  3:    56    Reference institutional sector
-#>  4:    54 Counterparty institutional sector
-#>  5:    63               Reference territory
-#>  6:    59            Counterparty territory
-#>  7:    66                         Data type
-#>  8:    19          Flows, stocks and prices
-#>  9:    40                       Periodicity
-#> 10:    18                            Source
-#> 11:    70                   Unit of measure
-#> 12:    28                  Valuation method
-#> 13:    29                           Metrics
+#>  3:    63               Reference territory
+#>  4:    59            Counterparty territory
+#>  5:    19          Flows, stocks and prices
+#>  6:    40                       Periodicity
+#>  7:    18                            Source
+#>  8:    70                   Unit of measure
+#>  9:    28                  Valuation method
+#> 10:    29                           Metrics
 #>                                                                                                                                                                                                                                             description
 #>                                                                                                                                                                                                                                                  <char>
 #>  1:                                                               Expenditure aggregates allow the grouping of expenditure items according to certain homogeneity criteria. That is the case of the GDP breakdown according to the expenditure approach
 #>  2: Adjustments and temporary effects are a set of procedures on elementary statistical information that enables, the adjustment from seasonal effects, working days, among other effects, in accordance with methodologies that allow data consistency
-#>  3:                                                                                                                                                  Reference institutional sector corresponds to the entity's sector on which statistics are compiled
-#>  4:                                                                                             Counterparty institutional sector corresponds to the sector of the opposite entity that has transactions with entities on which statistics are compiled
-#>  5:                                                                                                                                              Reference territory corresponds to the geographical and / or economic area of the presented statistics
-#>  6:                                                                                                                      Counterparty territory corresponds to the geographical and / or economic area of the opposite part of the presented statistics
-#>  7:                                                                                                                                    The type of information comprises the type of features that allows the disaggregation of the statistical results
-#>  8:                                    Flows and stocks refer to economic events that occur, respectively, over a given time period and at a given moment in time, while prices refer to the economic value of a statistical variable in a given period
-#>  9:                                                                                                                                                                                          The periodicity sets the frequency of the statistical data
-#> 10:                                                                                                                                                                         The source indicates the entity responsible for the statistical information
-#> 11:                                                                                                                                                    The unit of measure indicates what is the unit and the power by which the statistic is expressed
-#> 12:                                                                                                                                          The valuation method defines the evaluation criteria followed in the collection of the statistical results
-#> 13:                                                                                                                                                         The metrics translates the calculation method applied in the collection of statistical data
+#>  3:                                                                                                                                              Reference territory corresponds to the geographical and / or economic area of the presented statistics
+#>  4:                                                                                                                      Counterparty territory corresponds to the geographical and / or economic area of the opposite part of the presented statistics
+#>  5:                                    Flows and stocks refer to economic events that occur, respectively, over a given time period and at a given moment in time, while prices refer to the economic value of a statistical variable in a given period
+#>  6:                                                                                                                                                                                          The periodicity sets the frequency of the statistical data
+#>  7:                                                                                                                                                                         The source indicates the entity responsible for the statistical information
+#>  8:                                                                                                                                                    The unit of measure indicates what is the unit and the power by which the statistic is expressed
+#>  9:                                                                                                                                          The valuation method defines the evaluation criteria followed in the collection of the statistical results
+#> 10:                                                                                                                                                         The metrics translates the calculation method applied in the collection of statistical data
 # }
 ```

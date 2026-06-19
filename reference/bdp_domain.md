@@ -275,10 +275,10 @@ bdp_domain()
 #> 40:         CoincI       TRUE          2            1
 #> 41:       SI-Manuf       TRUE         41           10
 #> 42:       SI-Trade       TRUE         30            6
-#> 43:        SI-Serv       TRUE         23            4
+#> 43:        SI-Serv       TRUE         24            4
 #> 44:       SI-Const       TRUE          2            2
 #> 45:      IT-goods        TRUE         72            3
-#> 46: NA-Expenditure       TRUE        511            4
+#> 46: NA-Expenditure       TRUE        511            3
 #> 47:  NA-Production       TRUE        186            2
 #> 48:   NA-Financing       TRUE          6            1
 #> 49:  NA-Households       TRUE         58            1

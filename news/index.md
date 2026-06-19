@@ -17,6 +17,11 @@
 - [`bcb_top5()`](https://m-muecke.github.io/bbk/reference/bcb_top5.md)
   returns the Top-5 market expectations from the Banco Central do Brasil
   (BCB) Focus survey.
+- [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
+  and
+  [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md)
+  now build the request path with the correct dates instead of integer
+  day counts when `start_date`/`end_date` are supplied.
 
 ## bbk 0.11.0
 

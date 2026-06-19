@@ -81,10 +81,10 @@ bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
 #>                   date                      key   value   freq
 #>                 <POSc>                   <char>   <num> <char>
 #> 1: 2026-05-01 08:15:00               D_1NBAF472   2.804      M
-#> 2: 2025-10-01 08:15:00 DTNPDE2010_P0000P_PS_APU 100.700      Q
+#> 2: 2026-01-01 09:15:00 DTNPDE2010_P0000P_PS_APU 101.600      Q
 #>                                        title decimals symbol  trend
 #>                                       <char>    <int> <char> <char>
 #> 1:                          One-year Euribor        3      %      +
-#> 2: EDP debt. General government. % of GDP mp        1      %      -
+#> 2: EDP debt. General government. % of GDP mp        1      %      +
 # }
 ```

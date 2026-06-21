@@ -10,6 +10,12 @@ bbk_cache_dir()
 
 bbk_cache_clear()
 }
+\value{
+\code{bbk_cache_dir()} returns a string with the path to the cache directory.
+
+\code{bbk_cache_clear()} is called for its side effect of clearing the cached
+responses and returns \code{NULL} invisibly.
+}
 \description{
 \code{bbk_cache_dir()} returns the path where cached API responses are stored.
 \code{bbk_cache_clear()} clears all cached responses.

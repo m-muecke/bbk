@@ -26,7 +26,3 @@
 "_PACKAGE"
 
 col_order = c("date", "key", "value", "freq", "title", "description")
-
-bbk_user_agent = function() {
-  sprintf("bbk/%s", utils::packageVersion("bbk"))
-}

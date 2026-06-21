@@ -43,10 +43,6 @@ bbk_cache_clear = function() {
   invisible()
 }
 
-req_bbk_retry = function(req) {
-  req_retry(req, max_tries = 3L)
-}
-
 req_bbk_cache = function(req) {
   if (isTRUE(getOption("bbk.cache", FALSE))) {
     req = req_cache(
@@ -56,11 +52,4 @@ req_bbk_cache = function(req) {
     )
   }
   req
-}
-
-base_request = function(url) {
-  request(url) |>
-    req_user_agent(bbk_user_agent()) |>
-    req_bbk_retry() |>
-    req_bbk_cache()
 }

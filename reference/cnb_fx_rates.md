@@ -84,36 +84,36 @@ Other data:
 cnb_fx_rates()
 #>           date currency_code   currency        country amount   rate
 #>         <Date>        <char>     <char>         <char>  <int>  <num>
-#>  1: 2026-06-18           AUD     dollar      Australia      1 14.779
-#>  2: 2026-06-18           BRL       real         Brazil      1  4.099
-#>  3: 2026-06-18           CAD     dollar         Canada      1 14.926
-#>  4: 2026-06-18           CNY   renminbi          China      1  3.113
-#>  5: 2026-06-18           DKK      krone        Denmark      1  3.234
-#>  6: 2026-06-18           EUR       euro            EMU      1 24.175
-#>  7: 2026-06-18           HKD     dollar       Hongkong      1  2.689
-#>  8: 2026-06-18           HUF     forint        Hungary    100  6.860
-#>  9: 2026-06-18           ISK      krona        Iceland    100 16.742
-#> 10: 2026-06-18           XDR        SDR            IMF      1 28.806
-#> 11: 2026-06-18           INR      rupee          India    100 22.343
-#> 12: 2026-06-18           IDR     rupiah      Indonesia   1000  1.190
-#> 13: 2026-06-18           ILS new shekel         Israel      1  7.168
-#> 14: 2026-06-18           JPY        yen          Japan    100 13.099
-#> 15: 2026-06-18           MYR    ringgit       Malaysia      1  5.119
-#> 16: 2026-06-18           MXN       peso         Mexico      1  1.214
-#> 17: 2026-06-18           NZD     dollar    New Zealand      1 12.158
-#> 18: 2026-06-18           NOK      krone         Norway      1  2.177
-#> 19: 2026-06-18           PHP       peso    Philippines    100 34.771
-#> 20: 2026-06-18           PLN      zloty         Poland      1  5.679
-#> 21: 2026-06-18           RON        leu        Romania      1  4.614
-#> 22: 2026-06-18           SGD     dollar      Singapore      1 16.335
-#> 23: 2026-06-18           ZAR       rand   South Africa      1  1.285
-#> 24: 2026-06-18           KRW        won    South Korea    100  1.370
-#> 25: 2026-06-18           SEK      krona         Sweden      1  2.201
-#> 26: 2026-06-18           CHF      franc    Switzerland      1 26.226
-#> 27: 2026-06-18           THB       baht       Thailand    100 64.325
-#> 28: 2026-06-18           TRY       lira         Turkey    100 45.382
-#> 29: 2026-06-18           GBP      pound United Kingdom      1 27.895
-#> 30: 2026-06-18           USD     dollar            USA      1 21.078
+#>  1: 2026-06-22           AUD     dollar      Australia      1 14.802
+#>  2: 2026-06-22           BRL       real         Brazil      1  4.104
+#>  3: 2026-06-22           CAD     dollar         Canada      1 14.917
+#>  4: 2026-06-22           CNY   renminbi          China      1  3.117
+#>  5: 2026-06-22           DKK      krone        Denmark      1  3.237
+#>  6: 2026-06-22           EUR       euro            EMU      1 24.195
+#>  7: 2026-06-22           HKD     dollar       Hongkong      1  2.694
+#>  8: 2026-06-22           HUF     forint        Hungary    100  6.866
+#>  9: 2026-06-22           ISK      krona        Iceland    100 16.802
+#> 10: 2026-06-22           XDR        SDR            IMF      1 28.708
+#> 11: 2026-06-22           INR      rupee          India    100 22.304
+#> 12: 2026-06-22           IDR     rupiah      Indonesia   1000  1.184
+#> 13: 2026-06-22           ILS new shekel         Israel      1  7.116
+#> 14: 2026-06-22           JPY        yen          Japan    100 13.055
+#> 15: 2026-06-22           MYR    ringgit       Malaysia      1  5.090
+#> 16: 2026-06-22           MXN       peso         Mexico      1  1.219
+#> 17: 2026-06-22           NZD     dollar    New Zealand      1 12.103
+#> 18: 2026-06-22           NOK      krone         Norway      1  2.185
+#> 19: 2026-06-22           PHP       peso    Philippines    100 34.601
+#> 20: 2026-06-22           PLN      zloty         Poland      1  5.668
+#> 21: 2026-06-22           RON        leu        Romania      1  4.619
+#> 22: 2026-06-22           SGD     dollar      Singapore      1 16.336
+#> 23: 2026-06-22           ZAR       rand   South Africa      1  1.287
+#> 24: 2026-06-22           KRW        won    South Korea    100  1.374
+#> 25: 2026-06-22           SEK      krona         Sweden      1  2.200
+#> 26: 2026-06-22           CHF      franc    Switzerland      1 26.139
+#> 27: 2026-06-22           THB       baht       Thailand    100 64.185
+#> 28: 2026-06-22           TRY       lira         Turkey    100 45.452
+#> 29: 2026-06-22           GBP      pound United Kingdom      1 27.985
+#> 30: 2026-06-22           USD     dollar            USA      1 21.118
 #>           date currency_code   currency        country amount   rate
 #>         <Date>        <char>     <char>         <char>  <int>  <num>
 

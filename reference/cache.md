@@ -11,6 +11,13 @@ bbk_cache_dir()
 bbk_cache_clear()
 ```
 
+## Value
+
+`bbk_cache_dir()` returns a string with the path to the cache directory.
+
+`bbk_cache_clear()` is called for its side effect of clearing the cached
+responses and returns `NULL` invisibly.
+
 ## Details
 
 The cache is only used when enabled with `options(bbk.cache = TRUE)`.

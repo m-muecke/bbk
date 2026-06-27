@@ -471,10 +471,10 @@ bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #> 4:      Q BP. Goods BP. Goods. Balance        0 M&euro; 1993-01-01 09:15:00
 #>               end_date
 #>                 <POSc>
-#> 1: 2025-10-01 08:15:00
-#> 2: 2025-10-01 08:15:00
-#> 3: 2025-10-01 08:15:00
-#> 4: 2025-10-01 08:15:00
+#> 1: 2026-01-01 09:15:00
+#> 2: 2026-01-01 09:15:00
+#> 3: 2026-01-01 09:15:00
+#> 4: 2026-01-01 09:15:00
 #>                                                 long_description
 #>                                                           <char>
 #> 1: External statistics. Balance of payments. BP. Goods. Balance.

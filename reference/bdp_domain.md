@@ -249,7 +249,7 @@ bdp_domain()
 #> 14:            ERS      FALSE         NA           NA
 #> 15:            GGS      FALSE         NA           NA
 #> 16:         IndNFC       TRUE        442            4
-#> 17:          MFIBS       TRUE       4094           25
+#> 17:          MFIBS       TRUE       4000           25
 #> 18:            BSI       TRUE         49            1
 #> 19:            IRS       TRUE        263           10
 #> 20:            MMS       TRUE        153            3

@@ -77,7 +77,7 @@ Other data:
 cnb_czeonia()
 #>          date czeonia volume
 #>        <Date>   <num>  <int>
-#> 1: 2026-06-25    3.23  10818
+#> 1: 2026-06-26    3.33   7773
 
 # all rates for a given year
 cnb_czeonia(year = 2024L)

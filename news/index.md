@@ -2,21 +2,22 @@
 
 ## bbk (development version)
 
-- Support for Banco Central do Brasil (BCB) data.
+- [`bcb_data()`](https://m-muecke.github.io/bbk/reference/bcb_data.md),
+  [`bcb_currencies()`](https://m-muecke.github.io/bbk/reference/bcb_currencies.md),
+  [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md),
+  [`bcb_expectations()`](https://m-muecke.github.io/bbk/reference/bcb_expectations.md),
+  [`bcb_inflation()`](https://m-muecke.github.io/bbk/reference/bcb_inflation.md),
+  [`bcb_selic()`](https://m-muecke.github.io/bbk/reference/bcb_selic.md),
+  and
+  [`bcb_top5()`](https://m-muecke.github.io/bbk/reference/bcb_top5.md)
+  add support for Banco Central do Brasil (BCB) data, covering SGS
+  series, currency lists and exchange rates, and Focus survey market
+  expectations.
 - [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
   and
   [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
   add support for the Banco de México (Banxico) SIE API, using an API
   key from `BANXICO_KEY`.
-- [`bcb_inflation()`](https://m-muecke.github.io/bbk/reference/bcb_inflation.md)
-  returns the rolling 12- or 24-month inflation expectations from the
-  Banco Central do Brasil (BCB) Focus survey.
-- [`bcb_selic()`](https://m-muecke.github.io/bbk/reference/bcb_selic.md)
-  returns the Selic target rate expectations from the Banco Central do
-  Brasil (BCB) Focus survey.
-- [`bcb_top5()`](https://m-muecke.github.io/bbk/reference/bcb_top5.md)
-  returns the Top-5 market expectations from the Banco Central do Brasil
-  (BCB) Focus survey.
 - [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
   and
   [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md)

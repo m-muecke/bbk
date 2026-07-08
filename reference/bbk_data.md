@@ -130,12 +130,12 @@ data = bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 head(data)
 #>          date                                                   key value
 #>        <Date>                                                <char> <num>
-#> 1: 1997-08-07 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.76
-#> 2: 1997-08-08 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.76
-#> 3: 1997-08-11 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.75
-#> 4: 1997-08-12 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.72
-#> 5: 1997-08-13 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.77
-#> 6: 1997-08-14 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.74
+#> 1: 1972-09-29 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  7.92
+#> 2: 1972-10-31 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.29
+#> 3: 1972-11-30 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.48
+#> 4: 1972-12-29 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.62
+#> 5: 1973-01-31 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.66
+#> 6: 1973-02-28 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.48
 #>      freq
 #>    <char>
 #> 1:  daily
@@ -168,14 +168,14 @@ head(data)
 #> 4:    R10XX             R             A          A          _Z       _Z      A
 #> 5:    R10XX             R             A          A          _Z       _Z      A
 #> 6:    R10XX             R             A          A          _Z       _Z      A
-#>    time_format decimals    unit unit_mult category
-#>         <char>    <int>  <char>    <char>   <char>
-#> 1:         P1D        2 PROZENT         0     ZRZS
-#> 2:         P1D        2 PROZENT         0     ZRZS
-#> 3:         P1D        2 PROZENT         0     ZRZS
-#> 4:         P1D        2 PROZENT         0     ZRZS
-#> 5:         P1D        2 PROZENT         0     ZRZS
-#> 6:         P1D        2 PROZENT         0     ZRZS
+#>    time_format decimals   unit unit_mult category
+#>         <char>    <int> <char>    <char>   <char>
+#> 1:         P1D        2   <NA>         0     ZRZS
+#> 2:         P1D        2   <NA>         0     ZRZS
+#> 3:         P1D        2   <NA>         0     ZRZS
+#> 4:         P1D        2   <NA>         0     ZRZS
+#> 5:         P1D        2   <NA>         0     ZRZS
+#> 6:         P1D        2   <NA>         0     ZRZS
 
 # fetch data for multiple keys
 data = bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
@@ -284,14 +284,14 @@ head(data)
 #> 4:    R10XX             R             A          A          _Z       _Z      A
 #> 5:    R10XX             R             A          A          _Z       _Z      A
 #> 6:    R10XX             R             A          A          _Z       _Z      A
-#>    time_format decimals    unit unit_mult category
-#>         <char>    <int>  <char>    <char>   <char>
-#> 1:         P1D        2 PROZENT         0     ZRZS
-#> 2:         P1D        2 PROZENT         0     ZRZS
-#> 3:         P1D        2 PROZENT         0     ZRZS
-#> 4:         P1D        2 PROZENT         0     ZRZS
-#> 5:         P1D        2 PROZENT         0     ZRZS
-#> 6:         P1D        2 PROZENT         0     ZRZS
+#>    time_format decimals   unit unit_mult category
+#>         <char>    <int> <char>    <char>   <char>
+#> 1:         P1D        2   <NA>         0     ZRZS
+#> 2:         P1D        2   <NA>         0     ZRZS
+#> 3:         P1D        2   <NA>         0     ZRZS
+#> 4:         P1D        2   <NA>         0     ZRZS
+#> 5:         P1D        2   <NA>         0     ZRZS
+#> 6:         P1D        2   <NA>         0     ZRZS
 
 # or only specify the start date
 data = bbk_data(
@@ -339,13 +339,13 @@ head(data)
 #> 4:    R10XX             R             A          A          _Z       _Z      A
 #> 5:    R10XX             R             A          A          _Z       _Z      A
 #> 6:    R10XX             R             A          A          _Z       _Z      A
-#>    time_format decimals    unit unit_mult category
-#>         <char>    <int>  <char>    <char>   <char>
-#> 1:         P1D        2 PROZENT         0     ZRZS
-#> 2:         P1D        2 PROZENT         0     ZRZS
-#> 3:         P1D        2 PROZENT         0     ZRZS
-#> 4:         P1D        2 PROZENT         0     ZRZS
-#> 5:         P1D        2 PROZENT         0     ZRZS
-#> 6:         P1D        2 PROZENT         0     ZRZS
+#>    time_format decimals   unit unit_mult category
+#>         <char>    <int> <char>    <char>   <char>
+#> 1:         P1D        2   <NA>         0     ZRZS
+#> 2:         P1D        2   <NA>         0     ZRZS
+#> 3:         P1D        2   <NA>         0     ZRZS
+#> 4:         P1D        2   <NA>         0     ZRZS
+#> 5:         P1D        2   <NA>         0     ZRZS
+#> 6:         P1D        2   <NA>         0     ZRZS
 # }
 ```

@@ -130,11 +130,11 @@ Other data:
 bis_data("WS_CBPOL", "M.CH", last_n = 5L)
 #>          date    key value    freq
 #>        <Date> <char> <num>  <char>
-#> 1: 2026-01-01   M.CH     0 monthly
-#> 2: 2026-02-01   M.CH     0 monthly
-#> 3: 2026-03-01   M.CH     0 monthly
-#> 4: 2026-04-01   M.CH     0 monthly
-#> 5: 2026-05-01   M.CH     0 monthly
+#> 1: 2026-02-01   M.CH     0 monthly
+#> 2: 2026-03-01   M.CH     0 monthly
+#> 3: 2026-04-01   M.CH     0 monthly
+#> 4: 2026-05-01   M.CH     0 monthly
+#> 5: 2026-06-01   M.CH     0 monthly
 #>                                                                title ref_area
 #>                                                               <char>   <char>
 #> 1: Central bank policy rates - Switzerland - Monthly - End of period       CH

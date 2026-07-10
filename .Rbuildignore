@@ -32,10 +32,10 @@
 ^cran-comments\.md$
 ^data-raw$
 ^docs?$
-^talks$
 ^inst/extdata/.+\.R$
 ^man-roxygen$
 ^paper$
 ^pkgdown$
 ^revdep$
+^talks$
 ^vignettes/articles$

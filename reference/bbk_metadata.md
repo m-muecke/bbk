@@ -168,6 +168,7 @@ bbk_metadata("datastructure")
 #> 81:         BBK_ES_FDI
 #> 82:         BBK_WACAAF
 #> 83:          BBK_EXPR2
+#> 84:            BBK_QFS
 #>                     id
 #>                 <char>
 #>                                                                                                                                                name
@@ -255,6 +256,7 @@ bbk_metadata("datastructure")
 #> 81:                                                                                                          FDI Data Structure Definition (18-DIM)
 #> 82:                                                                        Statistics of negotiated wages - Aggregates and forecasts of time series
 #> 83:                                                                                           Consumer Prices of foreign countries (incl. ECOICOP2)
+#> 84:                                                                                                                             Financial stability
 #>                                                                                                                                                name
 #>                                                                                                                                              <char>
 bbk_metadata("dataflow", "BBSIS")

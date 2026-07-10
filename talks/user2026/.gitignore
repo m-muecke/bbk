@@ -1,0 +1,8 @@
+# Quarto / knitr render artifacts
+/.quarto/
+*_cache/
+*_files/
+bbk-user2026.html
+bbk-user2026.pdf
+
+**/*.quarto_ipynb

@@ -1,0 +1,238 @@
+---
+title: "bbk: Accessing Central Bank Data in R"
+subtitle: "One interface for 17 central banks"
+author:
+  - name: Maximilian Mücke
+    affiliations:
+      - name: LMU Munich
+date: 2026-07-07
+date-format: "[useR! 2026 · Warsaw ·] YYYY-MM-DD"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    embed-resources: true
+    transition: none
+    slide-number: "c/t"
+    progress: false
+    footer: "useR! 2026"
+    incremental: false
+    code-overflow: wrap
+    code-line-numbers: true
+    highlight-style: arrow
+    fig-width: 9
+    fig-height: 4.3
+    fig-align: center
+    fig-dpi: 150
+knitr:
+  opts_chunk:
+    echo: true
+    message: false
+    warning: false
+    cache: true
+    dev: png
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| cache: false
+library(bbk)
+library(ggplot2)
+library(scales)
+library(data.table)
+
+# Okabe-Ito: color-blind safe
+ok = c(ECB = "#0072B2", BoE = "#D55E00", Riksbank = "#009E73")
+
+# refined house style (matches the package README), sized for slides
+theme_set(
+  theme_minimal(base_size = 20) +
+    theme(
+      plot.title = element_text(face = "bold", color = "#073b6c"),
+      plot.caption = element_text(
+        hjust = 0,
+        vjust = 0,
+        size = 13,
+        color = "#5b6470",
+        margin = margin(10, 0, 0, 0)
+      ),
+      panel.grid.major.y = element_line(color = "black", linewidth = 0.2),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor = element_blank(),
+      axis.text = element_text(color = "black"),
+      axis.title = element_blank(),
+      legend.position = "top",
+      legend.title = element_blank()
+    )
+)
+```
+
+## Central bank data is everywhere {.smaller}
+
+Policy rates, FX, yields, inflation — the backbone of economic research and
+financial modelling.
+
+. . .
+
+But **every institution speaks its own dialect:**
+
+| Institution | API style | Identifiers |
+|---|---|---|
+| ECB · Bundesbank · BIS · Norges Bank | SDMX | dotted keys |
+| Czech NB · NBP · Riksbank · Banco de España | JSON REST | series codes |
+| Bank of Canada | Valet JSON | series codes |
+| Banco Central do Brasil | OData / Olinda | numeric codes |
+| Banco de México | token REST | series tokens |
+| Bank of Japan | stat-search JSON | db + series code |
+| Bank of England | custom CSV | series codes |
+| Banque de France | webstat CSV | dataset keys |
+| Banco de Portugal | BPstat JSON | series ids |
+| Österreichische Nationalbank | custom XML | hierarchy + key |
+| Swiss National Bank | custom CSV / JSON | table ids |
+
+Different base URLs, auth, formats, pagination → **access is painful.**
+
+## `bbk`: one interface for all of them {.smaller}
+
+17 central banks and growing, the **same verbs** everywhere:
+
+```r
+ecb_data(flow, key)      # fetch a time series
+ecb_metadata("dataflow") # browse the catalog
+ecb_dimension(id)        # explore a series' dimensions
+```
+
+Every call returns the same tidy `data.table` — swap the `ecb_` prefix for any
+bank below:
+
+```{r}
+#| label: one-interface
+#| R.options: !expr list(width = 100)
+ecb_data("FM", "B.U2.EUR.4F.KR.DFR.LEV", last_n = 4)[, .(date, freq, title, value)]
+```
+
+```{=html}
+<div class="banks">
+<span>BCB</span><span>BdE</span><span>Banxico</span><span>BdP</span><span>BIS</span><span>BoC</span>
+<span>BoE</span><span>BoJ</span><span>BdF</span><span>CNB</span><span>BBk</span><span>ECB</span>
+<span>NBP</span><span>NoB</span><span>SRb</span><span>SNB</span><span>OeNB</span><span>+…</span>
+</div>
+```
+
+## Go from identifier to plot in seconds {.smaller}
+
+```{r}
+#| label: yield
+#| out-width: "100%"
+#| fig-alt: "Line chart of the German 10-year government bond yield from 2015
+#|   to 2026, rising from below zero around 2020 to roughly 2.5 percent."
+yield = bbk_data(
+  flow = "BBSIS", key = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A",
+  start_period = "2015-01-01"
+)
+
+ggplot(yield, aes(date, value)) +
+  geom_line(color = "#1b2a3a", linewidth = 0.7) +
+  scale_y_continuous(labels = label_percent(scale = 1)) +
+  labs(
+    title = "German 10-year government bond yield",
+    caption = sprintf("Source: Deutsche Bundesbank (BBSIS), %s.", format(max(yield$date), "%B %Y"))
+  )
+```
+
+## Don't know the code? Search for it {.smaller}
+
+Query the catalog with `*_metadata()`, then filter by plain-language name:
+
+```{=html}
+<div class="discover-flow">
+  <span class="stage">search "exchange rate"</span>
+  <span class="arrow">→</span>
+  <span class="stage hit">BBEX3</span>
+  <span class="arrow">→</span>
+  <span class="stage go">bbk_data()</span>
+  <span class="arrow">→</span>
+  <span class="stage chart">tidy data.table</span>
+</div>
+```
+
+```{r}
+#| label: discover
+flows = bbk_metadata("dataflow")
+flows[name %ilike% "exchange rate", .(id, name = substr(name, 1, 33))]
+
+bbk_data("BBEX3", "D.USD.EUR.BB.AC.000", last_n = 4)[, .(date, key, freq, value)]
+```
+
+## Same shape, every bank {.smaller}
+
+Three central banks, three near-identical calls, one tidy `data.table` each:
+
+```{r}
+#| label: policy-rates
+#| output-location: column
+#| out-width: "100%"
+#| fig-width: 9
+#| fig-height: 5.5
+#| fig-alt: "Step chart comparing policy rates of the ECB, Bank of England and
+#|   Sveriges Riksbank from 2015 to 2026: all near zero until 2022, then a sharp
+#|   rise, with the Bank of England highest around 4-5 percent."
+from = "2015-01-01"
+ecb = ecb_data(
+  flow = "FM", key = "B.U2.EUR.4F.KR.DFR.LEV",
+  start_period = from
+)
+boe = boe_data("IUDBEDR", start_date = from)
+srb = srb_data("SECBREPOEFF", start_date = from)
+
+# each *_data() is a tidy data.table -> stack them
+rates = rbindlist(
+  list(ECB = ecb, BoE = boe, Riksbank = srb),
+  idcol = "bank",
+  fill = TRUE
+)
+
+ggplot(rates, aes(date, value, color = bank)) +
+  geom_step(linewidth = 1.1) +
+  scale_color_manual(values = ok) +
+  scale_y_continuous(labels = label_percent(scale = 1)) +
+  labs(
+    title = "Central bank policy rates",
+    caption = sprintf(
+      "Source: ECB, Bank of England, Sveriges Riksbank, %s.",
+      format(max(rates$date), "%B %Y")
+    )
+  )
+```
+
+## Take it home {.smaller}
+
+::: {.lead}
+One interface · 17 central banks · tidy output · reproducible.
+:::
+
+:::: {.columns}
+::: {.column width="62%"}
+```r
+install.packages("bbk")
+```
+
+```{=html}
+<div class="links">
+<a href="https://cran.r-project.org/package=bbk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span><strong>CRAN</strong>: <code>bbk</code></span></a>
+<a href="https://m-muecke.github.io/bbk/"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span><strong>Docs</strong>: m-muecke.github.io/bbk</span></a>
+<a href="https://github.com/m-muecke/bbk"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><span><strong>Source</strong>: github.com/m-muecke/bbk</span></a>
+</div>
+```
+
+*Want another central bank? Open an issue.*
+:::
+
+::: {.column width="38%"}
+::: {.qr}
+![](qr-bbk.png){width="62%" fig-alt="QR code linking to the bbk documentation website at m-muecke.github.io/bbk"}
+
+Scan for the docs
+:::
+:::
+::::

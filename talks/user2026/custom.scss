@@ -1,0 +1,344 @@
+/*-- scss:defaults --*/
+
+// System font stack so the deck stays self-contained / offline (no web fonts)
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif !default;
+$font-family-monospace: "SFMono-Regular", "JetBrains Mono", Menlo, Consolas,
+  monospace !default;
+
+// Palette: disciplined navy + single accent + greys (color-blind safe)
+$navy: #0a3d62;
+$accent: #1f6feb;
+$ink: #1b2a3a;
+$muted: #7a8694;
+$rule: #e4e9f0;
+
+$body-color: $ink;
+$body-bg: #ffffff;
+$presentation-font-size-root: 34px;
+$presentation-heading-color: $navy;
+$presentation-heading-font-weight: 700;
+$link-color: $accent;
+$code-block-font-size: 0.6em;
+$code-color: $navy;
+
+/*-- scss:rules --*/
+
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal p,
+.reveal li {
+  color: $ink;
+  line-height: 1.4;
+}
+
+// --- Action-title treatment: accent tab above, hairline rule below ---
+.reveal h1,
+.reveal h2 {
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+}
+.reveal .slides section > h2 {
+  font-size: 1.4em;
+  color: $navy;
+  margin-bottom: 0.55em;
+  padding-bottom: 0.22em;
+  border-bottom: 3px solid $rule;
+}
+.reveal .slides section.smaller > h2 {
+  font-size: 1.25em;
+}
+
+// --- Title slide ---
+#title-slide {
+  text-align: left;
+}
+#title-slide .title {
+  font-size: 1.65em;
+  color: $navy;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+#title-slide .subtitle {
+  color: #4a5563;
+  font-weight: 500;
+  font-size: 0.84em;
+  margin-top: 0.35em;
+}
+#title-slide .quarto-title-authors {
+  margin-top: 1.3em;
+  padding-top: 1em;
+  border-top: 1px solid $rule;
+  justify-content: flex-start;
+  display: block;
+}
+#title-slide .author,
+#title-slide .quarto-title-author-name {
+  color: $ink;
+  font-weight: 600;
+}
+#title-slide .quarto-title-affiliation,
+#title-slide .affiliation {
+  color: #5b6470;
+  font-size: 0.72em;
+  font-weight: 400;
+}
+#title-slide .date {
+  color: #4a5563;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-top: 0.7em;
+}
+
+// --- Code blocks: clean card framing ---
+// Frame the outer wrapper rather than the inner <pre>: div.sourceCode has
+// overflow:auto, which clips a rounded border on a child into square corners.
+// A border on the wrapper itself is never clipped by its own overflow.
+.reveal div.sourceCode {
+  border: 1px solid $rule;
+  border-radius: 8px;
+}
+.reveal pre {
+  box-shadow: none;
+  border: none;
+  border-radius: 8px;
+}
+.reveal pre code {
+  padding: 0.6em 0.9em;
+  line-height: 1.4;
+  border-radius: 8px;
+}
+
+// Slide 3 executed chunk: keep the one-line call and its output on single lines
+// (the descriptive `title` column is wide) without wrapping.
+#bbk-one-interface-for-all-of-them .cell pre code {
+  white-space: pre !important;
+}
+// Breathing room between the output table and the bank chips below it
+#bbk-one-interface-for-all-of-them .banks {
+  margin-top: 1.4em;
+}
+
+// Slide 5's code reads small next to slide 4 — enlarge it (>1em is relative to
+// the <pre>, whose base is already shrunk, so this scales the code up).
+#dont-know-the-code-search-for-it .cell pre code {
+  font-size: 1.25em;
+}
+
+// Let long lines wrap inside narrow side-by-side code columns
+.reveal .column-output-location pre code,
+.reveal .column-output-location pre.sourceCode code {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+}
+
+// ...except on the side-by-side code+chart slide, keep code on one line
+#same-shape-every-bank .column-output-location pre code,
+#same-shape-every-bank .column-output-location pre.sourceCode code {
+  white-space: pre !important;
+  overflow-wrap: normal !important;
+}
+
+// Give the code column a fixed width and hand the freed-up space to the chart
+// column, enlarging it.
+#same-shape-every-bank .column-output-location {
+  > .column:first-child {
+    flex: 0 0 45%;
+  }
+  > .column:last-child {
+    flex: 1 1 auto;
+  }
+}
+#same-shape-every-bank .column-output-location .column:first-child .sourceCode {
+  overflow: visible !important;
+}
+// Keep the code compact in the narrow column, but not too small to read.
+#same-shape-every-bank .column-output-location .column:first-child pre code {
+  font-size: 0.88em;
+}
+
+// Vertically center the chart against the (taller) code column
+.reveal .column-output-location {
+  align-items: center;
+}
+.reveal code {
+  color: $navy;
+}
+
+// --- Figures centered, with a touch of breathing room ---
+.reveal .slides section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal figure {
+  text-align: center;
+}
+
+// --- Source captions under charts/tables ---
+.source,
+.source p {
+  color: $muted;
+  font-size: 0.6em;
+  line-height: 1.3;
+  margin-top: 0.5em;
+  font-style: normal;
+}
+
+// --- Footer + slide number ---
+.reveal .footer,
+.reveal .footer p {
+  color: $muted;
+  font-size: 0.72em !important;
+}
+.reveal .slide-number,
+.reveal .slide-number a {
+  color: $muted;
+  background: transparent;
+  font-size: 18px !important;
+}
+
+// --- Grid of central bank abbreviations: ghost / outline chips ---
+.banks {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.4em;
+  margin-top: 0.6em;
+}
+.banks span {
+  background: transparent;
+  color: $navy;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0.32em 0.15em;
+  border-radius: 6px;
+  border: 1px solid rgba(10, 61, 98, 0.35);
+}
+
+// --- Tables: clean, ruled, left-aligned ---
+.reveal table {
+  font-size: 0.76em;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal table th {
+  color: $navy;
+  border-bottom: 2px solid $navy;
+  text-align: left;
+  padding: 0.3em 0.6em 0.3em 0;
+}
+.reveal table td {
+  border: none;
+  padding: 0.3em 0.6em 0.3em 0;
+}
+.reveal table tbody tr {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+// Breathing room between the institutions table and the takeaway line below it
+#central-bank-data-is-everywhere table {
+  margin-bottom: 1.8em;
+}
+
+// Keep the (wide) institution column on a single line — let it claim the space,
+// with extra breathing room before the API-style column
+#central-bank-data-is-everywhere table th:first-child,
+#central-bank-data-is-everywhere table td:first-child {
+  white-space: nowrap;
+  padding-right: 2em;
+}
+
+// --- Lead / takeaway line ---
+.lead {
+  font-size: 1.1em;
+  line-height: 1.5;
+  color: $navy;
+  font-weight: 600;
+}
+
+.arrow {
+  color: $accent;
+  font-weight: 700;
+}
+
+// --- Discovery slide: "big catalog -> grep -> the one dataset" funnel ---
+.discover-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.8em 0 0.9em;
+}
+.discover-flow .stage {
+  background: #f1f5fb;
+  border: 1px solid rgba(10, 61, 98, 0.2);
+  border-radius: 8px;
+  padding: 0.32em 0.75em;
+  color: $navy;
+  font-weight: 600;
+  white-space: nowrap;
+}
+// Only the found dataset is highlighted; every other step is a plain chip
+.discover-flow .stage.hit {
+  background: $navy;
+  color: #ffffff;
+  border-color: $navy;
+}
+// The code-ish steps keep a monospace face, but no extra colour
+.discover-flow .stage.go {
+  font-family: "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+.discover-flow .arrow {
+  color: $accent;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+// --- Take-it-home: icon links + QR ---
+.reveal #take-it-home .columns {
+  align-items: center;
+}
+// Keep the full-width takeaway line on a single row
+.reveal #take-it-home .lead {
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+.reveal .links {
+  margin: 0.7em 0 0.9em;
+}
+.reveal .links a {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  color: $ink;
+  text-decoration: none;
+  margin: 0.28em 0;
+  line-height: 1.2;
+}
+.reveal .links a strong {
+  color: $navy;
+}
+.reveal .links .ic {
+  width: 1.05em;
+  height: 1.05em;
+  color: #000000;
+  flex: 0 0 auto;
+}
+.reveal .qr {
+  text-align: center;
+  margin-top: 2.6em;
+}
+.reveal .qr img {
+  border: 1px solid $rule;
+  border-radius: 8px;
+  margin-bottom: 0.4em;
+}
+.reveal .qr p {
+  color: $muted;
+  font-size: 0.7em;
+  margin: 0;
+}

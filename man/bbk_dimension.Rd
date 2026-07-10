@@ -4,7 +4,7 @@
 \alias{bbk_dimension}
 \title{Fetch Deutsche Bundesbank (BBk) dimensions}
 \source{
-\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
+\url{https://api.statistiken.bundesbank.de/}
 }
 \usage{
 bbk_dimension(id)

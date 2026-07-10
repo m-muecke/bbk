@@ -31,7 +31,7 @@ bbk is minimal R client for the following APIs:
   (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
 - [Czech National Bank (CNB)](https://api.cnb.cz/cnbapi/swagger-ui.html)
 - [Deutsche Bundesbank
-  (BBk)](https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service)
+  (BBk)](https://api.statistiken.bundesbank.de/)
 - [European Central Bank
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
 - [National Bank of Poland (NBP)](https://api.nbp.pl/en.html)

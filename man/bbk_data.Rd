@@ -4,7 +4,7 @@
 \alias{bbk_data}
 \title{Fetch Deutsche Bundesbank (BBk) data}
 \source{
-\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data}
+\url{https://api.statistiken.bundesbank.de/}
 }
 \usage{
 bbk_data(

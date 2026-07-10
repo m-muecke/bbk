@@ -4,7 +4,7 @@
 \alias{bbk_metadata}
 \title{Fetch Deutsche Bundesbank (BBk) metadata}
 \source{
-\url{https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata}
+\url{https://api.statistiken.bundesbank.de/}
 }
 \usage{
 bbk_metadata(type, id = NULL, lang = "en")

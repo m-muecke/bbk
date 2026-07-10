@@ -31,7 +31,7 @@
 #'   `"2024-06-01T00:00:00"`). Useful for incremental retrieval. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
-#' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-data>
+#' @source <https://api.statistiken.bundesbank.de/>
 #' @family data
 #' @export
 #' @examplesIf curl::has_internet()
@@ -130,7 +130,7 @@ bbk_series = function(key) {
 #' The columns are:
 #'   \item{id}{The id of the metadata}
 #'   \item{name}{The name of the metadata}
-#' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
+#' @source <https://api.statistiken.bundesbank.de/>
 #' @family metadata
 #' @export
 #' @examplesIf curl::has_internet()
@@ -164,7 +164,7 @@ bbk_metadata = function(type, id = NULL, lang = "en") {
 #'   \item{id}{The dimension id (e.g., `"BBK_STD_FREQ"`, `"BBK_STD_AREA"`)}
 #'   \item{position}{The position of the dimension in the series key}
 #'   \item{codelist}{The id of the associated codelist}
-#' @source <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
+#' @source <https://api.statistiken.bundesbank.de/>
 #' @family metadata
 #' @export
 #' @examplesIf curl::has_internet()
@@ -305,7 +305,7 @@ bbk_error_body = function(resp) {
   content_type = resp_content_type(resp)
   if (identical(content_type, "application/json")) {
     msg = resp_body_json(resp)$title
-    docs = "See docs at <https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/status-codes/status-codes-855918>" # nolint
+    docs = "See docs at <https://api.statistiken.bundesbank.de/doc/index.html>" # nolint
     c(msg, docs)
   }
 }

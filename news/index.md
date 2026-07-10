@@ -1,6 +1,6 @@
 # Changelog
 
-## bbk (development version)
+## bbk 0.12.0
 
 - [`bcb_data()`](https://m-muecke.github.io/bbk/reference/bcb_data.md),
   [`bcb_currencies()`](https://m-muecke.github.io/bbk/reference/bcb_currencies.md),

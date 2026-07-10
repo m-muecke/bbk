@@ -11,7 +11,7 @@ bbk_metadata(type, id = NULL, lang = "en")
 
 ## Source
 
-<https://www.bundesbank.de/en/statistics/time-series-databases/help-for-sdmx-web-service/web-service-interface-metadata>
+<https://api.statistiken.bundesbank.de/>
 
 ## Arguments
 

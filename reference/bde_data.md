@@ -347,11 +347,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4: 2025-04-01 08:15:00        DTNPDE2010_P0000P_PS_APU 103.4      Q
 #>   5: 2025-01-01 09:15:00        DTNPDE2010_P0000P_PS_APU 103.3      Q
 #>  ---                                                                 
-#> 242: 1996-10-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -5.9      Q
-#> 243: 1996-07-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -6.5      Q
-#> 244: 1996-04-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -5.8      Q
-#> 245: 1996-01-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -3.7      Q
-#> 246: 1995-10-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -2.1      Q
+#> 243: 1996-10-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -5.9      Q
+#> 244: 1996-07-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -6.5      Q
+#> 245: 1996-04-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -5.8      Q
+#> 246: 1996-01-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -3.7      Q
+#> 247: 1995-10-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -2.1      Q
 #>                                          title
 #>                                         <char>
 #>   1: EDP debt. General government. % of GDP mp
@@ -360,11 +360,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4: EDP debt. General government. % of GDP mp
 #>   5: EDP debt. General government. % of GDP mp
 #>  ---                                          
-#> 242:            Deficit. Gen. Gov. % of GDP mp
 #> 243:            Deficit. Gen. Gov. % of GDP mp
 #> 244:            Deficit. Gen. Gov. % of GDP mp
 #> 245:            Deficit. Gen. Gov. % of GDP mp
 #> 246:            Deficit. Gen. Gov. % of GDP mp
+#> 247:            Deficit. Gen. Gov. % of GDP mp
 #>                                                                                   description
 #>                                                                                        <char>
 #>   1:                           General government debt according to the EDP. Ratio over GDPmp
@@ -373,11 +373,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                           General government debt according to the EDP. Ratio over GDPmp
 #>   5:                           General government debt according to the EDP. Ratio over GDPmp
 #>  ---                                                                                         
-#> 242: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #> 243: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #> 244: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #> 245: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #> 246: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
+#> 247: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #>      decimals symbol          start_date            end_date
 #>         <int> <char>              <POSc>              <POSc>
 #>   1:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
@@ -386,11 +386,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
 #>   5:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
 #>  ---                                                        
-#> 242:        1      % 1995-10-01 09:15:00 2025-10-01 08:15:00
-#> 243:        1      % 1995-10-01 09:15:00 2025-10-01 08:15:00
-#> 244:        1      % 1995-10-01 09:15:00 2025-10-01 08:15:00
-#> 245:        1      % 1995-10-01 09:15:00 2025-10-01 08:15:00
-#> 246:        1      % 1995-10-01 09:15:00 2025-10-01 08:15:00
+#> 243:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
+#> 244:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
+#> 245:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
+#> 246:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
+#> 247:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
 #>                                                                                           long_description
 #>                                                                                                     <char>
 #>   1: General Government. Debt according to EDP. EDP debt. General Government. Ratio over cumulated GDP mp.
@@ -399,11 +399,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4: General Government. Debt according to EDP. EDP debt. General Government. Ratio over cumulated GDP mp.
 #>   5: General Government. Debt according to EDP. EDP debt. General Government. Ratio over cumulated GDP mp.
 #>  ---                                                                                                      
-#> 242:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #> 243:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #> 244:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #> 245:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #> 246:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
+#> 247:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #>        unit
 #>      <char>
 #>   1:   Rate
@@ -412,11 +412,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:   Rate
 #>   5:   Rate
 #>  ---       
-#> 242:   Rate
 #> 243:   Rate
 #> 244:   Rate
 #> 245:   Rate
 #> 246:   Rate
+#> 247:   Rate
 #>                                                                              source
 #>                                                                              <char>
 #>   1:                                                                           <NA>
@@ -425,11 +425,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                                                                           <NA>
 #>   5:                                                                           <NA>
 #>  ---                                                                               
-#> 242: General Comptroller of the State Administration. National Statistics Institute
 #> 243: General Comptroller of the State Administration. National Statistics Institute
 #> 244: General Comptroller of the State Administration. National Statistics Institute
 #> 245: General Comptroller of the State Administration. National Statistics Institute
 #> 246: General Comptroller of the State Administration. National Statistics Institute
+#> 247: General Comptroller of the State Administration. National Statistics Institute
 #>                                                                                                               related_series_pdf_table
 #>                                                                                                                                 <char>
 #>   1:                                                                                                                              <NA>
@@ -438,11 +438,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                                                                                                                              <NA>
 #>   5:                                                                                                                              <NA>
 #>  ---                                                                                                                                  
-#> 242: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #> 243: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #> 244: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #> 245: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #> 246: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
+#> 247: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #>                                                                                                                related_series_excel_file
 #>                                                                                                                                   <char>
 #>   1:                                                                                                                                <NA>
@@ -451,11 +451,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                                                                                                                                <NA>
 #>   5:                                                                                                                                <NA>
 #>  ---                                                                                                                                    
-#> 242: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 #> 243: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 #> 244: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 #> 245: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 #> 246: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
+#> 247: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #>                   date                                               key  value
 #>                 <POSc>                                            <char>  <int>

@@ -93,8 +93,8 @@ Other data:
 ``` r
 # \donttest{
 nbp_fx_rates("a", "eur")
-#>          date   code currency   mid
-#>        <Date> <char>   <char> <num>
-#> 1: 2026-07-08    EUR     euro 4.308
+#>          date   code currency    mid
+#>        <Date> <char>   <char>  <num>
+#> 1: 2026-07-09    EUR     euro 4.3069
 # }
 ```

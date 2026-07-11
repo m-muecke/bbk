@@ -2,6 +2,8 @@
 
 ## bbk 0.12.0
 
+CRAN release: 2026-07-10
+
 - [`bcb_data()`](https://m-muecke.github.io/bbk/reference/bcb_data.md),
   [`bcb_currencies()`](https://m-muecke.github.io/bbk/reference/bcb_currencies.md),
   [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md),

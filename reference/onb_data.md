@@ -111,11 +111,11 @@ onb_data(hier_id = 11, key = "VDBFKBSC217000")
 #>   4:    2001 VDBFKBSC217000  5538      A Loans to euro area residents - total
 #>   5:    2002 VDBFKBSC217000  7815      A Loans to euro area residents - total
 #>  ---                                                                         
-#> 365: 2026-01 VDBFKBSC217000  1823      M Loans to euro area residents - total
 #> 366: 2026-02 VDBFKBSC217000  2123      M Loans to euro area residents - total
 #> 367: 2026-03 VDBFKBSC217000  2120      M Loans to euro area residents - total
 #> 368: 2026-04 VDBFKBSC217000  2117      M Loans to euro area residents - total
 #> 369: 2026-05 VDBFKBSC217000  2180      M Loans to euro area residents - total
+#> 370: 2026-06 VDBFKBSC217000  2444      M Loans to euro area residents - total
 #>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim
 #>      <char>  <char> <char> <char>    <char>       <char>    <char>    <char>
 #>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
@@ -124,11 +124,11 @@ onb_data(hier_id = 11, key = "VDBFKBSC217000")
 #>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #>  ---                                                                        
-#> 365:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 366:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 367:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 368:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 369:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
+#> 370:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #>      unit_mult        unit_text
 #>         <char>           <char>
 #>   1:         6 in millions Euro
@@ -137,11 +137,11 @@ onb_data(hier_id = 11, key = "VDBFKBSC217000")
 #>   4:         6 in millions Euro
 #>   5:         6 in millions Euro
 #>  ---                           
-#> 365:         6 in millions Euro
 #> 366:         6 in millions Euro
 #> 367:         6 in millions Euro
 #> 368:         6 in millions Euro
 #> 369:         6 in millions Euro
+#> 370:         6 in millions Euro
 
 # Loans to euro area residents, since 2000:
 onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
@@ -153,11 +153,11 @@ onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
 #>   4:    2003 VDBFKBSC217000  6933      A Loans to euro area residents - total
 #>   5:    2004 VDBFKBSC217000 10963      A Loans to euro area residents - total
 #>  ---                                                                         
-#> 339: 2026-01 VDBFKBSC217000  1823      M Loans to euro area residents - total
 #> 340: 2026-02 VDBFKBSC217000  2123      M Loans to euro area residents - total
 #> 341: 2026-03 VDBFKBSC217000  2120      M Loans to euro area residents - total
 #> 342: 2026-04 VDBFKBSC217000  2117      M Loans to euro area residents - total
 #> 343: 2026-05 VDBFKBSC217000  2180      M Loans to euro area residents - total
+#> 344: 2026-06 VDBFKBSC217000  2444      M Loans to euro area residents - total
 #>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim
 #>      <char>  <char> <char> <char>    <char>       <char>    <char>    <char>
 #>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
@@ -166,11 +166,11 @@ onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
 #>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #>  ---                                                                        
-#> 339:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 340:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 341:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 342:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #> 343:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
+#> 344:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
 #>      unit_mult        unit_text
 #>         <char>           <char>
 #>   1:         6 in millions Euro
@@ -179,11 +179,11 @@ onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
 #>   4:         6 in millions Euro
 #>   5:         6 in millions Euro
 #>  ---                           
-#> 339:         6 in millions Euro
 #> 340:         6 in millions Euro
 #> 341:         6 in millions Euro
 #> 342:         6 in millions Euro
 #> 343:         6 in millions Euro
+#> 344:         6 in millions Euro
 
 # Austrian imports and exports of goods from/to Germany, 2002–2012, annual frequency:
 onb_data(hier_id = 901, key = "VDBQZA1000", start_period = 2002, end_period = 2012, freq = "A")

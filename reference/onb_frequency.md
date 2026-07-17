@@ -81,9 +81,9 @@ onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
 #> 3:      M Jan.  80 - May  26 VDBOSBHAGBSTIN      N     AT     Z5     01
 #> 4:      A        2013 - 2023 VDBOSBHAGBSTIN      N     AT     Z5     02
 onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
-#>      freq          available            pos  dval1   dval2  dval3  dval4
-#>    <char>             <char>         <char> <char>  <char> <char> <char>
-#> 1:      A        1998 - 2025 VDBFKBSC217000     AT 00100KI     AT    Z0Z
-#> 2:      M Jan.  98 - May  26 VDBFKBSC217000     AT 00100KI     AT    Z0Z
+#>      freq           available            pos  dval1   dval2  dval3  dval4
+#>    <char>              <char>         <char> <char>  <char> <char> <char>
+#> 1:      A         1998 - 2025 VDBFKBSC217000     AT 00100KI     AT    Z0Z
+#> 2:      M Jan.  98 - June  26 VDBFKBSC217000     AT 00100KI     AT    Z0Z
 # }
 ```

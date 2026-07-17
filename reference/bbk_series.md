@@ -142,11 +142,11 @@ bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>   4: 2000-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
 #>   5: 2000-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
 #>  ---                                                            
-#> 102: 2024-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
 #> 103: 2025-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.2 quarterly
 #> 104: 2025-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
 #> 105: 2025-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
 #> 106: 2025-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.9 quarterly
+#> 107: 2026-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.7 quarterly
 #>                                                                                       title
 #>                                                                                      <char>
 #>   1: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
@@ -155,24 +155,24 @@ bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>   4: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #>   5: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #>  ---                                                                                       
-#> 102: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #> 103: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #> 104: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #> 105: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #> 106: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
+#> 107: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #>      category   unit unit_mult         last_update comment source
 #>        <char> <char>    <char>              <char>  <char> <char>
-#>   1:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#>   2:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#>   3:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#>   4:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#>   5:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
+#>   1:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#>   2:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#>   3:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#>   4:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#>   5:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 #>  ---                                                             
-#> 102:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#> 103:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#> 104:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#> 105:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
-#> 106:     FIF2   Euro  Billions 2026-05-11 10:52:13    <NA>   <NA>
+#> 103:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#> 104:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#> 105:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#> 106:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#> 107:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 bbk_series("BBBK11.D.TTA000")
 #>             date             key  value   freq
 #>           <Date>          <char> <char> <char>
@@ -182,11 +182,11 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: 1999-01-22 BBBK11.D.TTA000  27475  daily
 #>    5: 1999-01-29 BBBK11.D.TTA000  27475  daily
 #>   ---                                         
-#> 1433: 2026-06-05 BBBK11.D.TTA000 430050  daily
 #> 1434: 2026-06-12 BBBK11.D.TTA000 430050  daily
 #> 1435: 2026-06-19 BBBK11.D.TTA000 430050  daily
 #> 1436: 2026-06-26 BBBK11.D.TTA000 430050  daily
 #> 1437: 2026-07-03 BBBK11.D.TTA000 380732  daily
+#> 1438: 2026-07-10 BBBK11.D.TTA000 380732  daily
 #>                                                              title category
 #>                                                             <char>   <char>
 #>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
@@ -195,23 +195,23 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>   ---                                                                      
-#> 1433: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1434: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1435: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1436: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1437: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
+#> 1438: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
-#>    1:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#>    2:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#>    3:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#>    4:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#>    5:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
+#>    1:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#>    2:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#>    3:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#>    4:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#>    5:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
 #>   ---                                                    
-#> 1433:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#> 1434:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#> 1435:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#> 1436:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
-#> 1437:   EURO  Millions 2026-07-09 12:50:05    <NA>   <NA>
+#> 1434:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#> 1435:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#> 1436:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#> 1437:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
+#> 1438:   EURO  Millions 2026-07-15 15:19:21    <NA>   <NA>
 # }
 ```

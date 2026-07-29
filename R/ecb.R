@@ -99,14 +99,8 @@ ecb_data = function(
 #' }
 ecb_metadata = function(type, agency = NULL, id = NULL) {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
-  args = switch(
-    type,
-    datastructure = list("datastructure", "//str:DataStructure"),
-    dataflow = list("dataflow", "//str:Dataflow"),
-    codelist = list("codelist", "//str:Codelist"),
-    concept = list("conceptscheme", "//str:ConceptScheme")
-  )
-  do.call(fetch_ecb_metadata, c(args, list(agency, id)))
+  meta = sdmx_metadata_type(type)
+  fetch_ecb_metadata(meta$resource, meta$xpath, agency, id)
 }
 
 #' Fetch European Central Bank (ECB) dimensions

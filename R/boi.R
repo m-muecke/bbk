@@ -86,21 +86,14 @@ boi_metadata = function(type, id = NULL, lang = "en") {
   assert_string(id, min.chars = 1L, null.ok = TRUE)
   assert_choice(lang, c("en", "he"))
 
-  xpath = switch(
-    type,
-    datastructure = "//str:DataStructure",
-    dataflow = "//str:Dataflow",
-    codelist = "//str:Codelist",
-    concept = "//str:ConceptScheme"
-  )
-  type = if (type == "concept") "conceptscheme" else type
+  meta = sdmx_metadata_type(type)
   resource = if (is.null(id)) {
-    paste(type, "BOI.STATISTICS", sep = "/")
+    paste(meta$resource, "BOI.STATISTICS", sep = "/")
   } else {
-    paste(type, "BOI.STATISTICS", toupper(id), sep = "/")
+    paste(meta$resource, "BOI.STATISTICS", toupper(id), sep = "/")
   }
   xml = boi(resource)
-  entries = xml2::xml_find_all(xml, xpath)
+  entries = xml2::xml_find_all(xml, meta$xpath)
   sdmx_metadata(entries, lang)
 }
 

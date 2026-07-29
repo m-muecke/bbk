@@ -88,17 +88,14 @@ nob_metadata = function(type, id = NULL, lang = "en") {
   assert_string(id, min.chars = 1L, null.ok = TRUE)
   assert_choice(lang, c("en", "no"))
 
-  xpath = switch(
-    type,
-    datastructure = "//str:DataStructure",
-    dataflow = "//str:Dataflow",
-    codelist = "//str:Codelist",
-    concept = "//str:ConceptScheme"
-  )
-  type = if (type == "concept") "conceptscheme" else type
-  resource = if (is.null(id)) type else paste(type, "NB", toupper(id), sep = "/")
+  meta = sdmx_metadata_type(type)
+  resource = if (is.null(id)) {
+    meta$resource
+  } else {
+    paste(meta$resource, "NB", toupper(id), sep = "/")
+  }
   xml = nob(resource)
-  entries = xml2::xml_find_all(xml, xpath)
+  entries = xml2::xml_find_all(xml, meta$xpath)
   sdmx_metadata(entries, lang)
 }
 

@@ -5,6 +5,25 @@ test_that("sdmx_data_resource builds correct paths", {
   expect_identical(sdmx_data_resource("exr", NULL, default_key = "all"), "data/EXR/all")
 })
 
+test_that("sdmx_metadata_type maps types to resources and xpaths", {
+  expect_identical(
+    sdmx_metadata_type("datastructure"),
+    list(resource = "datastructure", xpath = "//str:DataStructure")
+  )
+  expect_identical(
+    sdmx_metadata_type("dataflow"),
+    list(resource = "dataflow", xpath = "//str:Dataflow")
+  )
+  expect_identical(
+    sdmx_metadata_type("codelist"),
+    list(resource = "codelist", xpath = "//str:Codelist")
+  )
+  expect_identical(
+    sdmx_metadata_type("concept"),
+    list(resource = "conceptscheme", xpath = "//str:ConceptScheme")
+  )
+})
+
 test_that("sdmx_freq maps codes correctly", {
   expect_identical(sdmx_freq("P1D"), "daily")
   expect_identical(sdmx_freq("P1M"), "monthly")

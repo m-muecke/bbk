@@ -97,17 +97,14 @@ bis_metadata = function(type, id = NULL) {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   assert_string(id, min.chars = 1L, null.ok = TRUE)
 
-  xpath = switch(
-    type,
-    datastructure = "//str:DataStructure",
-    dataflow = "//str:Dataflow",
-    codelist = "//str:Codelist",
-    concept = "//str:ConceptScheme"
-  )
-  type = if (type == "concept") "conceptscheme" else type
-  resource = if (is.null(id)) type else paste(type, "BIS", toupper(id), sep = "/")
+  meta = sdmx_metadata_type(type)
+  resource = if (is.null(id)) {
+    meta$resource
+  } else {
+    paste(meta$resource, "BIS", toupper(id), sep = "/")
+  }
   xml = bis(resource)
-  entries = xml2::xml_find_all(xml, xpath)
+  entries = xml2::xml_find_all(xml, meta$xpath)
   sdmx_metadata(entries)
 }
 

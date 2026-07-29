@@ -14,6 +14,16 @@ sdmx_data_resource = function(flow, key, default_key = NULL) {
   paste(c("data", flow, key), collapse = "/")
 }
 
+sdmx_metadata_type = function(type) {
+  switch(
+    type,
+    datastructure = list(resource = "datastructure", xpath = "//str:DataStructure"),
+    dataflow = list(resource = "dataflow", xpath = "//str:Dataflow"),
+    codelist = list(resource = "codelist", xpath = "//str:Codelist"),
+    concept = list(resource = "conceptscheme", xpath = "//str:ConceptScheme")
+  )
+}
+
 sdmx_freq = function(code) {
   switch(
     code,

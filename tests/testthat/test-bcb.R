@@ -38,6 +38,10 @@ test_that("bcb_fx_rates input validation works", {
   expect_error(bcb_fx_rates("USD", "2024-01-01", end_date = TRUE))
 })
 
+test_that("bcb_fx_rates requires three-character currency codes", {
+  expect_snapshot(error = TRUE, bcb_fx_rates("USDD", "2024-01-01"))
+})
+
 test_that("parse_bcb_fx_rates works", {
   json = jsonlite::fromJSON(test_path("fixtures", "bcb-fx-rates.json"), simplifyVector = FALSE)
   actual = parse_bcb_fx_rates(json, "USD")

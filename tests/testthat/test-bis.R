@@ -94,6 +94,29 @@ test_that("parse_bis_data keeps series without a TITLE attribute", {
   expect_identical(actual$title, c(NA_character_, NA_character_))
 })
 
+test_that("parse_bis_data ignores observation level attributes", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey><generic:Value id="FREQ" value="M"/></generic:SeriesKey>
+          <generic:Obs>
+            <generic:ObsDimension value="2020-01"/><generic:ObsValue value="1"/>
+            <generic:Attributes><generic:Value id="OBS_STATUS" value="M"/></generic:Attributes>
+          </generic:Obs>
+          <generic:Obs>
+            <generic:ObsDimension value="2020-02"/><generic:ObsValue value="2"/>
+            <generic:Attributes><generic:Value id="OBS_STATUS" value="A"/></generic:Attributes>
+          </generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_bis_data(body)
+  expect_identical(actual$value, c(1, 2))
+  expect_false("obs_status" %in% names(actual))
+})
+
 test_that("parse_bis_data falls back to TITLE_TS", {
   body = xml2::read_xml(
     '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">

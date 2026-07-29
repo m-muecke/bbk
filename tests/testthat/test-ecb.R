@@ -85,6 +85,29 @@ test_that("parse_ecb_data drops observations without a value and keeps alignment
   expect_identical(actual$value, c(1, 3))
 })
 
+test_that("parse_ecb_data ignores observation level attributes", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey><generic:Value id="FREQ" value="D"/></generic:SeriesKey>
+          <generic:Obs>
+            <generic:ObsDimension value="2020-01-01"/><generic:ObsValue value="1"/>
+            <generic:Attributes><generic:Value id="OBS_STATUS" value="M"/></generic:Attributes>
+          </generic:Obs>
+          <generic:Obs>
+            <generic:ObsDimension value="2020-01-02"/><generic:ObsValue value="2"/>
+            <generic:Attributes><generic:Value id="OBS_STATUS" value="A"/></generic:Attributes>
+          </generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_ecb_data(body)
+  expect_identical(actual$value, c(1, 2))
+  expect_false("obs_status" %in% names(actual))
+})
+
 test_that("ecb_dimension input validation works", {
   expect_error(ecb_dimension(1L))
   expect_error(ecb_dimension(TRUE))

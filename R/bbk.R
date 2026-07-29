@@ -242,7 +242,7 @@ parse_bbk_data = function(xml) {
       as.list()
 
     attrs = x |>
-      xml2::xml_find_first(".//generic:Attributes") |>
+      xml2::xml_find_first("./generic:Attributes") |>
       xml2::xml_children()
     nms = attrs |>
       xml2::xml_attr("id") |>

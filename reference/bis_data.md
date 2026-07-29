@@ -107,6 +107,7 @@ Other data:
 [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md),
 [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
 [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
+[`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
 [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
 [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md),
 [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),

@@ -14,6 +14,11 @@
 - [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
   now rejects currency codes that do not contain exactly three
   characters.
+- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
+  [`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
+  and
+  [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md)
+  add support for Bank of Israel (BoI) data from the SDMX web service.
 
 ## bbk 0.12.0
 

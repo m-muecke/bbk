@@ -77,6 +77,8 @@ Other metadata:
 [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
+[`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
+[`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
 [`cnb_dimension()`](https://m-muecke.github.io/bbk/reference/cnb_dimension.md),
 [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md),

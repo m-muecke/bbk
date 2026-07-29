@@ -103,6 +103,15 @@
 - [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md) :
   Fetch Bank of England (BoE) data
 
+### Bank of Israel (BoI)
+
+- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md) :
+  Fetch Bank of Israel (BoI) data
+- [`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md)
+  : Fetch Bank of Israel (BoI) dimensions
+- [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md)
+  : Fetch Bank of Israel (BoI) metadata
+
 ### Bank of Japan (BoJ)
 
 - [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md) :

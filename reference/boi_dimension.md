@@ -1,24 +1,24 @@
-# Fetch European Central Bank (ECB) dimensions
+# Fetch Bank of Israel (BoI) dimensions
 
-Retrieve the dimension structure for a given dataflow from the ECB SDMX
-Web Service.
+Retrieve the dimension structure for a given dataflow from the Bank of
+Israel SDMX Web Service.
 
 ## Usage
 
 ``` r
-ecb_dimension(id)
+boi_dimension(id)
 ```
 
 ## Source
 
-<https://data.ecb.europa.eu/help/api/metadata>
+<https://www.boi.org.il/en/>
 
 ## Arguments
 
 - id:
 
   (`character(1)`)  
-  The id of the data structure definition to query (e.g., `"ECB_EXR1"`).
+  The id of the data structure definition to query (e.g., `"EXR"`).
 
 ## Value
 
@@ -28,7 +28,7 @@ with columns:
 
 - id:
 
-  The dimension id (e.g., `"FREQ"`, `"CURRENCY"`)
+  The dimension id (e.g., `"FREQ"`, `"BASE_CURRENCY"`)
 
 - position:
 
@@ -52,13 +52,13 @@ Other metadata:
 [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
 [`bis_dimension()`](https://m-muecke.github.io/bbk/reference/bis_dimension.md),
 [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
-[`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
 [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md),
 [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md),
 [`cnb_dimension()`](https://m-muecke.github.io/bbk/reference/cnb_dimension.md),
 [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md),
 [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md),
 [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md),
+[`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
 [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
@@ -77,13 +77,14 @@ Other metadata:
 
 ``` r
 # \donttest{
-ecb_dimension("ECB_EXR1")
-#>                id position      codelist
-#>            <char>    <int>        <char>
-#> 1:           FREQ        1       CL_FREQ
-#> 2:       CURRENCY        2   CL_CURRENCY
-#> 3: CURRENCY_DENOM        3   CL_CURRENCY
-#> 4:       EXR_TYPE        4   CL_EXR_TYPE
-#> 5:     EXR_SUFFIX        5 CL_EXR_SUFFIX
+boi_dimension("EXR")
+#>                  id position           codelist
+#>              <char>    <int>             <char>
+#> 1:      SERIES_CODE        1 CL_SERIES_CODE_EXR
+#> 2:             FREQ        2            CL_FREQ
+#> 3:    BASE_CURRENCY        3        CL_CURRENCY
+#> 4: COUNTER_CURRENCY        4        CL_CURRENCY
+#> 5:     UNIT_MEASURE        5            CL_UNIT
+#> 6:        DATA_TYPE        6   CL_DATA_TYPE_EXR
 # }
 ```

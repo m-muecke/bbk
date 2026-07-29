@@ -14,6 +14,7 @@ bbk is minimal R client for the following APIs:
   (BoC)](https://www.bankofcanada.ca/valet-api-how-to/#about)
 - [Bank of England
   (BoE)](https://www.bankofengland.co.uk/boeapps/database)
+- [Bank of Israel (BoI)](https://www.boi.org.il/en/)
 - [Bank of Japan (BoJ)](https://www.stat-search.boj.or.jp/index_en.html)
 - [Banque de France
   (BdF)](https://webstat.banque-france.fr/en/pages/guide-migration-api/)
@@ -54,9 +55,9 @@ pak::pak("m-muecke/bbk")
 ## Usage
 
 bbk functions are prefixed according to the central bank they access
-(`bbk_`, `ecb_`, `snb_`, `bdp_`, `bis_`, `boe_`, `boj_`, `bde_`, `bdf_`,
-`bcb_`, `cnb_`, `nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and follow the
-naming conventions of their respective APIs.
+(`bbk_`, `ecb_`, `snb_`, `bdp_`, `bis_`, `boe_`, `boi_`, `boj_`, `bde_`,
+`bdf_`, `bcb_`, `cnb_`, `nbp_`, `onb_`, `boc_`, `nob_`, `srb_`) and
+follow the naming conventions of their respective APIs.
 
 The typical workflow involves:
 

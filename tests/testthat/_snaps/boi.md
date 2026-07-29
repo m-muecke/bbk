@@ -153,3 +153,4 @@
     Condition
       Error in `boi_metadata()`:
       ! Assertion on 'lang' failed: Must be element of set {'en','he'}, but is 'fr'.
+

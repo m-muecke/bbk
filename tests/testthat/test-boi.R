@@ -58,6 +58,22 @@ test_that("parse_boi_data drops observations without a value and keeps alignment
   expect_identical(actual$value, c(1, 3))
 })
 
+test_that("parse_boi_data works for a flow without a FREQ dimension", {
+  body = xml2::read_xml(
+    '<message:StructureSpecificData xmlns:message="m">
+      <message:DataSet>
+        <Series SERIES_CODE="S1" UNIT_MEASURE="ILS">
+          <Obs TIME_PERIOD="2024-01" OBS_VALUE="1"/>
+          <Obs TIME_PERIOD="2024-02" OBS_VALUE="2"/>
+        </Series>
+      </message:DataSet>
+    </message:StructureSpecificData>'
+  )
+  actual = parse_boi_data(body)
+  expect_identical(actual$date, c("2024-01", "2024-02"))
+  expect_identical(actual$freq, c(NA_character_, NA_character_))
+})
+
 test_that("boi_dimension input validation works", {
   expect_snapshot(error = TRUE, {
     boi_dimension(1L)

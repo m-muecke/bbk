@@ -12,10 +12,10 @@
 * `bbk_series()` no longer truncates metadata fields that contain a comma, such as the series comment.
 * `bcb_fx_rates()` now rejects currency codes that do not contain exactly three characters.
 * `bis_data()` now returns series that omit the `TITLE` attribute, falling back to `TITLE_TS`.
-* `boi_data()` and `nob_data()` now keep dates and values aligned when a series has observations without a value.
 * `cnb_fx_other_rates()` now requires either `year_month` or `year` instead of returning an empty table.
 * `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.
 * `nbp_fx_rates()` and `nbp_gold()` now reject an `end_date` given without a `start_date`, which was previously ignored.
+* `nob_data()` now keeps dates and values aligned when a series has observations without a value.
 * `srb_series("groups")` no longer errors and now flattens nested groups.
 
 # bbk 0.12.0

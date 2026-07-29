@@ -154,7 +154,7 @@ parse_boi_data = function(xml) {
 
     key = paste(attrs[nms %nin% boi_attrs], collapse = ".")
 
-    freq = sdmx_freq(attrs[["freq"]])
+    freq = if ("freq" %in% nms) sdmx_freq(attrs[["freq"]]) else NA_character_
 
     extra = attrs[nms %nin% c("freq", boi_attrs)]
     data = c(

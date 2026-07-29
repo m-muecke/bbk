@@ -29,11 +29,11 @@ parse_date = function(date, freq) {
 
 extract_metadata = function(string, pattern, fixed = FALSE) {
   x = grepv(pattern, string, fixed = fixed)
-  if (length(x) > 0L) {
-    strsplit(x, ",", fixed = TRUE)[[1L]][[2L]]
-  } else {
-    NA_character_
+  if (length(x) == 0L) {
+    return(NA_character_)
   }
+  fields = scan(text = x[[1L]], what = "", sep = ",", quote = "\"", quiet = TRUE)
+  if (length(fields) < 2L) NA_character_ else fields[[2L]]
 }
 
 convert_camel_case = function(x) {

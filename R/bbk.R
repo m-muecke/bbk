@@ -207,7 +207,6 @@ parse_bbk_series = function(body, key) {
   category = extract_metadata(metadata, "^category,")
   last_update = extract_metadata(metadata, "^last update,")
   comment = extract_metadata(metadata, "^Comment \\(in english\\),")
-  comment = sub("^\"", "", comment)
   src = extract_metadata(metadata, "^Source \\(in english\\),")
 
   freq = sdmx_freq(freq)

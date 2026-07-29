@@ -83,6 +83,27 @@ test_that("parse_bbk_data scopes observations to each series", {
   expect_identical(actual$value, c(1, 2, 9))
 })
 
+test_that("extract_metadata reads the whole csv field", {
+  metadata = c(
+    'Comment (in english),"The ECB publishes daily rates, which are calculated at 14.15.",',
+    "unit,DKK,",
+    "category,,",
+    "note,The bank's own rate,",
+    'quoted,"He said ""hi"", then left",',
+    "lonely"
+  )
+  expect_identical(
+    extract_metadata(metadata, "^Comment \\(in english\\),"),
+    "The ECB publishes daily rates, which are calculated at 14.15."
+  )
+  expect_identical(extract_metadata(metadata, "^unit,"), "DKK")
+  expect_identical(extract_metadata(metadata, "^category,"), "")
+  expect_identical(extract_metadata(metadata, "^note,"), "The bank's own rate")
+  expect_identical(extract_metadata(metadata, "^quoted,"), 'He said "hi", then left')
+  expect_identical(extract_metadata(metadata, "^lonely"), NA_character_)
+  expect_identical(extract_metadata(metadata, "^absent,"), NA_character_)
+})
+
 test_that("parse_bbk_series works", {
   body = readRDS(test_path("fixtures", "bbk-series.rds"))
   actual = parse_bbk_series(

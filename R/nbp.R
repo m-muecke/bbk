@@ -28,12 +28,9 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
   start_date = assert_dateish(start_date, null.ok = TRUE)
   end_date = assert_dateish(end_date, null.ok = TRUE)
   last_n = assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
-  if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
-    stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
-  }
-  if (xor(is.null(start_date), is.null(end_date))) {
-    stop("`start_date` and `end_date` must be given together.", call. = FALSE)
-  }
+  assert_exclusive(last_n, start_date)
+  assert_exclusive(last_n, end_date)
+  assert_paired(start_date, end_date)
 
   resource = if (is.null(code)) "exchangerates/tables" else "exchangerates/rates"
   path = nbp_path(
@@ -71,12 +68,9 @@ nbp_gold = function(start_date = NULL, end_date = NULL, last_n = NULL) {
   start_date = assert_dateish(start_date, null.ok = TRUE)
   end_date = assert_dateish(end_date, null.ok = TRUE)
   last_n = assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
-  if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
-    stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
-  }
-  if (xor(is.null(start_date), is.null(end_date))) {
-    stop("`start_date` and `end_date` must be given together.", call. = FALSE)
-  }
+  assert_exclusive(last_n, start_date)
+  assert_exclusive(last_n, end_date)
+  assert_paired(start_date, end_date)
 
   path = nbp_path(
     "cenyzlota",

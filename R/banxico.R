@@ -156,6 +156,6 @@ banxico_key = function() {
 banxico_error_body = function(resp) {
   if (identical(resp_content_type(resp), "application/json")) {
     error = resp_body_json(resp)$error
-    error$detail %||% error$mensaje
+    error$detalle %||% error$detail %||% error$mensaje
   }
 }

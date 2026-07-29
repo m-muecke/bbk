@@ -66,3 +66,9 @@ test_that("banxico_freq maps known and unknown codes", {
 test_that("banxico_as_numeric coerces N/E to NA", {
   expect_identical(banxico_as_numeric(c("17.01", "N/E", "1,234.5")), c(17.01, NA, 1234.5))
 })
+
+test_that("banxico_error_body returns detailed API errors", {
+  body = charToRaw('{"error":{"mensaje":"Limit exceeded.","detalle":"Retry after 60 seconds."}}')
+  resp = httr2::response(400L, headers = "content-type: application/json", body = body)
+  expect_identical(banxico_error_body(resp), "Retry after 60 seconds.")
+})

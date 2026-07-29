@@ -8,9 +8,10 @@
 #' @param code (`NULL` | `character(1)`)\cr
 #'   ISO 4217 currency code (e.g. `"usd"`, `"eur"`). If `NULL`, returns all currencies.
 #' @param start_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   Start date of the data.
+#'   Start date of the data. Must be given together with `end_date`; the API limits the range to
+#'   367 days. For a single day, pass the same date as `start_date` and `end_date`.
 #' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   End date of the data.
+#'   End date of the data. Must be given together with `start_date`.
 #' @param last_n (`NULL` | `integer(1)`)\cr
 #'   Return only the last `n` quotations.
 #' @returns A [data.table::data.table()] with exchange rates.
@@ -30,8 +31,8 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
   if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
     stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
   }
-  if (is.null(start_date) && !is.null(end_date)) {
-    stop("`end_date` requires `start_date`.", call. = FALSE)
+  if (is.null(start_date) != is.null(end_date)) {
+    stop("`start_date` and `end_date` must be given together.", call. = FALSE)
   }
 
   resource = if (is.null(code)) "exchangerates/tables" else "exchangerates/rates"
@@ -52,9 +53,10 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
 #' Retrieve the price of gold from the NBP Web API.
 #'
 #' @param start_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   Start date of the data.
+#'   Start date of the data. Must be given together with `end_date`; the API limits the range to
+#'   367 days. For a single day, pass the same date as `start_date` and `end_date`.
 #' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   End date of the data.
+#'   End date of the data. Must be given together with `start_date`.
 #' @param last_n (`NULL` | `integer(1)`)\cr
 #'   Return only the last `n` quotations.
 #' @returns A [data.table::data.table()] with gold prices.
@@ -72,8 +74,8 @@ nbp_gold = function(start_date = NULL, end_date = NULL, last_n = NULL) {
   if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
     stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
   }
-  if (is.null(start_date) && !is.null(end_date)) {
-    stop("`end_date` requires `start_date`.", call. = FALSE)
+  if (is.null(start_date) != is.null(end_date)) {
+    stop("`start_date` and `end_date` must be given together.", call. = FALSE)
   }
 
   path = nbp_path(
@@ -127,8 +129,6 @@ nbp_path = function(
     parts = c(parts, "last", last_n)
   } else if (!is.null(start_date) && !is.null(end_date)) {
     parts = c(parts, start_date, end_date)
-  } else if (!is.null(start_date)) {
-    parts = c(parts, start_date)
   }
   paste(parts, collapse = "/")
 }

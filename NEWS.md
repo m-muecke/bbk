@@ -14,7 +14,7 @@
 * `bis_data()` now returns series that omit the `TITLE` attribute, falling back to `TITLE_TS`.
 * `cnb_fx_other_rates()` now requires either `year_month` or `year` instead of returning an empty table.
 * `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.
-* `nbp_fx_rates()` and `nbp_gold()` now reject an `end_date` given without a `start_date`, which was previously ignored.
+* `nbp_fx_rates()` and `nbp_gold()` now require `start_date` and `end_date` to be given together. A lone `end_date` was previously ignored, and a lone `start_date` silently queried that single day.
 * `nob_data()` now keeps dates and values aligned when a series has observations without a value.
 * `srb_series("groups")` no longer errors and now flattens nested groups.
 

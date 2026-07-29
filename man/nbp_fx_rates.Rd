@@ -24,10 +24,11 @@ or \code{"c"} (bid/ask rates).}
 ISO 4217 currency code (e.g. \code{"usd"}, \code{"eur"}). If \code{NULL}, returns all currencies.}
 
 \item{start_date}{(\code{NULL} | \code{character(1)} | \code{Date(1)})\cr
-Start date of the data.}
+Start date of the data. Must be given together with \code{end_date}; the API limits the range to
+367 days. For a single day, pass the same date as \code{start_date} and \code{end_date}.}
 
 \item{end_date}{(\code{NULL} | \code{character(1)} | \code{Date(1)})\cr
-End date of the data.}
+End date of the data. Must be given together with \code{start_date}.}
 
 \item{last_n}{(\code{NULL} | \code{integer(1)})\cr
 Return only the last \code{n} quotations.}

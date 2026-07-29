@@ -35,11 +35,6 @@
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now returns series that omit the `TITLE` attribute, falling back to
   `TITLE_TS`.
-- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md)
-  and
-  [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
-  now keep dates and values aligned when a series has observations
-  without a value.
 - [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
   now requires either `year_month` or `year` instead of returning an
   empty table.
@@ -48,8 +43,12 @@
 - [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
   and
   [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md)
-  now reject an `end_date` given without a `start_date`, which was
-  previously ignored.
+  now require `start_date` and `end_date` to be given together. A lone
+  `end_date` was previously ignored, and a lone `start_date` silently
+  queried that single day.
+- [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
+  now keeps dates and values aligned when a series has observations
+  without a value.
 - `srb_series("groups")` no longer errors and now flattens nested
   groups.
 

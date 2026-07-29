@@ -64,13 +64,13 @@
 <li>
 <code><a href="../reference/bis_data.html">bis_data()</a></code> now returns series that omit the <code>TITLE</code> attribute, falling back to <code>TITLE_TS</code>.</li>
 <li>
-<code><a href="../reference/boi_data.html">boi_data()</a></code> and <code><a href="../reference/nob_data.html">nob_data()</a></code> now keep dates and values aligned when a series has observations without a value.</li>
-<li>
 <code><a href="../reference/cnb_fx_other_rates.html">cnb_fx_other_rates()</a></code> now requires either <code>year_month</code> or <code>year</code> instead of returning an empty table.</li>
 <li>
 <code>ecb_fx_rates("latest")</code> no longer returns an empty table outside an English locale.</li>
 <li>
-<code><a href="../reference/nbp_fx_rates.html">nbp_fx_rates()</a></code> and <code><a href="../reference/nbp_gold.html">nbp_gold()</a></code> now reject an <code>end_date</code> given without a <code>start_date</code>, which was previously ignored.</li>
+<code><a href="../reference/nbp_fx_rates.html">nbp_fx_rates()</a></code> and <code><a href="../reference/nbp_gold.html">nbp_gold()</a></code> now require <code>start_date</code> and <code>end_date</code> to be given together. A lone <code>end_date</code> was previously ignored, and a lone <code>start_date</code> silently queried that single day.</li>
+<li>
+<code><a href="../reference/nob_data.html">nob_data()</a></code> now keeps dates and values aligned when a series has observations without a value.</li>
 <li>
 <code>srb_series("groups")</code> no longer errors and now flattens nested groups.</li>
 </ul></div>

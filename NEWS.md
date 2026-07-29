@@ -1,9 +1,22 @@
 # bbk (development version)
 
+## New features
+
+* `boi_data()`, `boi_dimension()`, and `boi_metadata()` add support for Bank of Israel (BoI) data from the SDMX web service.
+
+## Bug fixes
+
 * `banxico_data()` and `banxico_metadata()` now reject requests for more than 20 series, matching the Banxico API limit.
 * `banxico_data()` and `banxico_metadata()` now report detailed Banxico API errors when available.
+* `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake an observation's attributes for series metadata.
+* `bbk_series()` no longer truncates metadata fields that contain a comma, such as the series comment.
 * `bcb_fx_rates()` now rejects currency codes that do not contain exactly three characters.
-* `boi_data()`, `boi_dimension()`, and `boi_metadata()` add support for Bank of Israel (BoI) data from the SDMX web service.
+* `bis_data()` now returns series that omit the `TITLE` attribute, falling back to `TITLE_TS`.
+* `boi_data()` and `nob_data()` now keep dates and values aligned when a series has observations without a value.
+* `cnb_fx_other_rates()` now requires either `year_month` or `year` instead of returning an empty table.
+* `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.
+* `nbp_fx_rates()` and `nbp_gold()` now reject an `end_date` given without a `start_date`, which was previously ignored.
+* `srb_series("groups")` no longer errors and now flattens nested groups.
 
 # bbk 0.12.0
 

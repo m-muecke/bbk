@@ -16,8 +16,8 @@ banxico_data(
 }
 \arguments{
 \item{series}{(\code{character()})\cr
-One or more SIE series codes to query (e.g., \code{"SF43718"} for the FIX peso/US dollar exchange
-rate). Series codes can be found on the SIE website.}
+Up to 20 SIE series codes to query (e.g., \code{"SF43718"} for the FIX peso/US dollar exchange rate).
+Series codes can be found on the SIE website.}
 
 \item{start_date}{(\code{NULL} | \code{Date(1)} | \code{character(1)})\cr
 Start date of the data (e.g., \code{"2024-01-01"}). Must be paired with \code{end_date}. If both are

@@ -1,5 +1,7 @@
 # bbk (development version)
 
+* `banxico_data()` and `banxico_metadata()` now reject requests for more than 20 series, matching the Banxico API limit.
+
 # bbk 0.12.0
 
 * `bcb_data()`, `bcb_currencies()`, `bcb_fx_rates()`, `bcb_expectations()`, `bcb_inflation()`, `bcb_selic()`, and `bcb_top5()` add support for Banco Central do Brasil (BCB) data, covering SGS series, currency lists and exchange rates, and Focus survey market expectations.

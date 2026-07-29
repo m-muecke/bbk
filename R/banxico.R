@@ -10,8 +10,8 @@
 #' complete history of each series. Supplying only one is an error.
 #'
 #' @param series (`character()`)\cr
-#'   One or more SIE series codes to query (e.g., `"SF43718"` for the FIX peso/US dollar exchange
-#'   rate). Series codes can be found on the SIE website.
+#'   Up to 20 SIE series codes to query (e.g., `"SF43718"` for the FIX peso/US dollar exchange rate).
+#'   Series codes can be found on the SIE website.
 #' @param start_date (`NULL` | `Date(1)` | `character(1)`)\cr
 #'   Start date of the data (e.g., `"2024-01-01"`). Must be paired with `end_date`. If both are
 #'   `NULL`, the full history is returned. Default `NULL`.
@@ -33,7 +33,7 @@
 #' banxico_data(c("SF43718", "SF60653"), start_date = "2024-01-01", end_date = "2024-01-31")
 #' }
 banxico_data = function(series, start_date = NULL, end_date = NULL, api_key = banxico_key()) {
-  assert_character(series, min.len = 1L, min.chars = 1L, any.missing = FALSE)
+  assert_character(series, min.len = 1L, max.len = 20L, min.chars = 1L, any.missing = FALSE)
   start_date = assert_dateish(start_date, null.ok = TRUE)
   end_date = assert_dateish(end_date, null.ok = TRUE)
   assert_paired(start_date, end_date)
@@ -88,7 +88,7 @@ parse_banxico_data = function(json) {
 #' banxico_metadata("SF43718")
 #' }
 banxico_metadata = function(series, api_key = banxico_key()) {
-  assert_character(series, min.len = 1L, min.chars = 1L, any.missing = FALSE)
+  assert_character(series, min.len = 1L, max.len = 20L, min.chars = 1L, any.missing = FALSE)
   assert_string(api_key, min.chars = 1L)
 
   ids = paste(series, collapse = ",")

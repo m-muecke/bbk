@@ -21,8 +21,8 @@ cnb_fx_other_rates(year_month = NULL, year = NULL, lang = "EN")
 
   (`NULL` \| `character(1)`)  
   The month to query in `"YYYY-MM"` format, returning rates for all
-  currencies in that month. If `NULL`, the latest available month is
-  returned. Mutually exclusive with `year`. Default `NULL`.
+  currencies in that month. The fixing for a month is published at its
+  end. Mutually exclusive with `year`. Default `NULL`.
 
 - year:
 
@@ -83,10 +83,6 @@ Other data:
 
 ``` r
 # \donttest{
-# latest month for all other currencies
-cnb_fx_other_rates()
-#> Empty data.table (0 rows and 6 cols): date,currency_code,currency,country,amount,rate
-
 # a specific month
 cnb_fx_other_rates(year_month = "2024-01")
 #>            date currency_code currency     country amount   rate

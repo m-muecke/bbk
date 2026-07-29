@@ -108,19 +108,19 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #> 328:     WEDE    DKK       One 2026-06-30 16:05:45
 #> 329:     WEDE    DKK       One 2026-06-30 16:05:45
 #> 330:     WEDE    DKK       One 2026-06-30 16:05:45
-#>                                                            comment
-#>                                                             <char>
-#>   1: The ECB publishes daily euro foreign exchange reference rates
-#>   2: The ECB publishes daily euro foreign exchange reference rates
-#>   3: The ECB publishes daily euro foreign exchange reference rates
-#>   4: The ECB publishes daily euro foreign exchange reference rates
-#>   5: The ECB publishes daily euro foreign exchange reference rates
-#>  ---                                                              
-#> 326: The ECB publishes daily euro foreign exchange reference rates
-#> 327: The ECB publishes daily euro foreign exchange reference rates
-#> 328: The ECB publishes daily euro foreign exchange reference rates
-#> 329: The ECB publishes daily euro foreign exchange reference rates
-#> 330: The ECB publishes daily euro foreign exchange reference rates
+#>                                                                                                                                                   comment
+#>                                                                                                                                                    <char>
+#>   1: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#>   2: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#>   3: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#>   4: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#>   5: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#>  ---                                                                                                                                                     
+#> 326: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#> 327: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#> 328: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#> 329: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#> 330: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #>                            source
 #>                            <char>
 #>   1: European Central Bank (ECB).

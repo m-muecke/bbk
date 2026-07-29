@@ -65,8 +65,8 @@ CNB API. These currencies are not part of the daily fixing returned by <code><a 
 
 <dl><dt id="arg-year-month">year_month<a class="anchor" aria-label="anchor" href="#arg-year-month"></a></dt>
 <dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
-The month to query in <code>"YYYY-MM"</code> format, returning rates for all currencies in that month. If
-<code>NULL</code>, the latest available month is returned. Mutually exclusive with <code>year</code>. Default <code>NULL</code>.</p></dd>
+The month to query in <code>"YYYY-MM"</code> format, returning rates for all currencies in that month. The
+fixing for a month is published at its end. Mutually exclusive with <code>year</code>. Default <code>NULL</code>.</p></dd>
 
 
 <dt id="arg-year">year<a class="anchor" aria-label="anchor" href="#arg-year"></a></dt>
@@ -125,10 +125,6 @@ of Czech koruna per <code>amount</code> units of the foreign currency.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="co"># latest month for all other currencies</span></span></span>
-<span class="r-in"><span><span class="fu">cnb_fx_other_rates</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Empty data.table (0 rows and 6 cols): date,currency_code,currency,country,amount,rate</span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># a specific month</span></span></span>
 <span class="r-in"><span><span class="fu">cnb_fx_other_rates</span><span class="op">(</span>year_month <span class="op">=</span> <span class="st">"2024-01"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            date currency_code currency     country amount   rate</span>

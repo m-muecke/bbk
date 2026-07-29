@@ -163,7 +163,7 @@ parse_bis_data = function(xml) {
     data = c(series_key, attrs)
     data$key = paste(series_key, collapse = ".")
     data$freq = sdmx_freq(data$freq)
-    data$title = trimws(data$title)
+    data$title = trimws(data$title %||% data$title_ts %||% NA_character_)
 
     entries = xml2::xml_find_all(x, ".//generic:Obs[generic:ObsValue]")
     data$date = entries |>

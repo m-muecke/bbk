@@ -73,6 +73,46 @@ test_that("parse_bis_data drops observations without a value and keeps alignment
   expect_identical(actual$value, c(1, 3))
 })
 
+test_that("parse_bis_data keeps series without a TITLE attribute", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="M"/>
+            <generic:Value id="REF_AREA" value="US"/>
+          </generic:SeriesKey>
+          <generic:Attributes><generic:Value id="COLLECTION" value="A"/></generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2020-01"/><generic:ObsValue value="1"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2020-02"/><generic:ObsValue value="2"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_bis_data(body)
+  expect_identical(actual$value, c(1, 2))
+  expect_identical(actual$title, c(NA_character_, NA_character_))
+})
+
+test_that("parse_bis_data falls back to TITLE_TS", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey><generic:Value id="FREQ" value="M"/></generic:SeriesKey>
+          <generic:Attributes>
+            <generic:Value id="TITLE_TS" value=" Japan - Households "/>
+            <generic:Value id="TITLE_COMPL" value="c"/>
+          </generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2020-01"/><generic:ObsValue value="1"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_bis_data(body)
+  expect_identical(actual$title, "Japan - Households")
+})
+
 test_that("bis_dimension input validation works", {
   expect_error(bis_dimension(1L))
   expect_error(bis_dimension(TRUE))

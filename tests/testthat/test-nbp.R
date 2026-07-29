@@ -4,12 +4,14 @@ test_that("nbp_fx_rates input validation works", {
   expect_error(nbp_fx_rates("a", start_date = ""))
   expect_error(nbp_fx_rates("a", last_n = -1L))
   expect_error(nbp_fx_rates("a", start_date = "2025-01-01", last_n = 5L), "mutually exclusive")
+  expect_error(nbp_fx_rates("a", end_date = "2025-01-01"), "requires `start_date`")
 })
 
 test_that("nbp_gold input validation works", {
   expect_error(nbp_gold(start_date = ""))
   expect_error(nbp_gold(last_n = -1L))
   expect_error(nbp_gold(start_date = "2025-01-01", last_n = 5L), "mutually exclusive")
+  expect_error(nbp_gold(end_date = "2025-01-01"), "requires `start_date`")
 })
 
 test_that("nbp_fx_rates builds path with ISO date strings", {

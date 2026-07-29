@@ -30,6 +30,9 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
   if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
     stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
   }
+  if (is.null(start_date) && !is.null(end_date)) {
+    stop("`end_date` requires `start_date`.", call. = FALSE)
+  }
 
   resource = if (is.null(code)) "exchangerates/tables" else "exchangerates/rates"
   path = nbp_path(
@@ -68,6 +71,9 @@ nbp_gold = function(start_date = NULL, end_date = NULL, last_n = NULL) {
   last_n = assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
     stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
+  }
+  if (is.null(start_date) && !is.null(end_date)) {
+    stop("`end_date` requires `start_date`.", call. = FALSE)
   }
 
   path = nbp_path(

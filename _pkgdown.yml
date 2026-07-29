@@ -71,6 +71,12 @@ reference:
     contents:
       - boe_data
 
+  - subtitle: Bank of Israel (BoI)
+    contents:
+      - boi_data
+      - boi_dimension
+      - boi_metadata
+
   - subtitle: Bank of Japan (BoJ)
     contents:
       - boj_data

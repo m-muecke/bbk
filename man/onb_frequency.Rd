@@ -46,6 +46,8 @@ Other metadata:
 \code{\link[=bdp_series]{bdp_series()}},
 \code{\link[=bis_dimension]{bis_dimension()}},
 \code{\link[=bis_metadata]{bis_metadata()}},
+\code{\link[=boi_dimension]{boi_dimension()}},
+\code{\link[=boi_metadata]{boi_metadata()}},
 \code{\link[=boj_metadata]{boj_metadata()}},
 \code{\link[=cnb_dimension]{cnb_dimension()}},
 \code{\link[=cnb_indicators]{cnb_indicators()}},

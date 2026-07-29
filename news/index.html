@@ -44,7 +44,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="bbk-development-version">bbk (development version)<a class="anchor" aria-label="anchor" href="#bbk-development-version"></a></h2>
-</div>
+<ul><li>
+<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now reject requests for more than 20 series, matching the Banxico API limit.</li>
+<li>
+<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now report detailed Banxico API errors when available.</li>
+<li>
+<code><a href="../reference/bcb_fx_rates.html">bcb_fx_rates()</a></code> now rejects currency codes that do not contain exactly three characters.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.12.0" id="bbk-0120">bbk 0.12.0<a class="anchor" aria-label="anchor" href="#bbk-0120"></a></h2><p class="text-muted">CRAN release: 2026-07-10</p>
 <ul><li>

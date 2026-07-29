@@ -2,6 +2,19 @@
 
 ## bbk (development version)
 
+- [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
+  and
+  [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
+  now reject requests for more than 20 series, matching the Banxico API
+  limit.
+- [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
+  and
+  [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
+  now report detailed Banxico API errors when available.
+- [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
+  now rejects currency codes that do not contain exactly three
+  characters.
+
 ## bbk 0.12.0
 
 CRAN release: 2026-07-10

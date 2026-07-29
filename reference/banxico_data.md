@@ -23,7 +23,7 @@ banxico_data(
 - series:
 
   ([`character()`](https://rdrr.io/r/base/character.html))  
-  One or more SIE series codes to query (e.g., `"SF43718"` for the FIX
+  Up to 20 SIE series codes to query (e.g., `"SF43718"` for the FIX
   peso/US dollar exchange rate). Series codes can be found on the SIE
   website.
 

@@ -31,7 +31,7 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
   if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
     stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
   }
-  if (is.null(start_date) != is.null(end_date)) {
+  if (xor(is.null(start_date), is.null(end_date))) {
     stop("`start_date` and `end_date` must be given together.", call. = FALSE)
   }
 
@@ -74,7 +74,7 @@ nbp_gold = function(start_date = NULL, end_date = NULL, last_n = NULL) {
   if (!is.null(last_n) && (!is.null(start_date) || !is.null(end_date))) {
     stop("`last_n` and `start_date`/`end_date` are mutually exclusive.", call. = FALSE)
   }
-  if (is.null(start_date) != is.null(end_date)) {
+  if (xor(is.null(start_date), is.null(end_date))) {
     stop("`start_date` and `end_date` must be given together.", call. = FALSE)
   }
 

@@ -53,9 +53,11 @@ srb_data = function(series, start_date = NULL, end_date = NULL) {
 #' }
 srb_series = function(type = "series") {
   assert_choice(type, c("series", "groups"))
-  type = if (type == "series") "Series" else "Groups"
-  json = srb(type)
-  if (type == "series") parse_srb_series(json) else parse_srb_groups(json)
+  if (type == "series") {
+    parse_srb_series(srb("Series"))
+  } else {
+    parse_srb_groups(srb("Groups"))
+  }
 }
 
 parse_srb_data = function(json, series) {
@@ -84,6 +86,10 @@ parse_srb_series = function(json) {
 }
 
 parse_srb_groups = function(json) {
+  if (!is.null(json$groupId)) {
+    json = list(json)
+  }
+
   flatten_groups = function(groups) {
     res = list()
     for (g in groups) {

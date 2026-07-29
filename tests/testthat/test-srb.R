@@ -71,6 +71,22 @@ test_that("parse_srb_series works", {
   expect_true("SEKUSDPMI" %in% actual$series_id)
 })
 
+test_that("parse_srb_groups handles a single root group and nested children", {
+  json = list(
+    groupId = 1L,
+    name = "Interest rates and exchange rates",
+    description = "",
+    childGroups = list(
+      list(groupId = 11L, name = "Exchange rates", description = "d", childGroups = list()),
+      list(groupId = 137L, name = "Riksbank interest rates", description = "e")
+    )
+  )
+  actual = parse_srb_groups(json)
+  expect_data_table(actual, nrows = 3L)
+  expect_identical(actual$group_id, c(1L, 11L, 137L))
+  expect_identical(actual$name[[2L]], "Exchange rates")
+})
+
 test_that("parse_srb_groups works", {
   json = jsonlite::fromJSON(test_path("fixtures", "srb-groups.json"), simplifyVector = FALSE)
   actual = parse_srb_groups(json)

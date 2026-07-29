@@ -51,6 +51,7 @@ boi_data = function(
   resource = sdmx_data_resource(flow_ref, key)
   xml = boi(
     resource,
+    accept = "application/vnd.sdmx.genericdata+xml;version=2.1",
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
@@ -127,39 +128,36 @@ boi_dimension = function(id) {
   sdmx_dimension(xml)
 }
 
-# series attributes that are not part of the SDMX series key
-boi_attrs = c(
-  "collection",
-  "calculated",
-  "decimals",
-  "unit_mult",
-  "time_collect",
-  "data_source",
-  "conf_status",
-  "pub_website"
-)
-
 parse_boi_data = function(xml) {
-  ns = xml2::xml_ns(xml)
-  series = xml2::xml_find_all(xml, ".//Series", ns)
+  series = xml2::xml_find_all(xml, ".//generic:Series")
   res = map(series, function(x) {
-    attrs = xml2::xml_attrs(x)
-    nms = tolower(names(attrs))
-    names(attrs) = nms
+    series_key = x |>
+      xml2::xml_find_first("./generic:SeriesKey") |>
+      xml2::xml_children()
+    nms = series_key |>
+      xml2::xml_attr("id") |>
+      tolower()
+    dims = series_key |>
+      xml2::xml_attr("value") |>
+      setNames(nms) |>
+      as.list()
 
-    obs = xml2::xml_find_all(x, "./Obs[@OBS_VALUE]", ns)
-    obs_attrs = map(obs, xml2::xml_attrs)
-    date = map_chr(obs_attrs, "TIME_PERIOD")
-    value = as.numeric(map_chr(obs_attrs, "OBS_VALUE"))
+    obs = xml2::xml_find_all(x, "./generic:Obs[generic:ObsValue]")
+    date = obs |>
+      xml2::xml_find_all("./generic:ObsDimension") |>
+      xml2::xml_attr("value")
+    value = obs |>
+      xml2::xml_find_all("./generic:ObsValue") |>
+      xml2::xml_attr("value") |>
+      as.numeric()
 
-    key = paste(attrs[nms %nin% boi_attrs], collapse = ".")
+    key = paste(dims, collapse = ".")
+    freq = if ("freq" %in% names(dims)) sdmx_freq(dims[["freq"]]) else NA_character_
 
-    freq = if ("freq" %in% nms) sdmx_freq(attrs[["freq"]]) else NA_character_
-
-    extra = attrs[nms %nin% c("freq", boi_attrs)]
+    extra = dims[names(dims) %nin% "freq"]
     data = c(
       list(date = parse_date(date, freq), key = key, value = value, freq = freq),
-      as.list(extra)
+      extra
     )
     as.data.table(data)
   })
@@ -173,11 +171,12 @@ boi_error_body = function(resp) {
   resp_body_string(resp, "UTF-8")
 }
 
-boi = function(resource, ...) {
+boi = function(resource, ..., accept = NULL) {
   sdmx_request(
     "https://edge.boi.gov.il/FusionEdgeServer/ws/public/sdmxapi/rest",
     resource,
     boi_error_body,
-    ...
+    ...,
+    accept = accept
   )
 }

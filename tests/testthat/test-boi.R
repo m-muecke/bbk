@@ -43,15 +43,28 @@ test_that("parse_boi_data key contains only dimension values", {
 
 test_that("parse_boi_data drops observations without a value and keeps alignment", {
   body = xml2::read_xml(
-    '<message:StructureSpecificData xmlns:message="m">
+    '<message:GenericData xmlns:message="m"
+       xmlns:generic="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/generic">
       <message:DataSet>
-        <Series SERIES_CODE="S1" FREQ="D">
-          <Obs TIME_PERIOD="2024-01-02" OBS_VALUE="1"/>
-          <Obs TIME_PERIOD="2024-01-03"/>
-          <Obs TIME_PERIOD="2024-01-04" OBS_VALUE="3"/>
-        </Series>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="SERIES_CODE" value="S1"/>
+            <generic:Value id="FREQ" value="D"/>
+          </generic:SeriesKey>
+          <generic:Obs>
+            <generic:ObsDimension value="2024-01-02"/>
+            <generic:ObsValue value="1"/>
+          </generic:Obs>
+          <generic:Obs>
+            <generic:ObsDimension value="2024-01-03"/>
+          </generic:Obs>
+          <generic:Obs>
+            <generic:ObsDimension value="2024-01-04"/>
+            <generic:ObsValue value="3"/>
+          </generic:Obs>
+        </generic:Series>
       </message:DataSet>
-    </message:StructureSpecificData>'
+    </message:GenericData>'
   )
   actual = parse_boi_data(body)
   expect_identical(actual$date, as.Date(c("2024-01-02", "2024-01-04")))
@@ -60,18 +73,30 @@ test_that("parse_boi_data drops observations without a value and keeps alignment
 
 test_that("parse_boi_data works for a flow without a FREQ dimension", {
   body = xml2::read_xml(
-    '<message:StructureSpecificData xmlns:message="m">
+    '<message:GenericData xmlns:message="m"
+       xmlns:generic="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/generic">
       <message:DataSet>
-        <Series SERIES_CODE="S1" UNIT_MEASURE="ILS">
-          <Obs TIME_PERIOD="2024-01" OBS_VALUE="1"/>
-          <Obs TIME_PERIOD="2024-02" OBS_VALUE="2"/>
-        </Series>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="SERIES_CODE" value="S1"/>
+            <generic:Value id="UNIT_MEASURE" value="ILS"/>
+          </generic:SeriesKey>
+          <generic:Obs>
+            <generic:ObsDimension value="2024-01"/>
+            <generic:ObsValue value="1"/>
+          </generic:Obs>
+          <generic:Obs>
+            <generic:ObsDimension value="2024-02"/>
+            <generic:ObsValue value="2"/>
+          </generic:Obs>
+        </generic:Series>
       </message:DataSet>
-    </message:StructureSpecificData>'
+    </message:GenericData>'
   )
   actual = parse_boi_data(body)
   expect_identical(actual$date, c("2024-01", "2024-02"))
   expect_identical(actual$freq, c(NA_character_, NA_character_))
+  expect_identical(unique(actual$key), "S1.ILS")
 })
 
 test_that("boi_dimension input validation works", {

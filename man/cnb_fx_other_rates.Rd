@@ -11,8 +11,8 @@ cnb_fx_other_rates(year_month = NULL, year = NULL, lang = "EN")
 }
 \arguments{
 \item{year_month}{(\code{NULL} | \code{character(1)})\cr
-The month to query in \code{"YYYY-MM"} format, returning rates for all currencies in that month. If
-\code{NULL}, the latest available month is returned. Mutually exclusive with \code{year}. Default \code{NULL}.}
+The month to query in \code{"YYYY-MM"} format, returning rates for all currencies in that month. The
+fixing for a month is published at its end. Mutually exclusive with \code{year}. Default \code{NULL}.}
 
 \item{year}{(\code{NULL} | \code{integer(1)})\cr
 A calendar year, returning rates for all currencies in every month of that year. Mutually
@@ -32,9 +32,6 @@ CNB API. These currencies are not part of the daily fixing returned by \code{\li
 \examples{
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
-# latest month for all other currencies
-cnb_fx_other_rates()
-
 # a specific month
 cnb_fx_other_rates(year_month = "2024-01")
 

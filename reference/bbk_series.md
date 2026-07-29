@@ -183,11 +183,11 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: 1999-01-22 BBBK11.D.TTA000  27475  daily
 #>    5: 1999-01-29 BBBK11.D.TTA000  27475  daily
 #>   ---                                         
-#> 1435: 2026-06-19 BBBK11.D.TTA000 430050  daily
 #> 1436: 2026-06-26 BBBK11.D.TTA000 430050  daily
 #> 1437: 2026-07-03 BBBK11.D.TTA000 380732  daily
 #> 1438: 2026-07-10 BBBK11.D.TTA000 380732  daily
 #> 1439: 2026-07-17 BBBK11.D.TTA000 380732  daily
+#> 1440: 2026-07-24 BBBK11.D.TTA000 380732  daily
 #>                                                              title category
 #>                                                             <char>   <char>
 #>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
@@ -196,23 +196,23 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>   ---                                                                      
-#> 1435: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1436: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1437: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1438: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1439: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
+#> 1440: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
-#>    1:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#>    2:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#>    3:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#>    4:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#>    5:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
+#>    1:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#>    2:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#>    3:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#>    4:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#>    5:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
 #>   ---                                                    
-#> 1435:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#> 1436:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#> 1437:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#> 1438:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
-#> 1439:   EURO  Millions 2026-07-22 09:55:54    <NA>   <NA>
+#> 1436:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#> 1437:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#> 1438:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#> 1439:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#> 1440:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
 # }
 ```

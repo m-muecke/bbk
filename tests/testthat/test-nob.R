@@ -30,6 +30,23 @@ test_that("parse_nob_data works", {
   expect_true(all(c("date", "key", "value", "freq") %in% names(actual)))
 })
 
+test_that("parse_nob_data drops observations without a value and keeps alignment", {
+  body = xml2::read_xml(
+    '<message:StructureSpecificData xmlns:message="m">
+      <message:DataSet>
+        <Series FREQ="B" BASE_CUR="USD">
+          <Obs TIME_PERIOD="2024-01-02" OBS_VALUE="1"/>
+          <Obs TIME_PERIOD="2024-01-03"/>
+          <Obs TIME_PERIOD="2024-01-04" OBS_VALUE="3"/>
+        </Series>
+      </message:DataSet>
+    </message:StructureSpecificData>'
+  )
+  actual = parse_nob_data(body)
+  expect_identical(actual$date, as.Date(c("2024-01-02", "2024-01-04")))
+  expect_identical(actual$value, c(1, 3))
+})
+
 test_that("nob_dimension input validation works", {
   expect_error(nob_dimension(1L))
   expect_error(nob_dimension(TRUE))

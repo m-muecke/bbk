@@ -147,7 +147,7 @@ parse_boi_data = function(xml) {
     nms = tolower(names(attrs))
     names(attrs) = nms
 
-    obs = xml2::xml_find_all(x, ".//Obs", ns)
+    obs = xml2::xml_find_all(x, "./Obs[@OBS_VALUE]", ns)
     obs_attrs = map(obs, xml2::xml_attrs)
     date = map_chr(obs_attrs, "TIME_PERIOD")
     value = as.numeric(map_chr(obs_attrs, "OBS_VALUE"))

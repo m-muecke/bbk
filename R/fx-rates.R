@@ -35,9 +35,8 @@ ecb_fx_rates = function(x = "latest") {
   on.exit(unlink(tf), add = TRUE)
   curl::curl_download(url, tf)
   dt = fread(file = tf, sep = ",", na.strings = c("NA", "N/A"))
-  fmt = if (nrow(dt) > 1L) "%Y-%m-%d" else "%d %B %Y"
   Date = NULL
-  dt[, Date := as.Date(Date, fmt)]
+  dt[, Date := parse_ecb_fx_date(Date)]
   dt[, names(.SD) := map(.SD, as.numeric), .SDcols = !"Date"]
   dt = dt |>
     melt(
@@ -49,6 +48,16 @@ ecb_fx_rates = function(x = "latest") {
     na.omit() |>
     setnames(tolower)
   dt[]
+}
+
+parse_ecb_fx_date = function(x) {
+  if (all(grepl("^\\d{4}-\\d{2}-\\d{2}$", x))) {
+    return(as.Date(x))
+  }
+  old = Sys.getlocale("LC_TIME")
+  on.exit(Sys.setlocale("LC_TIME", old), add = TRUE)
+  Sys.setlocale("LC_TIME", "C")
+  as.Date(x, "%d %B %Y")
 }
 
 #' @rdname ecb_fx_rates

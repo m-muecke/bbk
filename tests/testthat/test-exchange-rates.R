@@ -1,3 +1,22 @@
+test_that("parse_ecb_fx_date parses both file layouts", {
+  expect_identical(
+    parse_ecb_fx_date(c("2026-07-29", "2026-07-28")),
+    as.Date(c("2026-07-29", "2026-07-28"))
+  )
+  expect_identical(parse_ecb_fx_date("29 July 2026"), as.Date("2026-07-29"))
+})
+
+test_that("parse_ecb_fx_date does not depend on the session locale", {
+  old = Sys.getlocale("LC_TIME")
+  on.exit(Sys.setlocale("LC_TIME", old), add = TRUE)
+  skip_if(
+    !nzchar(suppressWarnings(Sys.setlocale("LC_TIME", "de_DE.UTF-8"))),
+    "no German locale available"
+  )
+  expect_identical(parse_ecb_fx_date("29 July 2026"), as.Date("2026-07-29"))
+  expect_identical(Sys.getlocale("LC_TIME"), "de_DE.UTF-8")
+})
+
 test_that("ecb_fx_rates works", {
   skip_if_offline()
   skip_on_cran()

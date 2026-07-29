@@ -2,6 +2,16 @@
 
 ## bbk (development version)
 
+### New features
+
+- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
+  [`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
+  and
+  [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md)
+  add support for Bank of Israel (BoI) data from the SDMX web service.
+
+### Bug fixes
+
 - [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
   and
   [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
@@ -11,14 +21,37 @@
   and
   [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
   now report detailed Banxico API errors when available.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
+  [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+  and
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
+  no longer mistake an observation’s attributes for series metadata.
+- [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
+  no longer truncates metadata fields that contain a comma, such as the
+  series comment.
 - [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
   now rejects currency codes that do not contain exactly three
   characters.
-- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
-  [`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
+- [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
+  now returns series that omit the `TITLE` attribute, falling back to
+  `TITLE_TS`.
+- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md)
   and
-  [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md)
-  add support for Bank of Israel (BoI) data from the SDMX web service.
+  [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
+  now keep dates and values aligned when a series has observations
+  without a value.
+- [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
+  now requires either `year_month` or `year` instead of returning an
+  empty table.
+- `ecb_fx_rates("latest")` no longer returns an empty table outside an
+  English locale.
+- [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
+  and
+  [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md)
+  now reject an `end_date` given without a `start_date`, which was
+  previously ignored.
+- `srb_series("groups")` no longer errors and now flattens nested
+  groups.
 
 ## bbk 0.12.0
 

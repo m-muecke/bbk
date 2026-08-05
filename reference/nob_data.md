@@ -110,11 +110,11 @@ Other data:
 nob_data("EXR", "B.USD.NOK.SP", last_n = 5L)
 #>          date          key  value   freq base_cur quote_cur  tenor
 #>        <Date>       <char>  <num> <char>   <char>    <char> <char>
-#> 1: 2026-07-23 B.USD.NOK.SP 9.6142  daily      USD       NOK     SP
-#> 2: 2026-07-24 B.USD.NOK.SP 9.5702  daily      USD       NOK     SP
-#> 3: 2026-07-27 B.USD.NOK.SP 9.6448  daily      USD       NOK     SP
-#> 4: 2026-07-28 B.USD.NOK.SP 9.6820  daily      USD       NOK     SP
-#> 5: 2026-07-29 B.USD.NOK.SP 9.6643  daily      USD       NOK     SP
+#> 1: 2026-07-30 B.USD.NOK.SP 9.5641  daily      USD       NOK     SP
+#> 2: 2026-07-31 B.USD.NOK.SP 9.5272  daily      USD       NOK     SP
+#> 3: 2026-08-03 B.USD.NOK.SP 9.5332  daily      USD       NOK     SP
+#> 4: 2026-08-04 B.USD.NOK.SP 9.5462  daily      USD       NOK     SP
+#> 5: 2026-08-05 B.USD.NOK.SP 9.5062  daily      USD       NOK     SP
 
 # fetch multiple exchange rates
 nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
@@ -126,11 +126,11 @@ nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
 #>    4: 2024-01-05 B.USD.NOK.SP 10.3553  daily      USD       NOK     SP
 #>    5: 2024-01-08 B.USD.NOK.SP 10.3800  daily      USD       NOK     SP
 #>   ---                                                                 
-#> 1931: 2026-07-23 B.EUR.NOK.SP 10.9525  daily      EUR       NOK     SP
-#> 1932: 2026-07-24 B.EUR.NOK.SP 10.8880  daily      EUR       NOK     SP
-#> 1933: 2026-07-27 B.EUR.NOK.SP 10.9845  daily      EUR       NOK     SP
-#> 1934: 2026-07-28 B.EUR.NOK.SP 11.0055  daily      EUR       NOK     SP
-#> 1935: 2026-07-29 B.EUR.NOK.SP 10.9980  daily      EUR       NOK     SP
+#> 1946: 2026-07-30 B.EUR.NOK.SP 10.9758  daily      EUR       NOK     SP
+#> 1947: 2026-07-31 B.EUR.NOK.SP 10.9420  daily      EUR       NOK     SP
+#> 1948: 2026-08-03 B.EUR.NOK.SP 10.9965  daily      EUR       NOK     SP
+#> 1949: 2026-08-04 B.EUR.NOK.SP 10.9925  daily      EUR       NOK     SP
+#> 1950: 2026-08-05 B.EUR.NOK.SP 10.9835  daily      EUR       NOK     SP
 
 # fetch policy rate
 nob_data("IR", last_n = 5L)
@@ -141,46 +141,46 @@ nob_data("IR", last_n = 5L)
 #>  3: 1975-07-17 A.KPRA.SD.R  3.54  annual            KPRA     SD            R
 #>  4: 1975-07-18 A.KPRA.SD.R  4.50  annual            KPRA     SD            R
 #>  5: 1975-07-19 A.KPRA.SD.R  4.29  annual            KPRA     SD            R
-#>  6: 2026-07-22 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#>  7: 2026-07-23 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#>  8: 2026-07-24 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#>  9: 2026-07-27 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#> 10: 2026-07-28 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#> 11: 2026-07-22 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 12: 2026-07-23 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 13: 2026-07-24 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 14: 2026-07-27 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 15: 2026-07-28 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 16: 2026-07-22 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 17: 2026-07-23 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 18: 2026-07-24 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 19: 2026-07-27 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 20: 2026-07-28 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 21: 2026-02-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R
-#> 22: 2026-03-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R
-#> 23: 2026-04-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R
-#> 24: 2026-05-01 M.KPRA.OL.R  5.19 monthly            KPRA     OL            R
-#> 25: 2026-06-01 M.KPRA.OL.R  5.25 monthly            KPRA     OL            R
+#>  6: 2026-07-29 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#>  7: 2026-07-30 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#>  8: 2026-07-31 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#>  9: 2026-08-03 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#> 10: 2026-08-04 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#> 11: 2026-07-29 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 12: 2026-07-30 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 13: 2026-07-31 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 14: 2026-08-03 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 15: 2026-08-04 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 16: 2026-07-29 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 17: 2026-07-30 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 18: 2026-07-31 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 19: 2026-08-03 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 20: 2026-08-04 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 21: 2026-03-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R
+#> 22: 2026-04-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R
+#> 23: 2026-05-01 M.KPRA.OL.R  5.19 monthly            KPRA     OL            R
+#> 24: 2026-06-01 M.KPRA.OL.R  5.25 monthly            KPRA     OL            R
+#> 25: 2026-07-01 M.KPRA.OL.R  5.25 monthly            KPRA     OL            R
 #> 26: 1975-07-15 A.KPRA.OL.R  1.08  annual            KPRA     OL            R
 #> 27: 1975-07-16 A.KPRA.OL.R  2.33  annual            KPRA     OL            R
 #> 28: 1975-07-17 A.KPRA.OL.R  4.54  annual            KPRA     OL            R
 #> 29: 1975-07-18 A.KPRA.OL.R  5.50  annual            KPRA     OL            R
 #> 30: 1975-07-19 A.KPRA.OL.R  5.29  annual            KPRA     OL            R
-#> 31: 2026-02-01 M.KPRA.RR.R  3.00 monthly            KPRA     RR            R
-#> 32: 2026-03-01 M.KPRA.RR.R  3.00 monthly            KPRA     RR            R
-#> 33: 2026-04-01 M.KPRA.RR.R  3.00 monthly            KPRA     RR            R
-#> 34: 2026-05-01 M.KPRA.RR.R  3.19 monthly            KPRA     RR            R
-#> 35: 2026-06-01 M.KPRA.RR.R  3.25 monthly            KPRA     RR            R
+#> 31: 2026-03-01 M.KPRA.RR.R  3.00 monthly            KPRA     RR            R
+#> 32: 2026-04-01 M.KPRA.RR.R  3.00 monthly            KPRA     RR            R
+#> 33: 2026-05-01 M.KPRA.RR.R  3.19 monthly            KPRA     RR            R
+#> 34: 2026-06-01 M.KPRA.RR.R  3.25 monthly            KPRA     RR            R
+#> 35: 2026-07-01 M.KPRA.RR.R  3.25 monthly            KPRA     RR            R
 #> 36: 1975-07-15 A.KPRA.RR.R -0.92  annual            KPRA     RR            R
 #> 37: 1975-07-16 A.KPRA.RR.R  0.33  annual            KPRA     RR            R
 #> 38: 1975-07-17 A.KPRA.RR.R  2.54  annual            KPRA     RR            R
 #> 39: 1975-07-18 A.KPRA.RR.R  3.50  annual            KPRA     RR            R
 #> 40: 1975-07-19 A.KPRA.RR.R  3.29  annual            KPRA     RR            R
-#> 41: 2026-02-01 M.KPRA.SD.R  4.00 monthly            KPRA     SD            R
-#> 42: 2026-03-01 M.KPRA.SD.R  4.00 monthly            KPRA     SD            R
-#> 43: 2026-04-01 M.KPRA.SD.R  4.00 monthly            KPRA     SD            R
-#> 44: 2026-05-01 M.KPRA.SD.R  4.19 monthly            KPRA     SD            R
-#> 45: 2026-06-01 M.KPRA.SD.R  4.25 monthly            KPRA     SD            R
+#> 41: 2026-03-01 M.KPRA.SD.R  4.00 monthly            KPRA     SD            R
+#> 42: 2026-04-01 M.KPRA.SD.R  4.00 monthly            KPRA     SD            R
+#> 43: 2026-05-01 M.KPRA.SD.R  4.19 monthly            KPRA     SD            R
+#> 44: 2026-06-01 M.KPRA.SD.R  4.25 monthly            KPRA     SD            R
+#> 45: 2026-07-01 M.KPRA.SD.R  4.25 monthly            KPRA     SD            R
 #>           date         key value    freq instrument_type  tenor unit_measure
 #>         <Date>      <char> <num>  <char>          <char> <char>       <char>
 # }

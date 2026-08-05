@@ -95,14 +95,14 @@ head(usd_eur)
 #> 4:      USD                  EUR              BB            AC        A01
 #> 5:      USD                  EUR              BB            AC        A01
 #> 6:      USD                  EUR              BB            AC        A01
-#>    time_format decimals   unit unit_mult category
-#>         <char>    <int> <char>    <char>   <char>
-#> 1:         P1M        4    USD         0     WEDE
-#> 2:         P1M        4    USD         0     WEDE
-#> 3:         P1M        4    USD         0     WEDE
-#> 4:         P1M        4    USD         0     WEDE
-#> 5:         P1M        4    USD         0     WEDE
-#> 6:         P1M        4    USD         0     WEDE
+#>    time_format decimals   unit unit_mult
+#>         <char>    <int> <char>    <char>
+#> 1:         P1M        4   <NA>         0
+#> 2:         P1M        4   <NA>         0
+#> 3:         P1M        4   <NA>         0
+#> 4:         P1M        4   <NA>         0
+#> 5:         P1M        4   <NA>         0
+#> 6:         P1M        4   <NA>         0
 #>                                                                                                                                                comm_gen
 #>                                                                                                                                                  <char>
 #> 1: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
@@ -111,14 +111,14 @@ head(usd_eur)
 #> 4: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #> 5: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #> 6: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
-#>                        comm_src
-#>                          <char>
-#> 1: European Central Bank (ECB).
-#> 2: European Central Bank (ECB).
-#> 3: European Central Bank (ECB).
-#> 4: European Central Bank (ECB).
-#> 5: European Central Bank (ECB).
-#> 6: European Central Bank (ECB).
+#>                        comm_src category
+#>                          <char>   <char>
+#> 1: European Central Bank (ECB).     WEDE
+#> 2: European Central Bank (ECB).     WEDE
+#> 3: European Central Bank (ECB).     WEDE
+#> 4: European Central Bank (ECB).     WEDE
+#> 5: European Central Bank (ECB).     WEDE
+#> 6: European Central Bank (ECB).     WEDE
 ```
 
 If you already know the full identifier,

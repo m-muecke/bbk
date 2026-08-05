@@ -106,11 +106,11 @@ boj_data("FM08", "FXERD01", start_date = "202401")
 #>   4: 2024-01-10 FXERD01 144.43  daily
 #>   5: 2024-01-11 FXERD01 145.73  daily
 #>  ---                                 
-#> 621: 2026-07-21 FXERD01 162.48  daily
-#> 622: 2026-07-22 FXERD01 163.19  daily
-#> 623: 2026-07-23 FXERD01 163.10  daily
-#> 624: 2026-07-24 FXERD01 163.85  daily
-#> 625: 2026-07-27 FXERD01 163.62  daily
+#> 626: 2026-07-28 FXERD01 163.79  daily
+#> 627: 2026-07-29 FXERD01 163.87  daily
+#> 628: 2026-07-30 FXERD01 163.31  daily
+#> 629: 2026-07-31 FXERD01 160.18  daily
+#> 630: 2026-08-03 FXERD01 157.58  daily
 #>                                                      name                unit
 #>                                                    <char>              <char>
 #>   1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
@@ -119,11 +119,11 @@ boj_data("FM08", "FXERD01", start_date = "202401")
 #>   4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>   5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>  ---                                                                         
-#> 621: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 622: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 623: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 624: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 625: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 626: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 627: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 628: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 629: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 630: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 
 # fetch multiple exchange rates
 boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
@@ -135,11 +135,11 @@ boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 #>    4: 2024-01-10 FXERD01 144.43  daily
 #>    5: 2024-01-11 FXERD01 145.73  daily
 #>   ---                                 
-#> 1246: 2026-07-21 FXERD02 162.62  daily
-#> 1247: 2026-07-22 FXERD02 163.22  daily
-#> 1248: 2026-07-23 FXERD02 163.42  daily
-#> 1249: 2026-07-24 FXERD02 163.95  daily
-#> 1250: 2026-07-27 FXERD02 163.70  daily
+#> 1256: 2026-07-28 FXERD02 163.84  daily
+#> 1257: 2026-07-29 FXERD02 163.88  daily
+#> 1258: 2026-07-30 FXERD02 163.74  daily
+#> 1259: 2026-07-31 FXERD02 160.90  daily
+#> 1260: 2026-08-03 FXERD02 157.86  daily
 #>                                                       name                unit
 #>                                                     <char>              <char>
 #>    1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
@@ -148,10 +148,10 @@ boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 #>    4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>    5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>   ---                                                                         
-#> 1246:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1247:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1248:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1249:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1250:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1256:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1257:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1258:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1259:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1260:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
 # }
 ```

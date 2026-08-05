@@ -77,11 +77,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: 1999-04-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4323 monthly
 #>   5: 1999-05-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4318 monthly
 #>  ---                                                    
-#> 326: 2026-02-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4718 monthly
 #> 327: 2026-03-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4730 monthly
 #> 328: 2026-04-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4716 monthly
 #> 329: 2026-05-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4731 monthly
 #> 330: 2026-06-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4744 monthly
+#> 331: 2026-07-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4752 monthly
 #>                                                                            title
 #>                                                                           <char>
 #>   1: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
@@ -90,24 +90,24 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>   5: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>  ---                                                                            
-#> 326: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 327: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 328: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 329: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #> 330: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
+#> 331: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
 #>      category   unit unit_mult         last_update
 #>        <char> <char>    <char>              <char>
-#>   1:     WEDE    DKK       One 2026-06-30 16:05:45
-#>   2:     WEDE    DKK       One 2026-06-30 16:05:45
-#>   3:     WEDE    DKK       One 2026-06-30 16:05:45
-#>   4:     WEDE    DKK       One 2026-06-30 16:05:45
-#>   5:     WEDE    DKK       One 2026-06-30 16:05:45
+#>   1:     WEDE   <NA>       One 2026-07-31 16:08:28
+#>   2:     WEDE   <NA>       One 2026-07-31 16:08:28
+#>   3:     WEDE   <NA>       One 2026-07-31 16:08:28
+#>   4:     WEDE   <NA>       One 2026-07-31 16:08:28
+#>   5:     WEDE   <NA>       One 2026-07-31 16:08:28
 #>  ---                                              
-#> 326:     WEDE    DKK       One 2026-06-30 16:05:45
-#> 327:     WEDE    DKK       One 2026-06-30 16:05:45
-#> 328:     WEDE    DKK       One 2026-06-30 16:05:45
-#> 329:     WEDE    DKK       One 2026-06-30 16:05:45
-#> 330:     WEDE    DKK       One 2026-06-30 16:05:45
+#> 327:     WEDE   <NA>       One 2026-07-31 16:08:28
+#> 328:     WEDE   <NA>       One 2026-07-31 16:08:28
+#> 329:     WEDE   <NA>       One 2026-07-31 16:08:28
+#> 330:     WEDE   <NA>       One 2026-07-31 16:08:28
+#> 331:     WEDE   <NA>       One 2026-07-31 16:08:28
 #>                                                                                                                                                   comment
 #>                                                                                                                                                    <char>
 #>   1: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
@@ -116,11 +116,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #>   5: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #>  ---                                                                                                                                                     
-#> 326: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #> 327: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #> 328: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #> 329: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #> 330: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
+#> 331: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.
 #>                            source
 #>                            <char>
 #>   1: European Central Bank (ECB).
@@ -129,11 +129,11 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #>   4: European Central Bank (ECB).
 #>   5: European Central Bank (ECB).
 #>  ---                             
-#> 326: European Central Bank (ECB).
 #> 327: European Central Bank (ECB).
 #> 328: European Central Bank (ECB).
 #> 329: European Central Bank (ECB).
 #> 330: European Central Bank (ECB).
+#> 331: European Central Bank (ECB).
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>         date                                 key value      freq
 #>       <char>                              <char> <num>    <char>
@@ -203,16 +203,16 @@ bbk_series("BBBK11.D.TTA000")
 #> 1440: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
-#>    1:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#>    2:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#>    3:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#>    4:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#>    5:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#>    1:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#>    2:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#>    3:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#>    4:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#>    5:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
 #>   ---                                                    
-#> 1436:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#> 1437:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#> 1438:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#> 1439:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
-#> 1440:   EURO  Millions 2026-07-29 11:07:00    <NA>   <NA>
+#> 1436:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#> 1437:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#> 1438:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#> 1439:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
+#> 1440:   <NA>  Millions 2026-07-30 16:10:30    <NA>   <NA>
 # }
 ```

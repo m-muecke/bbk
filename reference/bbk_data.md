@@ -131,12 +131,12 @@ data = bbk_data("BBSIS", "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
 head(data)
 #>          date                                                   key value
 #>        <Date>                                                <char> <num>
-#> 1: 1972-09-29 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  7.92
-#> 2: 1972-10-31 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.29
-#> 3: 1972-11-30 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.48
-#> 4: 1972-12-29 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.62
-#> 5: 1973-01-31 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.66
-#> 6: 1973-02-28 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  8.48
+#> 1: 1997-08-07 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.76
+#> 2: 1997-08-08 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.76
+#> 3: 1997-08-11 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.75
+#> 4: 1997-08-12 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.72
+#> 5: 1997-08-13 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.77
+#> 6: 1997-08-14 BBSIS.D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A  5.74
 #>      freq
 #>    <char>
 #> 1:  daily
@@ -205,14 +205,14 @@ head(data)
 #> 4:                  EUR              CA            AC        A01         P1M
 #> 5:                  EUR              CA            AC        A01         P1M
 #> 6:                  EUR              CA            AC        A01         P1M
-#>    decimals   unit unit_mult category
-#>       <int> <char>    <char>   <char>
-#> 1:        2    ISK         0     WEDE
-#> 2:        2    ISK         0     WEDE
-#> 3:        2    ISK         0     WEDE
-#> 4:        2    ISK         0     WEDE
-#> 5:        2    ISK         0     WEDE
-#> 6:        2    ISK         0     WEDE
+#>    decimals   unit unit_mult
+#>       <int> <char>    <char>
+#> 1:        2   <NA>         0
+#> 2:        2   <NA>         0
+#> 3:        2   <NA>         0
+#> 4:        2   <NA>         0
+#> 5:        2   <NA>         0
+#> 6:        2   <NA>         0
 #>                                                                                                                                          comm_gen
 #>                                                                                                                                            <char>
 #> 1: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.
@@ -229,14 +229,14 @@ head(data)
 #> 4: Until March 2020, calculated on the basis of buying and selling rates.
 #> 5: Until March 2020, calculated on the basis of buying and selling rates.
 #> 6: Until March 2020, calculated on the basis of buying and selling rates.
-#>                          comm_src
-#>                            <char>
-#> 1: Sedlabanki Islands, Reykjavik.
-#> 2: Sedlabanki Islands, Reykjavik.
-#> 3: Sedlabanki Islands, Reykjavik.
-#> 4: Sedlabanki Islands, Reykjavik.
-#> 5: Sedlabanki Islands, Reykjavik.
-#> 6: Sedlabanki Islands, Reykjavik.
+#>                          comm_src category
+#>                            <char>   <char>
+#> 1: Sedlabanki Islands, Reykjavik.     WEDE
+#> 2: Sedlabanki Islands, Reykjavik.     WEDE
+#> 3: Sedlabanki Islands, Reykjavik.     WEDE
+#> 4: Sedlabanki Islands, Reykjavik.     WEDE
+#> 5: Sedlabanki Islands, Reykjavik.     WEDE
+#> 6: Sedlabanki Islands, Reykjavik.     WEDE
 
 # specified period (start date-end date) for daily data
 data = bbk_data(

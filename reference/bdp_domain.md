@@ -301,7 +301,7 @@ bdp_domain()
 #> 64:  NA-Rev Exp GG       TRUE        107            1
 #> 65:            BCR       TRUE       6901            2
 #> 66:         NA-ICS       TRUE         60            1
-#> 67:         CN-NAD       TRUE        386            3
+#> 67:         CN-NAD       TRUE        382            2
 #> 68:                      TRUE         40            4
 #> 69:            LOA       TRUE        700            2
 #> 70:            FDI       TRUE         20            1

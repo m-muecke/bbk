@@ -64,6 +64,10 @@
 <li>
 <code><a href="../reference/bis_data.html">bis_data()</a></code> now returns series that omit the <code>TITLE</code> attribute, falling back to <code>TITLE_TS</code>.</li>
 <li>
+<code><a href="../reference/boe_data.html">boe_data()</a></code> no longer fails outside an English locale, where the request was built with a localized month abbreviation.</li>
+<li>
+<code><a href="../reference/cnb_czeonia.html">cnb_czeonia()</a></code> now returns an integer <code>volume</code> column when there is no data, matching the type returned for a non-empty response.</li>
+<li>
 <code><a href="../reference/cnb_fx_other_rates.html">cnb_fx_other_rates()</a></code> now requires either <code>year_month</code> or <code>year</code> instead of returning an empty table.</li>
 <li>
 <code>ecb_fx_rates("latest")</code> no longer returns an empty table outside an English locale.</li>

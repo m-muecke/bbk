@@ -35,6 +35,12 @@
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now returns series that omit the `TITLE` attribute, falling back to
   `TITLE_TS`.
+- [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md)
+  no longer fails outside an English locale, where the request was built
+  with a localized month abbreviation.
+- [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)
+  now returns an integer `volume` column when there is no data, matching
+  the type returned for a non-empty response.
 - [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
   now requires either `year_month` or `year` instead of returning an
   empty table.

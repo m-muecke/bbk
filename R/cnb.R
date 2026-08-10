@@ -154,7 +154,7 @@ parse_cnb_czeonia = function(json) {
     recs = list(recs)
   }
   if (length(recs) == 0L) {
-    return(data.table(date = as.Date(character()), czeonia = numeric(), volume = numeric()))
+    return(data.table(date = as.Date(character()), czeonia = numeric(), volume = integer()))
   }
 
   date = NULL

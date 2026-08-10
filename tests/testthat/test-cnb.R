@@ -36,6 +36,7 @@ test_that("parse_cnb_czeonia works", {
   expect_names(names(actual), identical.to = c("date", "czeonia", "volume"))
   expect_date(actual$date)
   expect_identical(actual$czeonia, c(6.5, 6.4))
+  expect_identical(actual$volume, c(100L, 120L))
 })
 
 test_that("parse_cnb_czeonia handles a single daily record", {
@@ -43,6 +44,7 @@ test_that("parse_cnb_czeonia handles a single daily record", {
   actual = parse_cnb_czeonia(json)
   expect_identical(nrow(actual), 1L)
   expect_identical(actual$czeonia, 6.5)
+  expect_identical(actual$volume, 100L)
 })
 
 test_that("parse_cnb_fx_rates works", {
@@ -90,6 +92,7 @@ test_that("parse_cnb_czeonia handles no rates", {
   expect_names(names(actual), identical.to = c("date", "czeonia", "volume"))
   expect_date(actual$date)
   expect_double(actual$czeonia)
+  expect_integer(actual$volume)
 })
 
 test_that("cnb_data input validation works", {

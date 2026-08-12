@@ -61,9 +61,10 @@ sdmx_dimension = function(xml, ns_prefix = "str") {
 sdmx_metadata = function(entries, lang = "en", ns_prefix = "com") {
   xpath = sprintf(".//%s:Name[@xml:lang='%s']", ns_prefix, lang)
   rbindlist(map(entries, function(node) {
+    name = node |> xml2::xml_find_all(xpath) |> xml2::xml_text()
     data.table(
       id = xml2::xml_attr(node, "id"),
-      name = node |> xml2::xml_find_all(xpath) |> xml2::xml_text()
+      name = if (length(name) == 0L) NA_character_ else name
     )
   }))
 }

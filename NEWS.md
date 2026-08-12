@@ -9,6 +9,7 @@
 * `banxico_data()` and `banxico_metadata()` now reject more than 20 series, matching the API limit.
 * `banxico_data()` and `banxico_metadata()` now report detailed Banxico API errors.
 * `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake observation attributes for series metadata.
+* `bbk_metadata()`, `bis_metadata()`, `boi_metadata()`, and `nob_metadata()` no longer drop entries without a name in the requested language.
 * `bbk_series()` no longer truncates metadata fields containing a comma.
 * `bcb_fx_rates()` now rejects currency codes that are not three characters.
 * `bis_data()` now falls back to `TITLE_TS` for series without a `TITLE`.

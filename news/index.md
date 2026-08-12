@@ -20,6 +20,8 @@
   and
   [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
   now report detailed Banxico API errors.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
+  no longer errors when series carry different attributes.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
   and

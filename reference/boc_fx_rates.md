@@ -67,8 +67,8 @@ should occur after 7 pm ET to ensure retrieval of the latest updates.
 boc_fx_rates()
 #>      exchange_rate_id     rate exchange_rate_effective_timestamp
 #>                 <int>    <num>                            <POSc>
-#>   1:          5840757 1.392700                        2026-08-13
-#>   2:          5840758 0.270700                        2026-08-13
+#>   1:          5840757 1.393000                        2026-08-13
+#>   2:          5840758 0.269700                        2026-08-13
 #>   3:          5840759 0.000078                        2026-08-13
 #>   4:          5840760 1.000000                        2026-08-13
 #>   5:          5840761 0.000001                        2026-08-13

@@ -25,6 +25,9 @@ sdmx_metadata_type = function(type) {
 }
 
 sdmx_freq = function(code) {
+  if (length(code) != 1L || is.na(code)) {
+    return(NA_character_)
+  }
   switch(
     code,
     # ISO 8601 duration codes (BBk)

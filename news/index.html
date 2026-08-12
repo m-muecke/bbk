@@ -47,36 +47,46 @@
 <div class="section level3">
 <h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
 <ul><li>
-<code><a href="../reference/boi_data.html">boi_data()</a></code>, <code><a href="../reference/boi_dimension.html">boi_dimension()</a></code>, and <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code> add support for Bank of Israel (BoI) data from the SDMX web service.</li>
+<code><a href="../reference/boi_data.html">boi_data()</a></code>, <code><a href="../reference/boi_dimension.html">boi_dimension()</a></code>, and <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code> add support for Bank of Israel (BoI) data.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
 <ul><li>
-<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now reject requests for more than 20 series, matching the Banxico API limit.</li>
+<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now reject more than 20 series, matching the API limit.</li>
 <li>
-<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now report detailed Banxico API errors when available.</li>
+<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now report detailed Banxico API errors.</li>
 <li>
-<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, and <code><a href="../reference/ecb_data.html">ecb_data()</a></code> no longer mistake an observation’s attributes for series metadata.</li>
+<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, and <code><a href="../reference/ecb_data.html">ecb_data()</a></code> no longer mistake observation attributes for series metadata.</li>
 <li>
-<code><a href="../reference/bbk_series.html">bbk_series()</a></code> no longer truncates metadata fields that contain a comma, such as the series comment.</li>
+<code><a href="../reference/bbk_metadata.html">bbk_metadata()</a></code>, <code><a href="../reference/bis_metadata.html">bis_metadata()</a></code>, <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code>, and <code><a href="../reference/nob_metadata.html">nob_metadata()</a></code> no longer drop entries without a name in the requested language.</li>
 <li>
-<code><a href="../reference/bcb_fx_rates.html">bcb_fx_rates()</a></code> now rejects currency codes that do not contain exactly three characters.</li>
+<code><a href="../reference/bbk_series.html">bbk_series()</a></code> no longer truncates metadata fields containing a comma.</li>
 <li>
-<code><a href="../reference/bis_data.html">bis_data()</a></code> now returns series that omit the <code>TITLE</code> attribute, falling back to <code>TITLE_TS</code>.</li>
+<code><a href="../reference/bbk_series.html">bbk_series()</a></code> now always returns a numeric <code>value</code> column and drops observations flagged as “Nothing exists”.</li>
 <li>
-<code><a href="../reference/boe_data.html">boe_data()</a></code> no longer fails outside an English locale, where the request was built with a localized month abbreviation.</li>
+<code><a href="../reference/bcb_fx_rates.html">bcb_fx_rates()</a></code> now rejects currency codes that are not three characters.</li>
 <li>
-<code><a href="../reference/cnb_czeonia.html">cnb_czeonia()</a></code> now returns an integer <code>volume</code> column when there is no data, matching the type returned for a non-empty response.</li>
+<code><a href="../reference/bis_data.html">bis_data()</a></code> now falls back to <code>TITLE_TS</code> for series without a <code>TITLE</code>.</li>
 <li>
-<code><a href="../reference/cnb_fx_other_rates.html">cnb_fx_other_rates()</a></code> now requires either <code>year_month</code> or <code>year</code> instead of returning an empty table.</li>
+<code><a href="../reference/boe_data.html">boe_data()</a></code> no longer fails outside an English locale.</li>
+<li>
+<code><a href="../reference/cnb_czeonia.html">cnb_czeonia()</a></code> now returns an integer <code>volume</code> column when there is no data.</li>
+<li>
+<code><a href="../reference/cnb_fx_other_rates.html">cnb_fx_other_rates()</a></code> now requires either <code>year_month</code> or <code>year</code>.</li>
 <li>
 <code>ecb_fx_rates("latest")</code> no longer returns an empty table outside an English locale.</li>
 <li>
-<code><a href="../reference/nbp_fx_rates.html">nbp_fx_rates()</a></code> and <code><a href="../reference/nbp_gold.html">nbp_gold()</a></code> now require <code>start_date</code> and <code>end_date</code> to be given together. A lone <code>end_date</code> was previously ignored, and a lone <code>start_date</code> silently queried that single day.</li>
+<code><a href="../reference/nbp_fx_rates.html">nbp_fx_rates()</a></code> and <code><a href="../reference/nbp_gold.html">nbp_gold()</a></code> now require <code>start_date</code> and <code>end_date</code> together.</li>
 <li>
-<code><a href="../reference/nob_data.html">nob_data()</a></code> now keeps dates and values aligned when a series has observations without a value.</li>
+<code><a href="../reference/nob_data.html">nob_data()</a></code> now keeps dates and values aligned when observations have no value.</li>
 <li>
-<code>srb_series("groups")</code> no longer errors and now flattens nested groups.</li>
+<code><a href="../reference/nob_data.html">nob_data()</a></code> now returns dataflows without a <code>FREQ</code> dimension instead of erroring.</li>
+<li>
+<code><a href="../reference/onb_data.html">onb_data()</a></code> and <code><a href="../reference/onb_frequency.html">onb_frequency()</a></code> no longer error when series carry different attributes.</li>
+<li>
+<code><a href="../reference/onb_toc.html">onb_toc()</a></code> now keeps each description with its own element instead of shifting them.</li>
+<li>
+<code>srb_series("groups")</code> no longer errors and flattens nested groups.</li>
 </ul></div>
 </div>
     <div class="section level2">

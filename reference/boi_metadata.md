@@ -76,41 +76,53 @@ Other metadata:
 ``` r
 # \donttest{
 boi_metadata("dataflow")
-#>              id                                                       name
-#>          <char>                                                     <char>
-#>  1:      BBS_99                             Monthly Balance Sheets - Banks
-#>  2:      BFR_99                               Financial Statements - Banks
-#>  3:         BIR    Interest rates and business volume - exc. housing loans
-#>  4: BIR_MRTG_99         Interest rates and business volume - housing loans
-#>  5:         BKN                                        Banknotes and Coins
-#>  6:      BMB_99                                       Balances for housing
-#>  7:          BR                                          BOI interest rate
-#>  8:       BTS_7                                   Business Tendency Survey
-#>  9:        CCIR Credit Card Companies - Interest Rates and Business Volume
-#> 10:     CHEQUES                                                     Checks
-#> 11:        CONS                                               Construction
-#> 12:    DEBT_AGG                                 Debt and credit aggregates
-#> 13:         DRV                                             Trade Turnover
-#> 14:         ENR                                                     Energy
-#> 15:         EXR                                             Exchange rates
-#> 16:         EXS                                        External Statistics
-#> 17:        EZER                                                       EZER
-#> 18:         FTR                                              Foreign Trade
-#> 19:     INSINV2                                    Institutional Investors
-#> 20:         LBM                                               Labor Market
-#> 21:         MAG                                         Monetay Aggregates
-#> 22:       MASAV                                                  ACH-MASAV
-#> 23:          MF                                               Mutual Funds
-#> 24:         MNF                                                   Industry
-#> 25:          NA                                          National Accounts
-#> 26:          PS                                              Public Sector
-#> 27:  REAL_ES_DF                                                Real estate
-#> 28:      SECDWH                                            Securities TASE
-#> 29:         TLB                                               Telbor rates
-#> 30:       ZAHAV                                                 RTGS-ZAHAV
-#> 31:         ZCM                Inflation expectations and zero yield curve
-#>              id                                                       name
-#>          <char>                                                     <char>
+#>               id                                                       name
+#>           <char>                                                     <char>
+#>  1:          ACC                                                       <NA>
+#>  2:          ATM                                                       <NA>
+#>  3:       BBS_99                             Monthly Balance Sheets - Banks
+#>  4:       BFR_99                               Financial Statements - Banks
+#>  5:          BIR    Interest rates and business volume - exc. housing loans
+#>  6:  BIR_MRTG_99         Interest rates and business volume - housing loans
+#>  7:          BKN                                        Banknotes and Coins
+#>  8:       BMB_99                                       Balances for housing
+#>  9:          BOP                                                       <NA>
+#> 10:           BR                                          BOI interest rate
+#> 11:        BTS_7                                   Business Tendency Survey
+#> 12:          CAP                                                       <NA>
+#> 13:        CARDS                                                       <NA>
+#> 14:         CCIR Credit Card Companies - Interest Rates and Business Volume
+#> 15:          CCP                                                       <NA>
+#> 16:      CHEQUES                                                     Checks
+#> 17:         CONS                                               Construction
+#> 18:     DEBT_AGG                                 Debt and credit aggregates
+#> 19:          DEM                                                       <NA>
+#> 20:          DRV                                             Trade Turnover
+#> 21:     ECON_IND                                                       <NA>
+#> 22:          ENR                                                     Energy
+#> 23:          EXR                                             Exchange rates
+#> 24:          EXS                                        External Statistics
+#> 25:         EZER                                                       EZER
+#> 26: EZER_PIK_MOS                                                       <NA>
+#> 27:          FTR                                              Foreign Trade
+#> 28:       INSINV                                                       <NA>
+#> 29:      INSINV2                                    Institutional Investors
+#> 30:          LBM                                               Labor Market
+#> 31:          MAG                                         Monetay Aggregates
+#> 32:        MASAV                                                  ACH-MASAV
+#> 33:           MF                                               Mutual Funds
+#> 34:          MNF                                                   Industry
+#> 35:           NA                                          National Accounts
+#> 36:          PRI                                                       <NA>
+#> 37:           PS                                              Public Sector
+#> 38:   REAL_ES_DF                                                Real estate
+#> 39:          REV                                                       <NA>
+#> 40:       SECDWH                                            Securities TASE
+#> 41:          TLB                                               Telbor rates
+#> 42:        ZAHAV                                                 RTGS-ZAHAV
+#> 43:          ZCM                Inflation expectations and zero yield curve
+#>               id                                                       name
+#>           <char>                                                     <char>
 boi_metadata("datastructure")
 #>                   id                                                     name
 #>               <char>                                                   <char>

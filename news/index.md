@@ -8,55 +8,61 @@
   [`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
   and
   [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md)
-  add support for Bank of Israel (BoI) data from the SDMX web service.
+  add support for Bank of Israel (BoI) data.
 
 ### Bug fixes
 
 - [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
   and
   [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
-  now reject requests for more than 20 series, matching the Banxico API
-  limit.
+  now reject more than 20 series, matching the API limit.
 - [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
   and
   [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
-  now report detailed Banxico API errors when available.
+  now report detailed Banxico API errors.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
   and
   [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
-  no longer mistake an observation’s attributes for series metadata.
+  no longer mistake observation attributes for series metadata.
+- [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+  [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
+  [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md),
+  and
+  [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
+  no longer drop entries without a name in the requested language.
 - [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
-  no longer truncates metadata fields that contain a comma, such as the
-  series comment.
+  no longer truncates metadata fields containing a comma.
+- [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
+  now always returns a numeric `value` column and drops observations
+  flagged as “Nothing exists”.
 - [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
-  now rejects currency codes that do not contain exactly three
-  characters.
+  now rejects currency codes that are not three characters.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
-  now returns series that omit the `TITLE` attribute, falling back to
-  `TITLE_TS`.
+  now falls back to `TITLE_TS` for series without a `TITLE`.
 - [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md)
-  no longer fails outside an English locale, where the request was built
-  with a localized month abbreviation.
+  no longer fails outside an English locale.
 - [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)
-  now returns an integer `volume` column when there is no data, matching
-  the type returned for a non-empty response.
+  now returns an integer `volume` column when there is no data.
 - [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
-  now requires either `year_month` or `year` instead of returning an
-  empty table.
+  now requires either `year_month` or `year`.
 - `ecb_fx_rates("latest")` no longer returns an empty table outside an
   English locale.
 - [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
   and
   [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md)
-  now require `start_date` and `end_date` to be given together. A lone
-  `end_date` was previously ignored, and a lone `start_date` silently
-  queried that single day.
+  now require `start_date` and `end_date` together.
 - [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
-  now keeps dates and values aligned when a series has observations
-  without a value.
-- `srb_series("groups")` no longer errors and now flattens nested
-  groups.
+  now keeps dates and values aligned when observations have no value.
+- [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
+  now returns dataflows without a `FREQ` dimension instead of erroring.
+- [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
+  and
+  [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md)
+  no longer error when series carry different attributes.
+- [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md) now
+  keeps each description with its own element instead of shifting them.
+- `srb_series("groups")` no longer errors and flattens nested groups.
 
 ## bbk 0.12.0
 

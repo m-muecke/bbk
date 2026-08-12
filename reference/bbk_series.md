@@ -176,18 +176,18 @@ bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #> 107:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 bbk_series("BBBK11.D.TTA000")
 #>             date             key  value   freq
-#>           <Date>          <char> <char> <char>
+#>           <Date>          <char>  <num> <char>
 #>    1: 1999-01-01 BBBK11.D.TTA000  29312  daily
 #>    2: 1999-01-08 BBBK11.D.TTA000  27475  daily
 #>    3: 1999-01-15 BBBK11.D.TTA000  27475  daily
 #>    4: 1999-01-22 BBBK11.D.TTA000  27475  daily
 #>    5: 1999-01-29 BBBK11.D.TTA000  27475  daily
 #>   ---                                         
-#> 1437: 2026-07-03 BBBK11.D.TTA000 380732  daily
-#> 1438: 2026-07-10 BBBK11.D.TTA000 380732  daily
-#> 1439: 2026-07-17 BBBK11.D.TTA000 380732  daily
-#> 1440: 2026-07-24 BBBK11.D.TTA000 380732  daily
-#> 1441: 2026-07-31 BBBK11.D.TTA000 380732  daily
+#> 1436: 2026-07-03 BBBK11.D.TTA000 380732  daily
+#> 1437: 2026-07-10 BBBK11.D.TTA000 380732  daily
+#> 1438: 2026-07-17 BBBK11.D.TTA000 380732  daily
+#> 1439: 2026-07-24 BBBK11.D.TTA000 380732  daily
+#> 1440: 2026-07-31 BBBK11.D.TTA000 380732  daily
 #>                                                              title category
 #>                                                             <char>   <char>
 #>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
@@ -196,11 +196,11 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>   ---                                                                      
+#> 1436: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1437: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1438: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1439: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1440: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
-#> 1441: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
 #>    1:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
@@ -209,10 +209,10 @@ bbk_series("BBBK11.D.TTA000")
 #>    4:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
 #>    5:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
 #>   ---                                                    
+#> 1436:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
 #> 1437:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
 #> 1438:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
 #> 1439:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
 #> 1440:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
-#> 1441:   <NA>  Millions 2026-08-06 13:58:24    <NA>   <NA>
 # }
 ```

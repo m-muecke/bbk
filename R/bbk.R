@@ -192,7 +192,7 @@ parse_bbk_series = function(body, key) {
   dt = fread(file = path, header = FALSE, skip = 10L, select = 1:2)
   setnames(dt, c("date", "value"))
   value = NULL
-  dt[value == ".", value := NA_character_]
+  dt[value %in% c(".", "-"), value := NA_character_]
   dt = na.omit(dt)
 
   metadata = readLines(path, n = 10L)
@@ -212,6 +212,7 @@ parse_bbk_series = function(body, key) {
   freq = sdmx_freq(freq)
   dt[, let(
     date = parse_date(date, freq),
+    value = as.numeric(value),
     key = key,
     title = title,
     freq = freq,

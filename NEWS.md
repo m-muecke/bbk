@@ -11,6 +11,7 @@
 * `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake observation attributes for series metadata.
 * `bbk_metadata()`, `bis_metadata()`, `boi_metadata()`, and `nob_metadata()` no longer drop entries without a name in the requested language.
 * `bbk_series()` no longer truncates metadata fields containing a comma.
+* `bbk_series()` now always returns a numeric `value` column and drops observations flagged as "Nothing exists".
 * `bcb_fx_rates()` now rejects currency codes that are not three characters.
 * `bis_data()` now falls back to `TITLE_TS` for series without a `TITLE`.
 * `boe_data()` no longer fails outside an English locale.

@@ -91,7 +91,7 @@ parse_bde_data = function(json) {
     rbindlist(fill = TRUE) |>
     setnames(old_cols, new_cols)
 
-  value = NULL
+  date = value = NULL
   dt[, let(date = unlist(date, use.names = FALSE), value = unlist(value, use.names = FALSE))]
   dt[,
     names(.SD) := map(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")),
@@ -136,6 +136,7 @@ bde_latest = function(key, lang = "en") {
     map(setDT) |>
     rbindlist() |>
     setnames(old_cols, new_cols)
+  date = NULL
   dt[, date := as.POSIXct(date, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]

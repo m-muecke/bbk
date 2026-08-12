@@ -48,9 +48,9 @@ parse_snb_data = function(json) {
     vals[, names(ref) := ref]
   }))
 
+  duration = scale = NULL
   dt[!nzchar(scale), scale := NA_character_]
   setnames(dt, "frequency", "duration")
-  duration = NULL
   dt[, duration := substring(duration, 1L, 3L)]
   freq = sdmx_freq(dt[1L, duration])
   dt[, let(date = parse_date(date, freq), freq = freq)]

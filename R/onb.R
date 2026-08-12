@@ -217,8 +217,8 @@ parse_onb_toc = function(xml) {
   dt = elem |>
     xml2::xml_attrs() |>
     map(\(x) setDT(as.list(x))) |>
-    rbindlist()
-  desc = xml2::xml_text(xml2::xml_find_all(elem, "text"))
+    rbindlist(fill = TRUE)
+  desc = map_chr(elem, \(x) x |> xml2::xml_find_first("text") |> xml2::xml_text())
   id = parent = NULL
   dt[, let(id = as.integer(id), parent = as.integer(parent), description = desc)]
   dt[]
@@ -243,7 +243,7 @@ parse_onb_dimension = function(xml) {
     xml2::xml_find_all(".//data_content/structure/dimension") |>
     xml2::xml_attrs() |>
     map(\(x) setDT(as.list(x))) |>
-    rbindlist()
+    rbindlist(fill = TRUE)
   nr = NULL
   dt[, nr := as.integer(nr)][]
 }

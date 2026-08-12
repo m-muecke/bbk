@@ -19,6 +19,7 @@
 * `nbp_fx_rates()` and `nbp_gold()` now require `start_date` and `end_date` together.
 * `nob_data()` now keeps dates and values aligned when observations have no value.
 * `nob_data()` now returns dataflows without a `FREQ` dimension instead of erroring.
+* `onb_data()` and `onb_frequency()` no longer error when series carry different attributes.
 * `srb_series("groups")` no longer errors and flattens nested groups.
 
 # bbk 0.12.0

@@ -90,7 +90,7 @@ parse_onb_data = function(xml) {
       attrs = xml2::xml_attrs(x)
       dt[, names(attrs) := as.list(attrs)]
     }) |>
-    rbindlist() |>
+    rbindlist(fill = TRUE) |>
     setnames(convert_camel_case) |>
     setnames(c("pos", "pos_title"), c("key", "title")) |>
     setcolorder(col_order, skip_absent = TRUE)
@@ -156,7 +156,7 @@ parse_onb_frequency = function(xml) {
       attrs = xml2::xml_attrs(x)
       dt[, names(attrs) := as.list(attrs)]
     }) |>
-    rbindlist() |>
+    rbindlist(fill = TRUE) |>
     setnames(\(x) sub("_code", "", tolower(x), fixed = TRUE))
   dt
 }

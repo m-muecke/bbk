@@ -18,6 +18,7 @@
 * `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.
 * `nbp_fx_rates()` and `nbp_gold()` now require `start_date` and `end_date` to be given together. A lone `end_date` was previously ignored, and a lone `start_date` silently queried that single day.
 * `nob_data()` now keeps dates and values aligned when a series has observations without a value.
+* `nob_data()` now returns dataflows without a `FREQ` dimension instead of erroring.
 * `srb_series("groups")` no longer errors and now flattens nested groups.
 
 # bbk 0.12.0

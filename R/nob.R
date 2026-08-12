@@ -141,7 +141,7 @@ parse_nob_data = function(xml) {
       collapse = "."
     )
 
-    freq = sdmx_freq(attrs[["freq"]])
+    freq = if ("freq" %in% nms) sdmx_freq(attrs[["freq"]]) else NA_character_
 
     extra = attrs[nms %nin% c("freq", "collection", "calculated", "decimals", "unit_mult")]
     data = c(

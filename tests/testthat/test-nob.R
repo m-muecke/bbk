@@ -47,6 +47,23 @@ test_that("parse_nob_data drops observations without a value and keeps alignment
   expect_identical(actual$value, c(1, 3))
 })
 
+test_that("parse_nob_data works without a FREQ dimension", {
+  body = xml2::read_xml(
+    '<message:StructureSpecificData xmlns:message="m">
+      <message:DataSet>
+        <Series INSTRUMENT_TYPE="KPRA">
+          <Obs TIME_PERIOD="2024-01-02" OBS_VALUE="4.25"/>
+        </Series>
+      </message:DataSet>
+    </message:StructureSpecificData>'
+  )
+  actual = parse_nob_data(body)
+  expect_identical(actual$date, "2024-01-02")
+  expect_identical(actual$value, 4.25)
+  expect_identical(actual$key, "KPRA")
+  expect_identical(actual$freq, NA_character_)
+})
+
 test_that("nob_dimension input validation works", {
   expect_error(nob_dimension(1L))
   expect_error(nob_dimension(TRUE))

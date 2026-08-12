@@ -2,24 +2,24 @@
 
 ## New features
 
-* `boi_data()`, `boi_dimension()`, and `boi_metadata()` add support for Bank of Israel (BoI) data from the SDMX web service.
+* `boi_data()`, `boi_dimension()`, and `boi_metadata()` add support for Bank of Israel (BoI) data.
 
 ## Bug fixes
 
-* `banxico_data()` and `banxico_metadata()` now reject requests for more than 20 series, matching the Banxico API limit.
-* `banxico_data()` and `banxico_metadata()` now report detailed Banxico API errors when available.
-* `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake an observation's attributes for series metadata.
-* `bbk_series()` no longer truncates metadata fields that contain a comma, such as the series comment.
-* `bcb_fx_rates()` now rejects currency codes that do not contain exactly three characters.
-* `bis_data()` now returns series that omit the `TITLE` attribute, falling back to `TITLE_TS`.
-* `boe_data()` no longer fails outside an English locale, where the request was built with a localized month abbreviation.
-* `cnb_czeonia()` now returns an integer `volume` column when there is no data, matching the type returned for a non-empty response.
-* `cnb_fx_other_rates()` now requires either `year_month` or `year` instead of returning an empty table.
+* `banxico_data()` and `banxico_metadata()` now reject more than 20 series, matching the API limit.
+* `banxico_data()` and `banxico_metadata()` now report detailed Banxico API errors.
+* `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake observation attributes for series metadata.
+* `bbk_series()` no longer truncates metadata fields containing a comma.
+* `bcb_fx_rates()` now rejects currency codes that are not three characters.
+* `bis_data()` now falls back to `TITLE_TS` for series without a `TITLE`.
+* `boe_data()` no longer fails outside an English locale.
+* `cnb_czeonia()` now returns an integer `volume` column when there is no data.
+* `cnb_fx_other_rates()` now requires either `year_month` or `year`.
 * `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.
-* `nbp_fx_rates()` and `nbp_gold()` now require `start_date` and `end_date` to be given together. A lone `end_date` was previously ignored, and a lone `start_date` silently queried that single day.
-* `nob_data()` now keeps dates and values aligned when a series has observations without a value.
+* `nbp_fx_rates()` and `nbp_gold()` now require `start_date` and `end_date` together.
+* `nob_data()` now keeps dates and values aligned when observations have no value.
 * `nob_data()` now returns dataflows without a `FREQ` dimension instead of erroring.
-* `srb_series("groups")` no longer errors and now flattens nested groups.
+* `srb_series("groups")` no longer errors and flattens nested groups.
 
 # bbk 0.12.0
 

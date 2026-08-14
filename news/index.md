@@ -42,6 +42,9 @@
   now rejects currency codes that are not three characters.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now falls back to `TITLE_TS` for series without a `TITLE`.
+- [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
+  no longer errors when the requested window has no observations, such
+  as a weekend.
 - [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md)
   no longer fails outside an English locale.
 - [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)

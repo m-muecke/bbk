@@ -15,6 +15,7 @@
 * `bbk_series()` now always returns a numeric `value` column and drops observations flagged as "Nothing exists".
 * `bcb_fx_rates()` now rejects currency codes that are not three characters.
 * `bis_data()` now falls back to `TITLE_TS` for series without a `TITLE`.
+* `boc_data()` no longer errors when the requested window has no observations, such as a weekend.
 * `boe_data()` no longer fails outside an English locale.
 * `cnb_czeonia()` now returns an integer `volume` column when there is no data.
 * `cnb_fx_other_rates()` now requires either `year_month` or `year`.

@@ -67,6 +67,8 @@
   no longer error when series carry different attributes.
 - [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md) now
   keeps each description with its own element instead of shifting them.
+- [`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md)
+  no longer makes a redundant request when only `end_date` is supplied.
 - `srb_series("groups")` no longer errors and flattens nested groups.
 
 ## bbk 0.12.0

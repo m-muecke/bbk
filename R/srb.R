@@ -27,10 +27,9 @@ srb_data = function(series, start_date = NULL, end_date = NULL) {
   start_date = assert_dateish(start_date, null.ok = TRUE)
   end_date = assert_dateish(end_date, null.ok = TRUE)
 
-  if (is.null(start_date) || is.null(end_date)) {
-    meta = srb("Observations/Latest", series)
-    start_date = start_date %||% as.Date("1900-01-01")
-    end_date = end_date %||% as.Date(meta$date)
+  start_date = start_date %||% as.Date("1900-01-01")
+  if (is.null(end_date)) {
+    end_date = as.Date(srb("Observations/Latest", series)$date)
   }
 
   json = srb("Observations", series, format(start_date), format(end_date))

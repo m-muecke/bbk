@@ -25,6 +25,7 @@
 * `nob_data()` now returns dataflows without a `FREQ` dimension instead of erroring.
 * `onb_data()` and `onb_frequency()` no longer error when series carry different attributes.
 * `onb_toc()` now keeps each description with its own element instead of shifting them.
+* `srb_data()` no longer makes a redundant request when only `end_date` is supplied.
 * `srb_series("groups")` no longer errors and flattens nested groups.
 
 # bbk 0.12.0

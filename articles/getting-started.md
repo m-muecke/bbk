@@ -26,19 +26,19 @@ head(bbk_metadata("dataflow"))
 #>        id
 #>    <char>
 #> 1:  BBAF3
-#> 2:  BBAI3
-#> 3:  BBAPV
-#> 4:  BBASV
-#> 5: BBBEK1
-#> 6: BBBEK2
+#> 2:  BBAF4
+#> 3:  BBAI3
+#> 4:  BBAPV
+#> 5:  BBASV
+#> 6: BBBEK1
 #>                                                                           name
 #>                                                                         <char>
 #> 1:                                  Financial Accounts - internet  time series
-#> 2: Deutsche Bundesbank, Statistics on Insurance Corporations and Pension Funds
-#> 3:                            Deutsche Bundesbank, Statistics on Pension funds
-#> 4: Deutsche Bundesbank, Statistics on Insurance Corporations (Solvency I + II)
-#> 5:                                                    AUSTA - Banks in Germany
-#> 6:                                                    AUSTA - Foreign branches
+#> 2:                                                          Time series ESA 95
+#> 3: Deutsche Bundesbank, Statistics on Insurance Corporations and Pension Funds
+#> 4:                            Deutsche Bundesbank, Statistics on Pension funds
+#> 5: Deutsche Bundesbank, Statistics on Insurance Corporations (Solvency I + II)
+#> 6:                                                    AUSTA - Banks in Germany
 ```
 
 Take `BBEX3`, the exchange-rate dataset. It is built on the `BBK_ERX`

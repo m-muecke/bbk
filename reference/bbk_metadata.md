@@ -171,6 +171,7 @@ bbk_metadata("datastructure")
 #> 82:         BBK_WACAAF
 #> 83:          BBK_EXPR2
 #> 84:            BBK_QFS
+#> 85:          BBK_BBAFK
 #>                     id
 #>                 <char>
 #>                                                                                                                                                name
@@ -259,6 +260,7 @@ bbk_metadata("datastructure")
 #> 82:                                                                        Statistics of negotiated wages - Aggregates and forecasts of time series
 #> 83:                                                                                           Consumer Prices of foreign countries (incl. ECOICOP2)
 #> 84:                                                                                                                             Financial stability
+#> 85:                                                                                                     Financial Accounts (short time series keys)
 #>                                                                                                                                                name
 #>                                                                                                                                              <char>
 bbk_metadata("dataflow", "BBSIS")

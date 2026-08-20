@@ -120,6 +120,16 @@ bde_latest = function(key, lang = "en") {
   assert_choice(lang, c("en", "es"))
 
   json = bde(key, lang = lang, resource = "favoritas")
+  parse_bde_latest(json)
+}
+
+parse_bde_latest = function(json) {
+  # the favoritas resource reports an unknown series with a 200 and a per-series error object
+  failed = map_lgl(json, \(x) !is.null(x[["errNum"]]))
+  if (any(failed)) {
+    keys = map_chr(json[failed], \(x) x[["codigo"]] %||% NA_character_)
+    stop(sprintf("Series not found: %s.", toString(keys)), call. = FALSE)
+  }
 
   old_cols = c(
     "serie",

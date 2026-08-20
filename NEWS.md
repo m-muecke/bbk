@@ -14,6 +14,7 @@
 * `bbk_series()` no longer truncates metadata fields containing a comma.
 * `bbk_series()` now always returns a numeric `value` column and drops observations flagged as "Nothing exists".
 * `bcb_fx_rates()` now rejects currency codes that are not three characters.
+* `bde_latest()` now reports unknown series keys instead of failing with an internal error.
 * `bis_data()` now falls back to `TITLE_TS` for series without a `TITLE`.
 * `boc_data()` no longer errors when the requested window has no observations, such as a weekend.
 * `boe_data()` no longer fails outside an English locale.

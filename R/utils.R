@@ -21,10 +21,25 @@ parse_date = function(date, freq) {
   switch(
     freq,
     daily = as.Date(date),
-    monthly = as.Date(paste0(date, "-01")),
+    weekly = parse_iso_week(date),
+    monthly = parse_period(date, 1L),
+    quarterly = parse_period(date, 3L),
+    `semi-annual` = parse_period(date, 6L),
     annual = as.integer(date),
     date
   )
+}
+
+parse_period = function(date, months) {
+  n = as.integer(sub("^\\d{4}\\D*", "", date))
+  month = (n - 1L) * months + 1L
+  as.Date(sprintf("%s-%02d-01", substr(date, 1L, 4L), month), format = "%Y-%m-%d")
+}
+
+parse_iso_week = function(date) {
+  jan4 = as.Date(sprintf("%s-01-04", substr(date, 1L, 4L)), format = "%Y-%m-%d")
+  week1 = jan4 - (as.integer(format(jan4, "%u")) - 1L)
+  week1 + (as.integer(sub("^\\d{4}\\D*", "", date)) - 1L) * 7L
 }
 
 extract_metadata = function(string, pattern, fixed = FALSE) {

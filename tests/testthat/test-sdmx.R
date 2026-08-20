@@ -46,9 +46,35 @@ test_that("sdmx_freq passes unknown codes through instead of returning NULL", {
 })
 
 test_that("parse_date returns the date unchanged for an unknown or missing freq", {
-  expect_identical(parse_date("2020-Q1", "quarterly"), "2020-Q1")
+  expect_identical(parse_date("2020-01", "H"), "2020-01")
   expect_identical(parse_date("2020-01", NULL), "2020-01")
   expect_identical(parse_date("2020-01", NA_character_), "2020-01")
+})
+
+test_that("parse_date maps sub-annual periods to the first day", {
+  expect_identical(
+    parse_date(c("2020-01", "2020-12"), "monthly"),
+    as.Date(c("2020-01-01", "2020-12-01"))
+  )
+  expect_identical(
+    parse_date(c("2020-Q1", "2020-Q4"), "quarterly"),
+    as.Date(c("2020-01-01", "2020-10-01"))
+  )
+  expect_identical(
+    parse_date(c("2020-S1", "2020-S2"), "semi-annual"),
+    as.Date(c("2020-01-01", "2020-07-01"))
+  )
+})
+
+test_that("parse_date maps weekly periods to the Monday of the ISO week", {
+  # ISO week 1 is the week holding 4 January, so it can start in the previous calendar year
+  weeks = c("2020-W01", "2020-W53", "2021-W01", "2015-W53", "2026-W33")
+  actual = parse_date(weeks, "weekly")
+  expect_identical(
+    actual,
+    as.Date(c("2019-12-30", "2020-12-28", "2021-01-04", "2015-12-28", "2026-08-10"))
+  )
+  expect_identical(format(actual, "%G-W%V"), weeks)
 })
 
 test_that("sdmx_metadata parses entries", {

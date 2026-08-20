@@ -78,13 +78,13 @@ Other data:
 cnb_pribor()
 #>          date      period pribor
 #>        <Date>      <char>  <num>
-#> 1: 2026-08-12     ONE_DAY   3.75
-#> 2: 2026-08-12    ONE_WEEK   3.77
-#> 3: 2026-08-12   TWO_WEEKS   3.79
-#> 4: 2026-08-12   ONE_MONTH   3.81
-#> 5: 2026-08-12 THREE_MONTH   3.84
-#> 6: 2026-08-12   SIX_MONTH   3.93
-#> 7: 2026-08-12    ONE_YEAR   4.04
+#> 1: 2026-08-13     ONE_DAY   3.75
+#> 2: 2026-08-13    ONE_WEEK   3.77
+#> 3: 2026-08-13   TWO_WEEKS   3.78
+#> 4: 2026-08-13   ONE_MONTH   3.81
+#> 5: 2026-08-13 THREE_MONTH   3.84
+#> 6: 2026-08-13   SIX_MONTH   3.93
+#> 7: 2026-08-13    ONE_YEAR   4.05
 
 # all rates for a given year
 cnb_pribor(year = 2024L)

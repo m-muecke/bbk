@@ -94,13 +94,14 @@ nob_metadata("dataflow")
 #> 14: GOVT_SECONDARY_MARKET
 #> 15:       GOVT_ZEROCOUPON
 #> 16:                    IR
-#> 17:    LIQUIDITY_FORECAST
-#> 18:  LIQUIDITY_STATISTICS
-#> 19:          MONEY_MARKET
-#> 20:                REGNET
-#> 21:                   SEC
-#> 22: SETTLEMENT_STATISTICS
-#> 23:           SHORT_RATES
+#> 17:         LENDINGSURVEY
+#> 18:    LIQUIDITY_FORECAST
+#> 19:  LIQUIDITY_STATISTICS
+#> 20:          MONEY_MARKET
+#> 21:                REGNET
+#> 22:                   SEC
+#> 23: SETTLEMENT_STATISTICS
+#> 24:           SHORT_RATES
 #>                        id
 #>                    <char>
 #>                                                               name
@@ -121,13 +122,14 @@ nob_metadata("dataflow")
 #> 14:             Norwegian government securities – Secondary market
 #> 15:           Norwegian government securities - Zero coupon yields
 #> 16:                                                    Policy rate
-#> 17:                       Structural liquidity and total liquidity
-#> 18:                                           Liquidity statistics
-#> 19:                                              Money market data
-#> 20:                                               Regional Network
-#> 21:            Norwegian government securities - Prices and yields
-#> 22:                                          Settlement Statistics
-#> 23:                                                    Short rates
+#> 17:                                                 Lending survey
+#> 18:                       Structural liquidity and total liquidity
+#> 19:                                           Liquidity statistics
+#> 20:                                              Money market data
+#> 21:                                               Regional Network
+#> 22:            Norwegian government securities - Prices and yields
+#> 23:                                          Settlement Statistics
+#> 24:                                                    Short rates
 #>                                                               name
 #>                                                             <char>
 nob_metadata("datastructure")
@@ -149,13 +151,14 @@ nob_metadata("datastructure")
 #> 14: DSD_GOVT_SECONDARY_MARKET
 #> 15:       DSD_GOVT_ZEROCOUPON
 #> 16:                    DSD_IR
-#> 17:    DSD_LIQUIDITY_FORECAST
-#> 18:  DSD_LIQUIDITY_STATISTICS
-#> 19:          DSD_MONEY_MARKET
-#> 20:                DSD_REGNET
-#> 21:                   DSD_SEC
-#> 22: DSD_SETTLEMENT_STATISTICS
-#> 23:           DSD_SHORT_RATES
+#> 17:         DSD_LENDINGSURVEY
+#> 18:    DSD_LIQUIDITY_FORECAST
+#> 19:  DSD_LIQUIDITY_STATISTICS
+#> 20:          DSD_MONEY_MARKET
+#> 21:                DSD_REGNET
+#> 22:                   DSD_SEC
+#> 23: DSD_SETTLEMENT_STATISTICS
+#> 24:           DSD_SHORT_RATES
 #>                            id
 #>                        <char>
 #>                                                     name
@@ -176,13 +179,14 @@ nob_metadata("datastructure")
 #> 14:                            Secondary Market turnover
 #> 15:             Government securities Zero coupons rates
 #> 16:                                          Policy rate
-#> 17:             Structural liquidity and total liquidity
-#> 18:                                 Liquidity statistics
-#> 19:                                 Money Market Figures
-#> 20:                                     Regional Network
-#> 21:                                           Securities
-#> 22:                                Settlement Statistics
-#> 23:                                 Short Interest rates
+#> 17:                                       Lending survey
+#> 18:             Structural liquidity and total liquidity
+#> 19:                                 Liquidity statistics
+#> 20:                                 Money Market Figures
+#> 21:                                     Regional Network
+#> 22:                                           Securities
+#> 23:                                Settlement Statistics
+#> 24:                                 Short Interest rates
 #>                                                     name
 #>                                                   <char>
 nob_metadata("codelist", "CL_CURRENCY")

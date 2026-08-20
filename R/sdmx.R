@@ -39,6 +39,8 @@ sdmx_freq = function(code) {
     P1Y = "annual",
     # SDMX frequency codes (ECB, NoB)
     A = "annual",
+    # the ECB uses the older H alongside S, both are half-yearly
+    H = ,
     S = "semi-annual",
     Q = "quarterly",
     M = "monthly",

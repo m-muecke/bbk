@@ -31,6 +31,7 @@ test_that("sdmx_freq maps codes correctly", {
   expect_identical(sdmx_freq("P1Y"), "annual")
   expect_identical(sdmx_freq("A"), "annual")
   expect_identical(sdmx_freq("S"), "semi-annual")
+  expect_identical(sdmx_freq("H"), "semi-annual")
   expect_identical(sdmx_freq("Q"), "quarterly")
   expect_identical(sdmx_freq("M"), "monthly")
   expect_identical(sdmx_freq("W"), "weekly")
@@ -41,7 +42,7 @@ test_that("sdmx_freq maps codes correctly", {
 })
 
 test_that("sdmx_freq passes unknown codes through instead of returning NULL", {
-  expect_identical(sdmx_freq("H"), "H")
+  expect_identical(sdmx_freq("N"), "N")
   expect_identical(sdmx_freq("P1W"), "P1W")
 })
 

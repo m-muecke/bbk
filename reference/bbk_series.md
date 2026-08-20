@@ -135,19 +135,19 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #> 330: European Central Bank (ECB).
 #> 331: European Central Bank (ECB).
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
-#>         date                                 key value      freq
-#>       <char>                              <char> <num>    <char>
-#>   1: 1999-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   2: 1999-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   3: 2000-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   4: 2000-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   5: 2000-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>  ---                                                            
-#> 103: 2025-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.2 quarterly
-#> 104: 2025-Q2 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
-#> 105: 2025-Q3 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
-#> 106: 2025-Q4 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.9 quarterly
-#> 107: 2026-Q1 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.7 quarterly
+#>            date                                 key value      freq
+#>          <Date>                              <char> <num>    <char>
+#>   1: 1999-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   2: 1999-10-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   3: 2000-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   4: 2000-04-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   5: 2000-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>  ---                                                               
+#> 103: 2025-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.2 quarterly
+#> 104: 2025-04-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
+#> 105: 2025-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
+#> 106: 2025-10-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.9 quarterly
+#> 107: 2026-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.7 quarterly
 #>                                                                                       title
 #>                                                                                      <char>
 #>   1: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks

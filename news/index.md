@@ -27,6 +27,14 @@
   and
   [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
   no longer mistake observation attributes for series metadata.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
+  [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+  [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
+  and
+  [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
+  now parse weekly, quarterly, and semi-annual periods to the first day
+  of the period instead of returning the raw period as a string.
 - [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
   [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
   [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md),

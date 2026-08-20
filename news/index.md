@@ -40,6 +40,9 @@
   flagged as “Nothing exists”.
 - [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
   now rejects currency codes that are not three characters.
+- [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
+  now reports unknown series keys instead of failing with an internal
+  error.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now falls back to `TITLE_TS` for series without a `TITLE`.
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)

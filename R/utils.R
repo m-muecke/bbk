@@ -32,7 +32,14 @@ extract_metadata = function(string, pattern, fixed = FALSE) {
   if (length(x) == 0L) {
     return(NA_character_)
   }
-  fields = scan(text = x[[1L]], what = "", sep = ",", quote = "\"", quiet = TRUE)
+  fields = scan(
+    text = x[[1L]],
+    what = "",
+    sep = ",",
+    quote = "\"",
+    quiet = TRUE,
+    na.strings = character()
+  )
   if (length(fields) < 2L) NA_character_ else fields[[2L]]
 }
 

@@ -86,3 +86,17 @@ test_that("sdmx_metadata parses entries", {
   expect_true(all(c("id", "name") %in% names(actual)))
   expect_true("EXR" %in% actual$id)
 })
+
+test_that("sdmx_metadata ignores names of nested codes", {
+  xml = xml2::read_xml(
+    '<str:Codelist id="CL_TEST"
+      xmlns:str="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure"
+      xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">
+      <com:Name xml:lang="en">Test codelist</com:Name>
+      <str:Code id="A"><com:Name xml:lang="en">Alpha</com:Name></str:Code>
+      <str:Code id="B"><com:Name xml:lang="en">Beta</com:Name></str:Code>
+    </str:Codelist>'
+  )
+  actual = sdmx_metadata(list(xml))
+  expect_identical(actual, data.table(id = "CL_TEST", name = "Test codelist"))
+})

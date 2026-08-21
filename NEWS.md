@@ -12,6 +12,7 @@
 * `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake observation attributes for series metadata.
 * `bbk_data()`, `bis_data()`, `boi_data()`, `ecb_data()`, and `nob_data()` now parse weekly, quarterly, and semi-annual periods to the first day of the period instead of returning the raw period as a string.
 * `bbk_metadata()`, `bis_metadata()`, `boi_metadata()`, and `nob_metadata()` no longer drop entries without a name in the requested language.
+* `bbk_metadata()`, `bis_metadata()`, `boi_metadata()`, `ecb_metadata()`, and `nob_metadata()` no longer return spurious rows for names nested inside codelists and concept schemes.
 * `bbk_series()` no longer drops leading observations of series with a shorter metadata header.
 * `bbk_series()` no longer truncates metadata fields containing a comma.
 * `bbk_series()` now always returns a numeric `value` column and drops observations flagged as "Nothing exists".

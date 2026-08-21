@@ -28,6 +28,18 @@
   [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
   no longer mistake observation attributes for series metadata.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
+  [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md),
+  [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+  [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
+  [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
+  [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
+  and
+  [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md)
+  now return annual observations as a `Date` on January 1 (April 1 for
+  BoJ fiscal years) instead of an integer year, fixing silent date
+  corruption when a result mixes annual and sub-annual series.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
   [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
   [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),

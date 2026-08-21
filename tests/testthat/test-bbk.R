@@ -132,6 +132,15 @@ test_that("parse_bbk_series works", {
   expect_date(actual$date)
 })
 
+test_that("parse_bbk_series detects the metadata header length", {
+  body = readRDS(test_path("fixtures", "bbk-series-short-header.rds"))
+  actual = parse_bbk_series(body, "BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
+  expect_data_table(actual, min.rows = 1L)
+  expect_identical(actual$date[[1L]], as.Date("1999-01-01"))
+  expect_identical(actual$value[[1L]], 4.4)
+  expect_all_equal(actual$freq, "quarterly")
+})
+
 test_that("bbk_series input validation works", {
   expect_error(bbk_series(1L))
   expect_error(bbk_series(character()))

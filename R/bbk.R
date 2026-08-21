@@ -189,13 +189,20 @@ parse_bbk_series = function(body, key) {
   files = list.files(td, full.names = TRUE)
   path = grepv("\\.csv$", files)[[1L]]
 
-  dt = fread(file = path, header = FALSE, skip = 10L, select = 1:2)
-  setnames(dt, c("date", "value"))
+  lines = readLines(path)
+  data_start = grep("^\"?\\d{4}[-,]", lines)[1L]
+  if (is.na(data_start)) {
+    data_start = length(lines) + 1L
+    dt = data.table(date = character(), value = character())
+  } else {
+    dt = fread(file = path, header = FALSE, skip = data_start - 1L, select = 1:2)
+    setnames(dt, c("date", "value"))
+  }
   value = NULL
   dt[value %in% c(".", "-"), value := NA_character_]
   dt = na.omit(dt)
 
-  metadata = readLines(path, n = 10L)
+  metadata = lines[seq_len(data_start - 1L)]
   title = sub("^[\",]+", "", metadata[[2L]])
   title = sub("[\",]+$", "", title)
   freq = extract_metadata(metadata, "^Time format code")

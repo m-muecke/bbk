@@ -78,6 +78,9 @@
   window has no rates.
 - [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md)
   no longer fails outside an English locale.
+- [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md)
+  now dates fiscal half-year periods to the start of the fiscal half
+  (April and October) instead of treating them as calendar halves.
 - [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)
   now returns an integer `volume` column when there is no data.
 - [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)

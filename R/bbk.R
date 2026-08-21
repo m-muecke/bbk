@@ -265,6 +265,12 @@ parse_bbk_data = function(xml) {
     nms = sub("^bbk_(seis_)?", "", nms)
     nms = sub("^std_", "", nms)
     has_eng = paste0(nms, "_eng") %in% nms
+    for (i in which(has_eng)) {
+      j = match(paste0(nms[[i]], "_eng"), nms)
+      if (is.na(data[[j]])) {
+        data[[j]] = data[[i]]
+      }
+    }
     data = data[!has_eng]
     nms = sub("_eng$", "", nms[!has_eng])
     # fmt: skip

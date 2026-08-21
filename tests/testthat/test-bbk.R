@@ -83,6 +83,29 @@ test_that("parse_bbk_data scopes observations to each series", {
   expect_identical(actual$value, c(1, 2, 9))
 })
 
+test_that("parse_bbk_data falls back to the untranslated attribute value", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey><generic:Value id="ID" value="S1"/></generic:SeriesKey>
+          <generic:Attributes>
+            <generic:Value id="BBK_TIME_FORMAT" value="P1M"/>
+            <generic:Value id="BBK_UNIT" value="DKK"/>
+            <generic:Value id="BBK_UNIT_ENG"/>
+            <generic:Value id="BBK_TITLE" value="Titel"/>
+            <generic:Value id="BBK_TITLE_ENG" value="Title"/>
+          </generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2020-01"/><generic:ObsValue value="1"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_bbk_data(body)
+  expect_identical(actual$unit, "DKK")
+  expect_identical(actual$title, "Title")
+})
+
 test_that("extract_metadata reads the whole csv field", {
   metadata = c(
     'Comment (in english),"The ECB publishes daily rates, which are calculated at 14.15.",',

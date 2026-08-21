@@ -9,6 +9,7 @@
 * `banxico_data()` and `banxico_metadata()` now reject more than 20 series, matching the API limit.
 * `banxico_data()` and `banxico_metadata()` now report detailed Banxico API errors.
 * `bbk_data()` no longer errors when series carry different attributes.
+* `bbk_data()` now falls back to the untranslated attribute value when the English translation is missing, so `unit` is populated again.
 * `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake observation attributes for series metadata.
 * `bbk_data()`, `bbk_series()`, `bis_data()`, `boi_data()`, `boj_data()`, `ecb_data()`, `nob_data()`, and `snb_data()` now return annual observations as a `Date` on January 1 (April 1 for BoJ fiscal years) instead of an integer year, fixing silent date corruption when a result mixes annual and sub-annual series.
 * `bbk_data()`, `bis_data()`, `boi_data()`, `ecb_data()`, and `nob_data()` now parse weekly, quarterly, and semi-annual periods to the first day of the period instead of returning the raw period as a string.

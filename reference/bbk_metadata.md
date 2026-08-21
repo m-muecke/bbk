@@ -271,50 +271,9 @@ bbk_metadata("codelist", "CL_BBK_ACIP_ASSET_LIABILITY")
 #>                             id                 name
 #>                         <char>               <char>
 #> 1: CL_BBK_ACIP_ASSET_LIABILITY Assets / Liabilities
-#> 2: CL_BBK_ACIP_ASSET_LIABILITY               Assets
-#> 3: CL_BBK_ACIP_ASSET_LIABILITY          Liabilities
 bbk_metadata("concept", "CS_BBK_BSPL")
-#>              id                                          name
-#>          <char>                                        <char>
-#>  1: CS_BBK_BSPL                               Profit and loss
-#>  2: CS_BBK_BSPL                               Frequency (BBk)
-#>  3: CS_BBK_BSPL Area (countries, list of countries), BBk only
-#>  4: CS_BBK_BSPL                              Adjustment (BBk)
-#>  5: CS_BBK_BSPL                    Reference sector breakdown
-#>  6: CS_BBK_BSPL                              Profit/Loss Item
-#>  7: CS_BBK_BSPL                             Original maturity
-#>  8: CS_BBK_BSPL                                     Data type
-#>  9: CS_BBK_BSPL                              Counterpart area
-#> 10: CS_BBK_BSPL                            Counterpart Sector
-#> 11: CS_BBK_BSPL Area (ISO currency codes, list of currencies)
-#> 12: CS_BBK_BSPL                                        Suffix
-#> 13: CS_BBK_BSPL                          Time period or range
-#> 14: CS_BBK_BSPL                              Time format code
-#> 15: CS_BBK_BSPL                             Observation value
-#> 16: CS_BBK_BSPL                            Observation status
-#> 17: CS_BBK_BSPL                   Pre-break observation value
-#> 18: CS_BBK_BSPL                                         Title
-#> 19: CS_BBK_BSPL                                          Unit
-#> 20: CS_BBK_BSPL                               Unit multiplier
-#> 21: CS_BBK_BSPL                                      Decimals
-#> 22: CS_BBK_BSPL                          Collection indicator
-#> 23: CS_BBK_BSPL                                       Comment
-#> 24: CS_BBK_BSPL           Comment on observation (in english)
-#> 25: CS_BBK_BSPL                        Comment on observation
-#> 26: CS_BBK_BSPL                            Title (in english)
-#> 27: CS_BBK_BSPL                                      category
-#> 28: CS_BBK_BSPL                                 Grafics title
-#> 29: CS_BBK_BSPL                         Grafics title english
-#> 30: CS_BBK_BSPL                              Grafics position
-#> 31: CS_BBK_BSPL                                 Timeserieskey
-#> 32: CS_BBK_BSPL                     Hypothetically euro-based
-#> 33: CS_BBK_BSPL     Absolute change vis-à-vis previous period
-#> 34: CS_BBK_BSPL   Percentage change vis-à-vis previous period
-#> 35: CS_BBK_BSPL                  Year-on-year absolute change
-#> 36: CS_BBK_BSPL                Year-on-year percentage change
-#> 37: CS_BBK_BSPL                                    Conversion
-#> 38: CS_BBK_BSPL                            Conversion english
-#>              id                                          name
-#>          <char>                                        <char>
+#>             id            name
+#>         <char>          <char>
+#> 1: CS_BBK_BSPL Profit and loss
 # }
 ```

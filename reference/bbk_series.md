@@ -137,17 +137,17 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>            date                                 key value      freq
 #>          <Date>                              <char> <num>    <char>
-#>   1: 1999-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   2: 1999-10-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   3: 2000-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   4: 2000-04-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
-#>   5: 2000-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   1: 1999-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   2: 1999-04-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   3: 1999-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   4: 1999-10-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
+#>   5: 2000-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.4 quarterly
 #>  ---                                                               
-#> 103: 2025-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.2 quarterly
-#> 104: 2025-04-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
-#> 105: 2025-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
-#> 106: 2025-10-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.9 quarterly
-#> 107: 2026-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.7 quarterly
+#> 105: 2025-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.2 quarterly
+#> 106: 2025-04-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
+#> 107: 2025-07-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   4.3 quarterly
+#> 108: 2025-10-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.9 quarterly
+#> 109: 2026-01-01 BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B   3.7 quarterly
 #>                                                                                       title
 #>                                                                                      <char>
 #>   1: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
@@ -156,11 +156,11 @@ bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>   4: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #>   5: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #>  ---                                                                                       
-#> 103: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
-#> 104: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #> 105: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #> 106: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #> 107: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
+#> 108: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
+#> 109: Short-term loans Creditor: Central bank (Germany) / Debtor: All sectors (World) Stocks
 #>      category   unit unit_mult         last_update comment source
 #>        <char> <char>    <char>              <char>  <char> <char>
 #>   1:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
@@ -169,25 +169,25 @@ bbk_series("BBAF3.Q.F41.S121.DE.S1.W0.LE.N._X.B")
 #>   4:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 #>   5:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 #>  ---                                                             
-#> 103:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
-#> 104:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 #> 105:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 #> 106:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 #> 107:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#> 108:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
+#> 109:     FIF2   <NA>  Billions 2026-07-15 11:11:23    <NA>   <NA>
 bbk_series("BBBK11.D.TTA000")
 #>             date             key  value   freq
 #>           <Date>          <char>  <num> <char>
-#>    1: 1999-01-01 BBBK11.D.TTA000  29312  daily
-#>    2: 1999-01-08 BBBK11.D.TTA000  27475  daily
-#>    3: 1999-01-15 BBBK11.D.TTA000  27475  daily
-#>    4: 1999-01-22 BBBK11.D.TTA000  27475  daily
-#>    5: 1999-01-29 BBBK11.D.TTA000  27475  daily
+#>    1: 1998-12-22 BBBK11.D.TTA000 -13688  daily
+#>    2: 1999-01-01 BBBK11.D.TTA000  29312  daily
+#>    3: 1999-01-08 BBBK11.D.TTA000  27475  daily
+#>    4: 1999-01-15 BBBK11.D.TTA000  27475  daily
+#>    5: 1999-01-22 BBBK11.D.TTA000  27475  daily
 #>   ---                                         
-#> 1438: 2026-07-17 BBBK11.D.TTA000 380732  daily
-#> 1439: 2026-07-24 BBBK11.D.TTA000 380732  daily
-#> 1440: 2026-07-31 BBBK11.D.TTA000 380732  daily
-#> 1441: 2026-08-07 BBBK11.D.TTA000 380732  daily
-#> 1442: 2026-08-14 BBBK11.D.TTA000 380732  daily
+#> 1439: 2026-07-17 BBBK11.D.TTA000 380732  daily
+#> 1440: 2026-07-24 BBBK11.D.TTA000 380732  daily
+#> 1441: 2026-07-31 BBBK11.D.TTA000 380732  daily
+#> 1442: 2026-08-07 BBBK11.D.TTA000 380732  daily
+#> 1443: 2026-08-14 BBBK11.D.TTA000 380732  daily
 #>                                                              title category
 #>                                                             <char>   <char>
 #>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
@@ -196,11 +196,11 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>   ---                                                                      
-#> 1438: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1439: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1440: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1441: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1442: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
+#> 1443: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
 #>    1:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
@@ -209,10 +209,10 @@ bbk_series("BBBK11.D.TTA000")
 #>    4:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
 #>    5:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
 #>   ---                                                    
-#> 1438:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
 #> 1439:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
 #> 1440:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
 #> 1441:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
 #> 1442:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
+#> 1443:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
 # }
 ```

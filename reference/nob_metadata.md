@@ -190,18 +190,8 @@ nob_metadata("datastructure")
 #>                                                     name
 #>                                                   <char>
 nob_metadata("codelist", "CL_CURRENCY")
-#>               id                name
-#>           <char>              <char>
-#>   1: CL_CURRENCY            Currency
-#>   2: CL_CURRENCY     Norwegian krone
-#>   3: CL_CURRENCY         Swiss franc
-#>   4: CL_CURRENCY           US dollar
-#>   5: CL_CURRENCY                Euro
-#>  ---                                
-#> 183: CL_CURRENCY ADB Unit of Account
-#> 184: CL_CURRENCY         No currency
-#> 185: CL_CURRENCY         Yemeni rial
-#> 186: CL_CURRENCY      Zambian kwacha
-#> 187: CL_CURRENCY   Zimbabwean dollar
+#>             id     name
+#>         <char>   <char>
+#> 1: CL_CURRENCY Currency
 # }
 ```

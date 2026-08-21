@@ -41,6 +41,17 @@
   and
   [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
   no longer drop entries without a name in the requested language.
+- [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
+  [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
+  [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md),
+  [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
+  and
+  [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
+  no longer return spurious rows for names nested inside codelists and
+  concept schemes.
+- [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
+  no longer drops leading observations of series with a shorter metadata
+  header.
 - [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
   no longer truncates metadata fields containing a comma.
 - [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
@@ -48,9 +59,15 @@
   flagged as “Nothing exists”.
 - [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
   now rejects currency codes that are not three characters.
+- [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md)
+  no longer errors when queried with `lang = "es"`.
 - [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
   now reports unknown series keys instead of failing with an internal
   error.
+- [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md)
+  now detects weekly, biweekly, and semi-annual frequencies, and reports
+  `NA` instead of `"annual"` when there are too few observations to
+  infer the frequency.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now falls back to `TITLE_TS` for series without a `TITLE`.
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)

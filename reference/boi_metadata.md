@@ -170,19 +170,8 @@ boi_metadata("datastructure")
 #>                   id                                                     name
 #>               <char>                                                   <char>
 boi_metadata("codelist", "CL_FREQ")
-#>          id                  name
-#>      <char>                <char>
-#>  1: CL_FREQ             Frequency
-#>  2: CL_FREQ  Daily – businessweek
-#>  3: CL_FREQ              Minutely
-#>  4: CL_FREQ                Annual
-#>  5: CL_FREQ Half-yearly, semester
-#>  6: CL_FREQ             Quarterly
-#>  7: CL_FREQ               Monthly
-#>  8: CL_FREQ                Weekly
-#>  9: CL_FREQ                 Daily
-#> 10: CL_FREQ                Hourly
-#> 11: CL_FREQ              Biweekly
-#> 12: CL_FREQ           Semimonthly
+#>         id      name
+#>     <char>    <char>
+#> 1: CL_FREQ Frequency
 # }
 ```

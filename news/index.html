@@ -64,13 +64,21 @@
 <li>
 <code><a href="../reference/bbk_metadata.html">bbk_metadata()</a></code>, <code><a href="../reference/bis_metadata.html">bis_metadata()</a></code>, <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code>, and <code><a href="../reference/nob_metadata.html">nob_metadata()</a></code> no longer drop entries without a name in the requested language.</li>
 <li>
+<code><a href="../reference/bbk_metadata.html">bbk_metadata()</a></code>, <code><a href="../reference/bis_metadata.html">bis_metadata()</a></code>, <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code>, <code><a href="../reference/ecb_metadata.html">ecb_metadata()</a></code>, and <code><a href="../reference/nob_metadata.html">nob_metadata()</a></code> no longer return spurious rows for names nested inside codelists and concept schemes.</li>
+<li>
+<code><a href="../reference/bbk_series.html">bbk_series()</a></code> no longer drops leading observations of series with a shorter metadata header.</li>
+<li>
 <code><a href="../reference/bbk_series.html">bbk_series()</a></code> no longer truncates metadata fields containing a comma.</li>
 <li>
 <code><a href="../reference/bbk_series.html">bbk_series()</a></code> now always returns a numeric <code>value</code> column and drops observations flagged as “Nothing exists”.</li>
 <li>
 <code><a href="../reference/bcb_fx_rates.html">bcb_fx_rates()</a></code> now rejects currency codes that are not three characters.</li>
 <li>
+<code><a href="../reference/bde_data.html">bde_data()</a></code> no longer errors when queried with <code>lang = "es"</code>.</li>
+<li>
 <code><a href="../reference/bde_latest.html">bde_latest()</a></code> now reports unknown series keys instead of failing with an internal error.</li>
+<li>
+<code><a href="../reference/bdp_data.html">bdp_data()</a></code> now detects weekly, biweekly, and semi-annual frequencies, and reports <code>NA</code> instead of <code>"annual"</code> when there are too few observations to infer the frequency.</li>
 <li>
 <code><a href="../reference/bis_data.html">bis_data()</a></code> now falls back to <code>TITLE_TS</code> for series without a <code>TITLE</code>.</li>
 <li>

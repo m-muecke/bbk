@@ -112,16 +112,8 @@ bis_metadata("datastructure", "BIS_CBPOL")
 #>       <char>                        <char>
 #> 1: BIS_CBPOL BIS Central Bank Policy Rates
 bis_metadata("codelist", "CL_FREQ")
-#>         id                                  name
-#>     <char>                                <char>
-#> 1: CL_FREQ        Code list for Frequency (FREQ)
-#> 2: CL_FREQ                                Annual
-#> 3: CL_FREQ Daily - business week (not supported)
-#> 4: CL_FREQ                                 Daily
-#> 5: CL_FREQ                 Event (not supported)
-#> 6: CL_FREQ                           Half-yearly
-#> 7: CL_FREQ                               Monthly
-#> 8: CL_FREQ                             Quarterly
-#> 9: CL_FREQ                                Weekly
+#>         id                           name
+#>     <char>                         <char>
+#> 1: CL_FREQ Code list for Frequency (FREQ)
 # }
 ```

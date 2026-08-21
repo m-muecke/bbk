@@ -98,16 +98,21 @@ parse_bdp_data = function(json) {
 
 bdp_freq = function(dates) {
   if (length(dates) < 2L) {
-    return("annual")
+    return(NA_character_)
   }
-  d = as.Date(dates)
-  diff_days = as.integer(diff(d[1:2]))
-  if (diff_days <= 1L) {
+  diff_days = median(as.integer(diff(as.Date(dates))))
+  if (diff_days <= 4L) {
     "daily"
+  } else if (diff_days <= 10L) {
+    "weekly"
+  } else if (diff_days <= 20L) {
+    "biweekly"
   } else if (diff_days <= 35L) {
     "monthly"
   } else if (diff_days <= 100L) {
     "quarterly"
+  } else if (diff_days <= 200L) {
+    "semi-annual"
   } else {
     "annual"
   }

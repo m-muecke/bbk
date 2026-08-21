@@ -67,6 +67,18 @@ test_that("parse_bdp_data keeps missing observations as NA instead of collapsing
   expect_identical(actual$date, as.Date(c("2020-01-01", "2020-02-01", "2020-03-01")))
 })
 
+test_that("bdp_freq detects the observation frequency", {
+  expect_identical(bdp_freq(c("2024-01-05", "2024-01-08", "2024-01-09")), "daily")
+  expect_identical(bdp_freq(c("2024-01-01", "2024-01-08", "2024-01-15")), "weekly")
+  expect_identical(bdp_freq(c("2024-01-01", "2024-01-16", "2024-02-01")), "biweekly")
+  expect_identical(bdp_freq(c("2024-01-01", "2024-02-01", "2024-03-01")), "monthly")
+  expect_identical(bdp_freq(c("2024-01-01", "2024-04-01", "2024-07-01")), "quarterly")
+  expect_identical(bdp_freq(c("2024-01-01", "2024-07-01", "2025-01-01")), "semi-annual")
+  expect_identical(bdp_freq(c("2023-12-31", "2024-12-31")), "annual")
+  expect_identical(bdp_freq("2024-01-01"), NA_character_)
+  expect_identical(bdp_freq(character()), NA_character_)
+})
+
 test_that("parse_bdp_series works", {
   json = readRDS(test_path("fixtures", "bdp-series.rds"))
   actual = parse_bdp_series(json)

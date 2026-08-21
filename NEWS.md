@@ -18,6 +18,7 @@
 * `bcb_fx_rates()` now rejects currency codes that are not three characters.
 * `bde_data()` no longer errors when queried with `lang = "es"`.
 * `bde_latest()` now reports unknown series keys instead of failing with an internal error.
+* `bdp_data()` now detects weekly, biweekly, and semi-annual frequencies, and reports `NA` instead of `"annual"` when there are too few observations to infer the frequency.
 * `bis_data()` now falls back to `TITLE_TS` for series without a `TITLE`.
 * `boc_data()` no longer errors when the requested window has no observations, such as a weekend.
 * `boe_data()` no longer fails outside an English locale.

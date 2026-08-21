@@ -36,3 +36,15 @@ test_that("parse_bde_data works", {
   expect_posixct(actual$date)
   expect_false(any(unlist(map(actual, class)) == "list"))
 })
+
+test_that("parse_bde_data translates Spanish metadata names", {
+  json = readRDS(test_path("fixtures", "bde-data-es.rds"))
+  actual = parse_bde_data(json)
+  expect_data_table(actual, min.rows = 1L)
+  expect_names(
+    names(actual),
+    must.include = c("unit", "long_description", "source"),
+    disjunct.from = c("unidades", "fuente", "primer_valor", "first_value")
+  )
+  expect_posixct(actual$date)
+})

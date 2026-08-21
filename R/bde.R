@@ -74,6 +74,7 @@ parse_bde_data = function(json) {
       name = NULL
       meta[, name := chartr(" ", "_", tolower(name))]
       meta[, name := gsub("[()]", "", name)]
+      meta[name %chin% names(bde_translations), name := bde_translations[name]]
       exclude = c(
         "name",
         "decimals",
@@ -151,6 +152,25 @@ parse_bde_latest = function(json) {
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }
+
+# fmt: skip
+bde_translations = c(
+  nombre = "name",
+  "descripci\u00f3n" = "description",
+  unidades = "units",
+  decimales = "decimals",
+  "n\u00famero_de_observaciones" = "number_of_observations",
+  primer_valor = "first_value",
+  "\u00faltimo_valor" = "last_value",
+  # tolower() leaves the accented capital unchanged in a C locale
+  "\u00daltimo_valor" = "last_value",
+  "valor_m\u00ednimo" = "min_value",
+  "valor_m\u00e1ximo" = "max_value",
+  fuente = "source",
+  notas = "notes",
+  series_relacionadas_cuadro_pdf = "related_series_pdf_table",
+  series_relacionadas_archivo_excel = "related_series_excel_file"
+)
 
 bde = function(key, ..., lang, resource = "listaSeries") {
   url = sprintf("https://app.bde.es/bierest/resources/srdatosapp/%s", resource)

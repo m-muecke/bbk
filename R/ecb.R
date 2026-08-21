@@ -62,6 +62,7 @@ ecb_data = function(
   resource = sdmx_data_resource(flow, key, default_key = "all")
   xml = ecb(
     resource = resource,
+    accept = "application/vnd.sdmx.genericdata+xml;version=2.1",
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
@@ -206,6 +207,12 @@ ecb_error_body = function(resp) {
   c(message, docs)
 }
 
-ecb = function(resource, ...) {
-  sdmx_request("https://data-api.ecb.europa.eu/service/", resource, ecb_error_body, ...)
+ecb = function(resource, ..., accept = NULL) {
+  sdmx_request(
+    "https://data-api.ecb.europa.eu/service/",
+    resource,
+    ecb_error_body,
+    ...,
+    accept = accept
+  )
 }

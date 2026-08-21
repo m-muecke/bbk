@@ -79,6 +79,7 @@ bbk_data = function(
   resource = sdmx_data_resource(flow, key)
   xml = bbk_make_request(
     resource = resource,
+    accept = "application/vnd.sdmx.genericdata+xml;version=2.1",
     startPeriod = start_period,
     endPeriod = end_period,
     firstNObservations = first_n,
@@ -326,6 +327,12 @@ bbk_build_request = function(resource, accept = NULL) {
     req_error(body = bbk_error_body)
 }
 
-bbk_make_request = function(resource, ...) {
-  sdmx_request("https://api.statistiken.bundesbank.de/rest", resource, bbk_error_body, ...)
+bbk_make_request = function(resource, ..., accept = NULL) {
+  sdmx_request(
+    "https://api.statistiken.bundesbank.de/rest",
+    resource,
+    bbk_error_body,
+    ...,
+    accept = accept
+  )
 }

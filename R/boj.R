@@ -181,8 +181,9 @@ parse_boj_date = function(dates, freq) {
       month = sprintf("%02d", (half - 1L) * 6L + 4L)
       as.Date(paste0(year, month, "01"), format = "%Y%m%d")
     },
-    annual = ,
-    `annual(mar)` = as.integer(dates),
+    annual = as.Date(sprintf("%s-01-01", dates), format = "%Y-%m-%d"),
+    # the fiscal year starts in April
+    `annual(mar)` = as.Date(sprintf("%s-04-01", dates), format = "%Y-%m-%d"),
     as.character(dates)
   )
 }

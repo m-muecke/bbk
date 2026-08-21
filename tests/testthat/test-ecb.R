@@ -85,6 +85,32 @@ test_that("parse_ecb_data drops observations without a value and keeps alignment
   expect_identical(actual$value, c(1, 3))
 })
 
+test_that("parse_ecb_data keeps annual dates intact in mixed-frequency results", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="A"/>
+            <generic:Value id="CURRENCY" value="USD"/>
+          </generic:SeriesKey>
+          <generic:Obs><generic:ObsDimension value="2020"/><generic:ObsValue value="1.1"/></generic:Obs>
+        </generic:Series>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="M"/>
+            <generic:Value id="CURRENCY" value="USD"/>
+          </generic:SeriesKey>
+          <generic:Obs><generic:ObsDimension value="2020-03"/><generic:ObsValue value="1.2"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_ecb_data(body)
+  expect_identical(actual$date, as.Date(c("2020-01-01", "2020-03-01")))
+  expect_identical(actual$freq, c("annual", "monthly"))
+})
+
 test_that("parse_ecb_data ignores observation level attributes", {
   body = xml2::read_xml(
     '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">

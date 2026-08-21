@@ -25,7 +25,7 @@ parse_date = function(date, freq) {
     monthly = parse_period(date, 1L),
     quarterly = parse_period(date, 3L),
     `semi-annual` = parse_period(date, 6L),
-    annual = as.integer(date),
+    annual = as.Date(sprintf("%s-01-01", date), format = "%Y-%m-%d"),
     date
   )
 }

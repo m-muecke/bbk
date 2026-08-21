@@ -52,6 +52,11 @@ test_that("parse_date returns the date unchanged for an unknown or missing freq"
   expect_identical(parse_date("2020-01", NA_character_), "2020-01")
 })
 
+test_that("parse_date maps annual periods to the first day of the year", {
+  expect_identical(parse_date(c("2020", "2021"), "annual"), as.Date(c("2020-01-01", "2021-01-01")))
+  expect_identical(parse_date(NA_character_, "annual"), as.Date(NA))
+})
+
 test_that("parse_date maps sub-annual periods to the first day", {
   expect_identical(
     parse_date(c("2020-01", "2020-12"), "monthly"),

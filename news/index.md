@@ -73,6 +73,9 @@
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
   no longer errors when the requested window has no observations, such
   as a weekend.
+- [`boc_fx_rates()`](https://m-muecke.github.io/bbk/reference/boc_fx_rates.md)
+  now returns an empty table instead of erroring when the requested
+  window has no rates.
 - [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md)
   no longer fails outside an English locale.
 - [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)

@@ -28,6 +28,7 @@
 * `cnb_fx_other_rates()` now requires either `year_month` or `year`.
 * `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.
 * `nbp_fx_rates()` and `nbp_gold()` now require `start_date` and `end_date` together.
+* `nob_data()` now requests the generic SDMX data format and builds the series key from dimensions only, so flows with extra series attributes (e.g. `SEC`) no longer report keys that are not valid series keys.
 * `nob_data()` now keeps dates and values aligned when observations have no value.
 * `nob_data()` now returns dataflows without a `FREQ` dimension instead of erroring.
 * `onb_data()` and `onb_frequency()` no longer error when series carry different attributes.

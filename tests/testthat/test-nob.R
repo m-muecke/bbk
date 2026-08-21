@@ -32,15 +32,19 @@ test_that("parse_nob_data works", {
 
 test_that("parse_nob_data drops observations without a value and keeps alignment", {
   body = xml2::read_xml(
-    '<message:StructureSpecificData xmlns:message="m">
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
       <message:DataSet>
-        <Series FREQ="B" BASE_CUR="USD">
-          <Obs TIME_PERIOD="2024-01-02" OBS_VALUE="1"/>
-          <Obs TIME_PERIOD="2024-01-03"/>
-          <Obs TIME_PERIOD="2024-01-04" OBS_VALUE="3"/>
-        </Series>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="B"/>
+            <generic:Value id="BASE_CUR" value="USD"/>
+          </generic:SeriesKey>
+          <generic:Obs><generic:ObsDimension value="2024-01-02"/><generic:ObsValue value="1"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2024-01-03"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2024-01-04"/><generic:ObsValue value="3"/></generic:Obs>
+        </generic:Series>
       </message:DataSet>
-    </message:StructureSpecificData>'
+    </message:GenericData>'
   )
   actual = parse_nob_data(body)
   expect_identical(actual$date, as.Date(c("2024-01-02", "2024-01-04")))
@@ -49,19 +53,49 @@ test_that("parse_nob_data drops observations without a value and keeps alignment
 
 test_that("parse_nob_data works without a FREQ dimension", {
   body = xml2::read_xml(
-    '<message:StructureSpecificData xmlns:message="m">
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
       <message:DataSet>
-        <Series INSTRUMENT_TYPE="KPRA">
-          <Obs TIME_PERIOD="2024-01-02" OBS_VALUE="4.25"/>
-        </Series>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="INSTRUMENT_TYPE" value="KPRA"/>
+          </generic:SeriesKey>
+          <generic:Obs><generic:ObsDimension value="2024-01-02"/><generic:ObsValue value="4.25"/></generic:Obs>
+        </generic:Series>
       </message:DataSet>
-    </message:StructureSpecificData>'
+    </message:GenericData>'
   )
   actual = parse_nob_data(body)
   expect_identical(actual$date, "2024-01-02")
   expect_identical(actual$value, 4.25)
   expect_identical(actual$key, "KPRA")
   expect_identical(actual$freq, NA_character_)
+})
+
+test_that("parse_nob_data builds the key from dimensions only", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="B"/>
+            <generic:Value id="SECURITY" value="NO0013737973"/>
+            <generic:Value id="UNIT_MEASURE" value="AY"/>
+          </generic:SeriesKey>
+          <generic:Attributes>
+            <generic:Value id="DECIMALS" value="4"/>
+            <generic:Value id="ISSUE_DATE" value="2026-03-18"/>
+            <generic:Value id="MATURITY" value="2027-03-17"/>
+          </generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2026-08-21"/><generic:ObsValue value="4.4295"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_nob_data(body)
+  expect_identical(actual$key, "B.NO0013737973.AY")
+  expect_identical(actual$issue_date, "2026-03-18")
+  expect_identical(actual$maturity, "2027-03-17")
+  expect_names(names(actual), disjunct.from = "decimals")
 })
 
 test_that("nob_dimension input validation works", {

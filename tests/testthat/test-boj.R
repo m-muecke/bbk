@@ -86,6 +86,10 @@ test_that("parse_boj_date handles different frequencies", {
   expect_identical(parse_boj_date(202501, "monthly"), as.Date("2025-01-01"))
   expect_identical(parse_boj_date(202501, "quarterly"), as.Date("2025-01-01"))
   expect_identical(parse_boj_date(202503, "quarterly"), as.Date("2025-07-01"))
+  expect_identical(parse_boj_date(202501, "semiannual"), as.Date("2025-01-01"))
+  expect_identical(parse_boj_date(202502, "semiannual"), as.Date("2025-07-01"))
+  expect_identical(parse_boj_date(202501, "semiannual(sep)"), as.Date("2025-04-01"))
+  expect_identical(parse_boj_date(202502, "semiannual(sep)"), as.Date("2025-10-01"))
   expect_identical(parse_boj_date(2025, "annual"), 2025L)
 })
 

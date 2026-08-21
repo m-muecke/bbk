@@ -24,6 +24,7 @@
 * `boc_data()` no longer errors when the requested window has no observations, such as a weekend.
 * `boc_fx_rates()` now returns an empty table instead of erroring when the requested window has no rates.
 * `boe_data()` no longer fails outside an English locale.
+* `boj_data()` now dates fiscal half-year periods to the start of the fiscal half (April and October) instead of treating them as calendar halves.
 * `cnb_czeonia()` now returns an integer `volume` column when there is no data.
 * `cnb_fx_other_rates()` now requires either `year_month` or `year`.
 * `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.

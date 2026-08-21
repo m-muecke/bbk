@@ -166,12 +166,19 @@ parse_boj_date = function(dates, freq) {
       month = sprintf("%02d", (quarter - 1L) * 3L + 1L)
       as.Date(paste0(year, month, "01"), format = "%Y%m%d")
     },
-    semiannual = ,
-    `semiannual(sep)` = {
+    semiannual = {
       dates_chr = as.character(dates)
       year = substr(dates_chr, 1L, 4L)
       half = as.integer(substr(dates_chr, 5L, 6L))
       month = sprintf("%02d", (half - 1L) * 6L + 1L)
+      as.Date(paste0(year, month, "01"), format = "%Y%m%d")
+    },
+    # the fiscal half-year starts in April: 01 = April-September, 02 = October-March
+    `semiannual(sep)` = {
+      dates_chr = as.character(dates)
+      year = substr(dates_chr, 1L, 4L)
+      half = as.integer(substr(dates_chr, 5L, 6L))
+      month = sprintf("%02d", (half - 1L) * 6L + 4L)
       as.Date(paste0(year, month, "01"), format = "%Y%m%d")
     },
     annual = ,

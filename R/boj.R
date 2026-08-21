@@ -10,8 +10,8 @@
 #'   codes per request. All codes must have the same frequency. Use [boj_metadata()] to find
 #'   available codes.
 #' @param start_date (`NULL` | `character(1)` | `integer(1)`)\cr
-#'   Start date of the data. Format depends on frequency: `"YYYYMMDD"` or `YYYY` for daily,
-#'   `"YYYYMM"` for monthly, `"YYYYQQ"` for quarterly (where QQ is 01-04), `"YYYY"` for annual.
+#'   Start date of the data. Format depends on frequency: `"YYYYMM"` for daily, weekly, and
+#'   monthly data, `"YYYYQQ"` for quarterly (where QQ is 01-04), and `"YYYY"` for annual.
 #'   If `NULL`, all available data is returned. Default `NULL`.
 #' @param end_date (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   End date of the data, in the same format as start_date. If `NULL`, data up to the latest

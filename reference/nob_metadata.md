@@ -76,6 +76,120 @@ Other metadata:
 ``` r
 # \donttest{
 nob_metadata("dataflow")
+#>                        id
+#>                    <char>
+#>  1:            ANN_FX_SPU
+#>  2:              ANN_KPRA
+#>  3:              ANN_TEST
+#>  4:          CBC_CALENDAR
+#>  5:       CBC_INSTRUMENTS
+#>  6:      CBC_TRANSACTIONS
+#>  7:                   EXR
+#>  8:              FAUCTION
+#>  9:  FINANCIAL_INDICATORS
+#> 10:    GOVT_GENERIC_RATES
+#> 11:              GOVT_IRS
+#> 12:       GOVT_KEYFIGURES
+#> 13:   GOVT_PRIMARY_MARKET
+#> 14: GOVT_SECONDARY_MARKET
+#> 15:       GOVT_ZEROCOUPON
+#> 16:                    IR
+#> 17:         LENDINGSURVEY
+#> 18:    LIQUIDITY_FORECAST
+#> 19:  LIQUIDITY_STATISTICS
+#> 20:          MONEY_MARKET
+#> 21:                REGNET
+#> 22:                   SEC
+#> 23: SETTLEMENT_STATISTICS
+#> 24:           SHORT_RATES
+#>                        id
+#>                    <char>
+#>                                                               name
+#>                                                             <char>
+#>  1: Announcement of foreign exchange transactions on behalf of SPU
+#>  2:                                   Key policy rate announcement
+#>  3:                                  Announcement of test messages
+#>  4:                                 Central Bank Issuance Calendar
+#>  5:                              Central bank issuance instruments
+#>  6:                          Central bank certificate transactions
+#>  7:                                                 Exchange rates
+#>  8:                        Announcements and results of F-auctions
+#>  9:                                           Financial indicators
+#> 10:                                         Generic interest rates
+#> 11:                                            Interest rate swaps
+#> 12:                                  Key Goverment Debt Indicators
+#> 13:               Norwegian government securities – Primary market
+#> 14:             Norwegian government securities – Secondary market
+#> 15:           Norwegian government securities - Zero coupon yields
+#> 16:                                                    Policy rate
+#> 17:                                                 Lending survey
+#> 18:                       Structural liquidity and total liquidity
+#> 19:                                           Liquidity statistics
+#> 20:                                              Money market data
+#> 21:                                               Regional Network
+#> 22:            Norwegian government securities - Prices and yields
+#> 23:                                          Settlement Statistics
+#> 24:                                                    Short rates
+#>                                                               name
+#>                                                             <char>
+nob_metadata("datastructure")
+#>                            id
+#>                        <char>
+#>  1:            DSD_ANN_FX_SPU
+#>  2:              DSD_ANN_KPRA
+#>  3:              DSD_ANN_TEST
+#>  4:          DSD_CBC_CALENDAR
+#>  5:       DSD_CBC_INSTRUMENTS
+#>  6:      DSD_CBC_TRANSACTIONS
+#>  7:                   DSD_EXR
+#>  8:              DSD_FAUCTION
+#>  9:  DSD_FINANCIAL_INDICATORS
+#> 10:    DSD_GOVT_GENERIC_RATES
+#> 11:              DSD_GOVT_IRS
+#> 12:       DSD_GOVT_KEYFIGURES
+#> 13:   DSD_GOVT_PRIMARY_MARKET
+#> 14: DSD_GOVT_SECONDARY_MARKET
+#> 15:       DSD_GOVT_ZEROCOUPON
+#> 16:                    DSD_IR
+#> 17:         DSD_LENDINGSURVEY
+#> 18:    DSD_LIQUIDITY_FORECAST
+#> 19:  DSD_LIQUIDITY_STATISTICS
+#> 20:          DSD_MONEY_MARKET
+#> 21:                DSD_REGNET
+#> 22:                   DSD_SEC
+#> 23: DSD_SETTLEMENT_STATISTICS
+#> 24:           DSD_SHORT_RATES
+#>                            id
+#>                        <char>
+#>                                                     name
+#>                                                   <char>
+#>  1: Announcement of foreign exchange transaction for SPU
+#>  2:                         Key policy rate announcement
+#>  3:                        Announcement of test messages
+#>  4:            Central bank certificate auction calendar
+#>  5:                             Central bank instruments
+#>  6:                Central bank certificate transactions
+#>  7:                                       Exchange rates
+#>  8:              Announcements and results of F-auctions
+#>  9:                                 Financial indicators
+#> 10:                               Generic interest rates
+#> 11:                                  Interest rate swaps
+#> 12:                Norwegian government debt key figures
+#> 13:                                       Primary market
+#> 14:                            Secondary Market turnover
+#> 15:             Government securities Zero coupons rates
+#> 16:                                          Policy rate
+#> 17:                                       Lending survey
+#> 18:             Structural liquidity and total liquidity
+#> 19:                                 Liquidity statistics
+#> 20:                                 Money Market Figures
+#> 21:                                     Regional Network
+#> 22:                                           Securities
+#> 23:                                Settlement Statistics
+#> 24:                                 Short Interest rates
+#>                                                     name
+#>                                                   <char>
+nob_metadata("codelist", "CL_CURRENCY")
 #> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 522.
 #> ℹ <!DOCTYPE html> <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US">
 #>   <![endif]--> <!--[if IE 7]> <html class="no-js ie7 oldie" lang="en-US">
@@ -97,7 +211,7 @@ nob_metadata("dataflow")
 #>   Visit <a
 #>   href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_522&utm_campaign=data.norges-bank.no"
 #>   target="_blank" rel="noopener noreferrer">cloudflare.com</a> for more
-#>   information.  </div> <div class="mt-3">2026-08-21 18:42:05 UTC</div>
+#>   information.  </div> <div class="mt-3">2026-08-21 18:57:05 UTC</div>
 #>   </header> <div class="my-8 bg-gradient-gray"> <div class="w-240 lg:w-full
 #>   mx-auto"> <div class="clearfix md:px-8"> <div id="cf-browser-status" class="
 #>   relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid
@@ -179,12 +293,12 @@ nob_metadata("dataflow")
 #>   mx-auto text-center sm:text-left border-solid border-0 border-t
 #>   border-gray-300"> <p class="text-13"> <span class="cf-footer-item sm:block
 #>   sm:mb-1">Cloudflare Ray ID: <strong
-#>   class="font-semibold">a2ebc599b8c0d694</strong></span> <span
+#>   class="font-semibold">a2ebdb99cd029c55</strong></span> <span
 #>   class="cf-footer-separator sm:hidden">&bull;</span> <span
 #>   id="cf-footer-item-ip" class="cf-footer-item hidden sm:block sm:mb-1"> Your
 #>   IP: <button type="button" id="cf-footer-ip-reveal"
 #>   class="cf-footer-ip-reveal-btn">Click to reveal</button> <span class="hidden"
-#>   id="cf-footer-ip">20.161.28.183</span> <span class="cf-footer-separator
+#>   id="cf-footer-ip">20.161.30.225</span> <span class="cf-footer-separator
 #>   sm:hidden">&bull;</span> </span> <span class="cf-footer-item sm:block
 #>   sm:mb-1"><span>Performance &amp; security by</span> <a rel="noopener
 #>   noreferrer"
@@ -198,66 +312,5 @@ nob_metadata("dataflow")
 #>   </div><!-- /.error-footer -->
 #> 
 #> </div> </div> </body> </html>
-nob_metadata("datastructure")
-#>                            id
-#>                        <char>
-#>  1:            DSD_ANN_FX_SPU
-#>  2:              DSD_ANN_KPRA
-#>  3:              DSD_ANN_TEST
-#>  4:          DSD_CBC_CALENDAR
-#>  5:       DSD_CBC_INSTRUMENTS
-#>  6:      DSD_CBC_TRANSACTIONS
-#>  7:                   DSD_EXR
-#>  8:              DSD_FAUCTION
-#>  9:  DSD_FINANCIAL_INDICATORS
-#> 10:    DSD_GOVT_GENERIC_RATES
-#> 11:              DSD_GOVT_IRS
-#> 12:       DSD_GOVT_KEYFIGURES
-#> 13:   DSD_GOVT_PRIMARY_MARKET
-#> 14: DSD_GOVT_SECONDARY_MARKET
-#> 15:       DSD_GOVT_ZEROCOUPON
-#> 16:                    DSD_IR
-#> 17:         DSD_LENDINGSURVEY
-#> 18:    DSD_LIQUIDITY_FORECAST
-#> 19:  DSD_LIQUIDITY_STATISTICS
-#> 20:          DSD_MONEY_MARKET
-#> 21:                DSD_REGNET
-#> 22:                   DSD_SEC
-#> 23: DSD_SETTLEMENT_STATISTICS
-#> 24:           DSD_SHORT_RATES
-#>                            id
-#>                        <char>
-#>                                                     name
-#>                                                   <char>
-#>  1: Announcement of foreign exchange transaction for SPU
-#>  2:                         Key policy rate announcement
-#>  3:                        Announcement of test messages
-#>  4:            Central bank certificate auction calendar
-#>  5:                             Central bank instruments
-#>  6:                Central bank certificate transactions
-#>  7:                                       Exchange rates
-#>  8:              Announcements and results of F-auctions
-#>  9:                                 Financial indicators
-#> 10:                               Generic interest rates
-#> 11:                                  Interest rate swaps
-#> 12:                Norwegian government debt key figures
-#> 13:                                       Primary market
-#> 14:                            Secondary Market turnover
-#> 15:             Government securities Zero coupons rates
-#> 16:                                          Policy rate
-#> 17:                                       Lending survey
-#> 18:             Structural liquidity and total liquidity
-#> 19:                                 Liquidity statistics
-#> 20:                                 Money Market Figures
-#> 21:                                     Regional Network
-#> 22:                                           Securities
-#> 23:                                Settlement Statistics
-#> 24:                                 Short Interest rates
-#>                                                     name
-#>                                                   <char>
-nob_metadata("codelist", "CL_CURRENCY")
-#>             id     name
-#>         <char>   <char>
-#> 1: CL_CURRENCY Currency
 # }
 ```

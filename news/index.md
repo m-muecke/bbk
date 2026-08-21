@@ -22,6 +22,9 @@
   now report detailed Banxico API errors.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
   no longer errors when series carry different attributes.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
+  now falls back to the untranslated attribute value when the English
+  translation is missing, so `unit` is populated again.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
   and

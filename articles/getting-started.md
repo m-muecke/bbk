@@ -97,12 +97,12 @@ head(usd_eur)
 #> 6:      USD                  EUR              BB            AC        A01
 #>    time_format decimals   unit unit_mult
 #>         <char>    <int> <char>    <char>
-#> 1:         P1M        4   <NA>         0
-#> 2:         P1M        4   <NA>         0
-#> 3:         P1M        4   <NA>         0
-#> 4:         P1M        4   <NA>         0
-#> 5:         P1M        4   <NA>         0
-#> 6:         P1M        4   <NA>         0
+#> 1:         P1M        4    USD         0
+#> 2:         P1M        4    USD         0
+#> 3:         P1M        4    USD         0
+#> 4:         P1M        4    USD         0
+#> 5:         P1M        4    USD         0
+#> 6:         P1M        4    USD         0
 #>                                                                                                                                                comm_gen
 #>                                                                                                                                                  <char>
 #> 1: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.

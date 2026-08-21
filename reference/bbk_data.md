@@ -169,14 +169,14 @@ head(data)
 #> 4:    R10XX             R             A          A          _Z       _Z      A
 #> 5:    R10XX             R             A          A          _Z       _Z      A
 #> 6:    R10XX             R             A          A          _Z       _Z      A
-#>    time_format decimals   unit unit_mult category
-#>         <char>    <int> <char>    <char>   <char>
-#> 1:         P1D        2   <NA>         0     ZRZS
-#> 2:         P1D        2   <NA>         0     ZRZS
-#> 3:         P1D        2   <NA>         0     ZRZS
-#> 4:         P1D        2   <NA>         0     ZRZS
-#> 5:         P1D        2   <NA>         0     ZRZS
-#> 6:         P1D        2   <NA>         0     ZRZS
+#>    time_format decimals    unit unit_mult category
+#>         <char>    <int>  <char>    <char>   <char>
+#> 1:         P1D        2 PROZENT         0     ZRZS
+#> 2:         P1D        2 PROZENT         0     ZRZS
+#> 3:         P1D        2 PROZENT         0     ZRZS
+#> 4:         P1D        2 PROZENT         0     ZRZS
+#> 5:         P1D        2 PROZENT         0     ZRZS
+#> 6:         P1D        2 PROZENT         0     ZRZS
 
 # fetch data for multiple keys
 data = bbk_data("BBEX3", c("M.ISK.EUR", "USD.CA.AC.A01"))
@@ -207,12 +207,12 @@ head(data)
 #> 6:                  EUR              CA            AC        A01         P1M
 #>    decimals   unit unit_mult
 #>       <int> <char>    <char>
-#> 1:        2   <NA>         0
-#> 2:        2   <NA>         0
-#> 3:        2   <NA>         0
-#> 4:        2   <NA>         0
-#> 5:        2   <NA>         0
-#> 6:        2   <NA>         0
+#> 1:        2    ISK         0
+#> 2:        2    ISK         0
+#> 3:        2    ISK         0
+#> 4:        2    ISK         0
+#> 5:        2    ISK         0
+#> 6:        2    ISK         0
 #>                                                                                                                                          comm_gen
 #>                                                                                                                                            <char>
 #> 1: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.
@@ -285,14 +285,14 @@ head(data)
 #> 4:    R10XX             R             A          A          _Z       _Z      A
 #> 5:    R10XX             R             A          A          _Z       _Z      A
 #> 6:    R10XX             R             A          A          _Z       _Z      A
-#>    time_format decimals   unit unit_mult category
-#>         <char>    <int> <char>    <char>   <char>
-#> 1:         P1D        2   <NA>         0     ZRZS
-#> 2:         P1D        2   <NA>         0     ZRZS
-#> 3:         P1D        2   <NA>         0     ZRZS
-#> 4:         P1D        2   <NA>         0     ZRZS
-#> 5:         P1D        2   <NA>         0     ZRZS
-#> 6:         P1D        2   <NA>         0     ZRZS
+#>    time_format decimals    unit unit_mult category
+#>         <char>    <int>  <char>    <char>   <char>
+#> 1:         P1D        2 PROZENT         0     ZRZS
+#> 2:         P1D        2 PROZENT         0     ZRZS
+#> 3:         P1D        2 PROZENT         0     ZRZS
+#> 4:         P1D        2 PROZENT         0     ZRZS
+#> 5:         P1D        2 PROZENT         0     ZRZS
+#> 6:         P1D        2 PROZENT         0     ZRZS
 
 # or only specify the start date
 data = bbk_data(
@@ -340,13 +340,13 @@ head(data)
 #> 4:    R10XX             R             A          A          _Z       _Z      A
 #> 5:    R10XX             R             A          A          _Z       _Z      A
 #> 6:    R10XX             R             A          A          _Z       _Z      A
-#>    time_format decimals   unit unit_mult category
-#>         <char>    <int> <char>    <char>   <char>
-#> 1:         P1D        2   <NA>         0     ZRZS
-#> 2:         P1D        2   <NA>         0     ZRZS
-#> 3:         P1D        2   <NA>         0     ZRZS
-#> 4:         P1D        2   <NA>         0     ZRZS
-#> 5:         P1D        2   <NA>         0     ZRZS
-#> 6:         P1D        2   <NA>         0     ZRZS
+#>    time_format decimals    unit unit_mult category
+#>         <char>    <int>  <char>    <char>   <char>
+#> 1:         P1D        2 PROZENT         0     ZRZS
+#> 2:         P1D        2 PROZENT         0     ZRZS
+#> 3:         P1D        2 PROZENT         0     ZRZS
+#> 4:         P1D        2 PROZENT         0     ZRZS
+#> 5:         P1D        2 PROZENT         0     ZRZS
+#> 6:         P1D        2 PROZENT         0     ZRZS
 # }
 ```

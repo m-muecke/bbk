@@ -96,6 +96,8 @@
 <li>
 <code><a href="../reference/nbp_fx_rates.html">nbp_fx_rates()</a></code> and <code><a href="../reference/nbp_gold.html">nbp_gold()</a></code> now require <code>start_date</code> and <code>end_date</code> together.</li>
 <li>
+<code><a href="../reference/nob_data.html">nob_data()</a></code> now requests the generic SDMX data format and builds the series key from dimensions only, so flows with extra series attributes (e.g. <code>SEC</code>) no longer report keys that are not valid series keys.</li>
+<li>
 <code><a href="../reference/nob_data.html">nob_data()</a></code> now keeps dates and values aligned when observations have no value.</li>
 <li>
 <code><a href="../reference/nob_data.html">nob_data()</a></code> now returns dataflows without a <code>FREQ</code> dimension instead of erroring.</li>

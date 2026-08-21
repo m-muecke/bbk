@@ -89,6 +89,10 @@
   [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md)
   now require `start_date` and `end_date` together.
 - [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
+  now requests the generic SDMX data format and builds the series key
+  from dimensions only, so flows with extra series attributes
+  (e.g. `SEC`) no longer report keys that are not valid series keys.
+- [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
   now keeps dates and values aligned when observations have no value.
 - [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
   now returns dataflows without a `FREQ` dimension instead of erroring.

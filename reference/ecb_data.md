@@ -165,32 +165,32 @@ ecb_data("EXR", "D.USD.EUR.SP00.A")
 #> 7136: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
 #> 7137: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
 #> 7138: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>       currency_denom exr_type exr_suffix source_agency unit_index_base
-#>               <char>   <char>     <char>        <char>          <char>
-#>    1:            EUR     SP00          A           4F0        99Q1=100
-#>    2:            EUR     SP00          A           4F0        99Q1=100
-#>    3:            EUR     SP00          A           4F0        99Q1=100
-#>    4:            EUR     SP00          A           4F0        99Q1=100
-#>    5:            EUR     SP00          A           4F0        99Q1=100
-#>   ---                                                                 
-#> 7134:            EUR     SP00          A           4F0        99Q1=100
-#> 7135:            EUR     SP00          A           4F0        99Q1=100
-#> 7136:            EUR     SP00          A           4F0        99Q1=100
-#> 7137:            EUR     SP00          A           4F0        99Q1=100
-#> 7138:            EUR     SP00          A           4F0        99Q1=100
-#>       time_format unit_mult collection decimals   unit
-#>            <char>    <char>     <char>   <char> <char>
-#>    1:         P1D         0          A        4    USD
-#>    2:         P1D         0          A        4    USD
-#>    3:         P1D         0          A        4    USD
-#>    4:         P1D         0          A        4    USD
-#>    5:         P1D         0          A        4    USD
-#>   ---                                                 
-#> 7134:         P1D         0          A        4    USD
-#> 7135:         P1D         0          A        4    USD
-#> 7136:         P1D         0          A        4    USD
-#> 7137:         P1D         0          A        4    USD
-#> 7138:         P1D         0          A        4    USD
+#>       currency_denom exr_type exr_suffix time_format decimals   unit
+#>               <char>   <char>     <char>      <char>   <char> <char>
+#>    1:            EUR     SP00          A         P1D        4    USD
+#>    2:            EUR     SP00          A         P1D        4    USD
+#>    3:            EUR     SP00          A         P1D        4    USD
+#>    4:            EUR     SP00          A         P1D        4    USD
+#>    5:            EUR     SP00          A         P1D        4    USD
+#>   ---                                                               
+#> 7134:            EUR     SP00          A         P1D        4    USD
+#> 7135:            EUR     SP00          A         P1D        4    USD
+#> 7136:            EUR     SP00          A         P1D        4    USD
+#> 7137:            EUR     SP00          A         P1D        4    USD
+#> 7138:            EUR     SP00          A         P1D        4    USD
+#>       source_agency unit_mult collection unit_index_base
+#>              <char>    <char>     <char>          <char>
+#>    1:           4F0         0          A        99Q1=100
+#>    2:           4F0         0          A        99Q1=100
+#>    3:           4F0         0          A        99Q1=100
+#>    4:           4F0         0          A        99Q1=100
+#>    5:           4F0         0          A        99Q1=100
+#>   ---                                                   
+#> 7134:           4F0         0          A        99Q1=100
+#> 7135:           4F0         0          A        99Q1=100
+#> 7136:           4F0         0          A        99Q1=100
+#> 7137:           4F0         0          A        99Q1=100
+#> 7138:           4F0         0          A        99Q1=100
 
 # fetch data for multiple keys
 ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))

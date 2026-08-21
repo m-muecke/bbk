@@ -114,6 +114,20 @@ boc_fx_rates = function(start_date = NULL, end_date = NULL, limit = NULL, skip =
     req_perform() |>
     resp_body_json()
 
+  if (length(json$ForeignExchangeRates) == 0L) {
+    return(data.table(
+      exchange_rate_id = integer(),
+      rate = numeric(),
+      exchange_rate_effective_timestamp = as.POSIXct(character(), tz = "UTC"),
+      exchange_rate_expiry_timestamp = as.POSIXct(character(), tz = "UTC"),
+      exchange_rate_source = character(),
+      from_currency = character(),
+      from_currency_csn = integer(),
+      to_currency = character(),
+      to_currency_csn = integer()
+    ))
+  }
+
   dt = json$ForeignExchangeRates |>
     map(as.data.table) |>
     rbindlist() |>

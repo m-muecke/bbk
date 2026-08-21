@@ -17,6 +17,23 @@ test_that("parse_ecb_fx_date does not depend on the session locale", {
   expect_identical(Sys.getlocale("LC_TIME"), "de_DE.UTF-8")
 })
 
+test_that("boc_fx_rates returns an empty table when there are no rates", {
+  httr2::local_mocked_responses(function(req) {
+    httr2::response(
+      200L,
+      headers = "content-type: application/json",
+      body = charToRaw('{"ForeignExchangeRates":[]}')
+    )
+  })
+  actual = boc_fx_rates(start_date = "2030-01-01", end_date = "2030-01-02")
+  expect_data_table(actual, nrows = 0L)
+  expect_names(
+    names(actual),
+    must.include = c("rate", "from_currency", "to_currency")
+  )
+  expect_posixct(actual$exchange_rate_effective_timestamp)
+})
+
 test_that("ecb_fx_rates works", {
   skip_if_offline()
   skip_on_cran()

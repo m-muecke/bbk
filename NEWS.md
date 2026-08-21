@@ -22,6 +22,7 @@
 * `bdp_data()` now detects weekly, biweekly, and semi-annual frequencies, and reports `NA` instead of `"annual"` when there are too few observations to infer the frequency.
 * `bis_data()` now falls back to `TITLE_TS` for series without a `TITLE`.
 * `boc_data()` no longer errors when the requested window has no observations, such as a weekend.
+* `boc_fx_rates()` now returns an empty table instead of erroring when the requested window has no rates.
 * `boe_data()` no longer fails outside an English locale.
 * `cnb_czeonia()` now returns an integer `volume` column when there is no data.
 * `cnb_fx_other_rates()` now requires either `year_month` or `year`.

@@ -96,31 +96,30 @@ boi_metadata("dataflow")
 #> 16:      CHEQUES                                                     Checks
 #> 17:         CONS                                               Construction
 #> 18:     DEBT_AGG                                 Debt and credit aggregates
-#> 19:          DEM                                                       <NA>
-#> 20:          DRV                                             Trade Turnover
-#> 21:     ECON_IND                                                       <NA>
-#> 22:          ENR                                                     Energy
-#> 23:          EXR                                             Exchange rates
-#> 24:          EXS                                        External Statistics
-#> 25:         EZER                                                       EZER
-#> 26: EZER_PIK_MOS                                                       <NA>
-#> 27:          FTR                                              Foreign Trade
-#> 28:       INSINV                                                       <NA>
-#> 29:      INSINV2                                    Institutional Investors
-#> 30:          LBM                                               Labor Market
-#> 31:          MAG                                         Monetay Aggregates
-#> 32:        MASAV                                                  ACH-MASAV
-#> 33:           MF                                               Mutual Funds
-#> 34:          MNF                                                   Industry
-#> 35:           NA                                          National Accounts
-#> 36:          PRI                                                       <NA>
-#> 37:           PS                                              Public Sector
-#> 38:   REAL_ES_DF                                                Real estate
-#> 39:          REV                                                       <NA>
-#> 40:       SECDWH                                            Securities TASE
-#> 41:          TLB                                               Telbor rates
-#> 42:        ZAHAV                                                 RTGS-ZAHAV
-#> 43:          ZCM                Inflation expectations and zero yield curve
+#> 19:          DRV                                             Trade Turnover
+#> 20:     ECON_IND                                                       <NA>
+#> 21:          ENR                                                     Energy
+#> 22:          EXR                                             Exchange rates
+#> 23:          EXS                                        External Statistics
+#> 24:         EZER                                                       EZER
+#> 25: EZER_PIK_MOS                                                       <NA>
+#> 26:          FTR                                              Foreign Trade
+#> 27:       INSINV                                                       <NA>
+#> 28:      INSINV2                                    Institutional Investors
+#> 29:          LBM                                               Labor Market
+#> 30:          MAG                                         Monetay Aggregates
+#> 31:        MASAV                                                  ACH-MASAV
+#> 32:           MF                                               Mutual Funds
+#> 33:          MNF                                                   Industry
+#> 34:           NA                                          National Accounts
+#> 35:          PRI                                                       <NA>
+#> 36:           PS                                              Public Sector
+#> 37:   REAL_ES_DF                                                Real estate
+#> 38:          REV                                                       <NA>
+#> 39:       SECDWH                                            Securities TASE
+#> 40:          TLB                                               Telbor rates
+#> 41:        ZAHAV                                                 RTGS-ZAHAV
+#> 42:          ZCM                Inflation expectations and zero yield curve
 #>               id                                                       name
 #>           <char>                                                     <char>
 boi_metadata("datastructure")
@@ -143,30 +142,29 @@ boi_metadata("datastructure")
 #> 15:          CHEQUES                                                  Cheques
 #> 16:             CONS                                             Construction
 #> 17:         DEBT_AGG                               Debt and credit aggregates
-#> 18:              DEM                                               DEMOGRAPHY
-#> 19:              DRV                                              Derivatives
-#> 20: DSD_EZER_PIK_MOS                                             EZER PIK MOS
-#> 21:         ECON_IND                          Indicators of economic activity
-#> 22:              ENR                                                   Energy
-#> 23:              EXR                                           Exchange Rates
-#> 24:              EXS                                      External Statistics
-#> 25:          FTR_NEW                                        Foreign Trade NEW
-#> 26:           INSINV                                  Institutional Investors
-#> 27:          INSINV2                                  Institutional Investors
-#> 28:              LBM                                             LABOR MARKET
-#> 29:              MAG                                      Monetary aggregates
-#> 30:            MASAV                                                    Masav
-#> 31:               MF                                             Mutual Funds
-#> 32:              MNF                                            Manufacturing
-#> 33:               NA                                        National Accounts
-#> 34:              PRI                                            Price Indices
-#> 35:               PS                                            Public Sector
-#> 36:              RBB                  Central Bank rates and Inter-Bank rates
-#> 37:          REAL_ES                                              Real estate
-#> 38:              REV                                          Revenue Indices
-#> 39:           SECDWH                                      Securities TASE DWH
-#> 40:            ZAHAV                                                    Zahav
-#> 41:              ZCM                                              Zero Coupon
+#> 18:              DRV                                              Derivatives
+#> 19: DSD_EZER_PIK_MOS                                             EZER PIK MOS
+#> 20:         ECON_IND                          Indicators of economic activity
+#> 21:              ENR                                                   Energy
+#> 22:              EXR                                           Exchange Rates
+#> 23:              EXS                                      External Statistics
+#> 24:          FTR_NEW                                        Foreign Trade NEW
+#> 25:           INSINV                                  Institutional Investors
+#> 26:          INSINV2                                  Institutional Investors
+#> 27:              LBM                                             LABOR MARKET
+#> 28:              MAG                                      Monetary aggregates
+#> 29:            MASAV                                                    Masav
+#> 30:               MF                                             Mutual Funds
+#> 31:              MNF                                            Manufacturing
+#> 32:               NA                                        National Accounts
+#> 33:              PRI                                            Price Indices
+#> 34:               PS                                            Public Sector
+#> 35:              RBB                  Central Bank rates and Inter-Bank rates
+#> 36:          REAL_ES                                              Real estate
+#> 37:              REV                                          Revenue Indices
+#> 38:           SECDWH                                      Securities TASE DWH
+#> 39:            ZAHAV                                                    Zahav
+#> 40:              ZCM                                              Zero Coupon
 #>                   id                                                     name
 #>               <char>                                                   <char>
 boi_metadata("codelist", "CL_FREQ")

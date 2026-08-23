@@ -161,8 +161,41 @@ available date is returned. Default <code>NULL</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch the Selic target rate</span></span></span>
 <span class="r-in"><span><span class="fu">bcb_data</span><span class="op">(</span><span class="fl">432</span>, start_date <span class="op">=</span> <span class="st">"2024-01-01"</span>, end_date <span class="op">=</span> <span class="st">"2024-01-31"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in resp_body_json(req_perform(req_error(req_url_query(req_url_path_append(base_request("https://api.bcb.gov.br/dados/serie"),     sprintf("bcdata.sgs.%s", series), "dados"), formato = "json",     ...), body = bcb_error_body))):</span> Unexpected content type "text/html".</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> Expecting type "application/json" or suffix "json".</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           date    key value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt; &lt;char&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2024-01-01    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2024-01-02    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2024-01-03    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2024-01-04    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2024-01-05    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2024-01-06    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2024-01-07    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2024-01-08    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2024-01-09    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2024-01-10    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2024-01-11    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2024-01-12    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2024-01-13    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2024-01-14    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2024-01-15    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2024-01-16    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2024-01-17    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2024-01-18    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2024-01-19    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2024-01-20    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2024-01-21    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2024-01-22    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2024-01-23    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2024-01-24    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2024-01-25    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2024-01-26    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2024-01-27    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2024-01-28    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2024-01-29    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2024-01-30    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31: 2024-01-31    432 11.75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           date    key value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt; &lt;char&gt; &lt;num&gt;</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

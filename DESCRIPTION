@@ -25,6 +25,7 @@ Imports:
     httr2 (>= 1.0.0),
     jsonlite,
     stats,
+    tools,
     utils,
     xml2
 Suggests:

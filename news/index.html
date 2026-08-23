@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bbk</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.13.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,78 +43,79 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="bbk-development-version">bbk (development version)<a class="anchor" aria-label="anchor" href="#bbk-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.13.0" id="bbk-0130">bbk 0.13.0<a class="anchor" aria-label="anchor" href="#bbk-0130"></a></h2>
 <div class="section level3">
-<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="breaking-changes-0-13-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-13-0"></a></h3>
 <ul><li>
-<code><a href="../reference/boi_data.html">boi_data()</a></code>, <code><a href="../reference/boi_dimension.html">boi_dimension()</a></code>, and <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code> add support for Bank of Israel (BoI) data.</li>
+<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bbk_series.html">bbk_series()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, <code><a href="../reference/boi_data.html">boi_data()</a></code>, <code><a href="../reference/boj_data.html">boj_data()</a></code>, <code><a href="../reference/ecb_data.html">ecb_data()</a></code>, <code><a href="../reference/nob_data.html">nob_data()</a></code>, and <code><a href="../reference/snb_data.html">snb_data()</a></code> now return <code>date</code> as a <code>Date</code> at every frequency. Annual observations use January 1, except BoJ fiscal years, which use April 1. Weekly, quarterly, and semiannual observations use the first day of the period rather than raw labels such as <code>"2024-Q1"</code>. This fixes corrupted dates in results that mix annual and subannual series.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<h3 id="new-features-0-13-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-13-0"></a></h3>
 <ul><li>
-<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now reject more than 20 series, matching the API limit.</li>
+<code><a href="../reference/boi_data.html">boi_data()</a></code>, <code><a href="../reference/boi_dimension.html">boi_dimension()</a></code>, and <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code> now support Bank of Israel (BoI) data.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-13-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-13-0"></a></h3>
+<ul><li>
+<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now enforce the API’s 20-series limit.</li>
 <li>
-<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now report detailed Banxico API errors.</li>
+<code><a href="../reference/banxico_data.html">banxico_data()</a></code> and <code><a href="../reference/banxico_metadata.html">banxico_metadata()</a></code> now include the full error messages returned by the Banxico API.</li>
 <li>
-<code><a href="../reference/bbk_data.html">bbk_data()</a></code> no longer errors when series carry different attributes.</li>
+<code><a href="../reference/bbk_data.html">bbk_data()</a></code> can now combine series with different attributes.</li>
 <li>
-<code><a href="../reference/bbk_data.html">bbk_data()</a></code> now falls back to the untranslated attribute value when the English translation is missing, so <code>unit</code> is populated again.</li>
+<code><a href="../reference/bbk_data.html">bbk_data()</a></code> now keeps untranslated attribute values when English translations are unavailable, so <code>unit</code> is no longer missing.</li>
 <li>
-<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, and <code><a href="../reference/ecb_data.html">ecb_data()</a></code> no longer mistake observation attributes for series metadata.</li>
+<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, and <code><a href="../reference/ecb_data.html">ecb_data()</a></code> no longer treat observation attributes as series metadata.</li>
 <li>
-<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bbk_series.html">bbk_series()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, <code><a href="../reference/boi_data.html">boi_data()</a></code>, <code><a href="../reference/boj_data.html">boj_data()</a></code>, <code><a href="../reference/ecb_data.html">ecb_data()</a></code>, <code><a href="../reference/nob_data.html">nob_data()</a></code>, and <code><a href="../reference/snb_data.html">snb_data()</a></code> now return annual observations as a <code>Date</code> on January 1 (April 1 for BoJ fiscal years) instead of an integer year, fixing silent date corruption when a result mixes annual and sub-annual series.</li>
+<code><a href="../reference/bbk_metadata.html">bbk_metadata()</a></code>, <code><a href="../reference/bis_metadata.html">bis_metadata()</a></code>, <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code>, and <code><a href="../reference/nob_metadata.html">nob_metadata()</a></code> now keep entries without a name in the requested language and set their names to <code>NA</code>.</li>
 <li>
-<code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, <code><a href="../reference/boi_data.html">boi_data()</a></code>, <code><a href="../reference/ecb_data.html">ecb_data()</a></code>, and <code><a href="../reference/nob_data.html">nob_data()</a></code> now parse weekly, quarterly, and semi-annual periods to the first day of the period instead of returning the raw period as a string.</li>
+<code><a href="../reference/bbk_metadata.html">bbk_metadata()</a></code>, <code><a href="../reference/bis_metadata.html">bis_metadata()</a></code>, <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code>, <code><a href="../reference/ecb_metadata.html">ecb_metadata()</a></code>, and <code><a href="../reference/nob_metadata.html">nob_metadata()</a></code> no longer return names nested inside codelists and concept schemes as separate rows.</li>
 <li>
-<code><a href="../reference/bbk_metadata.html">bbk_metadata()</a></code>, <code><a href="../reference/bis_metadata.html">bis_metadata()</a></code>, <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code>, and <code><a href="../reference/nob_metadata.html">nob_metadata()</a></code> no longer drop entries without a name in the requested language.</li>
+<code><a href="../reference/bbk_series.html">bbk_series()</a></code> now keeps leading observations when a series has a shorter metadata header.</li>
 <li>
-<code><a href="../reference/bbk_metadata.html">bbk_metadata()</a></code>, <code><a href="../reference/bis_metadata.html">bis_metadata()</a></code>, <code><a href="../reference/boi_metadata.html">boi_metadata()</a></code>, <code><a href="../reference/ecb_metadata.html">ecb_metadata()</a></code>, and <code><a href="../reference/nob_metadata.html">nob_metadata()</a></code> no longer return spurious rows for names nested inside codelists and concept schemes.</li>
+<code><a href="../reference/bbk_series.html">bbk_series()</a></code> now preserves commas in metadata fields.</li>
 <li>
-<code><a href="../reference/bbk_series.html">bbk_series()</a></code> no longer drops leading observations of series with a shorter metadata header.</li>
+<code><a href="../reference/bbk_series.html">bbk_series()</a></code> now returns a numeric <code>value</code> column and omits observations flagged as “Nothing exists”.</li>
 <li>
-<code><a href="../reference/bbk_series.html">bbk_series()</a></code> no longer truncates metadata fields containing a comma.</li>
+<code><a href="../reference/bcb_fx_rates.html">bcb_fx_rates()</a></code> now requires three-character currency codes.</li>
 <li>
-<code><a href="../reference/bbk_series.html">bbk_series()</a></code> now always returns a numeric <code>value</code> column and drops observations flagged as “Nothing exists”.</li>
+<code><a href="../reference/bde_data.html">bde_data()</a></code> now supports <code>lang = "es"</code>.</li>
 <li>
-<code><a href="../reference/bcb_fx_rates.html">bcb_fx_rates()</a></code> now rejects currency codes that are not three characters.</li>
+<code><a href="../reference/bde_latest.html">bde_latest()</a></code> now reports unknown series keys instead of an internal error.</li>
 <li>
-<code><a href="../reference/bde_data.html">bde_data()</a></code> no longer errors when queried with <code>lang = "es"</code>.</li>
+<code><a href="../reference/bdp_data.html">bdp_data()</a></code> now detects weekly, biweekly, and semiannual frequencies. It returns <code>NA</code> when there are too few observations to infer a frequency instead of assuming <code>"annual"</code>.</li>
 <li>
-<code><a href="../reference/bde_latest.html">bde_latest()</a></code> now reports unknown series keys instead of failing with an internal error.</li>
+<code><a href="../reference/bis_data.html">bis_data()</a></code> now uses <code>TITLE_TS</code> when a series has no <code>TITLE</code>.</li>
 <li>
-<code><a href="../reference/bdp_data.html">bdp_data()</a></code> now detects weekly, biweekly, and semi-annual frequencies, and reports <code>NA</code> instead of <code>"annual"</code> when there are too few observations to infer the frequency.</li>
+<code><a href="../reference/boc_data.html">boc_data()</a></code> now returns an empty table when the requested window has no observations, such as on a weekend.</li>
 <li>
-<code><a href="../reference/bis_data.html">bis_data()</a></code> now falls back to <code>TITLE_TS</code> for series without a <code>TITLE</code>.</li>
+<code><a href="../reference/boc_fx_rates.html">boc_fx_rates()</a></code> now returns an empty table when the requested window has no rates.</li>
 <li>
-<code><a href="../reference/boc_data.html">boc_data()</a></code> no longer errors when the requested window has no observations, such as a weekend.</li>
+<code><a href="../reference/boe_data.html">boe_data()</a></code> now works outside English locales.</li>
 <li>
-<code><a href="../reference/boc_fx_rates.html">boc_fx_rates()</a></code> now returns an empty table instead of erroring when the requested window has no rates.</li>
+<code><a href="../reference/boj_data.html">boj_data()</a></code> now dates fiscal half-year periods to April and October rather than treating them as calendar half-years.</li>
 <li>
-<code><a href="../reference/boe_data.html">boe_data()</a></code> no longer fails outside an English locale.</li>
+<code><a href="../reference/cnb_czeonia.html">cnb_czeonia()</a></code> now returns an integer <code>volume</code> column when no data are available.</li>
 <li>
-<code><a href="../reference/boj_data.html">boj_data()</a></code> now dates fiscal half-year periods to the start of the fiscal half (April and October) instead of treating them as calendar halves.</li>
+<code><a href="../reference/cnb_fx_other_rates.html">cnb_fx_other_rates()</a></code> now requires either <code>year_month</code> or <code>year</code>. Omitting both previously returned an empty table rather than the documented latest month.</li>
 <li>
-<code><a href="../reference/cnb_czeonia.html">cnb_czeonia()</a></code> now returns an integer <code>volume</code> column when there is no data.</li>
+<code>ecb_fx_rates("latest")</code> now works outside English locales.</li>
 <li>
-<code><a href="../reference/cnb_fx_other_rates.html">cnb_fx_other_rates()</a></code> now requires either <code>year_month</code> or <code>year</code>.</li>
+<code><a href="../reference/nbp_fx_rates.html">nbp_fx_rates()</a></code> and <code><a href="../reference/nbp_gold.html">nbp_gold()</a></code> now reject <code>end_date</code> without <code>start_date</code> instead of ignoring it and returning the latest quotation.</li>
 <li>
-<code>ecb_fx_rates("latest")</code> no longer returns an empty table outside an English locale.</li>
-<li>
-<code><a href="../reference/nbp_fx_rates.html">nbp_fx_rates()</a></code> and <code><a href="../reference/nbp_gold.html">nbp_gold()</a></code> now require <code>start_date</code> and <code>end_date</code> together.</li>
-<li>
-<code><a href="../reference/nob_data.html">nob_data()</a></code> now requests the generic SDMX data format and builds the series key from dimensions only, so flows with extra series attributes (e.g. <code>SEC</code>) no longer report keys that are not valid series keys.</li>
+<code><a href="../reference/nob_data.html">nob_data()</a></code> now requests generic SDMX data and builds series keys from dimensions only. Dataflows with extra series attributes such as <code>SEC</code> therefore return valid keys.</li>
 <li>
 <code><a href="../reference/nob_data.html">nob_data()</a></code> now keeps dates and values aligned when observations have no value.</li>
 <li>
-<code><a href="../reference/nob_data.html">nob_data()</a></code> now returns dataflows without a <code>FREQ</code> dimension instead of erroring.</li>
+<code><a href="../reference/nob_data.html">nob_data()</a></code> now supports dataflows without a <code>FREQ</code> dimension.</li>
 <li>
-<code><a href="../reference/onb_data.html">onb_data()</a></code> and <code><a href="../reference/onb_frequency.html">onb_frequency()</a></code> no longer error when series carry different attributes.</li>
+<code><a href="../reference/onb_data.html">onb_data()</a></code> and <code><a href="../reference/onb_frequency.html">onb_frequency()</a></code> can now combine series with different attributes.</li>
 <li>
-<code><a href="../reference/onb_toc.html">onb_toc()</a></code> now keeps each description with its own element instead of shifting them.</li>
+<code><a href="../reference/onb_toc.html">onb_toc()</a></code> now matches each description to the correct element.</li>
 <li>
-<code><a href="../reference/srb_data.html">srb_data()</a></code> no longer makes a redundant request when only <code>end_date</code> is supplied.</li>
+<code><a href="../reference/srb_data.html">srb_data()</a></code> no longer makes a second request when only <code>end_date</code> is supplied.</li>
 <li>
-<code>srb_series("groups")</code> no longer errors and flattens nested groups.</li>
+<code>srb_series("groups")</code> now flattens nested groups without error.</li>
 </ul></div>
 </div>
     <div class="section level2">

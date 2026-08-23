@@ -22,8 +22,9 @@ boc_metadata(group_name = NULL, series_name = NULL)
 
 - series_name:
 
-  (`NULL` \| [`character()`](https://rdrr.io/r/base/character.html))  
-  Name of the series.
+  (`NULL` \| `character(1)`)  
+  Name of the series. Only one of `group_name` or `series_name` can be
+  used.
 
 ## Value
 

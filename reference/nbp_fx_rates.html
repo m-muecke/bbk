@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bbk</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.13.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,13 +79,13 @@ ISO 4217 currency code (e.g. <code>"usd"</code>, <code>"eur"</code>). If <code>N
 
 <dt id="arg-start-date">start_date<a class="anchor" aria-label="anchor" href="#arg-start-date"></a></dt>
 <dd><p>(<code>NULL</code> | <code>character(1)</code> | <code>Date(1)</code>)<br>
-Start date of the data. Must be given together with <code>end_date</code>; the API limits the range to
-367 days. For a single day, pass the same date as <code>start_date</code> and <code>end_date</code>.</p></dd>
+Start date of the data. If <code>end_date</code> is omitted, only <code>start_date</code> is returned. The API
+limits the range to 367 days.</p></dd>
 
 
 <dt id="arg-end-date">end_date<a class="anchor" aria-label="anchor" href="#arg-end-date"></a></dt>
 <dd><p>(<code>NULL</code> | <code>character(1)</code> | <code>Date(1)</code>)<br>
-End date of the data. Must be given together with <code>start_date</code>.</p></dd>
+End date of the data. Requires <code>start_date</code>. If <code>NULL</code>, defaults to <code>start_date</code>.</p></dd>
 
 
 <dt id="arg-last-n">last_n<a class="anchor" aria-label="anchor" href="#arg-last-n"></a></dt>

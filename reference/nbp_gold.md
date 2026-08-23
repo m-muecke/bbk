@@ -17,14 +17,14 @@ nbp_gold(start_date = NULL, end_date = NULL, last_n = NULL)
 - start_date:
 
   (`NULL` \| `character(1)` \| `Date(1)`)  
-  Start date of the data. Must be given together with `end_date`; the
-  API limits the range to 367 days. For a single day, pass the same date
-  as `start_date` and `end_date`.
+  Start date of the data. If `end_date` is omitted, only `start_date` is
+  returned. The API limits the range to 367 days.
 
 - end_date:
 
   (`NULL` \| `character(1)` \| `Date(1)`)  
-  End date of the data. Must be given together with `start_date`.
+  End date of the data. Requires `start_date`. If `NULL`, defaults to
+  `start_date`.
 
 - last_n:
 

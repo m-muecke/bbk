@@ -1,35 +1,9 @@
 # Changelog
 
-## bbk (development version)
+## bbk 0.13.0
 
-### New features
+### Breaking changes
 
-- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
-  [`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
-  and
-  [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md)
-  add support for Bank of Israel (BoI) data.
-
-### Bug fixes
-
-- [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
-  and
-  [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
-  now reject more than 20 series, matching the API limit.
-- [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
-  and
-  [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
-  now report detailed Banxico API errors.
-- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
-  no longer errors when series carry different attributes.
-- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
-  now falls back to the untranslated attribute value when the English
-  translation is missing, so `unit` is populated again.
-- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
-  [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
-  and
-  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
-  no longer mistake observation attributes for series metadata.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
@@ -39,90 +13,113 @@
   [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md),
   and
   [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md)
-  now return annual observations as a `Date` on January 1 (April 1 for
-  BoJ fiscal years) instead of an integer year, fixing silent date
-  corruption when a result mixes annual and sub-annual series.
+  now return `date` as a `Date` at every frequency. Annual observations
+  use January 1, except BoJ fiscal years, which use April 1. Weekly,
+  quarterly, and semiannual observations use the first day of the period
+  rather than raw labels such as `"2024-Q1"`. This fixes corrupted dates
+  in results that mix annual and subannual series.
+
+### New features
+
+- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
+  [`boi_dimension()`](https://m-muecke.github.io/bbk/reference/boi_dimension.md),
+  and
+  [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md)
+  now support Bank of Israel (BoI) data.
+
+### Bug fixes
+
+- [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
+  and
+  [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
+  now enforce the API’s 20-series limit.
+- [`banxico_data()`](https://m-muecke.github.io/bbk/reference/banxico_data.md)
+  and
+  [`banxico_metadata()`](https://m-muecke.github.io/bbk/reference/banxico_metadata.md)
+  now include the full error messages returned by the Banxico API.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
+  can now combine series with different attributes.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md)
+  now keeps untranslated attribute values when English translations are
+  unavailable, so `unit` is no longer missing.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
-  [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md),
-  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
   and
-  [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
-  now parse weekly, quarterly, and semi-annual periods to the first day
-  of the period instead of returning the raw period as a string.
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
+  no longer treat observation attributes as series metadata.
 - [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
   [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
   [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md),
   and
   [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
-  no longer drop entries without a name in the requested language.
+  now keep entries without a name in the requested language and set
+  their names to `NA`.
 - [`bbk_metadata()`](https://m-muecke.github.io/bbk/reference/bbk_metadata.md),
   [`bis_metadata()`](https://m-muecke.github.io/bbk/reference/bis_metadata.md),
   [`boi_metadata()`](https://m-muecke.github.io/bbk/reference/boi_metadata.md),
   [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
   and
   [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md)
-  no longer return spurious rows for names nested inside codelists and
-  concept schemes.
+  no longer return names nested inside codelists and concept schemes as
+  separate rows.
 - [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
-  no longer drops leading observations of series with a shorter metadata
+  now keeps leading observations when a series has a shorter metadata
   header.
 - [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
-  no longer truncates metadata fields containing a comma.
+  now preserves commas in metadata fields.
 - [`bbk_series()`](https://m-muecke.github.io/bbk/reference/bbk_series.md)
-  now always returns a numeric `value` column and drops observations
-  flagged as “Nothing exists”.
+  now returns a numeric `value` column and omits observations flagged as
+  “Nothing exists”.
 - [`bcb_fx_rates()`](https://m-muecke.github.io/bbk/reference/bcb_fx_rates.md)
-  now rejects currency codes that are not three characters.
+  now requires three-character currency codes.
 - [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md)
-  no longer errors when queried with `lang = "es"`.
+  now supports `lang = "es"`.
 - [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md)
-  now reports unknown series keys instead of failing with an internal
-  error.
+  now reports unknown series keys instead of an internal error.
 - [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md)
-  now detects weekly, biweekly, and semi-annual frequencies, and reports
-  `NA` instead of `"annual"` when there are too few observations to
-  infer the frequency.
+  now detects weekly, biweekly, and semiannual frequencies. It returns
+  `NA` when there are too few observations to infer a frequency instead
+  of assuming `"annual"`.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
-  now falls back to `TITLE_TS` for series without a `TITLE`.
+  now uses `TITLE_TS` when a series has no `TITLE`.
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
-  no longer errors when the requested window has no observations, such
-  as a weekend.
+  now returns an empty table when the requested window has no
+  observations, such as on a weekend.
 - [`boc_fx_rates()`](https://m-muecke.github.io/bbk/reference/boc_fx_rates.md)
-  now returns an empty table instead of erroring when the requested
-  window has no rates.
+  now returns an empty table when the requested window has no rates.
 - [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md)
-  no longer fails outside an English locale.
+  now works outside English locales.
 - [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md)
-  now dates fiscal half-year periods to the start of the fiscal half
-  (April and October) instead of treating them as calendar halves.
+  now dates fiscal half-year periods to April and October rather than
+  treating them as calendar half-years.
 - [`cnb_czeonia()`](https://m-muecke.github.io/bbk/reference/cnb_czeonia.md)
-  now returns an integer `volume` column when there is no data.
+  now returns an integer `volume` column when no data are available.
 - [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
-  now requires either `year_month` or `year`.
-- `ecb_fx_rates("latest")` no longer returns an empty table outside an
-  English locale.
+  now requires either `year_month` or `year`. Omitting both previously
+  returned an empty table rather than the documented latest month.
+- `ecb_fx_rates("latest")` now works outside English locales.
 - [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)
   and
   [`nbp_gold()`](https://m-muecke.github.io/bbk/reference/nbp_gold.md)
-  now require `start_date` and `end_date` together.
+  now reject `end_date` without `start_date` instead of ignoring it and
+  returning the latest quotation.
 - [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
-  now requests the generic SDMX data format and builds the series key
-  from dimensions only, so flows with extra series attributes
-  (e.g. `SEC`) no longer report keys that are not valid series keys.
+  now requests generic SDMX data and builds series keys from dimensions
+  only. Dataflows with extra series attributes such as `SEC` therefore
+  return valid keys.
 - [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
   now keeps dates and values aligned when observations have no value.
 - [`nob_data()`](https://m-muecke.github.io/bbk/reference/nob_data.md)
-  now returns dataflows without a `FREQ` dimension instead of erroring.
+  now supports dataflows without a `FREQ` dimension.
 - [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
   and
   [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md)
-  no longer error when series carry different attributes.
+  can now combine series with different attributes.
 - [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md) now
-  keeps each description with its own element instead of shifting them.
+  matches each description to the correct element.
 - [`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md)
-  no longer makes a redundant request when only `end_date` is supplied.
-- `srb_series("groups")` no longer errors and flattens nested groups.
+  no longer makes a second request when only `end_date` is supplied.
+- `srb_series("groups")` now flattens nested groups without error.
 
 ## bbk 0.12.0
 

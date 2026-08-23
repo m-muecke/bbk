@@ -1,4 +1,8 @@
-# bbk (development version)
+# bbk 0.13.0
+
+## Breaking changes
+
+* `bbk_data()`, `bbk_series()`, `bis_data()`, `boi_data()`, `boj_data()`, `ecb_data()`, `nob_data()`, and `snb_data()` now always return `date` as a `Date`. Annual observations are dated to January 1 (April 1 for BoJ fiscal years) instead of returning an integer year, and weekly, quarterly, and semi-annual observations are dated to the first day of the period instead of returning the raw period string (e.g. `"2024-Q1"`). Previously the type of the `date` column depended on the frequency of the result, which silently corrupted dates when a request mixed annual and sub-annual series.
 
 ## New features
 
@@ -11,9 +15,7 @@
 * `bbk_data()` no longer errors when series carry different attributes.
 * `bbk_data()` now falls back to the untranslated attribute value when the English translation is missing, so `unit` is populated again.
 * `bbk_data()`, `bis_data()`, and `ecb_data()` no longer mistake observation attributes for series metadata.
-* `bbk_data()`, `bbk_series()`, `bis_data()`, `boi_data()`, `boj_data()`, `ecb_data()`, `nob_data()`, and `snb_data()` now return annual observations as a `Date` on January 1 (April 1 for BoJ fiscal years) instead of an integer year, fixing silent date corruption when a result mixes annual and sub-annual series.
-* `bbk_data()`, `bis_data()`, `boi_data()`, `ecb_data()`, and `nob_data()` now parse weekly, quarterly, and semi-annual periods to the first day of the period instead of returning the raw period as a string.
-* `bbk_metadata()`, `bis_metadata()`, `boi_metadata()`, and `nob_metadata()` no longer drop entries without a name in the requested language.
+* `bbk_metadata()`, `bis_metadata()`, `boi_metadata()`, and `nob_metadata()` no longer drop entries without a name in the requested language; such entries now carry an `NA` name.
 * `bbk_metadata()`, `bis_metadata()`, `boi_metadata()`, `ecb_metadata()`, and `nob_metadata()` no longer return spurious rows for names nested inside codelists and concept schemes.
 * `bbk_series()` no longer drops leading observations of series with a shorter metadata header.
 * `bbk_series()` no longer truncates metadata fields containing a comma.
@@ -28,9 +30,9 @@
 * `boe_data()` no longer fails outside an English locale.
 * `boj_data()` now dates fiscal half-year periods to the start of the fiscal half (April and October) instead of treating them as calendar halves.
 * `cnb_czeonia()` now returns an integer `volume` column when there is no data.
-* `cnb_fx_other_rates()` now requires either `year_month` or `year`.
+* `cnb_fx_other_rates()` now requires either `year_month` or `year`; calling it with neither returned an empty table, despite the documented claim that it returned the latest month.
 * `ecb_fx_rates("latest")` no longer returns an empty table outside an English locale.
-* `nbp_fx_rates()` and `nbp_gold()` now require `start_date` and `end_date` together.
+* `nbp_fx_rates()` and `nbp_gold()` now error when `end_date` is given without `start_date`, instead of silently ignoring it and returning the latest quotation.
 * `nob_data()` now requests the generic SDMX data format and builds the series key from dimensions only, so flows with extra series attributes (e.g. `SEC`) no longer report keys that are not valid series keys.
 * `nob_data()` now keeps dates and values aligned when observations have no value.
 * `nob_data()` now returns dataflows without a `FREQ` dimension instead of erroring.

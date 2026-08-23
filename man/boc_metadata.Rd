@@ -13,8 +13,8 @@ boc_metadata(group_name = NULL, series_name = NULL)
 \item{group_name}{(\code{NULL} | \code{character(1)})\cr
 Name of the group. Only one of \code{group_name} or \code{series_name} can be used.}
 
-\item{series_name}{(\code{NULL} | \code{character()})\cr
-Name of the series.}
+\item{series_name}{(\code{NULL} | \code{character(1)})\cr
+Name of the series. Only one of \code{group_name} or \code{series_name} can be used.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.

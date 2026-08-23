@@ -46,6 +46,8 @@ boc_data = function(group_name = NULL, series_name = NULL, start_date = NULL, en
 #' Fetch Bank of Canada (BoC) metadata (details)
 #'
 #' @inheritParams boc_data
+#' @param series_name (`NULL` | `character(1)`)\cr
+#'   Name of the series. Only one of `group_name` or `series_name` can be used.
 #' @returns A [data.table::data.table()] with the requested data.
 #' @source <https://www.bankofcanada.ca/valet/docs>
 #' @export

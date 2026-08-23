@@ -4,16 +4,14 @@ test_that("nbp_fx_rates input validation works", {
   expect_error(nbp_fx_rates("a", start_date = ""))
   expect_error(nbp_fx_rates("a", last_n = -1L))
   expect_error(nbp_fx_rates("a", start_date = "2025-01-01", last_n = 5L), "mutually exclusive")
-  expect_error(nbp_fx_rates("a", end_date = "2025-01-01"), "must be supplied together")
-  expect_error(nbp_fx_rates("a", start_date = "2025-01-01"), "must be supplied together")
+  expect_error(nbp_fx_rates("a", end_date = "2025-01-01"), "requires")
 })
 
 test_that("nbp_gold input validation works", {
   expect_error(nbp_gold(start_date = ""))
   expect_error(nbp_gold(last_n = -1L))
   expect_error(nbp_gold(start_date = "2025-01-01", last_n = 5L), "mutually exclusive")
-  expect_error(nbp_gold(end_date = "2025-01-01"), "must be supplied together")
-  expect_error(nbp_gold(start_date = "2025-01-01"), "must be supplied together")
+  expect_error(nbp_gold(end_date = "2025-01-01"), "requires")
 })
 
 test_that("nbp_fx_rates builds path with ISO date strings", {
@@ -29,6 +27,15 @@ test_that("nbp_fx_rates builds path with ISO date strings", {
   )
 })
 
+test_that("nbp_fx_rates queries a single day when end_date is omitted", {
+  local_mocked_bindings(nbp = function(path) path)
+  local_mocked_bindings(parse_nbp_fx_rates = function(json, table, code) json)
+  expect_equal(
+    nbp_fx_rates("a", "usd", "2024-01-15"),
+    "exchangerates/rates/a/usd/2024-01-15/2024-01-15"
+  )
+})
+
 test_that("nbp_gold builds path with ISO date strings", {
   local_mocked_bindings(nbp = function(path) path)
   local_mocked_bindings(parse_nbp_gold = function(json) json)
@@ -36,6 +43,12 @@ test_that("nbp_gold builds path with ISO date strings", {
     nbp_gold("2024-01-01", "2024-01-31"),
     "cenyzlota/2024-01-01/2024-01-31"
   )
+})
+
+test_that("nbp_gold queries a single day when end_date is omitted", {
+  local_mocked_bindings(nbp = function(path) path)
+  local_mocked_bindings(parse_nbp_gold = function(json) json)
+  expect_equal(nbp_gold("2024-01-15"), "cenyzlota/2024-01-15/2024-01-15")
 })
 
 test_that("parse_nbp_fx_rates works for single currency", {

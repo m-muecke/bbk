@@ -8,10 +8,10 @@
 #' @param code (`NULL` | `character(1)`)\cr
 #'   ISO 4217 currency code (e.g. `"usd"`, `"eur"`). If `NULL`, returns all currencies.
 #' @param start_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   Start date of the data. Must be given together with `end_date`; the API limits the range to
-#'   367 days. For a single day, pass the same date as `start_date` and `end_date`.
+#'   Start date of the data. If `end_date` is omitted, only `start_date` is returned. The API
+#'   limits the range to 367 days.
 #' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   End date of the data. Must be given together with `start_date`.
+#'   End date of the data. Requires `start_date`. If `NULL`, defaults to `start_date`.
 #' @param last_n (`NULL` | `integer(1)`)\cr
 #'   Return only the last `n` quotations.
 #' @returns A [data.table::data.table()] with exchange rates.
@@ -30,7 +30,10 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
   last_n = assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_exclusive(last_n, start_date)
   assert_exclusive(last_n, end_date)
-  assert_paired(start_date, end_date)
+  if (is.null(start_date) && !is.null(end_date)) {
+    stop("`end_date` requires `start_date`.", call. = FALSE)
+  }
+  end_date = end_date %||% start_date
 
   resource = if (is.null(code)) "exchangerates/tables" else "exchangerates/rates"
   path = nbp_path(
@@ -50,10 +53,10 @@ nbp_fx_rates = function(table, code = NULL, start_date = NULL, end_date = NULL, 
 #' Retrieve the price of gold from the NBP Web API.
 #'
 #' @param start_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   Start date of the data. Must be given together with `end_date`; the API limits the range to
-#'   367 days. For a single day, pass the same date as `start_date` and `end_date`.
+#'   Start date of the data. If `end_date` is omitted, only `start_date` is returned. The API
+#'   limits the range to 367 days.
 #' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
-#'   End date of the data. Must be given together with `start_date`.
+#'   End date of the data. Requires `start_date`. If `NULL`, defaults to `start_date`.
 #' @param last_n (`NULL` | `integer(1)`)\cr
 #'   Return only the last `n` quotations.
 #' @returns A [data.table::data.table()] with gold prices.
@@ -70,7 +73,10 @@ nbp_gold = function(start_date = NULL, end_date = NULL, last_n = NULL) {
   last_n = assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_exclusive(last_n, start_date)
   assert_exclusive(last_n, end_date)
-  assert_paired(start_date, end_date)
+  if (is.null(start_date) && !is.null(end_date)) {
+    stop("`end_date` requires `start_date`.", call. = FALSE)
+  }
+  end_date = end_date %||% start_date
 
   path = nbp_path(
     "cenyzlota",

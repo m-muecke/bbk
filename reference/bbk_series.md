@@ -82,32 +82,32 @@ bbk_series("BBEX3.M.DKK.EUR.BB.AC.A01")
 #> 329: 2026-05-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4731 monthly
 #> 330: 2026-06-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4744 monthly
 #> 331: 2026-07-01 BBEX3.M.DKK.EUR.BB.AC.A01 7.4752 monthly
-#>                                                                            title
-#>                                                                           <char>
-#>   1: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#>   2: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#>   3: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#>   4: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#>   5: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#>  ---                                                                            
-#> 327: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#> 328: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#> 329: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#> 330: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
-#> 331: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark
+#>                                                                                           title
+#>                                                                                          <char>
+#>   1: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#>   2: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#>   3: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#>   4: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#>   5: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#>  ---                                                                                           
+#> 327: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#> 328: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#> 329: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#> 330: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
+#> 331: Euro foreign exchange reference rate of the ECB / EUR 1 = DKK ... / Denmark / End of month
 #>      category   unit unit_mult         last_update
 #>        <char> <char>    <char>              <char>
-#>   1:     WEDE   <NA>       One 2026-07-31 16:08:28
-#>   2:     WEDE   <NA>       One 2026-07-31 16:08:28
-#>   3:     WEDE   <NA>       One 2026-07-31 16:08:28
-#>   4:     WEDE   <NA>       One 2026-07-31 16:08:28
-#>   5:     WEDE   <NA>       One 2026-07-31 16:08:28
+#>   1:     WEDE   <NA>       One 2026-08-25 15:23:37
+#>   2:     WEDE   <NA>       One 2026-08-25 15:23:37
+#>   3:     WEDE   <NA>       One 2026-08-25 15:23:37
+#>   4:     WEDE   <NA>       One 2026-08-25 15:23:37
+#>   5:     WEDE   <NA>       One 2026-08-25 15:23:37
 #>  ---                                              
-#> 327:     WEDE   <NA>       One 2026-07-31 16:08:28
-#> 328:     WEDE   <NA>       One 2026-07-31 16:08:28
-#> 329:     WEDE   <NA>       One 2026-07-31 16:08:28
-#> 330:     WEDE   <NA>       One 2026-07-31 16:08:28
-#> 331:     WEDE   <NA>       One 2026-07-31 16:08:28
+#> 327:     WEDE   <NA>       One 2026-08-25 15:23:37
+#> 328:     WEDE   <NA>       One 2026-08-25 15:23:37
+#> 329:     WEDE   <NA>       One 2026-08-25 15:23:37
+#> 330:     WEDE   <NA>       One 2026-08-25 15:23:37
+#> 331:     WEDE   <NA>       One 2026-08-25 15:23:37
 #>                                                                                                                                                   comment
 #>                                                                                                                                                    <char>
 #>   1: The ECB publishes daily euro foreign exchange reference rates, which are calculated on the basis of the concertation between central banks at 14.15.

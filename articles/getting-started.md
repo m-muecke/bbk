@@ -79,14 +79,14 @@ head(usd_eur)
 #> 4: 2015-04-01 BBEX3.M.USD.EUR.BB.AC.A01 1.1215 monthly
 #> 5: 2015-05-01 BBEX3.M.USD.EUR.BB.AC.A01 1.0970 monthly
 #> 6: 2015-06-01 BBEX3.M.USD.EUR.BB.AC.A01 1.1189 monthly
-#>                                                                                title
-#>                                                                               <char>
-#> 1: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States
-#> 2: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States
-#> 3: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States
-#> 4: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States
-#> 5: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States
-#> 6: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States
+#>                                                                                               title
+#>                                                                                              <char>
+#> 1: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States / End of month
+#> 2: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States / End of month
+#> 3: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States / End of month
+#> 4: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States / End of month
+#> 5: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States / End of month
+#> 6: Euro foreign exchange reference rate of the ECB / EUR 1 = USD ... / United States / End of month
 #>    currency erx_partner_currency erx_series_type erx_rate_type erx_suffix
 #>      <char>               <char>          <char>        <char>     <char>
 #> 1:      USD                  EUR              BB            AC        A01

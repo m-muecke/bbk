@@ -189,30 +189,30 @@ head(data)
 #> 4: 1999-04-01 BBEX3.M.ISK.EUR.CA.AC.A01 77.92 monthly
 #> 5: 1999-05-01 BBEX3.M.ISK.EUR.CA.AC.A01 77.88 monthly
 #> 6: 1999-06-01 BBEX3.M.ISK.EUR.CA.AC.A01 76.95 monthly
-#>                                                                title currency
-#>                                                               <char>   <char>
-#> 1: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)      ISK
-#> 2: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)      ISK
-#> 3: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)      ISK
-#> 4: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)      ISK
-#> 5: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)      ISK
-#> 6: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle)      ISK
-#>    erx_partner_currency erx_series_type erx_rate_type erx_suffix time_format
-#>                  <char>          <char>        <char>     <char>      <char>
-#> 1:                  EUR              CA            AC        A01         P1M
-#> 2:                  EUR              CA            AC        A01         P1M
-#> 3:                  EUR              CA            AC        A01         P1M
-#> 4:                  EUR              CA            AC        A01         P1M
-#> 5:                  EUR              CA            AC        A01         P1M
-#> 6:                  EUR              CA            AC        A01         P1M
-#>    decimals   unit unit_mult
-#>       <int> <char>    <char>
-#> 1:        2    ISK         0
-#> 2:        2    ISK         0
-#> 3:        2    ISK         0
-#> 4:        2    ISK         0
-#> 5:        2    ISK         0
-#> 6:        2    ISK         0
+#>                                                                               title
+#>                                                                              <char>
+#> 1: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle) / End of month
+#> 2: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle) / End of month
+#> 3: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle) / End of month
+#> 4: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle) / End of month
+#> 5: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle) / End of month
+#> 6: Exchange rates for the euro in Iceland / EUR 1 = ISK ... (middle) / End of month
+#>    currency erx_partner_currency erx_series_type erx_rate_type erx_suffix
+#>      <char>               <char>          <char>        <char>     <char>
+#> 1:      ISK                  EUR              CA            AC        A01
+#> 2:      ISK                  EUR              CA            AC        A01
+#> 3:      ISK                  EUR              CA            AC        A01
+#> 4:      ISK                  EUR              CA            AC        A01
+#> 5:      ISK                  EUR              CA            AC        A01
+#> 6:      ISK                  EUR              CA            AC        A01
+#>    time_format decimals   unit unit_mult
+#>         <char>    <int> <char>    <char>
+#> 1:         P1M        2    ISK         0
+#> 2:         P1M        2    ISK         0
+#> 3:         P1M        2    ISK         0
+#> 4:         P1M        2    ISK         0
+#> 5:         P1M        2    ISK         0
+#> 6:         P1M        2    ISK         0
 #>                                                                                                                                          comm_gen
 #>                                                                                                                                            <char>
 #> 1: Collapse of banking system and introduction of capital controls in October 2008, see Deutsche Bundesbank, Monthly Report, July 2010, pp 52-53.

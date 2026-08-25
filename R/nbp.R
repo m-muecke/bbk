@@ -143,5 +143,5 @@ nbp = function(path) {
 }
 
 nbp_error_body = function(resp) {
-  resp_body_string(resp)
+  resp_body_string(resp, "UTF-8")
 }

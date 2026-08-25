@@ -118,9 +118,11 @@ onb_metadata = function(hier_id, key, ..., lang = "en") {
 
 parse_onb_metadata = function(xml) {
   meta = xml |> xml2::xml_find_all("meta") |> xml2::xml_children()
-  x = setNames(xml2::as_list(meta), xml2::xml_name(meta))
-  x = x[lengths(x) == 1L]
-  x = unlist(x, recursive = FALSE)
+  # <data_available> and <releases> hold repeated sub-elements rather than a scalar, and are
+  # dropped even when empty so that the columns do not depend on the series
+  nested = c("data_available", "releases")
+  meta = meta[xml2::xml_length(meta) == 0L & xml2::xml_name(meta) %nin% nested]
+  x = setNames(as.list(xml2::xml_text(meta)), xml2::xml_name(meta))
   dt = setDT(x)
   dt[, names(.SD) := map(.SD, trimws), .SDcols = is.character]
   dt[, names(.SD) := map(.SD, \(x) replace(x, x == "-", NA_character_)), .SDcols = is.character][]

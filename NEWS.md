@@ -39,6 +39,7 @@
 * `nob_data()` now keeps dates and values aligned when observations have no value.
 * `nob_data()` now supports dataflows without a `FREQ` dimension.
 * `onb_data()` and `onb_frequency()` can now combine series with different attributes.
+* `onb_metadata()` no longer fails for series whose metadata lists a single release.
 * `onb_toc()` now matches each description to the correct element.
 * `srb_data()` no longer makes a second request when only `end_date` is supplied.
 * `srb_series("groups")` now flattens nested groups without error.

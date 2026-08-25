@@ -98,13 +98,13 @@ parse_nbp_tables = function(json) {
   first = json[[1L]]
   tables = if (is.null(first$table)) list(json) else json # nolint
   rbindlist(map(tables, function(tbl) {
-    dt = rbindlist(map(tbl$rates, as.data.table))
+    dt = rbindlist(tbl$rates)
     dt[, "date" := as.Date(tbl$effectiveDate)]
   }))
 }
 
 parse_nbp_currency = function(json) {
-  dt = rbindlist(map(json$rates, as.data.table))
+  dt = rbindlist(json$rates)
   setnames(dt, "effectiveDate", "date")
   dt[, let(date = as.Date(date), code = json$code, currency = json$currency)]
 }

@@ -47,7 +47,7 @@ parse_bcb_data = function(json, series) {
     return(dt[])
   }
   data = valor = NULL
-  dt = rbindlist(map(json, setDT), fill = TRUE)
+  dt = rbindlist(json, fill = TRUE)
   dt[, let(
     date = as.Date(data, "%d/%m/%Y"),
     key = as.character(series),

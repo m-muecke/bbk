@@ -66,7 +66,7 @@ parse_srb_data = function(json, series) {
     return(dt)
   }
   value = NULL
-  dt = rbindlist(map(json, setDT))
+  dt = rbindlist(json)
   dt[, let(
     date = as.Date(date),
     key = toupper(series),
@@ -172,10 +172,7 @@ srb_calendar = function(start_date, end_date = NULL) {
 }
 
 parse_srb_calendar = function(json) {
-  dt = json |>
-    map(setDT) |>
-    rbindlist() |>
-    setnames(convert_camel_case)
+  dt = setnames(rbindlist(json), convert_camel_case)
   calendar_date = NULL
   dt[, calendar_date := as.Date(calendar_date)]
   dt[]

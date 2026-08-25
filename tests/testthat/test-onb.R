@@ -13,8 +13,16 @@ test_that("parse_onb_metadata keeps the scalar fields", {
   expect_names(
     names(actual),
     identical.to = c(
-      "title", "region", "unit", "comment", "classification",
-      "breaks", "frequency", "last_update", "source", "lag"
+      "title",
+      "region",
+      "unit",
+      "comment",
+      "classification",
+      "breaks",
+      "frequency",
+      "last_update",
+      "source",
+      "lag"
     )
   )
   expect_identical(actual$title, "Loans to euro area residents - total")

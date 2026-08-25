@@ -136,6 +136,12 @@ test_that("parse_bdp_data maps sparse values onto the right series and date", {
   expect_identical(first$value, c(-68, 62011, 778))
 })
 
+test_that("bdp_cell_values matches sparse keys at or above 1e5 without scientific notation", {
+  # cell offsets are doubles; as.character(1e5) would be "1e+05" and miss the key
+  x = list(`100000` = 1.5, `3` = 2.5)
+  expect_identical(bdp_cell_values(x, c(100000, 3), "numeric"), c(1.5, 2.5))
+})
+
 test_that("parse_bdp_data handles a dense value array", {
   json = list(
     id = list("7", "reference_date"),
@@ -146,10 +152,20 @@ test_that("parse_bdp_data handles a dense value array", {
       reference_date = list(category = list(index = list("2020-01-01", "2020-02-01", "2020-03-01")))
     ),
     value = list(1, 2, 3, 4, 5, 6),
-    extension = list(series = list(
-      list(id = 1L, label = "s1", dimension_category = list(list(dimension_id = 7L, category_id = 10L))),
-      list(id = 2L, label = "s2", dimension_category = list(list(dimension_id = 7L, category_id = 20L)))
-    ))
+    extension = list(
+      series = list(
+        list(
+          id = 1L,
+          label = "s1",
+          dimension_category = list(list(dimension_id = 7L, category_id = 10L))
+        ),
+        list(
+          id = 2L,
+          label = "s2",
+          dimension_category = list(list(dimension_id = 7L, category_id = 20L))
+        )
+      )
+    )
   )
   actual = parse_bdp_data(json)
   # category "20" comes first in the index, so the first block belongs to series 2

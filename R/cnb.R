@@ -184,7 +184,6 @@ parse_cnb_fx_rates = function(json) {
 
   date = NULL
   dt = json$rates |>
-    map(as.data.table) |>
     rbindlist(fill = TRUE) |>
     setnames(convert_camel_case) |>
     setnames("valid_for", "date")

@@ -89,7 +89,7 @@ parse_bdp_data = function(json) {
   dims = as.character(unlist(json$id, use.names = FALSE))
   size = as.integer(unlist(json$size, use.names = FALSE))
   # JSON-stat lays `value` out row-major, so the last dimension varies fastest
-  strides = c(frev(cumprod(frev(size)))[-1L], 1)
+  strides = c(rev(cumprod(rev(size)))[-1L], 1)
   time_stride = strides[[match(time_dim, dims)]]
   offsets = map_dbl(series, \(x) bdp_series_offset(x, json, dims, strides))
   cells = rep(offsets, each = n_dates) +
@@ -162,7 +162,7 @@ bdp_cell_values = function(x, cells, mode) {
   if (!is.list(x)) {
     x = as.list(x)
   }
-  pos = if (is.null(names(x))) cells + 1 else match(as.character(cells), names(x))
+  pos = if (is.null(names(x))) cells + 1 else match(cells, as.numeric(names(x)))
   found = !is.na(pos) & pos >= 1 & pos <= length(x)
   hits = x[pos[found]]
   hits[lengths(hits) == 0L] = NA

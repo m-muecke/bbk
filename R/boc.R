@@ -87,7 +87,7 @@ boc_catalog = function(type = "groups") {
   assert_choice(type, c("groups", "series"))
   json = boc("lists", type)
   lst = json[[type]]
-  dt = rbindlist(map(lst, setDT))
+  dt = rbindlist(lst)
   dt[, "name" := names(lst)]
   dt[]
 }
@@ -103,7 +103,7 @@ boc_details_group = function(name) {
   grp = json$groupDetails
   meta = setDT(grp[lengths(grp) == 1L])
   setnames(meta, \(x) paste("group", x, sep = "_"))
-  series = rbindlist(map(grp$groupSeries, setDT))
+  series = rbindlist(grp$groupSeries)
   series[, "name" := names(grp$groupSeries)]
   setnames(series, \(x) paste("series", x, sep = "_"))
   series[, names(meta) := meta]

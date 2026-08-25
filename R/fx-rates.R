@@ -128,11 +128,7 @@ boc_fx_rates = function(start_date = NULL, end_date = NULL, limit = NULL, skip =
     ))
   }
 
-  dt = json$ForeignExchangeRates |>
-    map(as.data.table) |>
-    rbindlist() |>
-    setnames(convert_camel_case)
-
+  dt = setnames(rbindlist(json$ForeignExchangeRates), convert_camel_case)
   dt[, names(.SD) := map(.SD, \(x) unlist(x, use.names = FALSE)), .SDcols = is.list]
   rate = NULL
   dt[, rate := as.numeric(rate)]

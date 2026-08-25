@@ -67,10 +67,7 @@ parse_bde_data = function(json) {
   dt = json |>
     map(function(x) {
       dt = as.data.table(x[names(x) != "informacion"])
-      meta = x$informacion |>
-        map(setDT) |>
-        rbindlist() |>
-        setnames(c("name", "value"))
+      meta = setnames(rbindlist(x$informacion), c("name", "value"))
       name = NULL
       meta[, name := chartr(" ", "_", tolower(name))]
       meta[, name := gsub("[()]", "", name)]
@@ -143,10 +140,7 @@ parse_bde_latest = function(json) {
     "valor"
   )
   new_cols = c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
-  dt = json |>
-    map(setDT) |>
-    rbindlist() |>
-    setnames(old_cols, new_cols)
+  dt = setnames(rbindlist(json), old_cols, new_cols)
   date = NULL
   dt[, date := as.POSIXct(date, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]
   setcolorder(dt, col_order, skip_absent = TRUE)

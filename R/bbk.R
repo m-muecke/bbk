@@ -190,7 +190,7 @@ parse_bbk_series = function(body, key) {
   files = list.files(td, full.names = TRUE)
   path = grepv("\\.csv$", files)[[1L]]
 
-  lines = readLines(path)
+  lines = readLines(path, encoding = "UTF-8")
   data_start = grep("^\"?\\d{4}[-,]", lines)[1L]
   if (is.na(data_start)) {
     data_start = length(lines) + 1L

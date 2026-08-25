@@ -38,7 +38,8 @@ bdp_data(
 - series_ids:
 
   (`NULL` \| [`integer()`](https://rdrr.io/r/base/integer.html))  
-  Optional series IDs to filter the dataset.
+  Optional series IDs to filter the dataset. If `NULL`, every series in
+  the dataset is returned.
 
 - start_date:
 
@@ -203,5 +204,47 @@ bdp_data(54L, "ce3e4e50cda325537eff729ef64037cd", series_ids = 12518356L)
 #> 73: 2025-12-31 12518356 306765.485 annual GDP at market prices-CP-A      F
 #>           date      key      value   freq                     title status
 #>         <Date>    <int>      <num> <char>                    <char> <char>
+
+# several series at once
+bdp_data(19L, "0da378eb4c39011fb7fb371c6623af8f", series_ids = c(12558817L, 12558819L))
+#>            date      key    value    freq
+#>          <Date>    <int>    <num>  <char>
+#>   1: 1997-09-30 12558817    -68.0 monthly
+#>   2: 1997-10-31 12558817    -54.0 monthly
+#>   3: 1997-11-30 12558817    -96.0 monthly
+#>   4: 1997-12-31 12558817    -94.0 monthly
+#>   5: 1998-01-31 12558817    -64.0 monthly
+#>  ---                                     
+#> 688: 2026-02-28 12558819 149598.9 monthly
+#> 689: 2026-03-31 12558819 152568.9 monthly
+#> 690: 2026-04-30 12558819 153321.4 monthly
+#> 691: 2026-05-31 12558819 155703.3 monthly
+#> 692: 2026-06-30 12558819 155528.1 monthly
+#>                                                                         title
+#>                                                                        <char>
+#>   1: PRT contribution for M3-Debt securities-Up to 2 years-Euro area-M€ (MFI)
+#>   2: PRT contribution for M3-Debt securities-Up to 2 years-Euro area-M€ (MFI)
+#>   3: PRT contribution for M3-Debt securities-Up to 2 years-Euro area-M€ (MFI)
+#>   4: PRT contribution for M3-Debt securities-Up to 2 years-Euro area-M€ (MFI)
+#>   5: PRT contribution for M3-Debt securities-Up to 2 years-Euro area-M€ (MFI)
+#>  ---                                                                         
+#> 688:         PRT contribution for M2-Oth dep-Up to 2 years-Euro area-M€ (MFI)
+#> 689:         PRT contribution for M2-Oth dep-Up to 2 years-Euro area-M€ (MFI)
+#> 690:         PRT contribution for M2-Oth dep-Up to 2 years-Euro area-M€ (MFI)
+#> 691:         PRT contribution for M2-Oth dep-Up to 2 years-Euro area-M€ (MFI)
+#> 692:         PRT contribution for M2-Oth dep-Up to 2 years-Euro area-M€ (MFI)
+#>      status
+#>      <char>
+#>   1:      F
+#>   2:      F
+#>   3:      F
+#>   4:      F
+#>   5:      F
+#>  ---       
+#> 688:      F
+#> 689:      F
+#> 690:      F
+#> 691:      F
+#> 692:      F
 # }
 ```

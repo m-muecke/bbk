@@ -85,6 +85,10 @@
 <li>
 <code><a href="../reference/bdp_data.html">bdp_data()</a></code> now detects weekly, biweekly, and semiannual frequencies. It returns <code>NA</code> when there are too few observations to infer a frequency instead of assuming <code>"annual"</code>.</li>
 <li>
+<code><a href="../reference/bdp_data.html">bdp_data()</a></code> now returns correct values for requests covering more than one series, which previously landed on the wrong <code>key</code> and, for sparse responses, the wrong dates.</li>
+<li>
+<code><a href="../reference/bdp_data.html">bdp_data()</a></code> now fetches every page of a result instead of only the first 10 series.</li>
+<li>
 <code><a href="../reference/bis_data.html">bis_data()</a></code> now uses <code>TITLE_TS</code> when a series has no <code>TITLE</code>.</li>
 <li>
 <code><a href="../reference/boc_data.html">boc_data()</a></code> now returns an empty table when the requested window has no observations, such as on a weekend.</li>
@@ -110,6 +114,8 @@
 <code><a href="../reference/nob_data.html">nob_data()</a></code> now supports dataflows without a <code>FREQ</code> dimension.</li>
 <li>
 <code><a href="../reference/onb_data.html">onb_data()</a></code> and <code><a href="../reference/onb_frequency.html">onb_frequency()</a></code> can now combine series with different attributes.</li>
+<li>
+<code><a href="../reference/onb_metadata.html">onb_metadata()</a></code> no longer fails for series whose metadata lists a single release.</li>
 <li>
 <code><a href="../reference/onb_toc.html">onb_toc()</a></code> now matches each description to the correct element.</li>
 <li>

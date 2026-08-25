@@ -80,6 +80,13 @@
   now detects weekly, biweekly, and semiannual frequencies. It returns
   `NA` when there are too few observations to infer a frequency instead
   of assuming `"annual"`.
+- [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md)
+  now returns correct values for requests covering more than one series,
+  which previously landed on the wrong `key` and, for sparse responses,
+  the wrong dates.
+- [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md)
+  now fetches every page of a result instead of only the first 10
+  series.
 - [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md)
   now uses `TITLE_TS` when a series has no `TITLE`.
 - [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
@@ -115,6 +122,8 @@
   and
   [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md)
   can now combine series with different attributes.
+- [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md)
+  no longer fails for series whose metadata lists a single release.
 - [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md) now
   matches each description to the correct element.
 - [`srb_data()`](https://m-muecke.github.io/bbk/reference/srb_data.md)

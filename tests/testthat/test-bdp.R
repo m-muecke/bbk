@@ -18,7 +18,7 @@ test_that("bdp_data passes updated_after as obs_published_since", {
   })
   local_mocked_bindings(parse_bdp_data = function(json) data.table())
   bdp_data(54L, "ce3e", updated_after = as.Date("2024-06-01"))
-  expect_match(captured$url, "obs_published_since=2024-06-01T00%3A00%3A00")
+  expect_match(captured$url, "obs_published_since=2024-06-01T00%3A00%3A00Z")
 })
 
 test_that("bdp_data follows next_page and keeps every series", {

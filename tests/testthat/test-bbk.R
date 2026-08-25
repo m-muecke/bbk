@@ -46,7 +46,7 @@ test_that("bbk_data passes updated_after as preparedAfter", {
   })
   local_mocked_bindings(parse_bbk_data = function(xml) data.table())
   bbk_data("BBSIS", "abc", updated_after = as.Date("2024-06-01"))
-  expect_match(captured$url, "preparedAfter=2024-06-01T00%3A00%3A00")
+  expect_match(captured$url, "preparedAfter=2024-06-01T00%3A00%3A00Z")
 })
 
 test_that("parse_bbk_data works", {

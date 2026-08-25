@@ -48,7 +48,7 @@ assert_timestampish = function(x, null.ok = FALSE, .var.name = vname(x), add = N
     return(invisible())
   }
   if (inherits(x, c("POSIXt", "Date"))) {
-    x = format(as.POSIXct(x, tz = "UTC"), "%Y-%m-%dT%H:%M:%S", tz = "UTC")
+    x = format(as.POSIXct(x, tz = "UTC"), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")
   }
   invisible(x)
 }

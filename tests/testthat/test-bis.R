@@ -38,7 +38,7 @@ test_that("bis_data passes updated_after as updatedAfter", {
   })
   local_mocked_bindings(parse_bis_data = function(xml) data.table())
   bis_data("WS_CBPOL", "M.CH", updated_after = as.Date("2024-06-01"))
-  expect_match(captured$url, "updatedAfter=2024-06-01T00%3A00%3A00")
+  expect_match(captured$url, "updatedAfter=2024-06-01T00%3A00%3A00Z")
 })
 
 test_that("parse_bis_data works", {

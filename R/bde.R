@@ -31,7 +31,7 @@
 #' bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #' }
 bde_data = function(key, time_range = NULL, lang = "en") {
-  assert_character(key, min.chars = 1L)
+  assert_character(key, min.chars = 1L, min.len = 1L)
   assert_period(time_range)
   assert_choice(lang, c("en", "es"))
 
@@ -114,7 +114,7 @@ parse_bde_data = function(json) {
 #' bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
 #' }
 bde_latest = function(key, lang = "en") {
-  assert_character(key, min.chars = 1L)
+  assert_character(key, min.chars = 1L, min.len = 1L)
   assert_choice(lang, c("en", "es"))
 
   json = bde(key, lang = lang, resource = "favoritas")

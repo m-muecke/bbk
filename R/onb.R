@@ -48,7 +48,7 @@ onb_data = function(
   lang = "en"
 ) {
   hier_id = assert_count(hier_id, positive = TRUE, coerce = TRUE)
-  assert_character(key, min.chars = 1L)
+  assert_character(key, min.chars = 1L, min.len = 1L)
   assert_period(start_period)
   assert_period(end_period)
   assert_string(freq, min.chars = 1L, null.ok = TRUE)

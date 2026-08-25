@@ -27,7 +27,7 @@
 #' boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")
 #' }
 boe_data = function(key, start_date, end_date = Sys.Date()) {
-  assert_character(key, min.chars = 1L, max.len = 300L)
+  assert_character(key, min.chars = 1L, min.len = 1L, max.len = 300L)
   start_date = assert_dateish(start_date)
   end_date = assert_dateish(end_date)
 

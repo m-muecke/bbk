@@ -143,7 +143,6 @@ boc_series_obs = function(name, start_date, end_date) {
   meta[, "name" := names(json$seriesDetail)]
 
   obs = boc_obs(json$observations)
-
   obs = meta[obs, on = "name"]
   value = NULL
   obs[, let(date = as.Date(date), value = as.numeric(value))]

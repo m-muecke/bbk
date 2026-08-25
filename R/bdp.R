@@ -14,7 +14,8 @@
 #' @param dataset_id (`character(1)`)\cr
 #'   The dataset ID within the domain.
 #' @param series_ids (`NULL` | `integer()`)\cr
-#'   Optional series IDs to filter the dataset.
+#'   Optional series IDs to filter the dataset. If `NULL`, every series in the dataset is
+#'   returned.
 #' @param start_date (`NULL` | `character(1)` | `Date(1)`)\cr
 #'   Start date of the data.
 #' @param end_date (`NULL` | `character(1)` | `Date(1)`)\cr
@@ -35,6 +36,9 @@
 #' \donttest{
 #' # Portuguese GDP (annual, current prices)
 #' bdp_data(54L, "ce3e4e50cda325537eff729ef64037cd", series_ids = 12518356L)
+#'
+#' # several series at once
+#' bdp_data(19L, "0da378eb4c39011fb7fb371c6623af8f", series_ids = c(12558817L, 12558819L))
 #' }
 bdp_data = function(
   domain_id,
@@ -55,7 +59,7 @@ bdp_data = function(
   updated_after = assert_timestampish(updated_after, null.ok = TRUE)
   assert_choice(lang, c("en", "pt"))
 
-  json = bdp(
+  jsons = bdp_request(
     "domains",
     domain_id,
     "datasets",
@@ -66,34 +70,104 @@ bdp_data = function(
     obs_to = end_date,
     obs_last_n = last_n,
     obs_published_since = updated_after
-  )
-  parse_bdp_data(json)
+  ) |>
+    req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf) |>
+    resps_data(\(resp) list(resp_body_json(resp)))
+  rbindlist(map(jsons, parse_bdp_data), fill = TRUE)[]
 }
 
 parse_bdp_data = function(json) {
   time_dim = json$role$time[[1L]]
-  dates = unlist(json$dimension[[time_dim]]$category$index, use.names = FALSE)
+  dates = bdp_category_ids(json$dimension[[time_dim]])
+  series = json$extension$series
   n_dates = length(dates)
-  values = map_dbl(json$value, \(x) x %||% NA_real_)
-  n_series = length(values) %/% n_dates
+  n_series = length(series)
+  if (n_dates == 0L || n_series == 0L) {
+    return(bdp_empty_data())
+  }
+
+  dims = as.character(unlist(json$id, use.names = FALSE))
+  size = as.integer(unlist(json$size, use.names = FALSE))
+  # JSON-stat lays `value` out row-major, so the last dimension varies fastest
+  strides = c(frev(cumprod(frev(size)))[-1L], 1)
+  time_stride = strides[[match(time_dim, dims)]]
+  offsets = map_dbl(series, \(x) bdp_series_offset(x, json, dims, strides))
+  cells = rep(offsets, each = n_dates) +
+    rep((seq_len(n_dates) - 1L) * time_stride, times = n_series)
 
   dt = data.table(
     date = as.Date(rep(dates, times = n_series)),
-    value = values
+    id = rep(map_int(series, "id"), each = n_dates),
+    value = bdp_cell_values(json$value, cells, "numeric"),
+    title = rep(map_chr(series, "label"), each = n_dates),
+    freq = bdp_freq(dates)
   )
+  setnames(dt, "id", "key")
   if (!is.null(json$status)) {
-    dt[, "status" := map_chr(json$status, \(x) x %||% NA_character_)]
+    dt[, "status" := bdp_cell_values(json$status, cells, "character")]
   }
-
-  series = json$extension$series
-  if (!is.null(series)) {
-    dt[, "key" := rep(map_int(series, "id"), each = n_dates)]
-    dt[, "title" := rep(map_chr(series, "label"), each = n_dates)]
-  }
-
-  dt[, "freq" := bdp_freq(dates)]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
+}
+
+bdp_empty_data = function() {
+  dt = data.table(
+    date = as.Date(character()),
+    id = integer(),
+    value = numeric(),
+    freq = character(),
+    title = character()
+  )
+  setnames(dt, "id", "key")
+  dt[]
+}
+
+# the category index is either an array of ids or an object mapping id to position
+bdp_category_ids = function(dimension) {
+  index = dimension$category$index
+  if (length(index) == 0L) {
+    return(character())
+  }
+  if (is.null(names(index))) {
+    as.character(unlist(index, use.names = FALSE))
+  } else {
+    names(index)[order(unlist(index, use.names = FALSE))]
+  }
+}
+
+# the offset of a series is its position in the grid spanned by the non-time dimensions
+bdp_series_offset = function(series, json, dims, strides) {
+  offset = 0
+  for (entry in series$dimension_category) {
+    pos = match(as.character(entry$dimension_id), dims)
+    if (is.na(pos)) {
+      next
+    }
+    ids = bdp_category_ids(json$dimension[[dims[[pos]]]])
+    idx = match(as.character(entry$category_id), ids)
+    if (is.na(idx)) {
+      next
+    }
+    offset = offset + (idx - 1L) * strides[[pos]]
+  }
+  offset
+}
+
+# `value` and `status` are either a dense array or an object keyed by cell index
+bdp_cell_values = function(x, cells, mode) {
+  out = rep(as.vector(NA, mode), length(cells))
+  if (length(x) == 0L) {
+    return(out)
+  }
+  if (!is.list(x)) {
+    x = as.list(x)
+  }
+  pos = if (is.null(names(x))) cells + 1 else match(as.character(cells), names(x))
+  found = !is.na(pos) & pos >= 1 & pos <= length(x)
+  hits = x[pos[found]]
+  hits[lengths(hits) == 0L] = NA
+  out[found] = as.vector(unlist(hits, use.names = FALSE), mode)
+  out
 }
 
 bdp_freq = function(dates) {

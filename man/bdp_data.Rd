@@ -26,7 +26,8 @@ The domain ID. Use \code{\link[=bdp_domain]{bdp_domain()}} to list available dom
 The dataset ID within the domain.}
 
 \item{series_ids}{(\code{NULL} | \code{integer()})\cr
-Optional series IDs to filter the dataset.}
+Optional series IDs to filter the dataset. If \code{NULL}, every series in the dataset is
+returned.}
 
 \item{start_date}{(\code{NULL} | \code{character(1)} | \code{Date(1)})\cr
 Start date of the data.}
@@ -63,6 +64,9 @@ You can browse available series at the \href{https://bpstat.bportugal.pt}{BPstat
 \donttest{
 # Portuguese GDP (annual, current prices)
 bdp_data(54L, "ce3e4e50cda325537eff729ef64037cd", series_ids = 12518356L)
+
+# several series at once
+bdp_data(19L, "0da378eb4c39011fb7fb371c6623af8f", series_ids = c(12558817L, 12558819L))
 }
 \dontshow{\}) # examplesIf}
 }

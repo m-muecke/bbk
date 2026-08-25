@@ -24,6 +24,8 @@
 * `bde_data()` now supports `lang = "es"`.
 * `bde_latest()` now reports unknown series keys instead of an internal error.
 * `bdp_data()` now detects weekly, biweekly, and semiannual frequencies. It returns `NA` when there are too few observations to infer a frequency instead of assuming `"annual"`.
+* `bdp_data()` now returns correct values for requests covering more than one series, which previously landed on the wrong `key` and, for sparse responses, the wrong dates.
+* `bdp_data()` now fetches every page of a result instead of only the first 10 series.
 * `bis_data()` now uses `TITLE_TS` when a series has no `TITLE`.
 * `boc_data()` now returns an empty table when the requested window has no observations, such as on a weekend.
 * `boc_fx_rates()` now returns an empty table when the requested window has no rates.

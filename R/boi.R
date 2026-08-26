@@ -160,15 +160,11 @@ parse_boi_data = function(xml) {
   res[]
 }
 
-boi_error_body = function(resp) {
-  resp_body_string(resp, "UTF-8")
-}
-
 boi = function(resource, ..., accept = NULL) {
   sdmx_request(
     "https://edge.boi.gov.il/FusionEdgeServer/ws/public/sdmxapi/rest",
     resource,
-    boi_error_body,
+    \(resp) sdmx_error_body(resp),
     ...,
     accept = accept
   )

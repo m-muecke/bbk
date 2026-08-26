@@ -8,6 +8,28 @@ sdmx_request = function(base_url, resource, error_body, ..., accept = NULL) {
     resp_body_xml()
 }
 
+sdmx_error_body = function(resp, docs = NULL) {
+  tryCatch(
+    {
+      body = trimws(resp_body_string(resp, "UTF-8"))
+      msg = if (grepl("<message:Error", body, fixed = TRUE)) {
+        texts = xml2::xml_find_all(xml2::read_xml(body), "//*[local-name() = 'Text']")
+        trimws(xml2::xml_text(texts))
+      } else if (startsWith(body, "{")) {
+        json = jsonlite::fromJSON(body)
+        msg = json$detail %||% json$title %||% json$message
+        trimws(sub("[[:space:]:]*<\\?xml.*$", "", msg))
+      } else if (startsWith(body, "<") || !nzchar(body)) {
+        NULL
+      } else {
+        body
+      }
+      c(msg, docs)
+    },
+    error = function(e) docs
+  )
+}
+
 sdmx_data_resource = function(flow, key, default_key = NULL) {
   flow = toupper(flow)
   key = if (is.null(key)) default_key else paste(toupper(key), collapse = "+")

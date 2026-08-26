@@ -105,3 +105,36 @@ test_that("sdmx_metadata ignores names of nested codes", {
   actual = sdmx_metadata(list(xml))
   expect_identical(actual, data.table(id = "CL_TEST", name = "Test codelist"))
 })
+
+test_that("sdmx_error_body extracts the message from an SDMX error response", {
+  body = paste0(
+    '<?xml version="1.0"?>',
+    '<message:Error xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"',
+    ' xmlns:com="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">',
+    '<message:ErrorMessage code="100"><com:Text>No data found</com:Text></message:ErrorMessage>',
+    "</message:Error>"
+  )
+  resp = httr2::response(404L, body = charToRaw(body))
+  expect_identical(sdmx_error_body(resp), "No data found")
+})
+
+test_that("sdmx_error_body extracts the detail from a JSON error response", {
+  body = '{"title":"Not Found","status":404,"detail":"No Series was returned for the query: <?xml version=\\"1.0\\"?><DataQuery/>"}'
+  resp = httr2::response(404L, body = charToRaw(body))
+  expect_identical(
+    sdmx_error_body(resp, docs = "See docs"),
+    c("No Series was returned for the query", "See docs")
+  )
+})
+
+test_that("sdmx_error_body suppresses markup and empty bodies", {
+  html = httr2::response(522L, body = charToRaw("<!DOCTYPE html> <html>Connection timed out</html>"))
+  expect_null(sdmx_error_body(html))
+  expect_identical(sdmx_error_body(html, docs = "See docs"), "See docs")
+  expect_null(sdmx_error_body(httr2::response(500L)))
+})
+
+test_that("sdmx_error_body passes plain text bodies through", {
+  resp = httr2::response(404L, body = charToRaw("No results found for the query"))
+  expect_identical(sdmx_error_body(resp), "No results found for the query")
+})

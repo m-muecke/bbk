@@ -202,9 +202,7 @@ parse_ecb_metadata = function(entries) {
 }
 
 ecb_error_body = function(resp) {
-  message = resp_body_string(resp, "UTF-8")
-  docs = "See docs at <https://data.ecb.europa.eu/help/api/status-codes>"
-  c(message, docs)
+  sdmx_error_body(resp, docs = "See docs at <https://data.ecb.europa.eu/help/api/status-codes>")
 }
 
 ecb = function(resource, ..., accept = NULL) {

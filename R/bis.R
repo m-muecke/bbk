@@ -181,15 +181,11 @@ parse_bis_data = function(xml) {
   res[]
 }
 
-bis_error_body = function(resp) {
-  resp_body_string(resp, "UTF-8")
-}
-
 bis = function(resource, ..., accept = NULL) {
   sdmx_request(
     "https://stats.bis.org/api/v1",
     resource = resource,
-    error_body = bis_error_body,
+    error_body = \(resp) sdmx_error_body(resp),
     accept = accept,
     ...
   )

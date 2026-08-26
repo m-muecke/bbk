@@ -173,10 +173,6 @@ parse_nob_data = function(xml) {
   res[]
 }
 
-nob_error_body = function(resp) {
-  resp_body_string(resp, "UTF-8")
-}
-
 nob = function(resource, ..., accept = NULL) {
-  sdmx_request("https://data.norges-bank.no/api", resource, nob_error_body, ..., accept = accept)
+  sdmx_request("https://data.norges-bank.no/api", resource, \(resp) sdmx_error_body(resp), ..., accept = accept)
 }

@@ -11,18 +11,16 @@ sdmx_request = function(base_url, resource, error_body, ..., accept = NULL) {
 sdmx_error_body = function(resp, docs = NULL) {
   tryCatch(
     {
-      body = trimws(resp_body_string(resp, "UTF-8"))
-      msg = if (grepl("<message:Error", body, fixed = TRUE)) {
-        texts = xml2::xml_find_all(xml2::read_xml(body), "//*[local-name() = 'Text']")
-        trimws(xml2::xml_text(texts))
-      } else if (startsWith(body, "{")) {
-        json = jsonlite::fromJSON(body)
+      type = resp_content_type(resp)
+      msg = if (grepl("[+/]xml$", type)) {
+        xml = resp_body_xml(resp, check_type = FALSE)
+        trimws(xml2::xml_text(xml2::xml_find_all(xml, "//*[local-name() = 'Text']")))
+      } else if (grepl("[+/]json$", type)) {
+        json = resp_body_json(resp, check_type = FALSE)
         msg = json$detail %||% json$title %||% json$message
         trimws(sub("[[:space:]:]*<\\?xml.*$", "", msg))
-      } else if (startsWith(body, "<") || !nzchar(body)) {
-        NULL
-      } else {
-        body
+      } else if (identical(type, "text/plain")) {
+        resp_body_string(resp, "UTF-8")
       }
       c(msg, docs)
     },

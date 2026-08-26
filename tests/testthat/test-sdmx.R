@@ -114,27 +114,43 @@ test_that("sdmx_error_body extracts the message from an SDMX error response", {
     '<message:ErrorMessage code="100"><com:Text>No data found</com:Text></message:ErrorMessage>',
     "</message:Error>"
   )
-  resp = httr2::response(404L, body = charToRaw(body))
+  resp = httr2::response(
+    404L,
+    headers = "Content-Type: application/xml;charset=UTF-8",
+    body = charToRaw(body)
+  )
   expect_identical(sdmx_error_body(resp), "No data found")
 })
 
-test_that("sdmx_error_body extracts the detail from a JSON error response", {
+test_that("sdmx_error_body extracts the detail from a JSON problem response", {
   body = '{"title":"Not Found","status":404,"detail":"No Series was returned for the query: <?xml version=\\"1.0\\"?><DataQuery/>"}'
-  resp = httr2::response(404L, body = charToRaw(body))
+  resp = httr2::response(
+    404L,
+    headers = "Content-Type: application/problem+json",
+    body = charToRaw(body)
+  )
   expect_identical(
     sdmx_error_body(resp, docs = "See docs"),
     c("No Series was returned for the query", "See docs")
   )
 })
 
-test_that("sdmx_error_body suppresses markup and empty bodies", {
-  html = httr2::response(522L, body = charToRaw("<!DOCTYPE html> <html>Connection timed out</html>"))
+test_that("sdmx_error_body suppresses html and empty bodies", {
+  html = httr2::response(
+    522L,
+    headers = "Content-Type: text/html",
+    body = charToRaw("<!DOCTYPE html> <html>Connection timed out</html>")
+  )
   expect_null(sdmx_error_body(html))
   expect_identical(sdmx_error_body(html, docs = "See docs"), "See docs")
   expect_null(sdmx_error_body(httr2::response(500L)))
 })
 
 test_that("sdmx_error_body passes plain text bodies through", {
-  resp = httr2::response(404L, body = charToRaw("No results found for the query"))
+  resp = httr2::response(
+    404L,
+    headers = "Content-Type: text/plain",
+    body = charToRaw("No results found for the query")
+  )
   expect_identical(sdmx_error_body(resp), "No results found for the query")
 })

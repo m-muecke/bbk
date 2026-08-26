@@ -43,7 +43,7 @@ test_that("ecb_data passes updated_after as updatedAfter", {
     captured <<- req
     httr2::response(200L, headers = "content-type: application/xml", body = charToRaw("<x/>"))
   })
-  local_mocked_bindings(parse_ecb_data = function(xml) data.table())
+  local_mocked_bindings(parse_ecb_data = \(xml) data.table())
   ecb_data("EXR", "D.USD.EUR.SP00.A", updated_after = as.Date("2024-06-01"))
   expect_match(captured$url, "updatedAfter=2024-06-01T00%3A00%3A00Z")
 })

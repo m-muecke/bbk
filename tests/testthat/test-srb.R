@@ -28,7 +28,7 @@ test_that("parse_srb_data handles empty response", {
 })
 
 test_that("srb_data returns an empty table when the API answers 204 No Content", {
-  httr2::local_mocked_responses(function(req) httr2::response(204L))
+  httr2::local_mocked_responses(\(req) httr2::response(204L))
   actual = srb_data("SEKUSDPMI", start_date = "2024-01-06", end_date = "2024-01-07")
   expect_data_table(actual, nrows = 0L)
   expect_true(all(c("date", "key", "value") %in% names(actual)))

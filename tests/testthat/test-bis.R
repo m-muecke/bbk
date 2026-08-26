@@ -36,7 +36,7 @@ test_that("bis_data passes updated_after as updatedAfter", {
     captured <<- req
     httr2::response(200L, headers = "content-type: application/xml", body = charToRaw("<x/>"))
   })
-  local_mocked_bindings(parse_bis_data = function(xml) data.table())
+  local_mocked_bindings(parse_bis_data = \(xml) data.table())
   bis_data("WS_CBPOL", "M.CH", updated_after = as.Date("2024-06-01"))
   expect_match(captured$url, "updatedAfter=2024-06-01T00%3A00%3A00Z")
 })

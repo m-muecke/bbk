@@ -15,8 +15,8 @@ test_that("nbp_gold input validation works", {
 })
 
 test_that("nbp_fx_rates builds path with ISO date strings", {
-  local_mocked_bindings(nbp = function(path) path)
-  local_mocked_bindings(parse_nbp_fx_rates = function(json, table, code) json)
+  local_mocked_bindings(nbp = \(path) path)
+  local_mocked_bindings(parse_nbp_fx_rates = \(json, table, code) json)
   expect_equal(
     nbp_fx_rates("a", "usd", "2024-01-01", "2024-01-31"),
     "exchangerates/rates/a/usd/2024-01-01/2024-01-31"
@@ -28,8 +28,8 @@ test_that("nbp_fx_rates builds path with ISO date strings", {
 })
 
 test_that("nbp_fx_rates queries a single day when end_date is omitted", {
-  local_mocked_bindings(nbp = function(path) path)
-  local_mocked_bindings(parse_nbp_fx_rates = function(json, table, code) json)
+  local_mocked_bindings(nbp = \(path) path)
+  local_mocked_bindings(parse_nbp_fx_rates = \(json, table, code) json)
   expect_equal(
     nbp_fx_rates("a", "usd", "2024-01-15"),
     "exchangerates/rates/a/usd/2024-01-15/2024-01-15"
@@ -37,8 +37,8 @@ test_that("nbp_fx_rates queries a single day when end_date is omitted", {
 })
 
 test_that("nbp_gold builds path with ISO date strings", {
-  local_mocked_bindings(nbp = function(path) path)
-  local_mocked_bindings(parse_nbp_gold = function(json) json)
+  local_mocked_bindings(nbp = \(path) path)
+  local_mocked_bindings(parse_nbp_gold = \(json) json)
   expect_equal(
     nbp_gold("2024-01-01", "2024-01-31"),
     "cenyzlota/2024-01-01/2024-01-31"
@@ -46,8 +46,8 @@ test_that("nbp_gold builds path with ISO date strings", {
 })
 
 test_that("nbp_gold queries a single day when end_date is omitted", {
-  local_mocked_bindings(nbp = function(path) path)
-  local_mocked_bindings(parse_nbp_gold = function(json) json)
+  local_mocked_bindings(nbp = \(path) path)
+  local_mocked_bindings(parse_nbp_gold = \(json) json)
   expect_equal(nbp_gold("2024-01-15"), "cenyzlota/2024-01-15/2024-01-15")
 })
 

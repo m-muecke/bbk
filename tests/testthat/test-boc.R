@@ -20,7 +20,7 @@ test_that("boc_data returns an empty table for a window without observations", {
   )
 
   local_mocked_bindings(
-    boc = function(...) list(seriesDetail = series_detail, observations = list())
+    boc = \(...) list(seriesDetail = series_detail, observations = list())
   )
   dt = boc_data(series_name = "FXUSDCAD", start_date = "2024-01-06", end_date = "2024-01-07")
   expect_data_table(dt, nrows = 0L)

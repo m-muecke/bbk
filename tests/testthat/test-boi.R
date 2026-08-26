@@ -20,8 +20,8 @@ test_that("boi_data input validation works", {
 })
 
 test_that("boi_data builds the flow reference without a version", {
-  local_mocked_bindings(boi = function(resource, ...) resource)
-  local_mocked_bindings(parse_boi_data = function(xml) xml)
+  local_mocked_bindings(boi = \(resource, ...) resource)
+  local_mocked_bindings(parse_boi_data = \(xml) xml)
   expect_identical(boi_data("exr", "RER_GBP_ILS"), "data/BOI.STATISTICS,EXR/RER_GBP_ILS")
   expect_identical(boi_data("EXR"), "data/BOI.STATISTICS,EXR")
 })

@@ -16,7 +16,7 @@ test_that("bdp_data passes updated_after as obs_published_since", {
     captured <<- req
     httr2::response(200L, headers = "content-type: application/json", body = charToRaw("{}"))
   })
-  local_mocked_bindings(parse_bdp_data = function(json) data.table())
+  local_mocked_bindings(parse_bdp_data = \(json) data.table())
   bdp_data(54L, "ce3e", updated_after = as.Date("2024-06-01"))
   expect_match(captured$url, "obs_published_since=2024-06-01T00%3A00%3A00Z")
 })

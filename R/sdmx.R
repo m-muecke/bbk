@@ -24,7 +24,7 @@ sdmx_error_body = function(resp, docs = NULL) {
       }
       c(msg, docs)
     },
-    error = function(e) docs
+    error = \(e) docs
   )
 }
 

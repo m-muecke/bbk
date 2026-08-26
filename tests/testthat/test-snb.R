@@ -28,6 +28,22 @@ test_that("parse_snb_dimension() works", {
   expect_names(names(actual), must.include = c("dim_id", "dim_name", "item_id", "item_name"))
 })
 
+test_that("parse_snb_dimension() keeps leaf items next to nested groups", {
+  json = list(dimensions = list(list(
+    id = "D1",
+    name = "Dim",
+    dimensionItems = list(
+      list(id = "leaf1", name = "Leaf"),
+      list(id = "grp", name = "Group", dimensionItems = list(
+        list(id = "c1", name = "Child 1"),
+        list(id = "c2", name = "Child 2")
+      ))
+    )
+  )))
+  actual = parse_snb_dimension(json)
+  expect_identical(actual$item_id, c("leaf1", "c1", "c2"))
+})
+
 test_that("parse_snb_data() works", {
   body = readRDS(test_path("fixtures", "snb-data.rds"))
   actual = parse_snb_data(body)

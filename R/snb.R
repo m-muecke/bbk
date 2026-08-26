@@ -80,12 +80,20 @@ snb_dimension = function(key, lang = "en") {
 }
 
 parse_snb_dimension = function(json) {
-  rbindlist(map(json$dimensions, function(x) {
-    items = x$dimensionItems
-    has_children = map_lgl(items, \(item) !is.null(item$dimensionItems))
-    if (any(has_children)) {
-      items = unlist(map(items, "dimensionItems"), recursive = FALSE)
+  flatten_items = function(items) {
+    res = list()
+    for (item in items) {
+      children = item$dimensionItems
+      if (is.null(children)) {
+        res = c(res, list(item))
+      } else {
+        res = c(res, flatten_items(children))
+      }
     }
+    res
+  }
+  rbindlist(map(json$dimensions, function(x) {
+    items = flatten_items(x$dimensionItems)
     data.table(
       dim_id = x$id,
       dim_name = x$name,

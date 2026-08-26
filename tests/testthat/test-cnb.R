@@ -42,7 +42,7 @@ test_that("parse_cnb_czeonia works", {
 test_that("parse_cnb_czeonia handles a single daily record", {
   json = list(czeoniaDaily = list(rate = 6.5, validFor = "2024-01-02", volumeInCZKmio = 100L))
   actual = parse_cnb_czeonia(json)
-  expect_identical(nrow(actual), 1L)
+  expect_shape(actual, nrow = 1L)
   expect_identical(actual$czeonia, 6.5)
   expect_identical(actual$volume, 100L)
 })

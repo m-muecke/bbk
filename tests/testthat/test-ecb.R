@@ -130,7 +130,7 @@ test_that("parse_ecb_data ignores observation level attributes", {
   )
   actual = parse_ecb_data(body)
   expect_identical(actual$value, c(1, 2))
-  expect_false("obs_status" %in% names(actual))
+  expect_disjoint(names(actual), "obs_status")
 })
 
 test_that("ecb_dimension input validation works", {

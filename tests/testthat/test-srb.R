@@ -18,20 +18,20 @@ test_that("parse_srb_data works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_true(all(c("date", "key", "value") %in% names(actual)))
+  expect_all_true(c("date", "key", "value") %in% names(actual))
 })
 
 test_that("parse_srb_data handles empty response", {
   actual = parse_srb_data(list(), "SEKUSDPMI")
   expect_data_table(actual, nrows = 0L)
-  expect_true(all(c("date", "key", "value") %in% names(actual)))
+  expect_all_true(c("date", "key", "value") %in% names(actual))
 })
 
 test_that("srb_data returns an empty table when the API answers 204 No Content", {
   httr2::local_mocked_responses(\(req) httr2::response(204L))
   actual = srb_data("SEKUSDPMI", start_date = "2024-01-06", end_date = "2024-01-07")
   expect_data_table(actual, nrows = 0L)
-  expect_true(all(c("date", "key", "value") %in% names(actual)))
+  expect_all_true(c("date", "key", "value") %in% names(actual))
 })
 
 test_that("srb_cross_rates input validation works", {
@@ -81,7 +81,7 @@ test_that("parse_srb_series works", {
   json = jsonlite::fromJSON(test_path("fixtures", "srb-series.json"), simplifyVector = FALSE)
   actual = parse_srb_series(json)
   expect_data_table(actual, min.rows = 1L)
-  expect_true(all(c("series_id", "source", "long_description") %in% names(actual)))
+  expect_all_true(c("series_id", "source", "long_description") %in% names(actual))
   expect_true("SEKUSDPMI" %in% actual$series_id)
 })
 
@@ -105,5 +105,5 @@ test_that("parse_srb_groups works", {
   json = jsonlite::fromJSON(test_path("fixtures", "srb-groups.json"), simplifyVector = FALSE)
   actual = parse_srb_groups(json)
   expect_data_table(actual, min.rows = 1L)
-  expect_true(all(c("group_id", "name") %in% names(actual)))
+  expect_all_true(c("group_id", "name") %in% names(actual))
 })

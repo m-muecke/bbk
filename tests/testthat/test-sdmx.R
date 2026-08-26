@@ -88,7 +88,7 @@ test_that("sdmx_metadata parses entries", {
   entries = xml2::xml_find_all(body, "//str:Dataflow")
   actual = sdmx_metadata(entries)
   expect_data_table(actual, min.rows = 1L)
-  expect_true(all(c("id", "name") %in% names(actual)))
+  expect_all_true(c("id", "name") %in% names(actual))
   expect_true("EXR" %in% actual$id)
 })
 

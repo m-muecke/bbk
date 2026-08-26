@@ -23,7 +23,7 @@ test_that("parse_boj_data works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_true(all(c("date", "key", "value", "freq") %in% names(actual)))
+  expect_all_true(c("date", "key", "value", "freq") %in% names(actual))
   expect_true("FXERD01" %in% actual$key)
   expect_identical(unique(actual$freq), "daily")
 })
@@ -32,7 +32,7 @@ test_that("parse_boj_data handles empty response", {
   json = list(RESULTSET = list())
   actual = parse_boj_data(json)
   expect_data_table(actual, nrows = 0L)
-  expect_true(all(c("date", "key", "value") %in% names(actual)))
+  expect_all_true(c("date", "key", "value") %in% names(actual))
 })
 
 test_that("boj_data follows NEXTPOSITION across pages", {
@@ -55,7 +55,7 @@ test_that("boj_data follows NEXTPOSITION across pages", {
 
   x = boj_data("FM08", c("A", "B", "C"))
   expect_identical(sort(unique(x$key)), c("A", "B", "C"))
-  expect_identical(nrow(x), 3L)
+  expect_shape(x, nrow = 3L)
 })
 
 test_that("boj_metadata input validation works", {
@@ -70,9 +70,9 @@ test_that("parse_boj_metadata works", {
   json = jsonlite::fromJSON(test_path("fixtures", "boj-metadata.json"), simplifyVector = FALSE)
   actual = parse_boj_metadata(json)
   expect_data_table(actual, min.rows = 1L)
-  expect_true(all(c("code", "name", "unit", "frequency", "category") %in% names(actual)))
+  expect_all_true(c("code", "name", "unit", "frequency", "category") %in% names(actual))
   expect_true("FXERD01" %in% actual$code)
-  expect_true(all(nzchar(actual$code)))
+  expect_all_true(nzchar(actual$code))
 })
 
 test_that("parse_boj_metadata handles empty response", {
@@ -105,10 +105,10 @@ test_that("boj_freq maps correctly", {
 })
 
 test_that("assert_boj_date works", {
-  expect_silent(assert_boj_date(NULL))
-  expect_silent(assert_boj_date("202501"))
-  expect_silent(assert_boj_date("2025"))
-  expect_silent(assert_boj_date(2025L))
+  expect_no_error(assert_boj_date(NULL))
+  expect_no_error(assert_boj_date("202501"))
+  expect_no_error(assert_boj_date("2025"))
+  expect_no_error(assert_boj_date(2025L))
   expect_error(assert_boj_date(TRUE))
   expect_error(assert_boj_date("abc"))
   expect_error(assert_boj_date(c("a", "b")))

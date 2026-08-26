@@ -34,7 +34,7 @@ test_that("parse_bde_data works", {
     c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL")
   )
   expect_posixct(actual$date)
-  expect_false(any(unlist(map(actual, class)) == "list"))
+  expect_all_false(unlist(map(actual, class)) == "list")
 })
 
 test_that("parse_bde_data translates Spanish metadata names", {

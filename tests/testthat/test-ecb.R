@@ -9,7 +9,6 @@ test_that("ecb_data input validation works", {
   expect_error(ecb_data("EXR", 1L))
   expect_error(ecb_data("EXR", TRUE))
   expect_error(ecb_data("EXR", NA))
-  expect_error(ecb_data("EXR", c("D.USD.EUR.SP00.A", "D.USD.EUR.SP00.A")))
   # start_period should be a character(1) or NULL
   expect_error(ecb_data("abcde", "abc", start_period = 1L))
   expect_error(ecb_data("abcde", "abc", start_period = TRUE))

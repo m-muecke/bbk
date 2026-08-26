@@ -93,6 +93,7 @@ importFrom(httr2,
   resp_body_string,
   resp_body_xml,
   resp_content_type,
+  resp_has_body,
   resp_status,
   resp_url,
   resps_data

@@ -172,6 +172,16 @@ srb_calendar = function(start_date, end_date = NULL) {
 }
 
 parse_srb_calendar = function(json) {
+  if (length(json) == 0L) {
+    return(data.table(
+      calendar_date = as.Date(character()),
+      swedish_bankday = logical(),
+      week_year = integer(),
+      week_number = integer(),
+      quarter_number = integer(),
+      ultimo = logical()
+    ))
+  }
   dt = setnames(rbindlist(json), convert_camel_case)
   calendar_date = NULL
   dt[, calendar_date := as.Date(calendar_date)]
@@ -179,11 +189,14 @@ parse_srb_calendar = function(json) {
 }
 
 srb = function(...) {
-  base_request("https://api.riksbank.se/swea/v1") |>
+  resp = base_request("https://api.riksbank.se/swea/v1") |>
     req_url_path_append(...) |>
     req_error(body = srb_error_body) |>
-    req_perform() |>
-    resp_body_json()
+    req_perform()
+  if (!resp_has_body(resp)) {
+    return(list())
+  }
+  resp_body_json(resp)
 }
 
 srb_error_body = function(resp) {

@@ -27,6 +27,13 @@ test_that("parse_srb_data handles empty response", {
   expect_true(all(c("date", "key", "value") %in% names(actual)))
 })
 
+test_that("srb_data returns an empty table when the API answers 204 No Content", {
+  httr2::local_mocked_responses(function(req) httr2::response(204L))
+  actual = srb_data("SEKUSDPMI", start_date = "2024-01-06", end_date = "2024-01-07")
+  expect_data_table(actual, nrows = 0L)
+  expect_true(all(c("date", "key", "value") %in% names(actual)))
+})
+
 test_that("srb_cross_rates input validation works", {
   expect_error(srb_cross_rates(1L, "b", "2024-01-01"))
   expect_error(srb_cross_rates("a", 1L, "2024-01-01"))
@@ -55,6 +62,13 @@ test_that("parse_srb_calendar works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$calendar_date)
   expect_logical(actual$swedish_bankday)
+  expect_names(names(actual), must.include = c("calendar_date", "swedish_bankday", "week_number"))
+})
+
+test_that("parse_srb_calendar handles empty response", {
+  actual = parse_srb_calendar(list())
+  expect_data_table(actual, nrows = 0L)
+  expect_date(actual$calendar_date)
   expect_names(names(actual), must.include = c("calendar_date", "swedish_bankday", "week_number"))
 })
 

@@ -150,13 +150,7 @@ applied. Default <code>NULL</code>.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch USD/NOK exchange rate</span></span></span>
 <span class="r-in"><span><span class="fu">nob_data</span><span class="op">(</span><span class="st">"EXR"</span>, <span class="st">"B.USD.NOK.SP"</span>, last_n <span class="op">=</span> <span class="fl">5L</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          date          key  value   freq base_cur quote_cur  tenor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        &lt;Date&gt;       &lt;char&gt;  &lt;num&gt; &lt;char&gt;   &lt;char&gt;    &lt;char&gt; &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 2026-08-19 B.USD.NOK.SP 9.4016  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: 2026-08-20 B.USD.NOK.SP 9.3335  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: 2026-08-21 B.USD.NOK.SP 9.2893  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: 2026-08-24 B.USD.NOK.SP 9.3146  daily      USD       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: 2026-08-25 B.USD.NOK.SP 9.3397  daily      USD       NOK     SP</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)):</span> HTTP 522.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch multiple exchange rates</span></span></span>
 <span class="r-in"><span><span class="fu">nob_data</span><span class="op">(</span><span class="st">"EXR"</span>, <span class="st">"B.USD+EUR+GBP.NOK.SP"</span>, start_period <span class="op">=</span> <span class="st">"2024-01-01"</span><span class="op">)</span></span></span>
@@ -168,11 +162,11 @@ applied. Default <code>NULL</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    4: 2024-01-05 B.USD.NOK.SP 10.3553  daily      USD       NOK     SP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    5: 2024-01-08 B.USD.NOK.SP 10.3800  daily      USD       NOK     SP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1988: 2026-08-19 B.EUR.NOK.SP 10.9105  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1989: 2026-08-20 B.EUR.NOK.SP 10.9025  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1990: 2026-08-21 B.EUR.NOK.SP 10.8675  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1991: 2026-08-24 B.EUR.NOK.SP 10.8645  daily      EUR       NOK     SP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1992: 2026-08-25 B.EUR.NOK.SP 10.8920  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1991: 2026-08-20 B.EUR.NOK.SP 10.9025  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1992: 2026-08-21 B.EUR.NOK.SP 10.8675  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1993: 2026-08-24 B.EUR.NOK.SP 10.8645  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1994: 2026-08-25 B.EUR.NOK.SP 10.8920  daily      EUR       NOK     SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1995: 2026-08-26 B.EUR.NOK.SP 10.8845  daily      EUR       NOK     SP</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch policy rate</span></span></span>
 <span class="r-in"><span><span class="fu">nob_data</span><span class="op">(</span><span class="st">"IR"</span>, last_n <span class="op">=</span> <span class="fl">5L</span><span class="op">)</span></span></span>

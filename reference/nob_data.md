@@ -108,13 +108,7 @@ Other data:
 # \donttest{
 # fetch USD/NOK exchange rate
 nob_data("EXR", "B.USD.NOK.SP", last_n = 5L)
-#>          date          key  value   freq base_cur quote_cur  tenor
-#>        <Date>       <char>  <num> <char>   <char>    <char> <char>
-#> 1: 2026-08-19 B.USD.NOK.SP 9.4016  daily      USD       NOK     SP
-#> 2: 2026-08-20 B.USD.NOK.SP 9.3335  daily      USD       NOK     SP
-#> 3: 2026-08-21 B.USD.NOK.SP 9.2893  daily      USD       NOK     SP
-#> 4: 2026-08-24 B.USD.NOK.SP 9.3146  daily      USD       NOK     SP
-#> 5: 2026-08-25 B.USD.NOK.SP 9.3397  daily      USD       NOK     SP
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 522.
 
 # fetch multiple exchange rates
 nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
@@ -126,11 +120,11 @@ nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
 #>    4: 2024-01-05 B.USD.NOK.SP 10.3553  daily      USD       NOK     SP
 #>    5: 2024-01-08 B.USD.NOK.SP 10.3800  daily      USD       NOK     SP
 #>   ---                                                                 
-#> 1988: 2026-08-19 B.EUR.NOK.SP 10.9105  daily      EUR       NOK     SP
-#> 1989: 2026-08-20 B.EUR.NOK.SP 10.9025  daily      EUR       NOK     SP
-#> 1990: 2026-08-21 B.EUR.NOK.SP 10.8675  daily      EUR       NOK     SP
-#> 1991: 2026-08-24 B.EUR.NOK.SP 10.8645  daily      EUR       NOK     SP
-#> 1992: 2026-08-25 B.EUR.NOK.SP 10.8920  daily      EUR       NOK     SP
+#> 1991: 2026-08-20 B.EUR.NOK.SP 10.9025  daily      EUR       NOK     SP
+#> 1992: 2026-08-21 B.EUR.NOK.SP 10.8675  daily      EUR       NOK     SP
+#> 1993: 2026-08-24 B.EUR.NOK.SP 10.8645  daily      EUR       NOK     SP
+#> 1994: 2026-08-25 B.EUR.NOK.SP 10.8920  daily      EUR       NOK     SP
+#> 1995: 2026-08-26 B.EUR.NOK.SP 10.8845  daily      EUR       NOK     SP
 
 # fetch policy rate
 nob_data("IR", last_n = 5L)

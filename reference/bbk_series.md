@@ -183,11 +183,11 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: 1999-01-15 BBBK11.D.TTA000  27475  daily
 #>    5: 1999-01-22 BBBK11.D.TTA000  27475  daily
 #>   ---                                         
-#> 1439: 2026-07-17 BBBK11.D.TTA000 380732  daily
 #> 1440: 2026-07-24 BBBK11.D.TTA000 380732  daily
 #> 1441: 2026-07-31 BBBK11.D.TTA000 380732  daily
 #> 1442: 2026-08-07 BBBK11.D.TTA000 380732  daily
 #> 1443: 2026-08-14 BBBK11.D.TTA000 380732  daily
+#> 1444: 2026-08-21 BBBK11.D.TTA000 380708  daily
 #>                                                              title category
 #>                                                             <char>   <char>
 #>    1: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
@@ -196,23 +196,23 @@ bbk_series("BBBK11.D.TTA000")
 #>    4: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>    5: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>   ---                                                                      
-#> 1439: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1440: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1441: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1442: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #> 1443: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
+#> 1444: Gold and gold receivables / unadjusted / Deutsche Bundesbank   BABA11
 #>         unit unit_mult         last_update comment source
 #>       <char>    <char>              <char>  <char> <char>
-#>    1:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#>    2:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#>    3:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#>    4:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#>    5:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
+#>    1:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#>    2:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#>    3:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#>    4:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#>    5:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
 #>   ---                                                    
-#> 1439:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#> 1440:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#> 1441:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#> 1442:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
-#> 1443:   <NA>  Millions 2026-08-19 10:43:07    <NA>   <NA>
+#> 1440:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#> 1441:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#> 1442:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#> 1443:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
+#> 1444:   <NA>  Millions 2026-08-26 11:44:46    <NA>   <NA>
 # }
 ```

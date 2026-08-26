@@ -81,17 +81,11 @@ snb_dimension = function(key, lang = "en") {
 
 parse_snb_dimension = function(json) {
   flatten_items = function(items) {
-    res = list()
-    for (item in items) {
-      children = item$dimensionItems
-      if (is.null(children)) {
-        res = c(res, list(item))
-      } else {
-        res = c(res, flatten_items(children))
-      }
-    }
-    res
+    items |>
+      map(\(x) if (is.null(x$dimensionItems)) list(x) else flatten_items(x$dimensionItems)) |>
+      unlist(recursive = FALSE)
   }
+
   rbindlist(map(json$dimensions, function(x) {
     items = flatten_items(x$dimensionItems)
     data.table(

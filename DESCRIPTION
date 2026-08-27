@@ -19,7 +19,7 @@ BugReports: https://github.com/m-muecke/bbk/issues
 Depends:
     R (>= 4.1.0)
 Imports:
-    checkmate,
+    checkmate (>= 1.9.0),
     curl,
     data.table (>= 1.17.0),
     httr2 (>= 1.0.0),

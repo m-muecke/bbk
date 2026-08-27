@@ -88,8 +88,8 @@ test_that("sdmx_metadata parses entries", {
   entries = xml2::xml_find_all(body, "//str:Dataflow")
   actual = sdmx_metadata(entries)
   expect_data_table(actual, min.rows = 1L)
-  expect_all_true(c("id", "name") %in% names(actual))
-  expect_true("EXR" %in% actual$id)
+  expect_names(names(actual), must.include = c("id", "name"))
+  expect_choice("EXR", actual$id)
 })
 
 test_that("sdmx_metadata ignores names of nested codes", {

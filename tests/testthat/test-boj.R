@@ -23,16 +23,16 @@ test_that("parse_boj_data works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_all_true(c("date", "key", "value", "freq") %in% names(actual))
-  expect_true("FXERD01" %in% actual$key)
-  expect_identical(unique(actual$freq), "daily")
+  expect_names(names(actual), must.include = c("date", "key", "value", "freq"))
+  expect_choice("FXERD01", actual$key)
+  expect_set_equal(actual$freq, "daily")
 })
 
 test_that("parse_boj_data handles empty response", {
   json = list(RESULTSET = list())
   actual = parse_boj_data(json)
   expect_data_table(actual, nrows = 0L)
-  expect_all_true(c("date", "key", "value") %in% names(actual))
+  expect_names(names(actual), must.include = c("date", "key", "value"))
 })
 
 test_that("boj_data follows NEXTPOSITION across pages", {
@@ -54,7 +54,7 @@ test_that("boj_data follows NEXTPOSITION across pages", {
   ))
 
   x = boj_data("FM08", c("A", "B", "C"))
-  expect_identical(sort(unique(x$key)), c("A", "B", "C"))
+  expect_set_equal(x$key, c("A", "B", "C"))
   expect_shape(x, nrow = 3L)
 })
 
@@ -70,8 +70,8 @@ test_that("parse_boj_metadata works", {
   json = jsonlite::fromJSON(test_path("fixtures", "boj-metadata.json"), simplifyVector = FALSE)
   actual = parse_boj_metadata(json)
   expect_data_table(actual, min.rows = 1L)
-  expect_all_true(c("code", "name", "unit", "frequency", "category") %in% names(actual))
-  expect_true("FXERD01" %in% actual$code)
+  expect_names(names(actual), must.include = c("code", "name", "unit", "frequency", "category"))
+  expect_choice("FXERD01", actual$code)
   expect_all_true(nzchar(actual$code))
 })
 

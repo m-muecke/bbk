@@ -47,8 +47,8 @@ test_that("parse_bis_data works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_all_true(c("date", "key", "value", "freq") %in% names(actual))
-  expect_identical(unique(actual$freq), "monthly")
+  expect_names(names(actual), must.include = c("date", "key", "value", "freq"))
+  expect_set_equal(actual$freq, "monthly")
 })
 
 test_that("parse_bis_data drops observations without a value and keeps alignment", {
@@ -114,7 +114,7 @@ test_that("parse_bis_data ignores observation level attributes", {
   )
   actual = parse_bis_data(body)
   expect_identical(actual$value, c(1, 2))
-  expect_disjoint(names(actual), "obs_status")
+  expect_names(names(actual), disjunct.from = "obs_status")
 })
 
 test_that("parse_bis_data falls back to TITLE_TS", {
@@ -159,7 +159,7 @@ test_that("bis_data returns rows from the live endpoint", {
 
   x = bis_data("WS_CBPOL", "M.CH", last_n = 5L)
   expect_data_table(x, min.rows = 1L)
-  expect_all_true(c("date", "key", "value", "freq") %in% names(x))
+  expect_names(names(x), must.include = c("date", "key", "value", "freq"))
 })
 
 test_that("sdmx_metadata works for bis", {
@@ -167,6 +167,6 @@ test_that("sdmx_metadata works for bis", {
   entries = xml2::xml_find_all(body, "//str:Dataflow")
   actual = sdmx_metadata(entries)
   expect_data_table(actual, min.rows = 1L)
-  expect_all_true(c("id", "name") %in% names(actual))
-  expect_true("WS_CBPOL" %in% actual$id)
+  expect_names(names(actual), must.include = c("id", "name"))
+  expect_choice("WS_CBPOL", actual$id)
 })

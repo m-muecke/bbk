@@ -26,7 +26,7 @@ test_that("parse_banxico_data works", {
   expect_date(actual$date)
   expect_numeric(actual$value)
   expect_names(names(actual), permutation.of = c("date", "key", "value"))
-  expect_identical(unique(actual$key), "SF43718")
+  expect_set_equal(actual$key, "SF43718")
 })
 
 test_that("parse_banxico_data handles empty response", {

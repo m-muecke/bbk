@@ -20,7 +20,7 @@ test_that("parse_bcb_data works", {
   expect_date(actual$date)
   expect_numeric(actual$value)
   expect_names(names(actual), permutation.of = c("date", "key", "value"))
-  expect_identical(unique(actual$key), "1")
+  expect_set_equal(actual$key, "1")
 })
 
 test_that("parse_bcb_data handles empty response", {
@@ -50,7 +50,7 @@ test_that("parse_bcb_fx_rates works", {
   expect_numeric(actual$bid)
   expect_numeric(actual$ask)
   expect_names(names(actual), permutation.of = c("date", "currency", "bid", "ask"))
-  expect_identical(unique(actual$currency), "USD")
+  expect_set_equal(actual$currency, "USD")
 })
 
 test_that("parse_bcb_fx_rates handles empty response", {
@@ -64,7 +64,7 @@ test_that("parse_bcb_currencies works", {
   actual = parse_bcb_currencies(json)
   expect_data_table(actual, min.rows = 1L)
   expect_names(names(actual), permutation.of = c("code", "name", "type"))
-  expect_true("USD" %in% actual$code)
+  expect_choice("USD", actual$code)
 })
 
 test_that("bcb_expectations input validation works", {
@@ -98,7 +98,7 @@ test_that("parse_bcb_expectations works", {
       "base"
     )
   )
-  expect_identical(unique(actual$indicator), "IPCA")
+  expect_set_equal(actual$indicator, "IPCA")
 })
 
 test_that("parse_bcb_expectations handles empty response", {
@@ -135,7 +135,7 @@ test_that("parse_bcb_top5 works", {
       "max"
     )
   )
-  expect_identical(unique(actual$indicator), "IPCA")
+  expect_set_equal(actual$indicator, "IPCA")
 })
 
 test_that("parse_bcb_top5 handles the Selic resource's lower-case schema", {
@@ -144,7 +144,7 @@ test_that("parse_bcb_top5 handles the Selic resource's lower-case schema", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$mean)
-  expect_identical(unique(actual$indicator), "Selic")
+  expect_set_equal(actual$indicator, "Selic")
   expect_match(actual$reference, "^R[0-9]+/[0-9]{4}$")
 })
 
@@ -184,7 +184,7 @@ test_that("parse_bcb_inflation works", {
       "base"
     )
   )
-  expect_identical(unique(actual$indicator), "IPCA")
+  expect_set_equal(actual$indicator, "IPCA")
 })
 
 test_that("parse_bcb_inflation handles empty response", {

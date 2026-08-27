@@ -65,7 +65,7 @@ test_that("bdp_data follows next_page and keeps every series", {
 
   actual = bdp_data(54L, "abc")
   expect_identical(n, 2L)
-  expect_identical(sort(unique(actual$key)), 1:4)
+  expect_set_equal(actual$key, 1:4)
   expect_identical(actual$value, c(10, 11, 20, 21, 30, 31, 40, 41))
 })
 
@@ -121,12 +121,12 @@ test_that("parse_bdp_data maps sparse values onto the right series and date", {
   json = readRDS(test_path("fixtures", "bdp-data-multi.rds"))
   # the response is a sparse JSON-stat object whose `extension$series` order
   # differs from the order of the value array
-  expect_false(is.null(names(json$value)))
+  expect_names(names(json$value))
   actual = parse_bdp_data(json)
 
   expect_data_table(actual, nrows = 3L * 346L)
   expect_date(actual$date)
-  expect_identical(sort(unique(actual$key)), c(12558817L, 12558819L, 12558825L))
+  expect_set_equal(actual$key, c(12558817L, 12558819L, 12558825L))
   expect_identical(uniqueN(actual, by = c("key", "date")), nrow(actual))
 
   # ground truth taken from one single-series request per series

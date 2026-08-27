@@ -18,20 +18,20 @@ test_that("parse_srb_data works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_all_true(c("date", "key", "value") %in% names(actual))
+  expect_names(names(actual), must.include = c("date", "key", "value"))
 })
 
 test_that("parse_srb_data handles empty response", {
   actual = parse_srb_data(list(), "SEKUSDPMI")
   expect_data_table(actual, nrows = 0L)
-  expect_all_true(c("date", "key", "value") %in% names(actual))
+  expect_names(names(actual), must.include = c("date", "key", "value"))
 })
 
 test_that("srb_data returns an empty table when the API answers 204 No Content", {
   httr2::local_mocked_responses(\(req) httr2::response(204L))
   actual = srb_data("SEKUSDPMI", start_date = "2024-01-06", end_date = "2024-01-07")
   expect_data_table(actual, nrows = 0L)
-  expect_all_true(c("date", "key", "value") %in% names(actual))
+  expect_names(names(actual), must.include = c("date", "key", "value"))
 })
 
 test_that("srb_cross_rates input validation works", {
@@ -47,7 +47,7 @@ test_that("srb_cross_rates works", {
   expect_data_table(actual, min.rows = 1L)
   expect_date(actual$date)
   expect_numeric(actual$value)
-  expect_identical(unique(actual$key), "SEKUSDPMI/SEKEURPMI")
+  expect_set_equal(actual$key, "SEKUSDPMI/SEKEURPMI")
 })
 
 test_that("srb_calendar input validation works", {
@@ -81,8 +81,8 @@ test_that("parse_srb_series works", {
   json = jsonlite::fromJSON(test_path("fixtures", "srb-series.json"), simplifyVector = FALSE)
   actual = parse_srb_series(json)
   expect_data_table(actual, min.rows = 1L)
-  expect_all_true(c("series_id", "source", "long_description") %in% names(actual))
-  expect_true("SEKUSDPMI" %in% actual$series_id)
+  expect_names(names(actual), must.include = c("series_id", "source", "long_description"))
+  expect_choice("SEKUSDPMI", actual$series_id)
 })
 
 test_that("parse_srb_groups handles a single root group and nested children", {
@@ -105,5 +105,5 @@ test_that("parse_srb_groups works", {
   json = jsonlite::fromJSON(test_path("fixtures", "srb-groups.json"), simplifyVector = FALSE)
   actual = parse_srb_groups(json)
   expect_data_table(actual, min.rows = 1L)
-  expect_all_true(c("group_id", "name") %in% names(actual))
+  expect_names(names(actual), must.include = c("group_id", "name"))
 })

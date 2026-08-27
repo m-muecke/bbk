@@ -52,7 +52,7 @@ test_that("parse_bbk_data works", {
   body = xml2::read_xml(test_path("fixtures", "ecb-data.xml"))
   actual = parse_ecb_data(body)
   expect_data_table(actual, min.rows = 1L)
-  expect_identical(unique(actual$key), "D.USD.EUR.SP00.A")
+  expect_set_equal(actual$key, "D.USD.EUR.SP00.A")
   expect_date(actual$date)
 
   body = xml2::read_xml(test_path("fixtures", "ecb-data-fm.xml"))
@@ -130,7 +130,7 @@ test_that("parse_ecb_data ignores observation level attributes", {
   )
   actual = parse_ecb_data(body)
   expect_identical(actual$value, c(1, 2))
-  expect_disjoint(names(actual), "obs_status")
+  expect_names(names(actual), disjunct.from = "obs_status")
 })
 
 test_that("ecb_dimension input validation works", {

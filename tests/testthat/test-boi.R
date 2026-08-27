@@ -38,7 +38,7 @@ test_that("parse_boi_data works", {
 test_that("parse_boi_data key contains only dimension values", {
   body = xml2::read_xml(test_path("fixtures", "boi-data.xml"))
   actual = parse_boi_data(body)
-  expect_identical(unique(actual$key), "RER_GBP_ILS.D.GBP.ILS.ILS.OF00")
+  expect_set_equal(actual$key, "RER_GBP_ILS.D.GBP.ILS.ILS.OF00")
 })
 
 test_that("parse_boi_data drops observations without a value and keeps alignment", {
@@ -96,7 +96,7 @@ test_that("parse_boi_data works for a flow without a FREQ dimension", {
   actual = parse_boi_data(body)
   expect_identical(actual$date, c("2024-01", "2024-02"))
   expect_identical(actual$freq, c(NA_character_, NA_character_))
-  expect_identical(unique(actual$key), "S1.ILS")
+  expect_set_equal(actual$key, "S1.ILS")
 })
 
 test_that("boi_dimension input validation works", {

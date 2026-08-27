@@ -108,7 +108,13 @@ Other data:
 # \donttest{
 # fetch USD/NOK exchange rate
 nob_data("EXR", "B.USD.NOK.SP", last_n = 5L)
-#> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 522.
+#>          date          key  value   freq base_cur quote_cur  tenor
+#>        <Date>       <char>  <num> <char>   <char>    <char> <char>
+#> 1: 2026-08-20 B.USD.NOK.SP 9.3335  daily      USD       NOK     SP
+#> 2: 2026-08-21 B.USD.NOK.SP 9.2893  daily      USD       NOK     SP
+#> 3: 2026-08-24 B.USD.NOK.SP 9.3146  daily      USD       NOK     SP
+#> 4: 2026-08-25 B.USD.NOK.SP 9.3397  daily      USD       NOK     SP
+#> 5: 2026-08-26 B.USD.NOK.SP 9.3277  daily      USD       NOK     SP
 
 # fetch multiple exchange rates
 nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
@@ -135,21 +141,21 @@ nob_data("IR", last_n = 5L)
 #>  3: 2023-01-01 A.KPRA.SD.R  3.54  annual            KPRA     SD            R
 #>  4: 2024-01-01 A.KPRA.SD.R  4.50  annual            KPRA     SD            R
 #>  5: 2025-01-01 A.KPRA.SD.R  4.29  annual            KPRA     SD            R
-#>  6: 2026-08-19 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#>  7: 2026-08-20 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#>  8: 2026-08-21 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#>  9: 2026-08-24 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#> 10: 2026-08-25 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
-#> 11: 2026-08-19 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 12: 2026-08-20 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 13: 2026-08-21 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 14: 2026-08-24 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 15: 2026-08-25 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
-#> 16: 2026-08-19 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 17: 2026-08-20 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 18: 2026-08-21 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 19: 2026-08-24 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
-#> 20: 2026-08-25 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#>  6: 2026-08-20 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#>  7: 2026-08-21 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#>  8: 2026-08-24 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#>  9: 2026-08-25 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#> 10: 2026-08-26 B.KPRA.OL.R  5.25   daily            KPRA     OL            R
+#> 11: 2026-08-20 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 12: 2026-08-21 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 13: 2026-08-24 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 14: 2026-08-25 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 15: 2026-08-26 B.KPRA.SD.R  4.25   daily            KPRA     SD            R
+#> 16: 2026-08-20 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 17: 2026-08-21 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 18: 2026-08-24 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 19: 2026-08-25 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
+#> 20: 2026-08-26 B.KPRA.RR.R  3.25   daily            KPRA     RR            R
 #> 21: 2026-03-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R
 #> 22: 2026-04-01 M.KPRA.OL.R  5.00 monthly            KPRA     OL            R
 #> 23: 2026-05-01 M.KPRA.OL.R  5.19 monthly            KPRA     OL            R

@@ -2,6 +2,8 @@
 
 ## bbk 0.13.0
 
+CRAN release: 2026-08-28
+
 ### Breaking changes
 
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),

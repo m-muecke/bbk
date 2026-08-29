@@ -134,11 +134,11 @@ ecb_data("EXR", "D.USD.EUR.SP00.A")
 #>    4: 1999-01-07 D.USD.EUR.SP00.A 1.1632  daily
 #>    5: 1999-01-08 D.USD.EUR.SP00.A 1.1659  daily
 #>   ---                                          
-#> 7137: 2026-08-20 D.USD.EUR.SP00.A 1.1681  daily
-#> 7138: 2026-08-21 D.USD.EUR.SP00.A 1.1699  daily
 #> 7139: 2026-08-24 D.USD.EUR.SP00.A 1.1664  daily
 #> 7140: 2026-08-25 D.USD.EUR.SP00.A 1.1662  daily
 #> 7141: 2026-08-26 D.USD.EUR.SP00.A 1.1669  daily
+#> 7142: 2026-08-27 D.USD.EUR.SP00.A 1.1645  daily
+#> 7143: 2026-08-28 D.USD.EUR.SP00.A 1.1643  daily
 #>                                            title
 #>                                           <char>
 #>    1: US dollar/Euro ECB reference exchange rate
@@ -147,11 +147,11 @@ ecb_data("EXR", "D.USD.EUR.SP00.A")
 #>    4: US dollar/Euro ECB reference exchange rate
 #>    5: US dollar/Euro ECB reference exchange rate
 #>   ---                                           
-#> 7137: US dollar/Euro ECB reference exchange rate
-#> 7138: US dollar/Euro ECB reference exchange rate
 #> 7139: US dollar/Euro ECB reference exchange rate
 #> 7140: US dollar/Euro ECB reference exchange rate
 #> 7141: US dollar/Euro ECB reference exchange rate
+#> 7142: US dollar/Euro ECB reference exchange rate
+#> 7143: US dollar/Euro ECB reference exchange rate
 #>                                                         description currency
 #>                                                              <char>   <char>
 #>    1: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
@@ -160,37 +160,37 @@ ecb_data("EXR", "D.USD.EUR.SP00.A")
 #>    4: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
 #>    5: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
 #>   ---                                                                       
-#> 7137: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#> 7138: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
 #> 7139: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
 #> 7140: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
 #> 7141: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>       currency_denom exr_type exr_suffix time_format unit_index_base   unit
-#>               <char>   <char>     <char>      <char>          <char> <char>
-#>    1:            EUR     SP00          A         P1D        99Q1=100    USD
-#>    2:            EUR     SP00          A         P1D        99Q1=100    USD
-#>    3:            EUR     SP00          A         P1D        99Q1=100    USD
-#>    4:            EUR     SP00          A         P1D        99Q1=100    USD
-#>    5:            EUR     SP00          A         P1D        99Q1=100    USD
-#>   ---                                                                      
-#> 7137:            EUR     SP00          A         P1D        99Q1=100    USD
-#> 7138:            EUR     SP00          A         P1D        99Q1=100    USD
-#> 7139:            EUR     SP00          A         P1D        99Q1=100    USD
-#> 7140:            EUR     SP00          A         P1D        99Q1=100    USD
-#> 7141:            EUR     SP00          A         P1D        99Q1=100    USD
-#>       decimals collection unit_mult source_agency
-#>         <char>     <char>    <char>        <char>
-#>    1:        4          A         0           4F0
-#>    2:        4          A         0           4F0
-#>    3:        4          A         0           4F0
-#>    4:        4          A         0           4F0
-#>    5:        4          A         0           4F0
-#>   ---                                            
-#> 7137:        4          A         0           4F0
-#> 7138:        4          A         0           4F0
-#> 7139:        4          A         0           4F0
-#> 7140:        4          A         0           4F0
-#> 7141:        4          A         0           4F0
+#> 7142: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
+#> 7143: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
+#>       currency_denom exr_type exr_suffix decimals unit_mult collection   unit
+#>               <char>   <char>     <char>   <char>    <char>     <char> <char>
+#>    1:            EUR     SP00          A        4         0          A    USD
+#>    2:            EUR     SP00          A        4         0          A    USD
+#>    3:            EUR     SP00          A        4         0          A    USD
+#>    4:            EUR     SP00          A        4         0          A    USD
+#>    5:            EUR     SP00          A        4         0          A    USD
+#>   ---                                                                        
+#> 7139:            EUR     SP00          A        4         0          A    USD
+#> 7140:            EUR     SP00          A        4         0          A    USD
+#> 7141:            EUR     SP00          A        4         0          A    USD
+#> 7142:            EUR     SP00          A        4         0          A    USD
+#> 7143:            EUR     SP00          A        4         0          A    USD
+#>       source_agency unit_index_base time_format
+#>              <char>          <char>      <char>
+#>    1:           4F0        99Q1=100         P1D
+#>    2:           4F0        99Q1=100         P1D
+#>    3:           4F0        99Q1=100         P1D
+#>    4:           4F0        99Q1=100         P1D
+#>    5:           4F0        99Q1=100         P1D
+#>   ---                                          
+#> 7139:           4F0        99Q1=100         P1D
+#> 7140:           4F0        99Q1=100         P1D
+#> 7141:           4F0        99Q1=100         P1D
+#> 7142:           4F0        99Q1=100         P1D
+#> 7143:           4F0        99Q1=100         P1D
 
 # fetch data for multiple keys
 ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
@@ -202,11 +202,11 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 #>     4: 1999-01-07 D.JPY.EUR.SP00.A 129.4300  daily
 #>     5: 1999-01-08 D.JPY.EUR.SP00.A 130.0900  daily
 #>    ---                                            
-#> 14278: 2026-08-20 D.USD.EUR.SP00.A   1.1681  daily
-#> 14279: 2026-08-21 D.USD.EUR.SP00.A   1.1699  daily
-#> 14280: 2026-08-24 D.USD.EUR.SP00.A   1.1664  daily
-#> 14281: 2026-08-25 D.USD.EUR.SP00.A   1.1662  daily
-#> 14282: 2026-08-26 D.USD.EUR.SP00.A   1.1669  daily
+#> 14282: 2026-08-24 D.USD.EUR.SP00.A   1.1664  daily
+#> 14283: 2026-08-25 D.USD.EUR.SP00.A   1.1662  daily
+#> 14284: 2026-08-26 D.USD.EUR.SP00.A   1.1669  daily
+#> 14285: 2026-08-27 D.USD.EUR.SP00.A   1.1645  daily
+#> 14286: 2026-08-28 D.USD.EUR.SP00.A   1.1643  daily
 #>                                                title
 #>                                               <char>
 #>     1: Japanese yen/Euro ECB reference exchange rate
@@ -215,11 +215,11 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 #>     4: Japanese yen/Euro ECB reference exchange rate
 #>     5: Japanese yen/Euro ECB reference exchange rate
 #>    ---                                              
-#> 14278:    US dollar/Euro ECB reference exchange rate
-#> 14279:    US dollar/Euro ECB reference exchange rate
-#> 14280:    US dollar/Euro ECB reference exchange rate
-#> 14281:    US dollar/Euro ECB reference exchange rate
 #> 14282:    US dollar/Euro ECB reference exchange rate
+#> 14283:    US dollar/Euro ECB reference exchange rate
+#> 14284:    US dollar/Euro ECB reference exchange rate
+#> 14285:    US dollar/Euro ECB reference exchange rate
+#> 14286:    US dollar/Euro ECB reference exchange rate
 #>                                                             description
 #>                                                                  <char>
 #>     1: ECB reference exchange rate, Japanese yen/Euro, 2.15 pm (C.E.T.)
@@ -228,36 +228,36 @@ ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))
 #>     4: ECB reference exchange rate, Japanese yen/Euro, 2.15 pm (C.E.T.)
 #>     5: ECB reference exchange rate, Japanese yen/Euro, 2.15 pm (C.E.T.)
 #>    ---                                                                 
-#> 14278:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
-#> 14279:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
-#> 14280:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
-#> 14281:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
 #> 14282:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
-#>        currency currency_denom exr_type exr_suffix collection   unit
-#>          <char>         <char>   <char>     <char>     <char> <char>
-#>     1:      JPY            EUR     SP00          A          A    JPY
-#>     2:      JPY            EUR     SP00          A          A    JPY
-#>     3:      JPY            EUR     SP00          A          A    JPY
-#>     4:      JPY            EUR     SP00          A          A    JPY
-#>     5:      JPY            EUR     SP00          A          A    JPY
-#>    ---                                                              
-#> 14278:      USD            EUR     SP00          A          A    USD
-#> 14279:      USD            EUR     SP00          A          A    USD
-#> 14280:      USD            EUR     SP00          A          A    USD
-#> 14281:      USD            EUR     SP00          A          A    USD
-#> 14282:      USD            EUR     SP00          A          A    USD
-#>        time_format unit_index_base decimals unit_mult source_agency
-#>             <char>          <char>   <char>    <char>        <char>
-#>     1:         P1D        99Q1=100        2         0           4F0
-#>     2:         P1D        99Q1=100        2         0           4F0
-#>     3:         P1D        99Q1=100        2         0           4F0
-#>     4:         P1D        99Q1=100        2         0           4F0
-#>     5:         P1D        99Q1=100        2         0           4F0
-#>    ---                                                             
-#> 14278:         P1D        99Q1=100        4         0           4F0
-#> 14279:         P1D        99Q1=100        4         0           4F0
-#> 14280:         P1D        99Q1=100        4         0           4F0
-#> 14281:         P1D        99Q1=100        4         0           4F0
-#> 14282:         P1D        99Q1=100        4         0           4F0
+#> 14283:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
+#> 14284:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
+#> 14285:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
+#> 14286:    ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)
+#>        currency currency_denom exr_type exr_suffix unit_mult decimals
+#>          <char>         <char>   <char>     <char>    <char>   <char>
+#>     1:      JPY            EUR     SP00          A         0        2
+#>     2:      JPY            EUR     SP00          A         0        2
+#>     3:      JPY            EUR     SP00          A         0        2
+#>     4:      JPY            EUR     SP00          A         0        2
+#>     5:      JPY            EUR     SP00          A         0        2
+#>    ---                                                               
+#> 14282:      USD            EUR     SP00          A         0        4
+#> 14283:      USD            EUR     SP00          A         0        4
+#> 14284:      USD            EUR     SP00          A         0        4
+#> 14285:      USD            EUR     SP00          A         0        4
+#> 14286:      USD            EUR     SP00          A         0        4
+#>        source_agency collection unit_index_base time_format   unit
+#>               <char>     <char>          <char>      <char> <char>
+#>     1:           4F0          A        99Q1=100         P1D    JPY
+#>     2:           4F0          A        99Q1=100         P1D    JPY
+#>     3:           4F0          A        99Q1=100         P1D    JPY
+#>     4:           4F0          A        99Q1=100         P1D    JPY
+#>     5:           4F0          A        99Q1=100         P1D    JPY
+#>    ---                                                            
+#> 14282:           4F0          A        99Q1=100         P1D    USD
+#> 14283:           4F0          A        99Q1=100         P1D    USD
+#> 14284:           4F0          A        99Q1=100         P1D    USD
+#> 14285:           4F0          A        99Q1=100         P1D    USD
+#> 14286:           4F0          A        99Q1=100         P1D    USD
 # }
 ```

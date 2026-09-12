@@ -243,7 +243,7 @@ bdp_domain()
 #>  6:            IRS       TRUE        378            2
 #>  7:             PS       TRUE        399           19
 #>  8:            BCS       TRUE        323            2
-#>  9:             BO       TRUE        128            1
+#>  9:             BO       TRUE         46            1
 #> 10:             NA      FALSE         NA           NA
 #> 11:            CPI       TRUE        144            2
 #> 12:            PEU       TRUE        517           10

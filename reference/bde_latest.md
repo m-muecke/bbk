@@ -74,14 +74,14 @@ Other data:
 bde_latest("D_1NBAF472")
 #>                   date        key value   freq            title decimals symbol
 #>                 <POSc>     <char> <num> <char>           <char>    <int> <char>
-#> 1: 2026-07-01 08:15:00 D_1NBAF472 2.855      M One-year Euribor        3      %
+#> 1: 2026-08-01 08:15:00 D_1NBAF472 2.954      M One-year Euribor        3      %
 #>     trend
 #>    <char>
 #> 1:      +
 bde_latest(c("D_1NBAF472", "DTNPDE2010_P0000P_PS_APU"))
 #>                   date                      key   value   freq
 #>                 <POSc>                   <char>   <num> <char>
-#> 1: 2026-07-01 08:15:00               D_1NBAF472   2.855      M
+#> 1: 2026-08-01 08:15:00               D_1NBAF472   2.954      M
 #> 2: 2026-01-01 09:15:00 DTNPDE2010_P0000P_PS_APU 101.600      Q
 #>                                        title decimals symbol  trend
 #>                                       <char>    <int> <char> <char>

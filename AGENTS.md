@@ -2,8 +2,6 @@
 
 ## This package
 
-- Use markdown formatting when writing git commit messages.
-
 ## Package development
 
 ### Key commands

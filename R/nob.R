@@ -174,5 +174,11 @@ parse_nob_data = function(xml) {
 }
 
 nob = function(resource, ..., accept = NULL) {
-  sdmx_request("https://data.norges-bank.no/api", resource, \(resp) sdmx_error_body(resp), ..., accept = accept)
+  sdmx_request(
+    "https://data.norges-bank.no/api",
+    resource,
+    \(resp) sdmx_error_body(resp),
+    ...,
+    accept = accept
+  )
 }

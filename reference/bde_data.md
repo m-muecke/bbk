@@ -460,10 +460,10 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #>                   date                                               key  value
 #>                 <POSc>                                            <char>  <int>
-#> 1: 2024-10-01 08:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL -10713
-#> 2: 2024-07-01 08:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL -10362
-#> 3: 2024-04-01 08:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL  -6423
-#> 4: 2024-01-01 09:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL  -6359
+#> 1: 2024-10-01 08:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL  -9428
+#> 2: 2024-07-01 08:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL -11487
+#> 3: 2024-04-01 08:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL  -6426
+#> 4: 2024-01-01 09:15:00 DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL  -5913
 #>      freq     title        description decimals  symbol          start_date
 #>    <char>    <char>             <char>    <int>  <char>              <POSc>
 #> 1:      Q BP. Goods BP. Goods. Balance        0 M&euro; 1993-01-01 09:15:00
@@ -472,10 +472,10 @@ bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #> 4:      Q BP. Goods BP. Goods. Balance        0 M&euro; 1993-01-01 09:15:00
 #>               end_date
 #>                 <POSc>
-#> 1: 2026-01-01 09:15:00
-#> 2: 2026-01-01 09:15:00
-#> 3: 2026-01-01 09:15:00
-#> 4: 2026-01-01 09:15:00
+#> 1: 2026-04-01 08:15:00
+#> 2: 2026-04-01 08:15:00
+#> 3: 2026-04-01 08:15:00
+#> 4: 2026-04-01 08:15:00
 #>                                                 long_description
 #>                                                           <char>
 #> 1: External statistics. Balance of payments. BP. Goods. Balance.

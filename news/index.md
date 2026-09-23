@@ -2,6 +2,21 @@
 
 ## bbk (development version)
 
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
+  [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
+  [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md),
+  [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+  [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
+  [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),
+  [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md),
+  [`cnb_data()`](https://m-muecke.github.io/bbk/reference/cnb_data.md),
+  [`cnb_indicators()`](https://m-muecke.github.io/bbk/reference/cnb_indicators.md),
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md),
+  and
+  [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
+  now reject `NA` and zero-length series keys with an informative error
+  instead of sending a malformed request.
+
 ## bbk 0.13.0
 
 CRAN release: 2026-08-28

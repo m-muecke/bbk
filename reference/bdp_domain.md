@@ -102,54 +102,53 @@ bdp_domain()
 #> 27:    30        40
 #> 28:    31        11
 #> 29:    32        11
-#> 30:    36        16
-#> 31:    37        NA
-#> 32:    38        40
-#> 33:    39        40
-#> 34:    40        NA
-#> 35:    41        40
-#> 36:    43        NA
-#> 37:    44        43
-#> 38:    45        11
-#> 39:    47        37
-#> 40:    48        37
-#> 41:    49        37
-#> 42:    50        37
-#> 43:    51        37
-#> 44:    52        37
-#> 45:    53        37
-#> 46:    54        11
-#> 47:    55        11
-#> 48:    56        11
-#> 49:    58        11
-#> 50:    59        NA
-#> 51:   128        16
-#> 52:   130        NA
-#> 53:   131       130
-#> 54:   134        11
-#> 55:   139        43
-#> 56:   160        NA
-#> 57:   161       160
-#> 58:   162       160
-#> 59:   163        11
-#> 60:   167        NA
-#> 61:   168       167
-#> 62:   169       167
-#> 63:   170       167
-#> 64:   172        16
-#> 65:   178       190
-#> 66:   179        11
-#> 67:   181        11
-#> 68:   186        14
-#> 69:   188       190
-#> 70:   189       190
-#> 71:   190        NA
-#> 72:   194        15
-#> 73:   203        15
-#> 74:   204        15
-#> 75:   206       190
-#> 76:   207        14
-#> 77:   209        14
+#> 30:    37        NA
+#> 31:    38        40
+#> 32:    39        40
+#> 33:    40        NA
+#> 34:    41        40
+#> 35:    43        NA
+#> 36:    44        43
+#> 37:    45        11
+#> 38:    47        37
+#> 39:    48        37
+#> 40:    49        37
+#> 41:    50        37
+#> 42:    51        37
+#> 43:    52        37
+#> 44:    53        37
+#> 45:    54        11
+#> 46:    55        11
+#> 47:    56        11
+#> 48:    58        11
+#> 49:    59        NA
+#> 50:   128        16
+#> 51:   130        NA
+#> 52:   131       130
+#> 53:   134        11
+#> 54:   139        43
+#> 55:   160        NA
+#> 56:   161       160
+#> 57:   162       160
+#> 58:   163        11
+#> 59:   167        NA
+#> 60:   168       167
+#> 61:   169       167
+#> 62:   170       167
+#> 63:   172        16
+#> 64:   178       190
+#> 65:   179        11
+#> 66:   181        11
+#> 67:   186        14
+#> 68:   188       190
+#> 69:   189       190
+#> 70:   190        NA
+#> 71:   194        15
+#> 72:   203        15
+#> 73:   204        15
+#> 74:   206       190
+#> 75:   207        14
+#> 76:   209        14
 #>        id parent_id
 #>     <int>     <int>
 #>                                                                                                                        label
@@ -183,54 +182,53 @@ bdp_domain()
 #> 27:                                                                                     Real effective exchange rate indices
 #> 28:                                          Time-series for the Portuguese economy - GDP and main components of expenditure
 #> 29:                                                                Time-series for the Portuguese economy - Household wealth
-#> 30:                                                       General government interventions to support financial institutions
-#> 31:                                                                                             Economic activity indicators
-#> 32:                                                                                                         Commodity prices
-#> 33:                                                                                                           Housing prices
-#> 34:                                                                                                                   Prices
-#> 35:                                                                                      Harmonised index of consumer prices
-#> 36:                                                                                             Population and labour market
-#> 37:                                                                                            Labour costs and productivity
-#> 38:                                                     Time-series for the Portuguese economy - Household disposable income
-#> 39:                                                                                                    Confidence indicators
-#> 40:                                                                                                    Coincident indicators
-#> 41:                                                                                     Sectorial indicators - Manufacturing
-#> 42:                                                                                             Sectorial indicators - Trade
-#> 43:                                                                                          Sectorial indicators - Services
-#> 44:                                                                                       Sectoral indicators - Construction
-#> 45:                                                                                             International trade of goods
-#> 46:                                                                                                 GDP Expenditure approach
-#> 47:                                                                                                  GDP Production approach
-#> 48:                                                                                               Net Lending/Net Borrowing 
-#> 49:                                                                                                        Income and saving
-#> 50:                                                                                           Financial stability indicators
-#> 51:                                                                                    General government financial accounts
-#> 52:                                                                                                          Monetary policy
-#> 53:                                                                                                              Instruments
-#> 54:                                          Time-series for the Portuguese economy - Employment (national accounts concept)
-#> 55:                                       Time-series for the Portuguese economy - Labour force, employment and unemployment
-#> 56:                                                                                                 Globalisation statistics
-#> 57:                                                                        Foreign Direct Investment - Directional Principle
-#> 58:                                                                            Foreign Direct Investment - Ultimate Investor
-#> 59:                                                              National financial accounts - Interlinkages between sectors
-#> 60:                                                                     Corporations from the central balance-sheet database
-#> 61:                                                              Quarterly economic and financial indicators of corporations
-#> 62:                                                                 Annual economic and financial indicators of corporations
-#> 63:                                                                                            Central balance-sheet studies
-#> 64:                                                                             Non-financial accounts of General government
-#> 65:                                                              Economic and financial indicators of corporations by region
-#> 66:                                                                                             Investment and capital stock
-#> 67:                                                                                              National accounts deflators
-#> 68:                                                                                                 Loans for house purchase
-#> 69:                                                                                                                    Loans
-#> 70:                                                                                                 Inward direct investment
-#> 71:                                                                                                      Regional statistics
-#> 72:                                                                                                        Securities issues
-#> 73:                                                                                            Nominal exchange rate indices
-#> 74:                                                                                                     Securities holdings 
-#> 75:                                                                                                                 Deposits
-#> 76:                                                                            Interest rates by sector of economic activity
-#> 77:                                                                                                          Consumer credit
+#> 30:                                                                                             Economic activity indicators
+#> 31:                                                                                                         Commodity prices
+#> 32:                                                                                                           Housing prices
+#> 33:                                                                                                                   Prices
+#> 34:                                                                                      Harmonised index of consumer prices
+#> 35:                                                                                             Population and labour market
+#> 36:                                                                                            Labour costs and productivity
+#> 37:                                                     Time-series for the Portuguese economy - Household disposable income
+#> 38:                                                                                                    Confidence indicators
+#> 39:                                                                                                    Coincident indicators
+#> 40:                                                                                     Sectorial indicators - Manufacturing
+#> 41:                                                                                             Sectorial indicators - Trade
+#> 42:                                                                                          Sectorial indicators - Services
+#> 43:                                                                                       Sectoral indicators - Construction
+#> 44:                                                                                             International trade of goods
+#> 45:                                                                                                 GDP Expenditure approach
+#> 46:                                                                                                  GDP Production approach
+#> 47:                                                                                               Net Lending/Net Borrowing 
+#> 48:                                                                                                        Income and saving
+#> 49:                                                                                           Financial stability indicators
+#> 50:                                                                                    General government financial accounts
+#> 51:                                                                                                          Monetary policy
+#> 52:                                                                                                              Instruments
+#> 53:                                          Time-series for the Portuguese economy - Employment (national accounts concept)
+#> 54:                                       Time-series for the Portuguese economy - Labour force, employment and unemployment
+#> 55:                                                                                                 Globalisation statistics
+#> 56:                                                                        Foreign Direct Investment - Directional Principle
+#> 57:                                                                            Foreign Direct Investment - Ultimate Investor
+#> 58:                                                              National financial accounts - Interlinkages between sectors
+#> 59:                                                                     Corporations from the central balance-sheet database
+#> 60:                                                              Quarterly economic and financial indicators of corporations
+#> 61:                                                                 Annual economic and financial indicators of corporations
+#> 62:                                                                                            Central balance-sheet studies
+#> 63:                                                                             Non-financial accounts of General government
+#> 64:                                                              Economic and financial indicators of corporations by region
+#> 65:                                                                                             Investment and capital stock
+#> 66:                                                                                              National accounts deflators
+#> 67:                                                                                                 Loans for house purchase
+#> 68:                                                                                                                    Loans
+#> 69:                                                                                                 Inward direct investment
+#> 70:                                                                                                      Regional statistics
+#> 71:                                                                                                        Securities issues
+#> 72:                                                                                            Nominal exchange rate indices
+#> 73:                                                                                                     Securities holdings 
+#> 74:                                                                                                                 Deposits
+#> 75:                                                                            Interest rates by sector of economic activity
+#> 76:                                                                                                          Consumer credit
 #>                                                                                                                        label
 #>                                                                                                                       <char>
 #>        short_label has_series num_series num_datasets
@@ -259,59 +257,58 @@ bdp_domain()
 #> 22:           IFBS       TRUE        777            2
 #> 23:            SMS       TRUE         17            3
 #> 24:            GGF       TRUE         32            4
-#> 25:            GGD       TRUE        584            8
+#> 25:            GGD       TRUE        280            8
 #> 26:             ER       TRUE        705            1
 #> 27:            ERI       TRUE         90            1
 #> 28:       TSPE-GDP       TRUE         49            2
 #> 29:        TSPE-HW       TRUE         11            1
-#> 30:         GGISFI       TRUE         39            3
-#> 31:            EAI      FALSE         NA           NA
-#> 32:           Comp       TRUE          6            2
-#> 33:             HP       TRUE          9            2
-#> 34:              P      FALSE         NA           NA
-#> 35:           HICP       TRUE         79            4
-#> 36:            PLM      FALSE         NA           NA
-#> 37:            LCP       TRUE         10            1
-#> 38:       TSPE-HDI       TRUE         14            2
-#> 39:          IConf       TRUE          7            2
-#> 40:         CoincI       TRUE          2            1
-#> 41:       SI-Manuf       TRUE         41           10
-#> 42:       SI-Trade       TRUE         30            6
-#> 43:        SI-Serv       TRUE         24            4
-#> 44:       SI-Const       TRUE          2            2
-#> 45:      IT-goods        TRUE         72            3
-#> 46: NA-Expenditure       TRUE        511            3
-#> 47:  NA-Production       TRUE        186            2
-#> 48:   NA-Financing       TRUE          6            1
-#> 49:  NA-Households       TRUE         58            1
-#> 50:            FSI       TRUE         29            2
-#> 51:           GGFA       TRUE         53            1
-#> 52:             MP      FALSE         NA           NA
-#> 53:            INS       TRUE          2            1
-#> 54:        TSPE-LA       TRUE          3            1
-#> 55:                      TRUE          4            1
-#> 56:                     FALSE         NA           NA
-#> 57:                      TRUE      10540            2
-#> 58:                      TRUE       5109            1
-#> 59:                      TRUE        200            1
-#> 60:           CBSD      FALSE         NA           NA
-#> 61:          CBSDQ       TRUE        147            1
-#> 62:          CBSDA       TRUE       1018            2
-#> 63:          CBSDS       TRUE       6757            2
-#> 64:  NA-Rev Exp GG       TRUE        107            1
-#> 65:            BCR       TRUE       6901            2
-#> 66:         NA-ICS       TRUE         60            1
-#> 67:         CN-NAD       TRUE        386            3
-#> 68:                      TRUE         40            4
-#> 69:            LOA       TRUE        700            2
-#> 70:            FDI       TRUE         20            1
-#> 71:             RS      FALSE         NA           NA
-#> 72:             SI       TRUE        392            1
-#> 73:          NEInd       TRUE         15            1
-#> 74:                      TRUE         40            1
-#> 75:            DEP       TRUE        108            1
-#> 76:           ECAE       TRUE          5            1
-#> 77:                      TRUE        121            2
+#> 30:            EAI      FALSE         NA           NA
+#> 31:           Comp       TRUE          6            2
+#> 32:             HP       TRUE          9            2
+#> 33:              P      FALSE         NA           NA
+#> 34:           HICP       TRUE         79            4
+#> 35:            PLM      FALSE         NA           NA
+#> 36:            LCP       TRUE         10            1
+#> 37:       TSPE-HDI       TRUE         14            2
+#> 38:          IConf       TRUE          7            2
+#> 39:         CoincI       TRUE          2            1
+#> 40:       SI-Manuf       TRUE         41           10
+#> 41:       SI-Trade       TRUE         30            6
+#> 42:        SI-Serv       TRUE         24            4
+#> 43:       SI-Const       TRUE          2            2
+#> 44:      IT-goods        TRUE         72            3
+#> 45: NA-Expenditure       TRUE        511            3
+#> 46:  NA-Production       TRUE        186            2
+#> 47:   NA-Financing       TRUE          6            1
+#> 48:  NA-Households       TRUE         58            1
+#> 49:            FSI       TRUE         29            2
+#> 50:           GGFA       TRUE         53            1
+#> 51:             MP      FALSE         NA           NA
+#> 52:            INS       TRUE          2            1
+#> 53:        TSPE-LA       TRUE          3            1
+#> 54:                      TRUE          4            1
+#> 55:                     FALSE         NA           NA
+#> 56:                      TRUE      10540            2
+#> 57:                      TRUE       5109            1
+#> 58:                      TRUE        200            1
+#> 59:           CBSD      FALSE         NA           NA
+#> 60:          CBSDQ       TRUE        147            1
+#> 61:          CBSDA       TRUE       1018            2
+#> 62:          CBSDS       TRUE       6757            2
+#> 63:  NA-Rev Exp GG       TRUE        107            1
+#> 64:            BCR       TRUE       6901            2
+#> 65:         NA-ICS       TRUE         60            1
+#> 66:         CN-NAD       TRUE        386            3
+#> 67:                      TRUE         40            4
+#> 68:            LOA       TRUE        700            2
+#> 69:            FDI       TRUE         20            1
+#> 70:             RS      FALSE         NA           NA
+#> 71:             SI       TRUE        392            1
+#> 72:          NEInd       TRUE         15            1
+#> 73:                      TRUE         40            1
+#> 74:            DEP       TRUE        108            1
+#> 75:           ECAE       TRUE          5            1
+#> 76:                      TRUE        121            2
 #>        short_label has_series num_series num_datasets
 #>             <char>     <lgcl>      <int>        <int>
 # }

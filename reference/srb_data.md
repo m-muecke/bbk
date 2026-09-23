@@ -89,11 +89,11 @@ srb_data("SEKUSDPMI", start_date = "2024-01-01")
 #>   4: 2024-01-05 SEKUSDPMI 10.28752
 #>   5: 2024-01-08 SEKUSDPMI 10.24073
 #>  ---                              
-#> 671: 2026-09-07 SEKUSDPMI  9.60420
-#> 672: 2026-09-08 SEKUSDPMI  9.60220
-#> 673: 2026-09-09 SEKUSDPMI  9.56874
-#> 674: 2026-09-10 SEKUSDPMI  9.64144
-#> 675: 2026-09-11 SEKUSDPMI  9.69401
+#> 679: 2026-09-17 SEKUSDPMI  9.81752
+#> 680: 2026-09-18 SEKUSDPMI  9.85297
+#> 681: 2026-09-21 SEKUSDPMI  9.81288
+#> 682: 2026-09-22 SEKUSDPMI  9.81096
+#> 683: 2026-09-23 SEKUSDPMI  9.87819
 
 # fetch EUR/SEK exchange rate
 srb_data("SEKEURPMI", start_date = "2024-01-01")
@@ -112,11 +112,11 @@ srb_data("SEKEURPMI", start_date = "2024-01-01")
 #> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■             
 #> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■            
 #> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■          
-#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■        
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■         
 #> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■       
-#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■     
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■      
 #> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■    
-#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  
+#> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   
 #> Waiting 59s for retry backoff ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 
 #>            date       key   value
 #>          <Date>    <char>   <num>
@@ -126,10 +126,10 @@ srb_data("SEKEURPMI", start_date = "2024-01-01")
 #>   4: 2024-01-05 SEKEURPMI 11.2350
 #>   5: 2024-01-08 SEKEURPMI 11.2095
 #>  ---                             
-#> 671: 2026-09-07 SEKEURPMI 11.1620
-#> 672: 2026-09-08 SEKEURPMI 11.1520
-#> 673: 2026-09-09 SEKEURPMI 11.1495
-#> 674: 2026-09-10 SEKEURPMI 11.1995
-#> 675: 2026-09-11 SEKEURPMI 11.2373
+#> 679: 2026-09-17 SEKEURPMI 11.2715
+#> 680: 2026-09-18 SEKEURPMI 11.2915
+#> 681: 2026-09-21 SEKEURPMI 11.2750
+#> 682: 2026-09-22 SEKEURPMI 11.2463
+#> 683: 2026-09-23 SEKEURPMI 11.2720
 # }
 ```

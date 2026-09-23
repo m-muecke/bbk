@@ -3,12 +3,15 @@ test_that("bde_data input validation works", {
   expect_error(bde_data(1L))
   expect_error(bde_data(TRUE))
   expect_error(bde_data(NULL))
+  expect_error(bde_data(NA_character_), "Contains missing values")
+  expect_error(bde_data(character()), "Must have length >= 1")
 })
 
 test_that("bde_latest input validation works", {
   expect_error(bde_latest(1L))
   expect_error(bde_latest(TRUE))
   expect_error(bde_latest(NULL))
+  expect_error(bde_latest(NA_character_), "Contains missing values")
   expect_error(bde_latest("abc", lang = "fr"))
 })
 

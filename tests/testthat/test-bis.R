@@ -8,6 +8,8 @@ test_that("bis_data input validation works", {
   expect_error(bis_data("WS_CBPOL", 1L))
   expect_error(bis_data("WS_CBPOL", TRUE))
   expect_error(bis_data("WS_CBPOL", NA))
+  expect_error(bis_data("WS_CBPOL", NA_character_), "Contains missing values")
+  expect_error(bis_data("WS_CBPOL", character()), "Must have length >= 1")
   # start_period
   expect_error(bis_data("WS_CBPOL", start_period = TRUE))
   expect_error(bis_data("WS_CBPOL", start_period = c("a", "b")))

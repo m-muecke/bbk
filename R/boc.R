@@ -30,7 +30,7 @@
 #' }
 boc_data = function(group_name = NULL, series_name = NULL, start_date = NULL, end_date = NULL) {
   assert_string(group_name, min.chars = 1L, null.ok = TRUE)
-  assert_character(series_name, min.chars = 1L, min.len = 1L, null.ok = TRUE)
+  assert_character(series_name, min.chars = 1L, min.len = 1L, any.missing = FALSE, null.ok = TRUE)
   if (!xor(is.null(group_name), is.null(series_name))) {
     stop("Exactly one of `group_name` or `series_name` must be provided.", call. = FALSE)
   }

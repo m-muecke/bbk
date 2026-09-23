@@ -3,6 +3,8 @@ test_that("boc_data input validation works", {
   expect_error(boc_data(group_name = "a", series_name = "b"))
   expect_error(boc_data(group_name = 1L))
   expect_error(boc_data(series_name = 1L))
+  expect_error(boc_data(series_name = NA_character_), "Contains missing values")
+  expect_error(boc_data(series_name = character()), "Must have length >= 1")
 })
 
 test_that("boc_data returns an empty table for a window without observations", {

@@ -100,6 +100,9 @@ test_that("cnb_data input validation works", {
   expect_error(cnb_data("a", set_id = "b", api_key = "x"), "Exactly one")
   expect_error(cnb_data("a", api_key = ""))
   expect_error(cnb_data("a", start_period = "", api_key = "x"))
+  expect_error(cnb_data(NA_character_, api_key = "x"), "Contains missing values")
+  expect_error(cnb_data(character(), api_key = "x"), "Must have length >= 1")
+  expect_error(cnb_data("a", snapshot_id = NA_character_, api_key = "x"), "Contains missing values")
 })
 
 test_that("cnb_indicators input validation works", {
@@ -107,6 +110,7 @@ test_that("cnb_indicators input validation works", {
   expect_error(cnb_indicators(set_id = "a", base_id = "b", api_key = "x"), "Exactly one")
   expect_error(cnb_indicators(set_id = "a", lang = "de", api_key = "x"))
   expect_error(cnb_indicators(set_id = "a", api_key = ""))
+  expect_error(cnb_indicators(NA_character_, api_key = "x"), "Contains missing values")
 })
 
 test_that("cnb_snapshots input validation works", {

@@ -1,5 +1,7 @@
 # bbk (development version)
 
+* `bbk_data()`, `bde_data()`, `bde_latest()`, `bis_data()`, `boc_data()`, `boe_data()`, `boj_data()`, `cnb_data()`, `cnb_indicators()`, `ecb_data()`, and `onb_data()` now reject `NA` and zero-length series keys with an informative error instead of sending a malformed request.
+
 # bbk 0.13.0
 
 ## Breaking changes

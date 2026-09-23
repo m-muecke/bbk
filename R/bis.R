@@ -54,7 +54,7 @@ bis_data = function(
   updated_after = NULL
 ) {
   assert_string(flow, min.chars = 1L)
-  assert_character(key, min.chars = 1L, null.ok = TRUE)
+  assert_character(key, min.chars = 1L, min.len = 1L, any.missing = FALSE, null.ok = TRUE)
   assert_period(start_period)
   assert_period(end_period)
   first_n = assert_count(first_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)

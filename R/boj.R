@@ -32,7 +32,7 @@
 #' }
 boj_data = function(db, code, start_date = NULL, end_date = NULL, lang = "en") {
   assert_string(db, min.chars = 1L)
-  assert_character(code, min.chars = 1L, min.len = 1L, max.len = 250L)
+  assert_character(code, min.chars = 1L, min.len = 1L, max.len = 250L, any.missing = FALSE)
   assert_boj_date(start_date)
   assert_boj_date(end_date)
   assert_choice(lang, c("en", "jp"))

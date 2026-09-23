@@ -9,6 +9,8 @@ test_that("ecb_data input validation works", {
   expect_error(ecb_data("EXR", 1L))
   expect_error(ecb_data("EXR", TRUE))
   expect_error(ecb_data("EXR", NA))
+  expect_error(ecb_data("EXR", NA_character_), "Contains missing values")
+  expect_error(ecb_data("EXR", character()), "Must have length >= 1")
   # start_period should be a character(1) or NULL
   expect_error(ecb_data("abcde", "abc", start_period = 1L))
   expect_error(ecb_data("abcde", "abc", start_period = TRUE))

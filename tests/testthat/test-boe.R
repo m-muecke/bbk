@@ -3,6 +3,8 @@ test_that("boe_data input validation works", {
   expect_error(boe_data(123L))
   expect_error(boe_data(NULL))
   expect_error(boe_data(NA))
+  expect_error(boe_data(NA_character_), "Contains missing values")
+  expect_error(boe_data(character()), "Must have length >= 1")
   # start_date should be a valid date
   expect_error(boe_data("abc", ""))
   expect_error(boe_data("abc", 1L))

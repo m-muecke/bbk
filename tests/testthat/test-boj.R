@@ -7,6 +7,8 @@ test_that("boj_data input validation works", {
   expect_error(boj_data("FM08", 1L))
   expect_error(boj_data("FM08", TRUE))
   expect_error(boj_data("FM08", NULL))
+  expect_error(boj_data("FM08", NA_character_), "Contains missing values")
+  expect_error(boj_data("FM08", character()), "Must have length >= 1")
   # start_date
   expect_error(boj_data("FM08", "FXERD01", start_date = TRUE))
   expect_error(boj_data("FM08", "FXERD01", start_date = c("a", "b")))

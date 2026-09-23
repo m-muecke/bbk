@@ -1,3 +1,8 @@
+test_that("onb_data input validation works", {
+  expect_error(onb_data(11L, NA_character_), "Contains missing values")
+  expect_error(onb_data(11L, character()), "Must have length >= 1")
+})
+
 test_that("parse_onb_data handles empty data", {
   xml = xml2::read_xml("<data_content><dataSets/></data_content>")
   actual = parse_onb_data(xml)

@@ -272,13 +272,13 @@ cnb_data = function(
   snapshot_id = NULL,
   api_key = cnb_arad_key()
 ) {
-  assert_character(indicator_id, min.chars = 1L, null.ok = TRUE)
+  assert_character(indicator_id, min.chars = 1L, min.len = 1L, any.missing = FALSE, null.ok = TRUE)
   assert_string(set_id, min.chars = 1L, null.ok = TRUE)
   assert_string(base_id, min.chars = 1L, null.ok = TRUE)
   assert_string(selection_id, min.chars = 1L, null.ok = TRUE)
   start_period = assert_dateish(start_period, null.ok = TRUE)
   end_period = assert_dateish(end_period, null.ok = TRUE)
-  assert_character(snapshot_id, min.chars = 1L, null.ok = TRUE)
+  assert_character(snapshot_id, min.chars = 1L, min.len = 1L, any.missing = FALSE, null.ok = TRUE)
   assert_string(api_key, min.chars = 1L)
   indicator_id_list = arad_scope(indicator_id, set_id, base_id, selection_id)
 
@@ -406,7 +406,7 @@ cnb_snapshots = function(lang = "en", api_key = cnb_arad_key()) {
 }
 
 arad_metadata = function(resource, indicator_id, set_id, base_id, selection_id, lang, api_key) {
-  assert_character(indicator_id, min.chars = 1L, null.ok = TRUE)
+  assert_character(indicator_id, min.chars = 1L, min.len = 1L, any.missing = FALSE, null.ok = TRUE)
   assert_string(set_id, min.chars = 1L, null.ok = TRUE)
   assert_string(base_id, min.chars = 1L, null.ok = TRUE)
   assert_string(selection_id, min.chars = 1L, null.ok = TRUE)

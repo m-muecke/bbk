@@ -9,6 +9,8 @@ test_that("bbk_data input validation works", {
   # key should be a character()
   expect_error(bbk_data("abcde", 1L))
   expect_error(bbk_data("abcde", TRUE))
+  expect_error(bbk_data("abcde", NA_character_), "Contains missing values")
+  expect_error(bbk_data("abcde", character()), "Must have length >= 1")
   expect_error(bbk_data("abcde", NULL))
   # start_period should be a character(1) or NULL
   expect_error(bbk_data("abcde", "abc", start_period = 1L))

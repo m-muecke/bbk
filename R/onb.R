@@ -268,7 +268,6 @@ onb = function(resource, ...) {
     resp_body_xml()
 }
 
-
 onb_error_body = function(resp) {
   content_type = resp_content_type(resp)
   if (identical(content_type, "application/xml")) {

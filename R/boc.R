@@ -139,7 +139,7 @@ boc_series_obs = function(name, start_date, end_date) {
   name = paste(name, collapse = ",")
   json = boc("observations", name, start_date = start_date, end_date = end_date)
 
-  meta = rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
+  meta = rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1L])))
   meta[, "name" := names(json$seriesDetail)]
 
   obs = boc_obs(json$observations)
@@ -153,7 +153,7 @@ boc_group_obs = function(name = "FX_RATES_DAILY", start_date = NULL, end_date = 
   json = boc("observations/group", name, start_date = start_date, end_date = end_date)
   grp = setDT(map(json$groupDetail, \(x) x %||% NA_character_))
   setnames(grp, \(x) paste("group", x, sep = "_"))
-  meta = rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1])))
+  meta = rbindlist(map(json$seriesDetail, \(x) setDT(x[lengths(x) == 1L])))
   meta[, "name" := names(json$seriesDetail)]
   setnames(meta, \(x) paste("series", x, sep = "_"))
 

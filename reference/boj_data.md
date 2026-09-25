@@ -106,11 +106,11 @@ boj_data("FM08", "FXERD01", start_date = "202401")
 #>   4: 2024-01-10 FXERD01 144.43  daily
 #>   5: 2024-01-11 FXERD01 145.73  daily
 #>  ---                                 
-#> 657: 2026-09-10 FXERD01 153.56  daily
-#> 658: 2026-09-11 FXERD01 154.47  daily
 #> 659: 2026-09-14 FXERD01 153.42  daily
 #> 660: 2026-09-15 FXERD01 154.42  daily
 #> 661: 2026-09-16 FXERD01 155.29  daily
+#> 662: 2026-09-17 FXERD01 156.05  daily
+#> 663: 2026-09-18 FXERD01 156.16  daily
 #>                                                      name                unit
 #>                                                    <char>              <char>
 #>   1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
@@ -119,11 +119,11 @@ boj_data("FM08", "FXERD01", start_date = "202401")
 #>   4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>   5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>  ---                                                                         
-#> 657: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
-#> 658: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #> 659: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #> 660: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #> 661: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 662: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
+#> 663: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 
 # fetch multiple exchange rates
 boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
@@ -135,11 +135,11 @@ boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 #>    4: 2024-01-10 FXERD01 144.43  daily
 #>    5: 2024-01-11 FXERD01 145.73  daily
 #>   ---                                 
-#> 1318: 2026-09-10 FXERD02 153.72  daily
-#> 1319: 2026-09-11 FXERD02 154.61  daily
-#> 1320: 2026-09-14 FXERD02 154.46  daily
-#> 1321: 2026-09-15 FXERD02 154.95  daily
-#> 1322: 2026-09-16 FXERD02 155.48  daily
+#> 1322: 2026-09-14 FXERD02 154.46  daily
+#> 1323: 2026-09-15 FXERD02 154.95  daily
+#> 1324: 2026-09-16 FXERD02 155.48  daily
+#> 1325: 2026-09-17 FXERD02 156.30  daily
+#> 1326: 2026-09-18 FXERD02 157.60  daily
 #>                                                       name                unit
 #>                                                     <char>              <char>
 #>    1: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
@@ -148,10 +148,10 @@ boj_data("FM08", c("FXERD01", "FXERD02"), start_date = "202401")
 #>    4: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>    5: US.Dollar/Yen Spot Rate at 9:00 in JST, Tokyo Market Yen per U.S. Dollar
 #>   ---                                                                         
-#> 1318:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1319:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1320:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
-#> 1321:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
 #> 1322:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1323:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1324:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1325:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
+#> 1326:                  US.Dollar/Yen Highest, Tokyo Market Yen per U.S. Dollar
 # }
 ```

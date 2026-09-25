@@ -85,11 +85,11 @@ boe_data("IUDBEDR", "2015-01-01")
 #>    4: 2015-01-07 IUDBEDR  0.50 Official Bank Rate  daily Official Bank Rate
 #>    5: 2015-01-08 IUDBEDR  0.50 Official Bank Rate  daily Official Bank Rate
 #>   ---                                                                      
-#> 2958: 2026-09-16 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate
-#> 2959: 2026-09-17 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate
 #> 2960: 2026-09-18 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate
 #> 2961: 2026-09-21 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate
 #> 2962: 2026-09-22 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate
+#> 2963: 2026-09-23 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate
+#> 2964: 2026-09-24 IUDBEDR  3.75 Official Bank Rate  daily Official Bank Rate
 
 # SONIA daily rate
 boe_data("IUDSOIA", "2015-01-01")
@@ -101,11 +101,11 @@ boe_data("IUDSOIA", "2015-01-01")
 #>    4: 2015-01-07 IUDSOIA 0.4292
 #>    5: 2015-01-08 IUDSOIA 0.4339
 #>   ---                          
-#> 2957: 2026-09-15 IUDSOIA 3.7302
-#> 2958: 2026-09-16 IUDSOIA 3.7303
 #> 2959: 2026-09-17 IUDSOIA 3.7304
 #> 2960: 2026-09-18 IUDSOIA 3.7301
 #> 2961: 2026-09-21 IUDSOIA 3.7303
+#> 2962: 2026-09-22 IUDSOIA 3.7305
+#> 2963: 2026-09-23 IUDSOIA 3.7305
 #>                                               description   freq
 #>                                                    <char> <char>
 #>    1: Daily Sterling overnight index average (SONIA) rate  daily
@@ -114,11 +114,11 @@ boe_data("IUDSOIA", "2015-01-01")
 #>    4: Daily Sterling overnight index average (SONIA) rate  daily
 #>    5: Daily Sterling overnight index average (SONIA) rate  daily
 #>   ---                                                           
-#> 2957: Daily Sterling overnight index average (SONIA) rate  daily
-#> 2958: Daily Sterling overnight index average (SONIA) rate  daily
 #> 2959: Daily Sterling overnight index average (SONIA) rate  daily
 #> 2960: Daily Sterling overnight index average (SONIA) rate  daily
 #> 2961: Daily Sterling overnight index average (SONIA) rate  daily
+#> 2962: Daily Sterling overnight index average (SONIA) rate  daily
+#> 2963: Daily Sterling overnight index average (SONIA) rate  daily
 
 # 10-year nominal par yield
 boe_data("IUDMNPY", "2015-01-01")
@@ -130,11 +130,11 @@ boe_data("IUDMNPY", "2015-01-01")
 #>    4: 2015-01-07 IUDMNPY 1.6584
 #>    5: 2015-01-08 IUDMNPY 1.6970
 #>   ---                          
-#> 2957: 2026-09-15 IUDMNPY 5.3616
-#> 2958: 2026-09-16 IUDMNPY 5.2421
 #> 2959: 2026-09-17 IUDMNPY 5.1742
 #> 2960: 2026-09-18 IUDMNPY 5.2560
 #> 2961: 2026-09-21 IUDMNPY 5.1630
+#> 2962: 2026-09-22 IUDMNPY 5.1907
+#> 2963: 2026-09-23 IUDMNPY 5.2910
 #>                                                               description
 #>                                                                    <char>
 #>    1: Yield from British Government Securities, 10 year Nominal Par Yield
@@ -143,11 +143,11 @@ boe_data("IUDMNPY", "2015-01-01")
 #>    4: Yield from British Government Securities, 10 year Nominal Par Yield
 #>    5: Yield from British Government Securities, 10 year Nominal Par Yield
 #>   ---                                                                    
-#> 2957: Yield from British Government Securities, 10 year Nominal Par Yield
-#> 2958: Yield from British Government Securities, 10 year Nominal Par Yield
 #> 2959: Yield from British Government Securities, 10 year Nominal Par Yield
 #> 2960: Yield from British Government Securities, 10 year Nominal Par Yield
 #> 2961: Yield from British Government Securities, 10 year Nominal Par Yield
+#> 2962: Yield from British Government Securities, 10 year Nominal Par Yield
+#> 2963: Yield from British Government Securities, 10 year Nominal Par Yield
 #>         freq     seasonal_adjustment   type output_in instrument_currency
 #>       <char>                  <char> <char>    <char>              <char>
 #>    1:  daily Not seasonally adjusted  Yield   Percent            Sterling
@@ -156,11 +156,11 @@ boe_data("IUDMNPY", "2015-01-01")
 #>    4:  daily Not seasonally adjusted  Yield   Percent            Sterling
 #>    5:  daily Not seasonally adjusted  Yield   Percent            Sterling
 #>   ---                                                                    
-#> 2957:  daily Not seasonally adjusted  Yield   Percent            Sterling
-#> 2958:  daily Not seasonally adjusted  Yield   Percent            Sterling
 #> 2959:  daily Not seasonally adjusted  Yield   Percent            Sterling
 #> 2960:  daily Not seasonally adjusted  Yield   Percent            Sterling
 #> 2961:  daily Not seasonally adjusted  Yield   Percent            Sterling
+#> 2962:  daily Not seasonally adjusted  Yield   Percent            Sterling
+#> 2963:  daily Not seasonally adjusted  Yield   Percent            Sterling
 #>                      instruments
 #>                           <char>
 #>    1: Nominal par yield, 10 year
@@ -169,11 +169,11 @@ boe_data("IUDMNPY", "2015-01-01")
 #>    4: Nominal par yield, 10 year
 #>    5: Nominal par yield, 10 year
 #>   ---                           
-#> 2957: Nominal par yield, 10 year
-#> 2958: Nominal par yield, 10 year
 #> 2959: Nominal par yield, 10 year
 #> 2960: Nominal par yield, 10 year
 #> 2961: Nominal par yield, 10 year
+#> 2962: Nominal par yield, 10 year
+#> 2963: Nominal par yield, 10 year
 
 # multiple series
 boe_data(c("IUMABEDR", "IUALBEDR"), "2015-01-01")

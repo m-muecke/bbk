@@ -48,15 +48,10 @@ bdf_data = function(
   end_date = assert_dateish(end_date, null.ok = TRUE)
 
   key = key %&&% sprintf('series_key:"%s"', key)
-  where = character()
-  if (!is.null(start_date)) {
-    start_date = sprintf("time_period_start >= date'%s'", start_date)
-    where = c(where, start_date)
-  }
-  if (!is.null(end_date)) {
-    end_date = sprintf("time_period_end <= date'%s'", end_date)
-    where = c(where, end_date)
-  }
+  where = c(
+    start_date %&&% sprintf("time_period_start >= date'%s'", start_date),
+    end_date %&&% sprintf("time_period_end <= date'%s'", end_date)
+  )
   where = if (length(where) > 0L) paste(where, collapse = " and ") else NULL
   params = list(refine = key, where = where, lang = lang)
   params = utils::modifyList(params, list(...))

@@ -235,10 +235,10 @@ snb_page_view_time = function() {
 
 snb_error_body = function(resp) {
   body = resp_body_string(resp, "UTF-8")
+  docs = "See docs at <https://data.snb.ch/en>"
   if (startsWith(body, "<")) {
-    return(c("SNB API request failed.", "See docs at <https://data.snb.ch/en>"))
+    return(c("SNB API request failed.", docs))
   }
   msg = jsonlite::fromJSON(body)
-  docs = "See docs at <https://data.snb.ch/en>"
   c(msg$message, docs)
 }

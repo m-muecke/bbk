@@ -110,6 +110,9 @@ bbk_cache_dir()    # where responses are stored
 bbk_cache_clear()  # wipe the cache
 ```
 
+Paginated requests, such as `boj_data()` and `bdp_data()`, show a progress bar when they take longer
+than a few seconds. Hide it with `options(bbk.progress = FALSE)`.
+
 ## Where to go next
 
 - The function reference, grouped by bank, lists every available endpoint.

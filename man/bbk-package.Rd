@@ -8,6 +8,16 @@
 \description{
 A client for retrieving data and metadata from central bank APIs including 'Banco Central do Brasil' (BCB), 'Banco de España' (BdE), 'Banco de México' (Banxico), 'Banco de Portugal' (BdP), 'Bank for International Settlements' (BIS), 'Bank of Canada' (BoC), 'Bank of England' (BoE), 'Bank of Israel' (BoI), 'Bank of Japan' (BoJ), 'Banque de France' (BdF), 'Czech National Bank' (CNB), 'Deutsche Bundesbank' (BBk), 'European Central Bank' (ECB), 'National Bank of Poland' (NBP), 'Norges Bank' (NoB), 'Oesterreichische Nationalbank' (OeNB), 'Sveriges Riksbank' (SRb), and 'Swiss National Bank' (SNB).
 }
+\section{Options}{
+
+\itemize{
+\item \code{bbk.cache}: Cache API responses on disk. Default \code{FALSE}. See \code{\link[=bbk_cache_dir]{bbk_cache_dir()}}.
+\item \code{bbk.cache_max_age}: Maximum age of cached responses in seconds. Default \code{86400} (1 day).
+\item \code{bbk.progress}: Show a progress bar for paginated requests that take longer than a few
+seconds. Default \code{TRUE}. Set to \code{FALSE} to hide it.
+}
+}
+
 \seealso{
 Useful links:
 \itemize{

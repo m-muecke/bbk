@@ -32,7 +32,8 @@ Suggests:
     ggplot2,
     knitr,
     scales,
-    testthat (>= 3.3.0)
+    testthat (>= 3.3.0),
+    withr
 Config/Needs/website: knitr, rmarkdown
 Config/roxygen2/markdown: TRUE
 Config/roxygen2/version: 8.1.0

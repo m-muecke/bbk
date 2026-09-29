@@ -71,7 +71,7 @@ bdp_data = function(
     obs_last_n = last_n,
     obs_published_since = updated_after
   ) |>
-    req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf) |>
+    req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf, progress = bbk_progress()) |>
     resps_data(\(resp) list(resp_body_json(resp)))
   rbindlist(map(jsons, parse_bdp_data), fill = TRUE)[]
 }
@@ -252,7 +252,7 @@ bdp_dataset = function(domain_id, lang = "en") {
 
   req = bdp_request("domains", domain_id, "datasets", lang = lang)
   items = req |>
-    req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf) |>
+    req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf, progress = bbk_progress()) |>
     resps_data(\(resp) resp_body_json(resp)$link$item)
   parse_bdp_dataset(items)
 }
@@ -302,7 +302,7 @@ bdp_dimension = function(domain_id, dimension_id = NULL, lang = "en") {
   if (is.null(dimension_id)) {
     req = bdp_request("domains", domain_id, "dimensions", lang = lang)
     items = req |>
-      req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf) |>
+      req_perform_iterative(next_req = bdp_next_req, max_reqs = Inf, progress = bbk_progress()) |>
       resps_data(\(resp) resp_body_json(resp)$link$item)
     parse_bdp_dimension(items)
   } else {

@@ -48,7 +48,8 @@ boj_data = function(db, code, start_date = NULL, end_date = NULL, lang = "en") {
   resps = req_perform_iterative(
     req,
     next_req = iterate_with_cursor("startPosition", boj_next_position),
-    max_reqs = Inf
+    max_reqs = Inf,
+    progress = bbk_progress()
   )
   series = resps_data(resps, \(resp) resp_body_json(resp)$RESULTSET)
   parse_boj_data(list(RESULTSET = series))

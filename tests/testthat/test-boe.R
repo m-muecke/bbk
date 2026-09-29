@@ -24,12 +24,8 @@ test_that("boe_date() formats dates for the BoE API", {
 })
 
 test_that("boe_date() does not depend on the session locale", {
-  old = Sys.getlocale("LC_TIME")
-  on.exit(Sys.setlocale("LC_TIME", old), add = TRUE)
-  skip_if(
-    !nzchar(suppressWarnings(Sys.setlocale("LC_TIME", "de_DE.UTF-8"))),
-    "no German locale available"
-  )
+  suppressWarnings(withr::local_locale(c(LC_TIME = "de_DE.UTF-8")))
+  skip_if_not(Sys.getlocale("LC_TIME") == "de_DE.UTF-8", "no German locale available")
   expect_identical(boe_date(as.Date("2015-01-01")), "01/Jan/2015")
   expect_identical(Sys.getlocale("LC_TIME"), "de_DE.UTF-8")
 })

@@ -44,7 +44,7 @@ banxico_data = function(series, start_date = NULL, end_date = NULL, api_key = ba
   resource = if (is.null(start_date)) {
     resource
   } else {
-    paste(resource, format(start_date, "%Y-%m-%d"), format(end_date, "%Y-%m-%d"), sep = "/")
+    paste(resource, format(start_date), format(end_date), sep = "/")
   }
   json = banxico(resource, api_key = api_key)
   parse_banxico_data(json)

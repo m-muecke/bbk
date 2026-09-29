@@ -236,6 +236,10 @@ Inspect or clear the cache with:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/cache.html">bbk_cache_dir</a></span><span class="op">(</span><span class="op">)</span>    <span class="co"># where responses are stored</span></span>
 <span><span class="fu"><a href="../reference/cache.html">bbk_cache_clear</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># wipe the cache</span></span></code></pre></div>
+<p>Paginated requests, such as <code><a href="../reference/boj_data.html">boj_data()</a></code> and
+<code><a href="../reference/bdp_data.html">bdp_data()</a></code>, show a progress bar when they take longer than
+a few seconds. Hide it with
+<code>options(bbk.progress = FALSE)</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="where-to-go-next">Where to go next<a class="anchor" aria-label="anchor" href="#where-to-go-next"></a>

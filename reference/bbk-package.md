@@ -10,6 +10,17 @@ de France' (BdF), 'Czech National Bank' (CNB), 'Deutsche Bundesbank'
 'Norges Bank' (NoB), 'Oesterreichische Nationalbank' (OeNB), 'Sveriges
 Riksbank' (SRb), and 'Swiss National Bank' (SNB).
 
+## Options
+
+- `bbk.cache`: Cache API responses on disk. Default `FALSE`. See
+  [`bbk_cache_dir()`](https://m-muecke.github.io/bbk/reference/cache.md).
+
+- `bbk.cache_max_age`: Maximum age of cached responses in seconds.
+  Default `86400` (1 day).
+
+- `bbk.progress`: Show a progress bar for paginated requests that take
+  longer than a few seconds. Default `TRUE`. Set to `FALSE` to hide it.
+
 ## See also
 
 Useful links:

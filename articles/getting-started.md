@@ -187,6 +187,12 @@ bbk_cache_dir()    # where responses are stored
 bbk_cache_clear()  # wipe the cache
 ```
 
+Paginated requests, such as
+[`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md) and
+[`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md),
+show a progress bar when they take longer than a few seconds. Hide it
+with `options(bbk.progress = FALSE)`.
+
 ## Where to go next
 
 - The function reference, grouped by bank, lists every available

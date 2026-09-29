@@ -2,6 +2,8 @@
 
 ## bbk (development version)
 
+- Progress bars for slow paginated requests can now be turned off with
+  `options(bbk.progress = FALSE)`.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
   [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md),

@@ -2,6 +2,8 @@ test_that("bdp_data input validation works", {
   expect_error(bdp_data("a", "b"))
   expect_error(bdp_data(1L, 123L))
   expect_error(bdp_data(1L, "b", series_ids = "abc"))
+  expect_error(bdp_data(1L, "b", series_ids = c(1L, NA)), "Contains missing values")
+  expect_error(bdp_data(1L, "b", series_ids = integer()), "Must have length >= 1")
   expect_error(bdp_data(1L, "b", start_date = ""))
   expect_error(bdp_data(1L, "b", end_date = 1L))
   expect_error(bdp_data(1L, "b", lang = "FR"))
@@ -72,6 +74,8 @@ test_that("bdp_data follows next_page and keeps every series", {
 test_that("bdp_series input validation works", {
   expect_error(bdp_series("abc"))
   expect_error(bdp_series(NULL))
+  expect_error(bdp_series(c(1L, NA)), "Contains missing values")
+  expect_error(bdp_series(integer()), "Must have length >= 1")
   expect_error(bdp_series(1L, lang = "FR"))
 })
 

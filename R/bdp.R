@@ -52,7 +52,7 @@ bdp_data = function(
 ) {
   domain_id = assert_count(domain_id, positive = TRUE, coerce = TRUE)
   assert_string(dataset_id, min.chars = 1L)
-  assert_integerish(series_ids, lower = 1L, null.ok = TRUE)
+  assert_integerish(series_ids, lower = 1L, min.len = 1L, any.missing = FALSE, null.ok = TRUE)
   start_date = assert_dateish(start_date, null.ok = TRUE)
   end_date = assert_dateish(end_date, null.ok = TRUE)
   last_n = assert_count(last_n, positive = TRUE, null.ok = TRUE, coerce = TRUE)
@@ -211,7 +211,7 @@ bdp_freq = function(dates) {
 #' bdp_series(12518356L)
 #' }
 bdp_series = function(series_ids, lang = "en") {
-  assert_integerish(series_ids, lower = 1L, min.len = 1L)
+  assert_integerish(series_ids, lower = 1L, min.len = 1L, any.missing = FALSE)
   assert_choice(lang, c("en", "pt"))
 
   json = bdp("series", lang = lang, series_ids = series_ids)

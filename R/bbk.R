@@ -110,7 +110,6 @@ bbk_series = function(key) {
   body = bbk_build_request("data/tsIdList", accept = "application/vnd.bbk.data+csv-zip") |>
     req_body_json(key, auto_unbox = FALSE) |>
     req_bbk_retry() |>
-    req_bbk_cache() |>
     req_perform() |>
     resp_body_raw()
   parse_bbk_series(body, key)

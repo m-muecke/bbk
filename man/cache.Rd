@@ -22,8 +22,15 @@ responses and returns \code{NULL} invisibly.
 }
 \details{
 The cache is only used when enabled with \code{options(bbk.cache = TRUE)}.
-Cached responses are stored for 1 day by default, but this can be customized with
-\code{options(bbk.cache_max_age = seconds)}.
+
+Each API's caching headers decide whether and for how long a cached response is reused, so the
+cache helps more with some APIs than others. APIs that allow reuse do so for minutes rather than
+hours. Others check a cached response with the API on every call, which only saves downloading
+it again, and many don't allow caching at all.
+
+Cached responses older than 1 day are deleted. Change this with
+\code{options(bbk.cache_max_age = seconds)}. A higher value doesn't make responses be reused for
+longer than the API allows.
 }
 \examples{
 \dontrun{

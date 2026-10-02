@@ -92,17 +92,19 @@ variable (e.g. in your `.Renviron`).
 
 ## Caching
 
-bbk can cache API responses on disk, so re-running a query is instant and you avoid hammering the
-upstream API. Caching is **off by default**; enabling it is recommended:
+bbk can cache API responses on disk, so a repeated query can skip downloading data the API allows
+to be reused. Caching is **off by default**; enabling it is recommended:
 
 ```{r}
 #| eval: false
 options(bbk.cache = TRUE)
 ```
 
-Put that line in your `.Rprofile` to enable caching for every session. Cached responses are kept
-for one day by default; tune this with `options(bbk.cache_max_age = <seconds>)`. Inspect or clear
-the cache with:
+Put that line in your `.Rprofile` to enable caching for every session. Each API's caching headers
+decide whether and for how long a cached response is reused: where an API allows it, that's for
+minutes rather than hours, and many APIs don't allow caching at all. Cached responses older than one
+day are deleted; change this with `options(bbk.cache_max_age = <seconds>)`. Inspect or clear the
+cache with:
 
 ```{r}
 #| eval: false

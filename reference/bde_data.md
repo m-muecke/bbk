@@ -96,72 +96,72 @@ Other data:
 bde_data("D_1NBAF472", time_range = "30M")
 #>                    date        key value   freq            title
 #>                  <POSc>     <char> <num> <char>           <char>
-#>  1: 2026-08-01 08:15:00 D_1NBAF472 2.954      M One-year Euribor
-#>  2: 2026-07-01 08:15:00 D_1NBAF472 2.855      M One-year Euribor
-#>  3: 2026-06-01 08:15:00 D_1NBAF472 2.798      M One-year Euribor
-#>  4: 2026-05-01 08:15:00 D_1NBAF472 2.804      M One-year Euribor
-#>  5: 2026-04-01 08:15:00 D_1NBAF472 2.747      M One-year Euribor
-#>  6: 2026-03-01 09:15:00 D_1NBAF472 2.565      M One-year Euribor
-#>  7: 2026-02-01 09:15:00 D_1NBAF472 2.221      M One-year Euribor
-#>  8: 2026-01-01 09:15:00 D_1NBAF472 2.245      M One-year Euribor
-#>  9: 2025-12-01 09:15:00 D_1NBAF472 2.267      M One-year Euribor
-#> 10: 2025-11-01 09:15:00 D_1NBAF472 2.217      M One-year Euribor
-#> 11: 2025-10-01 08:15:00 D_1NBAF472 2.187      M One-year Euribor
-#> 12: 2025-09-01 08:15:00 D_1NBAF472 2.172      M One-year Euribor
-#> 13: 2025-08-01 08:15:00 D_1NBAF472 2.114      M One-year Euribor
-#> 14: 2025-07-01 08:15:00 D_1NBAF472 2.079      M One-year Euribor
-#> 15: 2025-06-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
-#> 16: 2025-05-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
-#> 17: 2025-04-01 08:15:00 D_1NBAF472 2.143      M One-year Euribor
-#> 18: 2025-03-01 09:15:00 D_1NBAF472 2.398      M One-year Euribor
-#> 19: 2025-02-01 09:15:00 D_1NBAF472 2.407      M One-year Euribor
-#> 20: 2025-01-01 09:15:00 D_1NBAF472 2.525      M One-year Euribor
-#> 21: 2024-12-01 09:15:00 D_1NBAF472 2.436      M One-year Euribor
-#> 22: 2024-11-01 09:15:00 D_1NBAF472 2.506      M One-year Euribor
-#> 23: 2024-10-01 08:15:00 D_1NBAF472 2.691      M One-year Euribor
-#> 24: 2024-09-01 08:15:00 D_1NBAF472 2.936      M One-year Euribor
-#> 25: 2024-08-01 08:15:00 D_1NBAF472 3.166      M One-year Euribor
-#> 26: 2024-07-01 08:15:00 D_1NBAF472 3.526      M One-year Euribor
-#> 27: 2024-06-01 08:15:00 D_1NBAF472 3.650      M One-year Euribor
-#> 28: 2024-05-01 08:15:00 D_1NBAF472 3.680      M One-year Euribor
-#> 29: 2024-04-01 08:15:00 D_1NBAF472 3.703      M One-year Euribor
-#> 30: 2024-03-01 09:15:00 D_1NBAF472 3.718      M One-year Euribor
-#> 31: 2024-02-01 09:15:00 D_1NBAF472 3.671      M One-year Euribor
+#>  1: 2026-09-01 08:15:00 D_1NBAF472 3.247      M One-year Euribor
+#>  2: 2026-08-01 08:15:00 D_1NBAF472 2.954      M One-year Euribor
+#>  3: 2026-07-01 08:15:00 D_1NBAF472 2.855      M One-year Euribor
+#>  4: 2026-06-01 08:15:00 D_1NBAF472 2.798      M One-year Euribor
+#>  5: 2026-05-01 08:15:00 D_1NBAF472 2.804      M One-year Euribor
+#>  6: 2026-04-01 08:15:00 D_1NBAF472 2.747      M One-year Euribor
+#>  7: 2026-03-01 09:15:00 D_1NBAF472 2.565      M One-year Euribor
+#>  8: 2026-02-01 09:15:00 D_1NBAF472 2.221      M One-year Euribor
+#>  9: 2026-01-01 09:15:00 D_1NBAF472 2.245      M One-year Euribor
+#> 10: 2025-12-01 09:15:00 D_1NBAF472 2.267      M One-year Euribor
+#> 11: 2025-11-01 09:15:00 D_1NBAF472 2.217      M One-year Euribor
+#> 12: 2025-10-01 08:15:00 D_1NBAF472 2.187      M One-year Euribor
+#> 13: 2025-09-01 08:15:00 D_1NBAF472 2.172      M One-year Euribor
+#> 14: 2025-08-01 08:15:00 D_1NBAF472 2.114      M One-year Euribor
+#> 15: 2025-07-01 08:15:00 D_1NBAF472 2.079      M One-year Euribor
+#> 16: 2025-06-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
+#> 17: 2025-05-01 08:15:00 D_1NBAF472 2.081      M One-year Euribor
+#> 18: 2025-04-01 08:15:00 D_1NBAF472 2.143      M One-year Euribor
+#> 19: 2025-03-01 09:15:00 D_1NBAF472 2.398      M One-year Euribor
+#> 20: 2025-02-01 09:15:00 D_1NBAF472 2.407      M One-year Euribor
+#> 21: 2025-01-01 09:15:00 D_1NBAF472 2.525      M One-year Euribor
+#> 22: 2024-12-01 09:15:00 D_1NBAF472 2.436      M One-year Euribor
+#> 23: 2024-11-01 09:15:00 D_1NBAF472 2.506      M One-year Euribor
+#> 24: 2024-10-01 08:15:00 D_1NBAF472 2.691      M One-year Euribor
+#> 25: 2024-09-01 08:15:00 D_1NBAF472 2.936      M One-year Euribor
+#> 26: 2024-08-01 08:15:00 D_1NBAF472 3.166      M One-year Euribor
+#> 27: 2024-07-01 08:15:00 D_1NBAF472 3.526      M One-year Euribor
+#> 28: 2024-06-01 08:15:00 D_1NBAF472 3.650      M One-year Euribor
+#> 29: 2024-05-01 08:15:00 D_1NBAF472 3.680      M One-year Euribor
+#> 30: 2024-04-01 08:15:00 D_1NBAF472 3.703      M One-year Euribor
+#> 31: 2024-03-01 09:15:00 D_1NBAF472 3.718      M One-year Euribor
 #>                    date        key value   freq            title
 #>                  <POSc>     <char> <num> <char>           <char>
 #>          description decimals symbol          start_date            end_date
 #>               <char>    <int> <char>              <POSc>              <POSc>
-#>  1: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  2: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  3: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  4: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  5: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  6: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  7: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  8: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#>  9: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 10: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 11: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 12: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 13: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 14: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 15: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 16: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 17: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 18: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 19: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 20: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 21: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 22: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 23: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 24: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 25: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 26: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 27: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 28: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 29: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 30: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
-#> 31: One-year Euribor        3      % 1999-01-01 09:15:00 2026-08-01 08:15:00
+#>  1: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  2: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  3: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  4: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  5: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  6: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  7: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  8: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#>  9: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 10: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 11: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 12: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 13: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 14: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 15: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 16: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 17: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 18: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 19: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 20: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 21: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 22: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 23: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 24: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 25: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 26: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 27: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 28: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 29: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 30: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
+#> 31: One-year Euribor        3      % 1999-01-01 09:15:00 2026-09-01 08:15:00
 #>          description decimals symbol          start_date            end_date
 #>               <char>    <int> <char>              <POSc>              <POSc>
 #>                                                       long_description   unit
@@ -342,17 +342,17 @@ bde_data("D_1NBAF472", time_range = "30M")
 bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_range = "MAX")
 #>                     date                             key value   freq
 #>                   <POSc>                          <char> <num> <char>
-#>   1: 2026-01-01 09:15:00        DTNPDE2010_P0000P_PS_APU 101.6      Q
-#>   2: 2025-10-01 08:15:00        DTNPDE2010_P0000P_PS_APU 100.7      Q
-#>   3: 2025-07-01 08:15:00        DTNPDE2010_P0000P_PS_APU 103.1      Q
-#>   4: 2025-04-01 08:15:00        DTNPDE2010_P0000P_PS_APU 103.4      Q
-#>   5: 2025-01-01 09:15:00        DTNPDE2010_P0000P_PS_APU 103.3      Q
+#>   1: 2026-04-01 08:15:00        DTNPDE2010_P0000P_PS_APU 101.4      Q
+#>   2: 2026-01-01 09:15:00        DTNPDE2010_P0000P_PS_APU 101.4      Q
+#>   3: 2025-10-01 08:15:00        DTNPDE2010_P0000P_PS_APU 100.5      Q
+#>   4: 2025-07-01 08:15:00        DTNPDE2010_P0000P_PS_APU 103.0      Q
+#>   5: 2025-04-01 08:15:00        DTNPDE2010_P0000P_PS_APU 103.2      Q
 #>  ---                                                                 
-#> 243: 1996-10-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -5.9      Q
-#> 244: 1996-07-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -6.5      Q
-#> 245: 1996-04-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -5.8      Q
-#> 246: 1996-01-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -3.7      Q
-#> 247: 1995-10-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -2.1      Q
+#> 245: 1996-10-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -5.9      Q
+#> 246: 1996-07-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -6.5      Q
+#> 247: 1996-04-01 08:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -6.8      Q
+#> 248: 1996-01-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -6.5      Q
+#> 249: 1995-10-01 09:15:00 DTNSEC2010_S0000P_APU_SUMAMOVIL  -6.8      Q
 #>                                          title
 #>                                         <char>
 #>   1: EDP debt. General government. % of GDP mp
@@ -361,11 +361,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4: EDP debt. General government. % of GDP mp
 #>   5: EDP debt. General government. % of GDP mp
 #>  ---                                          
-#> 243:            Deficit. Gen. Gov. % of GDP mp
-#> 244:            Deficit. Gen. Gov. % of GDP mp
 #> 245:            Deficit. Gen. Gov. % of GDP mp
 #> 246:            Deficit. Gen. Gov. % of GDP mp
 #> 247:            Deficit. Gen. Gov. % of GDP mp
+#> 248:            Deficit. Gen. Gov. % of GDP mp
+#> 249:            Deficit. Gen. Gov. % of GDP mp
 #>                                                                                   description
 #>                                                                                        <char>
 #>   1:                           General government debt according to the EDP. Ratio over GDPmp
@@ -374,24 +374,24 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                           General government debt according to the EDP. Ratio over GDPmp
 #>   5:                           General government debt according to the EDP. Ratio over GDPmp
 #>  ---                                                                                         
-#> 243: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
-#> 244: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #> 245: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #> 246: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #> 247: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
+#> 248: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
+#> 249: General government deficit. Ratio over GDPmp. Cumulative figures for the last 4 quarters
 #>      decimals symbol          start_date            end_date
 #>         <int> <char>              <POSc>              <POSc>
-#>   1:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
-#>   2:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
-#>   3:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
-#>   4:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
-#>   5:        1      % 1995-01-01 09:15:00 2026-01-01 09:15:00
+#>   1:        1      % 1995-01-01 09:15:00 2026-04-01 08:15:00
+#>   2:        1      % 1995-01-01 09:15:00 2026-04-01 08:15:00
+#>   3:        1      % 1995-01-01 09:15:00 2026-04-01 08:15:00
+#>   4:        1      % 1995-01-01 09:15:00 2026-04-01 08:15:00
+#>   5:        1      % 1995-01-01 09:15:00 2026-04-01 08:15:00
 #>  ---                                                        
-#> 243:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
-#> 244:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
-#> 245:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
-#> 246:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
-#> 247:        1      % 1995-10-01 09:15:00 2026-01-01 09:15:00
+#> 245:        1      % 1995-10-01 09:15:00 2026-04-01 08:15:00
+#> 246:        1      % 1995-10-01 09:15:00 2026-04-01 08:15:00
+#> 247:        1      % 1995-10-01 09:15:00 2026-04-01 08:15:00
+#> 248:        1      % 1995-10-01 09:15:00 2026-04-01 08:15:00
+#> 249:        1      % 1995-10-01 09:15:00 2026-04-01 08:15:00
 #>                                                                                           long_description
 #>                                                                                                     <char>
 #>   1: General Government. Debt according to EDP. EDP debt. General Government. Ratio over cumulated GDP mp.
@@ -400,11 +400,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4: General Government. Debt according to EDP. EDP debt. General Government. Ratio over cumulated GDP mp.
 #>   5: General Government. Debt according to EDP. EDP debt. General Government. Ratio over cumulated GDP mp.
 #>  ---                                                                                                      
-#> 243:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
-#> 244:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #> 245:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #> 246:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #> 247:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
+#> 248:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
+#> 249:                    General Government. Deficit. Deficit. National total. Ratio over cumulated GDP mp.
 #>        unit
 #>      <char>
 #>   1:   Rate
@@ -413,11 +413,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:   Rate
 #>   5:   Rate
 #>  ---       
-#> 243:   Rate
-#> 244:   Rate
 #> 245:   Rate
 #> 246:   Rate
 #> 247:   Rate
+#> 248:   Rate
+#> 249:   Rate
 #>                                                                              source
 #>                                                                              <char>
 #>   1:                                                                           <NA>
@@ -426,11 +426,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                                                                           <NA>
 #>   5:                                                                           <NA>
 #>  ---                                                                               
-#> 243: General Comptroller of the State Administration. National Statistics Institute
-#> 244: General Comptroller of the State Administration. National Statistics Institute
 #> 245: General Comptroller of the State Administration. National Statistics Institute
 #> 246: General Comptroller of the State Administration. National Statistics Institute
 #> 247: General Comptroller of the State Administration. National Statistics Institute
+#> 248: General Comptroller of the State Administration. National Statistics Institute
+#> 249: General Comptroller of the State Administration. National Statistics Institute
 #>                                                                                                               related_series_pdf_table
 #>                                                                                                                                 <char>
 #>   1:                                                                                                                              <NA>
@@ -439,11 +439,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                                                                                                                              <NA>
 #>   5:                                                                                                                              <NA>
 #>  ---                                                                                                                                  
-#> 243: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
-#> 244: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #> 245: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #> 246: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #> 247: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
+#> 248: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
+#> 249: <a href='https://www.bde.es/webbe/en/estadisticas/compartido/datos/pdf/a1103e.pdf'>Download the pdf table with related series</a>
 #>                                                                                                                related_series_excel_file
 #>                                                                                                                                   <char>
 #>   1:                                                                                                                                <NA>
@@ -452,11 +452,11 @@ bde_data(c("DTNPDE2010_P0000P_PS_APU", "DTNSEC2010_S0000P_APU_SUMAMOVIL"), time_
 #>   4:                                                                                                                                <NA>
 #>   5:                                                                                                                                <NA>
 #>  ---                                                                                                                                    
-#> 243: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
-#> 244: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 #> 245: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 #> 246: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 #> 247: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
+#> 248: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
+#> 249: <a href='https://www.bde.es/webbe/es/estadisticas/compartido/datos/xlsx/a1103.xlsx'>Download the Excel file with related series</a>
 bde_data("DEEQ.N.ES.W1.S1.S1.T.B.G._Z._Z._Z.EUR._T._X.N.ALL", time_range = 2024)
 #>                   date                                               key  value
 #>                 <POSc>                                            <char>  <int>

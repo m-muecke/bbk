@@ -7,6 +7,8 @@
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
   [`bde_data()`](https://m-muecke.github.io/bbk/reference/bde_data.md),
   [`bde_latest()`](https://m-muecke.github.io/bbk/reference/bde_latest.md),
+  [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md),
+  [`bdp_series()`](https://m-muecke.github.io/bbk/reference/bdp_series.md),
   [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
   [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md),
   [`boe_data()`](https://m-muecke.github.io/bbk/reference/boe_data.md),

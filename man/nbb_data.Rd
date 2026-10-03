@@ -4,7 +4,7 @@
 \alias{nbb_data}
 \title{Fetch National Bank of Belgium (NBB) data}
 \source{
-\url{https://stat.nbb.be/}
+\url{https://dataexplorer.nbb.be/}
 }
 \usage{
 nbb_data(

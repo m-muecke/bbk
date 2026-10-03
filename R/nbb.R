@@ -22,7 +22,7 @@
 #'   Number of observations to retrieve from the end of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
-#' @source <https://stat.nbb.be/>
+#' @source <https://dataexplorer.nbb.be/>
 #' @family data
 #' @export
 #' @examplesIf curl::has_internet()
@@ -75,7 +75,7 @@ nbb_data = function(
 #' @param lang (`character(1)`)\cr
 #'   Language for names, one of `"en"`, `"fr"`, or `"nl"`. Default `"en"`.
 #' @returns A [data.table::data.table()] with the requested metadata.
-#' @source <https://stat.nbb.be/>
+#' @source <https://dataexplorer.nbb.be/>
 #' @family metadata
 #' @export
 #' @examplesIf curl::has_internet()
@@ -108,7 +108,7 @@ nbb_metadata = function(type, id = NULL, lang = "en") {
 #'   \item{id}{The dimension id (e.g., `"FREQ"`, `"EXR_CURRENCY"`)}
 #'   \item{position}{The position of the dimension in the series key}
 #'   \item{codelist}{The id of the associated codelist (e.g., `"CL_FREQ"`)}
-#' @source <https://stat.nbb.be/>
+#' @source <https://dataexplorer.nbb.be/>
 #' @family metadata
 #' @export
 #' @examplesIf curl::has_internet()

@@ -34,7 +34,7 @@ bbk is minimal R client for the following APIs:
 - [Deutsche Bundesbank (BBk)](https://api.statistiken.bundesbank.de/)
 - [European Central Bank
   (ECB)](https://data.ecb.europa.eu/help/api/overview)
-- [National Bank of Belgium (NBB)](https://stat.nbb.be/)
+- [National Bank of Belgium (NBB)](https://dataexplorer.nbb.be/)
 - [National Bank of Poland (NBP)](https://api.nbp.pl/en.html)
 - [Norges Bank
   (NoB)](https://www.norges-bank.no/en/topics/Statistics/open-data/)

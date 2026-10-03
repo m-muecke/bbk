@@ -4,7 +4,7 @@
 \alias{nbb_dimension}
 \title{Fetch National Bank of Belgium (NBB) dimensions}
 \source{
-\url{https://stat.nbb.be/}
+\url{https://dataexplorer.nbb.be/}
 }
 \usage{
 nbb_dimension(id)

@@ -80,12 +80,7 @@ Other metadata:
 ``` r
 # \donttest{
 ecb_dimension("ECB_EXR1")
-#>                id position      codelist
-#>            <char>    <int>        <char>
-#> 1:           FREQ        1       CL_FREQ
-#> 2:       CURRENCY        2   CL_CURRENCY
-#> 3: CURRENCY_DENOM        3   CL_CURRENCY
-#> 4:       EXR_TYPE        4   CL_EXR_TYPE
-#> 5:     EXR_SUFFIX        5 CL_EXR_SUFFIX
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 504 Gateway Timeout.
+#> ℹ See docs at <https://data.ecb.europa.eu/help/api/status-codes>
 # }
 ```

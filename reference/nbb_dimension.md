@@ -11,7 +11,7 @@ nbb_dimension(id)
 
 ## Source
 
-<https://stat.nbb.be/>
+<https://dataexplorer.nbb.be/>
 
 ## Arguments
 

@@ -18,7 +18,7 @@ nbb_data(
 
 ## Source
 
-<https://stat.nbb.be/>
+<https://dataexplorer.nbb.be/>
 
 ## Arguments
 

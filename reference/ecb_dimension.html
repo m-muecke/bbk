@@ -120,13 +120,8 @@ The id of the data structure definition to query (e.g., <code>"ECB_EXR1"</code>)
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_dimension</span><span class="op">(</span><span class="st">"ECB_EXR1"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                id position      codelist</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            &lt;char&gt;    &lt;int&gt;        &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:           FREQ        1       CL_FREQ</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:       CURRENCY        2   CL_CURRENCY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3: CURRENCY_DENOM        3   CL_CURRENCY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4:       EXR_TYPE        4   CL_EXR_TYPE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5:     EXR_SUFFIX        5 CL_EXR_SUFFIX</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)):</span> HTTP 504 Gateway Timeout.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See docs at &lt;https://data.ecb.europa.eu/help/api/status-codes&gt;</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -162,71 +162,8 @@ applied. Default <code>NULL</code>.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch US dollar/Euro exchange rate</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_data</span><span class="op">(</span><span class="st">"EXR"</span>, <span class="st">"D.USD.EUR.SP00.A"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             date              key  value   freq</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;Date&gt;           &lt;char&gt;  &lt;num&gt; &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: 1999-01-04 D.USD.EUR.SP00.A 1.1789  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: 1999-01-05 D.USD.EUR.SP00.A 1.1790  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: 1999-01-06 D.USD.EUR.SP00.A 1.1743  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: 1999-01-07 D.USD.EUR.SP00.A 1.1632  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: 1999-01-08 D.USD.EUR.SP00.A 1.1659  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7164: 2026-09-28 D.USD.EUR.SP00.A 1.1378  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7165: 2026-09-29 D.USD.EUR.SP00.A 1.1355  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7166: 2026-09-30 D.USD.EUR.SP00.A 1.1355  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7167: 2026-10-01 D.USD.EUR.SP00.A 1.1298  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7168: 2026-10-02 D.USD.EUR.SP00.A 1.1225  daily</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                            title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                           &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7164: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7165: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7166: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7167: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7168: US dollar/Euro ECB reference exchange rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                         description currency</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                              &lt;char&gt;   &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7164: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7165: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7166: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7167: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7168: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       currency_denom exr_type exr_suffix source_agency unit_mult decimals</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               &lt;char&gt;   &lt;char&gt;     &lt;char&gt;        &lt;char&gt;    &lt;char&gt;   &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                                                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7164:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7165:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7166:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7167:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7168:            EUR     SP00          A           4F0         0        4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       collection unit_index_base   unit time_format</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           &lt;char&gt;          &lt;char&gt; &lt;char&gt;      &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ---                                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7164:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7165:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7166:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7167:          A        99Q1=100    USD         P1D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7168:          A        99Q1=100    USD         P1D</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)):</span> HTTP 504 Gateway Timeout.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See docs at &lt;https://data.ecb.europa.eu/help/api/status-codes&gt;</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch data for multiple keys</span></span></span>
 <span class="r-in"><span><span class="fu">ecb_data</span><span class="op">(</span><span class="st">"EXR"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"D.USD"</span>, <span class="st">"JPY.EUR.SP00.A"</span><span class="op">)</span><span class="op">)</span></span></span>

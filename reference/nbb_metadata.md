@@ -11,7 +11,7 @@ nbb_metadata(type, id = NULL, lang = "en")
 
 ## Source
 
-<https://stat.nbb.be/>
+<https://dataexplorer.nbb.be/>
 
 ## Arguments
 

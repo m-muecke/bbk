@@ -127,71 +127,8 @@ Other data:
 # \donttest{
 # fetch US dollar/Euro exchange rate
 ecb_data("EXR", "D.USD.EUR.SP00.A")
-#>             date              key  value   freq
-#>           <Date>           <char>  <num> <char>
-#>    1: 1999-01-04 D.USD.EUR.SP00.A 1.1789  daily
-#>    2: 1999-01-05 D.USD.EUR.SP00.A 1.1790  daily
-#>    3: 1999-01-06 D.USD.EUR.SP00.A 1.1743  daily
-#>    4: 1999-01-07 D.USD.EUR.SP00.A 1.1632  daily
-#>    5: 1999-01-08 D.USD.EUR.SP00.A 1.1659  daily
-#>   ---                                          
-#> 7164: 2026-09-28 D.USD.EUR.SP00.A 1.1378  daily
-#> 7165: 2026-09-29 D.USD.EUR.SP00.A 1.1355  daily
-#> 7166: 2026-09-30 D.USD.EUR.SP00.A 1.1355  daily
-#> 7167: 2026-10-01 D.USD.EUR.SP00.A 1.1298  daily
-#> 7168: 2026-10-02 D.USD.EUR.SP00.A 1.1225  daily
-#>                                            title
-#>                                           <char>
-#>    1: US dollar/Euro ECB reference exchange rate
-#>    2: US dollar/Euro ECB reference exchange rate
-#>    3: US dollar/Euro ECB reference exchange rate
-#>    4: US dollar/Euro ECB reference exchange rate
-#>    5: US dollar/Euro ECB reference exchange rate
-#>   ---                                           
-#> 7164: US dollar/Euro ECB reference exchange rate
-#> 7165: US dollar/Euro ECB reference exchange rate
-#> 7166: US dollar/Euro ECB reference exchange rate
-#> 7167: US dollar/Euro ECB reference exchange rate
-#> 7168: US dollar/Euro ECB reference exchange rate
-#>                                                         description currency
-#>                                                              <char>   <char>
-#>    1: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>    2: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>    3: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>    4: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>    5: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>   ---                                                                       
-#> 7164: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#> 7165: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#> 7166: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#> 7167: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#> 7168: ECB reference exchange rate, US dollar/Euro, 2.15 pm (C.E.T.)      USD
-#>       currency_denom exr_type exr_suffix source_agency unit_mult decimals
-#>               <char>   <char>     <char>        <char>    <char>   <char>
-#>    1:            EUR     SP00          A           4F0         0        4
-#>    2:            EUR     SP00          A           4F0         0        4
-#>    3:            EUR     SP00          A           4F0         0        4
-#>    4:            EUR     SP00          A           4F0         0        4
-#>    5:            EUR     SP00          A           4F0         0        4
-#>   ---                                                                    
-#> 7164:            EUR     SP00          A           4F0         0        4
-#> 7165:            EUR     SP00          A           4F0         0        4
-#> 7166:            EUR     SP00          A           4F0         0        4
-#> 7167:            EUR     SP00          A           4F0         0        4
-#> 7168:            EUR     SP00          A           4F0         0        4
-#>       collection unit_index_base   unit time_format
-#>           <char>          <char> <char>      <char>
-#>    1:          A        99Q1=100    USD         P1D
-#>    2:          A        99Q1=100    USD         P1D
-#>    3:          A        99Q1=100    USD         P1D
-#>    4:          A        99Q1=100    USD         P1D
-#>    5:          A        99Q1=100    USD         P1D
-#>   ---                                              
-#> 7164:          A        99Q1=100    USD         P1D
-#> 7165:          A        99Q1=100    USD         P1D
-#> 7166:          A        99Q1=100    USD         P1D
-#> 7167:          A        99Q1=100    USD         P1D
-#> 7168:          A        99Q1=100    USD         P1D
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 504 Gateway Timeout.
+#> ℹ See docs at <https://data.ecb.europa.eu/help/api/status-codes>
 
 # fetch data for multiple keys
 ecb_data("EXR", c("D.USD", "JPY.EUR.SP00.A"))

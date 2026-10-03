@@ -53,3 +53,26 @@ test_that("boc_data returns an empty table for a window without observations", {
   expect_date(dt$date)
   expect_double(dt$value)
 })
+
+test_that("boc_metadata works for a group with a single series", {
+  group_details = list(
+    name = "G",
+    label = "Group",
+    description = "A group",
+    groupSeries = list(S1 = list(label = "Series 1", link = "https://www.bankofcanada.ca/"))
+  )
+  local_mocked_bindings(boc = \(...) list(groupDetails = group_details))
+  dt = boc_metadata(group_name = "G")
+  expect_named(
+    dt,
+    c(
+      "group_name",
+      "group_label",
+      "group_description",
+      "series_label",
+      "series_link",
+      "series_name"
+    )
+  )
+  expect_identical(dt$series_name, "S1")
+})

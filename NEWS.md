@@ -2,6 +2,7 @@
 
 * Progress bars for slow paginated requests can now be turned off with `options(bbk.progress = FALSE)`.
 * `bbk_data()`, `bde_data()`, `bde_latest()`, `bdp_data()`, `bdp_series()`, `bis_data()`, `boc_data()`, `boe_data()`, `boj_data()`, `cnb_data()`, `cnb_indicators()`, `ecb_data()`, and `onb_data()` now reject `NA` and zero-length series keys with an informative error instead of sending a malformed request.
+* `boc_metadata()` now works for groups with a single series. It previously dropped the `series_name` column and added a stray `group_groupSeries` column.
 * `boi_data()` now parses the dates of weekly series, which the BoI labels with a calendar date rather than an ISO week. They were previously `NA`.
 
 # bbk 0.13.0

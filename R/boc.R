@@ -101,7 +101,7 @@ boc_details_series = function(name) {
 boc_details_group = function(name) {
   json = boc("groups", name)
   grp = json$groupDetails
-  meta = setDT(grp[lengths(grp) == 1L])
+  meta = setDT(grp[lengths(grp) == 1L & names(grp) != "groupSeries"])
   setnames(meta, \(x) paste("group", x, sep = "_"))
   series = rbindlist(grp$groupSeries)
   series[, "name" := names(grp$groupSeries)]

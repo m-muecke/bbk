@@ -1,40 +1,42 @@
-# Fetch Österreichische Nationalbank (OeNB) data frequency
+# Fetch National Bank of Belgium (NBB) dimensions
 
-Fetch Österreichische Nationalbank (OeNB) data frequency
+Retrieve the dimension structure for a given data structure from the
+National Bank of Belgium SDMX Web Service (NBB.Stat).
 
 ## Usage
 
 ``` r
-onb_frequency(hier_id, key, ..., lang = "en")
+nbb_dimension(id)
 ```
+
+## Source
+
+<https://stat.nbb.be/>
 
 ## Arguments
 
-- hier_id:
-
-  (`integer(1)`)  
-  Hierarchy id to query.
-
-- key:
-
-  ([`character()`](https://rdrr.io/r/base/character.html))  
-  The series keys to query.
-
-- ...:
-
-  (`any`)  
-  Additional parameters to pass to the API.
-
-- lang:
+- id:
 
   (`character(1)`)  
-  Language to query. Default `"en"`.
+  The id of the data structure definition to query (e.g., `"DSD_EXR"`).
 
 ## Value
 
 A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with the requested data.
+with columns:
+
+- id:
+
+  The dimension id (e.g., `"FREQ"`, `"EXR_CURRENCY"`)
+
+- position:
+
+  The position of the dimension in the series key
+
+- codelist:
+
+  The id of the associated codelist (e.g., `"CL_FREQ"`)
 
 ## See also
 
@@ -59,11 +61,11 @@ Other metadata:
 [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
-[`nbb_dimension()`](https://m-muecke.github.io/bbk/reference/nbb_dimension.md),
 [`nbb_metadata()`](https://m-muecke.github.io/bbk/reference/nbb_metadata.md),
 [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
+[`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md),
 [`onb_hierarchy()`](https://m-muecke.github.io/bbk/reference/onb_hierarchy.md),
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
 [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
@@ -77,17 +79,10 @@ Other metadata:
 
 ``` r
 # \donttest{
-onb_frequency(hier_id = 74, key = "VDBOSBHAGBSTIN")
-#>      freq           available            pos  dval1  dval2  dval3  dval4
-#>    <char>              <char>         <char> <char> <char> <char> <char>
-#> 1:      M Jan.  80 - July  26 VDBOSBHAGBSTIN      N     AT     Z5     25
-#> 2:      A         1959 - 2026 VDBOSBHAGBSTIN      N     AT     Z5     01
-#> 3:      M Jan.  80 - July  26 VDBOSBHAGBSTIN      N     AT     Z5     01
-#> 4:      A         2013 - 2023 VDBOSBHAGBSTIN      N     AT     Z5     02
-onb_frequency(hier_id = 11, key = "VDBFKBSC217000")
-#>      freq           available            pos  dval1   dval2  dval3  dval4
-#>    <char>              <char>         <char> <char>  <char> <char> <char>
-#> 1:      A         1998 - 2025 VDBFKBSC217000     AT 00100KI     AT    Z0Z
-#> 2:      M Jan.  98 - Aug.  26 VDBFKBSC217000     AT 00100KI     AT    Z0Z
+nbb_dimension("DSD_EXR")
+#>              id position        codelist
+#>          <char>    <int>          <char>
+#> 1:         FREQ        1         CL_FREQ
+#> 2: EXR_CURRENCY        2 CL_EXR_CURRENCY
 # }
 ```

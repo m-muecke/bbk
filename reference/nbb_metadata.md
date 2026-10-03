@@ -1,67 +1,41 @@
-# Fetch Swiss National Bank (SNB) cube metadata
+# Fetch National Bank of Belgium (NBB) metadata
 
-Retrieve cube-level metadata (title, frequency, source, publication
-date) from the SNB data portal.
+Retrieve metadata from the National Bank of Belgium SDMX Web Service
+(NBB.Stat).
 
 ## Usage
 
 ``` r
-snb_metadata(key, lang = "en")
+nbb_metadata(type, id = NULL, lang = "en")
 ```
 
 ## Source
 
-<https://data.snb.ch/en>
+<https://stat.nbb.be/>
 
 ## Arguments
 
-- key:
+- type:
 
   (`character(1)`)  
-  The series key to query.
+  The type of metadata to query. One of: `"datastructure"`,
+  `"dataflow"`, `"codelist"`, or `"concept"`.
+
+- id:
+
+  (`NULL` \| `character(1)`)  
+  The id to query. Default `NULL`.
 
 - lang:
 
   (`character(1)`)  
-  Language to query, either `"en"` or `"de"`. Default `"en"`.
+  Language for names, one of `"en"`, `"fr"`, or `"nl"`. Default `"en"`.
 
 ## Value
 
-A single-row
+A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
-with columns:
-
-- key:
-
-  The cube key
-
-- title:
-
-  The cube title
-
-- sub_title:
-
-  The cube subtitle
-
-- publishing_title:
-
-  The publishing section title
-
-- public_since_date:
-
-  The first publication date
-
-- frequency:
-
-  The frequency specification (e.g., `"Day"`, `"Month"`)
-
-- source:
-
-  The data source
-
-- has_multiple_sources:
-
-  Whether the cube has multiple sources
+with the requested metadata.
 
 ## See also
 
@@ -87,7 +61,6 @@ Other metadata:
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
 [`nbb_dimension()`](https://m-muecke.github.io/bbk/reference/nbb_dimension.md),
-[`nbb_metadata()`](https://m-muecke.github.io/bbk/reference/nbb_metadata.md),
 [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
@@ -96,6 +69,7 @@ Other metadata:
 [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
 [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md),
 [`snb_dimension()`](https://m-muecke.github.io/bbk/reference/snb_dimension.md),
+[`snb_metadata()`](https://m-muecke.github.io/bbk/reference/snb_metadata.md),
 [`snb_toc()`](https://m-muecke.github.io/bbk/reference/snb_toc.md),
 [`srb_calendar()`](https://m-muecke.github.io/bbk/reference/srb_calendar.md),
 [`srb_series()`](https://m-muecke.github.io/bbk/reference/srb_series.md)
@@ -104,18 +78,44 @@ Other metadata:
 
 ``` r
 # \donttest{
-snb_metadata("rendopar")
-#>         key                             title
-#>      <char>                            <char>
-#> 1: rendopar Nelson-Siegel-Svensson parameters
-#>                                                       sub_title
-#>                                                          <char>
-#> 1: For calculating the daily yield curve of Confederation bonds
-#>                     publishing_title public_since_date frequency
-#>                               <char>            <Date>    <char>
-#> 1: Interest rates and exchange rates        2025-09-01       Day
-#>                       source has_multiple_sources
-#>                       <char>               <lgcl>
-#> 1: Swiss National Bank (SNB)                FALSE
+nbb_metadata("dataflow")
+#>                     id
+#>                 <char>
+#>   1:        DF_AFCSURV
+#>   2: DF_AFCSURV_CREDIT
+#>   3:   DF_AGREED_WAGES
+#>   4:          DF_AMOLO
+#>   5:        DF_AMPORTS
+#>  ---                  
+#> 191:       DF_TREASURY
+#> 192:       DF_TREASVAR
+#> 193:         DF_UCIDEV
+#> 194:   DF_UNEMPLOYMENT
+#> 195:  DF_UNEMPLOY_RATE
+#>                                                                                          name
+#>                                                                                        <char>
+#>   1:                               Quarterly survey on the assessment of financing conditions
+#>   2: Quarterly survey on the assessment of financing conditions: Credit constraint perception
+#>   3:                                                                Collectively agreed wages
+#>   4:                                                       Outstanding amount of linear bonds
+#>   5:                                                                              Ports study
+#>  ---                                                                                         
+#> 191:                                                                                 Treasury
+#> 192:              Nominal variation of the net debt and net financial balance of the Treasury
+#> 193:                                                                     Developments of UCIs
+#> 194:                                         Number of unemployed job-seekers - unemployement
+#> 195:                                                             Harmonised unemployment rate
+nbb_metadata("datastructure", "DSD_EXR")
+#>         id    name
+#>     <char>  <char>
+#> 1: DSD_EXR EXR DSD
+nbb_metadata("codelist", "CL_EXR_CURRENCY")
+#>                 id     name
+#>             <char>   <char>
+#> 1: CL_EXR_CURRENCY Currency
+nbb_metadata("dataflow", "DF_EXR", lang = "fr")
+#>        id                                                                  name
+#>    <char>                                                                <char>
+#> 1: DF_EXR Cours de change de référence de l'euro en unités de monnaie nationale
 # }
 ```

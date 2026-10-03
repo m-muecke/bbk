@@ -26,6 +26,11 @@
 - [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md)
   now parses the dates of weekly series, which the BoI labels with a
   calendar date rather than an ISO week. They were previously `NA`.
+- [`nbb_data()`](https://m-muecke.github.io/bbk/reference/nbb_data.md),
+  [`nbb_dimension()`](https://m-muecke.github.io/bbk/reference/nbb_dimension.md),
+  and
+  [`nbb_metadata()`](https://m-muecke.github.io/bbk/reference/nbb_metadata.md)
+  now support National Bank of Belgium (NBB) data.
 
 ## bbk 0.13.0
 

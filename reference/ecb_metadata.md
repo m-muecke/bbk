@@ -71,6 +71,8 @@ Other metadata:
 [`cnb_snapshots()`](https://m-muecke.github.io/bbk/reference/cnb_snapshots.md),
 [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
+[`nbb_dimension()`](https://m-muecke.github.io/bbk/reference/nbb_dimension.md),
+[`nbb_metadata()`](https://m-muecke.github.io/bbk/reference/nbb_metadata.md),
 [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),
@@ -285,11 +287,11 @@ ecb_metadata("datastructure", "ECB")
 #> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 504 Gateway Timeout.
 #> ℹ See docs at <https://data.ecb.europa.eu/help/api/status-codes>
 ecb_metadata("datastructure", "ECB", "ECB_EXR1")
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 504 Gateway Timeout.
+#> ℹ See docs at <https://data.ecb.europa.eu/help/api/status-codes>
+ecb_metadata("datastructure", id = "ECB_EXR1")
 #>    agency       id           name
 #>    <char>   <char>         <char>
 #> 1:    ECB ECB_EXR1 Exchange Rates
-ecb_metadata("datastructure", id = "ECB_EXR1")
-#> Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)): HTTP 504 Gateway Timeout.
-#> ℹ See docs at <https://data.ecb.europa.eu/help/api/status-codes>
 # }
 ```

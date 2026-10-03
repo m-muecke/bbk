@@ -89,6 +89,8 @@ Other metadata:
 [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md),
 [`ecb_dimension()`](https://m-muecke.github.io/bbk/reference/ecb_dimension.md),
 [`ecb_metadata()`](https://m-muecke.github.io/bbk/reference/ecb_metadata.md),
+[`nbb_dimension()`](https://m-muecke.github.io/bbk/reference/nbb_dimension.md),
+[`nbb_metadata()`](https://m-muecke.github.io/bbk/reference/nbb_metadata.md),
 [`nob_dimension()`](https://m-muecke.github.io/bbk/reference/nob_dimension.md),
 [`nob_metadata()`](https://m-muecke.github.io/bbk/reference/nob_metadata.md),
 [`onb_dimension()`](https://m-muecke.github.io/bbk/reference/onb_dimension.md),

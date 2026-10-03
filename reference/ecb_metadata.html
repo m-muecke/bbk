@@ -112,6 +112,8 @@ The columns are:</p>
 <code><a href="cnb_snapshots.html">cnb_snapshots()</a></code>,
 <code><a href="cnb_tree.html">cnb_tree()</a></code>,
 <code><a href="ecb_dimension.html">ecb_dimension()</a></code>,
+<code><a href="nbb_dimension.html">nbb_dimension()</a></code>,
+<code><a href="nbb_metadata.html">nbb_metadata()</a></code>,
 <code><a href="nob_dimension.html">nob_dimension()</a></code>,
 <code><a href="nob_metadata.html">nob_metadata()</a></code>,
 <code><a href="onb_dimension.html">onb_dimension()</a></code>,
@@ -326,12 +328,12 @@ The columns are:</p>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)):</span> HTTP 504 Gateway Timeout.</span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See docs at &lt;https://data.ecb.europa.eu/help/api/status-codes&gt;</span>
 <span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, <span class="st">"ECB"</span>, <span class="st">"ECB_EXR1"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)):</span> HTTP 504 Gateway Timeout.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See docs at &lt;https://data.ecb.europa.eu/help/api/status-codes&gt;</span>
+<span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, id <span class="op">=</span> <span class="st">"ECB_EXR1"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    agency       id           name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;char&gt;   &lt;char&gt;         &lt;char&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1:    ECB ECB_EXR1 Exchange Rates</span>
-<span class="r-in"><span><span class="fu">ecb_metadata</span><span class="op">(</span><span class="st">"datastructure"</span>, id <span class="op">=</span> <span class="st">"ECB_EXR1"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(req_headers(base_request(base_url),     accept = accept), resource), ...), body = error_body)):</span> HTTP 504 Gateway Timeout.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> See docs at &lt;https://data.ecb.europa.eu/help/api/status-codes&gt;</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

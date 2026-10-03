@@ -140,6 +140,15 @@
 - [`cnb_tree()`](https://m-muecke.github.io/bbk/reference/cnb_tree.md) :
   Fetch Czech National Bank (CNB) ARAD indicator tree
 
+### National Bank of Belgium (NBB)
+
+- [`nbb_data()`](https://m-muecke.github.io/bbk/reference/nbb_data.md) :
+  Fetch National Bank of Belgium (NBB) data
+- [`nbb_dimension()`](https://m-muecke.github.io/bbk/reference/nbb_dimension.md)
+  : Fetch National Bank of Belgium (NBB) dimensions
+- [`nbb_metadata()`](https://m-muecke.github.io/bbk/reference/nbb_metadata.md)
+  : Fetch National Bank of Belgium (NBB) metadata
+
 ### National Bank of Poland (NBP)
 
 - [`nbp_fx_rates()`](https://m-muecke.github.io/bbk/reference/nbp_fx_rates.md)

@@ -47,6 +47,10 @@
 <ul><li>Progress bars for slow paginated requests can now be turned off with <code>options(bbk.progress = FALSE)</code>.</li>
 <li>
 <code><a href="../reference/bbk_data.html">bbk_data()</a></code>, <code><a href="../reference/bde_data.html">bde_data()</a></code>, <code><a href="../reference/bde_latest.html">bde_latest()</a></code>, <code><a href="../reference/bdp_data.html">bdp_data()</a></code>, <code><a href="../reference/bdp_series.html">bdp_series()</a></code>, <code><a href="../reference/bis_data.html">bis_data()</a></code>, <code><a href="../reference/boc_data.html">boc_data()</a></code>, <code><a href="../reference/boe_data.html">boe_data()</a></code>, <code><a href="../reference/boj_data.html">boj_data()</a></code>, <code><a href="../reference/cnb_data.html">cnb_data()</a></code>, <code><a href="../reference/cnb_indicators.html">cnb_indicators()</a></code>, <code><a href="../reference/ecb_data.html">ecb_data()</a></code>, and <code><a href="../reference/onb_data.html">onb_data()</a></code> now reject <code>NA</code> and zero-length series keys with an informative error instead of sending a malformed request.</li>
+<li>
+<code><a href="../reference/boc_metadata.html">boc_metadata()</a></code> now works for groups with a single series. It previously dropped the <code>series_name</code> column and added a stray <code>group_groupSeries</code> column.</li>
+<li>
+<code><a href="../reference/boi_data.html">boi_data()</a></code> now parses the dates of weekly series, which the BoI labels with a calendar date rather than an ISO week. They were previously <code>NA</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.13.0" id="bbk-0130">bbk 0.13.0<a class="anchor" aria-label="anchor" href="#bbk-0130"></a></h2><p class="text-muted">CRAN release: 2026-08-28</p>

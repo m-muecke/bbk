@@ -87,69 +87,16 @@ Other data:
 # \donttest{
 # fetch USD/BRL exchange rate
 bcb_data(1, start_date = "2024-01-01", end_date = "2024-01-31")
-#>           date    key  value
-#>         <Date> <char>  <num>
-#>  1: 2024-01-02      1 4.8916
-#>  2: 2024-01-03      1 4.9212
-#>  3: 2024-01-04      1 4.9188
-#>  4: 2024-01-05      1 4.8899
-#>  5: 2024-01-08      1 4.8850
-#>  6: 2024-01-09      1 4.8937
-#>  7: 2024-01-10      1 4.8901
-#>  8: 2024-01-11      1 4.8794
-#>  9: 2024-01-12      1 4.8543
-#> 10: 2024-01-15      1 4.8765
-#> 11: 2024-01-16      1 4.9038
-#> 12: 2024-01-17      1 4.9346
-#> 13: 2024-01-18      1 4.9403
-#> 14: 2024-01-19      1 4.9223
-#> 15: 2024-01-22      1 4.9490
-#> 16: 2024-01-23      1 4.9715
-#> 17: 2024-01-24      1 4.9192
-#> 18: 2024-01-25      1 4.9232
-#> 19: 2024-01-26      1 4.9125
-#> 20: 2024-01-29      1 4.9225
-#> 21: 2024-01-30      1 4.9638
-#> 22: 2024-01-31      1 4.9535
-#>           date    key  value
-#>         <Date> <char>  <num>
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(base_request("https://api.bcb.gov.br/dados/serie"),     sprintf("bcdata.sgs.%s", series), "dados"), formato = "json",     ...), body = bcb_error_body)): Failed to perform HTTP request.
+#> Caused by error in `curl::curl_fetch_memory()`:
+#> ! Couldn't resolve host name [api.bcb.gov.br]:
+#> Could not resolve host: api.bcb.gov.br
 
 # fetch the Selic target rate
 bcb_data(432, start_date = "2024-01-01", end_date = "2024-01-31")
-#>           date    key value
-#>         <Date> <char> <num>
-#>  1: 2024-01-01    432 11.75
-#>  2: 2024-01-02    432 11.75
-#>  3: 2024-01-03    432 11.75
-#>  4: 2024-01-04    432 11.75
-#>  5: 2024-01-05    432 11.75
-#>  6: 2024-01-06    432 11.75
-#>  7: 2024-01-07    432 11.75
-#>  8: 2024-01-08    432 11.75
-#>  9: 2024-01-09    432 11.75
-#> 10: 2024-01-10    432 11.75
-#> 11: 2024-01-11    432 11.75
-#> 12: 2024-01-12    432 11.75
-#> 13: 2024-01-13    432 11.75
-#> 14: 2024-01-14    432 11.75
-#> 15: 2024-01-15    432 11.75
-#> 16: 2024-01-16    432 11.75
-#> 17: 2024-01-17    432 11.75
-#> 18: 2024-01-18    432 11.75
-#> 19: 2024-01-19    432 11.75
-#> 20: 2024-01-20    432 11.75
-#> 21: 2024-01-21    432 11.75
-#> 22: 2024-01-22    432 11.75
-#> 23: 2024-01-23    432 11.75
-#> 24: 2024-01-24    432 11.75
-#> 25: 2024-01-25    432 11.75
-#> 26: 2024-01-26    432 11.75
-#> 27: 2024-01-27    432 11.75
-#> 28: 2024-01-28    432 11.75
-#> 29: 2024-01-29    432 11.75
-#> 30: 2024-01-30    432 11.75
-#> 31: 2024-01-31    432 11.75
-#>           date    key value
-#>         <Date> <char> <num>
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(base_request("https://api.bcb.gov.br/dados/serie"),     sprintf("bcdata.sgs.%s", series), "dados"), formato = "json",     ...), body = bcb_error_body)): Failed to perform HTTP request.
+#> Caused by error in `curl::curl_fetch_memory()`:
+#> ! Couldn't resolve host name [api.bcb.gov.br]:
+#> Could not resolve host: api.bcb.gov.br
 # }
 ```

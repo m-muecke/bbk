@@ -20,6 +20,12 @@
   [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
   now reject `NA` and zero-length series keys with an informative error
   instead of sending a malformed request.
+- [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)
+  now works for groups with a single series. It previously dropped the
+  `series_name` column and added a stray `group_groupSeries` column.
+- [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md)
+  now parses the dates of weekly series, which the BoI labels with a
+  calendar date rather than an ISO week. They were previously `NA`.
 
 ## bbk 0.13.0
 

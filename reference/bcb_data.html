@@ -132,70 +132,17 @@ available date is returned. Default <code>NULL</code>.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># fetch USD/BRL exchange rate</span></span></span>
 <span class="r-in"><span><span class="fu">bcb_data</span><span class="op">(</span><span class="fl">1</span>, start_date <span class="op">=</span> <span class="st">"2024-01-01"</span>, end_date <span class="op">=</span> <span class="st">"2024-01-31"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           date    key  value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt; &lt;char&gt;  &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2024-01-02      1 4.8916</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2024-01-03      1 4.9212</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2024-01-04      1 4.9188</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2024-01-05      1 4.8899</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2024-01-08      1 4.8850</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2024-01-09      1 4.8937</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2024-01-10      1 4.8901</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2024-01-11      1 4.8794</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2024-01-12      1 4.8543</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2024-01-15      1 4.8765</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2024-01-16      1 4.9038</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2024-01-17      1 4.9346</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2024-01-18      1 4.9403</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2024-01-19      1 4.9223</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2024-01-22      1 4.9490</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2024-01-23      1 4.9715</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2024-01-24      1 4.9192</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2024-01-25      1 4.9232</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2024-01-26      1 4.9125</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2024-01-29      1 4.9225</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2024-01-30      1 4.9638</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2024-01-31      1 4.9535</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           date    key  value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt; &lt;char&gt;  &lt;num&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(base_request("https://api.bcb.gov.br/dados/serie"),     sprintf("bcdata.sgs.%s", series), "dados"), formato = "json",     ...), body = bcb_error_body)):</span> Failed to perform HTTP request.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Couldn't resolve host name [api.bcb.gov.br]:</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> Could not resolve host: api.bcb.gov.br</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fetch the Selic target rate</span></span></span>
 <span class="r-in"><span><span class="fu">bcb_data</span><span class="op">(</span><span class="fl">432</span>, start_date <span class="op">=</span> <span class="st">"2024-01-01"</span>, end_date <span class="op">=</span> <span class="st">"2024-01-31"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           date    key value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt; &lt;char&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1: 2024-01-01    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  2: 2024-01-02    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3: 2024-01-03    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  4: 2024-01-04    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  5: 2024-01-05    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  6: 2024-01-06    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  7: 2024-01-07    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  8: 2024-01-08    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  9: 2024-01-09    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10: 2024-01-10    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11: 2024-01-11    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12: 2024-01-12    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13: 2024-01-13    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14: 2024-01-14    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15: 2024-01-15    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16: 2024-01-16    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17: 2024-01-17    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18: 2024-01-18    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19: 2024-01-19    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20: 2024-01-20    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21: 2024-01-21    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22: 2024-01-22    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23: 2024-01-23    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24: 2024-01-24    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25: 2024-01-25    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26: 2024-01-26    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27: 2024-01-27    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28: 2024-01-28    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29: 2024-01-29    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30: 2024-01-30    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31: 2024-01-31    432 11.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           date    key value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         &lt;Date&gt; &lt;char&gt; &lt;num&gt;</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in req_perform(req_error(req_url_query(req_url_path_append(base_request("https://api.bcb.gov.br/dados/serie"),     sprintf("bcdata.sgs.%s", series), "dados"), formato = "json",     ...), body = bcb_error_body)):</span> Failed to perform HTTP request.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `curl::curl_fetch_memory()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Couldn't resolve host name [api.bcb.gov.br]:</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> Could not resolve host: api.bcb.gov.br</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

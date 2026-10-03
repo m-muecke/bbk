@@ -1,16 +1,16 @@
-#' Fetch Norges Bank (NoB) data
+#' Fetch National Bank of Belgium (NBB) data
 #'
-#' Retrieve time series data from the Norges Bank SDMX Web Service.
+#' Retrieve time series data from the National Bank of Belgium SDMX Web Service (NBB.Stat).
 #'
 #' @param flow (`character(1)`)\cr
-#'   The dataflow to query. See [nob_metadata()] for available dataflows.
+#'   The dataflow to query (e.g., `"DF_EXR"`). See [nbb_metadata()] for available dataflows.
 #' @param key (`NULL` | `character(1)`)\cr
 #'   The series key to query using dot-separated dimension values
-#'   (e.g., `"B.USD.NOK.SP"`). Use `+` for multiple values in one dimension
-#'   (e.g., `"B.USD+EUR.NOK.SP"`). If `NULL`, all data for the flow is returned.
+#'   (e.g., `"D.USD"`). Use `+` for multiple values in one dimension
+#'   (e.g., `"M.USD+GBP"`). If `NULL`, all data for the flow is returned.
 #'   Default `NULL`.
 #' @param start_period (`NULL` | `character(1)` | `integer(1)`)\cr
-#'   Start date of the data (e.g., `"2024-01-01"` or `2024`). If `NULL`, no start date restriction
+#'   Start date of the data (e.g., `"2024-01"` or `2024`). If `NULL`, no start date restriction
 #'   is applied. Default `NULL`.
 #' @param end_period (`NULL` | `character(1)` | `integer(1)`)\cr
 #'   End date of the data, in the same format as start_period. If `NULL`, no end date restriction is
@@ -22,21 +22,21 @@
 #'   Number of observations to retrieve from the end of the series. If `NULL`, no restriction is
 #'   applied. Default `NULL`.
 #' @returns A [data.table::data.table()] with the requested data.
-#' @source <https://www.norges-bank.no/en/topics/Statistics/open-data/>
+#' @source <https://stat.nbb.be/>
 #' @family data
 #' @export
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' # fetch USD/NOK exchange rate
-#' nob_data("EXR", "B.USD.NOK.SP", last_n = 5L)
+#' # fetch daily EUR/USD reference rate
+#' nbb_data("DF_EXR", "D.USD", last_n = 5L)
 #'
-#' # fetch multiple exchange rates
-#' nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
+#' # fetch multiple monthly average exchange rates
+#' nbb_data("DF_EXR", "M.USD+GBP", start_period = "2024-01")
 #'
-#' # fetch policy rate
-#' nob_data("IR", last_n = 5L)
+#' # fetch Belgian HICP inflation
+#' nbb_data("DF_HICP_2025", "M.BE.000000.2025.HCP.GROWTH_RATE", last_n = 5L)
 #' }
-nob_data = function(
+nbb_data = function(
   flow,
   key = NULL,
   start_period = NULL,
@@ -52,7 +52,7 @@ nob_data = function(
   last_n = assert_count(last_n, null.ok = TRUE, positive = TRUE, coerce = TRUE)
 
   resource = sdmx_data_resource(flow, key)
-  xml = nob(
+  xml = nbb(
     resource,
     startPeriod = start_period,
     endPeriod = end_period,
@@ -63,9 +63,9 @@ nob_data = function(
   parse_sdmx_data(xml)
 }
 
-#' Fetch Norges Bank (NoB) metadata
+#' Fetch National Bank of Belgium (NBB) metadata
 #'
-#' Retrieve metadata from the Norges Bank SDMX Web Service.
+#' Retrieve metadata from the National Bank of Belgium SDMX Web Service (NBB.Stat).
 #'
 #' @param type (`character(1)`)\cr
 #'   The type of metadata to query.
@@ -73,60 +73,58 @@ nob_data = function(
 #' @param id (`NULL` | `character(1)`)\cr
 #'   The id to query. Default `NULL`.
 #' @param lang (`character(1)`)\cr
-#'   Language for names, either `"en"` or `"no"`. Default `"en"`.
+#'   Language for names, one of `"en"`, `"fr"`, or `"nl"`. Default `"en"`.
 #' @returns A [data.table::data.table()] with the requested metadata.
-#' @source <https://www.norges-bank.no/en/topics/Statistics/open-data/>
+#' @source <https://stat.nbb.be/>
 #' @family metadata
 #' @export
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' nob_metadata("dataflow")
-#' nob_metadata("datastructure")
-#' nob_metadata("codelist", "CL_CURRENCY")
+#' nbb_metadata("dataflow")
+#' nbb_metadata("datastructure", "DSD_EXR")
+#' nbb_metadata("codelist", "CL_EXR_CURRENCY")
+#' nbb_metadata("dataflow", "DF_EXR", lang = "fr")
 #' }
-nob_metadata = function(type, id = NULL, lang = "en") {
+nbb_metadata = function(type, id = NULL, lang = "en") {
   assert_choice(type, c("datastructure", "dataflow", "codelist", "concept"))
   assert_string(id, min.chars = 1L, null.ok = TRUE)
-  assert_choice(lang, c("en", "no"))
+  assert_choice(lang, c("en", "fr", "nl"))
 
-  meta = sdmx_metadata_type(type)
-  resource = if (is.null(id)) {
-    meta$resource
-  } else {
-    paste(meta$resource, "NB", toupper(id), sep = "/")
-  }
-  xml = nob(resource)
+  meta = sdmx_metadata_type(type, ns_prefix = "structure")
+  resource = paste(c(meta$resource, "BE2", toupper(id)), collapse = "/")
+  xml = nbb(resource)
   entries = xml2::xml_find_all(xml, meta$xpath)
-  sdmx_metadata(entries, lang)
+  sdmx_metadata(entries, lang, ns_prefix = "common")
 }
 
-#' Fetch Norges Bank (NoB) dimensions
+#' Fetch National Bank of Belgium (NBB) dimensions
 #'
-#' Retrieve the dimension structure for a given dataflow from the Norges Bank SDMX Web Service.
+#' Retrieve the dimension structure for a given data structure from the National Bank of Belgium
+#' SDMX Web Service (NBB.Stat).
 #'
 #' @param id (`character(1)`)\cr
-#'   The id of the data structure definition to query (e.g., `"NB_EXR"`).
+#'   The id of the data structure definition to query (e.g., `"DSD_EXR"`).
 #' @returns A [data.table::data.table()] with columns:
-#'   \item{id}{The dimension id (e.g., `"FREQ"`, `"BASE_CUR"`)}
+#'   \item{id}{The dimension id (e.g., `"FREQ"`, `"EXR_CURRENCY"`)}
 #'   \item{position}{The position of the dimension in the series key}
 #'   \item{codelist}{The id of the associated codelist (e.g., `"CL_FREQ"`)}
-#' @source <https://www.norges-bank.no/en/topics/Statistics/open-data/>
+#' @source <https://stat.nbb.be/>
 #' @family metadata
 #' @export
 #' @examplesIf curl::has_internet()
 #' \donttest{
-#' nob_dimension("DSD_EXR")
+#' nbb_dimension("DSD_EXR")
 #' }
-nob_dimension = function(id) {
+nbb_dimension = function(id) {
   assert_string(id, min.chars = 1L)
-  resource = paste("datastructure", "NB", toupper(id), sep = "/")
-  xml = nob(resource)
-  sdmx_dimension(xml)
+  resource = paste("datastructure", "BE2", toupper(id), sep = "/")
+  xml = nbb(resource)
+  sdmx_dimension(xml, ns_prefix = "structure")
 }
 
-nob = function(resource, ..., accept = NULL) {
+nbb = function(resource, ..., accept = NULL) {
   sdmx_request(
-    "https://data.norges-bank.no/api",
+    "https://nsidisseminate-stat.nbb.be/rest",
     resource,
     \(resp) sdmx_error_body(resp),
     ...,

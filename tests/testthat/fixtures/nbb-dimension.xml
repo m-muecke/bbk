@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--NSI Web Service v8.19.9.0-->
+<message:Structure xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:structure="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure" xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">
+  <message:Header>
+    <message:ID>IDREF229004</message:ID>
+    <message:Test>false</message:Test>
+    <message:Prepared>2026-10-03T11:52:00.7167337+00:00</message:Prepared>
+    <message:Sender id="Unknown" />
+    <message:Receiver id="Unknown" />
+  </message:Header>
+  <message:Structures>
+    <structure:DataStructures>
+      <structure:DataStructure id="DSD_EXR" agencyID="BE2" version="1.0" isFinal="false">
+        <common:Annotations>
+          <common:Annotation>
+            <common:AnnotationType>SUPPORT_INTENT_MISS_VALUES</common:AnnotationType>
+          </common:Annotation>
+          <common:Annotation>
+            <common:AnnotationTitle>urn:sdmx:org.sdmx.infomodel.metadatastructure.MetadataStructure=BE2:MSD(1.0)</common:AnnotationTitle>
+            <common:AnnotationType>METADATA</common:AnnotationType>
+          </common:Annotation>
+        </common:Annotations>
+        <common:Name xml:lang="en">EXR DSD</common:Name>
+        <structure:DataStructureComponents>
+          <structure:DimensionList id="DimensionDescriptor">
+            <structure:Dimension id="FREQ" position="1">
+              <structure:ConceptIdentity>
+                <Ref id="FREQ" maintainableParentID="EXR_CONCEPTS" maintainableParentVersion="1.0" agencyID="BE2" package="conceptscheme" class="Concept" />
+              </structure:ConceptIdentity>
+              <structure:LocalRepresentation>
+                <structure:Enumeration>
+                  <Ref id="CL_FREQ" version="1.0" agencyID="BE2" package="codelist" class="Codelist" />
+                </structure:Enumeration>
+              </structure:LocalRepresentation>
+            </structure:Dimension>
+            <structure:Dimension id="EXR_CURRENCY" position="2">
+              <structure:ConceptIdentity>
+                <Ref id="EXR_CURRENCY" maintainableParentID="EXR_CONCEPTS" maintainableParentVersion="1.0" agencyID="BE2" package="conceptscheme" class="Concept" />
+              </structure:ConceptIdentity>
+              <structure:LocalRepresentation>
+                <structure:Enumeration>
+                  <Ref id="CL_EXR_CURRENCY" version="1.0" agencyID="BE2" package="codelist" class="Codelist" />
+                </structure:Enumeration>
+              </structure:LocalRepresentation>
+            </structure:Dimension>
+            <structure:TimeDimension id="TIME_PERIOD" position="3">
+              <structure:ConceptIdentity>
+                <Ref id="TIME_PERIOD" maintainableParentID="EXR_CONCEPTS" maintainableParentVersion="1.0" agencyID="BE2" package="conceptscheme" class="Concept" />
+              </structure:ConceptIdentity>
+              <structure:LocalRepresentation>
+                <structure:TextFormat textType="ObservationalTimePeriod" />
+              </structure:LocalRepresentation>
+            </structure:TimeDimension>
+          </structure:DimensionList>
+          <structure:AttributeList id="AttributeDescriptor">
+            <structure:Attribute id="OBS_STATUS" assignmentStatus="Mandatory">
+              <structure:ConceptIdentity>
+                <Ref id="OBS_STATUS" maintainableParentID="EXR_CONCEPTS" maintainableParentVersion="1.0" agencyID="BE2" package="conceptscheme" class="Concept" />
+              </structure:ConceptIdentity>
+              <structure:LocalRepresentation>
+                <structure:Enumeration>
+                  <Ref id="CL_OBS_STATUS" version="1.0" agencyID="BE2" package="codelist" class="Codelist" />
+                </structure:Enumeration>
+              </structure:LocalRepresentation>
+              <structure:AttributeRelationship>
+                <structure:PrimaryMeasure>
+                  <Ref id="OBS_VALUE" />
+                </structure:PrimaryMeasure>
+              </structure:AttributeRelationship>
+            </structure:Attribute>
+            <structure:Attribute id="DECIMALS" assignmentStatus="Conditional">
+              <structure:ConceptIdentity>
+                <Ref id="DECIMALS" maintainableParentID="EXR_CONCEPTS" maintainableParentVersion="1.0" agencyID="BE2" package="conceptscheme" class="Concept" />
+              </structure:ConceptIdentity>
+              <structure:LocalRepresentation>
+                <structure:Enumeration>
+                  <Ref id="CL_DECIMALS" version="1.0" agencyID="BE2" package="codelist" class="Codelist" />
+                </structure:Enumeration>
+              </structure:LocalRepresentation>
+              <structure:AttributeRelationship>
+                <structure:PrimaryMeasure>
+                  <Ref id="OBS_VALUE" />
+                </structure:PrimaryMeasure>
+              </structure:AttributeRelationship>
+            </structure:Attribute>
+          </structure:AttributeList>
+          <structure:MeasureList id="MeasureDescriptor">
+            <structure:PrimaryMeasure id="OBS_VALUE">
+              <structure:ConceptIdentity>
+                <Ref id="OBS_VALUE" maintainableParentID="EXR_CONCEPTS" maintainableParentVersion="1.0" agencyID="BE2" package="conceptscheme" class="Concept" />
+              </structure:ConceptIdentity>
+              <structure:LocalRepresentation>
+                <structure:TextFormat textType="Double" />
+              </structure:LocalRepresentation>
+            </structure:PrimaryMeasure>
+          </structure:MeasureList>
+        </structure:DataStructureComponents>
+      </structure:DataStructure>
+    </structure:DataStructures>
+  </message:Structures>
+</message:Structure>

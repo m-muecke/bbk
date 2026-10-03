@@ -22,6 +22,10 @@ test_that("sdmx_metadata_type maps types to resources and xpaths", {
     sdmx_metadata_type("concept"),
     list(resource = "conceptscheme", xpath = "//str:ConceptScheme")
   )
+  expect_identical(
+    sdmx_metadata_type("dataflow", ns_prefix = "structure"),
+    list(resource = "dataflow", xpath = "//structure:Dataflow")
+  )
 })
 
 test_that("sdmx_freq maps codes correctly", {
@@ -111,6 +115,100 @@ test_that("sdmx_metadata ignores names of nested codes", {
   )
   actual = sdmx_metadata(list(xml))
   expect_identical(actual, data.table(id = "CL_TEST", name = "Test codelist"))
+})
+
+test_that("parse_sdmx_data works", {
+  body = xml2::read_xml(test_path("fixtures", "nob-data.xml"))
+  actual = parse_sdmx_data(body)
+  expect_data_table(actual, min.rows = 1L)
+  expect_date(actual$date)
+  expect_numeric(actual$value)
+  expect_names(names(actual), must.include = c("date", "key", "value", "freq"))
+})
+
+test_that("parse_sdmx_data drops observations without a value and keeps alignment", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="B"/>
+            <generic:Value id="BASE_CUR" value="USD"/>
+          </generic:SeriesKey>
+          <generic:Obs><generic:ObsDimension value="2024-01-02"/><generic:ObsValue value="1"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2024-01-03"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2024-01-04"/><generic:ObsValue value="3"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_sdmx_data(body)
+  expect_identical(actual$date, as.Date(c("2024-01-02", "2024-01-04")))
+  expect_identical(actual$value, c(1, 3))
+})
+
+test_that("parse_sdmx_data works without a FREQ dimension", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="INSTRUMENT_TYPE" value="KPRA"/>
+          </generic:SeriesKey>
+          <generic:Obs><generic:ObsDimension value="2024-01-02"/><generic:ObsValue value="4.25"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_sdmx_data(body)
+  expect_identical(actual$date, "2024-01-02")
+  expect_identical(actual$value, 4.25)
+  expect_identical(actual$key, "KPRA")
+  expect_identical(actual$freq, NA_character_)
+})
+
+test_that("parse_sdmx_data builds the key from dimensions only", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey>
+            <generic:Value id="FREQ" value="B"/>
+            <generic:Value id="SECURITY" value="NO0013737973"/>
+            <generic:Value id="UNIT_MEASURE" value="AY"/>
+          </generic:SeriesKey>
+          <generic:Attributes>
+            <generic:Value id="DECIMALS" value="4"/>
+            <generic:Value id="ISSUE_DATE" value="2026-03-18"/>
+            <generic:Value id="MATURITY" value="2027-03-17"/>
+          </generic:Attributes>
+          <generic:Obs><generic:ObsDimension value="2026-08-21"/><generic:ObsValue value="4.4295"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_sdmx_data(body)
+  expect_identical(actual$key, "B.NO0013737973.AY")
+  expect_identical(actual$issue_date, "2026-03-18")
+  expect_identical(actual$maturity, "2027-03-17")
+  expect_names(names(actual), disjunct.from = "decimals")
+})
+
+test_that("parse_sdmx_data sorts observations by date within each series", {
+  body = xml2::read_xml(
+    '<message:GenericData xmlns:message="m" xmlns:generic="http://generic">
+      <message:DataSet>
+        <generic:Series>
+          <generic:SeriesKey><generic:Value id="FREQ" value="M"/></generic:SeriesKey>
+          <generic:Obs><generic:ObsDimension value="2024-02"/><generic:ObsValue value="2"/></generic:Obs>
+          <generic:Obs><generic:ObsDimension value="2024-01"/><generic:ObsValue value="1"/></generic:Obs>
+        </generic:Series>
+      </message:DataSet>
+    </message:GenericData>'
+  )
+  actual = parse_sdmx_data(body)
+  expect_identical(actual$date, as.Date(c("2024-01-01", "2024-02-01")))
+  expect_identical(actual$value, c(1, 2))
 })
 
 test_that("sdmx_error_body extracts the message from an SDMX error response", {

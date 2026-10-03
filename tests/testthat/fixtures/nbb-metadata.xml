@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--NSI Web Service v8.19.9.0-->
+<message:Structure xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:structure="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure" xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">
+  <message:Header>
+    <message:ID>IDREF229005</message:ID>
+    <message:Test>false</message:Test>
+    <message:Prepared>2026-10-03T11:52:00.8889682+00:00</message:Prepared>
+    <message:Sender id="Unknown" />
+    <message:Receiver id="Unknown" />
+  </message:Header>
+  <message:Structures>
+    <structure:Dataflows>
+      <structure:Dataflow id="DF_EXR" agencyID="BE2" version="1.0" isFinal="false">
+        <common:Annotations>
+          <common:Annotation>
+            <common:AnnotationType>NonProductionDataflow</common:AnnotationType>
+            <common:AnnotationText xml:lang="en">true</common:AnnotationText>
+          </common:Annotation>
+          <common:Annotation id="@SDMX">
+            <common:AnnotationTitle>FREQ</common:AnnotationTitle>
+            <common:AnnotationType>LAYOUT_ROW</common:AnnotationType>
+          </common:Annotation>
+          <common:Annotation id="@SDMX">
+            <common:AnnotationTitle>TIME_PERIOD</common:AnnotationTitle>
+            <common:AnnotationType>LAYOUT_COLUMN</common:AnnotationType>
+          </common:Annotation>
+          <common:Annotation id="@SDMX">
+            <common:AnnotationTitle>MEASURE</common:AnnotationTitle>
+            <common:AnnotationType>LAYOUT_ROW_SECTION</common:AnnotationType>
+          </common:Annotation>
+          <common:Annotation id="@SDMX">
+            <common:AnnotationTitle>OBS_STATUS=A</common:AnnotationTitle>
+            <common:AnnotationType>NOT_DISPLAYED</common:AnnotationType>
+          </common:Annotation>
+          <common:Annotation id="@SDMX">
+            <common:AnnotationTitle>FREQ=D,LASTNPERIODS=15,TIME_PERIOD_START=2015-01-01</common:AnnotationTitle>
+            <common:AnnotationType>DEFAULT</common:AnnotationType>
+          </common:Annotation>
+        </common:Annotations>
+        <common:Name xml:lang="en">Reference exchange rates of the euro in national currency units</common:Name>
+        <common:Name xml:lang="fr">Cours de change de référence de l'euro en unités de monnaie nationale</common:Name>
+        <common:Name xml:lang="nl">Referentiewisselkoersen van de euro in nationale munteenheden</common:Name>
+        <common:Description xml:lang="en">The reference exchange rates of the euro against various national currencies. Provides daily values for a broad selection of international currencies—including the U.S. dollar, Japanese yen, pound sterling, Swiss franc, and many others</common:Description>
+        <common:Description xml:lang="fr">Les taux de change de référence de l'euro par rapport à diverses monnaies nationales. Fournit des valeurs quotidiennes pour une large sélection de devises internationales, dont le dollar américain, le yen japonais, la livre sterling, le franc suisse et bien d'autres.</common:Description>
+        <common:Description xml:lang="nl">De referentiewisselkoersen van de euro ten opzichte van verschillende nationale valuta. Biedt dagelijkse waarden voor een brede selectie van internationale valuta's, waaronder de Amerikaanse dollar, Japanse yen, Britse pond, Zwitserse frank en vele andere.</common:Description>
+        <structure:Structure>
+          <Ref id="DSD_EXR" version="1.0" agencyID="BE2" package="datastructure" class="DataStructure" />
+        </structure:Structure>
+      </structure:Dataflow>
+    </structure:Dataflows>
+  </message:Structures>
+</message:Structure>

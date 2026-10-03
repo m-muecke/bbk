@@ -94,6 +94,12 @@ reference:
       - cnb_snapshots
       - cnb_tree
 
+  - subtitle: National Bank of Belgium (NBB)
+    contents:
+      - nbb_data
+      - nbb_dimension
+      - nbb_metadata
+
   - subtitle: National Bank of Poland (NBP)
     contents:
       - nbp_fx_rates

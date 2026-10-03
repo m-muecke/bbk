@@ -51,6 +51,8 @@ Other metadata:
 \code{\link[=cnb_tree]{cnb_tree()}},
 \code{\link[=ecb_dimension]{ecb_dimension()}},
 \code{\link[=ecb_metadata]{ecb_metadata()}},
+\code{\link[=nbb_dimension]{nbb_dimension()}},
+\code{\link[=nbb_metadata]{nbb_metadata()}},
 \code{\link[=nob_metadata]{nob_metadata()}},
 \code{\link[=onb_dimension]{onb_dimension()}},
 \code{\link[=onb_frequency]{onb_frequency()}},

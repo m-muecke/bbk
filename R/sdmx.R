@@ -34,14 +34,16 @@ sdmx_data_resource = function(flow, key, default_key = NULL) {
   paste(c("data", flow, key), collapse = "/")
 }
 
-sdmx_metadata_type = function(type) {
-  switch(
+sdmx_metadata_type = function(type, ns_prefix = "str") {
+  meta = switch(
     type,
-    datastructure = list(resource = "datastructure", xpath = "//str:DataStructure"),
-    dataflow = list(resource = "dataflow", xpath = "//str:Dataflow"),
-    codelist = list(resource = "codelist", xpath = "//str:Codelist"),
-    concept = list(resource = "conceptscheme", xpath = "//str:ConceptScheme")
+    datastructure = list(resource = "datastructure", xpath = "DataStructure"),
+    dataflow = list(resource = "dataflow", xpath = "Dataflow"),
+    codelist = list(resource = "codelist", xpath = "Codelist"),
+    concept = list(resource = "conceptscheme", xpath = "ConceptScheme")
   )
+  meta$xpath = sprintf("//%s:%s", ns_prefix, meta$xpath)
+  meta
 }
 
 sdmx_freq = function(code) {
@@ -91,4 +93,54 @@ sdmx_metadata = function(entries, lang = "en", ns_prefix = "com") {
       name = node |> xml2::xml_find_first(xpath) |> xml2::xml_text()
     )
   }))
+}
+
+parse_sdmx_data = function(xml) {
+  series = xml2::xml_find_all(xml, ".//generic:Series")
+  res = map(series, function(x) {
+    series_key = x |>
+      xml2::xml_find_first("./generic:SeriesKey") |>
+      xml2::xml_children()
+    nms = series_key |>
+      xml2::xml_attr("id") |>
+      tolower()
+    series_key = series_key |>
+      xml2::xml_attr("value") |>
+      setNames(nms) |>
+      as.list()
+
+    attrs = x |>
+      xml2::xml_find_first("./generic:Attributes") |>
+      xml2::xml_children()
+    nms = attrs |>
+      xml2::xml_attr("id") |>
+      tolower()
+    attrs = attrs |>
+      xml2::xml_attr("value") |>
+      setNames(nms) |>
+      as.list()
+
+    data = c(series_key, attrs)
+    data = data[names(data) %nin% c("collection", "calculated", "decimals", "unit_mult")]
+    data$key = paste(series_key, collapse = ".")
+    data$freq = sdmx_freq(data$freq)
+
+    entries = xml2::xml_find_all(x, "./generic:Obs[generic:ObsValue]")
+    data$date = entries |>
+      xml2::xml_find_all(".//generic:ObsDimension") |>
+      xml2::xml_attr("value") |>
+      parse_date(data$freq)
+
+    data$value = entries |>
+      xml2::xml_find_all(".//generic:ObsValue") |>
+      xml2::xml_attr("value") |>
+      as.numeric()
+
+    # some services return the last n observations newest first
+    setorderv(as.data.table(data), "date")
+  })
+  res = res |>
+    rbindlist(fill = TRUE) |>
+    setcolorder(col_order, skip_absent = TRUE)
+  res[]
 }

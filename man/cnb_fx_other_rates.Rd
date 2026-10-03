@@ -67,6 +67,7 @@ Other data:
 \code{\link[=cnb_fx_rates]{cnb_fx_rates()}},
 \code{\link[=cnb_pribor]{cnb_pribor()}},
 \code{\link[=ecb_data]{ecb_data()}},
+\code{\link[=nbb_data]{nbb_data()}},
 \code{\link[=nbp_fx_rates]{nbp_fx_rates()}},
 \code{\link[=nbp_gold]{nbp_gold()}},
 \code{\link[=nob_data]{nob_data()}},

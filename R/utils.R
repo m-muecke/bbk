@@ -21,7 +21,7 @@ parse_date = function(date, freq) {
   switch(
     freq,
     daily = as.Date(date),
-    weekly = parse_iso_week(date),
+    weekly = parse_week(date),
     monthly = parse_period(date, 1L),
     quarterly = parse_period(date, 3L),
     `semi-annual` = parse_period(date, 6L),
@@ -34,6 +34,10 @@ parse_period = function(date, months) {
   n = as.integer(sub("^\\d{4}\\D*", "", date))
   month = (n - 1L) * months + 1L
   as.Date(sprintf("%s-%02d-01", substr(date, 1L, 4L), month), format = "%Y-%m-%d")
+}
+
+parse_week = function(date) {
+  if (all(grepl("^\\d{4}-\\d{2}-\\d{2}$", date))) as.Date(date) else parse_iso_week(date)
 }
 
 parse_iso_week = function(date) {

@@ -83,6 +83,13 @@ test_that("parse_date maps weekly periods to the Monday of the ISO week", {
   expect_identical(format(actual, "%G-W%V"), weeks)
 })
 
+test_that("parse_date keeps weekly periods labelled with a calendar date", {
+  expect_identical(
+    parse_date(c("2026-08-19", "2026-08-26"), "weekly"),
+    as.Date(c("2026-08-19", "2026-08-26"))
+  )
+})
+
 test_that("sdmx_metadata parses entries", {
   body = xml2::read_xml(test_path("fixtures", "nob-metadata.xml"))
   entries = xml2::xml_find_all(body, "//str:Dataflow")

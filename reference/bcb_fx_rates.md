@@ -90,82 +90,140 @@ Other data:
 # \donttest{
 # fetch USD/BRL closing rates
 bcb_fx_rates("USD", start_date = "2024-01-01", end_date = "2024-01-31")
-#>           date currency    bid    ask
-#>         <Date>   <char>  <num>  <num>
-#>  1: 2024-01-02      USD 4.8910 4.8916
-#>  2: 2024-01-03      USD 4.9206 4.9212
-#>  3: 2024-01-04      USD 4.9182 4.9188
-#>  4: 2024-01-05      USD 4.8893 4.8899
-#>  5: 2024-01-08      USD 4.8844 4.8850
-#>  6: 2024-01-09      USD 4.8931 4.8937
-#>  7: 2024-01-10      USD 4.8895 4.8901
-#>  8: 2024-01-11      USD 4.8788 4.8794
-#>  9: 2024-01-12      USD 4.8537 4.8543
-#> 10: 2024-01-15      USD 4.8759 4.8765
-#> 11: 2024-01-16      USD 4.9032 4.9038
-#> 12: 2024-01-17      USD 4.9340 4.9346
-#> 13: 2024-01-18      USD 4.9397 4.9403
-#> 14: 2024-01-19      USD 4.9217 4.9223
-#> 15: 2024-01-22      USD 4.9484 4.9490
-#> 16: 2024-01-23      USD 4.9709 4.9715
-#> 17: 2024-01-24      USD 4.9186 4.9192
-#> 18: 2024-01-25      USD 4.9226 4.9232
-#> 19: 2024-01-26      USD 4.9119 4.9125
-#> 20: 2024-01-29      USD 4.9219 4.9225
-#> 21: 2024-01-30      USD 4.9632 4.9638
-#> 22: 2024-01-31      USD 4.9529 4.9535
-#>           date currency    bid    ask
-#>         <Date>   <char>  <num>  <num>
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(base_request(url),     resource), ..., `$format` = "json"), body = bcb_error_body)): HTTP 403 Forbidden.
+#> ℹ <!doctype html> <html lang="en">
+#> 
+#> <head> <meta charset="utf-8"> <meta name="viewport"
+#>   content="width=device-width, initial-scale=1">
+#> 
+#> <link href="https://www.bcb.gov.br/svr_css/bootstrap.min.css" rel="stylesheet">
+#> 
+#> <link rel="stylesheet"
+#>   href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap">
+#>   <link rel="stylesheet"
+#>   href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap">
+#> 
+#> <link rel="stylesheet" href="https://www.bcb.gov.br/svr_css/theme.css">
+#> 
+#> <title>Banco Central do Brasil</title> </head>
+#> 
+#> <body> <header> <h1 class="logo">Banco Central do Brasil</h1> </header> <div
+#>   id="menu"></div> <section class="content"> <div class="container"> <h2
+#>   class="cormorant">Requisição inválida</h2>
+#> 
+#> <p>Seu "browser" (ou o servidor proxy) enviou uma requisição inválida ao
+#>   servidor.</p>
+#> 
+#> <div class="mb-4 text-danger"> <p>A sua requisição foi rejeitada.<br> Código de
+#>   erro: 20261009T085847Z-16d5d5b65d9h7vh2hC1DM18htw00000016qg000000009kaq<br>
+#>   Data e hora do erro: <span class="error-date-time"></span> </p> <p>Caso
+#>   necessite de ajuda entre em contato com a Central de Atendimento do Banco
+#>   Central: +55 61 3414-2156.  </p> </div>
+#> 
+#> <div class="fst-italic"> <h3 class="h2 cormorant">Bad request</h3>
+#> 
+#> <p class="">Your browser (or proxy) sent a request that this server could not
+#>   understand.</p>
+#> 
+#> <div class="text-danger"> <p>Your request was rejected.<br> Error code:
+#>   20261009T085847Z-16d5d5b65d9h7vh2hC1DM18htw00000016qg000000009kaq<br> Error
+#>   date and time: <span class="error-date-time"></span></p> <p>If you need help,
+#>   contact the Central Bank Call Center: +55 61 3414-2156.</p> </div> </div>
+#>   </div> </section> <footer role="contentinfo"> <a name="inicioRodape"
+#>   id="inicioRodape"></a> <div class="container"> <span class="line"> <!--
+#>   chanfro --> </span> <div class="content d-sm-flex justify-content-sm-between
+#>   pr-sm-5"> <div class="missao mb-2 mb-sm-0"> Assegurar a estabilidade do poder
+#>   de compra da moeda e um sistema financeiro sólido e eficiente </div> <div
+#>   class="infos"> <ul class="list-inline text-sm-right"> <li
+#>   class="list-inline-item">Atendimento: 145 (custo de ligação local)</li> <li
+#>   class="list-inline-item"><a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/faleconosco">Fale conosco</a>
+#>   </li> </ul> <ul class="list-inline text-sm-right mb-0"> <li
+#>   class="list-inline-item"><a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/politicaprivacidade">Política
+#>   de privacidade</a></li> <li class="list-inline-item sem-separador"><a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/politica_acessibilidade">Política
+#>   de acessibilidade</a></li> <li class="list-inline-item">© Banco Central do
+#>   Brasil - <a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/direitosautorais">Todos os
+#>   direitos reservados</a></li> </ul> </div> </div> </div> </footer>
+#> 
+#> <script src="https://www.bcb.gov.br/svr_js/bootstrap.bundle.min.js"></script>
+#> 
+#> <script> let elErrorDateTime = document.querySelectorAll('.error-date-time')
+#>   elErrorDateTime.forEach(e => { const actualDateText =
+#>   document.createTextNode(new Date) e.append(actualDateText) }) </script>
+#>   </body>
+#> 
+#> </html>
 
 # fetch multiple currencies
 bcb_fx_rates(c("USD", "EUR"), start_date = "2024-01-01", end_date = "2024-01-31")
-#>           date currency    bid    ask
-#>         <Date>   <char>  <num>  <num>
-#>  1: 2024-01-02      USD 4.8910 4.8916
-#>  2: 2024-01-03      USD 4.9206 4.9212
-#>  3: 2024-01-04      USD 4.9182 4.9188
-#>  4: 2024-01-05      USD 4.8893 4.8899
-#>  5: 2024-01-08      USD 4.8844 4.8850
-#>  6: 2024-01-09      USD 4.8931 4.8937
-#>  7: 2024-01-10      USD 4.8895 4.8901
-#>  8: 2024-01-11      USD 4.8788 4.8794
-#>  9: 2024-01-12      USD 4.8537 4.8543
-#> 10: 2024-01-15      USD 4.8759 4.8765
-#> 11: 2024-01-16      USD 4.9032 4.9038
-#> 12: 2024-01-17      USD 4.9340 4.9346
-#> 13: 2024-01-18      USD 4.9397 4.9403
-#> 14: 2024-01-19      USD 4.9217 4.9223
-#> 15: 2024-01-22      USD 4.9484 4.9490
-#> 16: 2024-01-23      USD 4.9709 4.9715
-#> 17: 2024-01-24      USD 4.9186 4.9192
-#> 18: 2024-01-25      USD 4.9226 4.9232
-#> 19: 2024-01-26      USD 4.9119 4.9125
-#> 20: 2024-01-29      USD 4.9219 4.9225
-#> 21: 2024-01-30      USD 4.9632 4.9638
-#> 22: 2024-01-31      USD 4.9529 4.9535
-#> 23: 2024-01-02      EUR 5.3517 5.3543
-#> 24: 2024-01-03      EUR 5.3649 5.3676
-#> 25: 2024-01-04      EUR 5.3874 5.3900
-#> 26: 2024-01-05      EUR 5.3665 5.3691
-#> 27: 2024-01-08      EUR 5.3577 5.3603
-#> 28: 2024-01-09      EUR 5.3423 5.3434
-#> 29: 2024-01-10      EUR 5.3618 5.3635
-#> 30: 2024-01-11      EUR 5.3398 5.3425
-#> 31: 2024-01-12      EUR 5.3216 5.3242
-#> 32: 2024-01-15      EUR 5.3381 5.3407
-#> 33: 2024-01-16      EUR 5.3347 5.3373
-#> 34: 2024-01-17      EUR 5.3519 5.3545
-#> 35: 2024-01-18      EUR 5.3596 5.3622
-#> 36: 2024-01-19      EUR 5.3558 5.3569
-#> 37: 2024-01-22      EUR 5.3863 5.3875
-#> 38: 2024-01-23      EUR 5.3835 5.3861
-#> 39: 2024-01-24      EUR 5.3608 5.3634
-#> 40: 2024-01-25      EUR 5.3317 5.3328
-#> 41: 2024-01-26      EUR 5.3363 5.3374
-#> 42: 2024-01-29      EUR 5.3137 5.3163
-#> 43: 2024-01-30      EUR 5.3776 5.3803
-#> 44: 2024-01-31      EUR 5.3793 5.3805
-#>           date currency    bid    ask
-#>         <Date>   <char>  <num>  <num>
+#> Error in req_perform(req_error(req_url_query(req_url_path_append(base_request(url),     resource), ..., `$format` = "json"), body = bcb_error_body)): HTTP 403 Forbidden.
+#> ℹ <!doctype html> <html lang="en">
+#> 
+#> <head> <meta charset="utf-8"> <meta name="viewport"
+#>   content="width=device-width, initial-scale=1">
+#> 
+#> <link href="https://www.bcb.gov.br/svr_css/bootstrap.min.css" rel="stylesheet">
+#> 
+#> <link rel="stylesheet"
+#>   href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap">
+#>   <link rel="stylesheet"
+#>   href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap">
+#> 
+#> <link rel="stylesheet" href="https://www.bcb.gov.br/svr_css/theme.css">
+#> 
+#> <title>Banco Central do Brasil</title> </head>
+#> 
+#> <body> <header> <h1 class="logo">Banco Central do Brasil</h1> </header> <div
+#>   id="menu"></div> <section class="content"> <div class="container"> <h2
+#>   class="cormorant">Requisição inválida</h2>
+#> 
+#> <p>Seu "browser" (ou o servidor proxy) enviou uma requisição inválida ao
+#>   servidor.</p>
+#> 
+#> <div class="mb-4 text-danger"> <p>A sua requisição foi rejeitada.<br> Código de
+#>   erro: 20261009T085847Z-16d5d5b65d9h7vh2hC1DM18htw00000016qg000000009kax<br>
+#>   Data e hora do erro: <span class="error-date-time"></span> </p> <p>Caso
+#>   necessite de ajuda entre em contato com a Central de Atendimento do Banco
+#>   Central: +55 61 3414-2156.  </p> </div>
+#> 
+#> <div class="fst-italic"> <h3 class="h2 cormorant">Bad request</h3>
+#> 
+#> <p class="">Your browser (or proxy) sent a request that this server could not
+#>   understand.</p>
+#> 
+#> <div class="text-danger"> <p>Your request was rejected.<br> Error code:
+#>   20261009T085847Z-16d5d5b65d9h7vh2hC1DM18htw00000016qg000000009kax<br> Error
+#>   date and time: <span class="error-date-time"></span></p> <p>If you need help,
+#>   contact the Central Bank Call Center: +55 61 3414-2156.</p> </div> </div>
+#>   </div> </section> <footer role="contentinfo"> <a name="inicioRodape"
+#>   id="inicioRodape"></a> <div class="container"> <span class="line"> <!--
+#>   chanfro --> </span> <div class="content d-sm-flex justify-content-sm-between
+#>   pr-sm-5"> <div class="missao mb-2 mb-sm-0"> Assegurar a estabilidade do poder
+#>   de compra da moeda e um sistema financeiro sólido e eficiente </div> <div
+#>   class="infos"> <ul class="list-inline text-sm-right"> <li
+#>   class="list-inline-item">Atendimento: 145 (custo de ligação local)</li> <li
+#>   class="list-inline-item"><a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/faleconosco">Fale conosco</a>
+#>   </li> </ul> <ul class="list-inline text-sm-right mb-0"> <li
+#>   class="list-inline-item"><a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/politicaprivacidade">Política
+#>   de privacidade</a></li> <li class="list-inline-item sem-separador"><a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/politica_acessibilidade">Política
+#>   de acessibilidade</a></li> <li class="list-inline-item">© Banco Central do
+#>   Brasil - <a bcblink
+#>   href="https://www.bcb.gov.br/acessoinformacao/direitosautorais">Todos os
+#>   direitos reservados</a></li> </ul> </div> </div> </div> </footer>
+#> 
+#> <script src="https://www.bcb.gov.br/svr_js/bootstrap.bundle.min.js"></script>
+#> 
+#> <script> let elErrorDateTime = document.querySelectorAll('.error-date-time')
+#>   elErrorDateTime.forEach(e => { const actualDateText =
+#>   document.createTextNode(new Date) e.append(actualDateText) }) </script>
+#>   </body>
+#> 
+#> </html>
 # }
 ```

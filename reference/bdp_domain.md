@@ -290,15 +290,15 @@ bdp_domain()
 #> 53:        TSPE-LA       TRUE          3            1
 #> 54:                      TRUE          4            1
 #> 55:                     FALSE         NA           NA
-#> 56:                      TRUE      10540            2
-#> 57:                      TRUE       5109            1
+#> 56:                      TRUE      10718            2
+#> 57:                      TRUE       5148            1
 #> 58:                      TRUE        200            1
 #> 59:           CBSD      FALSE         NA           NA
 #> 60:          CBSDQ       TRUE        147            1
 #> 61:          CBSDA       TRUE       1018            2
 #> 62:          CBSDS       TRUE       6757            2
 #> 63:  NA-Rev Exp GG       TRUE        107            1
-#> 64:            BCR       TRUE       6901            2
+#> 64:            BCR       TRUE       6902            2
 #> 65:         NA-ICS       TRUE         60            1
 #> 66:         CN-NAD       TRUE        386            3
 #> 67:                      TRUE         40            4

@@ -112,11 +112,11 @@ Other data:
 nbb_data("DF_EXR", "D.USD", last_n = 5L)
 #>          date    key  value   freq exr_currency
 #>        <Date> <char>  <num> <char>       <char>
-#> 1: 2026-09-28  D.USD 1.1378  daily          USD
-#> 2: 2026-09-29  D.USD 1.1355  daily          USD
-#> 3: 2026-09-30  D.USD 1.1355  daily          USD
-#> 4: 2026-10-01  D.USD 1.1298  daily          USD
-#> 5: 2026-10-02  D.USD 1.1225  daily          USD
+#> 1: 2026-10-02  D.USD 1.1225  daily          USD
+#> 2: 2026-10-05  D.USD 1.1204  daily          USD
+#> 3: 2026-10-06  D.USD 1.1269  daily          USD
+#> 4: 2026-10-07  D.USD 1.1177  daily          USD
+#> 5: 2026-10-08  D.USD 1.1186  daily          USD
 
 # fetch multiple monthly average exchange rates
 nbb_data("DF_EXR", "M.USD+GBP", start_period = "2024-01")

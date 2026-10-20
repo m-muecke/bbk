@@ -91,10 +91,7 @@ parse_bde_data = function(json) {
 
   date = value = NULL
   dt[, let(date = unlist(date, use.names = FALSE), value = unlist(value, use.names = FALSE))]
-  dt[,
-    names(.SD) := map(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")),
-    .SDcols = patterns("date")
-  ]
+  dt[, names(.SD) := map(.SD, parse_timestamp), .SDcols = patterns("date")]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }
@@ -142,7 +139,7 @@ parse_bde_latest = function(json) {
   new_cols = c("key", "title", "freq", "decimals", "symbol", "trend", "date", "value")
   dt = setnames(rbindlist(json), old_cols, new_cols)
   date = NULL
-  dt[, date := as.POSIXct(date, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]
+  dt[, date := parse_timestamp(date)]
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }

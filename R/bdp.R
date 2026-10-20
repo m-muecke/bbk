@@ -233,7 +233,7 @@ parse_bdp_series = function(json) {
     obs_updated_at = map_chr(json, "obs_updated_at")
   )
   obs_updated_at = NULL
-  dt[, obs_updated_at := as.POSIXct(obs_updated_at, format = "%Y-%m-%dT%H:%M:%SZ", tz = "UTC")]
+  dt[, obs_updated_at := parse_timestamp(obs_updated_at)]
   dt[]
 }
 
@@ -274,11 +274,7 @@ parse_bdp_dataset = function(items) {
     id = map_chr(items, \(x) x$extension$id),
     label = map_chr(items, "label"),
     num_series = map_int(items, \(x) x$extension$num_series),
-    obs_updated_at = as.POSIXct(
-      map_chr(items, \(x) x$extension$obs_updated_at),
-      format = "%Y-%m-%dT%H:%M:%SZ",
-      tz = "UTC"
-    )
+    obs_updated_at = parse_timestamp(map_chr(items, \(x) x$extension$obs_updated_at))
   )
 }
 

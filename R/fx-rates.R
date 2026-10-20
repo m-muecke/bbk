@@ -132,9 +132,6 @@ boc_fx_rates = function(start_date = NULL, end_date = NULL, limit = NULL, skip =
   dt[, names(.SD) := map(.SD, \(x) unlist(x, use.names = FALSE)), .SDcols = is.list]
   rate = NULL
   dt[, rate := as.numeric(rate)]
-  dt[,
-    names(.SD) := map(.SD, \(x) as.POSIXct(x, format = "%Y-%m-%dT%H:%M:%OSZ", tz = "UTC")),
-    .SDcols = patterns("_timestamp$")
-  ]
+  dt[, names(.SD) := map(.SD, parse_timestamp), .SDcols = patterns("_timestamp$")]
   dt[]
 }

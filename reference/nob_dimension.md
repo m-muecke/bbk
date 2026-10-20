@@ -18,7 +18,7 @@ nob_dimension(id)
 - id:
 
   (`character(1)`)  
-  The id of the data structure definition to query (e.g., `"NB_EXR"`).
+  The id of the data structure definition to query (e.g., `"DSD_EXR"`).
 
 ## Value
 

@@ -1,7 +1,7 @@
 # Fetch National Bank of Belgium (NBB) dimensions
 
 Retrieve the dimension structure for a given data structure from the
-National Bank of Belgium SDMX Web Service (NBB.Stat).
+National Bank of Belgium SDMX Web Service.
 
 ## Usage
 

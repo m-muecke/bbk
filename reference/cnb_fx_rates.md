@@ -32,7 +32,8 @@ cnb_fx_rates(date = NULL, year = NULL, lang = "EN")
 
   (`character(1)`)  
   Language for the country and currency names, either `"EN"` or `"CZ"`.
-  Default `"EN"`.
+  With `year`, the names are taken from the first and last fixings of
+  that year. Default `"EN"`.
 
 ## Value
 
@@ -86,53 +87,53 @@ Other data:
 cnb_fx_rates()
 #>           date currency_code   currency        country amount   rate
 #>         <Date>        <char>     <char>         <char>  <int>  <num>
-#>  1: 2026-10-08           AUD     dollar      Australia      1 15.146
-#>  2: 2026-10-08           BRL       real         Brazil      1  4.344
-#>  3: 2026-10-08           CAD     dollar         Canada      1 15.295
-#>  4: 2026-10-08           CNY   renminbi          China      1  3.254
-#>  5: 2026-10-08           DKK      krone        Denmark      1  3.265
-#>  6: 2026-10-08           EUR       euro            EMU      1 24.400
-#>  7: 2026-10-08           HKD     dollar       Hongkong      1  2.779
-#>  8: 2026-10-08           HUF     forint        Hungary    100  6.661
-#>  9: 2026-10-08           ISK      krona        Iceland    100 17.810
-#> 10: 2026-10-08           XDR        SDR            IMF      1 29.493
-#> 11: 2026-10-08           INR      rupee          India    100 22.536
-#> 12: 2026-10-08           IDR     rupiah      Indonesia   1000  1.219
-#> 13: 2026-10-08           ILS new shekel         Israel      1  7.090
-#> 14: 2026-10-08           JPY        yen          Japan    100 13.784
-#> 15: 2026-10-08           MYR    ringgit       Malaysia      1  5.331
-#> 16: 2026-10-08           MXN       peso         Mexico      1  1.211
-#> 17: 2026-10-08           NZD     dollar    New Zealand      1 12.191
-#> 18: 2026-10-08           NOK      krone         Norway      1  2.277
-#> 19: 2026-10-08           PHP       peso    Philippines    100 34.620
-#> 20: 2026-10-08           PLN      zloty         Poland      1  5.577
-#> 21: 2026-10-08           RON        leu        Romania      1  4.567
-#> 22: 2026-10-08           SGD     dollar      Singapore      1 17.014
-#> 23: 2026-10-08           ZAR       rand   South Africa      1  1.309
-#> 24: 2026-10-08           KRW        won    South Korea    100  1.624
-#> 25: 2026-10-08           SEK      krona         Sweden      1  2.180
-#> 26: 2026-10-08           CHF      franc    Switzerland      1 26.173
-#> 27: 2026-10-08           THB       baht       Thailand    100 64.750
-#> 28: 2026-10-08           TRY       lira         Turkey    100 44.317
-#> 29: 2026-10-08           GBP      pound United Kingdom      1 28.807
-#> 30: 2026-10-08           USD     dollar            USA      1 21.811
+#>  1: 2026-10-20           AUD     dollar      Australia      1 15.146
+#>  2: 2026-10-20           BRL       real         Brazil      1  4.314
+#>  3: 2026-10-20           CAD     dollar         Canada      1 15.427
+#>  4: 2026-10-20           CNY   renminbi          China      1  3.247
+#>  5: 2026-10-20           DKK      krone        Denmark      1  3.254
+#>  6: 2026-10-20           EUR       euro            EMU      1 24.325
+#>  7: 2026-10-20           HKD     dollar       Hongkong      1  2.762
+#>  8: 2026-10-20           HUF     forint        Hungary    100  6.672
+#>  9: 2026-10-20           ISK      krona        Iceland    100 17.860
+#> 10: 2026-10-20           XDR        SDR            IMF      1 29.375
+#> 11: 2026-10-20           INR      rupee          India    100 22.839
+#> 12: 2026-10-20           IDR     rupiah      Indonesia   1000  1.206
+#> 13: 2026-10-20           ILS new shekel         Israel      1  6.979
+#> 14: 2026-10-20           JPY        yen          Japan    100 13.713
+#> 15: 2026-10-20           MYR    ringgit       Malaysia      1  5.310
+#> 16: 2026-10-20           MXN       peso         Mexico      1  1.171
+#> 17: 2026-10-20           NZD     dollar    New Zealand      1 12.319
+#> 18: 2026-10-20           NOK      krone         Norway      1  2.311
+#> 19: 2026-10-20           PHP       peso    Philippines    100 34.350
+#> 20: 2026-10-20           PLN      zloty         Poland      1  5.558
+#> 21: 2026-10-20           RON        leu        Romania      1  4.562
+#> 22: 2026-10-20           SGD     dollar      Singapore      1 16.961
+#> 23: 2026-10-20           ZAR       rand   South Africa      1  1.317
+#> 24: 2026-10-20           KRW        won    South Korea    100  1.633
+#> 25: 2026-10-20           SEK      krona         Sweden      1  2.187
+#> 26: 2026-10-20           CHF      franc    Switzerland      1 26.336
+#> 27: 2026-10-20           THB       baht       Thailand    100 64.450
+#> 28: 2026-10-20           TRY       lira         Turkey    100 43.772
+#> 29: 2026-10-20           GBP      pound United Kingdom      1 28.945
+#> 30: 2026-10-20           USD     dollar            USA      1 21.681
 #>           date currency_code   currency        country amount   rate
 #>         <Date>        <char>     <char>         <char>  <int>  <num>
 
 # all fixings for a given year
 cnb_fx_rates(year = 2024L)
-#>             date currency_code amount   rate
-#>           <Date>        <char>  <int>  <num>
-#>    1: 2024-01-02           AUD      1 15.278
-#>    2: 2024-01-02           BGN      1 12.621
-#>    3: 2024-01-02           BRL      1  4.609
-#>    4: 2024-01-02           CAD      1 16.938
-#>    5: 2024-01-02           CHF      1 26.524
-#>   ---                                       
-#> 7808: 2024-12-31           THB    100 70.618
-#> 7809: 2024-12-31           TRY    100 68.539
-#> 7810: 2024-12-31           USD      1 24.237
-#> 7811: 2024-12-31           XDR      1 31.609
-#> 7812: 2024-12-31           ZAR      1  1.284
+#>             date currency_code currency      country amount   rate
+#>           <Date>        <char>   <char>       <char>  <int>  <num>
+#>    1: 2024-01-02           AUD   dollar    Australia      1 15.278
+#>    2: 2024-01-02           BGN      lev     Bulgaria      1 12.621
+#>    3: 2024-01-02           BRL     real       Brazil      1  4.609
+#>    4: 2024-01-02           CAD   dollar       Canada      1 16.938
+#>    5: 2024-01-02           CHF    franc  Switzerland      1 26.524
+#>   ---                                                             
+#> 7808: 2024-12-31           THB     baht     Thailand    100 70.618
+#> 7809: 2024-12-31           TRY     lira       Turkey    100 68.539
+#> 7810: 2024-12-31           USD   dollar          USA      1 24.237
+#> 7811: 2024-12-31           XDR      SDR          IMF      1 31.609
+#> 7812: 2024-12-31           ZAR     rand South Africa      1  1.284
 # }
 ```

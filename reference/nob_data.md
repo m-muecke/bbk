@@ -111,11 +111,11 @@ Other data:
 nob_data("EXR", "B.USD.NOK.SP", last_n = 5L)
 #>          date          key  value   freq base_cur quote_cur  tenor
 #>        <Date>       <char>  <num> <char>   <char>    <char> <char>
-#> 1: 2026-10-02 B.USD.NOK.SP 9.6494  daily      USD       NOK     SP
-#> 2: 2026-10-05 B.USD.NOK.SP 9.6015  daily      USD       NOK     SP
-#> 3: 2026-10-06 B.USD.NOK.SP 9.5643  daily      USD       NOK     SP
-#> 4: 2026-10-07 B.USD.NOK.SP 9.5840  daily      USD       NOK     SP
-#> 5: 2026-10-08 B.USD.NOK.SP 9.5807  daily      USD       NOK     SP
+#> 1: 2026-10-14 B.USD.NOK.SP 9.4716  daily      USD       NOK     SP
+#> 2: 2026-10-15 B.USD.NOK.SP 9.5039  daily      USD       NOK     SP
+#> 3: 2026-10-16 B.USD.NOK.SP 9.4410  daily      USD       NOK     SP
+#> 4: 2026-10-19 B.USD.NOK.SP 9.4036  daily      USD       NOK     SP
+#> 5: 2026-10-20 B.USD.NOK.SP 9.3843  daily      USD       NOK     SP
 
 # fetch multiple exchange rates
 nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
@@ -127,11 +127,11 @@ nob_data("EXR", "B.USD+EUR+GBP.NOK.SP", start_period = "2024-01-01")
 #>    4: 2024-01-05 B.USD.NOK.SP 10.3553  daily      USD       NOK     SP
 #>    5: 2024-01-08 B.USD.NOK.SP 10.3800  daily      USD       NOK     SP
 #>   ---                                                                 
-#> 2084: 2026-10-02 B.EUR.NOK.SP 10.8315  daily      EUR       NOK     SP
-#> 2085: 2026-10-05 B.EUR.NOK.SP 10.7575  daily      EUR       NOK     SP
-#> 2086: 2026-10-06 B.EUR.NOK.SP 10.7780  daily      EUR       NOK     SP
-#> 2087: 2026-10-07 B.EUR.NOK.SP 10.7120  daily      EUR       NOK     SP
-#> 2088: 2026-10-08 B.EUR.NOK.SP 10.7170  daily      EUR       NOK     SP
+#> 2108: 2026-10-14 B.EUR.NOK.SP 10.6035  daily      EUR       NOK     SP
+#> 2109: 2026-10-15 B.EUR.NOK.SP 10.6520  daily      EUR       NOK     SP
+#> 2110: 2026-10-16 B.EUR.NOK.SP 10.6240  daily      EUR       NOK     SP
+#> 2111: 2026-10-19 B.EUR.NOK.SP 10.5555  daily      EUR       NOK     SP
+#> 2112: 2026-10-20 B.EUR.NOK.SP 10.5245  daily      EUR       NOK     SP
 
 # fetch policy rate
 nob_data("IR", last_n = 5L)
@@ -142,21 +142,21 @@ nob_data("IR", last_n = 5L)
 #>  3: 2023-01-01 A.KPRA.SD.R  3.54  annual            KPRA     SD            R
 #>  4: 2024-01-01 A.KPRA.SD.R  4.50  annual            KPRA     SD            R
 #>  5: 2025-01-01 A.KPRA.SD.R  4.29  annual            KPRA     SD            R
-#>  6: 2026-10-02 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
-#>  7: 2026-10-05 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
-#>  8: 2026-10-06 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
-#>  9: 2026-10-07 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
-#> 10: 2026-10-08 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
-#> 11: 2026-10-02 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
-#> 12: 2026-10-05 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
-#> 13: 2026-10-06 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
-#> 14: 2026-10-07 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
-#> 15: 2026-10-08 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
-#> 16: 2026-10-02 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
-#> 17: 2026-10-05 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
-#> 18: 2026-10-06 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
-#> 19: 2026-10-07 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
-#> 20: 2026-10-08 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
+#>  6: 2026-10-13 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
+#>  7: 2026-10-14 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
+#>  8: 2026-10-15 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
+#>  9: 2026-10-16 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
+#> 10: 2026-10-19 B.KPRA.OL.R  5.50   daily            KPRA     OL            R
+#> 11: 2026-10-13 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
+#> 12: 2026-10-14 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
+#> 13: 2026-10-15 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
+#> 14: 2026-10-16 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
+#> 15: 2026-10-19 B.KPRA.SD.R  4.50   daily            KPRA     SD            R
+#> 16: 2026-10-13 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
+#> 17: 2026-10-14 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
+#> 18: 2026-10-15 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
+#> 19: 2026-10-16 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
+#> 20: 2026-10-19 B.KPRA.RR.R  3.50   daily            KPRA     RR            R
 #> 21: 2026-05-01 M.KPRA.OL.R  5.19 monthly            KPRA     OL            R
 #> 22: 2026-06-01 M.KPRA.OL.R  5.25 monthly            KPRA     OL            R
 #> 23: 2026-07-01 M.KPRA.OL.R  5.25 monthly            KPRA     OL            R

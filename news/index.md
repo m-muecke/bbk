@@ -2,6 +2,10 @@
 
 ## bbk (development version)
 
+- Date arguments such as `start_date` and `end_date` now reject
+  impossible dates like `"2024-02-30"` with an informative error that
+  names the argument, instead of failing inside
+  [`as.Date()`](https://rdrr.io/r/base/as.Date.html).
 - Progress bars for slow paginated requests can now be turned off with
   `options(bbk.progress = FALSE)`.
 - [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
@@ -20,17 +24,66 @@
   [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
   now reject `NA` and zero-length series keys with an informative error
   instead of sending a malformed request.
+- [`bbk_data()`](https://m-muecke.github.io/bbk/reference/bbk_data.md),
+  [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md),
+  [`bis_data()`](https://m-muecke.github.io/bbk/reference/bis_data.md),
+  and
+  [`ecb_data()`](https://m-muecke.github.io/bbk/reference/ecb_data.md)
+  now convert a `POSIXlt` `updated_after` outside UTC to the correct
+  time. It was previously read as if it were already in UTC.
+- [`bdp_data()`](https://m-muecke.github.io/bbk/reference/bdp_data.md)
+  no longer adds rows with a missing `value` for dates on which a series
+  has no observation. They appeared when the series in a request covered
+  different date ranges, including with `last_n`.
+- [`boc_data()`](https://m-muecke.github.io/bbk/reference/boc_data.md)
+  with `group_name` and
+  [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)
+  work again after the Valet API added a nested `metadata` field and
+  renamed `groupDetails` to `groupDetail`.
 - [`boc_metadata()`](https://m-muecke.github.io/bbk/reference/boc_metadata.md)
   now works for groups with a single series. It previously dropped the
   `series_name` column and added a stray `group_groupSeries` column.
 - [`boi_data()`](https://m-muecke.github.io/bbk/reference/boi_data.md)
   now parses the dates of weekly series, which the BoI labels with a
   calendar date rather than an ISO week. They were previously `NA`.
+- [`boj_data()`](https://m-muecke.github.io/bbk/reference/boj_data.md)
+  and
+  [`boj_metadata()`](https://m-muecke.github.io/bbk/reference/boj_metadata.md)
+  now report the HTTP status when the BoJ returns an error that isn’t
+  JSON, such as an HTML maintenance page, instead of failing to parse
+  it.
+- [`cnb_fx_other_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_other_rates.md)
+  now rejects a `year_month` with a month outside `01` to `12` instead
+  of sending an invalid request.
+- [`cnb_fx_rates()`](https://m-muecke.github.io/bbk/reference/cnb_fx_rates.md)
+  with `year` now returns the `currency` and `country` columns in the
+  requested `lang`, like a query by `date`. The yearly CNB endpoint
+  omits the names, so they are looked up from the first and last fixings
+  of the year.
 - [`nbb_data()`](https://m-muecke.github.io/bbk/reference/nbb_data.md),
   [`nbb_dimension()`](https://m-muecke.github.io/bbk/reference/nbb_dimension.md),
   and
   [`nbb_metadata()`](https://m-muecke.github.io/bbk/reference/nbb_metadata.md)
   now support National Bank of Belgium (NBB) data.
+- [`onb_data()`](https://m-muecke.github.io/bbk/reference/onb_data.md)
+  now returns `date` as a `Date` and `freq` as a name such as
+  `"monthly"`, like the other `*_data()` functions. They were previously
+  the raw OeNB labels, such as `"2005-B1"` and `"H"`. Periods use their
+  first day, so `"2005-B2"` becomes `2005-07-01`.
+- [`onb_frequency()`](https://m-muecke.github.io/bbk/reference/onb_frequency.md)
+  now requires `key`, which the OeNB API needs, instead of failing with
+  an HTTP 500 error.
+- [`onb_hierarchy()`](https://m-muecke.github.io/bbk/reference/onb_hierarchy.md)
+  now checks that `lang` is a two-letter code.
+- [`onb_metadata()`](https://m-muecke.github.io/bbk/reference/onb_metadata.md),
+  [`onb_hierarchy()`](https://m-muecke.github.io/bbk/reference/onb_hierarchy.md),
+  and [`onb_toc()`](https://m-muecke.github.io/bbk/reference/onb_toc.md)
+  now include the OeNB error message, such as an unknown `key` or
+  `lang`, instead of only “HTTP 200 OK”. The API serves these errors as
+  `text/xml`, which was not recognized.
+- [`snb_data()`](https://m-muecke.github.io/bbk/reference/snb_data.md)
+  and the other SNB functions now report the HTTP status when an error
+  response is empty or isn’t JSON, instead of failing to parse it.
 
 ## bbk 0.13.0
 

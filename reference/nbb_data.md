@@ -1,7 +1,7 @@
 # Fetch National Bank of Belgium (NBB) data
 
 Retrieve time series data from the National Bank of Belgium SDMX Web
-Service (NBB.Stat).
+Service.
 
 ## Usage
 
@@ -112,11 +112,11 @@ Other data:
 nbb_data("DF_EXR", "D.USD", last_n = 5L)
 #>          date    key  value   freq exr_currency
 #>        <Date> <char>  <num> <char>       <char>
-#> 1: 2026-10-02  D.USD 1.1225  daily          USD
-#> 2: 2026-10-05  D.USD 1.1204  daily          USD
-#> 3: 2026-10-06  D.USD 1.1269  daily          USD
-#> 4: 2026-10-07  D.USD 1.1177  daily          USD
-#> 5: 2026-10-08  D.USD 1.1186  daily          USD
+#> 1: 2026-10-14  D.USD 1.1195  daily          USD
+#> 2: 2026-10-15  D.USD 1.1208  daily          USD
+#> 3: 2026-10-16  D.USD 1.1253  daily          USD
+#> 4: 2026-10-19  D.USD 1.1225  daily          USD
+#> 5: 2026-10-20  D.USD 1.1215  daily          USD
 
 # fetch multiple monthly average exchange rates
 nbb_data("DF_EXR", "M.USD+GBP", start_period = "2024-01")
@@ -199,7 +199,7 @@ nbb_data("DF_HICP_2025", "M.BE.000000.2025.HCP.GROWTH_RATE", last_n = 5L)
 #> 2: 2026-06-01 M.BE.000000.2025.HCP.GROWTH_RATE 3.34435 monthly       BE
 #> 3: 2026-07-01 M.BE.000000.2025.HCP.GROWTH_RATE 3.64536 monthly       BE
 #> 4: 2026-08-01 M.BE.000000.2025.HCP.GROWTH_RATE 4.18822 monthly       BE
-#> 5: 2026-09-01 M.BE.000000.2025.HCP.GROWTH_RATE 4.63074 monthly       BE
+#> 5: 2026-09-01 M.BE.000000.2025.HCP.GROWTH_RATE 4.47106 monthly       BE
 #>    nbb_coicop index_base index_type  derivation
 #>        <char>     <char>     <char>      <char>
 #> 1:     000000       2025        HCP GROWTH_RATE

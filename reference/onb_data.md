@@ -63,6 +63,12 @@ A
 [`data.table::data.table()`](https://rdrr.io/pkg/data.table/man/data.table.html)
 with the requested data.
 
+## Details
+
+A `key` can cover several series, such as one per partner country, which
+share the same `key` and differ only in their `attr` columns. Group by
+`key` and the `attr` columns to separate them.
+
 ## See also
 
 Other data:
@@ -105,129 +111,129 @@ Other data:
 ``` r
 # \donttest{
 onb_data(hier_id = 11, key = "VDBFKBSC217000")
-#>         date            key value   freq                                title
-#>       <char>         <char> <num> <char>                               <char>
-#>   1:    1998 VDBFKBSC217000  2558      A Loans to euro area residents - total
-#>   2:    1999 VDBFKBSC217000 15780      A Loans to euro area residents - total
-#>   3:    2000 VDBFKBSC217000  9552      A Loans to euro area residents - total
-#>   4:    2001 VDBFKBSC217000  5538      A Loans to euro area residents - total
-#>   5:    2002 VDBFKBSC217000  7815      A Loans to euro area residents - total
-#>  ---                                                                         
-#> 368: 2026-04 VDBFKBSC217000  2117      M Loans to euro area residents - total
-#> 369: 2026-05 VDBFKBSC217000  2180      M Loans to euro area residents - total
-#> 370: 2026-06 VDBFKBSC217000  2444      M Loans to euro area residents - total
-#> 371: 2026-07 VDBFKBSC217000  2853      M Loans to euro area residents - total
-#> 372: 2026-08 VDBFKBSC217000  2666      M Loans to euro area residents - total
-#>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim
-#>      <char>  <char> <char> <char>    <char>       <char>    <char>    <char>
-#>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   2:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   3:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>  ---                                                                        
-#> 368:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 369:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 370:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 371:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 372:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>      unit_mult        unit_text
-#>         <char>           <char>
-#>   1:         6 in millions Euro
-#>   2:         6 in millions Euro
-#>   3:         6 in millions Euro
-#>   4:         6 in millions Euro
-#>   5:         6 in millions Euro
-#>  ---                           
-#> 368:         6 in millions Euro
-#> 369:         6 in millions Euro
-#> 370:         6 in millions Euro
-#> 371:         6 in millions Euro
-#> 372:         6 in millions Euro
+#>            date            key value    freq
+#>          <Date>         <char> <num>  <char>
+#>   1: 1998-01-01 VDBFKBSC217000  2558  annual
+#>   2: 1999-01-01 VDBFKBSC217000 15780  annual
+#>   3: 2000-01-01 VDBFKBSC217000  9552  annual
+#>   4: 2001-01-01 VDBFKBSC217000  5538  annual
+#>   5: 2002-01-01 VDBFKBSC217000  7815  annual
+#>  ---                                        
+#> 369: 2026-05-01 VDBFKBSC217000  2180 monthly
+#> 370: 2026-06-01 VDBFKBSC217000  2444 monthly
+#> 371: 2026-07-01 VDBFKBSC217000  2853 monthly
+#> 372: 2026-08-01 VDBFKBSC217000  2666 monthly
+#> 373: 2026-09-01 VDBFKBSC217000  2156 monthly
+#>                                     title  attr1   attr2  attr3  attr4
+#>                                    <char> <char>  <char> <char> <char>
+#>   1: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   2: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   3: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   4: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   5: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>  ---                                                                  
+#> 369: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 370: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 371: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 372: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 373: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>      attr1_dim    attr2_dim attr3_dim attr4_dim unit_mult        unit_text
+#>         <char>       <char>    <char>    <char>    <char>           <char>
+#>   1: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   2: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   3: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   4: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   5: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>  ---                                                                      
+#> 369: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 370: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 371: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 372: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 373: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
 
 # Loans to euro area residents, since 2000:
 onb_data(hier_id = 11, key = "VDBFKBSC217000", start_period = "2000-01-01")
-#>         date            key value   freq                                title
-#>       <char>         <char> <num> <char>                               <char>
-#>   1:    2000 VDBFKBSC217000  9552      A Loans to euro area residents - total
-#>   2:    2001 VDBFKBSC217000  5538      A Loans to euro area residents - total
-#>   3:    2002 VDBFKBSC217000  7815      A Loans to euro area residents - total
-#>   4:    2003 VDBFKBSC217000  6933      A Loans to euro area residents - total
-#>   5:    2004 VDBFKBSC217000 10963      A Loans to euro area residents - total
-#>  ---                                                                         
-#> 342: 2026-04 VDBFKBSC217000  2117      M Loans to euro area residents - total
-#> 343: 2026-05 VDBFKBSC217000  2180      M Loans to euro area residents - total
-#> 344: 2026-06 VDBFKBSC217000  2444      M Loans to euro area residents - total
-#> 345: 2026-07 VDBFKBSC217000  2853      M Loans to euro area residents - total
-#> 346: 2026-08 VDBFKBSC217000  2666      M Loans to euro area residents - total
-#>       attr1   attr2  attr3  attr4 attr1_dim    attr2_dim attr3_dim attr4_dim
-#>      <char>  <char> <char> <char>    <char>       <char>    <char>    <char>
-#>   1:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   2:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   3:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   4:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>   5:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>  ---                                                                        
-#> 342:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 343:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 344:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 345:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#> 346:     AT 00100KI     AT    Z0Z PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG
-#>      unit_mult        unit_text
-#>         <char>           <char>
-#>   1:         6 in millions Euro
-#>   2:         6 in millions Euro
-#>   3:         6 in millions Euro
-#>   4:         6 in millions Euro
-#>   5:         6 in millions Euro
-#>  ---                           
-#> 342:         6 in millions Euro
-#> 343:         6 in millions Euro
-#> 344:         6 in millions Euro
-#> 345:         6 in millions Euro
-#> 346:         6 in millions Euro
+#>            date            key value    freq
+#>          <Date>         <char> <num>  <char>
+#>   1: 2000-01-01 VDBFKBSC217000  9552  annual
+#>   2: 2001-01-01 VDBFKBSC217000  5538  annual
+#>   3: 2002-01-01 VDBFKBSC217000  7815  annual
+#>   4: 2003-01-01 VDBFKBSC217000  6933  annual
+#>   5: 2004-01-01 VDBFKBSC217000 10963  annual
+#>  ---                                        
+#> 343: 2026-05-01 VDBFKBSC217000  2180 monthly
+#> 344: 2026-06-01 VDBFKBSC217000  2444 monthly
+#> 345: 2026-07-01 VDBFKBSC217000  2853 monthly
+#> 346: 2026-08-01 VDBFKBSC217000  2666 monthly
+#> 347: 2026-09-01 VDBFKBSC217000  2156 monthly
+#>                                     title  attr1   attr2  attr3  attr4
+#>                                    <char> <char>  <char> <char> <char>
+#>   1: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   2: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   3: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   4: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>   5: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>  ---                                                                  
+#> 343: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 344: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 345: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 346: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#> 347: Loans to euro area residents - total     AT 00100KI     AT    Z0Z
+#>      attr1_dim    attr2_dim attr3_dim attr4_dim unit_mult        unit_text
+#>         <char>       <char>    <char>    <char>    <char>           <char>
+#>   1: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   2: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   3: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   4: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>   5: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#>  ---                                                                      
+#> 343: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 344: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 345: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 346: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
+#> 347: PRODUZENT BANKENSEKTOR    REGION  WAEHRUNG         6 in millions Euro
 
 # Austrian imports and exports of goods from/to Germany, 2002–2012, annual frequency:
 onb_data(hier_id = 901, key = "VDBQZA1000", start_period = 2002, end_period = 2012, freq = "A")
-#>         date        key  value   freq  title  attr1  attr2  attr3  attr4  attr5
-#>       <char>     <char>  <num> <char> <char> <char> <char> <char> <char> <char>
-#>    1:   2002 VDBQZA1000    596      A  Goods     AT      D     TR    000    000
-#>    2:   2003 VDBQZA1000    679      A  Goods     AT      D     TR    000    000
-#>    3:   2004 VDBQZA1000    722      A  Goods     AT      D     TR    000    000
-#>    4:   2005 VDBQZA1000    786      A  Goods     AT      D     TR    000    000
-#>    5:   2006 VDBQZA1000    782      A  Goods     AT      D     TR    000    000
-#>   ---                                                                          
-#> 2603:   2008 VDBQZA1000  96077      A  Goods     AT      D ZALCA8    000    000
-#> 2604:   2009 VDBQZA1000  79696      A  Goods     AT      D ZALCA8    000    000
-#> 2605:   2010 VDBQZA1000  93865      A  Goods     AT      D ZALCA8    000    000
-#> 2606:   2011 VDBQZA1000 105492      A  Goods     AT      D ZALCA8    000    000
-#> 2607:   2012 VDBQZA1000 105634      A  Goods     AT      D ZALCA8    000    000
-#>        attr6  attr7 attr1_dim     attr2_dim     attr3_dim  attr4_dim attr5_dim
-#>       <char> <char>    <char>        <char>        <char>     <char>    <char>
-#>    1:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#>    2:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#>    3:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#>    4:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#>    5:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#>   ---                                                                         
-#> 2603:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#> 2604:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#> 2605:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#> 2606:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#> 2607:    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG Z_BRANCHE
-#>          attr6_dim     attr7_dim unit_mult        unit_text
-#>             <char>        <char>    <char>           <char>
-#>    1: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#>    2: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#>    3: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#>    4: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#>    5: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#>   ---                                                      
-#> 2603: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#> 2604: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#> 2605: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#> 2606: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
-#> 2607: Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#>             date        key  value   freq  title  attr1  attr2  attr3  attr4
+#>           <Date>     <char>  <num> <char> <char> <char> <char> <char> <char>
+#>    1: 2002-01-01 VDBQZA1000    596 annual  Goods     AT      D     TR    000
+#>    2: 2003-01-01 VDBQZA1000    679 annual  Goods     AT      D     TR    000
+#>    3: 2004-01-01 VDBQZA1000    722 annual  Goods     AT      D     TR    000
+#>    4: 2005-01-01 VDBQZA1000    786 annual  Goods     AT      D     TR    000
+#>    5: 2006-01-01 VDBQZA1000    782 annual  Goods     AT      D     TR    000
+#>   ---                                                                       
+#> 2603: 2008-01-01 VDBQZA1000  96077 annual  Goods     AT      D ZALCA8    000
+#> 2604: 2009-01-01 VDBQZA1000  79696 annual  Goods     AT      D ZALCA8    000
+#> 2605: 2010-01-01 VDBQZA1000  93865 annual  Goods     AT      D ZALCA8    000
+#> 2606: 2011-01-01 VDBQZA1000 105492 annual  Goods     AT      D ZALCA8    000
+#> 2607: 2012-01-01 VDBQZA1000 105634 annual  Goods     AT      D ZALCA8    000
+#>        attr5  attr6  attr7 attr1_dim     attr2_dim     attr3_dim  attr4_dim
+#>       <char> <char> <char>    <char>        <char>        <char>     <char>
+#>    1:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#>    2:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#>    3:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#>    4:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#>    5:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#>   ---                                                                      
+#> 2603:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#> 2604:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#> 2605:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#> 2606:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#> 2607:    000    000      N PRODUZENT Z_AUSPRAEGUNG Z_PARTNERLAND Z_WAEHRUNG
+#>       attr5_dim    attr6_dim     attr7_dim unit_mult        unit_text
+#>          <char>       <char>        <char>    <char>           <char>
+#>    1: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#>    2: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#>    3: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#>    4: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#>    5: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#>   ---                                                                
+#> 2603: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#> 2604: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#> 2605: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#> 2606: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
+#> 2607: Z_BRANCHE Z_VGR_SEKTOR Z_KUMULIERUNG         6 in millions Euro
 
 # Number of Austrian banks' subsidiaries abroad and in the EU, from 2005, semiannual:
 onb_data(
@@ -236,96 +242,96 @@ onb_data(
   start_period = 200501,
   freq = "H"
 )
-#>        date           key value   freq
-#>      <char>        <char> <num> <char>
-#>  1: 2005-B1 VDBKISDANZTAU    90      H
-#>  2: 2005-B2 VDBKISDANZTAU    90      H
-#>  3: 2006-B1 VDBKISDANZTAU    96      H
-#>  4: 2006-B2 VDBKISDANZTAU    96      H
-#>  5: 2007-B1 VDBKISDANZTAU    96      H
-#>  6: 2007-B2 VDBKISDANZTAU   102      H
-#>  7: 2008-B1 VDBKISDANZTAU   107      H
-#>  8: 2008-B2 VDBKISDANZTAU   103      H
-#>  9: 2009-B1 VDBKISDANZTAU   105      H
-#> 10: 2009-B2 VDBKISDANZTAU   103      H
-#> 11: 2010-B1 VDBKISDANZTAU   103      H
-#> 12: 2010-B2 VDBKISDANZTAU   107      H
-#> 13: 2011-B1 VDBKISDANZTAU   105      H
-#> 14: 2011-B2 VDBKISDANZTAU   105      H
-#> 15: 2012-B1 VDBKISDANZTAU   103      H
-#> 16: 2012-B2 VDBKISDANZTAU   101      H
-#> 17: 2013-B1 VDBKISDANZTAU    96      H
-#> 18: 2013-B2 VDBKISDANZTAU    93      H
-#> 19: 2014-B1 VDBKISDANZTAU    89      H
-#> 20: 2014-B2 VDBKISDANZTAU    85      H
-#> 21: 2015-B1 VDBKISDANZTAU    83      H
-#> 22: 2015-B2 VDBKISDANZTAU    83      H
-#> 23: 2016-B1 VDBKISDANZTAU    80      H
-#> 24: 2016-B2 VDBKISDANZTAU    60      H
-#> 25: 2017-B1 VDBKISDANZTAU    60      H
-#> 26: 2017-B2 VDBKISDANZTAU    58      H
-#> 27: 2018-B1 VDBKISDANZTAU    57      H
-#> 28: 2018-B2 VDBKISDANZTAU    55      H
-#> 29: 2019-B1 VDBKISDANZTAU    42      H
-#> 30: 2019-B2 VDBKISDANZTAU    53      H
-#> 31: 2020-B1 VDBKISDANZTAU    53      H
-#> 32: 2020-B2 VDBKISDANZTAU    53      H
-#> 33: 2021-B1 VDBKISDANZTAU    53      H
-#> 34: 2021-B2 VDBKISDANZTAU    55      H
-#> 35: 2022-B1 VDBKISDANZTAU    47      H
-#> 36: 2022-B2 VDBKISDANZTAU    41      H
-#> 37: 2023-B1 VDBKISDANZTAU    40      H
-#> 38: 2023-B2 VDBKISDANZTAU    40      H
-#> 39: 2024-B1 VDBKISDANZTAU    39      H
-#> 40: 2024-B2 VDBKISDANZTAU    37      H
-#> 41: 2025-B1 VDBKISDANZTAU    36      H
-#> 42: 2025-B2 VDBKISDANZTAU    35      H
-#> 43: 2026-B1 VDBKISDANZTAU    35      H
-#> 44: 2005-B1 VDBKISDANZTEU    45      H
-#> 45: 2005-B2 VDBKISDANZTEU    45      H
-#> 46: 2006-B1 VDBKISDANZTEU    45      H
-#> 47: 2006-B2 VDBKISDANZTEU    45      H
-#> 48: 2007-B1 VDBKISDANZTEU    54      H
-#> 49: 2007-B2 VDBKISDANZTEU    55      H
-#> 50: 2008-B1 VDBKISDANZTEU    54      H
-#> 51: 2008-B2 VDBKISDANZTEU    52      H
-#> 52: 2009-B1 VDBKISDANZTEU    53      H
-#> 53: 2009-B2 VDBKISDANZTEU    51      H
-#> 54: 2010-B1 VDBKISDANZTEU    51      H
-#> 55: 2010-B2 VDBKISDANZTEU    55      H
-#> 56: 2011-B1 VDBKISDANZTEU    54      H
-#> 57: 2011-B2 VDBKISDANZTEU    54      H
-#> 58: 2012-B1 VDBKISDANZTEU    54      H
-#> 59: 2012-B2 VDBKISDANZTEU    53      H
-#> 60: 2013-B1 VDBKISDANZTEU    51      H
-#> 61: 2013-B2 VDBKISDANZTEU    57      H
-#> 62: 2014-B1 VDBKISDANZTEU    53      H
-#> 63: 2014-B2 VDBKISDANZTEU    51      H
-#> 64: 2015-B1 VDBKISDANZTEU    49      H
-#> 65: 2015-B2 VDBKISDANZTEU    49      H
-#> 66: 2016-B1 VDBKISDANZTEU    46      H
-#> 67: 2016-B2 VDBKISDANZTEU    35      H
-#> 68: 2017-B1 VDBKISDANZTEU    35      H
-#> 69: 2017-B2 VDBKISDANZTEU    34      H
-#> 70: 2018-B1 VDBKISDANZTEU    35      H
-#> 71: 2018-B2 VDBKISDANZTEU    33      H
-#> 72: 2019-B1 VDBKISDANZTEU    26      H
-#> 73: 2019-B2 VDBKISDANZTEU    32      H
-#> 74: 2020-B1 VDBKISDANZTEU    32      H
-#> 75: 2020-B2 VDBKISDANZTEU    32      H
-#> 76: 2021-B1 VDBKISDANZTEU    32      H
-#> 77: 2021-B2 VDBKISDANZTEU    35      H
-#> 78: 2022-B1 VDBKISDANZTEU    27      H
-#> 79: 2022-B2 VDBKISDANZTEU    24      H
-#> 80: 2023-B1 VDBKISDANZTEU    24      H
-#> 81: 2023-B2 VDBKISDANZTEU    24      H
-#> 82: 2024-B1 VDBKISDANZTEU    24      H
-#> 83: 2024-B2 VDBKISDANZTEU    23      H
-#> 84: 2025-B1 VDBKISDANZTEU    22      H
-#> 85: 2025-B2 VDBKISDANZTEU    21      H
-#> 86: 2026-B1 VDBKISDANZTEU    21      H
-#>        date           key value   freq
-#>      <char>        <char> <num> <char>
+#>           date           key value        freq
+#>         <Date>        <char> <num>      <char>
+#>  1: 2005-01-01 VDBKISDANZTAU    90 semi-annual
+#>  2: 2005-07-01 VDBKISDANZTAU    90 semi-annual
+#>  3: 2006-01-01 VDBKISDANZTAU    96 semi-annual
+#>  4: 2006-07-01 VDBKISDANZTAU    96 semi-annual
+#>  5: 2007-01-01 VDBKISDANZTAU    96 semi-annual
+#>  6: 2007-07-01 VDBKISDANZTAU   102 semi-annual
+#>  7: 2008-01-01 VDBKISDANZTAU   107 semi-annual
+#>  8: 2008-07-01 VDBKISDANZTAU   103 semi-annual
+#>  9: 2009-01-01 VDBKISDANZTAU   105 semi-annual
+#> 10: 2009-07-01 VDBKISDANZTAU   103 semi-annual
+#> 11: 2010-01-01 VDBKISDANZTAU   103 semi-annual
+#> 12: 2010-07-01 VDBKISDANZTAU   107 semi-annual
+#> 13: 2011-01-01 VDBKISDANZTAU   105 semi-annual
+#> 14: 2011-07-01 VDBKISDANZTAU   105 semi-annual
+#> 15: 2012-01-01 VDBKISDANZTAU   103 semi-annual
+#> 16: 2012-07-01 VDBKISDANZTAU   101 semi-annual
+#> 17: 2013-01-01 VDBKISDANZTAU    96 semi-annual
+#> 18: 2013-07-01 VDBKISDANZTAU    93 semi-annual
+#> 19: 2014-01-01 VDBKISDANZTAU    89 semi-annual
+#> 20: 2014-07-01 VDBKISDANZTAU    85 semi-annual
+#> 21: 2015-01-01 VDBKISDANZTAU    83 semi-annual
+#> 22: 2015-07-01 VDBKISDANZTAU    83 semi-annual
+#> 23: 2016-01-01 VDBKISDANZTAU    80 semi-annual
+#> 24: 2016-07-01 VDBKISDANZTAU    60 semi-annual
+#> 25: 2017-01-01 VDBKISDANZTAU    60 semi-annual
+#> 26: 2017-07-01 VDBKISDANZTAU    58 semi-annual
+#> 27: 2018-01-01 VDBKISDANZTAU    57 semi-annual
+#> 28: 2018-07-01 VDBKISDANZTAU    55 semi-annual
+#> 29: 2019-01-01 VDBKISDANZTAU    42 semi-annual
+#> 30: 2019-07-01 VDBKISDANZTAU    53 semi-annual
+#> 31: 2020-01-01 VDBKISDANZTAU    53 semi-annual
+#> 32: 2020-07-01 VDBKISDANZTAU    53 semi-annual
+#> 33: 2021-01-01 VDBKISDANZTAU    53 semi-annual
+#> 34: 2021-07-01 VDBKISDANZTAU    55 semi-annual
+#> 35: 2022-01-01 VDBKISDANZTAU    47 semi-annual
+#> 36: 2022-07-01 VDBKISDANZTAU    41 semi-annual
+#> 37: 2023-01-01 VDBKISDANZTAU    40 semi-annual
+#> 38: 2023-07-01 VDBKISDANZTAU    40 semi-annual
+#> 39: 2024-01-01 VDBKISDANZTAU    39 semi-annual
+#> 40: 2024-07-01 VDBKISDANZTAU    37 semi-annual
+#> 41: 2025-01-01 VDBKISDANZTAU    36 semi-annual
+#> 42: 2025-07-01 VDBKISDANZTAU    35 semi-annual
+#> 43: 2026-01-01 VDBKISDANZTAU    35 semi-annual
+#> 44: 2005-01-01 VDBKISDANZTEU    45 semi-annual
+#> 45: 2005-07-01 VDBKISDANZTEU    45 semi-annual
+#> 46: 2006-01-01 VDBKISDANZTEU    45 semi-annual
+#> 47: 2006-07-01 VDBKISDANZTEU    45 semi-annual
+#> 48: 2007-01-01 VDBKISDANZTEU    54 semi-annual
+#> 49: 2007-07-01 VDBKISDANZTEU    55 semi-annual
+#> 50: 2008-01-01 VDBKISDANZTEU    54 semi-annual
+#> 51: 2008-07-01 VDBKISDANZTEU    52 semi-annual
+#> 52: 2009-01-01 VDBKISDANZTEU    53 semi-annual
+#> 53: 2009-07-01 VDBKISDANZTEU    51 semi-annual
+#> 54: 2010-01-01 VDBKISDANZTEU    51 semi-annual
+#> 55: 2010-07-01 VDBKISDANZTEU    55 semi-annual
+#> 56: 2011-01-01 VDBKISDANZTEU    54 semi-annual
+#> 57: 2011-07-01 VDBKISDANZTEU    54 semi-annual
+#> 58: 2012-01-01 VDBKISDANZTEU    54 semi-annual
+#> 59: 2012-07-01 VDBKISDANZTEU    53 semi-annual
+#> 60: 2013-01-01 VDBKISDANZTEU    51 semi-annual
+#> 61: 2013-07-01 VDBKISDANZTEU    57 semi-annual
+#> 62: 2014-01-01 VDBKISDANZTEU    53 semi-annual
+#> 63: 2014-07-01 VDBKISDANZTEU    51 semi-annual
+#> 64: 2015-01-01 VDBKISDANZTEU    49 semi-annual
+#> 65: 2015-07-01 VDBKISDANZTEU    49 semi-annual
+#> 66: 2016-01-01 VDBKISDANZTEU    46 semi-annual
+#> 67: 2016-07-01 VDBKISDANZTEU    35 semi-annual
+#> 68: 2017-01-01 VDBKISDANZTEU    35 semi-annual
+#> 69: 2017-07-01 VDBKISDANZTEU    34 semi-annual
+#> 70: 2018-01-01 VDBKISDANZTEU    35 semi-annual
+#> 71: 2018-07-01 VDBKISDANZTEU    33 semi-annual
+#> 72: 2019-01-01 VDBKISDANZTEU    26 semi-annual
+#> 73: 2019-07-01 VDBKISDANZTEU    32 semi-annual
+#> 74: 2020-01-01 VDBKISDANZTEU    32 semi-annual
+#> 75: 2020-07-01 VDBKISDANZTEU    32 semi-annual
+#> 76: 2021-01-01 VDBKISDANZTEU    32 semi-annual
+#> 77: 2021-07-01 VDBKISDANZTEU    35 semi-annual
+#> 78: 2022-01-01 VDBKISDANZTEU    27 semi-annual
+#> 79: 2022-07-01 VDBKISDANZTEU    24 semi-annual
+#> 80: 2023-01-01 VDBKISDANZTEU    24 semi-annual
+#> 81: 2023-07-01 VDBKISDANZTEU    24 semi-annual
+#> 82: 2024-01-01 VDBKISDANZTEU    24 semi-annual
+#> 83: 2024-07-01 VDBKISDANZTEU    23 semi-annual
+#> 84: 2025-01-01 VDBKISDANZTEU    22 semi-annual
+#> 85: 2025-07-01 VDBKISDANZTEU    21 semi-annual
+#> 86: 2026-01-01 VDBKISDANZTEU    21 semi-annual
+#>           date           key value        freq
+#>         <Date>        <char> <num>      <char>
 #>                                               title  attr1     attr2  attr3
 #>                                              <char> <char>    <char> <char>
 #>  1:                  number of foreign subsidiaries     AT BS0100510     Z5

@@ -1,7 +1,6 @@
 # Fetch National Bank of Belgium (NBB) metadata
 
-Retrieve metadata from the National Bank of Belgium SDMX Web Service
-(NBB.Stat).
+Retrieve metadata from the National Bank of Belgium SDMX Web Service.
 
 ## Usage
 

@@ -71,7 +71,7 @@ parse_onb_data = function(xml) {
   datasets = xml2::xml_find_all(xml, ".//dataSet")
   if (length(datasets) == 0L) {
     dt = data.table(
-      date = character(),
+      date = as.Date(character()),
       id = character(),
       value = numeric(),
       freq = character(),
@@ -83,11 +83,12 @@ parse_onb_data = function(xml) {
   dt = datasets |>
     map(function(x) {
       obs = xml2::xml_find_all(x, ".//obs")
+      attrs = xml2::xml_attrs(x)
+      attrs["freq"] = sdmx_freq(unname(attrs["freq"]))
       dt = data.table(
-        date = xml2::xml_attr(obs, "periode"),
+        date = parse_date(xml2::xml_attr(obs, "periode"), attrs[["freq"]]),
         value = as.numeric(xml2::xml_attr(obs, "value"))
       )
-      attrs = xml2::xml_attrs(x)
       dt[, names(attrs) := as.list(attrs)]
     }) |>
     rbindlist(fill = TRUE) |>

@@ -21,6 +21,38 @@ test_that("parse_onb_data handles empty data", {
   expect_data_table(actual, nrows = 0L)
   expect_names(names(actual), identical.to = c("date", "key", "value", "freq", "title"))
   expect_double(actual$value)
+  expect_date(actual$date)
+})
+
+test_that("parse_onb_data parses dates and frequencies", {
+  dataset = function(freq, ...) {
+    obs = paste(sprintf("<obs value=\"1.0\" periode=\"%s\"/>", c(...)), collapse = "")
+    sprintf(
+      "<dataSet pos=\"K%s\" posTitle=\"t\" freq=\"%s\"><values>%s</values></dataSet>",
+      freq,
+      freq,
+      obs
+    )
+  }
+  xml = xml2::read_xml(paste0(
+    "<OeNBData><data>",
+    dataset("A", "1998"),
+    dataset("H", "2005-B1", "2005-B2"),
+    dataset("Q", "1980-Q3"),
+    dataset("M", "1998-11"),
+    dataset("D", "1999-01-04"),
+    "</data></OeNBData>"
+  ))
+  actual = parse_onb_data(xml)
+  expect_date(actual$date)
+  expect_identical(
+    actual$date,
+    as.Date(c("1998-01-01", "2005-01-01", "2005-07-01", "1980-07-01", "1998-11-01", "1999-01-04"))
+  )
+  expect_identical(
+    actual$freq,
+    c("annual", "semi-annual", "semi-annual", "quarterly", "monthly", "daily")
+  )
 })
 
 test_that("parse_onb_metadata keeps the scalar fields", {

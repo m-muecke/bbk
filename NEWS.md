@@ -12,6 +12,7 @@
 * `cnb_fx_other_rates()` now rejects a `year_month` with a month outside `01` to `12` instead of sending an invalid request.
 * `cnb_fx_rates()` with `year` now returns the `currency` and `country` columns in the requested `lang`, like a query by `date`. The yearly CNB endpoint omits the names, so they are looked up from the first and last fixings of the year.
 * `nbb_data()`, `nbb_dimension()`, and `nbb_metadata()` now support National Bank of Belgium (NBB) data.
+* `onb_data()` now returns `date` as a `Date` and `freq` as a name such as `"monthly"`, like the other `*_data()` functions. They were previously the raw OeNB labels, such as `"2005-B1"` and `"H"`. Periods use their first day, so `"2005-B2"` becomes `2005-07-01`.
 * `onb_frequency()` now requires `key`, which the OeNB API needs, instead of failing with an HTTP 500 error.
 * `onb_hierarchy()` now checks that `lang` is a two-letter code.
 * `onb_metadata()`, `onb_hierarchy()`, and `onb_toc()` now include the OeNB error message, such as an unknown `key` or `lang`, instead of only "HTTP 200 OK". The API serves these errors as `text/xml`, which was not recognized.

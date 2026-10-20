@@ -150,10 +150,7 @@ cnb_fx_other_rates = function(year_month = NULL, year = NULL, lang = "EN") {
   assert_string(year_month, pattern = "^\\d{4}-(0[1-9]|1[0-2])$", null.ok = TRUE)
   year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("EN", "CZ"))
-  assert_exclusive(year_month, year)
-  if (is.null(year_month) && is.null(year)) {
-    stop("Exactly one of `year_month` or `year` must be provided.", call. = FALSE)
-  }
+  assert_one_of(year_month, year)
 
   json = if (is.null(year)) {
     cnb("fxrates/daily-month", yearMonth = year_month, lang = lang)
@@ -441,13 +438,7 @@ arad_metadata = function(resource, indicator_id, set_id, base_id, selection_id, 
 }
 
 arad_scope = function(indicator_id, set_id, base_id, selection_id) {
-  n = sum(is.null(indicator_id), is.null(set_id), is.null(base_id), is.null(selection_id))
-  if (n != 3L) {
-    stop(
-      "Exactly one of `indicator_id`, `set_id`, `base_id`, or `selection_id` must be provided.",
-      call. = FALSE
-    )
-  }
+  assert_one_of(indicator_id, set_id, base_id, selection_id)
   indicator_id %&&% paste(indicator_id, collapse = ",")
 }
 

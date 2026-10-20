@@ -31,9 +31,7 @@
 boc_data = function(group_name = NULL, series_name = NULL, start_date = NULL, end_date = NULL) {
   assert_string(group_name, min.chars = 1L, null.ok = TRUE)
   assert_character(series_name, min.chars = 1L, min.len = 1L, any.missing = FALSE, null.ok = TRUE)
-  if (!xor(is.null(group_name), is.null(series_name))) {
-    stop("Exactly one of `group_name` or `series_name` must be provided.", call. = FALSE)
-  }
+  assert_one_of(group_name, series_name)
   start_date = assert_dateish(start_date, null.ok = TRUE)
   end_date = assert_dateish(end_date, null.ok = TRUE)
   if (!is.null(group_name)) {
@@ -59,9 +57,7 @@ boc_data = function(group_name = NULL, series_name = NULL, start_date = NULL, en
 boc_metadata = function(group_name = NULL, series_name = NULL) {
   assert_string(group_name, min.chars = 1L, null.ok = TRUE)
   assert_string(series_name, min.chars = 1L, null.ok = TRUE)
-  if (!xor(is.null(group_name), is.null(series_name))) {
-    stop("Exactly one of `group_name` or `series_name` must be provided.", call. = FALSE)
-  }
+  assert_one_of(group_name, series_name)
   if (!is.null(group_name)) boc_details_group(group_name) else boc_details_series(series_name)
 }
 

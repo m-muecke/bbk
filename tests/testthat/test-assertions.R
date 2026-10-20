@@ -19,3 +19,13 @@ test_that("assert_dateish rejects impossible dates", {
   end_date = "2024-13-01"
   expect_snapshot(assert_dateish(end_date, null.ok = TRUE), error = TRUE)
 })
+
+test_that("assert_one_of requires exactly one non-NULL argument", {
+  w = 1L
+  x = 2L
+  y = NULL
+  z = NULL
+  expect_null(assert_one_of(w, y, z))
+  expect_snapshot(assert_one_of(y, z), error = TRUE)
+  expect_snapshot(assert_one_of(w, x, y), error = TRUE)
+})

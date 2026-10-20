@@ -14,3 +14,19 @@
       Error:
       ! Assertion on 'end_date' failed: Must be `NULL`, a Date, or a valid date string in 'YYYY-MM-DD' format.
 
+# assert_one_of requires exactly one non-NULL argument
+
+    Code
+      assert_one_of(y, z)
+    Condition
+      Error:
+      ! Exactly one of `y` or `z` must be provided.
+
+---
+
+    Code
+      assert_one_of(w, x, y)
+    Condition
+      Error:
+      ! Exactly one of `w`, `x`, or `y` must be provided.
+

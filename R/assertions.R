@@ -77,3 +77,12 @@ assert_paired = function(x, y) {
     stop(sprintf("`%s` and `%s` must be supplied together.", vname(x), vname(y)), call. = FALSE)
   }
 }
+
+assert_one_of = function(...) {
+  if (sum(!map_lgl(list(...), is.null)) != 1L) {
+    nms = sprintf("`%s`", map_chr(as.list(substitute(list(...)))[-1L], deparse))
+    n = length(nms)
+    nms = if (n == 2L) paste(nms, collapse = " or ") else paste0(toString(nms[-n]), ", or ", nms[n])
+    stop(sprintf("Exactly one of %s must be provided.", nms), call. = FALSE)
+  }
+}

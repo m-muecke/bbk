@@ -324,8 +324,10 @@ bbk_error_body = function(resp) {
   }
 }
 
+bbk_base_url = "https://api.statistiken.bundesbank.de/rest"
+
 bbk_build_request = function(resource, accept = NULL) {
-  request("https://api.statistiken.bundesbank.de/rest") |>
+  request(bbk_base_url) |>
     req_user_agent(bbk_user_agent()) |>
     req_headers(`Accept-Language` = "en", accept = accept) |>
     req_url_path_append(resource) |>
@@ -334,7 +336,7 @@ bbk_build_request = function(resource, accept = NULL) {
 
 bbk_make_request = function(resource, ..., accept = NULL) {
   sdmx_request(
-    "https://api.statistiken.bundesbank.de/rest",
+    bbk_base_url,
     resource,
     bbk_error_body,
     ...,

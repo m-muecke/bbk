@@ -132,7 +132,7 @@ cnb_czeonia = function(date = NULL, year = NULL) {
 #' cnb_fx_other_rates(year = 2024L)
 #' }
 cnb_fx_other_rates = function(year_month = NULL, year = NULL, lang = "EN") {
-  assert_string(year_month, pattern = "^\\d{4}-\\d{2}$", null.ok = TRUE)
+  assert_string(year_month, pattern = "^\\d{4}-(0[1-9]|1[0-2])$", null.ok = TRUE)
   year = assert_count(year, positive = TRUE, null.ok = TRUE, coerce = TRUE)
   assert_choice(lang, c("EN", "CZ"))
   assert_exclusive(year_month, year)

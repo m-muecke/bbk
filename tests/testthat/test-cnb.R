@@ -19,6 +19,8 @@ test_that("cnb_czeonia input validation works", {
 
 test_that("cnb_fx_other_rates input validation works", {
   expect_error(cnb_fx_other_rates(year_month = "2024"))
+  expect_error(cnb_fx_other_rates(year_month = "2024-13"), "Must comply to pattern")
+  expect_error(cnb_fx_other_rates(year_month = "2024-00"), "Must comply to pattern")
   expect_error(cnb_fx_other_rates(year = -1L))
   expect_error(cnb_fx_other_rates(lang = "DE"))
   expect_error(cnb_fx_other_rates(year_month = "2024-01", year = 2024L), "mutually exclusive")

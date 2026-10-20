@@ -8,6 +8,7 @@
 * `boc_data()` with `group_name` and `boc_metadata()` work again after the Valet API added a nested `metadata` field and renamed `groupDetails` to `groupDetail`.
 * `boc_metadata()` now works for groups with a single series. It previously dropped the `series_name` column and added a stray `group_groupSeries` column.
 * `boi_data()` now parses the dates of weekly series, which the BoI labels with a calendar date rather than an ISO week. They were previously `NA`.
+* `boj_data()` and `boj_metadata()` now report the HTTP status when the BoJ returns an error that isn't JSON, such as an HTML maintenance page, instead of failing to parse it.
 * `cnb_fx_other_rates()` now rejects a `year_month` with a month outside `01` to `12` instead of sending an invalid request.
 * `nbb_data()`, `nbb_dimension()`, and `nbb_metadata()` now support National Bank of Belgium (NBB) data.
 * `onb_frequency()` now requires `key`, which the OeNB API needs, instead of failing with an HTTP 500 error.

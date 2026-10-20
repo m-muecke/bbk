@@ -221,8 +221,9 @@ assert_boj_date = function(x, .var.name = vname(x)) {
 }
 
 boj_error_body = function(resp) {
-  json = resp_body_json(resp)
-  json$MESSAGE
+  if (identical(resp_content_type(resp), "application/json")) {
+    resp_body_json(resp)$MESSAGE
+  }
 }
 
 boj_request = function(resource, ...) {

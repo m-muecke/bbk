@@ -115,3 +115,15 @@ test_that("assert_boj_date works", {
   expect_error(assert_boj_date("abc"))
   expect_error(assert_boj_date(c("a", "b")))
 })
+
+test_that("boj_error_body only parses JSON error bodies", {
+  json = httr2::response_json(400L, body = list(STATUS = 400L, MESSAGE = "Invalid database name"))
+  expect_identical(boj_error_body(json), "Invalid database name")
+  html = httr2::response(
+    503L,
+    headers = list("content-type" = "text/html"),
+    body = charToRaw("<html><body>Maintenance</body></html>")
+  )
+  expect_null(boj_error_body(html))
+  expect_null(boj_error_body(httr2::response(500L, body = raw())))
+})

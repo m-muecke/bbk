@@ -18,7 +18,7 @@ onb_data(
 
 ## Source
 
-<https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>
+<https://www.oenb.at/en/daten-und-forschung/individuelle-datenabfrage/webservice.html>
 
 ## Arguments
 

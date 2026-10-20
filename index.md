@@ -29,7 +29,7 @@ bbk is minimal R client for the following APIs:
 - [Sveriges Riksbank (SRb)](https://developer.api.riksbank.se/)
 - [Swiss National Bank (SNB)](https://data.snb.ch/en)
 - [Österreichische Nationalbank
-  (OeNB)](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html)
+  (OeNB)](https://www.oenb.at/en/daten-und-forschung/individuelle-datenabfrage/webservice.html)
 
 > In the future, it may be extended to other central banks and financial
 > institutions. Feel free to open an issue if you have a specific

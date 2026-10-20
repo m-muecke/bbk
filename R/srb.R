@@ -133,11 +133,7 @@ srb_cross_rates = function(series1, series2, start_date, end_date = NULL) {
   start_date = assert_dateish(start_date)
   end_date = assert_dateish(end_date, null.ok = TRUE)
 
-  args = list("CrossRates", series1, series2, format(start_date))
-  if (!is.null(end_date)) {
-    args = c(args, format(end_date))
-  }
-  json = do.call(srb, args)
+  json = srb("CrossRates", series1, series2, format(start_date), end_date %&&% format(end_date))
   series = paste(series1, series2, sep = "/")
   parse_srb_data(json, series)
 }
@@ -163,11 +159,7 @@ srb_calendar = function(start_date, end_date = NULL) {
   start_date = assert_dateish(start_date)
   end_date = assert_dateish(end_date, null.ok = TRUE)
 
-  args = list("CalendarDays", format(start_date))
-  if (!is.null(end_date)) {
-    args = c(args, format(end_date))
-  }
-  json = do.call(srb, args)
+  json = srb("CalendarDays", format(start_date), end_date %&&% format(end_date))
   parse_srb_calendar(json)
 }
 

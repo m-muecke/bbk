@@ -56,6 +56,28 @@ test_that("srb_calendar input validation works", {
   expect_error(srb_calendar("2024-01-01", end_date = TRUE))
 })
 
+test_that("srb_cross_rates and srb_calendar only append end_date when supplied", {
+  urls = character()
+  httr2::local_mocked_responses(function(req) {
+    urls <<- c(urls, req$url)
+    httr2::response(204L)
+  })
+  srb_cross_rates("SEKEURPMI", "SEKUSDPMI", "2024-01-01")
+  srb_cross_rates("SEKEURPMI", "SEKUSDPMI", "2024-01-01", "2024-01-31")
+  srb_calendar("2024-01-01")
+  srb_calendar("2024-01-01", "2024-01-31")
+  base = "https://api.riksbank.se/swea/v1"
+  expect_identical(
+    urls,
+    c(
+      file.path(base, "CrossRates/SEKEURPMI/SEKUSDPMI/2024-01-01"),
+      file.path(base, "CrossRates/SEKEURPMI/SEKUSDPMI/2024-01-01/2024-01-31"),
+      file.path(base, "CalendarDays/2024-01-01"),
+      file.path(base, "CalendarDays/2024-01-01/2024-01-31")
+    )
+  )
+})
+
 test_that("parse_srb_calendar works", {
   json = readRDS(test_path("fixtures", "srb-calendar.rds"))
   actual = parse_srb_calendar(json)

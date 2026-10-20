@@ -105,7 +105,7 @@ nob_metadata = function(type, id = NULL, lang = "en") {
 #' Retrieve the dimension structure for a given dataflow from the Norges Bank SDMX Web Service.
 #'
 #' @param id (`character(1)`)\cr
-#'   The id of the data structure definition to query (e.g., `"NB_EXR"`).
+#'   The id of the data structure definition to query (e.g., `"DSD_EXR"`).
 #' @returns A [data.table::data.table()] with columns:
 #'   \item{id}{The dimension id (e.g., `"FREQ"`, `"BASE_CUR"`)}
 #'   \item{position}{The position of the dimension in the series key}

@@ -11,7 +11,7 @@ nob_dimension(id)
 }
 \arguments{
 \item{id}{(\code{character(1)})\cr
-The id of the data structure definition to query (e.g., \code{"NB_EXR"}).}
+The id of the data structure definition to query (e.g., \code{"DSD_EXR"}).}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with columns:

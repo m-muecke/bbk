@@ -140,6 +140,39 @@ test_that("parse_bdp_data maps sparse values onto the right series and date", {
   expect_identical(first$value, c(-68, 62011, 778))
 })
 
+test_that("parse_bdp_data drops sparse cells without an observation", {
+  json = list(
+    id = list("s", "reference_date"),
+    size = list(2L, 3L),
+    role = list(time = list("reference_date")),
+    dimension = list(
+      s = list(category = list(index = list("a", "b"))),
+      reference_date = list(category = list(index = list("2020-01-01", "2020-02-01", "2020-03-01")))
+    ),
+    value = list(`0` = 1, `1` = 2, `2` = 3, `4` = NULL, `5` = 5),
+    status = list(`0` = "F", `1` = "F", `2` = "F", `4` = "M", `5` = "F"),
+    extension = list(
+      series = list(
+        list(
+          id = 1L,
+          label = "s1",
+          dimension_category = list(list(dimension_id = "s", category_id = "a"))
+        ),
+        list(
+          id = 2L,
+          label = "s2",
+          dimension_category = list(list(dimension_id = "s", category_id = "b"))
+        )
+      )
+    )
+  )
+  actual = parse_bdp_data(json)
+  expect_identical(actual$key, c(1L, 1L, 1L, 2L, 2L))
+  expect_identical(actual[key == 2L]$date, as.Date(c("2020-02-01", "2020-03-01")))
+  expect_identical(actual[key == 2L]$value, c(NA, 5))
+  expect_identical(actual[key == 2L]$status, c("M", "F"))
+})
+
 test_that("bdp_cell_values matches sparse keys at or above 1e5 without scientific notation", {
   # cell offsets are doubles; as.character(1e5) would be "1e+05" and miss the key
   x = list(`100000` = 1.5, `3` = 2.5)

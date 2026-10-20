@@ -106,6 +106,10 @@ parse_bdp_data = function(json) {
   if (!is.null(json$status)) {
     dt[, "status" := bdp_cell_values(json$status, cells, "character")]
   }
+  # sparse responses omit the cells of series without an observation on a date
+  if (!is.null(names(json$value))) {
+    dt = dt[cells %in% as.numeric(c(names(json$value), names(json$status)))]
+  }
   setcolorder(dt, col_order, skip_absent = TRUE)
   dt[]
 }

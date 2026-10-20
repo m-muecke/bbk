@@ -3,6 +3,7 @@
 * Progress bars for slow paginated requests can now be turned off with `options(bbk.progress = FALSE)`.
 * `bbk_data()`, `bde_data()`, `bde_latest()`, `bdp_data()`, `bdp_series()`, `bis_data()`, `boc_data()`, `boe_data()`, `boj_data()`, `cnb_data()`, `cnb_indicators()`, `ecb_data()`, and `onb_data()` now reject `NA` and zero-length series keys with an informative error instead of sending a malformed request.
 * `bbk_data()`, `bdp_data()`, `bis_data()`, and `ecb_data()` now convert a `POSIXlt` `updated_after` outside UTC to the correct time. It was previously read as if it were already in UTC.
+* `bdp_data()` no longer adds rows with a missing `value` for dates on which a series has no observation. They appeared when the series in a request covered different date ranges, including with `last_n`.
 * `boc_data()` with `group_name` and `boc_metadata()` work again after the Valet API added a nested `metadata` field and renamed `groupDetails` to `groupDetail`.
 * `boc_metadata()` now works for groups with a single series. It previously dropped the `series_name` column and added a stray `group_groupSeries` column.
 * `boi_data()` now parses the dates of weekly series, which the BoI labels with a calendar date rather than an ISO week. They were previously `NA`.

@@ -233,12 +233,15 @@ snb_page_view_time = function() {
   snb_json("/json/application/properties")$pageViewTime
 }
 
+# errors are JSON served as text/plain, so the body is parsed regardless of its content type
 snb_error_body = function(resp) {
-  body = resp_body_string(resp, "UTF-8")
   docs = "See docs at <https://data.snb.ch/en>"
-  if (startsWith(body, "<")) {
-    return(c("SNB API request failed.", docs))
+  if (!resp_has_body(resp)) {
+    return(docs)
   }
-  msg = jsonlite::fromJSON(body)
-  c(msg$message, docs)
+  msg = tryCatch(
+    jsonlite::parse_json(resp_body_string(resp, "UTF-8"))$message,
+    error = \(e) NULL
+  )
+  c(msg, docs)
 }

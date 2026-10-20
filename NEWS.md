@@ -13,6 +13,7 @@
 * `nbb_data()`, `nbb_dimension()`, and `nbb_metadata()` now support National Bank of Belgium (NBB) data.
 * `onb_frequency()` now requires `key`, which the OeNB API needs, instead of failing with an HTTP 500 error.
 * `onb_hierarchy()` now checks that `lang` is a two-letter code.
+* `snb_data()` and the other SNB functions now report the HTTP status when an error response is empty or isn't JSON, instead of failing to parse it.
 
 # bbk 0.13.0
 

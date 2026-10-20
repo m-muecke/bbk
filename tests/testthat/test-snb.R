@@ -110,3 +110,15 @@ test_that("parse_snb_toc() handles empty input", {
     identical.to = c("topic_id", "topic", "sub_topic", "cube_id", "chart_id", "doc_id")
   )
 })
+
+test_that("snb_error_body keeps the HTTP status for bodies without a message", {
+  resp = function(body, type = "text/plain") {
+    httr2::response(404L, headers = list("content-type" = type), body = charToRaw(body))
+  }
+  docs = "See docs at <https://data.snb.ch/en>"
+  json = resp('{"code":"404","message":"Table NOTACUBE not found"}')
+  expect_identical(snb_error_body(json), c("Table NOTACUBE not found", docs))
+  expect_identical(snb_error_body(resp("<html></html>", "text/html")), docs)
+  expect_identical(snb_error_body(resp("Not found")), docs)
+  expect_identical(snb_error_body(httr2::response(404L, body = raw())), docs)
+})

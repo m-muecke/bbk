@@ -45,6 +45,10 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with the request
 \description{
 Retrieve time series data from the OeNB Web Service.
 }
+\details{
+A \code{key} can cover several series, such as one per partner country, which share the same \code{key} and
+differ only in their \code{attr} columns. Group by \code{key} and the \code{attr} columns to separate them.
+}
 \examples{
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{

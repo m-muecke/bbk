@@ -1,6 +1,6 @@
 #' Fetch National Bank of Belgium (NBB) data
 #'
-#' Retrieve time series data from the National Bank of Belgium SDMX Web Service (NBB.Stat).
+#' Retrieve time series data from the National Bank of Belgium SDMX Web Service.
 #'
 #' @param flow (`character(1)`)\cr
 #'   The dataflow to query (e.g., `"DF_EXR"`). See [nbb_metadata()] for available dataflows.
@@ -65,7 +65,7 @@ nbb_data = function(
 
 #' Fetch National Bank of Belgium (NBB) metadata
 #'
-#' Retrieve metadata from the National Bank of Belgium SDMX Web Service (NBB.Stat).
+#' Retrieve metadata from the National Bank of Belgium SDMX Web Service.
 #'
 #' @param type (`character(1)`)\cr
 #'   The type of metadata to query.
@@ -100,7 +100,7 @@ nbb_metadata = function(type, id = NULL, lang = "en") {
 #' Fetch National Bank of Belgium (NBB) dimensions
 #'
 #' Retrieve the dimension structure for a given data structure from the National Bank of Belgium
-#' SDMX Web Service (NBB.Stat).
+#' SDMX Web Service.
 #'
 #' @param id (`character(1)`)\cr
 #'   The id of the data structure definition to query (e.g., `"DSD_EXR"`).

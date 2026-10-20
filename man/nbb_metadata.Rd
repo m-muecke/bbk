@@ -24,7 +24,7 @@ Language for names, one of \code{"en"}, \code{"fr"}, or \code{"nl"}. Default \co
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested metadata.
 }
 \description{
-Retrieve metadata from the National Bank of Belgium SDMX Web Service (NBB.Stat).
+Retrieve metadata from the National Bank of Belgium SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}

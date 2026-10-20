@@ -46,7 +46,7 @@ applied. Default \code{NULL}.}
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested data.
 }
 \description{
-Retrieve time series data from the National Bank of Belgium SDMX Web Service (NBB.Stat).
+Retrieve time series data from the National Bank of Belgium SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}

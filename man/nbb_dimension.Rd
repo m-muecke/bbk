@@ -21,7 +21,7 @@ A \code{\link[data.table:data.table]{data.table::data.table()}} with columns:
 }
 \description{
 Retrieve the dimension structure for a given data structure from the National Bank of Belgium
-SDMX Web Service (NBB.Stat).
+SDMX Web Service.
 }
 \examples{
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}

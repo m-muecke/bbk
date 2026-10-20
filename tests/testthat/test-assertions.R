@@ -6,3 +6,16 @@ test_that("assert_timestampish formats timestamps in UTC", {
   expect_identical(assert_timestampish("2024-06-01T12:00:00Z"), "2024-06-01T12:00:00Z")
   expect_null(assert_timestampish(NULL, null.ok = TRUE))
 })
+
+test_that("assert_dateish converts date strings", {
+  expect_identical(assert_dateish("2024-02-29"), as.Date("2024-02-29"))
+  expect_identical(assert_dateish(as.Date("2024-02-29")), as.Date("2024-02-29"))
+  expect_null(assert_dateish(NULL, null.ok = TRUE))
+})
+
+test_that("assert_dateish rejects impossible dates", {
+  start_date = "2024-02-30"
+  expect_snapshot(assert_dateish(start_date), error = TRUE)
+  end_date = "2024-13-01"
+  expect_snapshot(assert_dateish(end_date, null.ok = TRUE), error = TRUE)
+})

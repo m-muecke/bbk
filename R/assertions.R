@@ -5,13 +5,16 @@ check_dateish = function(x, null.ok = FALSE) {
   if (test_date(x, any.missing = FALSE, len = 1L)) {
     return(TRUE)
   }
-  if (test_string(x, pattern = "^\\d{4}-\\d{2}-\\d{2}$")) {
+  if (
+    test_string(x, pattern = "^\\d{4}-\\d{2}-\\d{2}$") &&
+      !is.na(as.Date(x, format = "%Y-%m-%d"))
+  ) {
     return(TRUE)
   }
   if (null.ok) {
-    "Must be `NULL`, a Date, or a string in 'YYYY-MM-DD' format"
+    "Must be `NULL`, a Date, or a valid date string in 'YYYY-MM-DD' format"
   } else {
-    "Must be a Date or a string in 'YYYY-MM-DD' format"
+    "Must be a Date or a valid date string in 'YYYY-MM-DD' format"
   }
 }
 
@@ -19,7 +22,7 @@ assert_dateish = function(x, null.ok = FALSE, .var.name = vname(x), add = NULL) 
   res = check_dateish(x, null.ok)
   makeAssertion(x, res, .var.name, add)
   if (!is.null(x) && !inherits(x, "Date")) {
-    x = as.Date(x)
+    x = as.Date(x, format = "%Y-%m-%d")
   }
   invisible(x)
 }

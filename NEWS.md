@@ -1,5 +1,6 @@
 # bbk (development version)
 
+* Date arguments such as `start_date` and `end_date` now reject impossible dates like `"2024-02-30"` with an informative error that names the argument, instead of failing inside `as.Date()`.
 * Progress bars for slow paginated requests can now be turned off with `options(bbk.progress = FALSE)`.
 * `bbk_data()`, `bde_data()`, `bde_latest()`, `bdp_data()`, `bdp_series()`, `bis_data()`, `boc_data()`, `boe_data()`, `boj_data()`, `cnb_data()`, `cnb_indicators()`, `ecb_data()`, and `onb_data()` now reject `NA` and zero-length series keys with an informative error instead of sending a malformed request.
 * `bbk_data()`, `bdp_data()`, `bis_data()`, and `ecb_data()` now convert a `POSIXlt` `updated_after` outside UTC to the correct time. It was previously read as if it were already in UTC.

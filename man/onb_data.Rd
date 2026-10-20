@@ -4,7 +4,7 @@
 \alias{onb_data}
 \title{Fetch Österreichische Nationalbank (OeNB) data}
 \source{
-\url{https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html}
+\url{https://www.oenb.at/en/daten-und-forschung/individuelle-datenabfrage/webservice.html}
 }
 \usage{
 onb_data(

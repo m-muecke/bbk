@@ -20,7 +20,7 @@
 #' @details
 #' A `key` can cover several series, such as one per partner country, which share the same `key` and
 #' differ only in their `attr` columns. Group by `key` and the `attr` columns to separate them.
-#' @source <https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>
+#' @source <https://www.oenb.at/en/daten-und-forschung/individuelle-datenabfrage/webservice.html>
 #' @family data
 #' @export
 #' @examplesIf curl::has_internet()

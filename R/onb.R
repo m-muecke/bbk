@@ -271,7 +271,7 @@ onb = function(resource, ...) {
 
 onb_error_body = function(resp) {
   content_type = resp_content_type(resp)
-  if (identical(content_type, "application/xml")) {
-    xml2::xml_text(resp_body_xml(resp))
+  if (grepl("[+/]xml$", content_type)) {
+    trimws(xml2::xml_text(resp_body_xml(resp)))
   }
 }

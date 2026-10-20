@@ -63,3 +63,14 @@ test_that("parse_onb_metadata drops <releases> however many entries it holds", {
     expect_names(names(actual), identical.to = "title")
   }
 })
+
+test_that("onb_error_body reads errors served as application/xml or text/xml", {
+  resp = function(type) {
+    body = "<xml>\n\n<errors>\nWrong Value for param \"pos\" (NOTAKEY)\n</errors>\n</xml>"
+    httr2::response(200L, headers = list("content-type" = type), body = charToRaw(body))
+  }
+  msg = "Wrong Value for param \"pos\" (NOTAKEY)"
+  expect_identical(onb_error_body(resp("application/xml;charset=UTF-8")), msg)
+  expect_identical(onb_error_body(resp("text/xml;charset=UTF-8")), msg)
+  expect_null(onb_error_body(resp("text/html")))
+})

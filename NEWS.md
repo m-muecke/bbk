@@ -10,6 +10,8 @@
 * `boi_data()` now parses the dates of weekly series, which the BoI labels with a calendar date rather than an ISO week. They were previously `NA`.
 * `cnb_fx_other_rates()` now rejects a `year_month` with a month outside `01` to `12` instead of sending an invalid request.
 * `nbb_data()`, `nbb_dimension()`, and `nbb_metadata()` now support National Bank of Belgium (NBB) data.
+* `onb_frequency()` now requires `key`, which the OeNB API needs, instead of failing with an HTTP 500 error.
+* `onb_hierarchy()` now checks that `lang` is a two-letter code.
 
 # bbk 0.13.0
 

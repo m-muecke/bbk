@@ -141,7 +141,7 @@ parse_onb_metadata = function(xml) {
 #' }
 onb_frequency = function(hier_id, key, ..., lang = "en") {
   hier_id = assert_count(hier_id, positive = TRUE, coerce = TRUE)
-  assert_string(key, min.chars = 1L, null.ok = TRUE)
+  assert_string(key, min.chars = 1L)
   assert_string(lang, n.chars = 2L)
 
   xml = onb(resource = "datafrequency", hierid = hier_id, pos = key, lang = toupper(lang), ...)
@@ -191,6 +191,7 @@ onb_toc = function(lang = "en") {
 #' }
 onb_hierarchy = function(hier_id, lang = "en") {
   hier_id = assert_count(hier_id, positive = TRUE, coerce = TRUE)
+  assert_string(lang, n.chars = 2L)
   xml = onb(resource = "content", hierid = hier_id, lang = toupper(lang))
   parse_onb_hierarchy(xml)
 }

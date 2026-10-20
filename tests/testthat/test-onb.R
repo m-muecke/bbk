@@ -3,6 +3,18 @@ test_that("onb_data input validation works", {
   expect_error(onb_data(11L, character()), "Must have length >= 1")
 })
 
+test_that("onb_frequency input validation works", {
+  expect_error(onb_frequency(11L), "missing")
+  expect_error(onb_frequency(11L, NULL), "Must be of type 'string'")
+  expect_error(onb_frequency(11L, NA_character_), "May not be NA")
+})
+
+test_that("onb_hierarchy input validation works", {
+  expect_error(onb_hierarchy(11L, lang = NULL), "Must be of type 'string'")
+  expect_error(onb_hierarchy(11L, lang = c("en", "de")), "Must have length 1")
+  expect_error(onb_hierarchy(11L, lang = "eng"), "exactly 2 characters")
+})
+
 test_that("parse_onb_data handles empty data", {
   xml = xml2::read_xml("<data_content><dataSets/></data_content>")
   actual = parse_onb_data(xml)

@@ -12,13 +12,18 @@ test_that("boc_data returns an empty table for a window without observations", {
     FXUSDCAD = list(
       label = "USD/CAD",
       description = "Daily average exchange rate",
-      dimension = list(key = "d", name = "Date")
+      dimension = list(key = "d", name = "Date"),
+      metadata = list(unit = "Canadian dollars per US dollar", frequency = "Business daily")
     )
   )
   group_detail = list(
     label = "Daily exchange rates",
     description = "The daily average exchange rates",
-    link = "https://www.bankofcanada.ca/"
+    link = "https://www.bankofcanada.ca/",
+    metadata = list(
+      unit = "Canadian dollars per foreign currency unit",
+      frequency = "Business daily"
+    )
   )
 
   local_mocked_bindings(
@@ -54,14 +59,29 @@ test_that("boc_data returns an empty table for a window without observations", {
   expect_double(dt$value)
 })
 
+test_that("boc_metadata works for a series", {
+  series_details = list(
+    name = "FXUSDCAD",
+    label = "USD/CAD",
+    description = "Daily average exchange rate",
+    dateFormat = "daily",
+    metadata = list(frequency = "Business daily", unit = "Canadian dollars per US dollar")
+  )
+  local_mocked_bindings(boc = \(...) list(seriesDetails = series_details))
+  dt = boc_metadata(series_name = "FXUSDCAD")
+  expect_data_table(dt, nrows = 1L)
+  expect_named(dt, c("name", "label", "description", "dateFormat"))
+})
+
 test_that("boc_metadata works for a group with a single series", {
-  group_details = list(
+  group_detail = list(
     name = "G",
     label = "Group",
     description = "A group",
+    metadata = list(unit = "Canadian dollars"),
     groupSeries = list(S1 = list(label = "Series 1", link = "https://www.bankofcanada.ca/"))
   )
-  local_mocked_bindings(boc = \(...) list(groupDetails = group_details))
+  local_mocked_bindings(boc = \(...) list(groupDetail = group_detail))
   dt = boc_metadata(group_name = "G")
   expect_named(
     dt,

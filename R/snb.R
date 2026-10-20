@@ -134,8 +134,8 @@ snb_metadata = function(key, lang = "en") {
 }
 
 parse_snb_metadata = function(json, key) {
-  dt = data.table(
-    id = key,
+  as.data.table(list(
+    key = key,
     title = json$title %||% NA_character_,
     sub_title = json$subTitle %||% NA_character_,
     publishing_title = json$publishingTitle %||% NA_character_,
@@ -143,9 +143,7 @@ parse_snb_metadata = function(json, key) {
     frequency = json$frequencySpecification %||% NA_character_,
     source = json$source %||% NA_character_,
     has_multiple_sources = json$hasMultipleSources %||% NA
-  )
-  setnames(dt, "id", "key")
-  dt
+  ))
 }
 
 #' Fetch Swiss National Bank (SNB) table of contents

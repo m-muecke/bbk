@@ -42,9 +42,7 @@ bcb_data = function(series, start_date = NULL, end_date = NULL) {
 
 parse_bcb_data = function(json, series) {
   if (length(json) == 0L) {
-    dt = data.table(date = as.Date(character()), id = character(), value = numeric())
-    setnames(dt, "id", "key")
-    return(dt[])
+    return(as.data.table(list(date = as.Date(character()), key = character(), value = numeric())))
   }
   data = valor = NULL
   dt = rbindlist(json, fill = TRUE)

@@ -73,14 +73,13 @@ onb_data = function(
 parse_onb_data = function(xml) {
   datasets = xml2::xml_find_all(xml, ".//dataSet")
   if (length(datasets) == 0L) {
-    dt = data.table(
+    return(as.data.table(list(
       date = as.Date(character()),
-      id = character(),
+      key = character(),
       value = numeric(),
       freq = character(),
       title = character()
-    )
-    return(setnames(dt, "id", "key"))
+    )))
   }
 
   dt = datasets |>

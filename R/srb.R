@@ -61,9 +61,7 @@ srb_series = function(type = "series") {
 
 parse_srb_data = function(json, series) {
   if (length(json) == 0L) {
-    dt = data.table(date = as.Date(character()), id = character(), value = numeric())
-    setnames(dt, "id", "key")
-    return(dt)
+    return(as.data.table(list(date = as.Date(character()), key = character(), value = numeric())))
   }
   value = NULL
   dt = rbindlist(json)

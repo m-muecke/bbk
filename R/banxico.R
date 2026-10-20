@@ -52,23 +52,21 @@ banxico_data = function(series, start_date = NULL, end_date = NULL, api_key = ba
 
 parse_banxico_data = function(json) {
   series = json$bmx$series
-  empty = data.table(date = as.Date(character()), id = character(), value = numeric())
-  setnames(empty, "id", "key")
+  empty = as.data.table(list(date = as.Date(character()), key = character(), value = numeric()))
   if (length(series) == 0L) {
     return(empty[])
   }
   dt = rbindlist(map(series, function(s) {
     datos = s$datos
     if (length(datos) == 0L) {
-      return(data.table(date = as.Date(character()), id = character(), value = numeric()))
+      return(empty)
     }
-    data.table(
+    as.data.table(list(
       date = as.Date(map_chr(datos, "fecha"), "%d/%m/%Y"),
-      id = s$idSerie,
+      key = s$idSerie,
       value = banxico_as_numeric(map_chr(datos, "dato"))
-    )
+    ))
   }))
-  setnames(dt, "id", "key")
   setcolorder(dt, c("date", "key", "value"))
   dt[]
 }

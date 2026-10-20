@@ -95,14 +95,13 @@ parse_bdp_data = function(json) {
   cells = rep(offsets, each = n_dates) +
     rep((seq_len(n_dates) - 1L) * time_stride, times = n_series)
 
-  dt = data.table(
+  dt = as.data.table(list(
     date = as.Date(rep(dates, times = n_series)),
-    id = rep(map_int(series, "id"), each = n_dates),
+    key = rep(map_int(series, "id"), each = n_dates),
     value = bdp_cell_values(json$value, cells, "numeric"),
     title = rep(map_chr(series, "label"), each = n_dates),
     freq = bdp_freq(dates)
-  )
-  setnames(dt, "id", "key")
+  ))
   if (!is.null(json$status)) {
     dt[, "status" := bdp_cell_values(json$status, cells, "character")]
   }
@@ -115,15 +114,13 @@ parse_bdp_data = function(json) {
 }
 
 bdp_empty_data = function() {
-  dt = data.table(
+  as.data.table(list(
     date = as.Date(character()),
-    id = integer(),
+    key = integer(),
     value = numeric(),
     freq = character(),
     title = character()
-  )
-  setnames(dt, "id", "key")
-  dt[]
+  ))
 }
 
 # the category index is either an array of ids or an object mapping id to position

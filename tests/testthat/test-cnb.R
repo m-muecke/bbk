@@ -71,6 +71,42 @@ test_that("parse_cnb_fx_rates handles no rates", {
   expect_date(actual$date)
 })
 
+test_that("cnb_fx_rates adds names to yearly rates", {
+  rate = function(date, code, rate, ...) {
+    list(validFor = date, currencyCode = code, amount = 1L, rate = rate, ...)
+  }
+  local_mocked_bindings(cnb = function(resource, date = NULL, lang = NULL, ...) {
+    if (resource == "exrates/daily-year") {
+      return(list(
+        rates = list(
+          rate("2024-01-02", "HRK", 3.1),
+          rate("2024-01-02", "USD", 22.1),
+          rate("2024-12-31", "USD", 24.2)
+        )
+      ))
+    }
+    expect_identical(lang, "CZ")
+    if (date == "2024-01-02") {
+      list(
+        rates = list(
+          rate(date, "HRK", 3.1, currency = "kuna", country = "Chorvatsko"),
+          rate(date, "USD", 22.1, currency = "dolar (old)", country = "USA")
+        )
+      )
+    } else {
+      list(rates = list(rate(date, "USD", 24.2, currency = "dolar", country = "USA")))
+    }
+  })
+  actual = cnb_fx_rates(year = 2024L, lang = "CZ")
+  expect_names(
+    names(actual),
+    identical.to = c("date", "currency_code", "currency", "country", "amount", "rate")
+  )
+  expect_identical(actual$currency, c("kuna", "dolar", "dolar"))
+  expect_identical(actual$country, c("Chorvatsko", "USA", "USA"))
+  expect_identical(actual$rate, c(3.1, 22.1, 24.2))
+})
+
 test_that("parse_cnb_pribor works", {
   json = readRDS(test_path("fixtures", "cnb-pribor.rds"))
   actual = parse_cnb_pribor(json)

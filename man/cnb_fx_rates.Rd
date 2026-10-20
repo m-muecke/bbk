@@ -19,7 +19,8 @@ A calendar year, returning rates for all currencies on every working day of that
 exclusive with \code{date}. Default \code{NULL}.}
 
 \item{lang}{(\code{character(1)})\cr
-Language for the country and currency names, either \code{"EN"} or \code{"CZ"}. Default \code{"EN"}.}
+Language for the country and currency names, either \code{"EN"} or \code{"CZ"}. With \code{year}, the names
+are taken from the first and last fixings of that year. Default \code{"EN"}.}
 }
 \value{
 A \code{\link[data.table:data.table]{data.table::data.table()}} with the requested exchange rates. The \code{rate} is the amount

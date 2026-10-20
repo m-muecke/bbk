@@ -10,7 +10,8 @@
 #'   A calendar year, returning rates for all currencies on every working day of that year. Mutually
 #'   exclusive with `date`. Default `NULL`.
 #' @param lang (`character(1)`)\cr
-#'   Language for the country and currency names, either `"EN"` or `"CZ"`. Default `"EN"`.
+#'   Language for the country and currency names, either `"EN"` or `"CZ"`. With `year`, the names
+#'   are taken from the first and last fixings of that year. Default `"EN"`.
 #' @returns A [data.table::data.table()] with the requested exchange rates. The `rate` is the amount
 #'   of Czech koruna per `amount` units of the foreign currency.
 #' @source <https://api.cnb.cz/cnbapi/swagger-ui.html>
@@ -30,12 +31,26 @@ cnb_fx_rates = function(date = NULL, year = NULL, lang = "EN") {
   assert_choice(lang, c("EN", "CZ"))
   assert_exclusive(date, year)
 
-  json = if (is.null(year)) {
-    cnb("exrates/daily", date = date %&&% format(date), lang = lang)
-  } else {
-    cnb("exrates/daily-year", year = year, lang = lang)
+  if (is.null(year)) {
+    json = cnb("exrates/daily", date = date %&&% format(date), lang = lang)
+    return(parse_cnb_fx_rates(json))
   }
-  parse_cnb_fx_rates(json)
+  dt = parse_cnb_fx_rates(cnb("exrates/daily-year", year = year))
+  cnb_fx_add_names(dt, lang)
+}
+
+cnb_fx_add_names = function(dt, lang) {
+  if (nrow(dt) == 0L) {
+    return(dt)
+  }
+  dates = rev(unique(range(dt$date)))
+  lookup = dates |>
+    map(\(x) parse_cnb_fx_rates(cnb("exrates/daily", date = format(x), lang = lang))) |>
+    rbindlist()
+  lookup = unique(lookup[, c("currency_code", "currency", "country")], by = "currency_code")
+  dt = lookup[dt, on = "currency_code"]
+  setcolorder(dt, c("date", "currency_code", "currency", "country", "amount", "rate"))
+  dt[]
 }
 
 #' Fetch Czech National Bank (CNB) PRIBOR rates

@@ -1,6 +1,6 @@
 # Changelog
 
-## bbk (development version)
+## bbk 0.14.0
 
 - Date arguments such as `start_date` and `end_date` now reject
   impossible dates like `"2024-02-30"` with an informative error that

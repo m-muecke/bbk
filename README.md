@@ -12,7 +12,7 @@ status](https://www.r-pkg.org/badges/version/bbk)](https://CRAN.R-project.org/pa
 version](https://m-muecke.r-universe.dev/bbk/badges/version)](https://m-muecke.r-universe.dev/bbk)
 <!-- badges: end -->
 
-bbk is minimal R client for the following APIs:
+bbk is a minimal R client for the following APIs:
 
 - [Banco Central do Brasil (BCB)](https://dadosabertos.bcb.gov.br/)
 - [Banco de España

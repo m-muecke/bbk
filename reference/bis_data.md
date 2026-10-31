@@ -250,6 +250,7 @@ bis_data("WS_EER", "M.N.B.CH", start_period = "2020-01")
 #> 78: 2026-06-01 M.N.B.CH 122.64 monthly
 #> 79: 2026-07-01 M.N.B.CH 121.80 monthly
 #> 80: 2026-08-01 M.N.B.CH 120.88 monthly
+#> 81: 2026-09-01 M.N.B.CH 119.72 monthly
 #>           date      key  value    freq
 #>         <Date>   <char>  <num>  <char>
 #>                                            title eer_type eer_basket ref_area
@@ -334,6 +335,7 @@ bis_data("WS_EER", "M.N.B.CH", start_period = "2020-01")
 #> 78: Switzerland - Nominal - Broad (64 economies)        N          B       CH
 #> 79: Switzerland - Nominal - Broad (64 economies)        N          B       CH
 #> 80: Switzerland - Nominal - Broad (64 economies)        N          B       CH
+#> 81: Switzerland - Nominal - Broad (64 economies)        N          B       CH
 #>                                            title eer_type eer_basket ref_area
 #>                                           <char>   <char>     <char>   <char>
 #>     collection                                     title_ts
@@ -418,6 +420,7 @@ bis_data("WS_EER", "M.N.B.CH", start_period = "2020-01")
 #> 78:          A Switzerland - Nominal - Broad (64 economies)
 #> 79:          A Switzerland - Nominal - Broad (64 economies)
 #> 80:          A Switzerland - Nominal - Broad (64 economies)
+#> 81:          A Switzerland - Nominal - Broad (64 economies)
 #>     collection                                     title_ts
 #>         <char>                                       <char>
 # }

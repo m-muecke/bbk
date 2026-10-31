@@ -110,11 +110,11 @@ Other data:
 boi_data("EXR", "RER_GBP_ILS", last_n = 5L)
 #>          date                            key  value   freq series_code
 #>        <Date>                         <char>  <num> <char>      <char>
-#> 1: 2026-10-15 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1123  daily RER_GBP_ILS
-#> 2: 2026-10-16 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1194  daily RER_GBP_ILS
-#> 3: 2026-10-19 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1471  daily RER_GBP_ILS
-#> 4: 2026-10-20 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1444  daily RER_GBP_ILS
-#> 5: 2026-10-21 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1421  daily RER_GBP_ILS
+#> 1: 2026-10-23 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1624  daily RER_GBP_ILS
+#> 2: 2026-10-26 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1098  daily RER_GBP_ILS
+#> 3: 2026-10-28 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1549  daily RER_GBP_ILS
+#> 4: 2026-10-29 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1503  daily RER_GBP_ILS
+#> 5: 2026-10-30 RER_GBP_ILS.D.GBP.ILS.ILS.OF00 4.1880  daily RER_GBP_ILS
 #>    base_currency counter_currency unit_measure data_type
 #>           <char>           <char>       <char>    <char>
 #> 1:           GBP              ILS          ILS      OF00

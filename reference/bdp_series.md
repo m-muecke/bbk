@@ -74,12 +74,15 @@ Other metadata:
 ``` r
 # \donttest{
 bdp_series(12518356L)
-#>          id                     label                  short_label
-#>       <int>                    <char>                       <char>
-#> 1: 12518356 GDP at market prices-CP-A GDPmp PT A Current Prices M€
-#>                                                                                                 description
-#>                                                                                                      <char>
-#> 1: GDP expenditure approach - GDP at market prices - Portugal - current prices - millions of euros - annual
+#>          id                                          label
+#>       <int>                                         <char>
+#> 1: 12518356 GDP at market prices (current prices) - annual
+#>                     short_label
+#>                          <char>
+#> 1: GDPmp PT A Current Prices M€
+#>                                                                                               description
+#>                                                                                                    <char>
+#> 1: Gross domestic product (GDP) at market prices - annual values, at current prices, in millions of euros
 #>                          dataset_id domain_id      obs_updated_at
 #>                              <char>     <int>              <POSc>
 #> 1: ce3e4e50cda325537eff729ef64037cd        54 2026-05-15 16:00:00

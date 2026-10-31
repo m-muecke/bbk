@@ -112,11 +112,11 @@ Other data:
 nbb_data("DF_EXR", "D.USD", last_n = 5L)
 #>          date    key  value   freq exr_currency
 #>        <Date> <char>  <num> <char>       <char>
-#> 1: 2026-10-14  D.USD 1.1195  daily          USD
-#> 2: 2026-10-15  D.USD 1.1208  daily          USD
-#> 3: 2026-10-16  D.USD 1.1253  daily          USD
-#> 4: 2026-10-19  D.USD 1.1225  daily          USD
-#> 5: 2026-10-20  D.USD 1.1215  daily          USD
+#> 1: 2026-10-26  D.USD 1.1188  daily          USD
+#> 2: 2026-10-27  D.USD 1.1150  daily          USD
+#> 3: 2026-10-28  D.USD 1.1133  daily          USD
+#> 4: 2026-10-29  D.USD 1.1130  daily          USD
+#> 5: 2026-10-30  D.USD 1.1172  daily          USD
 
 # fetch multiple monthly average exchange rates
 nbb_data("DF_EXR", "M.USD+GBP", start_period = "2024-01")
@@ -155,39 +155,41 @@ nbb_data("DF_EXR", "M.USD+GBP", start_period = "2024-01")
 #> 31: 2026-07-01  M.GBP 0.8539152 monthly          GBP
 #> 32: 2026-08-01  M.GBP 0.8560557 monthly          GBP
 #> 33: 2026-09-01  M.GBP 0.8581250 monthly          GBP
-#> 34: 2024-01-01  M.USD 1.0905000 monthly          USD
-#> 35: 2024-02-01  M.USD 1.0795000 monthly          USD
-#> 36: 2024-03-01  M.USD 1.0872000 monthly          USD
-#> 37: 2024-04-01  M.USD 1.0728000 monthly          USD
-#> 38: 2024-05-01  M.USD 1.0812000 monthly          USD
-#> 39: 2024-06-01  M.USD 1.0759000 monthly          USD
-#> 40: 2024-07-01  M.USD 1.0844000 monthly          USD
-#> 41: 2024-08-01  M.USD 1.1012000 monthly          USD
-#> 42: 2024-09-01  M.USD 1.1106000 monthly          USD
-#> 43: 2024-10-01  M.USD 1.0904000 monthly          USD
-#> 44: 2024-11-01  M.USD 1.0630000 monthly          USD
-#> 45: 2024-12-01  M.USD 1.0479000 monthly          USD
-#> 46: 2025-01-01  M.USD 1.0353727 monthly          USD
-#> 47: 2025-02-01  M.USD 1.0412500 monthly          USD
-#> 48: 2025-03-01  M.USD 1.0806810 monthly          USD
-#> 49: 2025-04-01  M.USD 1.1213950 monthly          USD
-#> 50: 2025-05-01  M.USD 1.1278048 monthly          USD
-#> 51: 2025-06-01  M.USD 1.1516190 monthly          USD
-#> 52: 2025-07-01  M.USD 1.1676870 monthly          USD
-#> 53: 2025-08-01  M.USD 1.1631429 monthly          USD
-#> 54: 2025-09-01  M.USD 1.1732227 monthly          USD
-#> 55: 2025-10-01  M.USD 1.1630435 monthly          USD
-#> 56: 2025-11-01  M.USD 1.1560200 monthly          USD
-#> 57: 2025-12-01  M.USD 1.1708714 monthly          USD
-#> 58: 2026-01-01  M.USD 1.1738238 monthly          USD
-#> 59: 2026-02-01  M.USD 1.1823950 monthly          USD
-#> 60: 2026-03-01  M.USD 1.1558318 monthly          USD
-#> 61: 2026-04-01  M.USD 1.1706400 monthly          USD
-#> 62: 2026-05-01  M.USD 1.1673200 monthly          USD
-#> 63: 2026-06-01  M.USD 1.1518000 monthly          USD
-#> 64: 2026-07-01  M.USD 1.1417478 monthly          USD
-#> 65: 2026-08-01  M.USD 1.1593095 monthly          USD
-#> 66: 2026-09-01  M.USD 1.1513227 monthly          USD
+#> 34: 2026-10-01  M.GBP 0.8428214 monthly          GBP
+#> 35: 2024-01-01  M.USD 1.0905000 monthly          USD
+#> 36: 2024-02-01  M.USD 1.0795000 monthly          USD
+#> 37: 2024-03-01  M.USD 1.0872000 monthly          USD
+#> 38: 2024-04-01  M.USD 1.0728000 monthly          USD
+#> 39: 2024-05-01  M.USD 1.0812000 monthly          USD
+#> 40: 2024-06-01  M.USD 1.0759000 monthly          USD
+#> 41: 2024-07-01  M.USD 1.0844000 monthly          USD
+#> 42: 2024-08-01  M.USD 1.1012000 monthly          USD
+#> 43: 2024-09-01  M.USD 1.1106000 monthly          USD
+#> 44: 2024-10-01  M.USD 1.0904000 monthly          USD
+#> 45: 2024-11-01  M.USD 1.0630000 monthly          USD
+#> 46: 2024-12-01  M.USD 1.0479000 monthly          USD
+#> 47: 2025-01-01  M.USD 1.0353727 monthly          USD
+#> 48: 2025-02-01  M.USD 1.0412500 monthly          USD
+#> 49: 2025-03-01  M.USD 1.0806810 monthly          USD
+#> 50: 2025-04-01  M.USD 1.1213950 monthly          USD
+#> 51: 2025-05-01  M.USD 1.1278048 monthly          USD
+#> 52: 2025-06-01  M.USD 1.1516190 monthly          USD
+#> 53: 2025-07-01  M.USD 1.1676870 monthly          USD
+#> 54: 2025-08-01  M.USD 1.1631429 monthly          USD
+#> 55: 2025-09-01  M.USD 1.1732227 monthly          USD
+#> 56: 2025-10-01  M.USD 1.1630435 monthly          USD
+#> 57: 2025-11-01  M.USD 1.1560200 monthly          USD
+#> 58: 2025-12-01  M.USD 1.1708714 monthly          USD
+#> 59: 2026-01-01  M.USD 1.1738238 monthly          USD
+#> 60: 2026-02-01  M.USD 1.1823950 monthly          USD
+#> 61: 2026-03-01  M.USD 1.1558318 monthly          USD
+#> 62: 2026-04-01  M.USD 1.1706400 monthly          USD
+#> 63: 2026-05-01  M.USD 1.1673200 monthly          USD
+#> 64: 2026-06-01  M.USD 1.1518000 monthly          USD
+#> 65: 2026-07-01  M.USD 1.1417478 monthly          USD
+#> 66: 2026-08-01  M.USD 1.1593095 monthly          USD
+#> 67: 2026-09-01  M.USD 1.1513227 monthly          USD
+#> 68: 2026-10-01  M.USD 1.1201591 monthly          USD
 #>           date    key     value    freq exr_currency
 #>         <Date> <char>     <num>  <char>       <char>
 

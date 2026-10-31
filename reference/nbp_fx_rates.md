@@ -99,6 +99,6 @@ Other data:
 nbp_fx_rates("a", "eur")
 #>          date   code currency    mid
 #>        <Date> <char>   <char>  <num>
-#> 1: 2026-10-21    EUR     euro 4.3641
+#> 1: 2026-10-30    EUR     euro 4.3955
 # }
 ```

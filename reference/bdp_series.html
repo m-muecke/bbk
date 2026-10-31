@@ -120,12 +120,15 @@ Language for labels, either <code>"en"</code> or <code>"pt"</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">bdp_series</span><span class="op">(</span><span class="fl">12518356L</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          id                     label                  short_label</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;int&gt;                    &lt;char&gt;                       &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 12518356 GDP at market prices-CP-A GDPmp PT A Current Prices M€</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                 description</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                      &lt;char&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: GDP expenditure approach - GDP at market prices - Portugal - current prices - millions of euros - annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          id                                          label</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       &lt;int&gt;                                         &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 12518356 GDP at market prices (current prices) - annual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     short_label</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                          &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: GDPmp PT A Current Prices M€</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                               description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                    &lt;char&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: Gross domestic product (GDP) at market prices - annual values, at current prices, in millions of euros</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                          dataset_id domain_id      obs_updated_at</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                              &lt;char&gt;     &lt;int&gt;              &lt;POSc&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1: ce3e4e50cda325537eff729ef64037cd        54 2026-05-15 16:00:00</span>

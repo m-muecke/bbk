@@ -1,6 +1,6 @@
 # bbk
 
-bbk is minimal R client for the following APIs:
+bbk is a minimal R client for the following APIs:
 
 - [Banco Central do Brasil (BCB)](https://dadosabertos.bcb.gov.br/)
 - [Banco de España

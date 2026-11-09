@@ -112,11 +112,11 @@ Other data:
 nbb_data("DF_EXR", "D.USD", last_n = 5L)
 #>          date    key  value   freq exr_currency
 #>        <Date> <char>  <num> <char>       <char>
-#> 1: 2026-10-26  D.USD 1.1188  daily          USD
-#> 2: 2026-10-27  D.USD 1.1150  daily          USD
-#> 3: 2026-10-28  D.USD 1.1133  daily          USD
-#> 4: 2026-10-29  D.USD 1.1130  daily          USD
-#> 5: 2026-10-30  D.USD 1.1172  daily          USD
+#> 1: 2026-11-02  D.USD 1.1216  daily          USD
+#> 2: 2026-11-03  D.USD 1.1179  daily          USD
+#> 3: 2026-11-04  D.USD 1.1267  daily          USD
+#> 4: 2026-11-05  D.USD 1.1224  daily          USD
+#> 5: 2026-11-06  D.USD 1.1165  daily          USD
 
 # fetch multiple monthly average exchange rates
 nbb_data("DF_EXR", "M.USD+GBP", start_period = "2024-01")
@@ -197,11 +197,11 @@ nbb_data("DF_EXR", "M.USD+GBP", start_period = "2024-01")
 nbb_data("DF_HICP_2025", "M.BE.000000.2025.HCP.GROWTH_RATE", last_n = 5L)
 #>          date                              key   value    freq ref_area
 #>        <Date>                           <char>   <num>  <char>   <char>
-#> 1: 2026-05-01 M.BE.000000.2025.HCP.GROWTH_RATE 3.96418 monthly       BE
-#> 2: 2026-06-01 M.BE.000000.2025.HCP.GROWTH_RATE 3.34435 monthly       BE
-#> 3: 2026-07-01 M.BE.000000.2025.HCP.GROWTH_RATE 3.64536 monthly       BE
-#> 4: 2026-08-01 M.BE.000000.2025.HCP.GROWTH_RATE 4.18822 monthly       BE
-#> 5: 2026-09-01 M.BE.000000.2025.HCP.GROWTH_RATE 4.47106 monthly       BE
+#> 1: 2026-06-01 M.BE.000000.2025.HCP.GROWTH_RATE 3.34435 monthly       BE
+#> 2: 2026-07-01 M.BE.000000.2025.HCP.GROWTH_RATE 3.64536 monthly       BE
+#> 3: 2026-08-01 M.BE.000000.2025.HCP.GROWTH_RATE 4.18822 monthly       BE
+#> 4: 2026-09-01 M.BE.000000.2025.HCP.GROWTH_RATE 4.47106 monthly       BE
+#> 5: 2026-10-01 M.BE.000000.2025.HCP.GROWTH_RATE 5.24065 monthly       BE
 #>    nbb_coicop index_base index_type  derivation
 #>        <char>     <char>     <char>      <char>
 #> 1:     000000       2025        HCP GROWTH_RATE

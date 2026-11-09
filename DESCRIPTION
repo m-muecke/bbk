@@ -28,13 +28,13 @@ Imports:
     stats,
     tools,
     utils,
-    xml2
+    xml2 (>= 1.0.0)
 Suggests:
-    ggplot2,
+    ggplot2 (>= 3.4.0),
     knitr,
-    scales,
+    scales (>= 1.1.0),
     testthat (>= 3.3.0),
-    withr
+    withr (>= 2.4.2)
 Config/Needs/website: knitr, rmarkdown
 Config/roxygen2/markdown: TRUE
 Config/roxygen2/version: 8.1.1
